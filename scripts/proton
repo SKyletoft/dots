@@ -1,1 +1,0 @@
-STEAM_COMPAT_DATA_PATH=~/.proton ~/.steam/debian-installation/steamapps/common/Proton\ 5.13/proton run $1
