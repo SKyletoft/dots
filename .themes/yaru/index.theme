@@ -1,0 +1,9 @@
+[X-GNOME-Metatheme]
+Name=yaru
+Type=X-GNOME-Metatheme
+Comment=Ubuntu Yaru theme
+Encoding=UTF-8
+GtkTheme=Yaru
+IconTheme=yaru_edit
+CursorTheme=severa_cursors_linux_expanded
+CursorSize=24
