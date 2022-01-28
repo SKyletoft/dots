@@ -38,15 +38,17 @@ set mouse=a
 
 let mapleader = " "
 
-autocmd! FileType rust setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
-autocmd! Filetype rust <C-o> :cargo fmt
+"autocmd! Filetype rust noremap <C-o> :!cargo fmt
+"autocmd! FileType haskell noremap <C-o> :!hindent % && stylish-haskell -i %
+
+autocmd! FileType rust    setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
 autocmd! FileType fortran setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
-autocmd! FileType python setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
-autocmd! FileType nim setlocal tabstop=2 softtabstop=2 shiftwidth=0 expandtab
-autocmd! FileType kotlin setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpandtab
-autocmd! FileType fut setlocal tabstop=2 softtabstop=2 shiftwidth=0 noexpandtab
-autocmd! FileType haskell setlocal tabstop=2 softtabstop=2 shiftwidth=0 expandtab
-autocmd! FileType haskell noremap <C-o> :!hindent % && stylish-haskell -i %
+autocmd! FileType python  setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
+autocmd! FileType nim     setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
+autocmd! FileType kotlin  setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpandtab
+autocmd! FileType fut     setlocal tabstop=2 softtabstop=2 shiftwidth=0 noexpandtab
+autocmd! FileType haskell setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
+
 colorscheme monokai_pro
 xmap <leader>A <Plug>(coc-codeaction-selected)
 nmap <leader>A <Plug>(coc-codeaction-selected)
@@ -55,7 +57,6 @@ nmap <leader>a <Plug>(coc-codeaction-cursor)
 nnoremap <silent> <leader>f :call <SID>show_documentation()<CR>
 noremap f <Plug>Lightspeed_f
 noremap F <Plug>Lightspeed_F
-
 
 function! s:show_documentation()
 	if (index(['vim', 'help'], &filetype) >= 0)
@@ -69,28 +70,28 @@ endfunction
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
+	-- One of "all", "maintained" (parsers with maintainers), or a list of languages
+	ensure_installed = "maintained",
 
-  -- Install languages synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+	-- Install languages synchronously (only applied to `ensure_installed`)
+	sync_install = false,
 
-  -- List of parsers to ignore installing
-  ignore_install = {},
+	-- List of parsers to ignore installing
+	ignore_install = {},
 
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
+	highlight = {
+		-- `false` will disable the whole extension
+		enable = true,
 
-    -- list of language that will be disabled
-    disable = { "rust" },
+		-- list of language that will be disabled
+		disable = { "rust" },
 
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
+		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+		-- Using this option may slow down your editor, and you may see some duplicate highlights.
+		-- Instead of true it can also be a list of languages
+		additional_vim_regex_highlighting = false,
+	},
 }
 EOF
 

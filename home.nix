@@ -78,14 +78,16 @@
 		[
 			custom_monokai
 			nvim-treesitter
+			coc-nvim
 			coc-rust-analyzer
 			lightspeed-nvim
 			vim-repeat
 		];
-		extraConfig  = builtins.readFile ./neovim_init.vim;
-		viAlias      = true;
-		vimAlias     = true;
-		vimdiffAlias = true;
+		extraPackages = with pkgs; [ rust-analyzer ];
+		extraConfig   = builtins.readFile ./neovim_init.vim;
+		viAlias       = true;
+		vimAlias      = true;
+		vimdiffAlias  = true;
 	};
 
 	programs.bash = {
@@ -122,9 +124,6 @@
 				PS1='\e[32;1m\u: \e[34m\w \[\033[00m\]\n↳ '
 			fi
 		'';
-		sessionVariables = {
-			PS1 = "\e[1;97;42;24m \u \e[21;32;44;24m\e[1;97;44;24m \h \e[21;34;41;24m\e[1;97;41m \w \001\e[21;31;49;24m\002\n\001\e[97;1m\002↳\001\e[0m\002 ";
-		};
 	};
 
 	programs.exa = {
@@ -137,11 +136,11 @@
 		enableBashIntegration = true;
 	};
 
-	gtk = {
-		enable         = true;
-		theme.name     = "Yaru";
-		iconTheme.name = "Yaru - Edit";
-	};
+	# gtk = {
+		# enable         = true;
+		# theme.name     = "Yaru";
+		# iconTheme.name = "Yaru - Edit";
+	# };
 
 	xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
 	xdg.configFile."rustfmt/rustfmt.toml".source    = ./rustfmt.toml;
