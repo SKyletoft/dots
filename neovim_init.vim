@@ -30,16 +30,12 @@ noremap l d
 
 noremap <C-p> :e 
 
+filetype plugin indent off
 set tabstop=8
 set shiftwidth=8
 set noexpandtab
 set number
 set mouse=a
-
-let mapleader = " "
-
-"autocmd! Filetype rust noremap <C-o> :!cargo fmt
-"autocmd! FileType haskell noremap <C-o> :!hindent % && stylish-haskell -i %
 
 autocmd! FileType rust    setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
 autocmd! FileType fortran setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
@@ -50,6 +46,8 @@ autocmd! FileType fut     setlocal tabstop=2 softtabstop=2 shiftwidth=0 noexpand
 autocmd! FileType haskell setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 
 colorscheme monokai_pro
+
+let mapleader = " "
 xmap <leader>A <Plug>(coc-codeaction-selected)
 nmap <leader>A <Plug>(coc-codeaction-selected)
 nmap <leader>g <Plug>(coc-definition)

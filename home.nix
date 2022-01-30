@@ -83,7 +83,7 @@
 			lightspeed-nvim
 			vim-repeat
 		];
-		extraPackages = with pkgs; [ rust-analyzer ];
+		extraPackages = with pkgs; [ rust-analyzer haskell-language-server ];
 		extraConfig   = builtins.readFile ./neovim_init.vim;
 		viAlias       = true;
 		vimAlias      = true;
@@ -102,11 +102,8 @@
 			clang       = "clang -Wall -Wextra";
 			"g++"       = "g++ -Wall -Wextra";
 			"clang++"   = "clang++ -Wall -Wextra";
-			pi          = "ssh skyletoft@81.225.236.121 -p2222";
-			dns-clear   = "sudo systemd-resolve --flush-caches";
 			hackeholken = "ssh 3836@dtek.se -p222";
 			cd          = "z";
-			nsway       = "sway --my-next-gpu-wont-be-nvidia";
 		};
 		shellOptions = [
 			"histappend"
@@ -152,6 +149,7 @@
 	home.file.".themes/yaru".source                         = ./.themes/yaru;
 	home.file.".icons/yaru_edit".source                     = ./.icons/yaru_edit;
 	home.file.".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
+	home.file."bin".source                                  = ./scripts;
 
 	# Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
