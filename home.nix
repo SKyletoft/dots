@@ -51,86 +51,86 @@
 			gnomeExtensions.duckduckgo-search-provider
 			gnomeExtensions.pop-shell
 		];
-	};
 
-	programs.git = {
-		enable    = true;
-		userName  = "Samuel Kyletoft";
-		userEmail = "samuel@kyletoft.se";
-	};
-
-	programs.neovim = {
-		enable     = true;
-		withNodeJs = true;
-		coc.enable = true;
-		plugins    = with pkgs.vimPlugins; 
-		let
-			custom_monokai = pkgs.vimUtils.buildVimPlugin {
-				name = "monokai_vim";
-				src  = pkgs.fetchFromGitHub {
-					owner  = "SKyletoft";
-					repo   = "monokai.nvim";
-					rev    = "604186067ab1782361d251945c524eb622beb499";
-					sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
-				};
-			};
-		in
-		[
-			custom_monokai
-			nvim-treesitter
-			coc-nvim
-			coc-rust-analyzer
-			lightspeed-nvim
-			vim-repeat
-		];
-		extraPackages = with pkgs; [ rust-analyzer haskell-language-server ];
-		extraConfig   = builtins.readFile ./neovim_init.vim;
-		viAlias       = true;
-		vimAlias      = true;
-		vimdiffAlias  = true;
-	};
-
-	programs.bash = {
-		enable       = true;
-		shellAliases = {
-			find        = "fd -E /mnt/SDA -E /mnt/SDD";
-			du          = "dust";
-			top         = "btm";
-			grep        = "rg";
-			cat         = "bat --paging=never";
-			gcc         = "gcc -Wall -Wextra";
-			clang       = "clang -Wall -Wextra";
-			"g++"       = "g++ -Wall -Wextra";
-			"clang++"   = "clang++ -Wall -Wextra";
-			hackeholken = "ssh 3836@dtek.se -p222";
-			cd          = "z";
+		git = {
+			enable    = true;
+			userName  = "Samuel Kyletoft";
+			userEmail = "samuel@kyletoft.se";
 		};
-		shellOptions = [
-			"histappend"
-			"checkwinsize"
-			"globstar"
-		];
-		# Different PS1s for a plain tty, alacritty and the rest
-		initExtra = ''
-			bind "set completion-ignore-case on"
-			if [ "$TERM" == linux ]; then
-				PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
-			elif [ "$ALACRITTY" == yes ]; then
-				PS1='\e[1;97;42;24m \u \e[21;32;44;24m\e[1;97;44;24m \h \e[21;34;41;24m\e[1;97;41m \w \001\e[21;31;49;24m\002\n\001\e[97;1m\002↳\001\e[0m\002 '
-			else
-				PS1='\e[32;1m\u: \e[34m\w \[\033[00m\]\n↳ '
-			fi
-		'';
-	};
 
-	programs.exa = {
-		enable        = true;
-		enableAliases = true;
-	};
+		neovim = {
+			enable     = true;
+			withNodeJs = true;
+			coc.enable = true;
+			plugins    = with pkgs.vimPlugins; 
+			let
+				custom_monokai = pkgs.vimUtils.buildVimPlugin {
+					name = "monokai_vim";
+					src  = pkgs.fetchFromGitHub {
+						owner  = "SKyletoft";
+						repo   = "monokai.nvim";
+						rev    = "604186067ab1782361d251945c524eb622beb499";
+						sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
+					};
+				};
+			in
+			[
+				custom_monokai
+				nvim-treesitter
+				coc-nvim
+				coc-rust-analyzer
+				lightspeed-nvim
+				vim-repeat
+			];
+			extraPackages = with pkgs; [ rust-analyzer haskell-language-server ];
+			extraConfig   = builtins.readFile ./neovim_init.vim;
+			viAlias       = true;
+			vimAlias      = true;
+			vimdiffAlias  = true;
+		};
 
-	programs.zoxide = {
-		enable                = true;
-		enableBashIntegration = true;
+		bash = {
+			enable       = true;
+			shellAliases = {
+				find        = "fd -E /mnt/SDA -E /mnt/SDD";
+				du          = "dust";
+				top         = "btm";
+				grep        = "rg";
+				cat         = "bat --paging=never";
+				gcc         = "gcc -Wall -Wextra";
+				clang       = "clang -Wall -Wextra";
+				"g++"       = "g++ -Wall -Wextra";
+				"clang++"   = "clang++ -Wall -Wextra";
+				hackeholken = "ssh 3836@dtek.se -p222";
+				cd          = "z";
+			};
+			shellOptions = [
+				"histappend"
+				"checkwinsize"
+				"globstar"
+			];
+			# Different PS1s for a plain tty, alacritty and the rest
+			initExtra = ''
+				bind "set completion-ignore-case on"
+				if [ "$TERM" == linux ]; then
+					PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
+				elif [ "$ALACRITTY" == yes ]; then
+					PS1='\e[1;97;42;24m \u \e[21;32;44;24m\e[1;97;44;24m \h \e[21;34;41;24m\e[1;97;41m \w \001\e[21;31;49;24m\002\n\001\e[97;1m\002↳\001\e[0m\002 '
+				else
+					PS1='\e[32;1m\u: \e[34m\w \[\033[00m\]\n↳ '
+				fi
+			'';
+		};
+
+		exa = {
+			enable        = true;
+			enableAliases = true;
+		};
+
+		zoxide = {
+			enable                = true;
+			enableBashIntegration = true;
+		};
 	};
 
 	# gtk = {
@@ -139,18 +139,23 @@
 		# iconTheme.name = "Yaru - Edit";
 	# };
 
-	xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
-	xdg.configFile."rustfmt/rustfmt.toml".source    = ./rustfmt.toml;
+	xdg.configFile = {
+		"alacritty/alacritty.yml".source = ./alacritty.yml;
+		"rustfmt/rustfmt.toml".source    = ./rustfmt.toml;
+	};
 
-	home.file.".gdbinit".source           = ./gdbinit;
-	home.file.".clang-format".source      = ./clang-format;
-	home.file.".cargo/config.toml".source = ./cargo_config;
+	home.file = {
+		# Files
+		".gdbinit".source           = ./gdbinit;
+		".clang-format".source      = ./clang-format;
+		".cargo/config.toml".source = ./cargo_config;
 
-	home.file.".themes/yaru".source                         = ./.themes/yaru;
-	home.file.".icons/yaru_edit".source                     = ./.icons/yaru_edit;
-	home.file.".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
-	home.file."bin".source                                  = ./scripts;
-
+		# Folders
+		".themes/yaru".source                         = ./.themes/yaru;
+		".icons/yaru_edit".source                     = ./.icons/yaru_edit;
+		".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
+		"bin".source                                  = ./scripts;
+	};
 	# Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
 }
