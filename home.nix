@@ -64,13 +64,13 @@
 			enable     = true;
 			withNodeJs = true;
 			coc        = {
-				enable = true;
+				enable   = true;
 				settings = {
 					languageserver =  {
 						haskell = {
-							args = [ "--lsp" ];
-							command = "haskell-language-server";
-							filetypes = [ "haskell" "lhaskell" ];
+							args         = [ "--lsp" ];
+							command      = "haskell-language-server";
+							filetypes    = [ "haskell" "lhaskell" ];
 							rootPatterns = [
 								"*.cabal"
 								"stack.yaml"
@@ -83,7 +83,7 @@
 				};
 
 			};
-			plugins    = with pkgs.vimPlugins; 
+			plugins = with pkgs.vimPlugins; 
 			let
 				custom_monokai = pkgs.vimUtils.buildVimPlugin {
 					name = "monokai_vim";
