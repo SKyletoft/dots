@@ -83,8 +83,10 @@ in {
 				wayland = waylandSupport;
 				nvidiaWayland = waylandSupport;
 			};
+
 			desktopManager.gnome.enable = true;
-			videoDrivers = [ "nvidia" ];  
+
+			videoDrivers = [ "nvidia" ];
 
 			# Configure keymap in X11
 			layout = "se";
@@ -165,7 +167,7 @@ in {
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
 	programs = {
-		sway.enable = false;
+		sway.enable  = false;
 		steam.enable = true;
 		kdeconnect = {
 			enable = true;
