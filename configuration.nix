@@ -95,6 +95,11 @@ in {
 
 		gnome.gnome-keyring.enable = true;
 
+		ananicy = {
+			enable = true;
+			package = pkgs.ananicy-cpp;
+		};
+
 		# flatpak.enable = true;
 
 		# Enable CUPS to print documents.
