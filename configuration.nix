@@ -46,7 +46,7 @@ in {
 		# wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 		# useDHCP = false;
 		interfaces = {
-			enp0s31f6.useDHCP = false; # WiFi card
+			enp0s31f6.useDHCP = true; # WiFi card
 			# wlp0s20f0u1.useDHCP = false; # USB WiFi dongle
 		};
 		# Configure network proxy if necessary
@@ -81,7 +81,6 @@ in {
 			displayManager.gdm = {
 				enable = true;
 				wayland = waylandSupport;
-				nvidiaWayland = waylandSupport;
 			};
 
 			desktopManager.gnome.enable = true;
