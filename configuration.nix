@@ -29,7 +29,10 @@ in {
 
 	hardware = {
 		opengl.enable = true;
-		nvidia.modesetting.enable = true;
+		nvidia = {
+			modesetting.enable = true;
+			# package = pkgs.linuxPackages_zen.nvidia_x11_beta;
+		};
 	};
 
 	# Set your time zone.
