@@ -93,6 +93,8 @@ in {
 			# libinput.enable = true;
 		};
 
+		gnome.gnome-keyring.enable = true;
+
 		# flatpak.enable = true;
 
 		# Enable CUPS to print documents.
