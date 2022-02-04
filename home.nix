@@ -63,7 +63,26 @@
 		neovim = {
 			enable     = true;
 			withNodeJs = true;
-			coc.enable = true;
+			coc        = {
+				enable = true;
+				settings = {
+					languageserver =  {
+						haskell = {
+							args = [ "--lsp" ];
+							command = "haskell-language-server";
+							filetypes = [ "haskell" "lhaskell" ];
+							rootPatterns = [
+								"*.cabal"
+								"stack.yaml"
+								"cabal.project"
+								"package.yaml"
+								"hie.yaml"
+							];
+						};
+					};
+				};
+
+			};
 			plugins    = with pkgs.vimPlugins; 
 			let
 				custom_monokai = pkgs.vimUtils.buildVimPlugin {
