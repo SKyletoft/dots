@@ -51,7 +51,9 @@
 			gnomeExtensions.duckduckgo-search-provider
 			gnomeExtensions.pop-shell
 		];
+	};
 
+	programs = {
 		git = {
 			enable    = true;
 			userName  = "Samuel Kyletoft";
