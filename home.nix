@@ -163,6 +163,7 @@
 	xdg.configFile = {
 		"alacritty/alacritty.yml".source = ./alacritty.yml;
 		"rustfmt/rustfmt.toml".source    = ./rustfmt.toml;
+		"kitty/kitty.conf".source        = ./kitty.conf;
 	};
 
 	home.file = {
