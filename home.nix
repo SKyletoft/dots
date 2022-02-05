@@ -124,6 +124,7 @@
 				"clang++"   = "clang++ -Wall -Wextra";
 				hackeholken = "ssh 3836@dtek.se -p222";
 				cd          = "z";
+				proton      = "~/.steam/steam/steamapps/common/Proton\ -\ Experimental/proton";
 			};
 			shellOptions = [
 				"histappend"
