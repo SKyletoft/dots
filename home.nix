@@ -18,6 +18,8 @@
 		stateVersion = "22.05";
 
 		packages = with pkgs; [
+			exa
+
 			firefox
 			kitty
 			alacritty
@@ -34,6 +36,7 @@
 			minecraft
 			lutris
 			retroarchFull
+			dolphin-emu-primehack
 
 			gnome.gnome-tweaks
 
@@ -125,6 +128,9 @@
 				hackeholken = "ssh 3836@dtek.se -p222";
 				cd          = "z";
 				proton      = "~/.steam/steam/steamapps/common/Proton\ -\ Experimental/proton";
+				ls          = "exa -a";
+				ll          = "exa -la";
+				lt          = "exa -a --tree";
 			};
 			shellOptions = [
 				"histappend"
@@ -142,11 +148,6 @@
 					PS1='\e[32;1m\u: \e[34m\w \[\033[00m\]\n↳ '
 				fi
 			'';
-		};
-
-		exa = {
-			enable        = true;
-			enableAliases = true;
 		};
 
 		zoxide = {
@@ -170,6 +171,7 @@
 	home.file = {
 		# Files
 		".gdbinit".source           = ./gdbinit;
+		".nanorc".source            = ./nanorc;
 		".clang-format".source      = ./clang-format;
 		".cargo/config.toml".source = ./cargo_config;
 
