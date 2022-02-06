@@ -19,12 +19,12 @@
 
 		packages = with pkgs; [
 			exa
+			protonup
 
 			firefox
 			kitty
 			alacritty
 			vscode
-			protonup
 
 			discord
 			signal-desktop
@@ -103,6 +103,7 @@
 				nvim-treesitter
 				coc-nvim
 				coc-rust-analyzer
+				coc-git
 				lightspeed-nvim
 				vim-repeat
 			];
@@ -184,3 +185,4 @@
 	# Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
 }
+
