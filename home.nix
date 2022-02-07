@@ -18,8 +18,19 @@
 		stateVersion = "22.05";
 
 		packages = with pkgs; [
+			git
+			wget
 			exa
+			fd
+			tealdeer
+			zoxide
+			bat
+			ripgrep
+			bottom
+			du-dust
+			ranger
 			protonup
+			neofetch
 
 			firefox
 			kitty
@@ -39,6 +50,7 @@
 			dolphin-emu-primehack
 
 			gnome.gnome-tweaks
+			gnome.gnome-boxes
 
 			gnomeExtensions.unite
 			gnomeExtensions.just-perfection

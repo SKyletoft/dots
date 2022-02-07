@@ -135,23 +135,8 @@ in {
 		# $ nix search wget
 		systemPackages = with pkgs; [
 			nano
-			git
-			wget
 			ffmpeg
-
-			fd
-			exa
-			tealdeer
-			zoxide
-			bat
-			ripgrep
-			bottom
-			du-dust
-			ranger
 		];
-		sessionVariables = {
-			EDITOR = "nvim";
-		};
 	};
 
 	fonts.fonts = with pkgs; [
