@@ -44,6 +44,7 @@ autocmd! FileType nim     setlocal tabstop=2 softtabstop=2 shiftwidth=0   expand
 autocmd! FileType kotlin  setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpandtab
 autocmd! FileType fut     setlocal tabstop=2 softtabstop=2 shiftwidth=0 noexpandtab
 autocmd! FileType haskell setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
+autocmd! FileType nix     setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpandtab
 
 colorscheme monokai_pro
 
