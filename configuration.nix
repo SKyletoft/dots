@@ -74,6 +74,9 @@ in {
 	# 	keyMap = "us";
 	};
 
+    # VMM
+    virtualisation.libvirtd.enable = true;
+
 	services = {
 		xserver = {
 			# Enable the X11 windowing system.
@@ -127,7 +130,7 @@ in {
 		description = "Samuel Kyletoft";
 		home = "/home/u3836";
 		isNormalUser = true;
-		extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+		extraGroups = [ "wheel" "networkmanager" "libvirtd" ]; # Enable ‘sudo’ for the user.
 	};
 
 	environment = {

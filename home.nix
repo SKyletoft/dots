@@ -48,6 +48,7 @@
 			lutris
 			retroarchFull
 			dolphin-emu-primehack
+			virt-manager
 
 			gnome.gnome-tweaks
 			gnome.gnome-boxes
