@@ -89,9 +89,10 @@ in {
 	};
 
 	# VMM
-	virtualisation.libvirtd.enable = true;
-	# https://github.com/NixOS/nixpkgs/issues/39618
-	security.wrappers.spice-client-glib-usb-acl-helper.source = "${pkgs.spice_gtk}/bin/spice-client-glib-usb-acl-helper";
+	virtualisation = {
+		libvirtd.enable = true;
+		spiceUSBRedirection.enable = true;
+	};
 
 	services = {
 		xserver = {
@@ -155,7 +156,6 @@ in {
 		systemPackages = with pkgs; [
 			nano
 			ffmpeg
-			spice_gtk
 		];
 	};
 
