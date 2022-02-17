@@ -126,6 +126,7 @@ in {
 				coc-nvim
 				coc-rust-analyzer
 				coc-git
+				coc-clangd
 				lightspeed-nvim
 				vim-repeat
 			];
