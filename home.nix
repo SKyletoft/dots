@@ -130,7 +130,7 @@ in {
 				lightspeed-nvim
 				vim-repeat
 			];
-			extraPackages = with pkgs; [ rust-analyzer haskell-language-server ];
+			extraPackages = with pkgs; [ rust-analyzer haskell-language-server clang-tools ];
 			extraConfig   = builtins.readFile ./neovim_init.vim;
 			viAlias       = true;
 			vimAlias      = true;
