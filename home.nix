@@ -44,7 +44,7 @@ in {
 			alacritty
 			vscode
 
-			discord
+			master.discord
 			signal-desktop
 
 			libreoffice
@@ -55,7 +55,8 @@ in {
 			lutris
 			retroarchFull
 			dolphin-emu-primehack
-			virt-manager
+
+			master.virt-manager
 
 			gnome.gnome-tweaks
 			gnome.gnome-boxes
