@@ -21,7 +21,9 @@ in {
 		# changes in each release.
 		stateVersion = "22.05";
 
-		packages = with pkgs; [
+		packages = let
+			eterm8 = pkgs.callPackage ./packages/eterm8.nix {};
+		in with pkgs; [
 			git
 			wget
 			exa
@@ -36,8 +38,9 @@ in {
 			protonup
 			neofetch
 
+			eterm8
+
 			firefox
-			kitty
 			alacritty
 			vscode
 
