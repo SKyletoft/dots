@@ -74,6 +74,7 @@ in {
 			gnomeExtensions.fuzzy-clock
 			gnomeExtensions.duckduckgo-search-provider
 			gnomeExtensions.pop-shell
+			gnomeExtensions.burn-my-windows
 		];
 	};
 
