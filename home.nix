@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
-{
+let
+	master = import (builtins.fetchGit {
+		url = "https://github.com/nixos/nixpkgs";
+	}) {};
+in {
 	home = {
 		# Home Manager needs a bit of information about you and the
 		# paths it should manage.
