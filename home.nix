@@ -59,7 +59,6 @@ in {
 			master.virt-manager
 
 			gnome.gnome-tweaks
-			gnome.gnome-boxes
 
 			gnomeExtensions.unite
 			gnomeExtensions.just-perfection
