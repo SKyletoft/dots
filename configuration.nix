@@ -160,6 +160,19 @@ in {
 		];
 	};
 
+	# Replace sudo with doas
+	security = {
+		sudo.enable = false;
+		doas = {
+			enable = true;
+			extraRules = [{
+				users = [ "u3836" ];
+				keepEnv = true;
+				persist = true;
+			}];
+		};
+	};
+
 	fonts.fonts = with pkgs; [
 		cascadia-code
 		fantasque-sans-mono
