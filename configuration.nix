@@ -156,6 +156,7 @@ in {
 		systemPackages = with pkgs; [
 			nano
 			ffmpeg
+			gnome3.adwaita-icon-theme
 		];
 	};
 
