@@ -49,6 +49,15 @@ in {
 		};
 	};
 
+	fileSystems."/mnt/SDD" = {
+		device = "/dev/sdd1";
+		fsType = "ntfs";
+		options = [
+			"allow_other"
+			"x-systemd.automount"
+		];
+	};
+
 	# Set your time zone.
 	# time.timeZone = "Europe/Amsterdam";
 
