@@ -137,6 +137,8 @@ in {
 			package = pkgs.ananicy-cpp;
 		};
 
+		earlyoom.enable = true;
+
 		# flatpak.enable = true;
 
 		# Enable CUPS to print documents.
