@@ -6,6 +6,7 @@
 
 let
 	waylandSupport = false;
+	compiledKeyboardLayout = pkgs.runCommand "keyboard-layout" {} "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./layout.xkb} $out";
 in {
 	imports = [ # Include the results of the hardware scan.
 		/etc/nixos/hardware-configuration.nix
@@ -117,11 +118,13 @@ in {
 
 			videoDrivers = [ "nvidia" ];
 
-			# Configure keymap in X11
+			# Backup layout
 			layout = "se";
 			xkbVariant = "nodeadkeys";
 			xkbModel = "apex300";
-			# xkbOptions = "eurosign:e";
+
+			# Normal layout
+			displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY";
 
 			# Enable touchpad support (enabled default in most desktopManager).
 			# libinput.enable = true;
