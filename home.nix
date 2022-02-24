@@ -162,8 +162,14 @@ in {
 				"globstar"
 			];
 			# Different PS1s for a plain tty, alacritty and the rest
+			# Can't figure out where `complete` and `bind` are supposed to go
+			# when done properly
+			# sessionVariables for EDITOR doesn't seem to work?
 			initExtra = ''
+				complete -cf doas
 				bind "set completion-ignore-case on"
+				EDITOR=nvim
+
 				if [ "$TERM" == linux ]; then
 					PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
 				elif [ "$ALACRITTY" == yes ]; then
