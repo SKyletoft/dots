@@ -22,7 +22,8 @@ in {
 		stateVersion = "22.05";
 
 		packages = let
-			eterm8 = pkgs.callPackage ./packages/eterm8.nix {};
+			eterm8    = pkgs.callPackage ./packages/eterm8.nix {};
+			digiflisp = pkgs.callPackage ./packages/digiflisp.nix {};
 		in with pkgs; [
 			git
 			wget
