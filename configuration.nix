@@ -122,7 +122,6 @@ in {
 			# Backup layout
 			layout = "se";
 			xkbVariant = "nodeadkeys";
-			xkbModel = "apex300";
 
 			# Normal layout
 			displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY";
