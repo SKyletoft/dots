@@ -51,7 +51,7 @@ in {
 	};
 
 	fileSystems."/mnt/SDD" = {
-		device = "/dev/sdd1";
+		device = "/dev/disk/by-label/SDD"; # Actual device is randomised for some reason
 		fsType = "ntfs";
 		options = [
 			"allow_other"
