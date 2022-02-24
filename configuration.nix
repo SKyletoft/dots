@@ -10,6 +10,7 @@ let
 in {
 	imports = [ # Include the results of the hardware scan.
 		/etc/nixos/hardware-configuration.nix
+		./desktop.nix
 	];
 
 	nixpkgs.config = {
@@ -39,56 +40,7 @@ in {
 		};
 		kernelPackages = pkgs.linuxPackages_zen;
 		supportedFilesystems = [ "ntfs" ];
-		# extraModulePackages = [ stable_pkgs.linuxPackages_zen.broadcom_sta ];
 	};
-
-	hardware = {
-		opengl.enable = true;
-		nvidia = {
-			modesetting.enable = true;
-			package = pkgs.linuxPackages_zen.nvidia_x11;
-		};
-	};
-
-	fileSystems."/mnt/SDD" = {
-		device = "/dev/sdd1";
-		fsType = "ntfs";
-		options = [
-			"allow_other"
-			"x-systemd.automount"
-		];
-	};
-
-	# Set your time zone.
-	# time.timeZone = "Europe/Amsterdam";
-
-	# The global useDHCP flag is deprecated, therefore explicitly set to false here.
-	# Per-interface useDHCP will be mandatory in the future, so this generated config
-	# replicates the default behaviour.
-	networking = {
-		hostName = "skyletoft-ii-nix"; # Define your hostname.
-		# wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-		# useDHCP = false;
-		networkmanager.enable = true;
-		interfaces = {
-			enp0s31f6.useDHCP = false; # WiFi card
-			# wlp0s20f0u1.useDHCP = false; # USB WiFi dongle
-		};
-		# Configure network proxy if necessary
-		# proxy = {
-		# 	default = "http://user:password@proxy:port/";
-		# 	noProxy = "127.0.0.1,localhost,internal.domain";
-		# };
-
-		# Open ports in the firewall.
-		# firewall = {
-		# 	allowedTCPPorts = [ ... ];
-		# 	allowedUDPPorts = [ ... ];
-		# };
-		# Or disable the firewall altogether.
-		# firewall.enable = false;
-	};
-
 
 	# Select internationalisation properties.
 	# i18n.defaultLocale = "en_US.UTF-8";
@@ -116,8 +68,6 @@ in {
 
 			desktopManager.gnome.enable = true;
 
-			videoDrivers = [ "nvidia" ];
-
 			# Backup layout
 			layout = "se";
 			xkbVariant = "nodeadkeys";
@@ -138,20 +88,7 @@ in {
 		};
 
 		earlyoom.enable = true;
-
-		# flatpak.enable = true;
-
-		# Enable CUPS to print documents.
-		# printing.enable = true;
-
-		# Enable the OpenSSH daemon.
-		# openssh.enable = true;
 	};
-
-	# Flatpak nonsense
-	# xdg.portal.extraPortals = [
-	# 	pkgs.xdg-desktop-portal-gtk
-	# ];
 
 	# Enable sound.
 	# sound.enable = true;
