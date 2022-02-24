@@ -45,7 +45,7 @@ in {
 			alacritty
 			vscode
 
-			master.discord
+			discord
 			signal-desktop
 
 			libreoffice
@@ -57,7 +57,7 @@ in {
 			retroarchFull
 			dolphin-emu-primehack
 
-			master.virt-manager
+			virt-manager
 
 			gnome.gnome-tweaks
 
