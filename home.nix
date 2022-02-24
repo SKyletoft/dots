@@ -40,6 +40,7 @@ in {
 			neofetch
 
 			eterm8
+			digiflisp
 
 			firefox
 			alacritty
