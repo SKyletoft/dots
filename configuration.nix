@@ -95,13 +95,14 @@ in {
 	console = {
 		useXkbConfig = true;
 		font = "FantasqueSansMono";
-	# 	keyMap = "us";
+		# keyMap = "us";
 	};
 
 	# VMM
 	virtualisation = {
 		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
+		docker.enable = true;
 	};
 
 	services = {
@@ -161,7 +162,7 @@ in {
 		description = "Samuel Kyletoft";
 		home = "/home/u3836";
 		isNormalUser = true;
-		extraGroups = [ "wheel" "networkmanager" "libvirtd" "dialout" ]; # Enable ‘sudo’ for the user.
+		extraGroups = [ "wheel" "networkmanager" "libvirtd" "dialout" "docker" ]; # Enable ‘sudo’ for the user.
 	};
 
 	environment = {
