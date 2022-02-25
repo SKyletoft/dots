@@ -29,6 +29,12 @@ noremap k w
 noremap l d
 
 noremap <C-p> :e 
+noremap <C-e> <C-w>v
+noremap <C-q> <C-w>s
+noremap W <C-w>k
+noremap S <C-w>j
+noremap A <C-w>h
+noremap D <C-w>l
 
 filetype plugin indent off
 set tabstop=8
