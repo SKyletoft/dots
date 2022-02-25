@@ -1,40 +1,47 @@
-syntax on
-
+" Basic controls
 noremap a h
 noremap s j
 noremap w k
 noremap d l
 
+" Larger movements
 noremap <C-a> b
 noremap <C-d> w
 noremap <C-w> 5<C-y>
 noremap <C-s> 5<C-e>
 
+" Copy, cut, paste for normal people
 noremap <C-c> y
 noremap <C-x> d
 noremap <C-v> p
 
-
+" Indents
 nnoremap <tab> >>
 noremap <S-tab> <<
 
+" Find
 noremap <C-f> /
-noremap <C-z> <C-,>
 
+" Undo and redo
 noremap <C-z> u
+noremap <C-M-z> <C-r>
 
+" And preserve wasd behaviour somewhere
 noremap h a
 noremap j s
 noremap k w
 noremap l d
 
-noremap <C-p> :e 
+" Open file
+noremap <C-o> :e 
+
+" Pane management
 noremap <C-e> <C-w>v
 noremap <C-q> <C-w>s
-noremap W <C-w>k
-noremap S <C-w>j
-noremap A <C-w>h
-noremap D <C-w>l
+noremap <C-M-W> <C-w>k
+noremap <C-M-S> <C-w>j
+noremap <C-M-A> <C-w>h
+noremap <C-M-D> <C-w>l
 
 filetype plugin indent off
 set tabstop=8
