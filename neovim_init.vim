@@ -49,6 +49,7 @@ set shiftwidth=8
 set noexpandtab
 set number
 set mouse=a
+set scrolloff=8
 
 autocmd! FileType rust    setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
 autocmd! FileType fortran setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
@@ -58,6 +59,8 @@ autocmd! FileType kotlin  setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpand
 autocmd! FileType fut     setlocal tabstop=2 softtabstop=2 shiftwidth=0 noexpandtab
 autocmd! FileType haskell setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 autocmd! FileType nix     setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpandtab
+autocmd! FileType toml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
+autocmd! FileType yaml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 
 colorscheme monokai_pro
 
