@@ -151,7 +151,7 @@ in {
 				"g++"       = "g++ -Wall -Wextra";
 				"clang++"   = "clang++ -Wall -Wextra";
 				hackeholken = "ssh 3836@dtek.se -p222";
-				pi          = "ssh u3836@81.230.171.125 -p1234"
+				pi          = "ssh u3836@81.230.171.125 -p1234";
 				cd          = "z";
 				proton      = "~/.steam/steam/steamapps/common/Proton\ -\ Experimental/proton";
 				ls          = "exa -a";
