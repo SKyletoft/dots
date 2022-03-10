@@ -3,6 +3,7 @@ xkb_keymap {
 	xkb_types     { include "complete"	};
 	xkb_compat    { include "complete"	};
 	xkb_symbols   {
+		#name="Swedish (but good)";
 		include "pc+se(nodeadkeys):2+inet(evdev)+level3(ralt_switch)+terminate(ctrl_alt_bksp)"
 
 		key  <ESC> {[          Escape ]};
