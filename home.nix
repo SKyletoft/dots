@@ -206,6 +206,7 @@ in {
 		".nanorc".source            = ./nanorc;
 		".clang-format".source      = ./clang-format;
 		".cargo/config.toml".source = ./cargo_config;
+		".ghci".source              = ./ghci;
 
 		# Folders
 		".themes/yaru".source                         = ./.themes/yaru;

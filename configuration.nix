@@ -66,7 +66,7 @@ in {
 	# Per-interface useDHCP will be mandatory in the future, so this generated config
 	# replicates the default behaviour.
 	networking = {
-		hostName = "skyletoft-ii-nix"; # Define your hostname.
+		hostName = "hades"; # Define your hostname.
 		# wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 		# useDHCP = false;
 		networkmanager.enable = true;
@@ -118,10 +118,6 @@ in {
 			desktopManager.gnome.enable = true;
 
 			videoDrivers = [ "nvidia" ];
-
-			# Backup layout
-			layout = "se";
-			xkbVariant = "nodeadkeys";
 
 			# Normal layout
 			displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY";

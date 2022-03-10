@@ -1,2 +1,2 @@
 #!/bin/sh
-xrandr --output DVI-D-0 --mode 1920x1080 --rate 60.00 --output HDMI-1 --off
+xrandr --output DP-2 --mode 2560x1440 --rate 120.00 --output DP-0 --off

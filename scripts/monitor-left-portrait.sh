@@ -1,2 +1,2 @@
 #!/bin/sh
-xrandr --output HDMI-1 --rotate right --pos 0x0 --output DVI-D-0 --pos 1080x420
+xrandr --output DP-2 --rotate right --pos 0x0 --output DP-0 --pos 1440x560
