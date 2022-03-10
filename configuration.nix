@@ -119,10 +119,6 @@ in {
 
 			videoDrivers = [ "nvidia" ];
 
-			# Backup layout
-			layout = "se";
-			xkbVariant = "nodeadkeys";
-
 			# Normal layout
 			displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY";
 
