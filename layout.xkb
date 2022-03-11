@@ -55,7 +55,7 @@ xkb_keymap {
 		key <AB04> {[               v,               V ]};
 		key <AB05> {[               b,               B ]};
 		key <AB06> {[               n,               N ]};
-		key <AB07> {[               m,               M,              mu ]};
+		key <AB07> {[               m,               M,        Greek_mu,              mu ]};
 		key <AB08> {[           comma,       semicolon ]};
 		key <AB09> {[          period,           colon,  periodcentered,        abovedot ]};
 		key <AB10> {[           minus,      underscore ]};
