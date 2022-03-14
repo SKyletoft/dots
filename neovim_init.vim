@@ -74,8 +74,9 @@ nmap <leader>A <Plug>(coc-codeaction-selected)
 nmap <leader>g <Plug>(coc-definition)
 nmap <leader>a <Plug>(coc-codeaction-cursor)
 nnoremap <silent> <leader>f :call <SID>show_documentation()<CR>
-noremap f <Plug>Lightspeed_f
-noremap F <Plug>Lightspeed_F
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+map ' ;
 
 function! s:show_documentation()
 	if (index(['vim', 'help'], &filetype) >= 0)
@@ -103,13 +104,13 @@ require'nvim-treesitter.configs'.setup {
 		enable = true,
 
 		-- list of language that will be disabled
-		disable = { "rust" },
+		disable = {},
 
 		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
 		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
 		-- Using this option may slow down your editor, and you may see some duplicate highlights.
 		-- Instead of true it can also be a list of languages
-		additional_vim_regex_highlighting = false,
+		additional_vim_regex_highlighting = true,
 	},
 }
 EOF
