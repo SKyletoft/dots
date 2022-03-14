@@ -3,10 +3,12 @@ xkb_keymap {
 	xkb_types     { include "complete"	};
 	xkb_compat    { include "complete"	};
 	xkb_symbols   {
-		#name="Swedish (but good)";
+		name="Swedish (but good)";
 		include "pc+se(nodeadkeys):2+inet(evdev)+level3(ralt_switch)+terminate(ctrl_alt_bksp)"
 
 		key  <ESC> {[          Escape ]};
+
+		key <TLDE> {[         section,         onehalf,       paragraph,   threequarters ]};
 		key <AE01> {[               1,          exclam,      exclamdown,     onesuperior ]};
 		key <AE02> {[               2,        quotedbl,              at,     twosuperior ]};
 		key <AE03> {[               3,      numbersign,        sterling,   threesuperior ]};
@@ -20,6 +22,7 @@ xkb_keymap {
 		key <AE11> {[            plus,        question,       backslash,    questiondown ]};
 		key <AE12> {[           acute,           grave,       plusminus,         notsign ]};
 		key <BKSP> {[       BackSpace,       BackSpace,        NoSymbol,        NoSymbol, Terminate_Server ]};
+
 		key  <TAB> {[             Tab,    ISO_Left_Tab ]};
 		key <AD01> {[               q,               Q ]};
 		key <AD02> {[               w,               W ]};
@@ -34,7 +37,7 @@ xkb_keymap {
 		key <AD11> {[           aring,           Aring,    bracketright ]};
 		key <AD12> {[       diaeresis,     asciicircum,      asciitilde,           caron ]};
 		key <RTRN> {[          Return ]};
-		key <LCTL> {[       Control_L ]};
+
 		key <AC01> {[               a,               A,     Greek_alpha,     Greek_ALPHA ]};
 		key <AC02> {[               s,               S,     Greek_sigma,     Greek_SIGMA ]};
 		key <AC03> {[               d,               D,     Greek_delta,     Greek_DELTA ]};
@@ -46,9 +49,9 @@ xkb_keymap {
 		key <AC09> {[               l,               L ]};
 		key <AC10> {[      odiaeresis,      Odiaeresis,       braceleft ]};
 		key <AC11> {[      adiaeresis,      Adiaeresis,      braceright ]};
-		key <TLDE> {[         section,         onehalf,       paragraph,   threequarters ]};
-		key <LFSH> {[         Shift_L ]};
 		key <BKSL> {[      apostrophe,        asterisk,           acute,        multiply ]};
+
+		key <LFSH> {[         Shift_L ]};
 		key <AB01> {[               z,               Z,     Greek_omega,     Greek_OMEGA ]};
 		key <AB02> {[               x,               X,     Greek_theta,     Greek_THETA ]};
 		key <AB03> {[               c,               C,       copyright ]};
@@ -59,6 +62,8 @@ xkb_keymap {
 		key <AB08> {[           comma,       semicolon ]};
 		key <AB09> {[          period,           colon,  periodcentered,        abovedot ]};
 		key <AB10> {[           minus,      underscore ]};
+
+		key <LCTL> {[       Control_L ]};
 
 		key <KPMU> {[        asterisk,        multiply ]};
 		key <KPDV> {[           slash,        division ]};
