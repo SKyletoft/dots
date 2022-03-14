@@ -61,6 +61,16 @@ in {
 			virt-manager
 
 			gnome.gnome-tweaks
+			gnome.baobab
+			gnome.gnome-system-monitor
+			gnome.gnome-logs
+			gnome.gedit
+			gnome.gnome-calendar
+			gnome.gnome-weather
+			evince
+			gnome.gnome-disk-utility
+			gnome.aisleriot
+			gnome.iagno
 
 			gnomeExtensions.unite
 			gnomeExtensions.just-perfection
