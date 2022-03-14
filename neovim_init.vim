@@ -50,6 +50,10 @@ set noexpandtab
 set number
 set mouse=a
 set scrolloff=8
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
 
 autocmd! FileType rust    setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
 autocmd! FileType fortran setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
