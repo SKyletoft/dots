@@ -155,30 +155,25 @@ in {
 		};
 
 		bash = {
-			enable       = true;
+			enable = true;
+
 			shellAliases = {
-				find        = "fd -E /mnt/SDA -E /mnt/SDD";
-				du          = "dust";
-				top         = "btm";
-				grep        = "rg";
-				cat         = "bat --paging=never";
-				gcc         = "gcc -Wall -Wextra";
-				clang       = "clang -Wall -Wextra";
-				"g++"       = "g++ -Wall -Wextra";
-				"clang++"   = "clang++ -Wall -Wextra";
+				cat = "bat --paging=never --tabs=8";
+				cd  = "z";
+				ls  = "exa -a";
+				ll  = "exa -la";
+				lt  = "exa -a --tree";
+
 				hackeholken = "ssh 3836@dtek.se -p222";
 				pi          = "ssh u3836@81.230.171.125 -p1234";
-				cd          = "z";
-				proton      = "~/.steam/steam/steamapps/common/Proton\ -\ Experimental/proton";
-				ls          = "exa -a";
-				ll          = "exa -la";
-				lt          = "exa -a --tree";
 			};
+
 			shellOptions = [
 				"histappend"
 				"checkwinsize"
 				"globstar"
 			];
+
 			# Different PS1s for a plain tty, alacritty and the rest
 			# Can't figure out where `complete` and `bind` are supposed to go
 			# when done properly
