@@ -115,10 +115,16 @@ in {
 								"hie.yaml"
 							];
 						};
+						clangd = {
+							command   = "clangd";
+							filetypes = [ "c" "cpp" "cc" "h" "hpp" ];
+							args      = [ "--background-index" ];
+						};
 					};
 				};
 
 			};
+
 			plugins = with pkgs.vimPlugins; 
 			let
 				custom_monokai = pkgs.vimUtils.buildVimPlugin {
@@ -137,10 +143,10 @@ in {
 				coc-nvim
 				coc-rust-analyzer
 				coc-git
-				coc-clangd
-				lightspeed-nvim
+				vim-sneak
 				vim-repeat
 			];
+
 			extraPackages = with pkgs; [ rust-analyzer haskell-language-server clang-tools ];
 			extraConfig   = builtins.readFile ./neovim_init.vim;
 			viAlias       = true;
