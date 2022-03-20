@@ -102,7 +102,7 @@ in {
 	virtualisation = {
 		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
-		docker.enable = true;
+		# docker.enable = true;
 	};
 
 	services = {
