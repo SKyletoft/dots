@@ -51,6 +51,7 @@ in {
 			signal-desktop
 
 			libreoffice
+			ark
 			pcmanfm
 			vlc
 			sgtpuzzles
