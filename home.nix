@@ -38,6 +38,7 @@ in {
 			ranger
 			protonup
 			neofetch
+			trash-cli
 
 			eterm8
 			digiflisp
@@ -163,6 +164,7 @@ in {
 				ls  = "exa -a";
 				ll  = "exa -la";
 				lt  = "exa -a --tree";
+				rm  = "trash-put";
 
 				hackeholken = "ssh 3836@dtek.se -p222";
 				pi          = "ssh u3836@81.230.171.125 -p1234";
