@@ -64,7 +64,7 @@ in {
 			gnome.baobab
 			gnome.gnome-system-monitor
 			gnome.gnome-logs
-			gnome.gedit
+			gnome-text-editor
 			gnome.gnome-calendar
 			gnome.gnome-weather
 			evince
