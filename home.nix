@@ -93,6 +93,7 @@ in {
 
 		sessionVariables = {
 			MOZ_ENABLE_WAYLAND = 1;
+			EDITOR = "nvim";
 		};
 	};
 
@@ -189,7 +190,6 @@ in {
 			initExtra = ''
 				complete -cf doas
 				bind "set completion-ignore-case on"
-				EDITOR=nvim
 
 				if [ "$TERM" == linux ]; then
 					PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
