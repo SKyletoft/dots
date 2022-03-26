@@ -57,6 +57,10 @@ in {
 			vlc
 			sgtpuzzles
 			xournalpp
+			minecraft
+			lutris
+			retroarchFull
+			dolphin-emu-primehack
 
 			virt-manager
 
