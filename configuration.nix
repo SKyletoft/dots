@@ -60,7 +60,7 @@ in {
 		};
 		kernelPackages = pkgs.linuxPackages_zen;
 		supportedFilesystems = [ "ntfs" ];
-		# extraModulePackages = [ stable_pkgs.linuxPackages_zen.broadcom_sta ];
+		# extraModulePackages = [ pkgs.linuxPackages_zen.anbox ];
 	};
 
 	hardware = {
