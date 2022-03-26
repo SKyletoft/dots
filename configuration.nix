@@ -48,6 +48,7 @@ in {
 		extraOptions = ''
 			min-free = ${toString (1024 * 1024 * 1024)}
 			max-free = ${toString (10 * 1024 * 1024 * 1024)}
+			experimental-features = nix-command flakes
 		'';
 	};
 
