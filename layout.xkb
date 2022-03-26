@@ -40,12 +40,12 @@ xkb_keymap {
 		key <AC01> {[               a,               A,     Greek_alpha,     Greek_ALPHA ]};
 		key <AC02> {[               s,               S,     Greek_sigma,     Greek_SIGMA ]};
 		key <AC03> {[               d,               D,     Greek_delta,     Greek_DELTA ]};
-		key <AC04> {[               f,               F ]};
+		key <AC04> {[               f,               F,       Greek_phi,       Greek_PHI ]};
 		key <AC05> {[               g,               G ]};
 		key <AC06> {[               h,               H ]};
 		key <AC07> {[               j,               J ]};
 		key <AC08> {[               k,               K ]};
-		key <AC09> {[               l,               L ]};
+		key <AC09> {[               l,               L,    Greek_lambda,    Greek_LAMBDA ]};
 		key <AC10> {[      odiaeresis,      Odiaeresis,       braceleft ]};
 		key <AC11> {[      adiaeresis,      Adiaeresis,      braceright ]};
 		key <BKSL> {[      apostrophe,        asterisk,           acute,        multiply ]};
@@ -55,7 +55,7 @@ xkb_keymap {
 		key <AB02> {[               x,               X,     Greek_theta,     Greek_THETA ]};
 		key <AB03> {[               c,               C,       copyright ]};
 		key <AB04> {[               v,               V ]};
-		key <AB05> {[               b,               B ]};
+		key <AB05> {[               b,               B,      Greek_beta,      Greek_BETA ]};
 		key <AB06> {[               n,               N ]};
 		key <AB07> {[               m,               M,        Greek_mu,              mu ]};
 		key <AB08> {[           comma,       semicolon ]};
