@@ -39,6 +39,7 @@ in {
 			protonup
 			neofetch
 			trash-cli
+			rsync
 
 			eterm8
 			digiflisp
