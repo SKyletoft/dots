@@ -44,7 +44,7 @@ in {
 			eterm8
 			digiflisp
 
-			firefox
+			firefox-bin
 			alacritty
 			vscode
 
@@ -90,6 +90,10 @@ in {
 			gnomeExtensions.pop-shell
 			gnomeExtensions.burn-my-windows
 		];
+
+		sessionVariables = {
+			MOZ_ENABLE_WAYLAND = 1;
+		};
 	};
 
 	programs = {
