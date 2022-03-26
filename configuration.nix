@@ -147,6 +147,11 @@ in {
 			# libinput.enable = true;
 		};
 
+		pipewire = {
+			media-session.enable = true;
+			wireplumber.enable = false;
+		};
+
 		gnome = {
 			gnome-keyring.enable = true;
 			core-shell.enable = true;
@@ -180,6 +185,7 @@ in {
 	# Enable sound.
 	# sound.enable = true;
 	# hardware.pulseaudio.enable = true;
+	# systemd.user.services.pipewire-pulse.path = [ pkgs.pulseaudio ];
 
 	users.users.u3836 = {
 		description = "Samuel Kyletoft";
