@@ -56,10 +56,7 @@ in {
 			pcmanfm
 			vlc
 			sgtpuzzles
-			minecraft
-			lutris
-			retroarchFull
-			dolphin-emu-primehack
+			xournalpp
 
 			virt-manager
 
