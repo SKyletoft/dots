@@ -227,6 +227,7 @@ in {
 		".clang-format".source      = ./clang-format;
 		".cargo/config.toml".source = ./cargo_config;
 		".ghci".source              = ./ghci;
+		".xonshrc".source           = ./xonshrc;
 
 		# Folders
 		".themes/yaru".source                         = ./.themes/yaru;
