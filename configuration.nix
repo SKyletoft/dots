@@ -15,6 +15,8 @@ in {
 	nixpkgs.config = {
 		allowUnfree = true;
 		allowBroken = false;
+		# cudaSupport = true;
+
 		overlays = [
 			(final: prev: {
 				wlroots = prev.wlroots.overrideAttrs(old: {
