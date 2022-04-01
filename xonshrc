@@ -11,8 +11,9 @@ aliases['cp'] = ['rsync', '--progress', '--recursive', '--archive']
 
 execx($(/home/u3836/.nix-profile/bin/zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
 
-$MOZ_ENABLE_WAYLAND = 1;
-$EDITOR = "nvim";
+$CASE_SENSITIVE_COMPLETIONS = False
+$MOZ_ENABLE_WAYLAND = 1
+$EDITOR = "nvim"
 if ($TERM == "linux"):
 	# u3836 ~ $
 	$PROMPT="{BOLD_#b5bd68}{user} {BOLD_BLUE}{cwd} {RESET}$ "
