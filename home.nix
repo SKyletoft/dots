@@ -61,6 +61,7 @@ in {
 			lutris
 			retroarchFull
 			dolphin-emu-primehack
+			pinta
 
 			virt-manager
 
