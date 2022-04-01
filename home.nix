@@ -74,8 +74,8 @@ in {
 			gnome.gnome-weather
 			evince
 			gnome.gnome-disk-utility
-			gnome.aisleriot
-			gnome.iagno
+			# gnome.aisleriot
+			# gnome.iagno
 
 			gnomeExtensions.unite
 			gnomeExtensions.just-perfection
@@ -85,10 +85,10 @@ in {
 			gnomeExtensions.hot-edge
 			gnomeExtensions.caffeine
 			gnomeExtensions.sound-output-device-chooser
-			gnomeExtensions.vertical-overview
+			# gnomeExtensions.vertical-overview
 			gnomeExtensions.fuzzy-app-search
-			gnomeExtensions.fuzzy-clock
-			gnomeExtensions.duckduckgo-search-provider
+			# gnomeExtensions.fuzzy-clock
+			# gnomeExtensions.duckduckgo-search-provider
 			gnomeExtensions.pop-shell
 			gnomeExtensions.burn-my-windows
 		];
