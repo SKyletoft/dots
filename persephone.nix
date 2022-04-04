@@ -13,27 +13,26 @@ in {
 		<nixos-hardware/microsoft/surface>
 	];
 
-	nixpkgs.config = {
+	nixpkgs = {
+		config = {
 		allowUnfree = true;
 		allowBroken = false;
-
+		};
 		overlays = [
 			(final: prev: {
 				wlroots = prev.wlroots.overrideAttrs(old: {
 					postPatch = "sed -i 's/assert(argb8888 &&/assert(true || argb8888 ||/g' 'render/wlr_renderer.c'";
 				});
 			})
-			# (self: super: {
-			# 	gnome = super.gnome.overrideScope (gself: gsuper: {
-			# 		mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
-			# 			src = builtins.fetchGit {
-			# 				url = "https://gitlab.gnome.org/vanvugt/mutter";
-			# 				ref = "triple-buffering-v4";
-			# 				rev = "";
-			# 			};
-			# 		});
-			# 	});
-			# })
+			(self: super: {
+				gnome = super.gnome.overrideScope' (gself: gsuper: {
+					mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
+						src = builtins.fetchurl {
+							url = "https://gitlab.gnome.org/vanvugt/mutter/-/archive/triple-buffering-v4/mutter-triple-buffering-v4.tar.gz";
+						};
+					});
+				});
+			})
 		];
 	};
 
