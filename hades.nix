@@ -138,7 +138,16 @@ in {
 			videoDrivers = [ "nvidia" ];
 
 			# Normal layout
-			displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY";
+			displayManager.sessionCommands = ''
+				${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY
+			'';
+
+			screenSection = ''
+				Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+				Option         "metamodes" "nvidia-auto-select +1440+0 {ForceFullCompositionPipeline=On}"
+				Option         "AllowIndirectGLXProtocol" "off"
+				Option         "TripleBuffer" "on"
+			'';
 
 			# Enable touchpad support (enabled default in most desktopManager).
 			# libinput.enable = true;
