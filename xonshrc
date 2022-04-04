@@ -17,7 +17,7 @@ $EDITOR = "nvim"
 if ($TERM == "linux"):
 	# u3836 ~ $
 	$PROMPT="{BOLD_#b5bd68}{user} {BOLD_BLUE}{cwd} {RESET}$ "
-elif ($ALACRITTY == "yes"):
+elif ($TERM == "xterm-256color"):
 	# u3836 > hades > ~ >
 	# ↳
 	$PROMPT="{BACKGROUND_#b5bd68}{BOLD_#eaeaea} {user} {#b5bd68}{BACKGROUND_BLUE}{BOLD_#eaeaea}{BACKGROUND_BLUE} {hostname} {BLUE}{BACKGROUND_RED}{BACKGROUND_RED}{BOLD_#eaeaea} {cwd} {RESET}{RED}{RESET}\n{BOLD_#eaeaea}↳{RESET} "
