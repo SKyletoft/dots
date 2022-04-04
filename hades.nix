@@ -66,6 +66,7 @@ in {
 			modesetting.enable = true;
 			package = pkgs.linuxPackages_zen.nvidia_x11;
 		};
+		cpu.intel.updateMicrocode = true;
 	};
 
 	fileSystems."/mnt/SDD" = {
