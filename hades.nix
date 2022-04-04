@@ -12,28 +12,25 @@ in {
 		/etc/nixos/hardware-configuration.nix
 	];
 
-	nixpkgs.config = {
-		allowUnfree = true;
-		allowBroken = false;
-		# cudaSupport = true;
-
+	nixpkgs = {
+		config = {
+			allowUnfree = true;
+			allowBroken = false;
+			# cudaSupport = true;
+		};
 		overlays = [
 			(final: prev: {
 				wlroots = prev.wlroots.overrideAttrs(old: {
 					postPatch = "sed -i 's/assert(argb8888 &&/assert(true || argb8888 ||/g' 'render/wlr_renderer.c'";
 				});
 			})
-			# (self: super: {
-			# 	gnome = super.gnome.overrideScope (gself: gsuper: {
-			# 		mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
-			# 			src = builtins.fetchGit {
-			# 				url = "https://gitlab.gnome.org/vanvugt/mutter";
-			# 				ref = "triple-buffering-v4";
-			# 				rev = "";
-			# 			};
-			# 		});
-			# 	});
-			# })
+			(self: super: {
+				gnome = super.gnome.overrideScope' (gself: gsuper: {
+					mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
+						patches = [ ./1441.patch ] ++ oldAttrs.patches;
+					});
+				});
+			})
 		];
 	};
 
