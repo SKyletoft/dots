@@ -3,7 +3,6 @@
 {
 	imports = [
 		<nixos-hardware/raspberry-pi/4>
-		<nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
 	];
 
 	nixpkgs.config.allowUnfree = true;
@@ -41,6 +40,7 @@
 	users.users.u3836 = {
 		isNormalUser = true;
 		extraGroups = [ "wheel" ];
+		shell = pkgs.xonsh;
 	};
 
 	hardware = {
@@ -61,6 +61,17 @@
 			enable = true;
 			package = pkgs.ananicy-cpp;
 		};
+		nginx = {
+			enable = true;
+			virtualHosts = {
+				"samuel.kyletoft.se" = {
+					forceSSL = true;
+					enableACME = true;
+					locations."/".root = "/var/www/samuel.kyletoft.se";
+					serverAliases = [ "*.kyletoft.se" ];
+				};
+			};
+		};
 	};
 
 	security = {
@@ -72,6 +83,10 @@
 				keepEnv = true;
 				persist = true;
 			}];
+		};
+		acme = {
+			acceptTerms = true;
+			email = "samuel+acme@kyletoft.se";
 		};
 	};
 }
