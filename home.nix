@@ -61,6 +61,7 @@ in {
 			lutris
 			retroarchFull
 			dolphin-emu-primehack
+			pinta
 
 			virt-manager
 
@@ -73,8 +74,8 @@ in {
 			gnome.gnome-weather
 			evince
 			gnome.gnome-disk-utility
-			gnome.aisleriot
-			gnome.iagno
+			# gnome.aisleriot
+			# gnome.iagno
 
 			gnomeExtensions.unite
 			gnomeExtensions.just-perfection
@@ -84,10 +85,10 @@ in {
 			gnomeExtensions.hot-edge
 			gnomeExtensions.caffeine
 			gnomeExtensions.sound-output-device-chooser
-			gnomeExtensions.vertical-overview
+			# gnomeExtensions.vertical-overview
 			gnomeExtensions.fuzzy-app-search
-			gnomeExtensions.fuzzy-clock
-			gnomeExtensions.duckduckgo-search-provider
+			# gnomeExtensions.fuzzy-clock
+			# gnomeExtensions.duckduckgo-search-provider
 			gnomeExtensions.pop-shell
 			gnomeExtensions.burn-my-windows
 		];
@@ -175,7 +176,7 @@ in {
 				rm  = "trash-put";
 
 				hackeholken = "ssh 3836@dtek.se -p222";
-				pi          = "ssh u3836@81.230.171.125 -p1234";
+				pi          = "ssh u3836@81.225.66.47 -p1234";
 			};
 
 			shellOptions = [
@@ -227,6 +228,7 @@ in {
 		".clang-format".source      = ./clang-format;
 		".cargo/config.toml".source = ./cargo_config;
 		".ghci".source              = ./ghci;
+		".xonshrc".source           = ./xonshrc;
 
 		# Folders
 		".themes/yaru".source                         = ./.themes/yaru;

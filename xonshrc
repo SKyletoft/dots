@@ -1,0 +1,28 @@
+aliases['cat']='bat --paging=never --tabs=8'
+aliases['cd']='z'
+aliases['hackeholken']='ssh 3836@dtek.se -p222'
+aliases['l']='exa -l'
+aliases['ll']='exa -la'
+aliases['lt']='exa -a --tree'
+aliases['pi']='ssh u3836@81.225.66.47 -p1234'
+aliases['rm']='trash-put'
+aliases['vimdiff']='nvim -d'
+aliases['cp'] = ['rsync', '--progress', '--recursive', '--archive']
+
+execx($(/home/u3836/.nix-profile/bin/zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
+
+$CASE_SENSITIVE_COMPLETIONS = False
+$MOZ_ENABLE_WAYLAND = 1
+$EDITOR = "nvim"
+if ($TERM == "linux"):
+	# u3836 ~ $
+	$PROMPT="{BOLD_#b5bd68}{user} {BOLD_BLUE}{cwd} {RESET}$ "
+elif ($TERM == "xterm-256color"):
+	# u3836 > hades > ~ >
+	# ↳
+	$PROMPT="{BACKGROUND_#b5bd68}{BOLD_#eaeaea} {user} {#b5bd68}{BACKGROUND_BLUE}{BOLD_#eaeaea}{BACKGROUND_BLUE} {hostname} {BLUE}{BACKGROUND_RED}{BACKGROUND_RED}{BOLD_#eaeaea} {cwd} {RESET}{RED}{RESET}\n{BOLD_#eaeaea}↳{RESET} "
+else:
+	# u3836: ~
+	# ↳
+	$PROMPT="{BOLD_#b5bd68}{user}: {BOLD_BLUE}{cwd} {RESET}\n↳ "
+
