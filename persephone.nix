@@ -146,7 +146,13 @@ in {
 		description = "Samuel Kyletoft";
 		home = "/home/u3836";
 		isNormalUser = true;
-		extraGroups = [ "wheel" "networkmanager" "libvirtd" "dialout" "docker" ]; # Enable ‘sudo’ for the user.
+		extraGroups = [
+			"wheel" # Enable ‘sudo’ for the user.
+			"networkmanager"
+			"libvirtd"
+			"dialout"
+			"docker"
+		];
 		shell = pkgs.xonsh;
 	};
 
