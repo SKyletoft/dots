@@ -26,7 +26,7 @@ xkb_keymap {
 		key <AD01> {[               q,               Q ]};
 		key <AD02> {[               w,               W ]};
 		key <AD03> {[               e,               E,        EuroSign,            cent ]};
-		key <AD04> {[               r,               R,      registered ]};
+		key <AD04> {[               r,               R,      registered,           U211D ]};
 		key <AD05> {[               t,               T,           thorn,           THORN ]};
 		key <AD06> {[               y,               Y,             eth,             ETH ]};
 		key <AD07> {[               u,               U ]};
@@ -56,7 +56,7 @@ xkb_keymap {
 		key <AB03> {[               c,               C,       copyright ]};
 		key <AB04> {[               v,               V ]};
 		key <AB05> {[               b,               B,      Greek_beta,      Greek_BETA ]};
-		key <AB06> {[               n,               N ]};
+		key <AB06> {[               n,               N,           U2115,           U2124 ]};
 		key <AB07> {[               m,               M,        Greek_mu,              mu ]};
 		key <AB08> {[           comma,       semicolon ]};
 		key <AB09> {[          period,           colon,  periodcentered,        abovedot ]};
