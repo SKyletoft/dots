@@ -115,6 +115,12 @@ in {
 			desktopManager.gnome.enable = true;
 
 			displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY";
+
+			extraLayouts.se-good = {
+				description = "Swedish, but good";
+				languages = [ "se" ];
+				symbolsFile = symbols/se-good;
+			};
 		};
 
 		pipewire = {
