@@ -28,7 +28,7 @@ xkb_symbols "se-good" {
 	key <AD06> {[               y,               Y,             eth,             ETH ]};
 	key <AD07> {[               u,               U ]};
 	key <AD08> {[               i,               I ]};
-	key <AD09> {[               o,               O,          degree ]};
+	key <AD09> {[               o,               O,          degree,           U2295 ]};
 	key <AD10> {[               p,               P,     bracketleft,        Greek_pi ]};
 	key <AD11> {[           aring,           Aring,    bracketright ]};
 	key <AD12> {[       diaeresis,     asciicircum,      asciitilde,           caron ]};
@@ -52,7 +52,7 @@ xkb_symbols "se-good" {
 	key <AB02> {[               x,               X,     Greek_theta,     Greek_THETA ]};
 	key <AB03> {[               c,               C,       copyright ]};
 	key <AB04> {[               v,               V ]};
-	key <AB05> {[               b,               B,      Greek_beta,      Greek_BETA ]};
+	key <AB05> {[               b,               B,      Greek_beta,          U1D539 ]};
 	key <AB06> {[               n,               N,           U2115,           U2124 ]};
 	key <AB07> {[               m,               M,        Greek_mu,              mu ]};
 	key <AB08> {[           comma,       semicolon ]};
