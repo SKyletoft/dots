@@ -202,6 +202,7 @@ in {
 			package = pkgs.gnomeExtensions.gsconnect;	
 		};
 		xwayland.enable = waylandSupport;
+		steam.enable = true;
 		dconf.enable = true;
 		xonsh.enable = true;
 	};
