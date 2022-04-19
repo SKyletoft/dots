@@ -18,6 +18,8 @@ noremap <C-v> p
 " Indents
 nnoremap <tab> >>
 noremap <S-tab> <<
+vmap <tab> >gv
+vmap <S-tab> <gv
 
 " Find
 noremap <C-f> /
