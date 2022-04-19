@@ -15,8 +15,8 @@ in {
 
 	nixpkgs = {
 		config = {
-		allowUnfree = true;
-		allowBroken = false;
+			allowUnfree = true;
+			allowBroken = false;
 		};
 		overlays = [
 			(final: prev: {
@@ -101,7 +101,8 @@ in {
 	virtualisation = {
 		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
-		# docker.enable = true;
+		docker.enable = true;
+		virtualbox.host.enable = true;
 	};
 
 	services = {
@@ -115,6 +116,12 @@ in {
 			desktopManager.gnome.enable = true;
 
 			displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY";
+
+			extraLayouts.se-good = {
+				description = "Swedish, but good";
+				languages = [ "se" ];
+				symbolsFile = symbols/se-good;
+			};
 		};
 
 		pipewire = {
@@ -152,6 +159,7 @@ in {
 			"libvirtd"
 			"dialout"
 			"docker"
+			"vboxusers"
 		];
 		shell = pkgs.xonsh;
 	};
@@ -196,6 +204,7 @@ in {
 			package = pkgs.gnomeExtensions.gsconnect;	
 		};
 		xwayland.enable = waylandSupport;
+		steam.enable = true;
 		dconf.enable = true;
 		xonsh.enable = true;
 	};

@@ -18,6 +18,8 @@ noremap <C-v> p
 " Indents
 nnoremap <tab> >>
 noremap <S-tab> <<
+vmap <tab> >gv
+vmap <S-tab> <gv
 
 " Find
 noremap <C-f> /
@@ -65,6 +67,11 @@ autocmd! FileType haskell setlocal tabstop=2 softtabstop=2 shiftwidth=0   expand
 autocmd! FileType nix     setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpandtab
 autocmd! FileType toml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 autocmd! FileType yaml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
+
+autocmd! FileType rust    nmap <leader>i :!cargo fmt<CR>
+autocmd! FileType c       nmap <leader>i :!clang-format -i %f
+autocmd! FileType js      nmap <leader>i :!clang-format -i %f
+autocmd! FileType java    nmap <leader>i :!clang-format -i %f
 
 colorscheme monokai_pro
 
