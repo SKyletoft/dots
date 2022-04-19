@@ -150,6 +150,7 @@ in {
 			[
 				custom_monokai
 				nvim-treesitter
+				vim-table-mode
 				coc-nvim
 				coc-rust-analyzer
 				coc-git
