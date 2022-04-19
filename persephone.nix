@@ -15,8 +15,8 @@ in {
 
 	nixpkgs = {
 		config = {
-		allowUnfree = true;
-		allowBroken = false;
+			allowUnfree = true;
+			allowBroken = false;
 		};
 		overlays = [
 			(final: prev: {
