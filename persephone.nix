@@ -101,7 +101,7 @@ in {
 	virtualisation = {
 		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
-		# docker.enable = true;
+		virtualbox.host.enable = true;
 	};
 
 	services = {
@@ -158,6 +158,7 @@ in {
 			"libvirtd"
 			"dialout"
 			"docker"
+			"vboxusers"
 		];
 		shell = pkgs.xonsh;
 	};
