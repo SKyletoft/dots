@@ -75,6 +75,7 @@ in {
 			gnome.gnome-weather
 			evince
 			gnome.gnome-disk-utility
+			gnome.eog
 			# gnome.aisleriot
 			# gnome.iagno
 
