@@ -40,6 +40,7 @@ in {
 			neofetch
 			trash-cli
 			rsync
+			xclip
 
 			eterm8
 			digiflisp
