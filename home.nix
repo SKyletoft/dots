@@ -47,7 +47,7 @@ in {
 
 			firefox-bin
 			alacritty
-			vscode
+			pinta
 
 			discord
 			signal-desktop
