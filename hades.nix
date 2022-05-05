@@ -181,7 +181,7 @@ in {
 		# printing.enable = true;
 
 		# Enable the OpenSSH daemon.
-		# openssh.enable = true;
+		openssh.enable = true;
 	};
 
 	# Flatpak nonsense
