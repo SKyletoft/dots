@@ -78,7 +78,7 @@ autocmd! FileType nix     setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpand
 autocmd! FileType toml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 autocmd! FileType yaml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 
-autocmd! FileType rust    nmap <leader>i :!cargo fmt<CR>
+autocmd! FileType rust    nmap <leader>i :!cargo +nightly fmt<CR>
 autocmd! FileType c       nmap <leader>i :!clang-format -i %f
 autocmd! FileType js      nmap <leader>i :!clang-format -i %f
 autocmd! FileType java    nmap <leader>i :!clang-format -i %f
