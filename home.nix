@@ -148,9 +148,19 @@ in {
 						sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
 					};
 				};
+				instant_nvim = pkgs.vimUtils.buildVimPlugin {
+					name = "instant_nvim";
+					src  = pkgs.fetchFromGitHub {
+						owner  = "jbyuki";
+						repo   = "instant.nvim";
+						rev    = "c02d72267b12130609b7ad39b76cf7f4a3bc9554";
+						sha256 = "sha256-7Pr2Au/oGKp5kMXuLsQY4BK5Wny9L1EBdXtyS5EaZPI=";
+					};
+				};
 			in
 			[
 				custom_monokai
+				instant_nvim
 				nvim-treesitter
 				vim-table-mode
 				coc-nvim
