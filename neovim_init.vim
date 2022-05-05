@@ -37,6 +37,16 @@ noremap l d
 " Open file
 noremap <C-o> :e 
 
+" End of line and start of line inserts
+nnoremap A I
+nnoremap D A
+
+" Delete rest of line
+noremap X D
+
+" Unmap undo because it's poorly placed
+noremap u <Nop>
+
 " Pane management
 noremap <C-e> <C-w>v
 noremap <C-q> <C-w>s
