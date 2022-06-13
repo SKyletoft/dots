@@ -45,6 +45,7 @@ in {
 			trash-cli
 			rsync
 			xclip
+			direnv
 
 			eterm8
 			digiflisp
@@ -102,6 +103,7 @@ in {
 		sessionVariables = {
 			MOZ_ENABLE_WAYLAND = 1;
 			EDITOR = "nvim";
+			DIRENV_LOG_FORMAT = "";
 		};
 	};
 
@@ -199,6 +201,8 @@ in {
 			initExtra = ''
 				complete -cf doas
 				bind "set completion-ignore-case on"
+				eval "$(direnv hook bash)"
+				export DIRENV_LOG_FORMAT=""
 
 				if [ "$TERM" == linux ]; then
 					PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] [bash] \$ '
@@ -215,6 +219,8 @@ in {
 			enableBashIntegration = true;
 		};
 	};
+
+	services.lorri.enable = true;
 
 	# gtk = {
 		# enable         = true;
