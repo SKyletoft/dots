@@ -1,7 +1,7 @@
 " Basic controls
 noremap a h
-noremap s j
-noremap w k
+noremap s gj
+noremap w gk
 noremap d l
 
 " Larger movements
@@ -79,9 +79,9 @@ autocmd! FileType toml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expand
 autocmd! FileType yaml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 
 autocmd! FileType rust    nmap <leader>i :!cargo +nightly fmt<CR>
-autocmd! FileType c       nmap <leader>i :!clang-format -i %f
-autocmd! FileType js      nmap <leader>i :!clang-format -i %f
-autocmd! FileType java    nmap <leader>i :!clang-format -i %f
+autocmd! FileType c       nmap <leader>i :!clang-format -i %
+autocmd! FileType js      nmap <leader>i :!clang-format -i %
+autocmd! FileType java    nmap <leader>i :!clang-format -i %
 
 colorscheme monokai_pro
 
