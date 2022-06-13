@@ -4,6 +4,10 @@ let
 	master = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
 	}) {};
+	pinned = import (builtins.fetchGit {
+		url = "https://github.com/nixos/nixpkgs";
+		rev = "eb5409461a41f5e3d78997d870f38a6329bb8044";
+	}) {};
 in {
 	home = {
 		# Home Manager needs a bit of information about you and the
@@ -112,7 +116,7 @@ in {
 			enable     = true;
 			withNodeJs = true;
 			coc        = {
-				enable   = true;
+				enable   = false;
 				settings = {
 					languageserver =  {
 						haskell = {
@@ -137,7 +141,7 @@ in {
 
 			};
 
-			plugins = with pkgs.vimPlugins; 
+			plugins = with pinned.vimPlugins; 
 			let
 				custom_monokai = pkgs.vimUtils.buildVimPlugin {
 					name = "monokai_vim";
@@ -148,19 +152,9 @@ in {
 						sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
 					};
 				};
-				instant_nvim = pkgs.vimUtils.buildVimPlugin {
-					name = "instant_nvim";
-					src  = pkgs.fetchFromGitHub {
-						owner  = "jbyuki";
-						repo   = "instant.nvim";
-						rev    = "c02d72267b12130609b7ad39b76cf7f4a3bc9554";
-						sha256 = "sha256-7Pr2Au/oGKp5kMXuLsQY4BK5Wny9L1EBdXtyS5EaZPI=";
-					};
-				};
 			in
 			[
 				custom_monokai
-				instant_nvim
 				nvim-treesitter
 				vim-table-mode
 				coc-nvim

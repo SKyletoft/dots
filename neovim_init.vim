@@ -105,8 +105,6 @@ function! s:show_documentation()
 	endif
 endfunction
 
-let g:instant_username = "u3836"
-
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
 	-- One of "all", "maintained" (parsers with maintainers), or a list of languages
