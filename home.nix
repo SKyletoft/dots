@@ -40,7 +40,6 @@ in {
 			bottom
 			du-dust
 			ranger
-			protonup
 			neofetch
 			trash-cli
 			rsync
