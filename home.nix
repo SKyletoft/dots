@@ -54,7 +54,7 @@ in {
 			vscode
 			pinta
 
-			discord
+			master.discord
 			signal-desktop
 
 			libreoffice
