@@ -59,8 +59,8 @@ in {
 			sgtpuzzles
 			xournalpp
 			minecraft
-			lutris
-			retroarchFull
+			# lutris
+			# retroarchFull
 			dolphin-emu-primehack
 			pinta
 
