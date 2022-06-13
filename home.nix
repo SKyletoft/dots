@@ -8,6 +8,7 @@ let
 		url = "https://github.com/nixos/nixpkgs";
 		rev = "eb5409461a41f5e3d78997d870f38a6329bb8044";
 	}) {};
+	gui = true;
 in {
 	home = {
 		# Home Manager needs a bit of information about you and the
@@ -45,6 +46,8 @@ in {
 			rsync
 			xclip
 			direnv
+		] ++
+		(if gui then [
 
 			eterm8
 			digiflisp
@@ -98,7 +101,7 @@ in {
 			# gnomeExtensions.duckduckgo-search-provider
 			gnomeExtensions.pop-shell
 			gnomeExtensions.burn-my-windows
-		];
+		] else []);
 
 		sessionVariables = {
 			MOZ_ENABLE_WAYLAND = 1;
