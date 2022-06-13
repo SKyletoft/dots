@@ -205,7 +205,7 @@ in {
 			"dialout"
 			"docker"
 		]; # Enable ‘sudo’ for the user.
-		shell = pkgs.xonsh;
+		shell = pkgs.bash;
 	};
 
 	environment = {

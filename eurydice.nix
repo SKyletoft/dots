@@ -40,7 +40,7 @@
 	users.users.u3836 = {
 		isNormalUser = true;
 		extraGroups = [ "wheel" ];
-		shell = pkgs.xonsh;
+		shell = pkgs.bash;
 	};
 
 	hardware = {

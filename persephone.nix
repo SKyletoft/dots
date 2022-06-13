@@ -161,7 +161,7 @@ in {
 			"docker"
 			"vboxusers"
 		];
-		shell = pkgs.xonsh;
+		shell = pkgs.bash;
 	};
 
 	environment.systemPackages = with pkgs; [
