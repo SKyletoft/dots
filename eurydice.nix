@@ -16,17 +16,23 @@
 		extraOptions = ''
 			min-free = ${toString (100 * 1024 * 1024)}
 			max-free = ${toString (1024 * 1024 * 1024)}
+			experimental-features = nix-command flakes
 		'';
 	};
 
 	networking = {
 		hostName = "eurydice";
-		interfaces.eth0.ipv4.addresses = [ {
-			address = "192.168.0.200";
-			prefixLength = 24;
-		} ];
-		defaultGateway = "192.168.0.1";
-		nameservers = [ "8.8.8.8" ];
+		firewall = {
+			enable = true;
+			allowedTCPPorts = [ 80 443 8000 8080 12825 ];
+			allowedUDPPorts = [ 80 443 8000 8080 12825 ];
+		};
+		# interfaces.eth0.ipv4.addresses = [ {
+		# 	address = "192.168.0.200";
+		# 	prefixLength = 24;
+		# } ];
+		# defaultGateway = "192.168.0.1";
+		# nameservers = [ "8.8.8.8" ];
 	};
 
 	fileSystems."/" = {
@@ -38,6 +44,7 @@
 	environment.systemPackages = with pkgs; [ neovim ];
 
 	users.users.u3836 = {
+		motd = "$(SYSTEMD_COLORS=true neofetch && systemctl status nginx | head -n3)";
 		isNormalUser = true;
 		extraGroups = [ "wheel" ];
 		shell = pkgs.bash;
@@ -63,12 +70,41 @@
 		};
 		nginx = {
 			enable = true;
+			recommendedProxySettings = true;
+			recommendedTlsSettings = true;
 			virtualHosts = {
+				"kyletoft.se" = {
+					forceSSL = true;
+					enableACME = true;
+					root = "/var/www/kyletoft.se";
+				};
 				"samuel.kyletoft.se" = {
 					forceSSL = true;
 					enableACME = true;
-					locations."/".root = "/var/www/samuel.kyletoft.se";
-					serverAliases = [ "*.kyletoft.se" ];
+					root = "/var/www/samuel.kyletoft.se";
+				};
+				"marie.kyletoft.se" = {
+					forceSSL = true;
+					enableACME = true;
+					root = "/var/www/marie.kyletoft.se";
+				};
+				"dhack.kyletoft.se" = {
+					forceSSL = true;
+					enableACME = true;
+					root = "/var/www/dhack.kyletoft.se";
+				};
+				"cflisp.kyletoft.se" = {
+					forceSSL = true;
+					enableACME = true;
+					root = "/var/www/cflisp.kyletoft.se";
+				};
+				"termshare.kyletoft.se" = {
+					enableSSL = true;
+					enableACME = true;
+					locations."/" = {
+						proxyPass = "https://127.0.0.1:12825";
+						proxyWebsockets = true;
+					};
 				};
 			};
 		};
@@ -86,7 +122,7 @@
 		};
 		acme = {
 			acceptTerms = true;
-			email = "samuel+acme@kyletoft.se";
+			defaults.email = "samuel+acme@kyletoft.se";
 		};
 	};
 }
