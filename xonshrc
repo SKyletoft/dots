@@ -1,5 +1,6 @@
 aliases['cat']='bat --paging=never --tabs=8'
 aliases['cd']='z'
+aliases['ncd']='~/dots/scripts/ncd'
 aliases['hackeholken']='ssh 3836@dtek.se -p222'
 aliases['l']='exa -l'
 aliases['ll']='exa -la'
@@ -11,6 +12,7 @@ aliases['vimdiff']='nvim -d'
 aliases['cp'] = ['rsync', '--progress', '--recursive', '--archive']
 
 execx($(/home/u3836/.nix-profile/bin/zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
+import math
 
 $CASE_SENSITIVE_COMPLETIONS = False
 $MOZ_ENABLE_WAYLAND = 1

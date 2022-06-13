@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+cd $1;
+
+if [ -f flake.nix ]; then
+	nix develop
+elif [ -f shell.nix ]; then
+	nix-shell
+else
+	$SHELL
+fi
+
