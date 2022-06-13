@@ -249,6 +249,7 @@ in {
 		".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
 		"bin".source                                  = ./scripts;
 	};
+
 	# Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
 }
