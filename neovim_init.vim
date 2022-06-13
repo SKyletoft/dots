@@ -18,6 +18,8 @@ noremap <C-v> p
 " Indents
 nnoremap <tab> >>
 noremap <S-tab> <<
+vmap <tab> >gv
+vmap <S-tab> <gv
 
 " Find
 noremap <C-f> /
@@ -34,6 +36,16 @@ noremap l d
 
 " Open file
 noremap <C-o> :e 
+
+" End of line and start of line inserts
+nnoremap A I
+nnoremap D A
+
+" Delete rest of line
+noremap X D
+
+" Unmap undo because it's poorly placed
+noremap u <Nop>
 
 " Pane management
 noremap <C-e> <C-w>v
@@ -66,6 +78,11 @@ autocmd! FileType nix     setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpand
 autocmd! FileType toml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 autocmd! FileType yaml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 
+autocmd! FileType rust    nmap <leader>i :!cargo +nightly fmt<CR>
+autocmd! FileType c       nmap <leader>i :!clang-format -i %f
+autocmd! FileType js      nmap <leader>i :!clang-format -i %f
+autocmd! FileType java    nmap <leader>i :!clang-format -i %f
+
 colorscheme monokai_pro
 
 let mapleader = " "
@@ -88,10 +105,12 @@ function! s:show_documentation()
 	endif
 endfunction
 
+let g:instant_username = "u3836"
+
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
 	-- One of "all", "maintained" (parsers with maintainers), or a list of languages
-	ensure_installed = "maintained",
+	ensure_installed = "all",
 
 	-- Install languages synchronously (only applied to `ensure_installed`)
 	sync_install = false,

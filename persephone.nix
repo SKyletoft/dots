@@ -13,27 +13,26 @@ in {
 		<nixos-hardware/microsoft/surface>
 	];
 
-	nixpkgs.config = {
-		allowUnfree = true;
-		allowBroken = false;
-
+	nixpkgs = {
+		config = {
+			allowUnfree = true;
+			allowBroken = false;
+		};
 		overlays = [
 			(final: prev: {
 				wlroots = prev.wlroots.overrideAttrs(old: {
 					postPatch = "sed -i 's/assert(argb8888 &&/assert(true || argb8888 ||/g' 'render/wlr_renderer.c'";
 				});
 			})
-			# (self: super: {
-			# 	gnome = super.gnome.overrideScope (gself: gsuper: {
-			# 		mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
-			# 			src = builtins.fetchGit {
-			# 				url = "https://gitlab.gnome.org/vanvugt/mutter";
-			# 				ref = "triple-buffering-v4";
-			# 				rev = "";
-			# 			};
-			# 		});
-			# 	});
-			# })
+			(self: super: {
+				gnome = super.gnome.overrideScope' (gself: gsuper: {
+					mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
+						src = builtins.fetchurl {
+							url = "https://gitlab.gnome.org/vanvugt/mutter/-/archive/triple-buffering-v4/mutter-triple-buffering-v4.tar.gz";
+						};
+					});
+				});
+			})
 		];
 	};
 
@@ -48,6 +47,7 @@ in {
 		extraOptions = ''
 			min-free = ${toString (1024 * 1024 * 1024)}
 			max-free = ${toString (10 * 1024 * 1024 * 1024)}
+			experimental-features = nix-command flakes
 		'';
 	};
 
@@ -66,7 +66,7 @@ in {
 
 
 	# Set your time zone.
-	time.timeZone = "Europe/Amsterdam";
+	time.timeZone = "Europe/Stockholm";
 
 	# The global useDHCP flag is deprecated, therefore explicitly set to false here.
 	# Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -101,7 +101,8 @@ in {
 	virtualisation = {
 		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
-		# docker.enable = true;
+		docker.enable = true;
+		virtualbox.host.enable = true;
 	};
 
 	services = {
@@ -115,6 +116,12 @@ in {
 			desktopManager.gnome.enable = true;
 
 			displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY";
+
+			extraLayouts.se-good = {
+				description = "Swedish, but good";
+				languages = [ "se" ];
+				symbolsFile = symbols/se-good;
+			};
 		};
 
 		pipewire = {
@@ -146,7 +153,14 @@ in {
 		description = "Samuel Kyletoft";
 		home = "/home/u3836";
 		isNormalUser = true;
-		extraGroups = [ "wheel" "networkmanager" "libvirtd" "dialout" "docker" ]; # Enable ‘sudo’ for the user.
+		extraGroups = [
+			"wheel" # Enable ‘sudo’ for the user.
+			"networkmanager"
+			"libvirtd"
+			"dialout"
+			"docker"
+			"vboxusers"
+		];
 		shell = pkgs.xonsh;
 	};
 
@@ -154,6 +168,11 @@ in {
 		nano
 		ffmpeg
 	];
+
+	environment.sessionVariables = {
+		MOZ_ENABLE_WAYLAND = "1";
+		EDITOR = "nvim";
+	};
 
 	# Replace sudo with doas
 	security = {
@@ -185,6 +204,7 @@ in {
 			package = pkgs.gnomeExtensions.gsconnect;	
 		};
 		xwayland.enable = waylandSupport;
+		steam.enable = true;
 		dconf.enable = true;
 		xonsh.enable = true;
 	};

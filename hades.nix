@@ -6,7 +6,6 @@
 
 let
 	waylandSupport = false;
-	compiledKeyboardLayout = pkgs.runCommand "keyboard-layout" {} "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./layout.xkb} $out";
 in {
 	imports = [ # Include the results of the hardware scan.
 		/etc/nixos/hardware-configuration.nix
@@ -100,12 +99,12 @@ in {
 		# };
 
 		# Open ports in the firewall.
-		# firewall = {
-		# 	allowedTCPPorts = [ ... ];
-		# 	allowedUDPPorts = [ ... ];
-		# };
-		# Or disable the firewall altogether.
-		# firewall.enable = false;
+		firewall = {
+			allowedTCPPorts = [ 80 443 8000 8080 12825 ];
+			allowedUDPPorts = [ 80 443 8000 8080 12825 ];
+			# Or disable the firewall altogether.
+			# enable = false;
+		};
 	};
 
 
@@ -138,10 +137,11 @@ in {
 
 			videoDrivers = [ "nvidia" ];
 
-			# Normal layout
-			displayManager.sessionCommands = ''
-				${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY
-			'';
+			extraLayouts.se-good = {
+				description = "Swedish, but good";
+				languages = [ "se" ];
+				symbolsFile = symbols/se-good;
+			};
 
 			screenSection = ''
 				Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
@@ -181,7 +181,7 @@ in {
 		# printing.enable = true;
 
 		# Enable the OpenSSH daemon.
-		# openssh.enable = true;
+		openssh.enable = true;
 	};
 
 	# Flatpak nonsense

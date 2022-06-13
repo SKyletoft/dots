@@ -40,13 +40,14 @@ in {
 			neofetch
 			trash-cli
 			rsync
+			xclip
 
 			eterm8
 			digiflisp
 
 			firefox-bin
 			alacritty
-			vscode
+			pinta
 
 			discord
 			signal-desktop
@@ -74,6 +75,7 @@ in {
 			gnome.gnome-weather
 			evince
 			gnome.gnome-disk-utility
+			gnome.eog
 			# gnome.aisleriot
 			# gnome.iagno
 
@@ -146,10 +148,21 @@ in {
 						sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
 					};
 				};
+				instant_nvim = pkgs.vimUtils.buildVimPlugin {
+					name = "instant_nvim";
+					src  = pkgs.fetchFromGitHub {
+						owner  = "jbyuki";
+						repo   = "instant.nvim";
+						rev    = "c02d72267b12130609b7ad39b76cf7f4a3bc9554";
+						sha256 = "sha256-7Pr2Au/oGKp5kMXuLsQY4BK5Wny9L1EBdXtyS5EaZPI=";
+					};
+				};
 			in
 			[
 				custom_monokai
+				instant_nvim
 				nvim-treesitter
+				vim-table-mode
 				coc-nvim
 				coc-rust-analyzer
 				coc-git
@@ -194,11 +207,11 @@ in {
 				bind "set completion-ignore-case on"
 
 				if [ "$TERM" == linux ]; then
-					PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
+					PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] [bash] \$ '
 				elif [ "$ALACRITTY" == yes ]; then
-					PS1='\e[1;97;42;24m \u \e[21;32;44;24m\e[1;97;44;24m \h \e[21;34;41;24m\e[1;97;41m \w \001\e[21;31;49;24m\002\n\001\e[97;1m\002↳\001\e[0m\002 '
+					PS1='\e[1;97;42;24m \u \e[21;32;44;24m\e[1;97;44;24m \h \e[21;34;41;24m\e[1;97;41m \w \001\e[21;31;49;24m\002 [bash]\n\001\e[97;1m\002↳\001\e[0m\002 '
 				else
-					PS1='\e[32;1m\u: \e[34m\w \[\033[00m\]\n↳ '
+					PS1='\e[32;1m\u: \e[34m\w \[\033[00m\] [bash]\n↳ '
 				fi
 			'';
 		};
