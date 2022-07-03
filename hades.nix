@@ -100,8 +100,12 @@ in {
 
 		# Open ports in the firewall.
 		firewall = {
-			allowedTCPPorts = [ 80 443 8000 8080 12825 ];
-			allowedUDPPorts = [ 80 443 8000 8080 12825 ];
+			allowedTCPPorts =
+				[ 80 443 8000 8080 12825 ] # Development
+				++ [ 53 1401 ]; # Mullvad
+			allowedUDPPorts =
+				[ 80 443 8000 8080 12825 ] # Development
+				++ [ 53 1194 1195 1196 1197 1399 1391 1392 1393 1400 ]; # Mullvad
 			# Or disable the firewall altogether.
 			# enable = false;
 		};
@@ -174,6 +178,8 @@ in {
 		};
 
 		earlyoom.enable = true;
+
+		mullvad-vpn.enable = true;
 
 		# flatpak.enable = true;
 

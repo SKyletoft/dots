@@ -71,6 +71,8 @@ in {
 			# retroarchFull
 			dolphin-emu-primehack
 			pinta
+			mullvad-vpn
+			fragments
 
 			virt-manager
 
