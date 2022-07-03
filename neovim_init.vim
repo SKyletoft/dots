@@ -62,7 +62,7 @@ set noexpandtab
 set number
 set mouse=a
 set scrolloff=8
-set foldmethod=syntax
+set foldmethod=expr
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
@@ -78,10 +78,15 @@ autocmd! FileType nix     setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpand
 autocmd! FileType toml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 autocmd! FileType yaml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 
-autocmd! FileType rust    nmap <leader>i :!cargo +nightly fmt<CR>
-autocmd! FileType c       nmap <leader>i :!clang-format -i %
-autocmd! FileType js      nmap <leader>i :!clang-format -i %
-autocmd! FileType java    nmap <leader>i :!clang-format -i %
+autocmd! FileType rust     nmap <leader>i :!cargo +nightly fmt<CR>
+autocmd! FileType c        nmap <leader>i :!clang-format -i %<CR>
+autocmd! FileType cpp      nmap <leader>i :!clang-format -i %<CR>
+autocmd! FileType js       nmap <leader>i :!clang-format -i %<CR>
+autocmd! FileType java     nmap <leader>i :!clang-format -i %<CR>
+autocmd! FileType markdown nmap <leader>i Vgq
+
+autocmd! FileType txt      TableModeEnable
+autocmd! FileType markdown TableModeEnable
 
 colorscheme monokai_pro
 
@@ -109,13 +114,13 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup {
 	-- One of "all", "maintained" (parsers with maintainers), or a list of languages
 	ensure_installed = "all",
-
+ 
 	-- Install languages synchronously (only applied to `ensure_installed`)
 	sync_install = false,
-
+ 
 	-- List of parsers to ignore installing
 	ignore_install = {},
-
+ 
 	highlight = {
 		-- `false` will disable the whole extension
 		enable = true,

@@ -3,6 +3,7 @@
 let
 	master = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
+		rev = "35619ce1e513fa044b341f62a633deaa458eed06";
 	}) {};
 	pinned = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
@@ -52,12 +53,15 @@ in {
 			eterm8
 			digiflisp
 
+			gnumake
+			gcc-arm-embedded
+
 			firefox-bin
 			alacritty
 			vscode
 			pinta
 
-			master.discord
+			discord
 			signal-desktop
 
 			libreoffice
@@ -66,13 +70,13 @@ in {
 			vlc
 			sgtpuzzles
 			xournalpp
-			minecraft
+			# minecraft
 			# lutris
 			# retroarchFull
-			dolphin-emu-primehack
-			pinta
+			# dolphin-emu-primehack
 
 			virt-manager
+			docker-compose
 
 			gnome.gnome-tweaks
 			gnome.baobab
@@ -162,17 +166,14 @@ in {
 				custom_monokai
 				nvim-treesitter
 				vim-table-mode
-				coc-nvim
+				# coc-nvim
 				coc-rust-analyzer
 				coc-git
-				vim-sneak
-				vim-repeat
 			];
 
 			extraPackages = with pkgs; [ rust-analyzer haskell-language-server clang-tools ];
 			extraConfig   = builtins.readFile ./neovim_init.vim;
 			viAlias       = true;
-			vimAlias      = true;
 			vimdiffAlias  = true;
 		};
 
@@ -201,20 +202,7 @@ in {
 			# Can't figure out where `complete` and `bind` are supposed to go
 			# when done properly
 			# sessionVariables for EDITOR doesn't seem to work?
-			initExtra = ''
-				complete -cf doas
-				bind "set completion-ignore-case on"
-				eval "$(direnv hook bash)"
-				export DIRENV_LOG_FORMAT=""
-
-				if [ "$TERM" == linux ]; then
-					PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
-				elif [ "$ALACRITTY" == yes ]; then
-					PS1='\e[1;97;42;24m \u \e[21;32;44;24m\e[1;97;44;24m \h \e[21;34;41;24m\e[1;97;41m \w \001\e[21;31;49;24m\002\n\001\e[97;1m\002↳\001\e[0m\002 '
-				else
-					PS1='\e[32;1m\u: \e[34m\w \[\033[00m\] [bash]\n↳ '
-				fi
-			'';
+			initExtra = builtins.readFile ./bashrc;
 		};
 
 		zoxide = {

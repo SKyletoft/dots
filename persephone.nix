@@ -6,7 +6,6 @@
 
 let
 	waylandSupport = true;
-	compiledKeyboardLayout = pkgs.runCommand "keyboard-layout" {} "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./layout.xkb} $out";
 in {
 	imports = [ # Include the results of the hardware scan.
 		/etc/nixos/hardware-configuration.nix
@@ -27,9 +26,7 @@ in {
 			(self: super: {
 				gnome = super.gnome.overrideScope' (gself: gsuper: {
 					mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
-						src = builtins.fetchurl {
-							url = "https://gitlab.gnome.org/vanvugt/mutter/-/archive/triple-buffering-v4/mutter-triple-buffering-v4.tar.gz";
-						};
+						patches = [ ./1441.patch ] ++ oldAttrs.patches;
 					});
 				});
 			})
@@ -102,7 +99,6 @@ in {
 		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
 		docker.enable = true;
-		virtualbox.host.enable = true;
 	};
 
 	services = {
@@ -114,8 +110,6 @@ in {
 				wayland = waylandSupport;
 			};
 			desktopManager.gnome.enable = true;
-
-			displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledKeyboardLayout} $DISPLAY";
 
 			extraLayouts.se-good = {
 				description = "Swedish, but good";
@@ -160,6 +154,7 @@ in {
 			"dialout"
 			"docker"
 			"vboxusers"
+			"video"
 		];
 		shell = pkgs.bash;
 	};
