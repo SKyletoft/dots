@@ -35,16 +35,26 @@
 		# nameservers = [ "8.8.8.8" ];
 	};
 
-	fileSystems."/" = {
-		device = "/dev/disk/by-label/NIXOS_SD";
-		fsType = "ext4";
-		options = [ "noatime" ];
+	fileSystems = {
+		"/" = {
+			device = "/dev/disk/by-label/NIXOS_SD";
+			fsType = "ext4";
+			options = [ "noatime" ];
+		};
+		"/mnt/T7" = {
+			device = "/dev/disk/by-label/T7"; # Actual device is randomised for some reason
+			fsType = "exfat";
+			options = [
+				"allow_other"
+				"x-systemd.automount"
+			];
+		};
 	};
 
 	environment.systemPackages = with pkgs; [ neovim ];
 
 	users.users.u3836 = {
-		motd = "$(SYSTEMD_COLORS=true neofetch && systemctl status nginx | head -n3)";
+		motd = "echo $(SYSTEMD_COLORS=true neofetch && systemctl status nginx | head -n3)";
 		isNormalUser = true;
 		extraGroups = [ "wheel" ];
 		shell = pkgs.bash;

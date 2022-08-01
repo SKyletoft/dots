@@ -73,7 +73,10 @@ in {
 			# minecraft
 			# lutris
 			# retroarchFull
-			# dolphin-emu-primehack
+			dolphin-emu-primehack
+			pinta
+			mullvad-vpn
+			fragments
 
 			virt-manager
 			docker-compose
