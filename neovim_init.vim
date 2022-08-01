@@ -125,6 +125,14 @@ function! s:show_documentation()
 	endif
 endfunction
 
+" Vim Slime
+let g:slime_target = "neovim"
+xmap <C-b><C-b> <Plug>SlimeRegionSend
+nmap <C-b><C-b> <Plug>SlimeParagraphSend
+nmap <C-b>v     <Plug>SlimeConfig
+autocmd! FileType haskell so ~/dots/vim-slime/haskell.vim
+autocmd! FileType python  so ~/dots/vim-slime/python.vim
+
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
 	-- One of "all", "maintained" (parsers with maintainers), or a list of languages

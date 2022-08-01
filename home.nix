@@ -169,6 +169,7 @@ in {
 				nvim-treesitter
 				vim-table-mode
 				zen-mode-nvim
+				vim-slime
 				# coc-nvim
 				coc-rust-analyzer
 				coc-git
