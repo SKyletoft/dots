@@ -60,6 +60,7 @@ in {
 			alacritty
 			vscode
 			pinta
+			cura
 
 			discord
 			signal-desktop
@@ -77,6 +78,7 @@ in {
 			pinta
 			mullvad-vpn
 			fragments
+			heroic
 
 			virt-manager
 			docker-compose
