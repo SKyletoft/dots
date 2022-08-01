@@ -20,14 +20,14 @@ xkb_symbols "se-good" {
 	key <BKSP> {[       BackSpace,       BackSpace,        NoSymbol,        NoSymbol, Terminate_Server ]};
 
 	key  <TAB> {[             Tab,    ISO_Left_Tab ]};
-	key <AD01> {[               q,               Q ]};
-	key <AD02> {[               w,               W ]};
+	key <AD01> {[               q,               Q,        NoSymbol,        NoSymbol ]};
+	key <AD02> {[               w,               W,        NoSymbol,        NoSymbol ]};
 	key <AD03> {[               e,               E,        EuroSign,            cent ]};
 	key <AD04> {[               r,               R,      registered,           U211D ]};
 	key <AD05> {[               t,               T,           thorn,           THORN ]};
 	key <AD06> {[               y,               Y,             eth,             ETH ]};
-	key <AD07> {[               u,               U ]};
-	key <AD08> {[               i,               I ]};
+	key <AD07> {[               u,               U,        NoSymbol,        NoSymbol ]};
+	key <AD08> {[               i,               I,        NoSymbol,        NoSymbol ]};
 	key <AD09> {[               o,               O,          degree,           U2295 ]};
 	key <AD10> {[               p,               P,     bracketleft,        Greek_pi ]};
 	key <AD11> {[           aring,           Aring,    bracketright ]};
@@ -38,10 +38,10 @@ xkb_symbols "se-good" {
 	key <AC02> {[               s,               S,     Greek_sigma,     Greek_SIGMA ]};
 	key <AC03> {[               d,               D,     Greek_delta,     Greek_DELTA ]};
 	key <AC04> {[               f,               F,       Greek_phi,       Greek_PHI ]};
-	key <AC05> {[               g,               G ]};
-	key <AC06> {[               h,               H ]};
-	key <AC07> {[               j,               J ]};
-	key <AC08> {[               k,               K ]};
+	key <AC05> {[               g,               G,        NoSymbol,        NoSymbol ]};
+	key <AC06> {[               h,               H,        NoSymbol,        NoSymbol ]};
+	key <AC07> {[               j,               J,        NoSymbol,        NoSymbol ]};
+	key <AC08> {[               k,               K,        NoSymbol,        NoSymbol ]};
 	key <AC09> {[               l,               L,    Greek_lambda,    Greek_LAMBDA ]};
 	key <AC10> {[      odiaeresis,      Odiaeresis,       braceleft ]};
 	key <AC11> {[      adiaeresis,      Adiaeresis,      braceright ]};
@@ -51,13 +51,13 @@ xkb_symbols "se-good" {
 	key <AB01> {[               z,               Z,     Greek_omega,     Greek_OMEGA ]};
 	key <AB02> {[               x,               X,     Greek_theta,     Greek_THETA ]};
 	key <AB03> {[               c,               C,       copyright ]};
-	key <AB04> {[               v,               V ]};
+	key <AB04> {[               v,               V,        NoSymbol,        NoSymbol ]};
 	key <AB05> {[               b,               B,      Greek_beta,          U1D539 ]};
 	key <AB06> {[               n,               N,           U2115,           U2124 ]};
 	key <AB07> {[               m,               M,        Greek_mu,              mu ]};
 	key <AB08> {[           comma,       semicolon ]};
 	key <AB09> {[          period,           colon,  periodcentered,        abovedot ]};
-	key <AB10> {[           minus,      underscore ]};
+	key <AB10> {[           minus,      underscore,         NoSymbol,          U203E ]};
 
 	key <LCTL> {[       Control_L ]};
 

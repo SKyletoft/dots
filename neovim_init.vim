@@ -56,6 +56,16 @@ noremap <C-M-S> <C-w>j
 noremap <C-M-A> <C-w>h
 noremap <C-M-D> <C-w>l
 
+" Terminal managerment
+noremap <C-t> :terminal<CR>:set nonumber<CR>i
+tnoremap <Esc> <C-\><C-n>
+"tnoremap <C-e> <C-\><C-w>v
+"tnoremap <C-q> <C-\><C-w>s
+"tnoremap <C-M-W> <C-\><C-w>k
+"tnoremap <C-M-S> <C-\><C-w>j
+"tnoremap <C-M-A> <C-\><C-w>h
+"tnoremap <C-M-D> <C-\><C-w>l
+
 filetype plugin indent off
 set tabstop=8
 set shiftwidth=8
@@ -139,6 +149,13 @@ require'nvim-treesitter.configs'.setup {
 		-- Instead of true it can also be a list of languages
 		additional_vim_regex_highlighting = true,
 	},
+}
+
+require("zen-mode").setup {
+	-- https://github.com/folke/zen-mode.nvim#%EF%B8%8F-configuration
+	window = {
+		width = 83
+	}
 }
 EOF
 

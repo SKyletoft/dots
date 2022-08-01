@@ -90,8 +90,8 @@ in {
 			evince
 			gnome.gnome-disk-utility
 			gnome.eog
-			# gnome.aisleriot
-			# gnome.iagno
+			gnome.aisleriot
+			gnome.iagno
 
 			gnomeExtensions.unite
 			gnomeExtensions.just-perfection
@@ -168,6 +168,7 @@ in {
 				custom_monokai
 				nvim-treesitter
 				vim-table-mode
+				zen-mode-nvim
 				# coc-nvim
 				coc-rust-analyzer
 				coc-git
