@@ -90,6 +90,7 @@ autocmd FileType c        nmap <leader>i :!clang-format -i %<CR>
 autocmd FileType cpp      nmap <leader>i :!clang-format -i %<CR>
 autocmd FileType js       nmap <leader>i :!clang-format -i %<CR>
 autocmd FileType java     nmap <leader>i :!clang-format -i %<CR>
+autocmd FileType haskell  nmap <leader>i :!hindent % && stylish-haskell -i %<CR>
 autocmd FileType markdown nmap <leader>i Vgq
 
 " Table mode in text files
