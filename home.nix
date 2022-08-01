@@ -125,7 +125,7 @@ in {
 			enable     = true;
 			withNodeJs = true;
 			coc        = {
-				enable   = false;
+				enable   = true;
 				settings = {
 					languageserver =  {
 						haskell = {
