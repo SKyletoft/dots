@@ -68,9 +68,6 @@ in {
 			vlc
 			sgtpuzzles
 			xournalpp
-			# minecraft
-			# lutris
-			# retroarchFull
 			dolphin-emu-primehack
 			pinta
 			mullvad-vpn
@@ -101,10 +98,7 @@ in {
 			gnomeExtensions.hot-edge
 			gnomeExtensions.caffeine
 			gnomeExtensions.sound-output-device-chooser
-			# gnomeExtensions.vertical-overview
 			gnomeExtensions.fuzzy-app-search
-			# gnomeExtensions.fuzzy-clock
-			# gnomeExtensions.duckduckgo-search-provider
 			gnomeExtensions.pop-shell
 			gnomeExtensions.burn-my-windows
 		] else []);
@@ -149,7 +143,6 @@ in {
 						};
 					};
 				};
-
 			};
 
 			plugins = with pinned.vimPlugins; 
@@ -170,7 +163,6 @@ in {
 				vim-table-mode
 				zen-mode-nvim
 				vim-slime
-				# coc-nvim
 				coc-rust-analyzer
 				coc-git
 			];
