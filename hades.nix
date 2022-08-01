@@ -208,11 +208,11 @@ in {
 		home = "/home/u3836";
 		isNormalUser = true;
 		extraGroups = [
-			"wheel"
-			"networkmanager"
-			"libvirtd"
-			"dialout"
-			"docker"
+			"wheel"           # sudo
+			"networkmanager"  # networking
+			"libvirtd"        # virtual machines
+			"dialout"         # md407
+			"docker"          # docker
 		]; # Enable ‘sudo’ for the user.
 		shell = pkgs.bash;
 	};
