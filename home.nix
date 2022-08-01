@@ -166,6 +166,7 @@ in {
 				custom_monokai
 				nvim-treesitter
 				vim-table-mode
+				zen-mode-nvim
 				# coc-nvim
 				coc-rust-analyzer
 				coc-git

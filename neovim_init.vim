@@ -135,5 +135,12 @@ require'nvim-treesitter.configs'.setup {
 		additional_vim_regex_highlighting = true,
 	},
 }
+
+require("zen-mode").setup {
+	-- https://github.com/folke/zen-mode.nvim#%EF%B8%8F-configuration
+	window = {
+		width = 83
+	}
+}
 EOF
 
