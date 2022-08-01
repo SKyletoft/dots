@@ -59,12 +59,6 @@ noremap <C-M-D> <C-w>l
 " Terminal managerment
 noremap <C-t> :terminal<CR>:set nonumber<CR>i
 tnoremap <Esc> <C-\><C-n>
-"tnoremap <C-e> <C-\><C-w>v
-"tnoremap <C-q> <C-\><C-w>s
-"tnoremap <C-M-W> <C-\><C-w>k
-"tnoremap <C-M-S> <C-\><C-w>j
-"tnoremap <C-M-A> <C-\><C-w>h
-"tnoremap <C-M-D> <C-\><C-w>l
 
 filetype plugin indent off
 set tabstop=8
@@ -77,6 +71,7 @@ set foldmethod=expr
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
+colorscheme monokai_pro
 
 autocmd! FileType rust    setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
 autocmd! FileType fortran setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
@@ -89,6 +84,7 @@ autocmd! FileType nix     setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpand
 autocmd! FileType toml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 autocmd! FileType yaml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 
+" Formatter shortcuts
 autocmd! FileType rust     nmap <leader>i :!cargo +nightly fmt<CR><CR>
 autocmd! FileType c        nmap <leader>i :!clang-format -i %<CR>
 autocmd! FileType cpp      nmap <leader>i :!clang-format -i %<CR>
@@ -96,12 +92,13 @@ autocmd! FileType js       nmap <leader>i :!clang-format -i %<CR>
 autocmd! FileType java     nmap <leader>i :!clang-format -i %<CR>
 autocmd! FileType markdown nmap <leader>i Vgq
 
+" Table mode in text files
 autocmd! FileType txt      TableModeEnable
 autocmd! FileType markdown TableModeEnable
 
-colorscheme monokai_pro
-
 let mapleader = " "
+
+" CoC
 xmap <leader>A <Plug>(coc-codeaction-selected)
 nmap <leader>A <Plug>(coc-codeaction-selected)
 nmap <leader>g <Plug>(coc-definition)
@@ -109,11 +106,7 @@ nmap <leader>a <Plug>(coc-codeaction-cursor)
 nmap <leader>r <Plug>(coc-rename)
 nmap <F2>      <Plug>(coc-rename)
 nmap <leader>t :CocCommand rust-analyzer.toggleInlayHints<CR>
-
 nnoremap <silent> <leader>f :call <SID>show_documentation()<CR>
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
-map ' ;
 
 function! s:show_documentation()
 	if (index(['vim', 'help'], &filetype) >= 0)
@@ -133,8 +126,10 @@ nmap <C-b>v     <Plug>SlimeConfig
 autocmd! FileType haskell so ~/dots/vim-slime/haskell.vim
 autocmd! FileType python  so ~/dots/vim-slime/python.vim
 
+" Lua configs
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
+
+require("nvim-treesitter.configs").setup {
 	-- One of "all", "maintained" (parsers with maintainers), or a list of languages
 	ensure_installed = "all",
  
@@ -165,5 +160,6 @@ require("zen-mode").setup {
 		width = 83
 	}
 }
+
 EOF
 
