@@ -243,7 +243,6 @@ in {
 		(nerdfonts.override {fonts = [
 			"FiraCode"
 			"DroidSansMono"
-			"FantasqueSansMono"
 		];})
 	];
 
