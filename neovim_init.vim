@@ -23,6 +23,7 @@ vmap <S-tab> <gv
 
 " Find
 noremap <C-f> /
+noremap <C-g> :%s/
 
 " Undo and redo
 noremap <C-z> u
