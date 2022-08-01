@@ -95,6 +95,10 @@ xmap <leader>A <Plug>(coc-codeaction-selected)
 nmap <leader>A <Plug>(coc-codeaction-selected)
 nmap <leader>g <Plug>(coc-definition)
 nmap <leader>a <Plug>(coc-codeaction-cursor)
+nmap <leader>r <Plug>(coc-rename)
+nmap <F2>      <Plug>(coc-rename)
+nmap <leader>t :CocCommand rust-analyzer.toggleInlayHints<CR>
+
 nnoremap <silent> <leader>f :call <SID>show_documentation()<CR>
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
