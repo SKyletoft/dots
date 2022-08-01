@@ -217,14 +217,12 @@ in {
 		shell = pkgs.bash;
 	};
 
-	environment = {
-		# List packages installed in system profile. To search, run:
-		# $ nix search wget
-		systemPackages = with pkgs; [
-			nano
-			ffmpeg
-		];
-	};
+	# List packages installed in system profile. To search, run:
+	# $ nix search wget
+	environment.systemPackages = with pkgs; [
+		nano
+		ffmpeg
+	];
 
 	# Replace sudo with doas
 	security = {
