@@ -53,9 +53,6 @@ in {
 			eterm8
 			digiflisp
 
-			gnumake
-			gcc-arm-embedded
-
 			firefox-bin
 			alacritty
 			vscode
@@ -130,7 +127,7 @@ in {
 			enable     = true;
 			withNodeJs = true;
 			coc        = {
-				enable   = false;
+				enable   = true;
 				settings = {
 					languageserver =  {
 						haskell = {
@@ -194,7 +191,8 @@ in {
 				rm  = "trash-put";
 
 				hackeholken = "ssh 3836@dtek.se -p222";
-				pi          = "ssh u3836@81.225.66.47 -p1234";
+				eurydice    = "ssh kyletoft.se -p1234";
+				hades       = "ssh kyletoft.se -p1235";
 			};
 
 			shellOptions = [
@@ -203,10 +201,6 @@ in {
 				"globstar"
 			];
 
-			# Different PS1s for a plain tty, alacritty and the rest
-			# Can't figure out where `complete` and `bind` are supposed to go
-			# when done properly
-			# sessionVariables for EDITOR doesn't seem to work?
 			initExtra = builtins.readFile ./bashrc;
 		};
 
