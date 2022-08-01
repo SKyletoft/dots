@@ -88,8 +88,8 @@ in {
 			evince
 			gnome.gnome-disk-utility
 			gnome.eog
-			# gnome.aisleriot
-			# gnome.iagno
+			gnome.aisleriot
+			gnome.iagno
 
 			gnomeExtensions.unite
 			gnomeExtensions.just-perfection
