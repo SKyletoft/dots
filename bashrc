@@ -2,6 +2,7 @@ complete -cf doas
 bind "set completion-ignore-case on"
 eval "$(direnv hook bash)"
 export DIRENV_LOG_FORMAT=""
+export EDITOR="vi"
 
 if [ "$TERM" == linux ]; then
 	PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
