@@ -20,6 +20,8 @@
 		'';
 	};
 
+	boot.supportedFileSystems = [ "exfat" ];
+
 	networking = {
 		hostName = "eurydice";
 		firewall = {
@@ -45,6 +47,7 @@
 			device = "/dev/disk/by-label/T7"; # Actual device is randomised for some reason
 			fsType = "exfat";
 			options = [
+				"noatime"
 				"allow_other"
 				"x-systemd.automount"
 			];
@@ -54,7 +57,6 @@
 	environment.systemPackages = with pkgs; [ neovim ];
 
 	users.users.u3836 = {
-		motd = "echo $(SYSTEMD_COLORS=true neofetch && systemctl status nginx | head -n3)";
 		isNormalUser = true;
 		extraGroups = [ "wheel" ];
 		shell = pkgs.bash;
@@ -135,4 +137,6 @@
 			defaults.email = "samuel+acme@kyletoft.se";
 		};
 	};
+
+	system.stateVersion = "21.11";
 }
