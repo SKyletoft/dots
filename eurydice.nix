@@ -51,10 +51,18 @@
 		};
 	};
 
-	environment.systemPackages = with pkgs; [ neovim ];
+	documentation = {
+		dev.enable = true;
+		man.generateCaches = true;
+	};
+
+	environment.systemPackages = with pkgs; [
+		neovim
+		man-pages
+		man-pages-posix
+	];
 
 	users.users.u3836 = {
-		motd = "echo $(SYSTEMD_COLORS=true neofetch && systemctl status nginx | head -n3)";
 		isNormalUser = true;
 		extraGroups = [ "wheel" ];
 		shell = pkgs.bash;

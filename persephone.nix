@@ -162,9 +162,16 @@ in {
 		shell = pkgs.bash;
 	};
 
+	documentation = {
+		dev.enable = true;
+		man.generateCaches = true;
+	};
+
 	environment.systemPackages = with pkgs; [
 		nano
 		ffmpeg
+		man-pages
+		man-pages-posix
 	];
 
 	environment.sessionVariables = {
