@@ -67,10 +67,12 @@ set noexpandtab
 set number
 set mouse=a
 set scrolloff=8
-set foldmethod=expr
+set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
+set path+=**
+set wildmenu
 colorscheme monokai_pro
 
 autocmd FileType rust    setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
