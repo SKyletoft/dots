@@ -20,6 +20,8 @@
 		'';
 	};
 
+	boot.supportedFileSystems = [ "exfat" ];
+
 	networking = {
 		hostName = "eurydice";
 		firewall = {
@@ -45,6 +47,7 @@
 			device = "/dev/disk/by-label/T7"; # Actual device is randomised for some reason
 			fsType = "exfat";
 			options = [
+				"noatime"
 				"allow_other"
 				"x-systemd.automount"
 			];
@@ -143,4 +146,6 @@
 			defaults.email = "samuel+acme@kyletoft.se";
 		};
 	};
+
+	system.stateVersion = "21.11";
 }
