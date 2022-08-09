@@ -30,6 +30,8 @@ in {
 		packages = let
 			eterm8    = pkgs.callPackage ./packages/eterm8.nix {};
 			digiflisp = pkgs.callPackage ./packages/digiflisp.nix {};
+			doasedit  = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
+			monitor   = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
 		in with pkgs; [
 			git
 			wget
@@ -47,11 +49,13 @@ in {
 			rsync
 			xclip
 			direnv
+			doasedit
 		] ++
 		(if gui then [
 
 			eterm8
 			digiflisp
+			monitor
 
 			firefox-bin
 			alacritty
