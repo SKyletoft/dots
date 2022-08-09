@@ -59,6 +59,7 @@ in {
 		};
 		kernelPackages = pkgs.linuxPackages_zen;
 		supportedFilesystems = [ "ntfs" ];
+		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		# extraModulePackages = [ pkgs.linuxPackages_zen.anbox ];
 	};
 
