@@ -20,7 +20,7 @@
 		'';
 	};
 
-	boot.supportedFileSystems = [ "exfat" ];
+	boot.supportedFilesystems = [ "exfat" ];
 
 	networking = {
 		hostName = "eurydice";
