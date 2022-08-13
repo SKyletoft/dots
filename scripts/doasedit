@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/usr/bin/env sh -e
 
 # Source (MIT)
 # https://github.com/AN3223/scripts/blob/0de994c363ab538a70d3deafb550e991dcca387f/doasedit

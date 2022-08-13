@@ -1,0 +1,16 @@
+#!/usr/bin/env sh -e
+
+if [ $1 == "default" ]; then
+	xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --output DP-2 --mode 2560x1440 --rate 144.00 --right-of DP-0
+elif [ $1 == "left" ]; then
+	if [ $2 == "landscape" ]; then
+		xrandr --output DP-2 --rotate normal --pos 0x0 --output DP-0 --pos 2560x1440
+	elif [ $2 == "portrait" ]; then
+		xrandr --output DP-0 --rotate right --pos 0x0 --output DP-2 --pos 1440x560
+	else
+		# Disables the right monitor
+		xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --output DP-2 --off
+	fi
+elif [ $1 == "right" ]; then
+	xrandr --output DP-2 --mode 2560x1440 --rate 144.00 --output DP-0 --off
+fi

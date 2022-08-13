@@ -30,6 +30,8 @@ in {
 		packages = let
 			eterm8    = pkgs.callPackage ./packages/eterm8.nix {};
 			digiflisp = pkgs.callPackage ./packages/digiflisp.nix {};
+			doasedit  = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
+			monitor   = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
 		in with pkgs; [
 			git
 			wget
@@ -47,11 +49,13 @@ in {
 			rsync
 			xclip
 			direnv
+			doasedit
 		] ++
 		(if gui then [
 
 			eterm8
 			digiflisp
+			monitor
 
 			firefox-bin
 			alacritty
@@ -139,7 +143,12 @@ in {
 						clangd = {
 							command   = "clangd";
 							filetypes = [ "c" "cpp" "cc" "h" "hpp" ];
-							args      = [ "--background-index" ];
+							args      = [
+								"--background-index"
+								"--clang-tidy"
+								"--header-insertion=iwyu"
+								"--header-insertion-decorators"
+							];
 						};
 					};
 				};
@@ -167,7 +176,7 @@ in {
 				coc-git
 			];
 
-			extraPackages = with pkgs; [ rust-analyzer haskell-language-server clang-tools ];
+			extraPackages = with pkgs; [ rust-analyzer haskell-language-server clang-tools_14 ];
 			extraConfig   = builtins.readFile ./neovim_init.vim;
 			viAlias       = true;
 			vimdiffAlias  = true;
