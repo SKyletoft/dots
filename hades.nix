@@ -59,6 +59,7 @@ in {
 		};
 		kernelPackages = pkgs.linuxPackages_zen;
 		supportedFilesystems = [ "ntfs" ];
+		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		# extraModulePackages = [ pkgs.linuxPackages_zen.anbox ];
 	};
 
@@ -217,11 +218,16 @@ in {
 		shell = pkgs.bash;
 	};
 
-	# List packages installed in system profile. To search, run:
-	# $ nix search wget
+	documentation = {
+		dev.enable = true;
+		man.generateCaches = true;
+	};
+
 	environment.systemPackages = with pkgs; [
 		nano
 		ffmpeg
+		man-pages
+		man-pages-posix
 	];
 
 	# Replace sudo with doas

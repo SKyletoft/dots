@@ -58,6 +58,7 @@ in {
 			efi.canTouchEfiVariables = true;
 		};
 		supportedFilesystems = [ "ntfs" ];
+		binfmt.emulatedSystems = [ "aarch64-linux" ];
 	};
 
 	hardware = {
@@ -162,9 +163,22 @@ in {
 		shell = pkgs.bash;
 	};
 
+	documentation = {
+		dev.enable = true;
+		doc.enable = true;
+		info.enable = true;
+		nixos.includeAllModules = true;
+		man = {
+			enable = true;
+			generateCaches = true;
+		};
+	};
+
 	environment.systemPackages = with pkgs; [
 		nano
 		ffmpeg
+		man-pages
+		man-pages-posix
 	];
 
 	environment.sessionVariables = {

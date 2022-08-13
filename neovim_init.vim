@@ -67,10 +67,12 @@ set noexpandtab
 set number
 set mouse=a
 set scrolloff=8
-set foldmethod=expr
+set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
+set path+=**
+set wildmenu
 colorscheme monokai_pro
 
 autocmd FileType rust    setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
@@ -91,7 +93,7 @@ autocmd FileType cpp      nmap <leader>i :!clang-format -i %<CR>
 autocmd FileType js       nmap <leader>i :!clang-format -i %<CR>
 autocmd FileType java     nmap <leader>i :!clang-format -i %<CR>
 autocmd FileType haskell  nmap <leader>i :!hindent % && stylish-haskell -i %<CR>
-autocmd FileType markdown nmap <leader>i Vgq
+autocmd FileType markdown nmap <leader>i vipgq
 
 " Table mode in text files
 autocmd FileType txt      TableModeEnable

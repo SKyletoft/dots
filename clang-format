@@ -1,6 +1,6 @@
 ﻿---
 BasedOnStyle: LLVM
-IndentWidth: 4
+IndentWidth: 8
 AllowShortFunctionsOnASingleLine: 'None'
 AllowShortIfStatementsOnASingleLine: 'Never'
 AlignAfterOpenBracket: 'Align'
@@ -17,8 +17,8 @@ BreakBeforeBinaryOperators: 'NonAssignment'
 SpaceAfterCStyleCast: true
 SpaceAfterLogicalNot: false
 SpaceBeforeParens: 'ControlStatements'
-TabWidth: 4
+TabWidth: 8
 UseTab: 'ForIndentation'
-ColumnLimit: 78
+ColumnLimit: 98
 UseCRLF: false
 DeriveLineEnding: false

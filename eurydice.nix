@@ -20,7 +20,10 @@
 		'';
 	};
 
-	boot.supportedFilesystems = [ "exfat" ];
+	boot = {
+		supportedFilesystems = [ "exfat" ];
+		binfmt.emulatedSystems = [ "x86_64-linux" ];
+	};
 
 	networking = {
 		hostName = "eurydice";
@@ -54,7 +57,16 @@
 		};
 	};
 
-	environment.systemPackages = with pkgs; [ neovim ];
+	documentation = {
+		dev.enable = true;
+		man.generateCaches = true;
+	};
+
+	environment.systemPackages = with pkgs; [
+		neovim
+		man-pages
+		man-pages-posix
+	];
 
 	users.users.u3836 = {
 		isNormalUser = true;
