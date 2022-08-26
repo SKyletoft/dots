@@ -66,10 +66,7 @@ in {
 
 	hardware = {
 		opengl.enable = true;
-		nvidia = {
-			modesetting.enable = true;
-			package = pkgs.linuxPackages_zen.nvidia_x11;
-		};
+		nvidia.modesetting.enable = waylandSupport;
 		cpu.intel.updateMicrocode = true;
 	};
 
