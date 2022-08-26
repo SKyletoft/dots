@@ -231,8 +231,8 @@ in {
 		man-pages-posix
 	];
 
-	# Replace sudo with doas
 	security = {
+		# Replace sudo with doas
 		sudo.enable = false;
 		doas = {
 			enable = true;
@@ -242,6 +242,13 @@ in {
 				persist = true;
 			}];
 		};
+		# Increase max open files limit
+		pam.loginLimits = [{
+			domain = "*";
+			type = "soft";
+			item = "nofile";
+			value = "32768";
+		}];
 	};
 
 	fonts.fonts = with pkgs; [
