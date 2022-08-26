@@ -26,7 +26,7 @@ xkb_symbols "se-good" {
 	key <AD04> {[               r,               R,      registered,           U211D ]};
 	key <AD05> {[               t,               T,           thorn,           THORN ]};
 	key <AD06> {[               y,               Y,             eth,             ETH ]};
-	key <AD07> {[               u,               U,        NoSymbol,        NoSymbol ]};
+	key <AD07> {[               u,               U,           U22C3,           U22C2 ]};
 	key <AD08> {[               i,               I,        NoSymbol,        NoSymbol ]};
 	key <AD09> {[               o,               O,          degree,           U2295 ]};
 	key <AD10> {[               p,               P,     bracketleft,        Greek_pi ]};
