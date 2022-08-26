@@ -38,7 +38,16 @@ in {
 	};
 
 	nix = {
-		settings.auto-optimise-store = true;
+		settings = {
+			auto-optimise-store = true;
+			system-features = [
+				"benchmark"
+				"big-parallel"
+				"gccarch-skylake"
+				"kvm"
+				"nixos-test"
+			];
+		};
 		gc = {
 			automatic = true;
 			dates = "weekly";
