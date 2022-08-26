@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Signal
+Exec=signal-desktop --start-in-tray
+Terminal=false
+Type=Application

@@ -239,6 +239,9 @@ in {
 		".ghci".source              = ./ghci;
 		".xonshrc".source           = ./xonshrc;
 
+		# Extra desktop files
+		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;
+
 		# Folders
 		".themes/yaru".source                         = ./.themes/yaru;
 		".icons/yaru_edit".source                     = ./.icons/yaru_edit;
