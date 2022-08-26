@@ -243,7 +243,6 @@ in {
 		".themes/yaru".source                         = ./.themes/yaru;
 		".icons/yaru_edit".source                     = ./.icons/yaru_edit;
 		".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
-		"bin".source                                  = ./scripts;
 	};
 
 	# Let Home Manager install and manage itself.
