@@ -165,6 +165,7 @@ in {
 						sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
 					};
 				};
+				vimspector = pkgs.callPackage ./packages/vimspector.nix {};
 			in
 			[
 				custom_monokai
@@ -174,6 +175,7 @@ in {
 				vim-slime
 				coc-rust-analyzer
 				coc-git
+				vimspector
 			];
 
 			extraPackages = with pkgs; [ rust-analyzer haskell-language-server clang-tools_14 ];
