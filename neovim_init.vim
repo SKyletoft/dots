@@ -37,6 +37,7 @@ noremap l d
 
 " Open file
 noremap <C-o> :e 
+noremap <C-M-tab> gt
 
 " End of line and start of line inserts
 nnoremap A I
