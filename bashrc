@@ -17,6 +17,8 @@ iptsd () {
 		doas systemctl reload-or-restart iptsd
 	elif [ $1 == "off" ]; then
 		doas systemctl kill iptsd
+	elif [ $1 == "status" ]; then
+		systemctl is-enabled iptsd
 	else
 		echo "Invalid command"
 	fi

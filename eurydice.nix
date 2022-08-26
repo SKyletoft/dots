@@ -21,7 +21,7 @@
 	};
 
 	boot = {
-		supportedFileSystems = [ "exfat" ];
+		supportedFilesystems = [ "exfat" ];
 		binfmt.emulatedSystems = [ "x86_64-linux" ];
 	};
 
