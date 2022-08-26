@@ -102,6 +102,7 @@ autocmd FileType markdown TableModeEnable
 let mapleader = " "
 
 " CoC
+nmap <leader>d <Plug>(coc-git-chunkinfo)
 xmap <leader>A <Plug>(coc-codeaction-selected)
 nmap <leader>A <Plug>(coc-codeaction-selected)
 nmap <leader>g <Plug>(coc-definition)
