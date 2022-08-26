@@ -6,6 +6,7 @@
 
 let
 	waylandSupport = false;
+	windowsFonts = false;
 in {
 	imports = [ # Include the results of the hardware scan.
 		/etc/nixos/hardware-configuration.nix
@@ -250,7 +251,11 @@ in {
 			"FiraCode"
 			"DroidSansMono"
 		];})
-	];
+	] ++ (if windowsFonts then [
+		winePackages.fonts
+		vistafonts
+		corefonts
+	] else []);
 
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
