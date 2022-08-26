@@ -130,6 +130,16 @@ nmap <C-b>v     <Plug>SlimeConfig
 autocmd FileType haskell so ~/dots/vim-slime/haskell.vim
 autocmd FileType python  so ~/dots/vim-slime/python.vim
 
+" Vimspector
+nmap <F5>  <Plug>VimspectorContinue
+nmap <F3>  <Plug>VimspectorStop
+nmap <F4>  <Plug>VimspectorRestart
+nmap <F6>  <Plug>VimspectorPause
+nmap <C-B> <Plug>VimspectorToggleBreakpoint
+nmap <F9>  <Plug>VimspectorStepOver
+nmap <F10> <Plug>VimspectorStepInto
+nmap <F12> <Plug>VimspectorStepOut
+
 " Lua configs
 lua <<EOF
 
