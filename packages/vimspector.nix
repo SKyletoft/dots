@@ -43,7 +43,8 @@ stdenv.mkDerivation rec {
 		tar xf $src
 	'';
 
-	installPhase = ''tar xf $src
+	installPhase = ''
+		tar xf $src
 		mkdir -p $out
 		cp -r vimspector/opt/vimspector/* $out
 		python3 $out/install_gadget.py --enable-c --enable-rust --enable-bash --enable-python
