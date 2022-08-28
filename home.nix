@@ -65,6 +65,7 @@ in {
 
 			discord
 			signal-desktop
+			slack
 
 			libreoffice
 			ark
