@@ -52,9 +52,6 @@ in {
 			doasedit
 		] ++
 		(if gui then [
-
-			eterm8
-			digiflisp
 			monitor
 
 			firefox-bin
