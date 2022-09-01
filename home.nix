@@ -149,6 +149,17 @@ in {
 							];
 						};
 					};
+
+					"rust-analyzer.checkOnSave.enable"  = true;
+					"rust-analyzer.checkOnSave.command" = "clippy";
+
+					"rust-analyzer.hover.documentation.enable" = false;
+					"rust-analyzer.hover.links.enable" = true;
+
+					"rust-analyzer.inlayHints.closingBraceHints.enable" = false;
+					"rust-analyzer.inlayHints.renderColons" = false;
+					"rust-analyzer.inlayHints.reborrowHints.enable" = true;
+					"rust-analyzer.inlayHints.typeHints.hideNamedConstructor" = true;
 				};
 			};
 
