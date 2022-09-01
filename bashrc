@@ -23,3 +23,11 @@ iptsd () {
 		echo "Invalid command"
 	fi
 }
+
+run () {
+	if [ -n "$2" ]; then
+		nix-shell -p $1 --run $2
+	else
+		nix-shell -p $1 --run $1
+	fi
+}
