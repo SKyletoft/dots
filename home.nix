@@ -3,7 +3,6 @@
 let
 	master = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
-		rev = "35619ce1e513fa044b341f62a633deaa458eed06";
 	}) {};
 	pinned = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
