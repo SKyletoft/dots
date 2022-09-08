@@ -46,7 +46,6 @@ in {
 		# Free up to 10 GiB whenever there is less than 1GiB left.
 		extraOptions = ''
 			min-free = ${toString (1024 * 1024 * 1024)}
-			max-free = ${toString (10 * 1024 * 1024 * 1024)}
 			experimental-features = nix-command flakes
 		'';
 	};
