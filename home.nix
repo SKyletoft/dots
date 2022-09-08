@@ -184,6 +184,7 @@ in {
 				vim-slime
 				coc-rust-analyzer
 				coc-git
+				coc-java
 				copilot-vim
 				vimspector
 			];
