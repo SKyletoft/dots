@@ -218,7 +218,7 @@ in {
 		xwayland.enable = waylandSupport;
 		steam.enable = true;
 		dconf.enable = true;
-		xonsh.enable = true;
+		xonsh.enable = false;
 	};
 
 	system.stateVersion = "21.11";
