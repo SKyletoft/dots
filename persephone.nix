@@ -87,10 +87,10 @@ in {
 		# };
 
 		# Open ports in the firewall.
-		# firewall = {
-		# 	allowedTCPPorts = [ ... ];
-		# 	allowedUDPPorts = [ ... ];
-		# };
+		firewall = {
+			allowedTCPPorts = [ 80 8080 12345 ];
+			allowedUDPPorts = [ 80 8080 12345 ];
+		};
 		# Or disable the firewall altogether.
 		# firewall.enable = false;
 	};
