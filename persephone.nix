@@ -183,6 +183,7 @@ in {
 	environment.sessionVariables = {
 		MOZ_ENABLE_WAYLAND = "1";
 		EDITOR = "nvim";
+		MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
 	};
 
 	# Replace sudo with doas
