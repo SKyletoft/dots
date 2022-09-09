@@ -215,7 +215,7 @@ in {
 			shellAliases = {
 				cat = "bat --paging=never --tabs=8";
 				cd  = "z";
-				ls  = "exa -a";
+				ls  = "exa -a --icons --colour=always";
 				ll  = "exa -la";
 				lt  = "exa -a --tree";
 				rm  = "trash-put";
