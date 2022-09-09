@@ -117,11 +117,11 @@ nnoremap <silent> <leader>f :call <SID>show_documentation()<CR>
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
 " remap for complete to use tab and <cr>
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <Tab>
 	\ coc#pum#visible() ? coc#pum#next(1):
 	\ <SID>check_back_space() ? "\<Tab>" :
 	\ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
 
 function! s:show_documentation()
