@@ -8,7 +8,7 @@ let
 		url = "https://github.com/nixos/nixpkgs";
 		rev = "eb5409461a41f5e3d78997d870f38a6329bb8044";
 	}) {};
-	enableHyprland = true;
+	enableHyprland = false;
 	enableGnome = true;
 	gui = enableGnome || enableHyprland;
 in {
@@ -119,10 +119,11 @@ in {
 		] else []);
 
 		sessionVariables = {
-			MOZ_ENABLE_WAYLAND = 1;
 			EDITOR = "nvim";
 			DIRENV_LOG_FORMAT = "";
-		};
+		} // (if enableHyprland then {
+			MOZ_ENABLE_WAYLAND = "1";
+		} else {});
 	};
 
 	programs = {
@@ -250,9 +251,13 @@ in {
 	# };
 
 	xdg.configFile = {
-		"alacritty/alacritty.yml".source = ./alacritty.yml;
-		"rustfmt/rustfmt.toml".source    = ./rustfmt.toml;
-		"kitty/kitty.conf".source        = ./kitty.conf;
+		"alacritty/alacritty.yml".source  = ./alacritty.yml;
+		"rustfmt/rustfmt.toml".source     = ./rustfmt.toml;
+		"kitty/kitty.conf".source         = ./kitty.conf;
+		"clangd/compile_flags.txt".source = ./clangd;
+		"hypr/hyprland.conf".source       = ./hyprland.conf;
+		"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
+		"waybar/config".source            = ./waybar;
 	};
 
 	home.file = {
