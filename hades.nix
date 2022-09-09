@@ -321,7 +321,9 @@ in {
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
 	programs = {
-		sway.enable = false;
+		sway.enable = waylandSupport;
+		xwayland.enable = waylandSupport;
+
 		steam.enable = true;
 		kdeconnect = {
 			enable = true;
@@ -332,7 +334,6 @@ in {
 		# 	enable = true;
 		# 	enableSSHSupport = true;
 		# };
-		xwayland.enable = waylandSupport;
 		dconf.enable = true;
 	};
 
