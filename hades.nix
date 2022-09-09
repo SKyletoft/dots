@@ -7,6 +7,7 @@
 let
 	waylandSupport = false;
 	windowsFonts = false;
+	nativeBuild = false;
 in {
 	imports = [ # Include the results of the hardware scan.
 		/etc/nixos/hardware-configuration.nix
@@ -34,8 +35,18 @@ in {
 					});
 				});
 			})
-		];
-	};
+		] ++ (if nativeBuild then [
+			(self: super: {
+				stdenv = super.impureUseNativeOptimizations super.stdenv;
+			})
+		] else []);
+	} // (if nativeBuild then {
+		localSystem =  {
+			gcc.arch = "skylake";
+			gcc.tune = "skylake";
+			system = "x86_64-linux";
+		};
+	} else {});
 
 	nix = {
 		settings = {
