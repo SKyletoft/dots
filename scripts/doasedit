@@ -32,7 +32,7 @@ for file; do
 	if [ -f "$file" ] && [ ! -r "$file" ]; then
 		doas cat "$file" > "$tmp"
 	elif [ -r "$file" ]; then
-		cat "$file" > "$tmp"
+		doas cat "$file" > "$tmp"
 	fi
 
 	tmpcopy="$(mktemp)"

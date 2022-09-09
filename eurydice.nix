@@ -14,7 +14,7 @@
 			options = "--delete-older-than 30d";
 		};
 		extraOptions = ''
-			min-free = ${toString (100 * 1024 * 1024)}
+			min-free = ${toString (1024 * 1024 * 1024)}
 			experimental-features = nix-command flakes
 		'';
 	};
@@ -28,8 +28,8 @@
 		hostName = "eurydice";
 		firewall = {
 			enable = true;
-			allowedTCPPorts = [ 80 443 8000 8080 12825 ];
-			allowedUDPPorts = [ 80 443 8000 8080 12825 ];
+			allowedTCPPorts = [ 53 80 443 8000 8080 12825 ];
+			allowedUDPPorts = [ 53 80 443 8000 8080 12825 ];
 		};
 		# interfaces.eth0.ipv4.addresses = [ {
 		# 	address = "192.168.0.200";
@@ -44,15 +44,6 @@
 			device = "/dev/disk/by-label/NIXOS_SD";
 			fsType = "ext4";
 			options = [ "noatime" ];
-		};
-		"/mnt/T7" = {
-			device = "/dev/disk/by-label/T7"; # Actual device is randomised for some reason
-			fsType = "exfat";
-			options = [
-				"noatime"
-				"allow_other"
-				"x-systemd.automount"
-			];
 		};
 	};
 
@@ -91,6 +82,7 @@
 			enable = true;
 			package = pkgs.ananicy-cpp;
 		};
+		adguardhome.enable = false;
 		nginx = {
 			enable = true;
 			recommendedProxySettings = true;
@@ -99,6 +91,7 @@
 				"kyletoft.se" = {
 					forceSSL = true;
 					enableACME = true;
+					default = true;
 					root = "/var/www/kyletoft.se";
 				};
 				"samuel.kyletoft.se" = {
