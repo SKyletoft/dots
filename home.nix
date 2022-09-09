@@ -12,7 +12,7 @@ let
 	enableGnome = true;
 	gui = enableGnome || enableHyprland;
 in {
-	imports = [ inputs.hyprland.homeManagerModules.default ];
+	# imports = [ inputs.hyprland.homeManagerModules.default ];
 
 	home = {
 		# Home Manager needs a bit of information about you and the
