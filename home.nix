@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
 	master = import (builtins.fetchGit {
@@ -8,8 +8,12 @@ let
 		url = "https://github.com/nixos/nixpkgs";
 		rev = "eb5409461a41f5e3d78997d870f38a6329bb8044";
 	}) {};
-	gui = true;
+	enableHyprland = true;
+	enableGnome = true;
+	gui = enableGnome || enableHyprland;
 in {
+	imports = [ inputs.hyprland.homeManagerModules.default ];
+
 	home = {
 		# Home Manager needs a bit of information about you and the
 		# paths it should manage.
@@ -77,7 +81,8 @@ in {
 
 			virt-manager
 			docker-compose
-
+		] else [])
+		++ (if enableGnome then [
 			gnome.gnome-tweaks
 			gnome.baobab
 			gnome.gnome-system-monitor
@@ -102,6 +107,12 @@ in {
 			gnomeExtensions.fuzzy-app-search
 			gnomeExtensions.pop-shell
 			gnomeExtensions.burn-my-windows
+		] else [])
+		++ (if enableHyprland then [
+			hyprland
+			hyprpaper
+			wofi
+			waybar
 		] else []);
 
 		sessionVariables = {
@@ -226,6 +237,8 @@ in {
 	};
 
 	services.lorri.enable = true;
+
+	# wayland.windowManager.hyprland.enable = hyprland;
 
 	# gtk = {
 		# enable         = true;
