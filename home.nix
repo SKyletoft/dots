@@ -79,6 +79,8 @@ in {
 			fragments
 			heroic
 
+			i2c-tools
+
 			virt-manager
 			docker-compose
 		] else [])
@@ -96,6 +98,7 @@ in {
 			gnome.aisleriot
 			gnome.iagno
 
+			gnomeExtensions.brightness-control-using-ddcutil
 			gnomeExtensions.unite
 			gnomeExtensions.just-perfection
 			gnomeExtensions.add-username-to-top-panel

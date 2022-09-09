@@ -69,7 +69,11 @@ in {
 		kernelPackages = pkgs.linuxPackages_zen;
 		supportedFilesystems = [ "ntfs" ];
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
-		# extraModulePackages = [ pkgs.linuxPackages_zen.anbox ];
+		kernelModules = [ "i2c-dev" ];
+		extraModulePackages = [
+			# config.boot.kernelPackages.anbox
+			config.boot.kernelPackages.ddcci-driver
+		];
 	};
 
 	hardware = {
@@ -189,6 +193,19 @@ in {
 
 		earlyoom.enable = true;
 
+		# https://discourse.nixos.org/t/how-to-enable-ddc-brightness-control-i2c-permissions/20800/2
+		udev.extraRules = ''
+			KERNEL=="i2c-[0-9]*", \
+				GROUP="i2c", \
+				MODE="0660", \
+				SUBSYSTEM=="i2c-dev", \
+				ACTION=="add", \
+				ATTR{name}=="NVIDIA i2c adapter*", \
+				TAG+="ddcci", \
+				TAG+="systemd", \
+				ENV{SYSTEMD_WANTS}+="ddcci@$kernel.service"     
+		'';
+
 		mullvad-vpn.enable = true;
 
 		# flatpak.enable = true;
@@ -210,6 +227,7 @@ in {
 	# hardware.pulseaudio.enable = true;
 	# systemd.user.services.pipewire-pulse.path = [ pkgs.pulseaudio ];
 
+	users.groups.i2c = {};
 	users.users.u3836 = {
 		description = "Samuel Kyletoft";
 		home = "/home/u3836";
@@ -220,7 +238,8 @@ in {
 			"libvirtd"        # virtual machines
 			"dialout"         # md407
 			"docker"          # docker
-		]; # Enable ‘sudo’ for the user.
+			"i2c"             # screen brightness
+		];
 		shell = pkgs.bash;
 	};
 
