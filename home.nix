@@ -255,7 +255,6 @@ in {
 		"alacritty/alacritty.yml".source  = ./alacritty.yml;
 		"rustfmt/rustfmt.toml".source     = ./rustfmt.toml;
 		"kitty/kitty.conf".source         = ./kitty.conf;
-		"clangd/compile_flags.txt".source = ./clangd;
 		"hypr/hyprland.conf".source       = ./hyprland.conf;
 		"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
 		"waybar/config".source            = ./waybar;
