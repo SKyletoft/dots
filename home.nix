@@ -8,11 +8,11 @@ let
 		url = "https://github.com/nixos/nixpkgs";
 		rev = "eb5409461a41f5e3d78997d870f38a6329bb8044";
 	}) {};
-	enableHyprland = true;
+	enableHyprland = false;
 	enableGnome = true;
 	gui = enableGnome || enableHyprland;
 in {
-	imports = [ inputs.hyprland.homeManagerModules.default ];
+	# imports = [ inputs.hyprland.homeManagerModules.default ];
 
 	home = {
 		# Home Manager needs a bit of information about you and the
@@ -53,6 +53,7 @@ in {
 			xclip
 			direnv
 			doasedit
+			code-server
 		] ++
 		(if gui then [
 			monitor
@@ -79,6 +80,8 @@ in {
 			fragments
 			heroic
 
+			i2c-tools
+
 			virt-manager
 			docker-compose
 		] else [])
@@ -96,6 +99,7 @@ in {
 			gnome.aisleriot
 			gnome.iagno
 
+			gnomeExtensions.brightness-control-using-ddcutil
 			gnomeExtensions.unite
 			gnomeExtensions.just-perfection
 			gnomeExtensions.add-username-to-top-panel
@@ -116,10 +120,11 @@ in {
 		] else []);
 
 		sessionVariables = {
-			MOZ_ENABLE_WAYLAND = 1;
 			EDITOR = "nvim";
 			DIRENV_LOG_FORMAT = "";
-		};
+		} // (if enableHyprland then {
+			MOZ_ENABLE_WAYLAND = "1";
+		} else {});
 	};
 
 	programs = {
@@ -197,7 +202,7 @@ in {
 				coc-git
 				coc-java
 				copilot-vim
-				vimspector
+				# vimspector
 			];
 
 			extraPackages = with pkgs; [ rust-analyzer haskell-language-server clang-tools_14 ];
@@ -212,7 +217,7 @@ in {
 			shellAliases = {
 				cat = "bat --paging=never --tabs=8";
 				cd  = "z";
-				ls  = "exa -a";
+				ls  = "exa -a --icons --colour=always";
 				ll  = "exa -la";
 				lt  = "exa -a --tree";
 				rm  = "trash-put";
@@ -248,9 +253,12 @@ in {
 	# };
 
 	xdg.configFile = {
-		"alacritty/alacritty.yml".source = ./alacritty.yml;
-		"rustfmt/rustfmt.toml".source    = ./rustfmt.toml;
-		"kitty/kitty.conf".source        = ./kitty.conf;
+		"alacritty/alacritty.yml".source  = ./alacritty.yml;
+		"rustfmt/rustfmt.toml".source     = ./rustfmt.toml;
+		"kitty/kitty.conf".source         = ./kitty.conf;
+		"hypr/hyprland.conf".source       = ./hyprland.conf;
+		"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
+		"waybar/config".source            = ./waybar;
 	};
 
 	home.file = {
