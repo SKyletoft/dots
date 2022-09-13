@@ -185,10 +185,11 @@ in {
 					};
 				};
 				vimspector = pkgs.callPackage ./packages/vimspector.nix {};
+				treesitter = (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars));
 			in
 			[
 				custom_monokai
-				nvim-treesitter
+				treesitter
 				vim-table-mode
 				zen-mode-nvim
 				vim-slime
