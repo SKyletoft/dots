@@ -17,9 +17,9 @@ noremap <C-v> p
 
 " Indents
 nnoremap <tab> >>
-noremap <S-tab> <<
-vmap <tab> >gv
-vmap <S-tab> <gv
+noremap  <S-tab> <<
+vmap     <tab> >gv
+vmap     <S-tab> <gv
 
 " Find
 noremap <C-f> /
@@ -50,12 +50,12 @@ noremap X D
 noremap u <Nop>
 
 " Pane management
-noremap <C-e> <C-w>v
-noremap <C-q> <C-w>s
-noremap <C-M-W> <C-w>k
-noremap <C-M-S> <C-w>j
-noremap <C-M-A> <C-w>h
-noremap <C-M-D> <C-w>l
+noremap <C-e>   <C-w>v
+noremap <C-q>   <C-w>s
+noremap <C-M-w> <C-w>k
+noremap <C-M-s> <C-w>j
+noremap <C-M-a> <C-w>h
+noremap <C-M-d> <C-w>l
 
 " Terminal managerment
 noremap <C-t> :terminal<CR>:set nonumber<CR>i
@@ -143,14 +143,15 @@ autocmd FileType haskell so ~/dots/vim-slime/haskell.vim
 autocmd FileType python  so ~/dots/vim-slime/python.vim
 
 " Vimspector
-nmap <F5>  <Plug>VimspectorContinue
-nmap <F3>  <Plug>VimspectorStop
-nmap <F4>  <Plug>VimspectorRestart
-nmap <F6>  <Plug>VimspectorPause
-nmap <C-B> <Plug>VimspectorToggleBreakpoint
-nmap <F9>  <Plug>VimspectorStepOver
-nmap <F10> <Plug>VimspectorStepInto
-nmap <F12> <Plug>VimspectorStepOut
+noremap <F5>      <Plug>VimspectorContinue
+noremap <F3>      <Plug>VimspectorStop
+noremap <F4>      <Plug>VimspectorRestart
+noremap <F6>      <Plug>VimspectorPause
+noremap <leader>b <Plug>VimspectorToggleBreakpoint
+noremap <F9>      <Plug>VimspectorStepOver
+noremap <F10>     <Plug>VimspectorStepInto
+noremap <F12>     <Plug>VimspectorStepOut
+
 
 " Lua configs
 lua <<EOF
