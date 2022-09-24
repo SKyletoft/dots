@@ -31,3 +31,8 @@ run () {
 		nix-shell -p $1 --run $1
 	fi
 }
+
+lorri_init() {
+	lorri init
+	direnv allow
+}
