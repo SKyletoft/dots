@@ -225,7 +225,10 @@ in {
 		# printing.enable = true;
 
 		# Enable the OpenSSH daemon.
-		openssh.enable = true;
+		openssh = {
+			enable = true;
+			passwordAuthentication = false;
+		};
 	};
 
 	# Flatpak nonsense
