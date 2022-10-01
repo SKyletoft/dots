@@ -69,10 +69,12 @@
 		man-pages-posix
 	];
 
-	users.users.u3836 = {
-		isNormalUser = true;
-		extraGroups = [ "wheel" ];
-		shell = pkgs.bash;
+	users.users = {
+		u3836 = {
+			isNormalUser = true;
+			extraGroups = [ "wheel" ];
+		};
+		maky.isNormalUser = true;
 	};
 
 	hardware = {
