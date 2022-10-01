@@ -54,6 +54,7 @@ in {
 			direnv
 			doasedit
 			code-server
+			mullvad
 		] ++
 		(if gui then [
 			monitor
@@ -76,7 +77,6 @@ in {
 			xournalpp
 			dolphin-emu-primehack
 			pinta
-			mullvad-vpn
 			fragments
 			heroic
 
