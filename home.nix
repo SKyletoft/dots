@@ -88,6 +88,7 @@ in {
 		++ (if enableGnome then [
 			gnome.gnome-tweaks
 			gnome.baobab
+			gnome.totem
 			gnome.gnome-system-monitor
 			gnome.gnome-logs
 			gnome-text-editor
