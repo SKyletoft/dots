@@ -114,6 +114,7 @@ in {
 			};
 			desktopManager.gnome.enable = true;
 
+			xkbOptions = "caps:swapescape";
 			extraLayouts.se-good = {
 				description = "Swedish, but good";
 				languages = [ "se" ];

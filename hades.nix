@@ -154,9 +154,7 @@ in {
 
 	services = {
 		xserver = {
-			# Enable the X11 windowing system.
 			enable = true;
-			# Enable the GNOME Desktop Environment.
 			displayManager.gdm = {
 				enable = true;
 				wayland = waylandSupport;
@@ -166,6 +164,7 @@ in {
 
 			videoDrivers = [ "nvidia" ];
 
+			xkbOptions = "caps:swapescape";
 			extraLayouts.se-good = {
 				description = "Swedish, but good";
 				languages = [ "se" ];
