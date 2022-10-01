@@ -69,6 +69,8 @@ in {
 			slack
 
 			libreoffice
+			hunspellDicts.sv_SE
+
 			ark
 			pcmanfm
 			vlc
