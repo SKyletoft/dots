@@ -153,6 +153,14 @@
 		};
 	};
 
+	programs.bash.shellInit = ''
+		${pkgs.neofetch}/bin/neofetch --disable packages
+		SYSTEMD_COLORS=true systemctl status nginx | head -n3
+		SYSTEMD_COLORS=true systemctl status jellyfin | head -n3
+		SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3
+		SYSTEMD_COLORS=true systemctl status invidious | head -n3
+	'';
+
 	security = {
 		sudo.enable = false;
 		doas = {
