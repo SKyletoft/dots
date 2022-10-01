@@ -273,6 +273,7 @@ in {
 		".cargo/config.toml".source = ./cargo_config;
 		".ghci".source              = ./ghci;
 		".xonshrc".source           = ./xonshrc;
+		".vimrc".source             = ./vimrc;
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;
