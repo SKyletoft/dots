@@ -181,21 +181,22 @@ in {
 				};
 			};
 
-			plugins = with pinned.vimPlugins; 
-			let
-				custom_monokai = pkgs.vimUtils.buildVimPlugin {
-					name = "monokai_vim";
-					src  = pkgs.fetchFromGitHub {
+			plugins = let
+				vimPkgs = pkgs;
+				custom_monokai = vimPkgs.vimUtils.buildVimPlugin {
+					pname = "monokai_vim";
+					version = "0.0.1";
+					src  = vimPkgs.fetchFromGitHub {
 						owner  = "SKyletoft";
 						repo   = "monokai.nvim";
 						rev    = "604186067ab1782361d251945c524eb622beb499";
 						sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
 					};
 				};
-				vimspector = pkgs.callPackage ./packages/vimspector.nix {};
-				treesitter = (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars));
+				vimspector = vimPkgs.callPackage ./packages/vimspector.nix {};
+				treesitter = (vimPkgs.vimPlugins.nvim-treesitter.withPlugins (_: vimPkgs.tree-sitter.allGrammars));
 			in
-			[
+			with vimPkgs.vimPlugins; [
 				custom_monokai
 				treesitter
 				vim-table-mode
@@ -205,7 +206,7 @@ in {
 				coc-git
 				coc-java
 				copilot-vim
-				# vimspector
+				vimspector
 			];
 
 			extraPackages = with pkgs; [ rust-analyzer haskell-language-server clang-tools_14 ];
