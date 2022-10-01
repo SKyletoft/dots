@@ -23,6 +23,7 @@ vmap <S-tab> <gv
 
 " Find
 noremap <C-f> /
+noremap <C-g> :%s/
 
 " Undo and redo
 noremap <C-z> u
@@ -36,6 +37,7 @@ noremap l d
 
 " Open file
 noremap <C-o> :e 
+noremap <C-M-tab> gt
 
 " End of line and start of line inserts
 nnoremap A I
@@ -63,7 +65,7 @@ set noexpandtab
 set number
 set mouse=a
 set scrolloff=8
-set foldmethod=expr
+set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
@@ -81,9 +83,11 @@ autocmd FileType nix     setlocal tabstop=4 softtabstop=4 shiftwidth=0 noexpandt
 autocmd FileType toml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 autocmd FileType yaml    setlocal tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 
+" Formatter shortcuts
 autocmd FileType rust     nmap <leader>i :!cargo +nightly fmt<CR>
 autocmd FileType c        nmap <leader>i :!clang-format -i %<CR>
 autocmd FileType cpp      nmap <leader>i :!clang-format -i %<CR>
 autocmd FileType js       nmap <leader>i :!clang-format -i %<CR>
 autocmd FileType java     nmap <leader>i :!clang-format -i %<CR>
+autocmd FileType haskell  nmap <leader>i :!hindent % && stylish-haskell -i %<CR>
 autocmd FileType markdown nmap <leader>i vipgq
