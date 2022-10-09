@@ -152,6 +152,8 @@ noremap <F9>      <Plug>VimspectorStepOver
 noremap <F10>     <Plug>VimspectorStepInto
 noremap <F12>     <Plug>VimspectorStepOut
 
+" LiveShare
+let g:instant_username = "u3836"
 
 " Lua configs
 lua <<EOF

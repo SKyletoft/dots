@@ -35,6 +35,10 @@ in {
 			digiflisp = pkgs.callPackage ./packages/digiflisp.nix {};
 			doasedit  = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
 			monitor   = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
+			mdpdf     = pkgs.writeShellScriptBin "mdpdf" ''
+				echo ${pkgs.tectonic} > /dev/null;
+				${pkgs.pandoc}/bin/pandoc --to=pdf --pdf-engine=tectonic $1 > $2
+			'';
 		in with pkgs; [
 			git
 			wget
@@ -55,6 +59,7 @@ in {
 			doasedit
 			code-server
 			mullvad
+			mdpdf
 		] ++
 		(if gui then [
 			monitor
@@ -206,7 +211,7 @@ in {
 				coc-rust-analyzer
 				coc-git
 				coc-java
-				copilot-vim
+				# copilot-vim
 				vimspector
 			];
 
