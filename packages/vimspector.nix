@@ -47,6 +47,7 @@ stdenv.mkDerivation rec {
 		tar xf $src
 		mkdir -p $out
 		cp -r vimspector/opt/vimspector/* $out
+		# python3 $out/install_gadget.py --enable-c --force-enable-java
 		python3 $out/install_gadget.py --enable-c --enable-rust --enable-bash --enable-python
 	'';
 
