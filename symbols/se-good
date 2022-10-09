@@ -2,8 +2,6 @@ xkb_symbols "se-good" {
 	include "pc"
 	include "se(nodeadkeys)"
 
-	key  <ESC> {[          Escape ]};
-
 	key <TLDE> {[         section,         onehalf,       paragraph,   threequarters ]};
 	key <AE01> {[               1,          exclam,      exclamdown,     onesuperior ]};
 	key <AE02> {[               2,        quotedbl,              at,     twosuperior ]};
@@ -16,7 +14,7 @@ xkb_symbols "se-good" {
 	key <AE09> {[               9,      parenright,         uparrow,    ninesuperior ]};
 	key <AE10> {[               0,           equal,      rightarrow,    zerosuperior ]};
 	key <AE11> {[            plus,        question,       backslash,    questiondown ]};
-	key <AE12> {[           acute,           grave,       plusminus,         notsign ]};
+	key <AE12> {[           U2260,           grave,       plusminus,         notsign ]};
 	key <BKSP> {[       BackSpace,       BackSpace,        NoSymbol,        NoSymbol, Terminate_Server ]};
 
 	key  <TAB> {[             Tab,    ISO_Left_Tab ]};
@@ -43,8 +41,8 @@ xkb_symbols "se-good" {
 	key <AC07> {[               j,               J,        NoSymbol,        NoSymbol ]};
 	key <AC08> {[               k,               K,        NoSymbol,        NoSymbol ]};
 	key <AC09> {[               l,               L,    Greek_lambda,    Greek_LAMBDA ]};
-	key <AC10> {[      odiaeresis,      Odiaeresis,       braceleft ]};
-	key <AC11> {[      adiaeresis,      Adiaeresis,      braceright ]};
+	key <AC10> {[      odiaeresis,      Odiaeresis,       braceleft,           U27E8 ]};
+	key <AC11> {[      adiaeresis,      Adiaeresis,      braceright,           U27E9 ]};
 	key <BKSL> {[      apostrophe,        asterisk,           acute,        multiply ]};
 
 	key <LFSH> {[         Shift_L ]};
