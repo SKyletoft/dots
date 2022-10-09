@@ -21,8 +21,8 @@ in {
 		};
 		overlays = [
 			(final: prev: {
-				wlroots = prev.wlroots.overrideAttrs(old: {
-					postPatch = "sed -i 's/assert(argb8888 &&/assert(true || argb8888 ||/g' 'render/wlr_renderer.c'";
+				cascadia-code-greek = prev.cascadia-code.overrideAttrs(old: {
+					url = "";
 				});
 			})
 			(self: super: {
@@ -35,7 +35,13 @@ in {
 					});
 				});
 			})
-		] ++ (if nativeBuild then [
+		] ++ (if waylandSupport then [
+			(final: prev: {
+				wlroots = prev.wlroots.overrideAttrs(old: {
+					postPatch = "sed -i 's/assert(argb8888 &&/assert(true || argb8888 ||/g' 'render/wlr_renderer.c'";
+				});
+			})
+		] else []) ++ (if nativeBuild then [
 			(self: super: {
 				stdenv = super.impureUseNativeOptimizations super.stdenv;
 			})
