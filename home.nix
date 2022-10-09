@@ -6,7 +6,7 @@ let
 	}) {};
 	pinned = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
-		rev = "eb5409461a41f5e3d78997d870f38a6329bb8044";
+		rev = "341b9564bb7d9f69b9e804d956680c8d2ebf61b2";
 	}) {};
 	enableHyprland = false;
 	enableGnome = true;
@@ -114,6 +114,7 @@ in {
 			gnomeExtensions.fuzzy-app-search
 			gnomeExtensions.pop-shell
 			gnomeExtensions.burn-my-windows
+			gnomeExtensions.dotspaces
 		] else [])
 		++ (if enableHyprland then [
 			hyprland
