@@ -538,7 +538,7 @@ live_config_reload: true
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # at once.
-#key_bindings:
+key_bindings:
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
   #- { key: C,        mods: Control|Shift, action: Copy             }
@@ -551,6 +551,8 @@ live_config_reload: true
 
   # (Windows only)
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
+
+  - { key: F11,                            action: ToggleFullscreen }
 
   # (macOS only)
   #- { key: Key0,   mods: Command,         action: ResetFontSize    }
