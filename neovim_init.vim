@@ -119,11 +119,15 @@ inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\
 " remap for complete to use tab and <cr>
 inoremap <silent><expr> <Tab>
 	\ coc#pum#visible() ? coc#pum#next(1):
-	\ <SID>check_back_space() ? "\<Tab>" :
+	\ CheckBackspace() ? "\<Tab>" :
 	\ coc#refresh()
 inoremap <expr><S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
 
+function! CheckBackspace() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 function! s:show_documentation()
 	if (index(['vim', 'help'], &filetype) >= 0)
 		execute 'h '.expand('<cword')
