@@ -60,6 +60,7 @@ in {
 			code-server
 			mullvad
 			mdpdf
+			emacs
 		] ++
 		(if gui then [
 			monitor
