@@ -212,7 +212,7 @@ in {
 				coc-git
 				coc-java
 				# copilot-vim
-				vimspector
+				# vimspector
 			];
 
 			extraPackages = with pkgs; [ rust-analyzer haskell-language-server clang-tools_14 ];
