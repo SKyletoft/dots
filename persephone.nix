@@ -25,9 +25,6 @@ in {
 			})
 			(self: super: {
 				gnome = super.gnome.overrideScope' (gself: gsuper: {
-					gnome-shell = gsuper.gnome-shell.overrideAttrs (oldAttrs: {
-						patches = [ ./1915.patch ] ++ oldAttrs.patches;
-					});
 					mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
 						patches = [ ./1441.patch ] ++ oldAttrs.patches;
 					});
