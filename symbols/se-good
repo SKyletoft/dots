@@ -61,5 +61,5 @@ xkb_symbols "se-good" {
 
 	key <KPMU> {[        asterisk,        multiply ]};
 	key <KPDV> {[           slash,        division ]};
-	key <KPDL> {[          period,           comma ]};
+	key <KPDL> {[           comma,          period ]};
 };
