@@ -10,10 +10,12 @@
 (define-key evil-normal-state-map "d" 'evil-forward-char)
 (define-key evil-normal-state-map "w" 'evil-previous-visual-line)
 (define-key evil-normal-state-map "s" 'evil-next-visual-line)
+
 (define-key evil-motion-state-map "a" 'evil-backward-char)
 (define-key evil-motion-state-map "d" 'evil-forward-char)
 (define-key evil-motion-state-map "w" 'evil-previous-visual-line)
 (define-key evil-motion-state-map "s" 'evil-next-visual-line)
+
 (define-key evil-visual-state-map "a" 'evil-backward-char)
 (define-key evil-visual-state-map "d" 'evil-forward-char)
 (define-key evil-visual-state-map "w" 'evil-previous-visual-line)
@@ -32,8 +34,16 @@
 
 ;; Indents
 (setq backward-delete-char-untabify-method 'hungry)
-(define-key evil-normal-state-map (kbd "tab") 'evil-shift-right)
-(define-key evil-normal-state-map (kbd "backtab") 'evil-shift-left)
+                                        (define-key evil-normal-state-map (kbd "<tab>") #'(lambda () (interactive) (evil-shift-right 0 0)
+						                           (evil-shift-right 0 0)))
+(define-key evil-motion-state-map (kbd "<tab>") #'(lambda () (interactive) (evil-shift-right 0 0)
+						                           (evil-shift-right 0 0)))
+(define-key evil-normal-state-map (kbd "<backtab>") #'(lambda () (interactive) (evil-shift-left 0 0)
+							                       (evil-shift-left 0 0)))
+(define-key evil-motion-state-map (kbd "<backtab>") #'(lambda () (interactive) (evil-shift-left 0 0)
+									       (evil-shift-left 0 0)))
+(setq-default evil-shift-width tab-width)
+(setq backward-delete-char-untabify-method 'hungry)
 
 ;; Find
 (define-key evil-normal-state-map "\C-f" 'evil-search-forward)

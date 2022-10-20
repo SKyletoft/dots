@@ -392,7 +392,7 @@
      (rainbow-delimiters-unmatched-face            :inherit (show-paren-mismatch rainbow-delimiters-base-face))
 
 ;;;; show-paren-mode
-     (show-paren-match                             :underline t :weight bold)
+     (show-paren-match                             :underline t :weight bold :foreground red)
      (show-paren-mismatch                          :foreground fg :background orig-red :weight bold)
 
 ;;;; selectrum
