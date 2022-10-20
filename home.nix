@@ -60,7 +60,6 @@ in {
 			code-server
 			mullvad
 			mdpdf
-			emacs
 		] ++
 		(if gui then [
 			monitor
@@ -222,6 +221,16 @@ in {
 			vimdiffAlias  = true;
 		};
 
+		emacs = {
+			enable = true;
+			extraPackages = with pkgs; epkgs: [
+				rust-analyzer
+				haskell-language-server
+				clang-tools_14
+				python3
+			];
+		};
+
 		bash = {
 			enable = true;
 
@@ -232,6 +241,7 @@ in {
 				ll  = "exa -la";
 				lt  = "exa -a --tree";
 				rm  = "trash-put";
+				em  = "emacs -nw";
 
 				hackeholken = "ssh 3836@dtek.se -p222";
 				eurydice    = "ssh kyletoft.se -p1234";
