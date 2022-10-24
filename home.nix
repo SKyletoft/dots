@@ -8,6 +8,10 @@ let
 		url = "https://github.com/nixos/nixpkgs";
 		rev = "341b9564bb7d9f69b9e804d956680c8d2ebf61b2";
 	}) {};
+	stable = import (builtins.fetchGit {
+		url = "https://github.com/nixos/nixpkgs";
+		ref = "nixos-22.05";
+	}) {};
 	enableHyprland = false;
 	enableGnome = true;
 	gui = enableGnome || enableHyprland;
@@ -58,7 +62,7 @@ in {
 			direnv
 			doasedit
 			code-server
-			mullvad
+			mullvad-vpn
 			mdpdf
 		] ++
 		(if gui then [
@@ -74,8 +78,8 @@ in {
 			signal-desktop
 			slack
 
-			libreoffice
-			hunspellDicts.sv_SE
+			stable.libreoffice
+			stable.hunspellDicts.sv_SE
 
 			ark
 			pcmanfm

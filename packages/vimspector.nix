@@ -2,6 +2,7 @@
 , dbus
 , expat
 , fetchurl
+, fetchgit
 , lib
 , libX11
 , libxcb
@@ -25,8 +26,9 @@
 , autoPatchelfHook
 , wrapGAppsHook
 , lttng-ust_2_12
-, python3
-, pythonPackages
+, python310Packages
+, pkgs
+, tree
 }:
 
 stdenv.mkDerivation rec {
@@ -34,24 +36,44 @@ stdenv.mkDerivation rec {
 	version = "2907197660";
 
 	src = fetchurl {
-		url = "https://github.com/puremourning/vimspector/releases/download/2907197660/vimspector-linux-2907197660.tar.gz";
-		sha256 = "sha256-OITuzzG9zlYt9Ku68tIeJ5Sasggp1W+Dm2kM3CksOU8=";
+		url = "https://github.com/puremourning/vimspector/releases/download/3215563254/vimspector-linux-3215563254.tar.gz";
+		sha256 = "sha256-rhhTgQYJ66yeIcLR0awY6hcwDAPj3p2imjMkVJJlqZk=";
 	};
 
 	unpackCmd = ''
 		mkdir vimspector
 		tar xf $src
+		# python3 $out/install_gadget.py --force-enable-java
 	'';
 
 	installPhase = ''
 		tar xf $src
 		mkdir -p $out
 		cp -r vimspector/opt/vimspector/* $out
-		# python3 $out/install_gadget.py --enable-c --force-enable-java
-		python3 $out/install_gadget.py --enable-c --enable-rust --enable-bash --enable-python
+
+		cd $out
+		tree
+		mkdir -p gadgets/linux
+
+		rm -rf gadgets/linux/vscode-cpptools
+
+		ln -s \
+			${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools
+			gadgets/linux/vscode-cpptools
+
+		# python3 $out/install_gadget.py --enable-c --enable-rust --enable-bash --enable-python
+		echo "\n\n\n\n PATHS"
+		echo $out
+		# echo "${pkgs.vscode-extensions.ms-vscode.cpptools}"
+		# echo "\n\n\n\n"
 	'';
 
-	nativeBuildInputs = [ autoPatchelfHook python3 pythonPackages.setuptools ];
+	nativeBuildInputs = [
+		autoPatchelfHook
+		python310Packages.python
+		python310Packages.setuptools
+		python310Packages.flake8
+	];
 
 	buildInputs = [
 		curl
@@ -78,7 +100,9 @@ stdenv.mkDerivation rec {
 		stdenv.cc.cc.lib
 	];
 
-	runtimeDependencies = [];
+	runtimeDependencies = [
+		pkgs.vscode-extensions.ms-vscode.cpptools
+	];
 
 	meta = with lib; {
 		homepage = "https://github.com/puremourning/vimspector";
