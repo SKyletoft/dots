@@ -255,6 +255,7 @@ in {
 			"dialout"         # md407
 			"docker"          # docker
 			"i2c"             # screen brightness
+			"adbusers"        # android debugging (screen sharing)
 		];
 		shell = pkgs.bash;
 	};
@@ -340,6 +341,7 @@ in {
 		# 	enableSSHSupport = true;
 		# };
 		dconf.enable = true;
+		adb.enable = true;
 	};
 
 	# This value determines the NixOS release from which the default

@@ -89,6 +89,8 @@ in {
 
 			i2c-tools
 
+			scrcpy
+
 			virt-manager
 			docker-compose
 		] else [])
