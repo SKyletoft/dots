@@ -18,8 +18,8 @@ xkb_symbols "se-good" {
 	key <BKSP> {[       BackSpace,       BackSpace,        NoSymbol,        NoSymbol, Terminate_Server ]};
 
 	key  <TAB> {[             Tab,    ISO_Left_Tab ]};
-	key <AD01> {[               q,               Q,           U2208,           U220B ]};
-	key <AD02> {[               w,               W,           U2282,           U2283 ]};
+	key <AD01> {[               q,               Q,           U2208,           U2282 ]};
+	key <AD02> {[               w,               W,           U220B,           U2283 ]};
 	key <AD03> {[               e,               E,        EuroSign,           U2203 ]};
 	key <AD04> {[               r,               R,      registered,           U211D ]};
 	key <AD05> {[               t,               T,           thorn,           THORN ]};
