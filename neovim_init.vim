@@ -74,6 +74,7 @@ set nofoldenable
 set foldlevel=1
 set path+=**
 set wildmenu
+set cursorline
 colorscheme monokai_pro
 
 autocmd FileType rust    setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
