@@ -149,14 +149,22 @@ autocmd FileType haskell so ~/dots/vim-slime/haskell.vim
 autocmd FileType python  so ~/dots/vim-slime/python.vim
 
 " Vimspector
-noremap <F5>      <Plug>VimspectorContinue
-noremap <F3>      <Plug>VimspectorStop
-noremap <F4>      <Plug>VimspectorRestart
-noremap <F6>      <Plug>VimspectorPause
-noremap <leader>b <Plug>VimspectorToggleBreakpoint
-noremap <F9>      <Plug>VimspectorStepOver
-noremap <F10>     <Plug>VimspectorStepInto
-noremap <F12>     <Plug>VimspectorStepOut
+" noremap <F5>      <Plug>VimspectorContinue
+" noremap <F3>      <Plug>VimspectorStop
+" noremap <F4>      <Plug>VimspectorRestart
+" noremap <F6>      <Plug>VimspectorPause
+" noremap <leader>b <Plug>VimspectorToggleBreakpoint
+" noremap <F9>      <Plug>VimspectorStepOver
+" noremap <F10>     <Plug>VimspectorStepInto
+" noremap <F12>     <Plug>VimspectorStepOut
+
+" nvim-dap
+noremap <leader>b :lua require("dap").toggle_breakpoint()<CR>
+noremap <leader>n :lua require("dap").step_over()<CR>
+noremap <leader>s :lua require("dap").step_into()<CR>
+noremap <leader>c :lua require("dap").continue()<CR>
+noremap <leader>o :lua require("dapui").toggle()<CR>
+noremap <F5>      :lua require("dapui").open()<CR>:lua require("dap").run_last()<CR>
 
 " LiveShare
 let g:instant_username = "u3836"
