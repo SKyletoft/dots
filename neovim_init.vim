@@ -58,7 +58,7 @@ noremap <C-M-a> <C-w>h
 noremap <C-M-d> <C-w>l
 
 " Terminal managerment
-noremap <C-t> :terminal<CR>:set nonumber<CR>i
+noremap <C-t> :terminal<CR>:set nonumber nocursorline<CR>i
 tnoremap <Esc> <C-\><C-n>
 
 filetype plugin indent off
@@ -203,6 +203,11 @@ require("zen-mode").setup {
 		width = 83
 	}
 }
+
+-- require("jdtls").start_or_attach({
+	-- cmd = { "jdtls-language-server" },
+	-- root_dir = vim.fs.dirname(vim.fs.find({".gradlew", ".git", "mnvw"})[1]),
+-- })
 
 EOF
 

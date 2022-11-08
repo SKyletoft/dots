@@ -257,7 +257,7 @@ in {
 			"i2c"             # screen brightness
 			"adbusers"        # android debugging (screen sharing)
 		];
-		shell = pkgs.bash;
+		shell = pkgs.nushell;
 	};
 
 	documentation = {

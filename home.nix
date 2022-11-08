@@ -86,6 +86,7 @@ in {
 			vlc
 			sgtpuzzles
 			xournalpp
+			prismlauncher
 			dolphin-emu-primehack
 			pinta
 			fragments
@@ -196,6 +197,12 @@ in {
 					"rust-analyzer.inlayHints.renderColons" = false;
 					"rust-analyzer.inlayHints.reborrowHints.enable" = true;
 					"rust-analyzer.inlayHints.typeHints.hideNamedConstructor" = true;
+
+					"java.initializationOptions" = {
+						bundles = [
+							"${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.40.0.jar"
+						];
+					};
 				};
 			};
 
@@ -220,10 +227,12 @@ in {
 				vim-table-mode
 				zen-mode-nvim
 				vim-slime
+
 				coc-rust-analyzer
 				coc-git
 				# coc-java
 				# copilot-vim
+
 				# vimspector
 				
 				nvim-dap
@@ -315,6 +324,7 @@ EOF'';
 				haskell-language-server
 				clang-tools_14
 				python3
+				jdk17
 			];
 		};
 
