@@ -36,7 +36,7 @@ xkb_symbols "se-good" {
 	key <AC02> {[               s,               S,     Greek_sigma,     Greek_SIGMA ]};
 	key <AC03> {[               d,               D,     Greek_delta,     Greek_DELTA ]};
 	key <AC04> {[               f,               F,       Greek_phi,       Greek_PHI ]};
-	key <AC05> {[               g,               G ]};
+	key <AC05> {[               g,               G,       Greek_tau,       Greek_TAU ]};
 	key <AC06> {[               h,               H ]};
 	key <AC07> {[               j,               J ]};
 	key <AC08> {[               k,               K ]};
@@ -49,7 +49,7 @@ xkb_symbols "se-good" {
 	key <AB01> {[               z,               Z,     Greek_omega,     Greek_OMEGA ]};
 	key <AB02> {[               x,               X,     Greek_theta,     Greek_THETA ]};
 	key <AB03> {[               c,               C,       copyright,            cent ]};
-	key <AB04> {[               v,               V,           U221A ]};
+	key <AB04> {[               v,               V,           U221A,           U221B ]};
 	key <AB05> {[               b,               B,      Greek_beta,          U1D539 ]};
 	key <AB06> {[               n,               N,           U2115,           U2124 ]};
 	key <AB07> {[               m,               M,        Greek_mu,              mu ]};
