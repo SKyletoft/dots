@@ -154,6 +154,7 @@
 	};
 
 	programs.bash.shellInit = ''
+		[[ $- == *i* ]] || return
 		${pkgs.neofetch}/bin/neofetch --disable packages
 		SYSTEMD_COLORS=true systemctl status nginx | head -n3
 		SYSTEMD_COLORS=true systemctl status jellyfin | head -n3
