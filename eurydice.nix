@@ -86,6 +86,12 @@
 
 	services = {
 		xserver.enable = false;
+		vaultwarden = {
+			enable = true;
+			config = {
+				domain = "bw.kyletoft.se";
+			};
+		};
 		openssh = {
 			enable = true;
 			passwordAuthentication = false;
@@ -148,6 +154,12 @@
 					addSSL = true;
 					enableACME = true;
 					locations."/".proxyPass = "http://127.0.0.1:8096";
+				};
+				"bw.kyletoft.se" = {
+					addSSL = true;
+					enableACME = true;
+					locations."/".proxyPass = "http://127.0.0.1:9004";
+					locations."/:9005".proxyPass = "http://127.0.0.1:9005";
 				};
 			};
 		};

@@ -13,7 +13,8 @@ let
 		ref = "nixos-22.05";
 	}) {};
 	enableHyprland = false;
-	enableGnome = true;
+	enableGnome = false;
+	enableDebugging = false;
 	gui = enableGnome || enableHyprland;
 in {
 	# imports = [ inputs.hyprland.homeManagerModules.default ];
@@ -62,7 +63,7 @@ in {
 			direnv
 			doasedit
 			code-server
-			mullvad-vpn
+			mullvad
 			mdpdf
 		] ++
 		(if gui then [
@@ -245,7 +246,7 @@ in {
 				haskell-language-server
 				clang-tools_14
 			];
-			extraConfig   = (builtins.readFile ./neovim_init.vim) + ''
+			extraConfig   = (builtins.readFile ./neovim_init.vim) + (if enableDebugging then ''
 lua <<EOF
 local dap = require("dap")
 local dapui = require("dapui")
@@ -312,7 +313,7 @@ dap.configurations.cpp     = rust_c_cpp
 dap.configurations.java    = jvm
 dap.configurations.scala   = jvm
 dap.configurations.clojure = jvm
-EOF'';
+EOF'' else "");
 			viAlias       = true;
 			vimdiffAlias  = true;
 		};
