@@ -203,11 +203,5 @@ require("zen-mode").setup {
 		width = 83
 	}
 }
-
--- require("jdtls").start_or_attach({
-	-- cmd = { "jdtls-language-server" },
-	-- root_dir = vim.fs.dirname(vim.fs.find({".gradlew", ".git", "mnvw"})[1]),
--- })
-
 EOF
 
