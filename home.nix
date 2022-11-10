@@ -228,6 +228,7 @@ in {
 				vim-table-mode
 				zen-mode-nvim
 				vim-slime
+				vim-fsharp
 
 				coc-rust-analyzer
 				coc-git
