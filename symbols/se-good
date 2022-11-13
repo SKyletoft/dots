@@ -57,6 +57,8 @@ xkb_symbols "se-good" {
 	key <AB09> {[          period,           colon,  periodcentered,        abovedot ]};
 	key <AB10> {[           minus,      underscore,        NoSymbol,           U203E ]};
 
+	key <SPAC> {[           space,           space,           U200B,    nobreakspace ]};
+
 	key <LCTL> {[       Control_L ]};
 
 	key <KPMU> {[        asterisk,        multiply ]};
