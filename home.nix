@@ -276,10 +276,6 @@ in {
 				lt  = "exa -a --tree";
 				rm  = "trash-put";
 				em  = "emacs -nw";
-
-				hackeholken = "ssh 3836@dtek.se -p222";
-				eurydice    = "ssh kyletoft.se -p1234";
-				hades       = "ssh kyletoft.se -p1235";
 			};
 
 			shellOptions = [
