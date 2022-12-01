@@ -42,6 +42,8 @@ noremap <C-M-tab> gt
 " End of line and start of line inserts
 nnoremap A I
 nnoremap D A
+nnoremap S i
+nnoremap W ciw
 
 " Delete rest of line
 noremap X D
