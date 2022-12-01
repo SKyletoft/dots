@@ -259,8 +259,9 @@ in {
 			extraPackages = with pkgs; epkgs: [
 				rust-analyzer
 				haskell-language-server
+				jdt-language-server
+				python310Packages.jedi-language-server
 				clang-tools_14
-				python3
 				jdk17
 			];
 		};
