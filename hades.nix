@@ -276,6 +276,7 @@ in {
 		sessionVariables = {
 			MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
 			WEBKIT_DISABLE_COMPOSITING_MODE = "1";
+			__GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
 		} // (if waylandSupport then {
 			LIBVA_DRIVER_NAME = "nvidia";
 			CLUTTER_BACKEND = "wayland";
