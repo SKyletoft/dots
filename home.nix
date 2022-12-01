@@ -188,8 +188,9 @@ in {
 						};
 					};
 
-					"rust-analyzer.checkOnSave.enable"  = true;
+					# "rust-analyzer.checkOnSave.enable"  = true;
 					"rust-analyzer.checkOnSave.command" = "clippy";
+					# "rust-analyzer.checkOnSave.target" = "#rust-analyzer.cargo.target#";
 
 					"rust-analyzer.hover.documentation.enable" = false;
 					"rust-analyzer.hover.links.enable" = true;
