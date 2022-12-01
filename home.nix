@@ -65,6 +65,7 @@ in {
 			code-server
 			mullvad
 			mdpdf
+			hstr
 		] ++
 		(if gui then [
 			monitor

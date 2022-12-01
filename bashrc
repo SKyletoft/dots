@@ -4,6 +4,12 @@ eval "$(direnv hook bash)"
 export DIRENV_LOG_FORMAT=""
 export EDITOR="vi"
 
+# hstr
+if [[ $- =~ .*i.* ]]; then
+	bind '"\C-r": "\C-a hstr -- \C-j"'
+	export HSTR_CONFIG=hicolor
+fi
+
 if [[ "$DISPLAY" ]]; then
 	gsettings set org.gnome.desktop.input-sources xkb-options \[\'caps:swapescape\'\]
 fi
