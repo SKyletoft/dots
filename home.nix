@@ -208,7 +208,7 @@ in {
 			};
 
 			plugins = let
-				vimPkgs = pkgs;
+				vimPkgs = pinned;
 				custom_monokai = vimPkgs.vimUtils.buildVimPlugin {
 					pname = "monokai_vim";
 					version = "0.0.1";
@@ -228,7 +228,8 @@ in {
 				vim-table-mode
 				zen-mode-nvim
 				vim-slime
-				vim-fsharp
+				# vim-fsharp
+				Ionide-vim
 
 				coc-rust-analyzer
 				coc-git
