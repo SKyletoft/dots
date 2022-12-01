@@ -6,7 +6,7 @@ let
 	}) {};
 	pinned = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
-		rev = "341b9564bb7d9f69b9e804d956680c8d2ebf61b2";
+		rev = "4df635f6f6b396e40d762b816bcebfac27693654";
 	}) {};
 	stable = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
