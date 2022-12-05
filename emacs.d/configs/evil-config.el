@@ -1,31 +1,27 @@
 (provide 'evil-config)
 
-(require 'evil)
+(use-package evil)
 (evil-mode 1)
 
 (global-set-key (kbd "C-M-p") 'evil-force-normal-state)
 
+(defun evil-normal-visual-motion (key command)
+  (define-key evil-normal-state-map key command)
+  (define-key evil-visual-state-map key command)
+  (define-key evil-motion-state-map key command)
+  )
+
 ;; Basic controls
-(define-key evil-normal-state-map "a" 'evil-backward-char)
-(define-key evil-normal-state-map "d" 'evil-forward-char)
-(define-key evil-normal-state-map "w" 'evil-previous-visual-line)
-(define-key evil-normal-state-map "s" 'evil-next-visual-line)
-
-(define-key evil-motion-state-map "a" 'evil-backward-char)
-(define-key evil-motion-state-map "d" 'evil-forward-char)
-(define-key evil-motion-state-map "w" 'evil-previous-visual-line)
-(define-key evil-motion-state-map "s" 'evil-next-visual-line)
-
-(define-key evil-visual-state-map "a" 'evil-backward-char)
-(define-key evil-visual-state-map "d" 'evil-forward-char)
-(define-key evil-visual-state-map "w" 'evil-previous-visual-line)
-(define-key evil-visual-state-map "s" 'evil-next-visual-line)
+(evil-normal-visual-motion "a" 'evil-backward-char)
+(evil-normal-visual-motion "d" 'evil-forward-char)
+(evil-normal-visual-motion "w" 'evil-previous-visual-line)
+(evil-normal-visual-motion "s" 'evil-next-visual-line)
 
 ;; Larger movements
-(define-key evil-normal-state-map "\C-a" 'evil-backward-word-begin)
-(define-key evil-normal-state-map "\C-d" 'evil-forward-word-begin)
-(define-key evil-normal-state-map "\C-w" #'(lambda () (interactive) (evil-scroll-line-up 5)))
-(define-key evil-normal-state-map "\C-s" #'(lambda () (interactive) (evil-scroll-line-down 5)))
+(evil-normal-visual-motion "\C-a" 'evil-backward-word-begin)
+(evil-normal-visual-motion "\C-d" 'evil-forward-word-begin)
+(evil-normal-visual-motion "\C-w" #'(lambda () (interactive) (evil-scroll-line-up 5)))
+(evil-normal-visual-motion "\C-s" #'(lambda () (interactive) (evil-scroll-line-down 5)))
 
 ;; Copy, cut, paste for normal people
 (define-key evil-normal-state-map "\C-c" 'evil-yank)
@@ -34,8 +30,8 @@
 
 ;; Indents
 (setq backward-delete-char-untabify-method 'hungry)
-                                        (define-key evil-normal-state-map (kbd "<tab>") #'(lambda () (interactive) (evil-shift-right 0 0)
-						                           (evil-shift-right 0 0)))
+(define-key evil-normal-state-map (kbd "<tab>") #'(lambda () (interactive) (evil-shift-right 0 0)
+                                                                           (evil-shift-right 0 0)))
 (define-key evil-motion-state-map (kbd "<tab>") #'(lambda () (interactive) (evil-shift-right 0 0)
 						                           (evil-shift-right 0 0)))
 (define-key evil-normal-state-map (kbd "<backtab>") #'(lambda () (interactive) (evil-shift-left 0 0)
