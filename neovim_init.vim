@@ -191,6 +191,7 @@ require("nvim-treesitter.configs").setup {
 
 		-- list of language that will be disabled
 		disable = {
+			"markdown",
 			"lua",
 			"vim",
 			"bash"
