@@ -208,7 +208,8 @@ require("nvim-treesitter.configs").setup {
 require("zen-mode").setup {
 	-- https://github.com/folke/zen-mode.nvim#%EF%B8%8F-configuration
 	window = {
-		width = 83
+		width = 83,
+		backdrop = 1.0
 	}
 }
 EOF
