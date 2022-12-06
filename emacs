@@ -43,16 +43,6 @@
 (require 'aesthetics)
 (require 'language-specifics)
 
-(use-package direnv)
-(use-package nix-buffer)
-(use-package flycheck)
-(global-flycheck-mode)
-(use-package tree-sitter
-  :config
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
