@@ -52,6 +52,7 @@ in {
 			tealdeer
 			zoxide
 			bat
+			viu
 			ripgrep
 			bottom
 			du-dust
