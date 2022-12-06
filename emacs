@@ -38,6 +38,11 @@
 (setq scroll-step 1)
 (setq ring-bell-function 'ignore)
 
+(use-package direnv
+  :config
+  (direnv-mode)
+  (setq direnv-always-show-summary nil))
+
 (add-to-list 'load-path "~/.emacs.d/configs")
 (require 'evil-config)
 (require 'aesthetics)
