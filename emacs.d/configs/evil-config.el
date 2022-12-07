@@ -8,8 +8,7 @@
 (defun evil-normal-visual-motion (key command)
   (define-key evil-normal-state-map key command)
   (define-key evil-visual-state-map key command)
-  (define-key evil-motion-state-map key command)
-  )
+  (define-key evil-motion-state-map key command))
 
 ;; Basic controls
 (evil-normal-visual-motion "a" 'evil-backward-char)
