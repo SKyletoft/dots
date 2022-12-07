@@ -31,13 +31,15 @@
 (setq backward-delete-char-untabify-method 'hungry)
 (evil-normal-visual-motion (kbd "<tab>") (kbd ">>"))
 (evil-normal-visual-motion (kbd "<backtab>") (kbd "<<"))
+(define-key evil-visual-state-map (kbd "<tab>") (kbd ">gv"))
+(define-key evil-visual-state-map (kbd "<backtab>") (kbd "<gv"))
 
 (setq-default evil-shift-width tab-width)
 (setq backward-delete-char-untabify-method 'hungry)
 
 ;; Find
 (define-key evil-normal-state-map "\C-f" 'evil-search-forward)
-;; (define-key evil-normal-state-map "\C-g" 'evil-)
+(define-key evil-normal-state-map "\C-g" (kbd ":%s/"))
 
 ;; Undo and redo
 (define-key evil-normal-state-map "\C-z" 'evil-undo)
@@ -46,6 +48,7 @@
 ;; And preserve wasd behaviour somewhere
 
 ;; Open file
+;; (define-key evil-normal-state-map "\C-o" (kbd ":e "))
 
 ;; End of line and start of line inserts
 (define-key evil-normal-state-map "A" 'evil-insert-line)
@@ -55,9 +58,9 @@
 (define-key evil-normal-state-map "X" 'evil-delete-line)
 
 ;; Unmap undo because it's poorly placed
+(define-key evil-normal-state-map "u" nil)
 
 ;; Pane management
-;; (define-prefix-command 'evil-window-map)
 (define-key evil-normal-state-map "\C-e" 'split-window-horizontally)
 (define-key evil-normal-state-map "\C-q" 'split-window-vertically)
 (define-key evil-normal-state-map "\C-\M-w" 'evil-window-up)
