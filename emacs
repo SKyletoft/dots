@@ -27,14 +27,14 @@
  )
 
 (defun hide-menu ()
-       (tool-bar-mode -1)
-       (scroll-bar-mode -1)
-       (menu-bar-mode -1))
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (menu-bar-mode -1))
 
 (defun show-menu ()
-       (tool-bar-mode nil)
-       (scroll-bar-mode nil)
-       (menu-bar-mode nil))
+  (tool-bar-mode nil)
+  (scroll-bar-mode nil)
+  (menu-bar-mode nil))
 
 (recentf-mode 1)
 (setq scroll-step 1)
