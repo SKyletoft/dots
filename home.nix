@@ -300,7 +300,7 @@ in {
 				ll  = "exa -la";
 				lt  = "exa -a --tree";
 				rm  = "trash-put";
-				em  = "emacs -nw";
+				em  = "emacsclient -nw";
 			};
 
 			shellOptions = [
@@ -319,6 +319,7 @@ in {
 	};
 
 	services.lorri.enable = true;
+	services.emacs.enable = true;
 
 	# wayland.windowManager.hyprland.enable = hyprland;
 
