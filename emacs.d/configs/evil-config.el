@@ -30,14 +30,9 @@
 
 ;; Indents
 (setq backward-delete-char-untabify-method 'hungry)
-(define-key evil-normal-state-map (kbd "<tab>") #'(lambda () (interactive) (evil-shift-right 0 0)
-                                                                           (evil-shift-right 0 0)))
-(define-key evil-motion-state-map (kbd "<tab>") #'(lambda () (interactive) (evil-shift-right 0 0)
-						                           (evil-shift-right 0 0)))
-(define-key evil-normal-state-map (kbd "<backtab>") #'(lambda () (interactive) (evil-shift-left 0 0)
-							                       (evil-shift-left 0 0)))
-(define-key evil-motion-state-map (kbd "<backtab>") #'(lambda () (interactive) (evil-shift-left 0 0)
-									       (evil-shift-left 0 0)))
+(evil-normal-visual-motion (kbd "<tab>") (kbd ">>"))
+(evil-normal-visual-motion (kbd "<backtab>") (kbd "<<"))
+
 (setq-default evil-shift-width tab-width)
 (setq backward-delete-char-untabify-method 'hungry)
 
