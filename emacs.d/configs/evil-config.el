@@ -3,7 +3,10 @@
 (use-package evil)
 (evil-mode 1)
 
+;; Emacs stuff
 (global-set-key (kbd "C-M-p") 'evil-force-normal-state)
+(global-set-key (kbd "C-M-å") 'treemacs)
+(define-key evil-normal-state-map "\C-t" 'vterm)
 
 (defun evil-normal-visual-motion (key command)
   (define-key evil-normal-state-map key command)

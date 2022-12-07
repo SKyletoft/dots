@@ -60,7 +60,7 @@
 
 ;; Line numbers
 (defcustom display-line-numbers-exempt-modes
-  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode)
+  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode treemacs-mode)
   "Major modes on which to disable line numbers."
   :group 'display-line-numbers
   :type 'list

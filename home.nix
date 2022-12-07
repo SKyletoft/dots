@@ -270,6 +270,7 @@ in {
 				haskell-language-server
 				jdt-language-server
 				python310Packages.jedi-language-server
+				python310Packages.python
 				clang-tools_14
 				jdk17
 
