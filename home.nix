@@ -12,6 +12,10 @@ let
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.05";
 	}) {};
+	emacsPin = import (builtins.fetchGit {
+		url = "https://github.com/nixos/nixpkgs";
+		ref = "nixos-22.11";
+	}) {};
 	enableHyprland = false;
 	enableGnome = false;
 	enableDebugging = false;
@@ -259,13 +263,28 @@ in {
 
 		emacs = {
 			enable = true;
-			extraPackages = with pkgs; epkgs: [
+			package = emacsPin.emacs;
+			extraPackages = with emacsPin; epkgs: [
 				rust-analyzer
 				haskell-language-server
 				jdt-language-server
 				python310Packages.jedi-language-server
 				clang-tools_14
 				jdk17
+
+				epkgs.vterm
+				epkgs.use-package
+				epkgs.magit
+				epkgs.evil
+				epkgs.eglot
+				epkgs.direnv
+				epkgs.flycheck
+				epkgs.eldoc-box
+				epkgs.tree-sitter
+				epkgs.tree-sitter-langs
+				epkgs.nix-mode
+				epkgs.haskell-mode
+				epkgs.treemacs
 			];
 		};
 

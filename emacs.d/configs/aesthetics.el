@@ -15,3 +15,9 @@
        (unless (display-graphic-p (selected-frame))
                (set-face-background 'default "unspecified-bg" (selected-frame))))
 (add-hook 'window-setup-hook 'on-after-init)
+(add-hook 'server-switch-hook 'on-after-init)
+
+;;(use-package tree-sitter
+(global-tree-sitter-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;; )
