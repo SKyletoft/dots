@@ -155,6 +155,7 @@ in {
 			enable    = true;
 			userName  = "Samuel Kyletoft";
 			userEmail = "samuel@kyletoft.se";
+
 			difftastic.enable = true;
 			extraConfig = {
 				pull = {
