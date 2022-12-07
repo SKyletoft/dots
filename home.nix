@@ -355,6 +355,11 @@ in {
 		".themes/yaru".source                         = ./.themes/yaru;
 		".icons/yaru_edit".source                     = ./.icons/yaru_edit;
 		".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
+
+		# Emacs
+		# ".emacs.d/configs".source       = ./emacs.d/configs;
+		# ".emacs.d/custom-themes".source = ./emacs.d/custom-themes;
+		# ".emacs".source                 = ./emacs;
 	};
 
 	# Let Home Manager install and manage itself.
