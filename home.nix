@@ -291,6 +291,7 @@ in {
 				epkgs.nix-mode
 				epkgs.haskell-mode
 				epkgs.treemacs
+				epkgs.ligature
 			];
 		};
 
