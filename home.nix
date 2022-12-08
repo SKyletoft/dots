@@ -262,7 +262,7 @@ in {
 			];
 			extraConfig   = (builtins.readFile ./neovim_init.vim)
 			              + (if enableDebugging then builtins.readFile ./debug.vim else "");
-			viAlias       = true;
+			viAlias       = false;
 			vimdiffAlias  = true;
 		};
 
@@ -304,7 +304,8 @@ in {
 				ll  = "exa -la";
 				lt  = "exa -a --tree";
 				rm  = "trash-put";
-				em  = "emacsclient -nw";
+				em  = "emacs -nw";
+				vi  = "emacsclient -nw -a nvim";
 			};
 
 			shellOptions = [
