@@ -1,5 +1,5 @@
 (provide 'aesthetics)
-(add-to-list 'default-frame-alist '(font . "Cascadia Mono PL Semibold-11"))
+(add-to-list 'default-frame-alist '(font . "Fira Code Nerd Font-11"))
 
 (set-frame-parameter (selected-frame)
                      'alpha
