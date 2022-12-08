@@ -12,6 +12,10 @@ let
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.05";
 	}) {};
+	vimPin = import (builtins.fetchGit {
+		url = "https://github.com/nixos/nixpkgs";
+		ref = "51da41321776c59c5915c8c835efe0738a4fe1f2";
+	}) {};
 	emacsPin = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.11";
@@ -209,28 +213,27 @@ in {
 
 					"java.initializationOptions" = {
 						bundles = [
-							"${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.40.0.jar"
+							"${vimPin.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.40.0.jar"
 						];
 					};
 				};
 			};
 
 			plugins = let
-				vimPkgs = pinned;
-				custom_monokai = vimPkgs.vimUtils.buildVimPlugin {
+				custom_monokai = vimPin.vimUtils.buildVimPlugin {
 					pname = "monokai_vim";
 					version = "0.0.1";
-					src  = vimPkgs.fetchFromGitHub {
+					src  = vimPin.fetchFromGitHub {
 						owner  = "SKyletoft";
 						repo   = "monokai.nvim";
 						rev    = "604186067ab1782361d251945c524eb622beb499";
 						sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
 					};
 				};
-				vimspector = vimPkgs.callPackage ./packages/vimspector.nix {};
-				treesitter = (vimPkgs.vimPlugins.nvim-treesitter.withPlugins (_: vimPkgs.tree-sitter.allGrammars));
+				vimspector = vimPin.callPackage ./packages/vimspector.nix {};
+				treesitter = (vimPin.vimPlugins.nvim-treesitter.withPlugins (_: vimPin.tree-sitter.allGrammars));
 			in
-			with vimPkgs.vimPlugins; [
+			with vimPin.vimPlugins; [
 				custom_monokai
 				treesitter
 				vim-table-mode
@@ -251,7 +254,8 @@ in {
 				nvim-jdtls
 			];
 
-			extraPackages = with pkgs; [
+			package = vimPin.neovim;
+			extraPackages = with vimPin; [
 				rust-analyzer
 				haskell-language-server
 				clang-tools_14

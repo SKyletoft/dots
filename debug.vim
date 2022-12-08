@@ -8,7 +8,7 @@ dapui.setup()
 dap.adapters.cppdbg = {
 	id = 'cppdbg',
 	type = 'executable',
-	command = '${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7',
+	command = '${vimPin.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7',
 }
 
 local rust_c_cpp = {
@@ -37,7 +37,7 @@ local rust_c_cpp = {
 }
 
 jdtls.start_or_attach({
-	cmd = { "${pkgs.jdt-language-server}/bin/jdt-language-server" },
+	cmd = { "${vimPin.jdt-language-server}/bin/jdt-language-server" },
 	root_dir = vim.fs.dirname(vim.fs.find({'.gradlew', '.git', 'mvnw'}, { upward = true })[1]),
 	on_attach = function(client, bufnr)
 		require('jdtls').setup_dap({ hotcodereplace = 'auto' })
