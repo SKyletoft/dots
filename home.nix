@@ -16,10 +16,15 @@ let
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "51da41321776c59c5915c8c835efe0738a4fe1f2";
 	}) {};
+	emacsOverlayPin = import (builtins.fetchGit {
+		url = "https://github.com/nix-community/emacs-overlay.git";
+		ref = "master";
+		rev = "c063e23166531c32b686178ac149ccff94b4740f"; # change the revision
+	});
 	emacsPin = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.11";
-	}) {};
+	}) { overlays = [ emacsOverlayPin ]; };
 	enableHyprland = false;
 	enableGnome = false;
 	enableDebugging = false;
