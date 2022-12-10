@@ -3,19 +3,24 @@
 let
 	master = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
+		ref = "master";
 	}) {};
 	pinned = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
+		ref = "nixos-unstable";
 		rev = "4df635f6f6b396e40d762b816bcebfac27693654";
 	}) {};
 	stable = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.05";
 	}) {};
+
 	vimPin = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
-		ref = "51da41321776c59c5915c8c835efe0738a4fe1f2";
+		ref = "nixos-unstable";
+		rev = "2dea0f4c2d6e4603f54b2c56c22367e77869490c";
 	}) {};
+
 	emacsOverlayPin = import (builtins.fetchGit {
 		url = "https://github.com/nix-community/emacs-overlay.git";
 		ref = "master";
@@ -25,6 +30,7 @@ let
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.11";
 	}) { overlays = [ emacsOverlayPin ]; };
+
 	enableHyprland = false;
 	enableGnome = false;
 	enableDebugging = false;
