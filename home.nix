@@ -280,7 +280,7 @@ in {
 		emacs = {
 			enable = true;
 			package = emacsPin.emacs;
-			extraPackages = with emacsPin; epkgs: [
+			extraPackages = epkgs: ((with emacsPin; [
 				rust-analyzer
 				haskell-language-server
 				jdt-language-server
@@ -288,22 +288,26 @@ in {
 				python310Packages.python
 				clang-tools_14
 				jdk17
-
-				epkgs.vterm
-				epkgs.use-package
-				epkgs.magit
-				epkgs.evil
-				epkgs.eglot
-				epkgs.direnv
-				epkgs.flycheck
-				epkgs.eldoc-box
-				epkgs.tree-sitter
-				epkgs.tree-sitter-langs
-				epkgs.nix-mode
-				epkgs.haskell-mode
-				epkgs.treemacs
-				epkgs.ligature
-			];
+			]) ++ (with epkgs; [
+				vterm
+				use-package
+				magit
+				evil
+				eglot
+				lsp-mode
+				direnv
+				flycheck
+				eldoc-box
+				tree-sitter
+				tree-sitter-langs
+				nix-mode
+				haskell-mode
+				treemacs
+				ligature
+				pdf-tools
+				erc
+				telephone-line
+			]));
 		};
 
 		bash = {
