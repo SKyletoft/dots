@@ -44,10 +44,10 @@
 (hide-menu)
 
 (use-package direnv
-	:config
-	(direnv-mode)
-	;; (setq direnv-always-show-summary nil)
-	)
+  :config
+  (direnv-mode)
+  (setq direnv-always-show-summary t)
+  )
 
 (add-to-list 'load-path "~/.emacs.d/configs")
 (require 'evil-config)
