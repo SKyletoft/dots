@@ -14,16 +14,16 @@
   (define-key evil-motion-state-map key command))
 
 ;; Basic controls
-(evil-normal-visual-motion "a" 'evil-backward-char)
-(evil-normal-visual-motion "d" 'evil-forward-char)
-(evil-normal-visual-motion "w" 'evil-previous-visual-line)
-(evil-normal-visual-motion "s" 'evil-next-visual-line)
+(evil-normal-visual-motion (kbd "a") 'evil-backward-char)
+(evil-normal-visual-motion (kbd "d") 'evil-forward-char)
+(evil-normal-visual-motion (kbd "w") 'evil-previous-visual-line)
+(evil-normal-visual-motion (kbd "s") 'evil-next-visual-line)
 
 ;; Larger movements
-(evil-normal-visual-motion "\C-a" 'evil-backward-word-begin)
-(evil-normal-visual-motion "\C-d" 'evil-forward-word-begin)
-(evil-normal-visual-motion "\C-w" #'(lambda () (interactive) (evil-scroll-line-up 5)))
-(evil-normal-visual-motion "\C-s" #'(lambda () (interactive) (evil-scroll-line-down 5)))
+(evil-normal-visual-motion (kbd "C-a") 'evil-backward-word-begin)
+(evil-normal-visual-motion (kbd "C-d") 'evil-forward-word-begin)
+(evil-normal-visual-motion (kbd "C-w") (lambda () (interactive) (evil-scroll-line-up 5)))
+(evil-normal-visual-motion (kbd "C-s") (lambda () (interactive) (evil-scroll-line-down 5)))
 
 ;; Copy, cut, paste for normal people
 (define-key evil-normal-state-map "\C-c" 'evil-yank)
@@ -41,12 +41,12 @@
 (setq backward-delete-char-untabify-method 'hungry)
 
 ;; Find
-(define-key evil-normal-state-map "\C-f" 'evil-search-forward)
-(define-key evil-normal-state-map "\C-g" (kbd ":%s/"))
+(define-key evil-normal-state-map (kbd "C-f") 'evil-search-forward)
+(define-key evil-normal-state-map (kbd "C-g") (kbd ":%s/"))
 
 ;; Undo and redo
-(define-key evil-normal-state-map "\C-z" 'evil-undo)
-(define-key evil-normal-state-map "\C-M-r" 'evil-redo)
+(define-key evil-normal-state-map (kbd "C-z") 'evil-undo)
+(define-key evil-normal-state-map (kbd "C-M-r") 'evil-redo)
 
 ;; And preserve wasd behaviour somewhere
 
@@ -58,18 +58,18 @@
 (define-key evil-normal-state-map "D" 'evil-append-line)
 
 ;; Delete rest of line
-(define-key evil-normal-state-map "X" 'evil-delete-line)
+(define-key evil-normal-state-map (kbd "X") 'evil-delete-line)
 
 ;; Unmap undo because it's poorly placed
-(define-key evil-normal-state-map "u" nil)
+(define-key evil-normal-state-map (kbd "u") nil)
 
 ;; Pane management
-(define-key evil-normal-state-map "\C-e" 'split-window-horizontally)
-(define-key evil-normal-state-map "\C-q" 'split-window-vertically)
-(define-key evil-normal-state-map "\C-\M-w" 'evil-window-up)
-(define-key evil-normal-state-map "\C-\M-s" 'evil-window-down)
-(define-key evil-normal-state-map "\C-\M-a" 'evil-window-left)
-(define-key evil-normal-state-map "\C-\M-d" 'evil-window-right)
+(define-key evil-normal-state-map (kbd "C-e") 'split-window-horizontally)
+(define-key evil-normal-state-map (kbd "C-q") 'split-window-vertically)
+(define-key evil-normal-state-map (kbd "C-M-w") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-M-s") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-M-a") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-M-d") 'evil-window-right)
 
 ;; Formatters
 
