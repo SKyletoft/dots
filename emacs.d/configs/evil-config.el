@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (provide 'evil-config)
 
 (use-package evil)
@@ -39,6 +41,16 @@
 (define-key evil-normal-state-map "\C-x" 'evil-delete)
 
 ;; Indents
+(defun insert-tab-at-start () (interactive)
+       (let ((pos (point))
+             (indent-with (if indent-tabs-mode
+                              "\t"
+                              "  ")))
+         (beginning-of-line)
+         (insert indent-with)
+         (goto-char (+ 1 pos))))
+(define-key evil-insert-state-map (kbd "TAB") 'insert-tab-at-start)
+
 (setq backward-delete-char-untabify-method 'hungry)
 (evil-normal-visual-motion (kbd "<tab>") (kbd ">>"))
 (evil-normal-visual-motion (kbd "<backtab>") (kbd "<<"))
