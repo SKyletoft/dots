@@ -290,23 +290,30 @@ in {
 				jdk17
 			]) ++ (with epkgs; [
 				vterm
+				direnv
 				use-package
 				magit
 				evil
-				eglot
+				treemacs
+				telephone-line
+				ligature
+				# pdf-tools
+				# erc
+
+				# eglot
 				lsp-mode
-				direnv
-				flycheck
-				eldoc-box
+				dap-mode
+
 				tree-sitter
 				tree-sitter-langs
+
+				flycheck
+				eldoc-box
+				company
+
 				nix-mode
 				haskell-mode
-				treemacs
-				ligature
-				pdf-tools
-				erc
-				telephone-line
+				rustic
 			]));
 		};
 
