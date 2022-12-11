@@ -8,6 +8,8 @@
 (global-set-key (kbd "C-M-o") 'evil-force-normal-state)
 (global-set-key (kbd "C-M-p") 'treemacs)
 (define-key evil-normal-state-map "\C-t" 'vterm)
+(define-key evil-normal-state-map (kbd "C-+") 'text-scale-increase)
+(define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
 
 (defun evil-normal-visual-motion (key command)
   (define-key evil-normal-state-map key command)
