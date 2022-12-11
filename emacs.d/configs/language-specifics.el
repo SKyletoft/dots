@@ -19,17 +19,13 @@
 ;; toml    tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 ;; yaml    tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 
+;; For filetypes without hooks
 (add-hook 'find-file-hook
           (lambda ()
             (when (and (stringp buffer-file-name)
-                       (string-match "\\.rs\\'" buffer-file-name))
-              (setq-local tab-width 8)
-              (setq-local evil-shift-width 8)
-              (setq-local indent-tabs-mode t))
-            (when (and (stringp buffer-file-name)
                        (string-match "\\.nix\\'" buffer-file-name))
               (setq-local tab-width 4)
-              (setq-local evil-shift-width 2)
+              (setq-local evil-shift-width 4)
               (setq-local indent-tabs-mode t))
             (when (and (stringp buffer-file-name)
                        (string-match "\\.hs\\'" buffer-file-name))
@@ -37,6 +33,13 @@
               (setq-local evil-shift-width 2)
               (setq-local indent-tabs-mode nil))
             ))
+
+(add-hook 'rust-mode-hook
+          (lambda ()
+            (setq-local rust-indent-offset 8)
+            (setq-local tab-width 8)
+            (setq-local evil-shift-width 8)
+            (setq-local indent-tabs-mode t)))
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda () (setq-local indent-tabs-mode nil)))
