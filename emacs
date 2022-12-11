@@ -55,6 +55,7 @@
 (require 'evil-config)
 (require 'aesthetics)
 (require 'language-specifics)
+(require 'irc-conf)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
