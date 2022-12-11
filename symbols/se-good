@@ -14,7 +14,7 @@ xkb_symbols "se-good" {
 	key <AE09> {[               9,      parenright,         uparrow,    ninesuperior ]};
 	key <AE10> {[               0,           equal,      rightarrow,    zerosuperior ]};
 	key <AE11> {[            plus,        question,       backslash,    questiondown ]};
-	key <AE12> {[           acute,           grave,       plusminus,         notsign ]};
+	key <AE12> {[      dead_acute,           grave,       plusminus,         notsign ]};
 	key <BKSP> {[       BackSpace,       BackSpace,        NoSymbol,        NoSymbol, Terminate_Server ]};
 
 	key  <TAB> {[             Tab,    ISO_Left_Tab ]};
