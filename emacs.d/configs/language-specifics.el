@@ -44,18 +44,17 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda () (setq-local indent-tabs-mode nil)))
 
-(use-package eglot)
-
-(add-hook 'vterm-mode-hook
-	(lambda ()
-		(setq vterm-term-environment-variable 'eterm-color)
-		(setq vterm-kill-buffer-on-exit t)
-		(define-key vterm-mode-map (kbd "<C-backspace>")
-			(lambda () (interactive) (vterm-send-key (kbd "C-w"))))
-		(define-key vterm-mode-map (kbd "<C-d>")
-			(lambda () (interactive) (vterm-send-key (kbd "C-d"))))
-		(define-key vterm-mode-map (kbd "<C-r>")
-			(lambda () (interactive) (vterm-send-key (kbd "C-r"))))))
+(use-package vterm
+  :config
+  (add-hook 'vterm-mode-hook
+            (lambda ()
+              (setq-local vterm-term-environment-variable 'eterm-color)
+              (setq-local vterm-kill-buffer-on-exit t)
+              (turn-off-evil-mode)))
+  (define-key vterm-mode-map (kbd "C-M-w") 'windmove-up)
+  (define-key vterm-mode-map (kbd "C-M-s") 'windmove-down)
+  (define-key vterm-mode-map (kbd "C-M-a") 'windmove-left)
+  (define-key vterm-mode-map (kbd "C-M-d") 'windmove-right))
 
 ;; eldoc-box + eglot
 (require 'eldoc-box)
