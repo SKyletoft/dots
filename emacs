@@ -1,10 +1,4 @@
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/")
-             t)
-(add-to-list 'package-archives
-             '("elpa" . "http://elpa.gnu.org/packages/")
-             t)
 (package-initialize)
 (unless(package-installed-p 'use-package)
   (package-refresh-contents)
