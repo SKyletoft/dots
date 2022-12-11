@@ -11,6 +11,7 @@
 (define-key evil-normal-state-map (kbd "C-+") 'text-scale-increase)
 (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
 (define-key evil-emacs-state-map (kbd "<escape>") 'evil-force-normal-state)
+(setq evil-emacs-state-cursor evil-insert-state-cursor)
 
 (defun evil-normal-visual-motion (key command)
   (define-key evil-normal-state-map key command)
