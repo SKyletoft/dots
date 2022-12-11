@@ -1,6 +1,7 @@
 (provide 'evil-config)
 
 (use-package evil)
+(setq evil-disable-insert-state-bindings t)
 (evil-mode 1)
 
 ;; Emacs stuff
