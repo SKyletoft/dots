@@ -43,11 +43,19 @@
 (setq ring-bell-function 'ignore)
 (hide-menu)
 
+(use-package telephone-line
+  :config
+  (telephone-line-mode))
+
 (use-package direnv
   :config
   (direnv-mode)
   (setq direnv-always-show-summary t)
   )
+
+(use-package treemacs
+  :config
+  (setq treemacs-space-between-root-nodes nil))
 
 (add-to-list 'load-path "~/.emacs.d/configs")
 (require 'evil-config)
