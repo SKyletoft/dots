@@ -5,8 +5,8 @@
 (evil-mode 1)
 
 ;; Emacs stuff
-(global-set-key (kbd "C-M-p") 'evil-force-normal-state)
-(global-set-key (kbd "C-M-å") 'treemacs)
+(global-set-key (kbd "C-M-o") 'evil-force-normal-state)
+(global-set-key (kbd "C-M-p") 'treemacs)
 (define-key evil-normal-state-map "\C-t" 'vterm)
 
 (defun evil-normal-visual-motion (key command)
