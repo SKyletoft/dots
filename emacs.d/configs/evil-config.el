@@ -10,6 +10,7 @@
 (define-key evil-normal-state-map "\C-t" 'vterm)
 (define-key evil-normal-state-map (kbd "C-+") 'text-scale-increase)
 (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
+(define-key evil-emacs-state-map (kbd "<escape>") 'evil-force-normal-state)
 
 (defun evil-normal-visual-motion (key command)
   (define-key evil-normal-state-map key command)
