@@ -1,6 +1,6 @@
 (provide 'language-specifics)
 
-
+(electric-indent-mode nil)
 (setq-default indent-tabs-mode t)
 (setq custom-tab-width 8)
 (setq-default evil-shift-width custom-tab-width)
