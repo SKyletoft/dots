@@ -25,6 +25,9 @@
 (evil-normal-visual-motion (kbd "C-w") (lambda () (interactive) (evil-scroll-line-up 5)))
 (evil-normal-visual-motion (kbd "C-s") (lambda () (interactive) (evil-scroll-line-down 5)))
 
+(evil-normal-visual-motion "W" "%")
+(evil-normal-visual-motion "S" "}")
+
 ;; Copy, cut, paste for normal people
 (define-key evil-normal-state-map "\C-c" 'evil-yank)
 (define-key evil-normal-state-map "\C-v" 'evil-paste-after)
