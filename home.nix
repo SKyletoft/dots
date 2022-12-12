@@ -24,11 +24,12 @@ let
 	emacsOverlayPin = import (builtins.fetchGit {
 		url = "https://github.com/nix-community/emacs-overlay.git";
 		ref = "master";
-		rev = "c063e23166531c32b686178ac149ccff94b4740f"; # change the revision
+		rev = "6fad8d32db4b3225e72ec8ca4bfc0de249f9c1be"; # change the revision
 	});
 	emacsPin = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.11";
+		rev = "dfef2e61107dc19c211ead99a5a61374ad8317f4";
 	}) { overlays = [ emacsOverlayPin ]; };
 
 	enableHyprland = false;
