@@ -280,7 +280,10 @@ in {
 
 		emacs = {
 			enable = true;
-			package = emacsPin.emacs;
+			package = emacsPin.emacsGit.override {
+				withGTK2 = false;
+				withGTK3 = false;
+			};
 			extraPackages = epkgs: ((with emacsPin; [
 				rust-analyzer
 				haskell-language-server
