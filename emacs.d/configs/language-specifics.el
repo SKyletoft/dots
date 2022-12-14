@@ -95,6 +95,7 @@
             (lambda ()
               (setq-local vterm-term-environment-variable 'eterm-color)
               (setq-local vterm-kill-buffer-on-exit t)
+              (setq-local vterm-timer-delay nil)
               (turn-off-evil-mode)))
   (define-key vterm-mode-map (kbd "C-M-w") 'windmove-up)
   (define-key vterm-mode-map (kbd "C-M-s") 'windmove-down)
