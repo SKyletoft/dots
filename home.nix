@@ -159,7 +159,7 @@ in {
 		] else []);
 
 		sessionVariables = {
-			EDITOR = "nvim";
+			EDITOR = "emacsclient -nw -c -a nvim";
 			DIRENV_LOG_FORMAT = "";
 		} // (if enableHyprland then {
 			MOZ_ENABLE_WAYLAND = "1";
