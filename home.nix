@@ -300,10 +300,11 @@ in {
 				treemacs
 				telephone-line
 				ligature
-				# pdf-tools
+				dashboard
 				gcmh
 
 				lsp-mode
+				lsp-ui
 				dap-mode
 
 				tree-sitter
@@ -315,6 +316,7 @@ in {
 
 				nix-mode
 				haskell-mode
+				lsp-haskell
 				rustic
 			]));
 		};
