@@ -62,7 +62,6 @@
                                   (setq-local buffer-save-without-query t))
                                 (add-hook 'before-save-hook 'lsp-format-buffer nil t))))
 (use-package lsp-mode
-  :ensure
   :commands lsp
   :custom
   (lsp-rust-analyzer-cargo-watch-command "clippy")
@@ -79,14 +78,13 @@
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package lsp-ui
-  :ensure
   :commands lsp-ui-mode
   :custom
   (lsp-ui-peek-always-show t)
   (lsp-ui-sideline-show-hover t)
   (lsp-ui-doc-enable nil))
 
-(use-package flycheck :ensure)
+(use-package flycheck)
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda () (setq-local indent-tabs-mode nil)))
