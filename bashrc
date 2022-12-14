@@ -2,7 +2,7 @@ complete -cf doas
 bind "set completion-ignore-case on"
 eval "$(direnv hook bash)"
 export DIRENV_LOG_FORMAT=""
-export EDITOR="vi"
+# export EDITOR="vi"
 
 # hstr
 if [[ $- =~ .*i.* ]]; then
