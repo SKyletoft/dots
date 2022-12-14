@@ -4,7 +4,6 @@
 (setq-default indent-tabs-mode t)
 (setq custom-tab-width 8)
 (setq-default evil-shift-width custom-tab-width)
-(setq read-process-output-max (* 1024 1024)) ;; LSP perf hack
 
 ;; default tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
 ;; rust    tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
