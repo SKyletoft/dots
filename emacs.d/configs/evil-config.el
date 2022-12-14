@@ -45,10 +45,13 @@
        (let ((pos (point))
              (indent-with (if indent-tabs-mode
                               "\t"
-                              "  ")))
+                              "  "))
+             (step-by (if indent-tabs-mode
+                          1
+                          2)))
          (beginning-of-line)
          (insert indent-with)
-         (goto-char (+ 1 pos))))
+         (goto-char (+ step-by pos))))
 (define-key evil-insert-state-map (kbd "TAB") 'insert-tab-at-start)
 
 (setq backward-delete-char-untabify-method 'hungry)
