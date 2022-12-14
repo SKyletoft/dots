@@ -350,7 +350,11 @@ in {
 	};
 
 	services.lorri.enable = true;
-	services.emacs.enable = true;
+	services.emacs = {
+		enable = true;
+		defaultEditor = true;
+		startWithUserSession = false;
+	};
 
 	# wayland.windowManager.hyprland.enable = hyprland;
 
@@ -381,7 +385,6 @@ in {
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;
-		".local/share/applications/emacs.desktop".source             = ./emacsclient.desktop;
 
 		# Folders
 		".themes/yaru".source                         = ./.themes/yaru;
