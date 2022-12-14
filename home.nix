@@ -302,9 +302,8 @@ in {
 				telephone-line
 				ligature
 				# pdf-tools
-				# erc
+				gcmh
 
-				# eglot
 				lsp-mode
 				dap-mode
 

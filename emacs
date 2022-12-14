@@ -51,6 +51,10 @@
   :config
   (setq treemacs-space-between-root-nodes nil))
 
+
+(setq garbage-collection-messages t)
+(gcmh-mode 1)
+
 (add-to-list 'load-path "~/.emacs.d/configs")
 (require 'evil-config)
 (require 'aesthetics)
