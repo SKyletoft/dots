@@ -26,12 +26,16 @@
               (setq-local tab-width 4)
               (setq-local evil-shift-width 4)
               (setq-local indent-tabs-mode t))
-            (when (and (stringp buffer-file-name)
-                       (string-match "\\.hs\\'" buffer-file-name))
-              (setq-local tab-width 8)
-              (setq-local evil-shift-width 2)
-              (setq-local indent-tabs-mode nil))
             ))
+
+(add-hook 'haskell-mode-hook
+          (lambda ()
+            (setq-local tab-width 8)
+            (setq-local evil-shift-width 2)
+            (setq-local indent-tabs-mode nil)
+            (eldoc-mode nil)
+            (lsp-ui-doc-mode t)
+            (setq-local lsp-ui-doc-show-with-cursor t)))
 
 (add-hook 'rust-mode-hook
           (lambda ()
