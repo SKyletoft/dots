@@ -1,5 +1,3 @@
-;;; -*- lexical-binding: t; -*-
-
 (provide 'evil-config)
 
 (use-package evil)
@@ -8,11 +6,14 @@
 
 ;; Emacs stuff
 (global-set-key (kbd "C-M-o") 'evil-force-normal-state)
+(global-set-key (kbd "<escape>") 'evil-force-normal-state)
+(define-key evil-emacs-state-map (kbd "<escape>") 'evil-emacs-state)
+(define-key evil-emacs-state-map (kbd "C-M-i") 'evil-force-normal-state)
+(define-key evil-normal-state-map (kbd "C-M-i") 'evil-emacs-state)
 (global-set-key (kbd "C-M-p") 'treemacs)
 (define-key evil-normal-state-map "\C-t" 'vterm)
 (define-key evil-normal-state-map (kbd "C-+") 'text-scale-increase)
 (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
-(define-key evil-emacs-state-map (kbd "<escape>") 'evil-force-normal-state)
 (setq evil-emacs-state-cursor evil-insert-state-cursor)
 
 (defun evil-normal-visual-motion (key command)
@@ -93,6 +94,12 @@
 (define-key evil-normal-state-map (kbd "C-M-s") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-M-a") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-M-d") 'evil-window-right)
+(define-key evil-emacs-state-map (kbd "C-e") 'split-window-horizontally)
+(define-key evil-emacs-state-map (kbd "C-q") 'split-window-vertically)
+(define-key evil-emacs-state-map (kbd "C-M-w") 'evil-window-up)
+(define-key evil-emacs-state-map (kbd "C-M-s") 'evil-window-down)
+(define-key evil-emacs-state-map (kbd "C-M-a") 'evil-window-left)
+(define-key evil-emacs-state-map (kbd "C-M-d") 'evil-window-right)
 
 ;; Formatters
 
