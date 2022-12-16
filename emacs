@@ -55,8 +55,12 @@
   :config
   (setq read-process-output-max (* 1024 1024))) ;; LSP perf hack
 
-(setq garbage-collection-messages t)
-(gcmh-mode 1)
+(use-package gcmh
+  :config
+  (setq garbage-collection-messages t)
+  (setq gcmh-idle-delay 10)
+  (setq gcmh-high-cons-threshold (* 1024 1024 128))
+  (gcmh-mode 1))
 
 (add-to-list 'load-path "~/.emacs.d/configs")
 (require 'evil-config)
