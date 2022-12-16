@@ -28,14 +28,19 @@
               (setq-local indent-tabs-mode t))
             ))
 
+(defun haskell-post-lsp ()
+  (interactive)
+  (lsp)
+  (lsp-ui-doc-mode t)
+  (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance))
+
 (add-hook 'haskell-mode-hook
           (lambda ()
             (setq-local tab-width 8)
             (setq-local evil-shift-width 2)
             (setq-local indent-tabs-mode nil)
-            (eldoc-mode nil)
-            (lsp-ui-doc-mode t)
-            (setq-local lsp-ui-doc-show-with-cursor t)))
+            ;; (haskell-post-lsp)
+            ))
 
 (add-hook 'rust-mode-hook
           (lambda ()
