@@ -42,10 +42,11 @@
   (telephone-line-mode))
 
 (use-package direnv
+  :hook
+  ((after-init . direnv-mode)
+   (lsp-before-initialize-hook . direnv-update-environment))
   :config
-  (direnv-mode)
-  (setq direnv-always-show-summary t)
-  )
+  (setq direnv-always-show-summary t))
 
 (use-package treemacs
   :config
