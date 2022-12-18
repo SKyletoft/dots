@@ -115,10 +115,6 @@
   (define-key vterm-mode-map (kbd "C-M-a") 'windmove-left)
   (define-key vterm-mode-map (kbd "C-M-d") 'windmove-right))
 
-;; eldoc-box + eglot
-(require 'eldoc-box)
-(add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)
-
 ;; Line numbers
 (defcustom display-line-numbers-exempt-modes
   '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode treemacs-mode)
