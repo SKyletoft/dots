@@ -1,7 +1,8 @@
 (provide 'language-specifics)
 
 (electric-indent-mode nil)
-(eldoc-mode nil)
+(global-eldoc-mode -1)
+
 (setq-default indent-tabs-mode t)
 (setq custom-tab-width 8)
 (setq-default evil-shift-width custom-tab-width)
