@@ -41,6 +41,9 @@
             (setq-local tab-width 8)
             (setq-local evil-shift-width 2)
             (setq-local indent-tabs-mode nil)
+            (setq-local lsp-eldoc-enable-hover nil)
+            (setq-local eldoc-documentation-function #'ignore)
+            (setq-local eldoc-mode nil)
             ;; (haskell-post-lsp)
             ))
 
