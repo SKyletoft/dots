@@ -387,6 +387,7 @@ in {
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;
 		".local/share/applications/emacs.desktop".source             = ./emacsclient.desktop;
+		".local/share/applications/discord.desktop".source           = ./discord.desktop;
 
 		# Folders
 		".themes/yaru".source                         = ./.themes/yaru;
