@@ -42,13 +42,6 @@
   :config
   (telephone-line-mode))
 
-(use-package direnv
-  :hook
-  ((after-init . direnv-mode)
-   (lsp-before-initialize-hook . direnv-update-environment))
-  :config
-  (setq direnv-always-show-summary t))
-
 (use-package treemacs
   :config
   (setq treemacs-space-between-root-nodes nil))
@@ -56,6 +49,13 @@
 (use-package lsp-mode
   :config
   (setq read-process-output-max (* 1024 1024))) ;; LSP perf hack
+
+(use-package direnv
+  :hook
+  ((after-init . direnv-mode)
+   (lsp-before-initialize-hook . direnv-update-environment))
+  :config
+  (setq direnv-always-show-summary t))
 
 (use-package gcmh
   :config
