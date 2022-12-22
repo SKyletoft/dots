@@ -11,3 +11,4 @@
 **.cache**
 emacs.d/url
 emacs.d/session*
+emacs.d/.dap-breakpoints
