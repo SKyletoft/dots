@@ -6,8 +6,6 @@
 
 ;; Emacs stuff
 (global-set-key (kbd "C-M-o") 'evil-force-normal-state)
-(global-set-key (kbd "<escape>") 'evil-force-normal-state)
-(define-key evil-emacs-state-map (kbd "<escape>") 'evil-emacs-state)
 (define-key evil-emacs-state-map (kbd "C-M-i") 'evil-force-normal-state)
 (define-key evil-normal-state-map (kbd "C-M-i") 'evil-emacs-state)
 (global-set-key (kbd "C-M-p") 'treemacs)
