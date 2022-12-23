@@ -44,6 +44,7 @@
             (setq-local lsp-eldoc-enable-hover nil)
             (setq-local eldoc-documentation-function #'ignore)
             (setq-local eldoc-mode nil)
+            ;; Needs to run after direnv
             ;; (haskell-post-lsp)
             ))
 
