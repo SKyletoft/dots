@@ -53,7 +53,7 @@
 (use-package direnv
   :hook
   ((after-init . direnv-mode)
-   (lsp-before-initialize-hook . direnv-update-environment))
+   (lsp-before-initialize-hook . direnv-update-environment)) ;; Doesn't work?
   :config
   (setq direnv-always-show-summary t))
 
