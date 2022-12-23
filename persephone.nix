@@ -10,6 +10,7 @@ in {
 	imports = [ # Include the results of the hardware scan.
 		/etc/nixos/hardware-configuration.nix
 		<nixos-hardware/microsoft/surface>
+		/etc/nixos/cachix.nix
 	];
 
 	nixpkgs = {
@@ -176,6 +177,7 @@ in {
 		ffmpeg
 		man-pages
 		man-pages-posix
+		cachix
 	];
 
 	environment.sessionVariables = {
