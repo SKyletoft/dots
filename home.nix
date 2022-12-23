@@ -283,15 +283,9 @@ in {
 				withGTK2 = false;
 				withGTK3 = false;
 			};
-			extraPackages = epkgs: ((with emacsPin; [
-				rust-analyzer
-				haskell-language-server
-				jdt-language-server
-				python310Packages.jedi-language-server
-				python310Packages.python
-				clang-tools_14
-				jdk17
-			]) ++ (with epkgs; [
+			extraPackages = epkgs: (with epkgs; [
+				emacsPin.python311Packages.python
+				
 				vterm
 				direnv
 				use-package
@@ -318,7 +312,7 @@ in {
 				haskell-mode
 				lsp-haskell
 				rustic
-			]));
+			]);
 		};
 
 		bash = {
