@@ -76,6 +76,7 @@
               (setq-local lsp-rust-analyzer-display-parameter-hints t)
               (setq-local lsp-rust-analyzer-display-reborrow-hints t)
               (setq-local rustic-format-on-save nil)
+              (setq-local rustic-rustfmt-args "+nightly")
 
               (setq-local eldoc-mode nil)
               (setq-local lsp-eldoc-enable-hover nil)
