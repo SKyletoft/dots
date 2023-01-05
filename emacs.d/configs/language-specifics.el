@@ -81,6 +81,7 @@
               (setq-local eldoc-mode nil)
               (setq-local lsp-eldoc-enable-hover nil)
               (setq-local eldoc-documentation-function #'ignore)
+              (setq-local lsp-ui-doc-mode t)
               (setq-local lsp-ui-sideline-show-hover nil)
               (setq-local lsp-ui-sideline-enable nil)
 
