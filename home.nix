@@ -17,8 +17,8 @@ let
 
 	vimPin = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
-		ref = "nixos-unstable";
-		rev = "2dea0f4c2d6e4603f54b2c56c22367e77869490c";
+		ref = "master";
+		rev = "9813adc7f7c0edd738c6bdd8431439688bb0cb3d";
 	}) {};
 
 	emacsOverlayPin = import (builtins.fetchGit {

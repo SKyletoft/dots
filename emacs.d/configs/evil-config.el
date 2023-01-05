@@ -5,6 +5,7 @@
 (evil-mode 1)
 
 ;; Emacs stuff
+(global-set-key (kbd "<f11>") 'toggle-frame-fullscreen)
 (global-set-key (kbd "C-M-o") 'evil-force-normal-state)
 (define-key evil-emacs-state-map (kbd "C-M-i") 'evil-force-normal-state)
 (define-key evil-normal-state-map (kbd "C-M-i") 'evil-emacs-state)
