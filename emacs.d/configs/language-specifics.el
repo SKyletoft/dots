@@ -88,6 +88,7 @@
               (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
               (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
               (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
+              (define-key evil-normal-state-map (kbd "SPC t") 'lsp-rust-analyzer-inlay-hints-mode)
 
               ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
               )))
