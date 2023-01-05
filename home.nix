@@ -251,28 +251,14 @@ in {
 				vim-table-mode
 				zen-mode-nvim
 				vim-slime
-				# vim-fsharp
-				Ionide-vim
 				firenvim
-
 				coc-rust-analyzer
 				coc-git
-				# coc-java
-				# copilot-vim
-
-				# vimspector
-				
 				nvim-dap
 				nvim-dap-ui
-				nvim-jdtls
 			];
 
-			package = vimPin.neovim;
-			extraPackages = with vimPin; [
-				rust-analyzer
-				haskell-language-server
-				clang-tools_14
-			];
+			# package = vimPin.neovim;
 			extraConfig = (builtins.readFile ./neovim_init.vim)
 			            + (if enableDebugging then builtins.readFile ./debug.vim else "");
 			vimAlias = true;
