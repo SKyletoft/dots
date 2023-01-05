@@ -273,8 +273,8 @@ in {
 				haskell-language-server
 				clang-tools_14
 			];
-			extraConfig   = (builtins.readFile ./neovim_init.vim)
-			              + (if enableDebugging then builtins.readFile ./debug.vim else "");
+			extraConfig = (builtins.readFile ./neovim_init.vim)
+			            + (if enableDebugging then builtins.readFile ./debug.vim else "");
 			vimAlias = true;
 		};
 
