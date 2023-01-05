@@ -77,7 +77,13 @@ set foldlevel=1
 set path+=**
 set wildmenu
 set cursorline
-colorscheme monokai_pro
+
+if exists('g:started_by_firenvim')
+	colorscheme zellner
+	nnoremap <Esc><Esc> :call firenvim#focus_page()<CR>
+else
+	colorscheme monokai_pro
+endif
 
 autocmd FileType rust    setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
 autocmd FileType fortran setlocal tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab

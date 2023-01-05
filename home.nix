@@ -253,6 +253,7 @@ in {
 				vim-slime
 				# vim-fsharp
 				Ionide-vim
+				firenvim
 
 				coc-rust-analyzer
 				coc-git
