@@ -16,6 +16,7 @@
 (setq evil-emacs-state-cursor evil-insert-state-cursor)
 
 (defun evil-normal-visual-motion (key command)
+  "Set a keybinding in normal, visual and motion modes at once"
   (define-key evil-normal-state-map key command)
   (define-key evil-visual-state-map key command)
   (define-key evil-motion-state-map key command))
