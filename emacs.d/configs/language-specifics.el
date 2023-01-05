@@ -33,11 +33,7 @@
 (defun haskell-post-lsp ()
   (interactive)
   (lsp)
-  (lsp-ui-doc-mode t)
-  (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
-  (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
-  (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
-  (define-key evil-normal-state-map (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>"))
+  (lsp-ui-doc-mode t))
 
 (add-hook 'haskell-mode-hook
           (lambda ()
@@ -49,7 +45,10 @@
             (setq-local eldoc-mode nil)
             ;; Needs to run after direnv
             ;; (haskell-post-lsp)
-            ))
+            (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
+            (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
+            (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
+            (define-key evil-normal-state-map (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>")))
 
 (use-package rustic
   :config
