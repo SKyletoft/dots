@@ -19,7 +19,22 @@
   (scroll-bar-mode nil)
   (menu-bar-mode nil))
 
-(global-auto-revert-mode t)
+(defun nuke-all-buffers ()
+  "Kills all buffers"
+  (interactive)
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows))
+
+(defun kill-buffers-on-all-frames-exited (_)
+  "Kills all buffers if no frames exist"
+  (let ((frames (length (x-frame-list-z-order))))
+    (if (eq frames 0)
+        (nuke-all-buffers)
+      ())))
+
+(setq after-delete-frame-functions
+      (cons 'kill-buffers-on-all-frames-exited after-delete-frame-functions))
+
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
