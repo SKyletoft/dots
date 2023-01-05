@@ -89,7 +89,8 @@
               (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
               (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
 
-              (add-hook 'before-save-hook 'lsp-format-buffer nil t))))
+              ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
+              )))
 
 (use-package lsp-mode
   :commands lsp
