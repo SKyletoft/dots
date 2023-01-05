@@ -127,6 +127,8 @@
   (define-key vterm-mode-map (kbd "C-M-d") 'windmove-right))
 
 ;; Line numbers
+(global-display-line-numbers-mode t) ;; Needed because reasons
+
 (defcustom display-line-numbers-exempt-modes
   '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode treemacs-mode)
   "Major modes on which to disable line numbers."

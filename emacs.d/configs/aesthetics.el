@@ -8,7 +8,6 @@
              '(alpha . (90 . 90)))
 
 (load-theme 'custom-monokai t)
-(global-display-line-numbers-mode t)
 
 ;; Disable background when in terminal
 (defun on-after-init ()
