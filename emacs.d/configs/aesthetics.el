@@ -1,5 +1,6 @@
 (provide 'aesthetics)
 (add-to-list 'default-frame-alist '(font . "Fira Code Nerd Font-11"))
+(add-to-list 'default-frame-alist '(undecorated-round . t))
 
 (set-frame-parameter (selected-frame)
                      'alpha
