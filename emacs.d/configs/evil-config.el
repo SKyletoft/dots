@@ -42,17 +42,27 @@
 (define-key evil-normal-state-map "\C-x" 'evil-delete)
 
 ;; Indents
-(defun insert-tab-at-start () (interactive)
-       (let ((pos (point))
-             (indent-with (if indent-tabs-mode
-                              "\t"
-                              "  "))
-             (step-by (if indent-tabs-mode
-                          1
-                          2)))
-         (beginning-of-line)
-         (insert indent-with)
-         (goto-char (+ step-by pos))))
+(defun shift-width-spaces (width)
+  "Create a string of spaces that is `width` wide"
+  (if (eq width 0)
+      ""
+      (concat " " (shift-width-spaces (- width 1)))))
+
+(defun insert-tab-at-start ()
+  "Insert a tab or `evil-shift-width` spaces (controlled by `indent-tabs-mode`) at
+   the beginning of the line and move the cursor accordingly"
+  (interactive)
+  (let ((pos (point))
+        (indent-with (if indent-tabs-mode
+                         "\t"
+                         (shift-width-spaces evil-shift-width)))
+        (step-by (if indent-tabs-mode
+                     1
+                     evil-shift-width)))
+    (beginning-of-line)
+    (insert indent-with)
+    (goto-char (+ step-by pos))))
+
 (define-key evil-insert-state-map (kbd "TAB") 'insert-tab-at-start)
 
 (setq backward-delete-char-untabify-method 'hungry)
