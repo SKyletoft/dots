@@ -35,11 +35,16 @@
 (setq after-delete-frame-functions
       (cons 'kill-buffers-on-all-frames-exited after-delete-frame-functions))
 
+(visual-line-mode -1) ;; Truncate lines
+(global-auto-revert-mode 1)
+(setq global-auto-revert-non-file-buffers t)
+(xterm-mouse-mode 1)
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
 (setq scroll-step 1)
 (setq ring-bell-function 'ignore)
+(setq use-dialog-box nil)
 (hide-menu)
 
 (use-package telephone-line
