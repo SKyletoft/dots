@@ -80,7 +80,7 @@
 
 ;; Undo and redo
 (define-key evil-normal-state-map (kbd "C-z") 'evil-undo)
-(define-key evil-normal-state-map (kbd "C-M-r") 'evil-redo)
+(define-key evil-normal-state-map (kbd "C-r") 'evil-redo)
 
 ;; And preserve wasd behaviour somewhere
 
