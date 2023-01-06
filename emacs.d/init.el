@@ -77,6 +77,7 @@
 (require 'evil-config)
 (require 'aesthetics)
 (require 'language-specifics)
+(require 'org-config)
 ;; (require 'irc-conf)
 
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))

@@ -285,6 +285,12 @@ in {
 				dashboard
 				gcmh
 
+				org-appear
+				mixed-pitch
+				company-posframe
+				org-superstar
+				olivetti
+
 				lsp-mode
 				lsp-ui
 				dap-mode
