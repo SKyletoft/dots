@@ -89,7 +89,7 @@
 	services = {
 		xserver.enable = false;
 		vaultwarden = {
-			enable = true;
+			enable = false;
 			config = {
 				domain = "bw.kyletoft.se";
 			};
