@@ -101,7 +101,7 @@
 		earlyoom.enable = true;
 		ananicy = {
 			enable = true;
-			package = pkgs.ananicy-cpp;
+			# package = pkgs.ananicy-cpp;
 		};
 		adguardhome.enable = false;
 		invidious = {
@@ -114,20 +114,42 @@
 			enable = true;
 			openFirewall = true;
 		};
+		cron = {
+			enable = true;
+			systemCronJobs = [(
+				"* * * * * u3836 "
+				+ "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status "
+				+ "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
+				+ "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
+				+ "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
+				+ "&& SYSTEMD_COLORS=true systemctl status invidious | head -n3 >> /tmp/eurydice-status"
+			)];
+		};
+		nix-serve = {
+			enable = true;
+			secretKeyFile = "/var/cache-priv-key.pem";
+		};
 		nginx = {
 			enable = true;
 			recommendedProxySettings = true;
 			recommendedTlsSettings = true;
 			recommendedGzipSettings = true;
 			recommendedOptimisation = true;
+			statusPage = true;
 			virtualHosts = {
 				"kyletoft.se" = {
 					forceSSL = true;
 					enableACME = true;
-					default = true;
-					root = "/var/www/kyletoft.se";
+					# default = true;
+					root = "/var/www/samuel.kyletoft.se";
 				};
 				"samuel.kyletoft.se" = {
+					forceSSL = true;
+					enableACME = true;
+					default = true;
+					root = "/var/www/samuel.kyletoft.se";
+				};
+				"u3836.se" = {
 					forceSSL = true;
 					enableACME = true;
 					root = "/var/www/samuel.kyletoft.se";
@@ -152,20 +174,36 @@
 					enableACME = true;
 					root = "/var/www/dhack.kyletoft.se";
 				};
+				"cflisp.u3836.se" = {
 					forceSSL = true;
 					enableACME = true;
 					root = "/var/www/cflisp.kyletoft.se";
 				};
+				"termshare.u3836.se" = {
 					addSSL = true;
 					enableACME = true;
 					locations."/".proxyPass = "http://127.0.0.1:12825";
 				};
+				"jellyfin.u3836.se" = {
 					addSSL = true;
 					enableACME = true;
 					locations."/".proxyPass = "http://127.0.0.1:8096";
 				};
+				# "bw.kyletoft.se" = {
+					# addSSL = true;
+					# enableACME = true;
+					# locations."/".proxyPass = "http://127.0.0.1:9004";
+					# locations."/:9005".proxyPass = "http://127.0.0.1:9005";
+				# };
+				"nix.u3836.se" = {
 					addSSL = true;
 					enableACME = true;
+					locations."/".extraConfig = ''
+						proxy_pass http://localhost:${toString config.services.nix-serve.port};
+						proxy_set_header Host $host;
+						proxy_set_header X-Real-IP $remote_addr;
+						proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+					'';	
 				};
 			};
 		};
@@ -173,11 +211,7 @@
 
 	programs.bash.shellInit = ''
 		[[ $- == *i* ]] || return
-		${pkgs.neofetch}/bin/neofetch --disable packages
-		SYSTEMD_COLORS=true systemctl status nginx | head -n3
-		SYSTEMD_COLORS=true systemctl status jellyfin | head -n3
-		SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3
-		SYSTEMD_COLORS=true systemctl status invidious | head -n3
+		cat /tmp/eurydice-status
 	'';
 
 	security = {
