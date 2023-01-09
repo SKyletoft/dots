@@ -67,6 +67,7 @@
 		neovim
 		man-pages
 		man-pages-posix
+		hugo
 	];
 
 	users.users = {
@@ -75,6 +76,7 @@
 			extraGroups = [ "wheel" ];
 		};
 		maky.isNormalUser = true;
+		liam.isNormalUser = true;
 	};
 
 	hardware = {
@@ -135,31 +137,35 @@
 					enableACME = true;
 					root = "/var/www/marie.kyletoft.se";
 				};
+				"www.liamjardine.se" = {
+					forceSSL = true;
+					enableACME = true;
+					root = "/var/www/liamjardine.se";
+				};
+				"liamjardine.se" = {
+					forceSSL = true;
+					enableACME = true;
+					root = "/var/www/liamjardine.se";
+				};
 				"dhack.kyletoft.se" = {
 					forceSSL = true;
 					enableACME = true;
 					root = "/var/www/dhack.kyletoft.se";
 				};
-				"cflisp.kyletoft.se" = {
 					forceSSL = true;
 					enableACME = true;
 					root = "/var/www/cflisp.kyletoft.se";
 				};
-				"termshare.kyletoft.se" = {
 					addSSL = true;
 					enableACME = true;
 					locations."/".proxyPass = "http://127.0.0.1:12825";
 				};
-				"jellyfin.kyletoft.se" = {
 					addSSL = true;
 					enableACME = true;
 					locations."/".proxyPass = "http://127.0.0.1:8096";
 				};
-				"bw.kyletoft.se" = {
 					addSSL = true;
 					enableACME = true;
-					locations."/".proxyPass = "http://127.0.0.1:9004";
-					locations."/:9005".proxyPass = "http://127.0.0.1:9005";
 				};
 			};
 		};
