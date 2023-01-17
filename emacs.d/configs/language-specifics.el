@@ -87,7 +87,7 @@
   :commands lsp
   :config
   (setq lsp-signature-auto-activate t)
-  (setq lsp-signature-doc-lines 1) 
+  (setq lsp-signature-doc-lines 1)
   (setq lsp-signature-render-documentation nil)
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
