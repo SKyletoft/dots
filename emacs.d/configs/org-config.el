@@ -7,19 +7,6 @@
             (setq-local evil-shift-width 8)
             (setq-local indent-tabs-mode t)))
 
-;; Set default, fixed and variabel pitch fonts
-;; Use M-x menu-set-font to view available fonts
-(use-package mixed-pitch
-  :hook
-  (text-mode . mixed-pitch-mode)
-  :config
-  ;;(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 130)
-  ;;(set-face-attribute 'fixed-pitch nil :font "DejaVu Sans Mono")
-  ;;(set-face-attribute 'variable-pitch nil :font "DejaVu Sans")
-  )
-
-(add-hook 'mixed-pitch-mode-hook #'solaire-mode-reset)
-
 ;; Required for proportional font
 (use-package company-posframe
   :config

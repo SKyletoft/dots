@@ -324,9 +324,11 @@ ACTION=="add", \
 	fonts.fonts = with pkgs; [
 		cascadia-code
 		fantasque-sans-mono
+		roboto
 		(nerdfonts.override {fonts = [
 			"FiraCode"
 			"DroidSansMono"
+			"RobotoMono"
 		];})
 	] ++ (if windowsFonts then [
 		winePackages.fonts
