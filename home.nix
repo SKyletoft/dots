@@ -284,6 +284,8 @@ in {
 				ligature
 				dashboard
 				gcmh
+				crdt
+				# tramp
 
 				org-appear
 				mixed-pitch
