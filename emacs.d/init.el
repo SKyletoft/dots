@@ -37,19 +37,18 @@
 
 (visual-line-mode -1) ;; Truncate lines
 (global-auto-revert-mode 1)
-(setq global-auto-revert-non-file-buffers t)
 (xterm-mouse-mode 1)
 (recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(setq recentf-max-saved-items 25)
-(setq scroll-step 1)
-(setq ring-bell-function 'ignore)
-(setq use-dialog-box nil)
+(setq global-auto-revert-non-file-buffers t
+      recentf-max-menu-items 25
+      recentf-max-saved-items 25
+      scroll-step 1
+      ring-bell-function 'ignore
+      use-dialog-box nil)
+
 (hide-menu)
 
-(use-package telephone-line
-  :config
-  (telephone-line-mode))
+(use-package telephone-line)
 
 (use-package treemacs
   :config
@@ -68,9 +67,9 @@
 
 (use-package gcmh
   :config
-  (setq garbage-collection-messages t)
-  (setq gcmh-idle-delay 10)
-  (setq gcmh-high-cons-threshold (* 1024 1024 128))
+  (setq garbage-collection-messages t
+        gcmh-idle-delay 10
+        gcmh-high-cons-threshold (* 1024 1024 128))
   (gcmh-mode 1))
 
 (add-to-list 'load-path "~/.emacs.d/configs")
@@ -80,5 +79,5 @@
 (require 'org-config)
 ;; (require 'irc-conf)
 
-(setq custom-file (locate-user-emacs-file "custom-vars.el"))
+(setq custom-file (locate-user-emacs-file "configs/custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
