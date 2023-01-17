@@ -281,6 +281,7 @@ ACTION=="add", \
 			man-pages
 			man-pages-posix
 			ddcutil
+			cachix
 		];
 		sessionVariables = {
 			MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
