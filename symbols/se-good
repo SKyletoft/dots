@@ -21,7 +21,7 @@ xkb_symbols "se-good" {
 	key <AD01> {[               q,               Q,           U2208,           U2282 ]};
 	key <AD02> {[               w,               W,           U220B,           U2283 ]};
 	key <AD03> {[               e,               E,        EuroSign,           U2203 ]};
-	key <AD04> {[               r,               R,      registered,           U211D ]};
+	key <AD04> {[               r,               R,           U211D,           U02B4 ]};
 	key <AD05> {[               t,               T,           thorn,           THORN ]};
 	key <AD06> {[               y,               Y,             eth,             ETH ]};
 	key <AD07> {[               u,               U,           U22C3,           U22C2 ]};
