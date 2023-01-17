@@ -101,9 +101,12 @@
 (use-package flycheck)
 
 (add-hook 'emacs-lisp-mode-hook
-          (lambda () (setq-local indent-tabs-mode nil)
+          (lambda ()
+	    (setq-local indent-tabs-mode nil)
             (define-key evil-normal-state-map (kbd "SPC i") 'indent-according-to-mode)
-            (define-key evil-visual-state-map (kbd "SPC i") 'indent-region)))
+            (define-key evil-visual-state-map (kbd "SPC i") 'indent-region)
+            (setq-local flycheck-mode 1)
+            (flycheck-elsa-setup)))
 
 (use-package vterm
   :config
