@@ -4,18 +4,23 @@
 (global-eldoc-mode -1)
 
 (setq-default indent-tabs-mode t)
-(setq custom-tab-width 8)
-(setq-default evil-shift-width custom-tab-width)
+(setq-default evil-shift-width 8)
 
+(defun set-indents (tab-width-p shift-width-p tabs-p)
+  (setq-local tab-width tab-width-p)
+  (setq-local evil-shift-width shift-width-p)
+  (setq-local indent-tabs-mode tabs-p))
 
 ;; For filetypes without hooks
 (add-hook 'find-file-hook
           (lambda ()
             (when (and (stringp buffer-file-name)
+                       (string-match "\\.art\\'" buffer-file-name))
+              (set-indents 8 8 t)
+              (setq-local prog-mode 1))
+            (when (and (stringp buffer-file-name)
                        (string-match "\\.nix\\'" buffer-file-name))
-              (setq-local tab-width 4)
-              (setq-local evil-shift-width 4)
-              (setq-local indent-tabs-mode t))
+              (set-indents 4 4 t))
             ))
 
 (defun haskell-post-lsp ()
@@ -25,9 +30,7 @@
 
 (add-hook 'haskell-mode-hook
           (lambda ()
-            (setq-local tab-width 8)
-            (setq-local evil-shift-width 2)
-            (setq-local indent-tabs-mode nil)
+            (set-indents 8 2 nil)
             (setq-local lsp-eldoc-enable-hover nil)
             (setq-local eldoc-documentation-function #'ignore)
             (setq-local eldoc-mode nil)
@@ -50,9 +53,7 @@
               (when buffer-file-name
                 (setq-local buffer-save-without-query t))
               (setq-local rust-indent-offset 8)
-              (setq-local tab-width 8)
-              (setq-local evil-shift-width 8)
-              (setq-local indent-tabs-mode t)
+              (set-indents 8 8 t)
 
               (setq-local lsp-rust-analyzer-cargo-watch-command "clippy")
               (setq-local lsp-idle-delay 0.6)
