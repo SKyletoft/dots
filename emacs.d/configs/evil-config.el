@@ -13,6 +13,7 @@
 (define-key evil-normal-state-map "\C-t" 'vterm)
 (define-key evil-normal-state-map (kbd "C-+") 'text-scale-increase)
 (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
+(define-key evil-normal-state-map (kbd "SPC m") 'magit)
 (setq evil-emacs-state-cursor evil-insert-state-cursor)
 
 (defun evil-normal-visual-motion (key command)
