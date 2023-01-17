@@ -26,7 +26,6 @@ let
 		ref = "master";
 		rev = "2052e031a352505b51d4e278c906bf653312a59b"; # change the revision
 	});
-	});
 	emacsPin = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.11";
@@ -271,6 +270,7 @@ in {
 			package = emacsPin.emacsGit.override {
 				withGTK2 = false;
 				withGTK3 = false;
+				withX    = gui;
 			};
 			extraPackages = epkgs: (with epkgs; [
 				emacsPin.python311Packages.python
@@ -309,6 +309,8 @@ in {
 				haskell-mode
 				lsp-haskell
 				rustic
+				elsa
+				flycheck-elsa
 			]);
 		};
 
@@ -394,4 +396,3 @@ in {
 	# Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
 }
-
