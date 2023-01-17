@@ -25,13 +25,15 @@ fi
 
 __vsc_custom_PS1='\e[32;1m\u: \e[34m\w \[\033[00m\] [bash]\n↳ '
 
-iptsd () {
+settouch () {
 	if [ $1 == "on" ]; then
 		doas systemctl reload-or-restart iptsd
 	elif [ $1 == "off" ]; then
 		doas systemctl kill iptsd
 	elif [ $1 == "status" ]; then
 		systemctl is-enabled iptsd
+	elif [ $1 == "reset" ]; then
+		doas iptsd-reset-sensor && doas systemctl reload-or-restart iptsd
 	else
 		echo "Invalid command"
 	fi
