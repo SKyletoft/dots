@@ -36,10 +36,10 @@ xkb_symbols "se-good" {
 	key <AC02> {[               s,               S,     Greek_sigma,     Greek_SIGMA ]};
 	key <AC03> {[               d,               D,     Greek_delta,     Greek_DELTA ]};
 	key <AC04> {[               f,               F,       Greek_phi,       Greek_PHI ]};
-	key <AC05> {[               g,               G,       Greek_tau,       Greek_TAU ]};
-	key <AC06> {[               h,               H ]};
-	key <AC07> {[               j,               J ]};
-	key <AC08> {[               k,               K ]};
+	key <AC05> {[               g,               G,       Greek_tau,        Greek_PI ]};
+	key <AC06> {[               h,               H,     Greek_gamma,     Greek_GAMMA ]};
+	key <AC07> {[               j,               J,   Greek_epsilon,      Greek_zeta ]};
+	key <AC08> {[               k,               K,      Greek_iota,       Greek_chi ]};
 	key <AC09> {[               l,               L,    Greek_lambda,    Greek_LAMBDA ]};
 	key <AC10> {[      odiaeresis,      Odiaeresis,       braceleft,           U27E8 ]};
 	key <AC11> {[      adiaeresis,      Adiaeresis,      braceright,           U27E9 ]};
