@@ -7,18 +7,6 @@
 (setq custom-tab-width 8)
 (setq-default evil-shift-width custom-tab-width)
 
-;; default tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
-;; rust    tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
-;; fortran tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
-;; python  tabstop=8 softtabstop=8 shiftwidth=0 noexpandtab
-;; nim     tabstop=2 softtabstop=2 shiftwidth=0   expandtab
-;; kotlin  tabstop=4 softtabstop=4 shiftwidth=0 noexpandtab
-;; fut     tabstop=2 softtabstop=2 shiftwidth=0 noexpandtab
-;; haskell tabstop=2 softtabstop=2 shiftwidth=0   expandtab
-;; fsharp  tabstop=2 softtabstop=2 shiftwidth=0   expandtab
-;; nix     tabstop=4 softtabstop=4 shiftwidth=0 noexpandtab
-;; toml    tabstop=2 softtabstop=2 shiftwidth=0   expandtab
-;; yaml    tabstop=2 softtabstop=2 shiftwidth=0   expandtab
 
 ;; For filetypes without hooks
 (add-hook 'find-file-hook
