@@ -210,21 +210,21 @@ in {
 
 		# https://discourse.nixos.org/t/how-to-enable-ddc-brightness-control-i2c-permissions/20800/2
 		udev.extraRules = ''
-KERNEL=="i2c-[0-9]*", \
-	GROUP="i2c", \
-	MODE="0660", \
-	SUBSYSTEM=="i2c-dev", \
-	ACTION=="add", \
-	ATTR{name}=="NVIDIA i2c adapter*", \
-	TAG+="ddcci", \
-	TAG+="systemd", \
-	ENV{SYSTEMD_WANTS}+="ddcci@$kernel.service"
-ACTION=="add", \
-	ATTRS{idVendor}=="2dc8", \
-	ATTRS{idProduct}=="3106", \
-	RUN+="${pkgs.kmod}/bin/modprobe xpad", \
-	RUN+="${pkgs.bash}/bin/sh -c 'echo 2dc8 3106 > /sys/bus/usb/drivers/xpad/new_id'"
-'';
+			KERNEL=="i2c-[0-9]*", \
+				GROUP="i2c", \
+				MODE="0660", \
+				SUBSYSTEM=="i2c-dev", \
+				ACTION=="add", \
+				ATTR{name}=="NVIDIA i2c adapter*", \
+				TAG+="ddcci", \
+				TAG+="systemd", \
+				ENV{SYSTEMD_WANTS}+="ddcci@$kernel.service"
+			ACTION=="add", \
+				ATTRS{idVendor}=="2dc8", \
+				ATTRS{idProduct}=="3106", \
+				RUN+="${pkgs.kmod}/bin/modprobe xpad", \
+				RUN+="${pkgs.bash}/bin/sh -c 'echo 2dc8 3106 > /sys/bus/usb/drivers/xpad/new_id'"
+		'';
 
 		mullvad-vpn.enable = true;
 
