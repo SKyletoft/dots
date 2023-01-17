@@ -91,6 +91,7 @@ in {
 		] ++
 		(if gui then [
 			monitor
+			iptsd
 
 			firefox-bin
 			alacritty
