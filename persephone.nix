@@ -141,6 +141,15 @@ in {
 
 		earlyoom.enable = true;
 
+		cron = {
+			enable = true;
+			systemCronJobs = [(
+				"* * * * * root"
+				+ "${pkgs.iptsd}/bin/iptsd-reset-sensor"
+				+ "&& systemctl reload-or-restart iptsd"
+			)];
+		};
+
 		# flatpak.enable = true;
 		# openssh.enable = true;
 	};
