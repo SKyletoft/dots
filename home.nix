@@ -26,6 +26,11 @@ let
 		ref = "master";
 		rev = "2052e031a352505b51d4e278c906bf653312a59b"; # change the revision
 	});
+	emacsWebrenderOverlay = import (builtins.fetchGit {
+		url = "https://github.com/declantsien/emacs-ng.git";
+		ref = "emacs-29";
+		rev = "f1582ac03faa6108e9637895fb6200a74517a4ee";
+	});
 	emacsPin = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.11";
@@ -33,7 +38,7 @@ let
 	}) { overlays = [ emacsOverlayPin ]; };
 
 	enableHyprland = false;
-	enableGnome = false;
+	enableGnome = true;
 	enableDebugging = false;
 	gui = enableGnome || enableHyprland;
 in {
@@ -91,6 +96,9 @@ in {
 		(if gui then [
 			monitor
 			iptsd
+
+			eterm8
+			gcc-arm-embedded
 
 			firefox-bin
 			alacritty
@@ -272,6 +280,7 @@ in {
 				withGTK3 = false;
 				withX    = gui;
 			};
+			# package = ((builtins.getFlake "/home/u3836/git/emacs-webrender").outputs.packages.${builtins.currentSystem}.emacsWebrender);
 			extraPackages = epkgs: (with epkgs; [
 				emacsPin.python311Packages.python
 				
@@ -383,9 +392,9 @@ in {
 		".local/share/applications/discord.desktop".source           = ./discord.desktop;
 
 		# Folders
-		".themes/yaru".source                         = ./.themes/yaru;
-		".icons/yaru_edit".source                     = ./.icons/yaru_edit;
-		".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
+		# ".themes/yaru".source                         = ./.themes/yaru;
+		# ".icons/yaru_edit".source                     = ./.icons/yaru_edit;
+		# ".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
 
 		# Emacs
 		# ".emacs.d/configs".source       = ./emacs.d/configs;

@@ -15,6 +15,7 @@
 (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
 (define-key evil-normal-state-map (kbd "SPC m") 'magit)
 (setq evil-emacs-state-cursor evil-insert-state-cursor)
+(define-key evil-normal-state-map (kbd "SPC m") 'magit)
 
 (defun evil-normal-visual-motion (key command)
   "Set a keybinding in normal, visual and motion modes at once"
