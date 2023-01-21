@@ -295,6 +295,7 @@ in {
 				dashboard
 				gcmh
 				crdt
+				transpose-frame
 				# tramp
 
 				org-appear
