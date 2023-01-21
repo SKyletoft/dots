@@ -85,7 +85,6 @@ in {
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		kernelModules = [ "i2c-dev" "xpad" "hid-nintendo" "xone" "xpadneo" ];
 		extraModulePackages = [
-			config.boot.kernelPackages.ddcci-driver
 			config.boot.kernelPackages.xone
 			config.boot.kernelPackages.xpadneo
 			(config.boot.kernelPackages.callPackage ./packages/xpad.nix {})
@@ -280,7 +279,6 @@ in {
 			ffmpeg
 			man-pages
 			man-pages-posix
-			ddcutil
 			cachix
 		];
 		sessionVariables = {
