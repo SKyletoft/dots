@@ -183,6 +183,7 @@ in {
 
 			difftastic.enable = true;
 			extraConfig = {
+				core.editor = "emacsclient -r -a\"emacs --daemon\"";
 				pull = {
 					ff = "only";
 				};
@@ -355,7 +356,7 @@ in {
 
 	services.lorri.enable = true;
 	services.emacs = {
-		enable = true;
+		enable = false;
 		defaultEditor = true;
 		startWithUserSession = false;
 	};
