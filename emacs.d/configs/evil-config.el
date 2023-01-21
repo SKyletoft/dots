@@ -134,3 +134,11 @@
 
 ;; Formatters
 
+;; Completion-buffer
+;; Up/down when completing in the minibuffer
+(define-key minibuffer-local-map (kbd "C-p") #'minibuffer-previous-completion)
+(define-key minibuffer-local-map (kbd "C-n") #'minibuffer-next-completion)
+
+;; Up/down when competing in a normal buffer
+(define-key completion-in-region-mode-map (kbd "C-p") #'minibuffer-previous-completion)
+(define-key completion-in-region-mode-map (kbd "C-n") #'minibuffer-next-completion)
