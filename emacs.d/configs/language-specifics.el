@@ -31,9 +31,9 @@
 (add-hook 'haskell-mode-hook
           (lambda ()
             (set-indents 8 2 nil)
-            (setq-local lsp-eldoc-enable-hover nil)
-            (setq-local eldoc-documentation-function #'ignore)
-            (setq-local eldoc-mode nil)
+            (setq-local lsp-eldoc-enable-hover nil
+                        eldoc-documentation-function #'ignore
+                        eldoc-mode nil)
             ;; Needs to run after direnv
             ;; (haskell-post-lsp)
             (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
@@ -46,33 +46,31 @@
   ;; (setq lsp-eldoc-hook nil)
   ;; (setq lsp-enable-symbol-highlighting nil)
   ;; (setq lsp-signature-auto-activate nil)
-  (setq rustic-format-on-save t)
-  (setq lsp-rust-analyzer-server-display-inlay-hints t)
+  (setq rustic-format-on-save t
+        lsp-rust-analyzer-server-display-inlay-hints t
+        lsp-rust-analyzer-cargo-watch-command "clippy"
+        lsp-rust-analyzer-server-display-inlay-hints t
+        lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial"
+        lsp-rust-analyzer-display-chaining-hints t
+        lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names t
+        lsp-rust-analyzer-display-closure-return-type-hints t
+        lsp-rust-analyzer-display-parameter-hints t
+        lsp-rust-analyzer-display-reborrow-hints t
+        rustic-format-on-save nil
+        rustic-rustfmt-args "+nightly")
   (add-hook 'rustic-mode-hook
             (lambda ()
               (when buffer-file-name
                 (setq-local buffer-save-without-query t))
-              (setq-local rust-indent-offset 8)
               (set-indents 8 8 t)
-
-              (setq-local lsp-rust-analyzer-cargo-watch-command "clippy")
-              (setq-local lsp-idle-delay 0.6)
-              (setq-local lsp-rust-analyzer-server-display-inlay-hints t)
-              (setq-local lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
-              (setq-local lsp-rust-analyzer-display-chaining-hints t)
-              (setq-local lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names t)
-              (setq-local lsp-rust-analyzer-display-closure-return-type-hints t)
-              (setq-local lsp-rust-analyzer-display-parameter-hints t)
-              (setq-local lsp-rust-analyzer-display-reborrow-hints t)
-              (setq-local rustic-format-on-save nil)
-              (setq-local rustic-rustfmt-args "+nightly")
-
-              (setq-local eldoc-mode nil)
-              (setq-local lsp-eldoc-enable-hover nil)
-              (setq-local eldoc-documentation-function #'ignore)
-              (setq-local lsp-ui-doc-mode t)
-              (setq-local lsp-ui-sideline-show-hover nil)
-              (setq-local lsp-ui-sideline-enable nil)
+              (setq-local rust-indent-offset 8
+                          lsp-idle-delay 0.6
+                          eldoc-mode nil
+                          lsp-eldoc-enable-hover nil
+                          eldoc-documentation-function #'ignore
+                          lsp-ui-doc-mode t
+                          lsp-ui-sideline-show-hover nil
+                          lsp-ui-sideline-enable t)
 
               (define-key evil-normal-state-map (kbd "SPC i") 'rustic-format-buffer)
               (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
@@ -86,9 +84,9 @@
 (use-package lsp-mode
   :commands lsp
   :config
-  (setq lsp-signature-auto-activate t)
-  (setq lsp-signature-doc-lines 1)
-  (setq lsp-signature-render-documentation nil)
+  (setq lsp-signature-auto-activate t
+        lsp-signature-doc-lines 1
+        lsp-signature-render-documentation nil)
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package lsp-ui
@@ -102,19 +100,19 @@
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-	    (setq-local indent-tabs-mode nil)
+            (flycheck-elsa-setup)
+            (setq-local flycheck-mode 1
+                        indent-tabs-mode nil)
             (define-key evil-normal-state-map (kbd "SPC i") 'indent-according-to-mode)
-            (define-key evil-visual-state-map (kbd "SPC i") 'indent-region)
-            (setq-local flycheck-mode 1)
-            (flycheck-elsa-setup)))
+            (define-key evil-visual-state-map (kbd "SPC i") 'indent-region)))
 
 (use-package vterm
   :config
   (add-hook 'vterm-mode-hook
             (lambda ()
-              (setq-local vterm-term-environment-variable 'eterm-color)
-              (setq-local vterm-kill-buffer-on-exit t)
-              (setq-local vterm-timer-delay nil)
+              (setq-local vterm-term-environment-variable 'eterm-color
+                          vterm-kill-buffer-on-exit t
+                          vterm-timer-delay nil)
               (evil-emacs-state)))
   (define-key vterm-mode-map (kbd "C-M-w") 'windmove-up)
   (define-key vterm-mode-map (kbd "C-M-s") 'windmove-down)
