@@ -122,7 +122,6 @@
 (define-key evil-emacs-state-map (kbd "C-M-s") 'evil-window-down)
 (define-key evil-emacs-state-map (kbd "C-M-a") 'evil-window-left)
 (define-key evil-emacs-state-map (kbd "C-M-d") 'evil-window-right)
-(define-key evil-emacs-state-map (kbd "SPC o") 'transpose-with-treemacs)
 
 (define-key evil-normal-state-map (kbd "C-<tab>") 'next-buffer)
 (define-key evil-motion-state-map (kbd "C-<tab>") 'next-buffer)
