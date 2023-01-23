@@ -10,7 +10,7 @@ group_imports = "StdExternalCrate"
 imports_granularity = "Crate"
 
 condense_wildcard_suffixes = true
-format_strings = true
+format_strings = false
 
 use_field_init_shorthand = true
 hex_literal_case = "Upper"
