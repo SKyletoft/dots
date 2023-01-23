@@ -17,10 +17,12 @@
             (when (and (stringp buffer-file-name)
                        (string-match "\\.art\\'" buffer-file-name))
               (set-indents 8 8 t)
+              (editorconfig-apply)
               (setq-local prog-mode 1))
             (when (and (stringp buffer-file-name)
                        (string-match "\\.nix\\'" buffer-file-name))
-              (set-indents 4 4 t))
+              (set-indents 4 4 t)
+              (editorconfig-apply))
             ))
 
 (defun haskell-post-lsp ()
@@ -39,7 +41,8 @@
             (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
             (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
             (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
-            (define-key evil-normal-state-map (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>")))
+            (define-key evil-normal-state-map (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>")
+            (editorconfig-apply)))
 
 (use-package rustic
   :config
@@ -79,6 +82,7 @@
               (define-key evil-normal-state-map (kbd "SPC t") 'lsp-rust-analyzer-inlay-hints-mode)
 
               ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
+              (editorconfig-apply)
               )))
 
 (use-package lsp-mode
@@ -104,7 +108,8 @@
             (setq-local flycheck-mode 1
                         indent-tabs-mode nil)
             (define-key evil-normal-state-map (kbd "SPC i") 'indent-according-to-mode)
-            (define-key evil-visual-state-map (kbd "SPC i") 'indent-region)))
+            (define-key evil-visual-state-map (kbd "SPC i") 'indent-region)
+            (editorconfig-apply)))
 
 (use-package vterm
   :config
