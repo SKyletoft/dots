@@ -111,6 +111,24 @@
             (define-key evil-visual-state-map (kbd "SPC i") 'indent-region)
             (editorconfig-apply)))
 
+(add-hook 'html-mode-hook
+          (lambda ()
+            (setq-local html-indent-offset 8)
+            (set-indents 8 8 t)
+            (editorconfig-apply)))
+
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq-local css-indent-offset 8)
+            (set-indents 8 8 t)
+            (editorconfig-apply)))
+
+(add-hook 'js-mode-hook
+          (lambda ()
+            (setq-local js-indent-offset 8)
+            (set-indents 8 8 t)
+            (editorconfig-apply)))
+
 (use-package vterm
   :config
   (add-hook 'vterm-mode-hook
