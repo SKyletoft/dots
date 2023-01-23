@@ -48,6 +48,10 @@
 
 (hide-menu)
 
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
 (use-package telephone-line)
 
 (use-package treemacs

@@ -298,6 +298,7 @@ in {
 				crdt
 				transpose-frame
 				# tramp
+				editorconfig
 
 				org-appear
 				mixed-pitch
