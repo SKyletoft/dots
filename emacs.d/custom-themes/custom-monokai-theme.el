@@ -173,8 +173,8 @@
      (isearch-fail                                 :foreground red :background al-fg)
 
 ;;;; line-numbers
-     (line-number                                  :foreground fg-2)
-     (line-number-current-line                     :foreground al-fg :background bg+2)
+     (line-number                                  :foreground fg-2 :inherit default)
+     (line-number-current-line                     :foreground al-fg :background bg+2 :inherit default)
 
 ;;;; linum-mode
      (linum                                        :foreground fg-3 :inherit fringe)
