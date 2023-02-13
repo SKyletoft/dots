@@ -6,6 +6,7 @@
 
 let
 	waylandSupport = true;
+	windowsFonts = false;
 	nativeBuild = false;
 in {
 	imports = [ # Include the results of the hardware scan.
@@ -201,12 +202,17 @@ in {
 	fonts.fonts = with pkgs; [
 		cascadia-code
 		fantasque-sans-mono
+		roboto
 		(nerdfonts.override {fonts = [
 			"FiraCode"
 			"DroidSansMono"
-			"FantasqueSansMono"
+			"RobotoMono"
 		];})
-	];
+	] ++ (if windowsFonts then [
+		winePackages.fonts
+		vistafonts
+		corefonts
+	] else []);
 
 	programs = {
 		sway.enable = false;
