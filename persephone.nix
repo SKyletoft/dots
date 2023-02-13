@@ -20,11 +20,26 @@ in {
 			allowUnfree = true;
 			allowBroken = false;
 		};
-	};
 		overlays = (import ./overlays.nix) nativeBuild;
+	} // (if nativeBuild then {
+		localSystem =  {
+			gcc.arch = "skylake";
+			gcc.tune = "skylake";
+			system = "x86_64-linux";
+		};
+	} else {});
 
 	nix = {
-		settings.auto-optimise-store = true;
+		settings = {
+			auto-optimise-store = true;
+			system-features = [
+				"benchmark"
+				"big-parallel"
+				"gccarch-skylake"
+				"kvm"
+				"nixos-test"
+			];
+		};
 		gc = {
 			automatic = true;
 			dates = "weekly";
