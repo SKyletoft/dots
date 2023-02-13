@@ -38,7 +38,7 @@ in {
 				"kvm"
 				"nixos-test"
 			];
-			post-build-hook = "upload-to-cache.sh";
+			post-build-hook = "/home/u3836/dots/upload-to-cache.sh";
 			substituters = [
 				"https://nix-community.cachix.org"
 				"https://cache.nixos.org/"
