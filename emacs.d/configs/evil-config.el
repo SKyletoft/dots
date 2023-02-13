@@ -11,7 +11,7 @@
 (define-key evil-emacs-state-map (kbd "C-M-i") 'evil-force-normal-state)
 (define-key evil-normal-state-map (kbd "C-M-i") 'evil-emacs-state)
 (global-set-key (kbd "C-M-p") 'treemacs)
-(define-key evil-normal-state-map "\C-t" 'vterm)
+(define-key evil-normal-state-map "\C-t" 'multi-vterm)
 (define-key evil-normal-state-map (kbd "C-+") 'text-scale-increase)
 (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
 (define-key evil-normal-state-map (kbd "SPC m") 'magit)

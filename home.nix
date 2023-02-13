@@ -285,7 +285,7 @@ in {
 			extraPackages = epkgs: (with epkgs; [
 				emacsPin.python311Packages.python
 				
-				vterm
+				multi-vterm
 				direnv
 				use-package
 				magit
