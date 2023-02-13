@@ -26,11 +26,6 @@ let
 		ref = "master";
 		rev = "581072bb0d49768da9370056f7b6e7b761b5d8be"; # change the revision
 	});
-	emacsWebrenderOverlay = import (builtins.fetchGit {
-		url = "https://github.com/declantsien/emacs-ng.git";
-		ref = "emacs-29";
-		rev = "f1582ac03faa6108e9637895fb6200a74517a4ee";
-	});
 	emacsPin = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.11";
