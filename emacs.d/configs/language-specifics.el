@@ -147,7 +147,8 @@
 (global-display-line-numbers-mode t) ;; Needed because reasons
 
 (defcustom display-line-numbers-exempt-modes
-  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode treemacs-mode)
+  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode
+    treemacs-mode snake-mode tetris-mode solitaire-mode pong-mode)
   "Major modes on which to disable line numbers."
   :group 'display-line-numbers
   :type 'list
