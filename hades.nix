@@ -205,7 +205,7 @@ in {
 		# Enable the OpenSSH daemon.
 		openssh = {
 			enable = true;
-			PasswordAuthentication = false;
+			settings.PasswordAuthentication = false;
 		};
 	};
 

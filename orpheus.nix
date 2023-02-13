@@ -72,7 +72,7 @@
 		xserver.enable = false;
 		openssh = {
 			enable = true;
-			PasswordAuthentication = false;
+			settings.PasswordAuthentication = false;
 		};
 		earlyoom.enable = true;
 		ananicy = {
