@@ -83,5 +83,6 @@
 (require 'org-config)
 ;; (require 'irc-conf)
 
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 (setq custom-file (locate-user-emacs-file "configs/custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
