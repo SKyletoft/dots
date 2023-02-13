@@ -18,7 +18,6 @@ in {
 		config = {
 			allowUnfree = true;
 			allowBroken = false;
-			# cudaSupport = true;
 		};
 		overlays = (import ./overlays.nix) nativeBuild;
 	} // (if nativeBuild then {
@@ -121,11 +120,7 @@ in {
 
 	# Select internationalisation properties.
 	# i18n.defaultLocale = "en_US.UTF-8";
-	console = {
-		useXkbConfig = true;
-		font = "FantasqueSansMono";
-		# keyMap = "us";
-	};
+	console.useXkbConfig = true;
 
 	# VMM
 	virtualisation = {

@@ -169,22 +169,24 @@ in {
 		};
 	};
 
-	environment.systemPackages = with pkgs; [
-		nano
-		ffmpeg
-		man-pages
-		man-pages-posix
-		cachix
-	];
-
-	environment.sessionVariables = {
-		MOZ_ENABLE_WAYLAND = "1";
-		EDITOR = "nvim";
-		MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
+	environment = {
+		systemPackages = with pkgs; [
+			nano
+			ffmpeg
+			man-pages
+			man-pages-posix
+			cachix
+		];
+		sessionVariables = {
+			MOZ_ENABLE_WAYLAND = "1";
+			EDITOR = "nvim";
+			MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
+		};
 	};
 
 	# Replace sudo with doas
 	security = {
+		# Replace sudo with doas
 		sudo.enable = false;
 		doas = {
 			enable = true;
