@@ -96,7 +96,7 @@
 		};
 		openssh = {
 			enable = true;
-			passwordAuthentication = false;
+			PasswordAuthentication = false;
 		};
 		earlyoom.enable = true;
 		ananicy = {
