@@ -30,6 +30,10 @@
   (lsp)
   (lsp-ui-doc-mode t))
 
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (set-indents 16 16 t)))
+
 (add-hook 'haskell-mode-hook
           (lambda ()
             (set-indents 8 2 nil)
