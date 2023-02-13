@@ -89,6 +89,7 @@
 		};
 		maky.isNormalUser = true;
 		liam.isNormalUser = true;
+		enaya.isNormalUser = true;
 	};
 
 	hardware = {
@@ -164,7 +165,7 @@
 				"u3836.se" = {
 					forceSSL = true;
 					enableACME = true;
-					root = "/var/www/samuel.kyletoft.se";
+					root = "/var/www/u3836.se";
 				};
 				"marie.kyletoft.se" = {
 					forceSSL = true;

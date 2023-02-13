@@ -11,12 +11,12 @@
 
 (defun hide-menu ()
   (tool-bar-mode -1)
-  (scroll-bar-mode -1)
+  ;; (scroll-bar-mode -1)
   (menu-bar-mode -1))
 
 (defun show-menu ()
   (tool-bar-mode nil)
-  (scroll-bar-mode nil)
+  ;; (scroll-bar-mode nil)
   (menu-bar-mode nil))
 
 (defun nuke-all-buffers ()
@@ -42,7 +42,7 @@
 (setq global-auto-revert-non-file-buffers t
       recentf-max-menu-items 25
       recentf-max-saved-items 25
-      scroll-step 1
+      ;; scroll-step 1
       ring-bell-function 'ignore
       use-dialog-box nil)
 
