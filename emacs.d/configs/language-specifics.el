@@ -113,7 +113,8 @@
 
 (add-hook 'mhtml-mode-hook
           (lambda ()
-            (setq-local html-indent-offset 8)
+            (setq-local html-indent-offset 8
+                        electric-indent-mode nil)
             (set-indents 8 8 t)
             (editorconfig-apply)))
 
