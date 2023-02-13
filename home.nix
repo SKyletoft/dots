@@ -24,7 +24,7 @@ let
 	emacsOverlayPin = import (builtins.fetchGit {
 		url = "https://github.com/nix-community/emacs-overlay.git";
 		ref = "master";
-		rev = "2052e031a352505b51d4e278c906bf653312a59b"; # change the revision
+		rev = "581072bb0d49768da9370056f7b6e7b761b5d8be"; # change the revision
 	});
 	emacsWebrenderOverlay = import (builtins.fetchGit {
 		url = "https://github.com/declantsien/emacs-ng.git";
