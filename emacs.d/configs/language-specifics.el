@@ -111,7 +111,7 @@
             (define-key evil-visual-state-map (kbd "SPC i") 'indent-region)
             (editorconfig-apply)))
 
-(add-hook 'html-mode-hook
+(add-hook 'mhtml-mode-hook
           (lambda ()
             (setq-local html-indent-offset 8)
             (set-indents 8 8 t)
