@@ -38,6 +38,16 @@ in {
 				"kvm"
 				"nixos-test"
 			];
+			post-build-hook = "upload-to-cache.sh";
+			substituters = [
+				"https://nix-community.cachix.org"
+				"https://cache.nixos.org/"
+				"https://nix.u3836.se/"
+			];
+			trusted-public-keys = [
+				"nix.u3836.se:t7H/bFWi14aBFYPE5A00eEQawd7Ssl/fXbq/2C+Bsrs="
+				"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+			];
 		};
 		gc = {
 			automatic = true;
