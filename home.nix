@@ -277,7 +277,6 @@ in {
 				withX    = gui;
 				withWebP = gui;
 			};
-			# package = ((builtins.getFlake "/home/u3836/git/emacs-webrender").outputs.packages.${builtins.currentSystem}.emacsWebrender);
 			extraPackages = epkgs: (with epkgs; [
 				emacsPin.python311Packages.python
 				
