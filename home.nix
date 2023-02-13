@@ -33,7 +33,7 @@ let
 	}) { overlays = [ emacsOverlayPin ]; };
 
 	enableHyprland = false;
-	enableGnome = true;
+	enableGnome = false;
 	enableDebugging = false;
 	gui = enableGnome || enableHyprland;
 in {
@@ -91,9 +91,6 @@ in {
 		(if gui then [
 			monitor
 			iptsd
-
-			eterm8
-			gcc-arm-embedded
 
 			firefox-bin
 			alacritty
