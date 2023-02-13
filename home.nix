@@ -280,6 +280,7 @@ in {
 				withGTK2 = false;
 				withGTK3 = false;
 				withX    = gui;
+				withWebP = gui;
 			};
 			# package = ((builtins.getFlake "/home/u3836/git/emacs-webrender").outputs.packages.${builtins.currentSystem}.emacsWebrender);
 			extraPackages = epkgs: (with epkgs; [
