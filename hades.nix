@@ -238,7 +238,13 @@ in {
 
 	documentation = {
 		dev.enable = true;
-		man.generateCaches = true;
+		doc.enable = true;
+		info.enable = true;
+		nixos.includeAllModules = true;
+		man = {
+			enable = true;
+			generateCaches = true;
+		};
 	};
 
 	environment = {
