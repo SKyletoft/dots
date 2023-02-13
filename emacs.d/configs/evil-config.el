@@ -1,7 +1,8 @@
 (provide 'evil-config)
 
 (use-package evil)
-(setq evil-disable-insert-state-bindings t)
+(setq evil-disable-insert-state-bindings t
+      evil-emacs-state-cursor evil-insert-state-cursor)
 (evil-mode 1)
 
 ;; Emacs stuff
@@ -14,7 +15,6 @@
 (define-key evil-normal-state-map (kbd "C-+") 'text-scale-increase)
 (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
 (define-key evil-normal-state-map (kbd "SPC m") 'magit)
-(setq evil-emacs-state-cursor evil-insert-state-cursor)
 (define-key evil-normal-state-map (kbd "SPC m") 'magit)
 
 (defun evil-normal-visual-motion (key command)
