@@ -115,18 +115,31 @@
             (define-key evil-visual-state-map (kbd "SPC i") 'indent-region)
             (editorconfig-apply)))
 
+(defun americanise ()
+  "Ruin spellings of words like centre or colour to work with HTML
+  and CSS that have hardcoded the American spellings"
+  (interactive)
+  (let ((pos (point))) ;; Save cursor pos
+
+    (replace-string "centre" "center")
+    (replace-string "colour" "color")
+
+    (goto-char pos))) ;; Restore cursor pos
+
 (add-hook 'mhtml-mode-hook
           (lambda ()
             (setq-local html-indent-offset 8
                         electric-indent-mode nil)
             (set-indents 8 8 t)
-            (editorconfig-apply)))
+            (editorconfig-apply)
+            (add-hook 'before-save-hook 'americanise t)))
 
 (add-hook 'css-mode-hook
           (lambda ()
             (setq-local css-indent-offset 8)
             (set-indents 8 8 t)
-            (editorconfig-apply)))
+            (editorconfig-apply)
+            (add-hook 'before-save-hook 'americanise t)))
 
 (add-hook 'js-mode-hook
           (lambda ()
