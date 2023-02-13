@@ -19,30 +19,7 @@ in {
 			allowBroken = false;
 			# cudaSupport = true;
 		};
-		overlays = [
-			(final: prev: {
-				cascadia-code-greek = prev.cascadia-code.overrideAttrs(old: {
-					url = "";
-				});
-			})
-			(self: super: {
-				gnome = super.gnome.overrideScope' (gself: gsuper: {
-					mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
-						patches = [ ./1441.patch ] ++ oldAttrs.patches;
-					});
-				});
-			})
-		] ++ (if waylandSupport then [
-			(final: prev: {
-				wlroots = prev.wlroots.overrideAttrs(old: {
-					postPatch = "sed -i 's/assert(argb8888 &&/assert(true || argb8888 ||/g' 'render/wlr_renderer.c'";
-				});
-			})
-		] else []) ++ (if nativeBuild then [
-			(self: super: {
-				stdenv = super.impureUseNativeOptimizations super.stdenv;
-			})
-		] else []);
+		overlays = (import ./overlays.nix) nativeBuild;
 	} // (if nativeBuild then {
 		localSystem =  {
 			gcc.arch = "skylake";
