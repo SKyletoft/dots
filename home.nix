@@ -339,6 +339,7 @@ in {
 				rm  = "trash-put";
 				em  = "emacs -nw";
 				vi  = "emacsclient -nw -a vim";
+				hm  = "home-manager";
 			};
 
 			shellOptions = [
