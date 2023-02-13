@@ -33,7 +33,7 @@ settouch () {
 	elif [ $1 == "status" ]; then
 		systemctl is-enabled iptsd
 	elif [ $1 == "reset" ]; then
-		doas iptsd-reset-sensor && doas systemctl reload-or-restart iptsd
+		doas systemctl reload-or-restart iptsd && doas iptsd-reset-sensor && doas systemctl reload-or-restart iptsd
 	else
 		echo "Invalid command"
 	fi
