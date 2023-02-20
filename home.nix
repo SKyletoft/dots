@@ -42,7 +42,7 @@ in {
 	home = {
 		username      = "u3836";
 		homeDirectory = "/home/u3836";
-		stateVersion = "22.05";
+		stateVersion  = "22.05";
 
 		packages = let
 			eterm8    = pkgs.callPackage ./packages/eterm8.nix {};
