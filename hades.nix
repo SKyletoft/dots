@@ -5,7 +5,7 @@ let
 	nativeBuild = false;
 	flatpak = false;
 in {
-	imports = [ # Include the results of the hardware scan.
+	imports = [
 		/etc/nixos/hardware-configuration.nix
 		/etc/nixos/cachix.nix
 	];
@@ -90,37 +90,25 @@ in {
 	time.timeZone = "Europe/Stockholm";
 
 	networking = {
-		hostName = "hades"; # Define your hostname.
-		# wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-		# useDHCP = false;
+		hostName = "hades";
 		networkmanager.enable = true;
-		interfaces = {
-			enp0s31f6.useDHCP = false; # WiFi card
-			# wlp0s20f0u1.useDHCP = false; # USB WiFi dongle
-		};
-		# proxy = {
-		# 	default = "http://user:password@proxy:port/";
-		# 	noProxy = "127.0.0.1,localhost,internal.domain";
-		# };
-
+		interfaces.enp0s31f6.useDHCP = false;
 		firewall = {
-			allowedTCPPorts =
-				[ 80 443 6530 8000 8080 12825 ] # Development
+			allowedTCPPorts
+				= [ 80 443 6530 8000 8080 12825 ] # Development
 				++ [ 53 1401 ]; # Mullvad
-			allowedUDPPorts =
-				[ 80 443 6530 8000 8080 12825 ] # Development
+			allowedUDPPorts
+				= [ 80 443 6530 8000 8080 12825 ] # Development
 				++ [ 53 1194 1195 1196 1197 1399 1391 1392 1393 1400 ]; # Mullvad
-			# enable = false;
 		};
 	};
 
-	# i18n.defaultLocale = "en_US.UTF-8";
 	console.useXkbConfig = true;
 
 	virtualisation = {
 		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
-		# docker.enable = true;
+		docker.enable = false;
 	};
 
 	services = {
@@ -148,7 +136,6 @@ in {
 				Option         "AllowIndirectGLXProtocol" "off"
 				Option         "TripleBuffer" "on"
 			'';
-			# libinput.enable = true;
 		};
 
 		gnome = {
@@ -186,13 +173,8 @@ in {
 		'';
 
 		journald.extraConfig = "SystemMaxUse=256M";
-
 		# mullvad-vpn.enable = true;
-
 		fwupd.enable = true;
-
-		# printing.enable = true;
-
 		flatpak.enable = flatpak;
 		openssh = {
 			enable = true;
@@ -201,10 +183,6 @@ in {
 	};
 
 	# Flatpak nonsense
-	# Enable sound.
-	# sound.enable = true;
-	# hardware.pulseaudio.enable = true;
-	# systemd.user.services.pipewire-pulse.path = [ pkgs.pulseaudio ];
 	xdg.portal.extraPortals = if flatpak then [ pkgs.xdg-desktop-portal-gtk ] else [];
 
 	users.groups.i2c = {};
@@ -306,15 +284,9 @@ in {
 			enable = true;
 			package = pkgs.gnomeExtensions.gsconnect;	
 		};
-		# mtr.enable = true;
-		# gnupg.agent = {
-		# 	enable = true;
-		# 	enableSSHSupport = true;
-		# };
 		dconf.enable = true;
 		adb.enable = true;
 	};
 
-	system.stateVersion = "21.05"; # Did you read the comment?
-
+	system.stateVersion = "21.05";
 }
