@@ -14,6 +14,10 @@ if [[ "$DISPLAY" ]]; then
 	gsettings set org.gnome.desktop.input-sources xkb-options \[\'caps:swapescape\'\]
 fi
 
+if ! pidof emacs -q ; then
+	emacs --daemon 2> /dev/null
+fi
+
 if [ "$TERM" == linux ]; then
 	PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
 elif [ "$TERM" == xterm-256color ] || [ "$TERM" == eterm-color ]; then
