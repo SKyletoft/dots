@@ -3,6 +3,7 @@ let
 	waylandSupport = false;
 	windowsFonts = false;
 	nativeBuild = false;
+	flatpak = false;
 in {
 	imports = [ # Include the results of the hardware scan.
 		/etc/nixos/hardware-configuration.nix
@@ -190,10 +191,9 @@ in {
 
 		fwupd.enable = true;
 
-		# flatpak.enable = true;
-
 		# printing.enable = true;
 
+		flatpak.enable = flatpak;
 		openssh = {
 			enable = true;
 			settings.PasswordAuthentication = false;
@@ -201,14 +201,11 @@ in {
 	};
 
 	# Flatpak nonsense
-	# xdg.portal.extraPortals = [
-	# 	pkgs.xdg-desktop-portal-gtk
-	# ];
-
 	# Enable sound.
 	# sound.enable = true;
 	# hardware.pulseaudio.enable = true;
 	# systemd.user.services.pipewire-pulse.path = [ pkgs.pulseaudio ];
+	xdg.portal.extraPortals = if flatpak then [ pkgs.xdg-desktop-portal-gtk ] else [];
 
 	users.groups.i2c = {};
 	users.users.u3836 = {
