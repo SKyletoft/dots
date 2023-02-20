@@ -73,7 +73,6 @@ in {
 			direnv
 			doasedit
 			code-server
-			# mullvad
 			mdpdf
 			hstr
 		] ++
