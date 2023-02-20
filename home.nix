@@ -314,6 +314,7 @@ in {
 				rustic
 				elsa
 				flycheck-elsa
+				pdf-tools
 				multi-vterm
 				vterm
 			]);
