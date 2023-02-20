@@ -277,7 +277,6 @@ in {
 			extraPackages = epkgs: (with epkgs; [
 				emacsPin.python311Packages.python
 				
-				multi-vterm
 				direnv
 				use-package
 				magit
@@ -315,6 +314,8 @@ in {
 				rustic
 				elsa
 				flycheck-elsa
+				multi-vterm
+				vterm
 			]);
 		};
 
