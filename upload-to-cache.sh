@@ -8,23 +8,14 @@
 
 set -eu
 
-export KEY="/home/u3836/.ssh/nix.u3836.se"
-export STORE="https://nix.u3836.se/?secret-key=$KEY"
-
-if [ -f "$KEY" ]; then
-  if [ -n "$OUT_PATHS" ]; then
-    # send copy operations to a task queue so the next build can start
-    nix copy --to "$STORE" "$OUT_PATHS" || {
-      echo "No 'nixos' registry pin..."
-      exit -1
-    }
-  else
-    # this can happen if we are just using `nix build --rebuild` to check a package
-    echo "Nothing to upload"
-    exit 0
-  fi
-
+if [ -n "$OUT_PATHS" ]; then
+  # send copy operations to a task queue so the next build can start
+  nix copy --to ssh://eurydice "$OUT_PATHS" || {
+    echo "No 'nixos' registry pin..."
+    exit -1
+  }
 else
-  echo "No signing key"
-  exit -1
+  # this can happen if we are just using `nix build --rebuild` to check a package
+  echo "Nothing to upload"
+  exit 0
 fi
