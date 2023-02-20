@@ -160,7 +160,7 @@ in {
 		] else []);
 
 		sessionVariables = {
-			EDITOR = "emacsclient -nw -c -a nvim";
+			EDITOR = "emacsclient -nw -c -a''";
 			DIRENV_LOG_FORMAT = "";
 		} // (if enableHyprland then {
 			MOZ_ENABLE_WAYLAND = "1";
@@ -175,7 +175,7 @@ in {
 
 			difftastic.enable = true;
 			extraConfig = {
-				core.editor = "emacsclient -r -a\"emacs --daemon\"";
+				core.editor = "emacsclient -r -a''";
 				pull = {
 					ff = "only";
 				};
@@ -329,8 +329,8 @@ in {
 				lt  = "exa -a --tree";
 				rm  = "trash-put";
 				em  = "emacs -nw";
-				vi  = "emacsclient -nw -a vim";
 				hm  = "home-manager";
+				vi  = "emacsclient -nw -a''";
 			};
 
 			shellOptions = [
