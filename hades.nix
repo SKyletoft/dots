@@ -203,6 +203,8 @@ in {
 				RUN+="${pkgs.bash}/bin/sh -c 'echo 2dc8 3106 > /sys/bus/usb/drivers/xpad/new_id'"
 		'';
 
+		journald.extraConfig = "SystemMaxUse=256M";
+
 		# mullvad-vpn.enable = true;
 
 		fwupd.enable = true;
