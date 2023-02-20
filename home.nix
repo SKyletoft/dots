@@ -320,8 +320,8 @@ in {
 				lt  = "exa -a --tree";
 				rm  = "trash-put";
 				em  = "emacs -nw";
-				hm  = "home-manager";
 				vi  = "emacsclient -nw -a''";
+				hms = "home-manager switch";
 			};
 
 			shellOptions = [
