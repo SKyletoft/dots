@@ -33,7 +33,7 @@ let
 	}) { overlays = [ emacsOverlayPin ]; };
 
 	enableHyprland = false;
-	enableGnome = false;
+	enableGnome = true;
 	enableDebugging = false;
 	gui = enableGnome || enableHyprland;
 in {
