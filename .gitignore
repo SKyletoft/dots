@@ -9,7 +9,7 @@
 **.lsp*
 **recentf
 **.cache**
-emacs.d/url
-emacs.d/session*
-emacs.d/.dap-breakpoints
-emacs.d/games
+emacs/url
+emacs/session*
+emacs/.dap-breakpoints
+emacs/games
