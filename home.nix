@@ -298,6 +298,7 @@ in {
 
 				nix-mode
 				haskell-mode
+				erlang
 				lsp-haskell
 				rustic
 				elsa

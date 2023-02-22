@@ -126,6 +126,11 @@
 
     (goto-char pos))) ;; Restore cursor pos
 
+(add-hook 'erlang-mode-hook
+          (lambda ()
+            (set-indents 3 3 t)
+            (editorconfig-apply)))
+
 (add-hook 'mhtml-mode-hook
           (lambda ()
             (setq-local html-indent-offset 8
