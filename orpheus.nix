@@ -94,10 +94,13 @@
 		mullvad-vpn.enable = true;
 	};
 
-	programs.bash.shellInit = ''
-		${pkgs.neofetch}/bin/neofetch --disable packages
-		SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3
-	'';
+	programs = {
+		bash.shellInit = ''
+			${pkgs.neofetch}/bin/neofetch --disable packages
+			SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3
+		'';
+		ssh.startAgent = true;
+	};
 
 	security = {
 		sudo.enable = false;

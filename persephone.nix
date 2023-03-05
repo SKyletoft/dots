@@ -256,6 +256,7 @@ in {
 		steam.enable = true;
 		dconf.enable = true;
 		xonsh.enable = false;
+		ssh.startAgent = true;
 	};
 
 	system.stateVersion = "21.11";

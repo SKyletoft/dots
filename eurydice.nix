@@ -222,10 +222,13 @@
 		};
 	};
 
-	programs.bash.shellInit = ''
-		[[ $- == *i* ]] || return
-		cat /tmp/eurydice-status
-	'';
+	programs = {
+		bash.shellInit = ''
+			[[ $- == *i* ]] || return
+			cat /tmp/eurydice-status
+		'';
+		ssh.startAgent = true;
+	};
 
 	security = {
 		sudo.enable = false;

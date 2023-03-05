@@ -286,6 +286,7 @@ in {
 		};
 		dconf.enable = true;
 		adb.enable = true;
+		ssh.startAgent = true;
 	};
 
 	system.stateVersion = "21.05";
