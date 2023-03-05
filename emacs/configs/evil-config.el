@@ -11,7 +11,7 @@
 (define-key evil-emacs-state-map (kbd "C-M-i") 'evil-force-normal-state)
 (define-key evil-normal-state-map (kbd "C-M-i") 'evil-emacs-state)
 (global-set-key (kbd "C-M-p") 'treemacs)
-(define-key evil-normal-state-map "\C-t" 'multi-vterm)
+(define-key evil-normal-state-map (kbd "C-t") 'multi-vterm)
 (define-key evil-normal-state-map (kbd "C-+") 'text-scale-increase)
 (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
 (define-key evil-normal-state-map (kbd "SPC m") 'magit)
@@ -39,9 +39,9 @@
 (evil-normal-visual-motion "S" "}")
 
 ;; Copy, cut, paste for normal people
-(define-key evil-normal-state-map "\C-c" 'evil-yank)
-(define-key evil-normal-state-map "\C-v" 'evil-paste-after)
-(define-key evil-normal-state-map "\C-x" 'evil-delete)
+(define-key evil-normal-state-map (kbd "C-c") 'evil-yank)
+(define-key evil-normal-state-map (kbd "C-v") 'evil-paste-after)
+(define-key evil-normal-state-map (kbd "C-x") 'evil-delete)
 
 ;; Indents
 (defun shift-width-spaces (width)
