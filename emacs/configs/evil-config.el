@@ -42,6 +42,7 @@
 (define-key evil-normal-state-map (kbd "C-c") 'evil-yank)
 (define-key evil-normal-state-map (kbd "C-v") 'evil-paste-after)
 (define-key evil-normal-state-map (kbd "C-x") 'evil-delete)
+(define-key evil-normal-state-map (kbd "M-V") 'evil-visual-block)
 
 ;; Indents
 (defun shift-width-spaces (width)
