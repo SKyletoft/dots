@@ -116,6 +116,8 @@ in {
 		docker.enable = true;
 	};
 
+	powerManagement.powertop.enable = true;
+
 	services = {
 		xserver = {
 			enable = true;
@@ -154,6 +156,8 @@ in {
 		};
 
 		earlyoom.enable = true;
+
+		thermald.enable = true;
 
 		cron = {
 			enable = true;
