@@ -1,2 +1,5 @@
 [build]
 rustflags = "-Ctarget-cpu=native"
+
+[net]
+git-fetch-with-cli = true
