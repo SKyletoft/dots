@@ -126,6 +126,22 @@
 
     (goto-char pos))) ;; Restore cursor pos
 
+(defun c-cpp-mode-hook-impl ()
+  (set-indents 8 8 t)
+  (setq-local xref-etags-mode 1)
+  (lsp)
+  ;; (define-key evil-normal-state-map (kbd "SPC i") 'rustic-format-buffer)
+  (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
+  (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
+  (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
+  (editorconfig-apply))
+  
+
+(add-hook 'c-mode-hook 'c-cpp-mode-hook-impl)
+(add-hook 'c++-mode-hook 'c-cpp-mode-hook-impl)
+
+(add-hook 'xref-etags-mode-hook 'evil-emacs-state)
+
 (add-hook 'erlang-mode-hook
           (lambda ()
             (set-indents 3 3 t)
