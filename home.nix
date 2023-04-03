@@ -110,7 +110,7 @@ in {
 			monitor
 			iptsd
 
-			firefox-bin
+			firefox-devedition-bin
 			alacritty
 			vscode
 			pinta
