@@ -30,7 +30,37 @@ let
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.11";
 		rev = "dfef2e61107dc19c211ead99a5a61374ad8317f4";
-	}) { overlays = [ emacsOverlayPin ]; };
+	}) { overlays = [
+		emacsOverlayPin
+		(final: prev: {
+			tree-sitter-grammars = prev.tree-sitter-grammars // {
+				tree-sitter-cpp = prev.tree-sitter-grammars.tree-sitter-cpp.overrideAttrs (_: {
+					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				});
+				tree-sitter-c = prev.tree-sitter-grammars.tree-sitter-c.overrideAttrs (_: {
+					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				});
+				tree-sitter-java = prev.tree-sitter-grammars.tree-sitter-java.overrideAttrs (_: {
+					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				});
+				tree-sitter-rust = prev.tree-sitter-grammars.tree-sitter-rust.overrideAttrs (_: {
+					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				});
+				tree-sitter-elisp = prev.tree-sitter-grammars.tree-sitter-elisp.overrideAttrs (_: {
+					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				});
+				tree-sitter-make = prev.tree-sitter-grammars.tree-sitter-make.overrideAttrs (_: {
+					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				});
+			};
+		})
+	]; };
 
 	enableHyprland = false;
 	enableGnome = true;
@@ -257,10 +287,11 @@ in {
 		emacs = {
 			enable = true;
 			package = emacsPin.emacsGit.override {
-				withGTK2 = false;
-				withGTK3 = false;
-				withX    = gui;
-				withWebP = gui;
+				withGTK2     = false;
+				withGTK3     = false;
+				withX        = gui;
+				withWebP     = gui;
+				noTreeSitter = false;
 			};
 			extraPackages = epkgs: (with epkgs; [
 				emacsPin.python311Packages.python
@@ -289,8 +320,8 @@ in {
 				lsp-ui
 				dap-mode
 
-				tree-sitter
-				tree-sitter-langs
+				emacsPin.emacsPackages.tree-sitter
+				emacsPin.emacsPackages.tree-sitter-langs
 
 				flycheck
 				eldoc-box
