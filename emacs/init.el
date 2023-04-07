@@ -58,10 +58,6 @@
   :config
   (setq treemacs-space-between-root-nodes nil))
 
-(use-package lsp-mode
-  :config
-  (setq read-process-output-max (* 1024 1024))) ;; LSP perf hack
-
 (use-package direnv
   :hook
   ((after-init . direnv-mode)

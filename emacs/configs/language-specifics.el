@@ -94,7 +94,8 @@
   :config
   (setq lsp-signature-auto-activate t
         lsp-signature-doc-lines 1
-        lsp-signature-render-documentation nil)
+        lsp-signature-render-documentation nil
+        read-process-output-max (* 1024 1024)) ;; LSP perf hack
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package lsp-ui
