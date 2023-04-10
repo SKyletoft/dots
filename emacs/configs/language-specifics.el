@@ -143,6 +143,11 @@
 
 (add-hook 'xref-etags-mode-hook 'evil-emacs-state)
 
+(add-hook 'java-mode-hook
+          (lambda ()
+            (set-indents 8 8 t)
+            (editorconfig-apply)))
+
 (add-hook 'erlang-mode-hook
           (lambda ()
             (set-indents 3 3 t)
