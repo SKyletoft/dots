@@ -94,6 +94,7 @@ in {
 			viu
 			ripgrep
 			bottom
+			htop
 			du-dust
 			ranger
 			neofetch
