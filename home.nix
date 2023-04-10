@@ -170,6 +170,7 @@ in {
 			gnomeExtensions.pop-shell
 			gnomeExtensions.burn-my-windows
 			gnomeExtensions.dotspaces
+			gnomeExtensions.hibernate-status-button
 		] else [])
 		++ (if enableHyprland then [
 			hyprland
