@@ -73,6 +73,7 @@
               (setq-local rust-indent-offset 8
                           lsp-idle-delay 0.6
                           eldoc-mode nil
+                          lsp-lens-mode nil
                           lsp-eldoc-enable-hover nil
                           eldoc-documentation-function #'ignore
                           lsp-ui-doc-mode t
