@@ -15,7 +15,7 @@
 (define-key evil-normal-state-map (kbd "C-+") 'text-scale-increase)
 (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
 (define-key evil-normal-state-map (kbd "SPC m") 'magit)
-(define-key evil-normal-state-map (kbd "SPC m") 'magit)
+(define-key evil-normal-state-map (kbd "SPC n") 'magit-blame)
 
 (defun evil-normal-visual-motion (key command)
   "Set a keybinding in normal, visual and motion modes at once"
