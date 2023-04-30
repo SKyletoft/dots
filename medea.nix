@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
 	waylandSupport = true;
@@ -101,6 +101,25 @@ in {
 	powerManagement.powertop.enable = true;
 
 	services = {
+
+		github-runners = {
+			runner5 = {
+				enable = true;
+				name = "amba-runner6-medea";
+				tokenFile = "/etc/nixos/secret/amba-github-runner-token";
+				url = "https://github.com/lokegustafsson/amba";
+				extraLabels = [
+					"nixos"
+					"performant"
+					"X64"
+					"impure-persistent-amba-data-dir"
+				];
+				extraEnvironment = {
+					AMBA_DATA_DIR = "%S/github-runner/amba-runner5/amba";
+				};
+			};
+		};
+
 		xserver = {
 			enable = true;
 
