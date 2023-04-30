@@ -293,7 +293,7 @@ in {
 				withWebP     = gui;
 				noTreeSitter = false;
 			};
-			extraPackages = epkgs: (with epkgs; [
+			extraPackages = epkgs: (with emacsPin.emacsPackages; [
 				emacsPin.python311Packages.python
 				
 				direnv
@@ -320,8 +320,8 @@ in {
 				lsp-ui
 				dap-mode
 
-				emacsPin.emacsPackages.tree-sitter
-				emacsPin.emacsPackages.tree-sitter-langs
+				tree-sitter
+				tree-sitter-langs
 
 				flycheck
 				eldoc-box
