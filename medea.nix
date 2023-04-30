@@ -54,9 +54,9 @@ in {
 			dates = "weekly";
 			options = "--delete-older-than 30d";
 		};
-		# Free up to 10 GiB whenever there is less than 1GiB left.
+		# Free up to 16 GiB whenever there is less than 1GiB left.
 		extraOptions = ''
-			min-free = ${toString (1024 * 1024 * 1024)}
+			min-free = ${toString (16 * 1024 * 1024 * 1024)}
 			experimental-features = nix-command flakes
 		'';
 	};
