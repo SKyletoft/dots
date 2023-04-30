@@ -81,21 +81,12 @@ in {
 	time.timeZone = "Europe/Stockholm";
 
 	networking = {
-		hostName = "medea"; # Define your hostname.
-
+		hostName = "medea";
 		networkmanager.enable = true;
-		# proxy = {
-		# 	default = "http://user:password@proxy:port/";
-		# 	noProxy = "127.0.0.1,localhost,internal.domain";
-		# };
-
-		# Open ports in the firewall.
 		firewall = {
 			allowedTCPPorts = [ 80 6530 8080 12345 ];
 			allowedUDPPorts = [ 80 6530 8080 12345 ];
 		};
-		# Or disable the firewall altogether.
-		# firewall.enable = false;
 	};
 
 	console.useXkbConfig = true;
@@ -196,7 +187,6 @@ in {
 		};
 	};
 
-	# Replace sudo with doas
 	security = {
 		# Replace sudo with doas
 		sudo.enable = false;
