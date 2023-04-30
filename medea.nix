@@ -137,11 +137,6 @@ in {
 			};
 		};
 
-		pipewire = {
-			media-session.enable = true;
-			wireplumber.enable = false;
-		};
-
 		gnome = {
 			gnome-keyring.enable = true;
 			core-shell.enable = true;
