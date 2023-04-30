@@ -3,13 +3,13 @@
 (electric-indent-mode nil)
 (global-eldoc-mode -1)
 
-(setq-default indent-tabs-mode t)
-(setq-default evil-shift-width 8)
+(setq-default indent-tabs-mode t
+              evil-shift-width 8)
 
 (defun set-indents (tab-width-p shift-width-p tabs-p)
-  (setq-local tab-width tab-width-p)
-  (setq-local evil-shift-width shift-width-p)
-  (setq-local indent-tabs-mode tabs-p))
+  (setq-local tab-width tab-width-p
+              evil-shift-width shift-width-p
+              indent-tabs-mode tabs-p))
 
 ;; For filetypes without hooks
 (add-hook 'find-file-hook
@@ -25,11 +25,6 @@
               (editorconfig-apply))
             ))
 
-(defun haskell-post-lsp ()
-  (interactive)
-  (lsp)
-  (lsp-ui-doc-mode t))
-
 (add-hook 'markdown-mode-hook
           (lambda ()
             (set-indents 16 16 t)))
@@ -40,8 +35,8 @@
             (setq-local lsp-eldoc-enable-hover nil
                         eldoc-documentation-function #'ignore
                         eldoc-mode nil)
-            ;; Needs to run after direnv
-            ;; (haskell-post-lsp)
+            (lsp)
+            (lsp-ui-doc-mode t)
             (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
             (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
             (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
@@ -50,9 +45,6 @@
 
 (use-package rustic
   :config
-  ;; (setq lsp-eldoc-hook nil)
-  ;; (setq lsp-enable-symbol-highlighting nil)
-  ;; (setq lsp-signature-auto-activate nil)
   (setq rustic-format-on-save t
         lsp-rust-analyzer-server-display-inlay-hints t
         lsp-rust-analyzer-cargo-watch-command "clippy"
@@ -64,7 +56,11 @@
         lsp-rust-analyzer-display-parameter-hints t
         lsp-rust-analyzer-display-reborrow-hints t
         rustic-format-on-save nil
-        rustic-rustfmt-args "+nightly")
+        ;; rustic-rustfmt-args "+nightly"
+        lsp-eldoc-hook nil
+        lsp-enable-symbol-highlighting nil
+        lsp-signature-auto-activate nil
+        )
   (add-hook 'rustic-mode-hook
             (lambda ()
               (when buffer-file-name
@@ -85,28 +81,11 @@
               (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
               (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
               (define-key evil-normal-state-map (kbd "SPC t") 'lsp-rust-analyzer-inlay-hints-mode)
+              (define-key evil-normal-state-map (kbd "<f2>") 'lsp-rename)
 
               ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
               (editorconfig-apply)
               )))
-
-(use-package lsp-mode
-  :commands lsp
-  :config
-  (setq lsp-signature-auto-activate t
-        lsp-signature-doc-lines 1
-        lsp-signature-render-documentation nil
-        read-process-output-max (* 1024 1024)) ;; LSP perf hack
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
-
-(use-package lsp-ui
-  :commands lsp-ui-mode
-  :custom
-  (lsp-ui-peek-always-show t)
-  (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable nil))
-
-(use-package flycheck)
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
@@ -130,9 +109,12 @@
 
 (defun c-cpp-mode-hook-impl ()
   (set-indents 8 8 t)
-  (setq-local xref-etags-mode 1)
+  (setq-local xref-etags-mode 1
+              lsp-ui-sideline-show-hover nil
+              lsp-ui-sideline-enable t
+              electric-indent-mode -1
+              )
   (lsp)
-  ;; (define-key evil-normal-state-map (kbd "SPC i") 'rustic-format-buffer)
   (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
   (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
   (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
@@ -175,6 +157,10 @@
             (set-indents 8 8 t)
             (editorconfig-apply)))
 
+(use-package pdf-tools
+  :init
+  (pdf-tools-install))
+
 (use-package vterm
   :config
   (add-hook 'vterm-mode-hook
@@ -191,9 +177,11 @@
 ;; Line numbers
 (global-display-line-numbers-mode t) ;; Needed because reasons
 
+;; Line numbers
+
 (defcustom display-line-numbers-exempt-modes
   '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode
-    treemacs-mode snake-mode tetris-mode solitaire-mode pong-mode)
+               treemacs-mode snake-mode tetris-mode solitaire-mode pong-mode)
   "Major modes on which to disable line numbers."
   :group 'display-line-numbers
   :type 'list

@@ -1,5 +1,17 @@
 (provide 'aesthetics)
 
+;; Functions
+
+(defun hide-menu ()
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (menu-bar-mode -1))
+
+(defun show-menu ()
+  (tool-bar-mode nil)
+  (scroll-bar-mode nil)
+  (menu-bar-mode nil))
+
 (defun monokai-purple ()
   (add-to-list 'default-frame-alist '(font . "Fira Code Nerd Font-11"))
   (add-to-list 'default-frame-alist '(undecorated-round . t))
@@ -14,19 +26,20 @@
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
   (telephone-line-mode)
-  (setq-default truncate-lines t))
-
-(monokai-purple)
+  (setq-default truncate-lines t)
+  (hide-menu))
 
 ;; Disable background when in terminal
 (defun on-after-init ()
+  "Disable background when in terminal"
        (unless (display-graphic-p (selected-frame))
                (set-face-background 'default "unspecified-bg" (selected-frame))))
+
 (add-hook 'window-setup-hook 'on-after-init)
 (add-hook 'server-switch-hook 'on-after-init)
 
-;; Set default, fixed and variabel pitch fonts
-;; Use M-x menu-set-font to view available fonts
+;; Load packages
+
 (use-package mixed-pitch
   :hook
   (text-mode . mixed-pitch-mode)
@@ -34,8 +47,6 @@
   (set-face-attribute 'default nil :font "Fira Code Nerd Font" :height 110)
   (set-face-attribute 'fixed-pitch nil :font "Fira Code Nerd Font")
   (set-face-attribute 'variable-pitch nil :font "TeX Gyre Heros" :height 150))
-
-;; (add-hook 'mixed-pitch-mode-hook #'solaire-mode-reset)
 
 (use-package ligature
   :load-path "path-to-ligature-repo"
@@ -56,3 +67,7 @@
                                        "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
                                        "\\\\" "://"))
   (global-ligature-mode t))
+
+;; Run setup
+
+(monokai-purple)
