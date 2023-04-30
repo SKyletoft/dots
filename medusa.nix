@@ -61,7 +61,7 @@ in {
 			systemd-boot.enable = true;
 			efi.canTouchEfiVariables = true;
 		};
-		kernelPackages = pkgs.linuxPackages_latest;
+		kernelPackages = pkgs.linuxPackages_xanmod_latest;
 		supportedFilesystems = [ "ntfs" ];
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		kernelModules = [ "amdgpu" "i2c-dev" "xpad" "hid-nintendo" "xone" "xpadneo" ];
