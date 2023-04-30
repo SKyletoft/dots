@@ -128,6 +128,8 @@ in {
 
 			deviceSection = ''
 				Option         "TearFree" "true"
+				Option         "VariableRefresh" "true"
+				Option         "AsyncFlipSecondaries" "true"
 			'';
 
 			screenSection = ''
