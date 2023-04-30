@@ -353,6 +353,7 @@ in {
 				em  = "emacs -nw";
 				vi  = "emacsclient -nw";
 				hms = "home-manager switch";
+				restart-emacs = "pkill emacs && emacs --daemon";
 			};
 
 			shellOptions = [
