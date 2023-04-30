@@ -6,7 +6,7 @@ nativeBuild:
 		});
 		gnome = super.gnome.overrideScope' (gself: gsuper: {
 			mutter = gsuper.mutter.overrideAttrs (oldAttrs: {
-				patches = [ ./1441.patch ] ++ oldAttrs.patches;
+				patches = [ ./1441.patch ] ++ (oldAttrs.patches or []);
 			});
 		});
 		wlroots = super.wlroots.overrideAttrs(old: {
