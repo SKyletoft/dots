@@ -67,8 +67,6 @@ let
 	enableDebugging = false;
 	gui = enableGnome || enableHyprland;
 in {
-	# imports = [ inputs.hyprland.homeManagerModules.default ];
-
 	home = {
 		username      = "u3836";
 		homeDirectory = "/home/u3836";
