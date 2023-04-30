@@ -187,7 +187,8 @@ in {
 					(lib.mkIf (i == 1) {
 						extraLabels = [ "impure-persistent-amba-data-dir" ];
 						extraEnvironment = {
-						AMBA_DATA_DIR = "%S/github-runner/amba-runner${idx}/amba";
+							CARGO_TARGET_DIR = "%S/github-runner/amba-runner${idx}/ci_target";
+							AMBA_DATA_DIR = "%S/github-runner/amba-runner${idx}/amba";
 						};
 					})
 				];
