@@ -74,6 +74,7 @@ in {
 
 	hardware = {
 		opengl.enable = true;
+		cpu.intel.updateMicrocode = true;
 	};
 
 
