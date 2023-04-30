@@ -69,6 +69,7 @@ in {
 		};
 		supportedFilesystems = [ "ntfs" ];
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
+		kernelPackages = pkgs.linuxPackages_xanmod;
 	};
 
 	hardware = {
