@@ -12,7 +12,6 @@ in {
 	imports = [ # Include the results of the hardware scan.
 		/etc/nixos/hardware-configuration.nix
 		<nixos-hardware/lenovo/thinkpad/x1/yoga/7th-gen>
-		# /etc/nixos/cachix.nix
 	];
 
 	nixpkgs = {
