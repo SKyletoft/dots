@@ -95,10 +95,10 @@ in {
 	virtualisation = {
 		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
-		docker.enable = true;
+		docker.enable = false;
 	};
 
-	powerManagement.powertop.enable = true;
+	powerManagement.powertop.enable = false;
 
 	services = {
 
@@ -155,8 +155,20 @@ in {
 
 		thermald.enable = true;
 
-		# flatpak.enable = true;
-		# openssh.enable = true;
+		thinkfan = {
+			enable = false;
+		};
+
+		fprintd = {
+			enable = false;
+			tod = {
+				enable = false;
+				# driver = todo;
+			};
+		};
+
+		flatpak.enable = false;
+		openssh.enable = false;
 	};
 
 	users.users.u3836 = {
