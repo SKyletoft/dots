@@ -102,10 +102,10 @@ in {
 
 	services = {
 
-		github-runners = {
-			runner5 = {
-				enable = true;
-				name = "amba-runner6-medea";
+		/*github-runners = {
+			runner7 = {
+				enable = false;
+				name = "amba-runner7-medea";
 				tokenFile = "/etc/nixos/secret/amba-github-runner-token";
 				url = "https://github.com/lokegustafsson/amba";
 				extraLabels = [
@@ -115,10 +115,10 @@ in {
 					"impure-persistent-amba-data-dir"
 				];
 				extraEnvironment = {
-					AMBA_DATA_DIR = "%S/github-runner/amba-runner5/amba";
+					AMBA_DATA_DIR = "%S/github-runner/amba-runner7/amba";
 				};
 			};
-		};
+		};*/
 
 		xserver = {
 			enable = true;
