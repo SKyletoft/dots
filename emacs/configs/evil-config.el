@@ -17,6 +17,15 @@
 (define-key evil-normal-state-map (kbd "SPC m") 'magit)
 (define-key evil-normal-state-map (kbd "SPC n") 'magit-blame)
 
+;; Evil quit
+(evil-define-command evil-quit
+  (&optional force)
+  :repeat nil
+  :repeat nil
+  (if (eq (window-main-window) (selected-window))
+      (if (equal (buffer-name) "*dashboard*") nil (kill-buffer))
+      (evil-window-delete)))
+
 (defun evil-normal-visual-motion (key command)
   "Set a keybinding in normal, visual and motion modes at once"
   (define-key evil-normal-state-map key command)
