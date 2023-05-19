@@ -333,6 +333,8 @@ in {
 
 				nix-mode
 				haskell-mode
+				merlin
+				tuareg
 				erlang
 				lsp-haskell
 				rustic
