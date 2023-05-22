@@ -118,6 +118,7 @@ in {
 			vscode
 			pinta
 			cura
+			blender
 
 			discord
 			signal-desktop
