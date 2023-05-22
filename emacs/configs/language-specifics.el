@@ -157,6 +157,7 @@
 (add-hook 'tuareg-mode-hook
           (lambda ()
             (set-indents 8 2 nil)
+            (setq-local eldoc-mode nil)
             (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
             (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
             (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
