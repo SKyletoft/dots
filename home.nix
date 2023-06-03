@@ -335,6 +335,7 @@ in {
 				haskell-mode
 				merlin
 				tuareg
+				ocamlformat
 				erlang
 				lsp-haskell
 				rustic
