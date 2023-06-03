@@ -19,10 +19,6 @@
               (set-indents 8 8 t)
               (editorconfig-apply)
               (setq-local prog-mode 1))
-            (when (and (stringp buffer-file-name)
-                       (string-match "\\.nix\\'" buffer-file-name))
-              (set-indents 4 4 t)
-              (editorconfig-apply))
             ))
 
 (add-hook 'markdown-mode-hook
@@ -165,6 +161,19 @@
             (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
             (define-key evil-normal-state-map (kbd "SPC i") 'ocamlformat)
             (editorconfig-apply)))
+
+(use-package nix-mode
+  :config
+  (add-hook 'nix-mode-hook
+            (lambda ()
+              (set-indents 4 4 t)
+              (editorconfig-apply)
+              ))
+  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
+                    :major-modes '(nix-mode)
+                    :server-id 'nix)))
 
 (use-package pdf-tools
   :init
