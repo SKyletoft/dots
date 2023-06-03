@@ -23,15 +23,21 @@
 
 (add-hook 'markdown-mode-hook
           (lambda ()
-            (set-indents 16 16 t)))
+            (set-indents 16 16 t)
+            (olivetti-mode)
+            (olivetti-set-width 70)
+            (editorconfig-apply)))
 
 (add-hook 'haskell-mode-hook
           (lambda ()
+            (lsp)
             (set-indents 8 2 nil)
             (setq-local lsp-eldoc-enable-hover nil
                         eldoc-documentation-function #'ignore
-                        eldoc-mode nil)
-            (lsp)
+                        eldoc-mode nil
+                        lsp-haskell-plugin-ghcide-type-lenses-global-on nil
+                        lsp-haskell-plugin-ghcide-class-global-on nil)
+            (lsp-restart-workspace)
             (lsp-ui-doc-mode t)
             (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
             (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
@@ -156,6 +162,7 @@
 
 (add-hook 'tuareg-mode-hook
           (lambda ()
+            (ocamlformat-setup-indents)
             (set-indents 8 2 nil)
             (setq-local eldoc-mode nil)
             (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)

@@ -21,6 +21,7 @@
 (require 'setup)
 (require 'evil-config)
 (require 'aesthetics)
+(require 'dap)
 (require 'language-checking)
 (require 'language-specifics)
 (require 'org-config)
