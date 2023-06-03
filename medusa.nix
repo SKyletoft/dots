@@ -5,10 +5,7 @@ let
 	nativeBuild = false;
 	flatpak = false;
 in {
-	imports = [
-		/etc/nixos/hardware-configuration.nix
-		# /etc/nixos/cachix.nix
-	];
+	imports = [ medusa/hardware-configuration.nix ];
 
 	nixpkgs = {
 		config = {
@@ -233,6 +230,7 @@ in {
 			man-pages
 			man-pages-posix
 			cachix
+			git
 		];
 		sessionVariables = {
 			MUTTER_DEBUG_FORCE_KMS_MODE = "simple";

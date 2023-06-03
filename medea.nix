@@ -10,8 +10,7 @@ let
 	nativeBuild = false;
 in {
 	imports = [ # Include the results of the hardware scan.
-		/etc/nixos/hardware-configuration.nix
-		<nixos-hardware/lenovo/thinkpad/x1/yoga/7th-gen>
+		medea/hardware-configuration.nix
 	];
 
 	nixpkgs = {
@@ -220,6 +219,7 @@ in {
 			man-pages
 			man-pages-posix
 			cachix
+			git
 		];
 		sessionVariables = {
 			MOZ_ENABLE_WAYLAND = "1";
