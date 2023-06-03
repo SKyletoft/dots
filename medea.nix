@@ -67,9 +67,15 @@ in {
 			systemd-boot.enable = true;
 			efi.canTouchEfiVariables = true;
 		};
+		kernelPackages = pkgs.linuxPackages_xanmod;
 		supportedFilesystems = [ "ntfs" ];
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
-		kernelPackages = pkgs.linuxPackages_xanmod;
+		kernelModules = [ "xpad" "hid-nintendo" "xone" "xpadneo" ];
+		extraModulePackages = [
+			config.boot.kernelPackages.xone
+			config.boot.kernelPackages.xpadneo
+			(config.boot.kernelPackages.callPackage ./packages/xpad.nix {})
+		];
 	};
 
 	hardware = {
@@ -152,6 +158,15 @@ in {
 		};
 
 		earlyoom.enable = true;
+
+		# https://discourse.nixos.org/t/how-to-enable-ddc-brightness-control-i2c-permissions/20800/2
+		udev.extraRules = ''
+			ACTION=="add", \
+				ATTRS{idVendor}=="2dc8", \
+				ATTRS{idProduct}=="3106", \
+				RUN+="${pkgs.kmod}/bin/modprobe xpad", \
+				RUN+="${pkgs.bash}/bin/sh -c 'echo 2dc8 3106 > /sys/bus/usb/drivers/xpad/new_id'"
+		'';
 
 		thermald.enable = true;
 
