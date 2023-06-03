@@ -37,7 +37,8 @@
             (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
             (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
             (define-key evil-normal-state-map (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>")
-            (editorconfig-apply)))
+            (editorconfig-apply)
+            ))
 
 (use-package rustic
   :config
