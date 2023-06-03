@@ -106,7 +106,7 @@ in {
 			direnv
 			doasedit
 			code-server
-			mdpdf
+			# mdpdf
 			hstr
 		] ++
 		(if gui then [
