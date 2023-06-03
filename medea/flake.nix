@@ -1,0 +1,17 @@
+{
+	inputs = {
+		nixpkgs = {
+			url = "github:NixOS/nixpkgs/nixos-unstable";
+		};
+		nixos-hardware.url = "github:NixOS/nixos-hardware";
+	};
+	outputs = { self, nixpkgs, nixos-hardware }: {
+		nixosConfigurations.medea = nixpkgs.lib.nixosSystem {
+			system = "x86_64-linux";
+			modules = [
+				../medea.nix
+				nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga-7th-gen 
+			];
+		};
+	};
+}
