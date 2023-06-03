@@ -1,15 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 let
-	master = import (builtins.fetchGit {
-		url = "https://github.com/nixos/nixpkgs";
-		ref = "master";
-	}) {};
-	pinned = import (builtins.fetchGit {
-		url = "https://github.com/nixos/nixpkgs";
-		ref = "nixos-unstable";
-		rev = "4df635f6f6b396e40d762b816bcebfac27693654";
-	}) {};
 	stable = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
 		ref = "nixos-22.05";
