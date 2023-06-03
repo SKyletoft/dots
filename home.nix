@@ -81,9 +81,9 @@ in {
 			digiflisp = pkgs.callPackage ./packages/digiflisp.nix {};
 			doasedit  = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
 			monitor   = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
-			mdpdf     = pkgs.writeShellScriptBin "mdpdf" ''
-				echo ${pkgs.tectonic} > /dev/null;
-				${pkgs.pandoc}/bin/pandoc --to=pdf --pdf-engine=tectonic $1 > $2
+			mdpdf     = pkgs.writeShellScript "mdpdf" ''
+				export PATH=${lib.strings.makeBinPath (with pkgs; [ tectonic pandoc ])}
+				pandoc $1 -o $2 --pdf-engine=tectonic -s -V papersize:a4
 			'';
 		in with pkgs; [
 			git
