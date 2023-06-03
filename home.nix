@@ -351,7 +351,7 @@ in {
 				rm  = "trash-put";
 				em  = "emacs -nw";
 				vi  = "emacsclient -nw";
-				hms = "home-manager switch";
+				hms = "home-manager switch --impure";
 				restart-emacs = "pkill emacs && emacs --daemon";
 			};
 
