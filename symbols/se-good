@@ -55,7 +55,7 @@ xkb_symbols "se-good" {
 	key <AB07> {[               m,               M,        Greek_mu,              mu ]};
 	key <AB08> {[           comma,       semicolon ]};
 	key <AB09> {[          period,           colon,  periodcentered,        abovedot ]};
-	key <AB10> {[           minus,      underscore,        NoSymbol,           U203E ]};
+	key <AB10> {[           minus,      underscore,           U22B8,           U203E ]};
 
 	key <SPAC> {[           space,           space,           U200B,    nobreakspace ]};
 
