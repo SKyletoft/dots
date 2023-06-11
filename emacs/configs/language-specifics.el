@@ -28,6 +28,23 @@
             (olivetti-set-width 70)
             (editorconfig-apply)))
 
+(defun hs-slime ()
+  (interactive)
+  (save-excursion
+    (let ((b (current-buffer)))
+      (backward-paragraph)
+      (let ((start (point)))
+        (forward-paragraph)
+        (let ((end (point)))
+          (kill-ring-save start end)))
+      (switch-to-buffer "*vterminal<1>*")
+      (vterm-insert ":{")
+      (vterm-yank)
+      (vterm-insert ":}")
+      (vterm-send-return)
+      (switch-to-buffer b)
+      )))
+
 (add-hook 'haskell-mode-hook
           (lambda ()
             (lsp)
@@ -43,6 +60,7 @@
             (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
             (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
             (define-key evil-normal-state-map (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>")
+            (define-key evil-normal-state-map (kbd "SPC b") 'hs-slime)
             (editorconfig-apply)
             ))
 
