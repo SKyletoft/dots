@@ -73,7 +73,7 @@ in {
 			doasedit  = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
 			monitor   = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
 			mdpdf     = pkgs.writeShellScript "mdpdf" ''
-				export PATH=${lib.strings.makeBinPath (with pkgs; [ tectonic pandoc ])}
+				export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ tectonic pandoc ])}
 				pandoc $1 -o $2 --pdf-engine=tectonic -s -V papersize:a4
 			'';
 		in with pkgs; [
