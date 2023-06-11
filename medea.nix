@@ -119,25 +119,6 @@ in {
 	powerManagement.powertop.enable = false;
 
 	services = {
-
-		/*github-runners = {
-			runner7 = {
-				enable = false;
-				name = "amba-runner7-medea";
-				tokenFile = "/etc/nixos/secret/amba-github-runner-token";
-				url = "https://github.com/lokegustafsson/amba";
-				extraLabels = [
-					"nixos"
-					"performant"
-					"X64"
-					"impure-persistent-amba-data-dir"
-				];
-				extraEnvironment = {
-					AMBA_DATA_DIR = "%S/github-runner/amba-runner7/amba";
-				};
-			};
-		};*/
-
 		xserver = {
 			enable = true;
 
