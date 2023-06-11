@@ -17,10 +17,10 @@
   (add-to-list 'default-frame-alist '(undecorated-round . t))
 
   (set-frame-parameter (selected-frame)
-                       'alpha
+                       'alpha-background
                        '(90 . 90))
   (add-to-list 'default-frame-alist
-               '(alpha . (90 . 90)))
+               '(alpha-background . (90 . 90)))
 
   (load-theme 'custom-monokai t)
   (global-tree-sitter-mode)
