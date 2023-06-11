@@ -41,6 +41,7 @@ in {
 				"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
 				"nix.u3836.se:t7H/bFWi14aBFYPE5A00eEQawd7Ssl/fXbq/2C+Bsrs="
 			];
+			trusted-users = [ "@wheel" ];
 		};
 		gc = {
 			automatic = true;
