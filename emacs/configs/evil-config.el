@@ -16,6 +16,8 @@
 (define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
 (define-key evil-normal-state-map (kbd "SPC m") 'magit)
 (define-key evil-normal-state-map (kbd "SPC n") 'magit-blame)
+(define-key evil-normal-state-map (kbd "SPC r") 'eval-buffer)
+(define-key evil-visual-state-map (kbd "SPC r") 'eval-region)
 
 ;; Evil quit
 (evil-define-command evil-quit
