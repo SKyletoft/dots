@@ -158,7 +158,6 @@ in {
 
 		earlyoom.enable = true;
 
-		# https://discourse.nixos.org/t/how-to-enable-ddc-brightness-control-i2c-permissions/20800/2
 		udev.extraRules = ''
 			ACTION=="add", \
 				ATTRS{idVendor}=="2dc8", \
