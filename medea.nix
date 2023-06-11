@@ -17,6 +17,11 @@ in {
 		config = {
 			allowUnfree = true;
 			allowBroken = false;
+			packageOverrides = pkgs: {
+				vaapiIntel = pkgs.vaapiIntel.override {
+					enableHybridCodec = true;
+				};
+			};
 		};
 		overlays = (import ./overlays.nix) nativeBuild;
 	} // (if nativeBuild then {
@@ -78,7 +83,15 @@ in {
 	};
 
 	hardware = {
-		opengl.enable = true;
+		opengl = {
+			enable = true;
+			extraPackages = with pkgs; [
+				intel-media-driver
+				vaapiIntel
+				vaapiVdpau
+				libvdpau-va-gl
+			];
+		};
 		cpu.intel.updateMicrocode = true;
 	};
 
