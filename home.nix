@@ -96,7 +96,7 @@ in {
 			xclip
 			direnv
 			doasedit
-			code-server
+			# code-server
 			# mdpdf
 			hstr
 		] ++
