@@ -162,6 +162,8 @@ in {
 
 		thermald.enable = true;
 
+		printing.enable = true;
+
 		thinkfan = {
 			enable = false;
 		};
