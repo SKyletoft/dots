@@ -30,20 +30,27 @@
 
 (defun hs-slime ()
   (interactive)
-  (save-excursion
-    (let ((b (current-buffer)))
+  (save-mark-and-excursion
+    (save-current-buffer
       (backward-paragraph)
       (let ((start (point)))
         (forward-paragraph)
         (let ((end (point)))
           (kill-ring-save start end)))
       (switch-to-buffer "*vterminal<1>*")
-      (vterm-insert ":{")
+      (vterm-insert ":{\n")
       (vterm-yank)
-      (vterm-insert ":}")
       (vterm-send-return)
-      (switch-to-buffer b)
-      )))
+      (vterm-insert ":}")
+      (vterm-send-return))))
+
+(defun hs-run ()
+  (interactive)
+  (save-mark-and-excursion
+    (save-current-buffer
+      (switch-to-buffer "*vterminal<1>*")
+      (vterm-insert ":r\nmain")
+      (vterm-send-return))))
 
 (add-hook 'haskell-mode-hook
           (lambda ()
@@ -60,7 +67,8 @@
             (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
             (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
             (define-key evil-normal-state-map (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>")
-            (define-key evil-normal-state-map (kbd "SPC b") 'hs-slime)
+            (define-key evil-normal-state-map (kbd "C-b C-b") 'hs-slime)
+            (define-key evil-normal-state-map (kbd "<f5>") 'hs-run)
             (editorconfig-apply)
             ))
 
