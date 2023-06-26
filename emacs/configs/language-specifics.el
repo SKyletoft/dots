@@ -28,29 +28,49 @@
             (olivetti-set-width 70)
             (editorconfig-apply)))
 
+(defun ghci ()
+  (interactive)
+  (let ((file-name (buffer-file-name))
+        (is-haskell (eq major-mode 'haskell-mode)))
+    (when (not (get-buffer "ghci"))
+      (split-window-horizontally)
+      (windmove-right)
+      (multi-vterm)
+      (rename-buffer "ghci")
+      (if is-haskell
+          (progn
+            (vterm-insert "ghci ")
+            (vterm-insert file-name)
+            (vterm-send-return))
+        (progn
+          (vterm-insert "ghci")
+          (vterm-send-return))))))
+
 (defun hs-slime ()
   (interactive)
   (save-mark-and-excursion
-    (save-current-buffer
+    (let ((b (current-buffer)))
       (backward-paragraph)
       (let ((start (point)))
         (forward-paragraph)
         (let ((end (point)))
           (kill-ring-save start end)))
-      (switch-to-buffer "*vterminal<1>*")
+      (switch-to-buffer "ghci")
       (vterm-insert ":{\n")
       (vterm-yank)
       (vterm-send-return)
       (vterm-insert ":}")
-      (vterm-send-return))))
+      (vterm-send-return)
+      (switch-to-buffer b))))
 
 (defun hs-run ()
   (interactive)
   (save-mark-and-excursion
-    (save-current-buffer
-      (switch-to-buffer "*vterminal<1>*")
+    (let ((b (current-buffer)))
+      (switch-to-buffer "ghci")
       (vterm-insert ":r\nmain")
-      (vterm-send-return))))
+      (vterm-send-return)
+      (switch-to-buffer b))))
 
 (add-hook 'haskell-mode-hook
           (lambda ()
@@ -70,6 +90,7 @@
             (define-key evil-normal-state-map (kbd "C-b C-b") 'hs-slime)
             (define-key evil-normal-state-map (kbd "<f5>") 'hs-run)
             (editorconfig-apply)
+            (ghci)
             ))
 
 (use-package rustic
