@@ -333,6 +333,7 @@ in {
 				rustic
 				elsa
 				flycheck-elsa
+				racket-mode
 				pdf-tools
 				multi-vterm
 				vterm
