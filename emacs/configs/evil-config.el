@@ -34,6 +34,10 @@
   (define-key evil-visual-state-map key command)
   (define-key evil-motion-state-map key command))
 
+(defun normal-emacs (key command)
+  (define-key evil-normal-state-map key command)
+  (define-key evil-emacs-state-map key command))
+
 ;; Basic controls
 (evil-normal-visual-motion (kbd "a") 'evil-backward-char)
 (evil-normal-visual-motion (kbd "d") 'evil-forward-char)
@@ -82,8 +86,10 @@
 (setq backward-delete-char-untabify-method 'hungry)
 (evil-normal-visual-motion (kbd "<tab>") (kbd ">>"))
 (evil-normal-visual-motion (kbd "<backtab>") (kbd "<<"))
+(evil-normal-visual-motion (kbd "<iso-lefttab>") (kbd "<<"))
 (define-key evil-visual-state-map (kbd "<tab>") (kbd ">gv"))
 (define-key evil-visual-state-map (kbd "<backtab>") (kbd "<gv"))
+(define-key evil-visual-state-map (kbd "<iso-lefttab>") (kbd "<gv"))
 
 (setq-default evil-shift-width tab-width)
 (setq backward-delete-char-untabify-method 'hungry)
@@ -121,36 +127,30 @@
     ('exists (transpose-frame))
     ('none (transpose-frame))))
 
-(define-key evil-normal-state-map (kbd "C-e") 'split-window-horizontally)
-(define-key evil-normal-state-map (kbd "C-q") 'split-window-vertically)
-(define-key evil-normal-state-map (kbd "C-M-w") 'evil-window-up)
-(define-key evil-normal-state-map (kbd "C-M-s") 'evil-window-down)
-(define-key evil-normal-state-map (kbd "C-M-a") 'evil-window-left)
-(define-key evil-normal-state-map (kbd "C-M-d") 'evil-window-right)
-(define-key evil-normal-state-map (kbd "SPC o") 'transpose-with-treemacs)
-(define-key evil-normal-state-map (kbd "M-W") 'evil-window-decrease-height)
-(define-key evil-normal-state-map (kbd "M-S") 'evil-window-increase-height)
-(define-key evil-normal-state-map (kbd "M-D") 'evil-window-increase-width)
-(define-key evil-normal-state-map (kbd "M-A") 'evil-window-decrease-width)
-
-(define-key evil-emacs-state-map (kbd "C-e") 'split-window-horizontally)
-(define-key evil-emacs-state-map (kbd "C-q") 'split-window-vertically)
-(define-key evil-emacs-state-map (kbd "C-M-w") 'evil-window-up)
-(define-key evil-emacs-state-map (kbd "C-M-s") 'evil-window-down)
-(define-key evil-emacs-state-map (kbd "C-M-a") 'evil-window-left)
-(define-key evil-emacs-state-map (kbd "C-M-d") 'evil-window-right)
-(define-key evil-emacs-state-map (kbd "M-W") 'evil-window-decrease-height)
-(define-key evil-emacs-state-map (kbd "M-S") 'evil-window-increase-height)
-(define-key evil-emacs-state-map (kbd "M-D") 'evil-window-increase-width)
-(define-key evil-emacs-state-map (kbd "M-A") 'evil-window-decrease-width)
+(normal-emacs (kbd "C-e") 'split-window-horizontally)
+(normal-emacs (kbd "C-q") 'split-window-vertically)
+(normal-emacs (kbd "C-M-w") 'evil-window-up)
+(normal-emacs (kbd "C-M-s") 'evil-window-down)
+(normal-emacs (kbd "C-M-a") 'evil-window-left)
+(normal-emacs (kbd "C-M-d") 'evil-window-right)
+(normal-emacs (kbd "M-W") 'evil-window-decrease-height)
+(normal-emacs (kbd "M-S") 'evil-window-increase-height)
+(normal-emacs (kbd "M-D") 'evil-window-increase-width)
+(normal-emacs (kbd "M-A") 'evil-window-decrease-width)
+(define-key evil-normal-state-map (kbd "SPC o") 'transpose-with-treemacs) ;; SPC prefix breaks typing in Emacs mode
 
 (define-key evil-normal-state-map (kbd "C-<tab>") 'next-buffer)
 (define-key evil-motion-state-map (kbd "C-<tab>") 'next-buffer)
 (define-key evil-emacs-state-map (kbd "C-<tab>") 'next-buffer)
 
+(define-key evil-normal-state-map (kbd "C-<backtab>") 'previous-buffer)
+(define-key evil-motion-state-map (kbd "C-<backtab>") 'previous-buffer)
+(define-key evil-emacs-state-map (kbd "C-<backtab>") 'previous-buffer)
 (define-key evil-normal-state-map (kbd "C-<iso-lefttab>") 'previous-buffer)
 (define-key evil-motion-state-map (kbd "C-<iso-lefttab>") 'previous-buffer)
 (define-key evil-emacs-state-map (kbd "C-<iso-lefttab>") 'previous-buffer)
+
+(define-key evil-normal-state-map (kbd "SPC <tab>") 'list-buffers)
 
 ;; Formatters
 
