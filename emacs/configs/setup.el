@@ -55,9 +55,13 @@
   :config
   (setq direnv-always-show-summary t))
 
-(use-package gcmh
-  :config
-  (setq garbage-collection-messages t
-        gcmh-idle-delay 10
-        gcmh-high-cons-threshold (* 1024 1024 128))
-  (gcmh-mode 1))
+;; (use-package gcmh
+  ;; :config
+  ;; (setq garbage-collection-messages t
+        ;; gcmh-idle-delay 10
+        ;; gcmh-high-cons-threshold (* 1024 1024 128))
+  ;; (gcmh-mode 1))
+
+(require 'emacs-gc-stats)
+(setq emacs-gc-stats-gc-defaults 'emacs-defaults) ; optional
+(emacs-gc-stats-mode +1)
