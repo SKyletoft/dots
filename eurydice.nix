@@ -87,6 +87,7 @@ in {
 
 	environment.systemPackages = with pkgs; [
 		micro
+		git
 		man-pages
 		man-pages-posix
 		hugo
