@@ -36,15 +36,13 @@ in {
 	nix = {
 		settings = {
 			auto-optimise-store = true;
-			post-build-hook = "/home/u3836/dots/upload-to-cache.sh";
 			substituters = [
 				"https://nix-community.cachix.org"
 				"https://cache.nixos.org/"
-				"https://nix.u3836.se/"
 			];
 			trusted-public-keys = [
-				"nix.u3836.se:t7H/bFWi14aBFYPE5A00eEQawd7Ssl/fXbq/2C+Bsrs="
 				"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+				"nix.u3836.se:t7H/bFWi14aBFYPE5A00eEQawd7Ssl/fXbq/2C+Bsrs="
 			];
 		};
 		gc = {
@@ -74,12 +72,6 @@ in {
 				[ 80 443 8000 8080 12825 ] # Development
 				++ [ 53 1194 1195 1196 1197 1399 1391 1392 1393 1400 51820 ]; # Mullvad
 		};
-		# interfaces.eth0.ipv4.addresses = [ {
-		# 	address = "192.168.0.200";
-		# 	prefixLength = 24;
-		# } ];
-		# defaultGateway = "192.168.0.1";
-		# nameservers = [ "8.8.8.8" ];
 	};
 
 	fileSystems = {
@@ -114,19 +106,12 @@ in {
 
 	hardware = {
 		pulseaudio.enable = false;
-		# Enable GPU acceleration
 		raspberry-pi."4".fkms-3d.enable = false;
 	};
 	powerManagement.cpuFreqGovernor = "ondemand";
 
 	services = {
 		xserver.enable = false;
-		vaultwarden = {
-			enable = false;
-			config = {
-				domain = "bw.kyletoft.se";
-			};
-		};
 		openssh = {
 			enable = true;
 			settings.PasswordAuthentication = false;
@@ -135,12 +120,6 @@ in {
 		ananicy = {
 			enable = true;
 			# package = pkgs.ananicy-cpp;
-		};
-		adguardhome.enable = false;
-		invidious = {
-			enable = true;
-			nginx.enable = true;
-			domain = "yt.kyletoft.se";
 		};
 		mullvad-vpn.enable = true;
 		jellyfin = {
@@ -229,12 +208,6 @@ in {
 					enableACME = true;
 					locations."/".proxyPass = "http://127.0.0.1:8096";
 				};
-				# "bw.kyletoft.se" = {
-					# addSSL = true;
-					# enableACME = true;
-					# locations."/".proxyPass = "http://127.0.0.1:9004";
-					# locations."/:9005".proxyPass = "http://127.0.0.1:9005";
-				# };
 				"nix.u3836.se" = {
 					addSSL = true;
 					enableACME = true;
