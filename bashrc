@@ -12,6 +12,9 @@ fi
 
 if [[ "$DISPLAY" ]]; then
 	gsettings set org.gnome.desktop.input-sources xkb-options \[\'caps:swapescape\'\]
+	xset r rate 300 40 # Hz
+	gsettings set org.gnome.desktop.peripherals.keyboard delay 300
+	gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 25 # ms
 fi
 
 if ! pidof emacs -q ; then
