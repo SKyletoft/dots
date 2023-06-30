@@ -96,7 +96,7 @@ in {
 	};
 
 	environment.systemPackages = with pkgs; [
-		neovim
+		micro
 		man-pages
 		man-pages-posix
 		hugo
