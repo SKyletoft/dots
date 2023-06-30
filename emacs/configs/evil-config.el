@@ -72,8 +72,8 @@
 (set-nvm (kbd "s") 'evil-next-visual-line)
 
 ;; Larger movements
-(set-nv  (kbd "C-a") 'evil-backward-word-begin)
-(set-nv  (kbd "C-d") 'evil-forward-word-begin)
+(set-nvm (kbd "C-a") 'evil-backward-word-begin)
+(set-nm  (kbd "C-d") 'evil-forward-word-begin)
 (set-v   (kbd "C-d") 'evil-forward-word-end)
 (set-nvm (kbd "C-w") (lambda () (interactive) (evil-scroll-line-up 5)))
 (set-nvm (kbd "C-s") (lambda () (interactive) (evil-scroll-line-down 5)))
