@@ -159,8 +159,7 @@ in {
 				"kyletoft.se" = {
 					forceSSL = true;
 					enableACME = true;
-					# default = true;
-					root = "/var/www/samuel.kyletoft.se";
+					root = "/var/www/kyletoft.se";
 				};
 				"samuel.kyletoft.se" = {
 					forceSSL = true;
