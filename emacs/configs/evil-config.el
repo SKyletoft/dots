@@ -42,13 +42,13 @@
 (define-key evil-emacs-state-map (kbd "C-M-i") 'evil-force-normal-state)
 (define-key evil-normal-state-map (kbd "C-M-i") 'evil-emacs-state)
 (global-set-key (kbd "C-M-p") 'treemacs)
-(define-key evil-normal-state-map (kbd "C-t") 'multi-vterm)
-(define-key evil-normal-state-map (kbd "C-+") 'text-scale-increase)
-(define-key evil-normal-state-map (kbd "C--") 'text-scale-decrease)
-(define-key evil-normal-state-map (kbd "SPC m") 'magit)
-(define-key evil-normal-state-map (kbd "SPC n") 'magit-blame)
-(define-key evil-normal-state-map (kbd "SPC r") 'eval-buffer)
-(define-key evil-visual-state-map (kbd "SPC r") 'eval-region)
+(set-nm (kbd "C-t") 'multi-vterm)
+(set-nm (kbd "C-+") 'text-scale-increase)
+(set-nm (kbd "C--") 'text-scale-decrease)
+(set-nm (kbd "SPC m") 'magit)
+(set-nm (kbd "SPC n") 'magit-blame)
+(set-nm (kbd "SPC r") 'eval-buffer)
+(set-v  (kbd "SPC r") 'eval-region)
 
 ;; Evil quit
 (evil-define-command evil-quit
@@ -59,36 +59,26 @@
       (if (equal (buffer-name) "*dashboard*") nil (kill-buffer))
       (evil-window-delete)))
 
-(defun evil-normal-visual-motion (key command)
-  "Set a keybinding in normal, visual and motion modes at once"
-  (define-key evil-normal-state-map key command)
-  (define-key evil-visual-state-map key command)
-  (define-key evil-motion-state-map key command))
-
-(defun normal-emacs (key command)
-  (define-key evil-normal-state-map key command)
-  (define-key evil-emacs-state-map key command))
-
 ;; Basic controls
-(evil-normal-visual-motion (kbd "a") 'evil-backward-char)
-(evil-normal-visual-motion (kbd "d") 'evil-forward-char)
-(evil-normal-visual-motion (kbd "w") 'evil-previous-visual-line)
-(evil-normal-visual-motion (kbd "s") 'evil-next-visual-line)
+(set-nvm (kbd "a") 'evil-backward-char)
+(set-nvm (kbd "d") 'evil-forward-char)
+(set-nvm (kbd "w") 'evil-previous-visual-line)
+(set-nvm (kbd "s") 'evil-next-visual-line)
 
 ;; Larger movements
-(evil-normal-visual-motion (kbd "C-a") 'evil-backward-word-begin)
-(evil-normal-visual-motion (kbd "C-d") 'evil-forward-word-begin)
-(evil-normal-visual-motion (kbd "C-w") (lambda () (interactive) (evil-scroll-line-up 5)))
-(evil-normal-visual-motion (kbd "C-s") (lambda () (interactive) (evil-scroll-line-down 5)))
+(set-nv (kbd "C-a") 'evil-backward-word-begin)
+(set-nv (kbd "C-d") 'evil-forward-word-begin)
+(set-nvm (kbd "C-w") (lambda () (interactive) (evil-scroll-line-up 5)))
+(set-nvm (kbd "C-s") (lambda () (interactive) (evil-scroll-line-down 5)))
 
-(evil-normal-visual-motion "W" "%")
-(evil-normal-visual-motion "S" "}")
+(set-nvm "W" "%")
+(set-nvm "S" "}")
 
 ;; Copy, cut, paste for normal people
-(define-key evil-normal-state-map (kbd "C-c") 'evil-yank)
-(define-key evil-normal-state-map (kbd "C-v") 'evil-paste-after)
-(define-key evil-normal-state-map (kbd "C-x") 'evil-delete)
-(define-key evil-normal-state-map (kbd "M-V") 'evil-visual-block)
+(set-nm (kbd "C-c") 'evil-yank)
+(set-nm (kbd "C-v") 'evil-paste-after)
+(set-nm (kbd "C-x") 'evil-delete)
+(set-nm (kbd "M-V") 'evil-visual-block)
 
 ;; Indents
 (defun shift-width-spaces (width)
@@ -112,27 +102,29 @@
     (insert indent-with)
     (goto-char (+ step-by pos))))
 
-(define-key evil-insert-state-map (kbd "TAB") 'insert-tab-at-start)
+(define-key evil-insert-state-map (kbd "TAB") 'insert-tab-at-start) ; For gui
+(define-key evil-insert-state-map [?\t] 'insert-tab-at-start) ; For terminal
 
 (setq backward-delete-char-untabify-method 'hungry)
-(evil-normal-visual-motion (kbd "<tab>") (kbd ">>")) ; For gui
-(evil-normal-visual-motion [?\t] (kbd ">>")) ; For terminal use
-(evil-normal-visual-motion (kbd "<backtab>") (kbd "<<"))
-(evil-normal-visual-motion (kbd "<iso-lefttab>") (kbd "<<"))
-(define-key evil-visual-state-map (kbd "<tab>") (kbd ">gv"))
-(define-key evil-visual-state-map (kbd "<backtab>") (kbd "<gv"))
-(define-key evil-visual-state-map (kbd "<iso-lefttab>") (kbd "<gv"))
+(set-nvm (kbd "<tab>") (kbd ">>")) ; For gui
+(set-nvm [?\t] (kbd ">>")) ; For terminal use
+(set-nvm (kbd "<backtab>") (kbd "<<"))
+(set-nvm (kbd "<iso-lefttab>") (kbd "<<"))
+(set-v   (kbd "<tab>") (kbd ">gv"))
+(set-v   [?\t] (kbd ">gv"))
+(set-v   (kbd "<backtab>") (kbd "<gv"))
+(set-v   (kbd "<iso-lefttab>") (kbd "<gv"))
 
 (setq-default evil-shift-width tab-width)
 (setq backward-delete-char-untabify-method 'hungry)
 
 ;; Find
-(define-key evil-normal-state-map (kbd "C-f") 'evil-search-forward)
-(define-key evil-normal-state-map (kbd "C-g") (kbd ":%s/"))
+(set-nm (kbd "C-f") 'evil-search-forward)
+(set-nm (kbd "C-g") (kbd ":%s/"))
 
 ;; Undo and redo
-(define-key evil-normal-state-map (kbd "C-z") 'evil-undo)
-(define-key evil-normal-state-map (kbd "C-r") 'evil-redo)
+(set-nm (kbd "C-z") 'evil-undo)
+(set-nm (kbd "C-r") 'evil-redo)
 
 ;; And preserve wasd behaviour somewhere
 
@@ -140,14 +132,14 @@
 ;; (define-key evil-normal-state-map "\C-o" (kbd ":e "))
 
 ;; End of line and start of line inserts
-(define-key evil-normal-state-map "A" 'evil-insert-line)
-(define-key evil-normal-state-map "D" 'evil-append-line)
+(set-nm "A" 'evil-insert-line)
+(set-nm "D" 'evil-append-line)
 
 ;; Delete rest of line
-(define-key evil-normal-state-map (kbd "X") 'evil-delete-line)
+(set-nm (kbd "X") 'evil-delete-line)
 
 ;; Unmap undo because it's poorly placed
-(define-key evil-normal-state-map (kbd "u") nil)
+(set-nm (kbd "u") nil)
 
 ;; Pane management
 (defun transpose-with-treemacs ()
@@ -159,32 +151,23 @@
     ('exists (transpose-frame))
     ('none (transpose-frame))))
 
-(normal-emacs (kbd "C-e") 'split-window-horizontally)
-(normal-emacs (kbd "C-q") 'split-window-vertically)
-(normal-emacs (kbd "C-M-w") 'evil-window-up)
-(normal-emacs (kbd "C-M-s") 'evil-window-down)
-(normal-emacs (kbd "C-M-a") 'evil-window-left)
-(normal-emacs (kbd "C-M-d") 'evil-window-right)
-(normal-emacs (kbd "M-W") 'evil-window-decrease-height)
-(normal-emacs (kbd "M-S") 'evil-window-increase-height)
-(normal-emacs (kbd "M-D") 'evil-window-increase-width)
-(normal-emacs (kbd "M-A") 'evil-window-decrease-width)
+(set-ne (kbd "C-e") 'split-window-horizontally)
+(set-ne (kbd "C-q") 'split-window-vertically)
+(set-ne (kbd "C-M-w") 'evil-window-up)
+(set-ne (kbd "C-M-s") 'evil-window-down)
+(set-ne (kbd "C-M-a") 'evil-window-left)
+(set-ne (kbd "C-M-d") 'evil-window-right)
+(set-ne (kbd "M-W") 'evil-window-decrease-height)
+(set-ne (kbd "M-S") 'evil-window-increase-height)
+(set-ne (kbd "M-D") 'evil-window-increase-width)
+(set-ne (kbd "M-A") 'evil-window-decrease-width)
 (define-key evil-normal-state-map (kbd "SPC o") 'transpose-with-treemacs) ;; SPC prefix breaks typing in Emacs mode
 
-(define-key evil-normal-state-map (kbd "C-<tab>") 'next-buffer)
-(define-key evil-motion-state-map (kbd "C-<tab>") 'next-buffer)
-(define-key evil-emacs-state-map (kbd "C-<tab>") 'next-buffer)
-
-(define-key evil-normal-state-map (kbd "C-<backtab>") 'previous-buffer)
-(define-key evil-motion-state-map (kbd "C-<backtab>") 'previous-buffer)
-(define-key evil-emacs-state-map (kbd "C-<backtab>") 'previous-buffer)
-(define-key evil-normal-state-map (kbd "C-<iso-lefttab>") 'previous-buffer)
-(define-key evil-motion-state-map (kbd "C-<iso-lefttab>") 'previous-buffer)
-(define-key evil-emacs-state-map (kbd "C-<iso-lefttab>") 'previous-buffer)
-
-(define-key evil-normal-state-map (kbd "SPC <tab>") 'list-buffers)
-
-;; Formatters
+(set-nme (kbd "C-<tab>") 'next-buffer))
+(set-nme [C-?\t] 'next-buffer))
+(set-nme (kbd "C-<backtab>") 'previous-buffer))
+(set-nme (kbd "C-<iso-lefttab>") 'previous-buffer))
+(set-nme (kbd "SPC <tab>") 'list-buffer)
 
 ;; Completion-buffer
 ;; Up/down when completing in the minibuffer
