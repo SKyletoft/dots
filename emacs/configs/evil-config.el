@@ -95,10 +95,10 @@
   (let ((pos (point))
         (indent-with (if indent-tabs-mode
                          "\t"
-                         (shift-width-spaces evil-shift-width)))
+                       (shift-width-spaces evil-shift-width)))
         (step-by (if indent-tabs-mode
                      1
-                     evil-shift-width)))
+                   evil-shift-width)))
     (beginning-of-line)
     (insert indent-with)
     (goto-char (+ step-by pos))))
