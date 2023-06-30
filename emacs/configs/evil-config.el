@@ -63,7 +63,7 @@
   :repeat nil
   (if (eq (window-main-window) (selected-window))
       (if (equal (buffer-name) "*dashboard*") nil (kill-buffer))
-      (evil-window-delete)))
+    (evil-window-delete)))
 
 ;; Basic controls
 (set-nvm (kbd "a") 'evil-backward-char)
@@ -92,7 +92,7 @@
   "Create a string of spaces that is `width` wide"
   (if (eq width 0)
       ""
-      (concat " " (shift-width-spaces (- width 1)))))
+    (concat " " (shift-width-spaces (- width 1)))))
 
 (defun insert-tab-at-start ()
   "Insert a tab or `evil-shift-width` spaces (controlled by `indent-tabs-mode`) at
@@ -109,10 +109,12 @@
     (insert indent-with)
     (goto-char (+ step-by pos))))
 
+(setq backward-delete-char-untabify-method 'hungry)
+(setq-default evil-shift-width tab-width)
+
 (define-key evil-insert-state-map (kbd "TAB") 'insert-tab-at-start) ; For gui
 (define-key evil-insert-state-map [?\t] 'insert-tab-at-start) ; For terminal
 
-(setq backward-delete-char-untabify-method 'hungry)
 (set-nvm (kbd "<tab>") (kbd ">>")) ; For gui
 (set-nvm [?\t] (kbd ">>")) ; For terminal use
 (set-nvm (kbd "<backtab>") (kbd "<<"))
@@ -122,8 +124,7 @@
 (set-v   (kbd "<backtab>") (kbd "<gv"))
 (set-v   (kbd "<iso-lefttab>") (kbd "<gv"))
 
-(setq-default evil-shift-width tab-width)
-(setq backward-delete-char-untabify-method 'hungry)
+;; Bracket helpers
 
 (defun wrap-selection-in (start end)
   (save-mark-and-excursion
