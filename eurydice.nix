@@ -192,6 +192,11 @@ in {
 					enableACME = true;
 					root = "/var/www/dhack.kyletoft.se";
 				};
+				"passwords.u3836.se" = {
+					forceSSL = true;
+					enableACME = true;
+					root = "/var/www/secure-passwords";
+				};
 				"cflisp.u3836.se" = {
 					forceSSL = true;
 					enableACME = true;
