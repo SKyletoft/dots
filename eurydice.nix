@@ -127,11 +127,8 @@ in {
 				 + "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
 				 + "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
 				 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
-					 # + "&& SYSTEMD_COLORS=true systemctl status invidious | head -n3 >> /tmp/eurydice-status"
 				)
 				("* * * * * root ${update-website}/bin/update-website")
-				# ("* * * * * root "
-				#  + "cd /var/www/liamjardine.se; ${pkgs.git} pull")
 			];
 		};
 		nix-serve = {
