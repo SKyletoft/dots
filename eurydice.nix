@@ -21,9 +21,7 @@ let
 		mv tmp secure-passwords 2>&1 >> /tmp/website-update-log
 	'';
 in {
-	imports = [
-		<nixos-hardware/raspberry-pi/4>
-	];
+	imports = [];
 
 	nixpkgs = {
 		config.allowUnfree = true;
