@@ -2,7 +2,8 @@
 
 (use-package evil)
 (setq evil-disable-insert-state-bindings t
-      evil-emacs-state-cursor evil-insert-state-cursor)
+      evil-emacs-state-cursor evil-insert-state-cursor
+      evil-undo-system 'undo-redo)
 (evil-mode 1)
 
 ;; Emacs stuff
