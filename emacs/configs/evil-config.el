@@ -164,11 +164,18 @@
 (set-v (kbd "[") 'wrap-in-squares)
 (set-v (kbd "<") 'wrap-in-angles)
 
-;; (defun remove-wrappers ()
-  ;; (interactive)
-  ;; (save-mark-and-excursion
-;; 
-    ;; ))
+(defun remove-wrappers ()
+  "Remove closest wrapping (), [] or {}"
+  (interactive)
+  (when (let ((c (char-after)))
+          (not (or (eq c "(")
+                   (eq c "[")
+                   (eq c "{"))))
+    (evil-jump-item))
+  (save-mark-and-excursion
+    (evil-jump-item)
+    (delete-forward-char 1))
+  (delete-forword-char 1))
 
 ;; Find
 (set-nm (kbd "C-f") 'evil-search-forward)
