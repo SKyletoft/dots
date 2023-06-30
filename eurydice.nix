@@ -1,6 +1,13 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+	stable = import (pkgs.fetchFromGitHub {
+		owner = "NixOS";
+		repo = "nixpkgs";
+		rev = "8bd260eb578e3fea6bce158b24c93ab158d031e7";
+		sha256 = "sha256-dgXEUbz2hgaJL4xCD/5JLhA36UJOhP4qn7Cp6UZhB0I=";
+	}) {};
+in {
 	imports = [
 		<nixos-hardware/raspberry-pi/4>
 	];
@@ -141,6 +148,9 @@
 		nix-serve = {
 			enable = true;
 			secretKeyFile = "/var/cache-priv-key.pem";
+			bindAddress = "127.0.0.1";
+			port = 5000;
+			package = stable.nix-serve;
 		};
 		nginx = {
 			enable = true;
