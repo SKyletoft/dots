@@ -84,7 +84,8 @@
 (define-key evil-insert-state-map (kbd "TAB") 'insert-tab-at-start)
 
 (setq backward-delete-char-untabify-method 'hungry)
-(evil-normal-visual-motion (kbd "<tab>") (kbd ">>"))
+(evil-normal-visual-motion (kbd "<tab>") (kbd ">>")) ; For gui
+(evil-normal-visual-motion [?\t] (kbd ">>")) ; For terminal use
 (evil-normal-visual-motion (kbd "<backtab>") (kbd "<<"))
 (evil-normal-visual-motion (kbd "<iso-lefttab>") (kbd "<<"))
 (define-key evil-visual-state-map (kbd "<tab>") (kbd ">gv"))
