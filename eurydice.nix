@@ -7,6 +7,19 @@ let
 		rev = "8bd260eb578e3fea6bce158b24c93ab158d031e7";
 		sha256 = "sha256-dgXEUbz2hgaJL4xCD/5JLhA36UJOhP4qn7Cp6UZhB0I=";
 	}) {};
+	update-website = pkgs.writeShellScriptBin "update-website" ''
+		cd /var/www
+		${pkgs.git}/bin/git clone https://github.com/SKyletoft/samuel.kyletoft.se tmp 2>&1 >> /tmp/website-update-log
+		rm -rf samuel.kyletoft.se 2>&1 >> /tmp/website-update-log
+		${pkgs.git}/bin/git clone https://github.com/SKyletoft/valkompass tmp/valkompass 2>&1 >> /tmp/website-update-log
+		mv tmp samuel.kyletoft.se 2>&1 >> /tmp/website-update-log
+		${pkgs.git}/bin/git clone https://github.com/SKyletoft/u3836.se tmp 2>&1 >> /tmp/website-update-log
+		rm -rf u3836.se 2>&1 >> /tmp/website-update-log
+		mv tmp u3836.se 2>&1 >> /tmp/website-update-log
+		${pkgs.git}/bin/git clone https://github.com/SKyletoft/secure-passwords tmp 2>&1 >> /tmp/website-update-log
+		rm -rf secure-passwords 2>&1 >> /tmp/website-update-log
+		mv tmp secure-passwords 2>&1 >> /tmp/website-update-log
+	'';
 in {
 	imports = [
 		<nixos-hardware/raspberry-pi/4>
@@ -136,14 +149,18 @@ in {
 		};
 		cron = {
 			enable = true;
-			systemCronJobs = [(
-				"* * * * * u3836 "
-				+ "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status "
-				+ "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
-				+ "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
-				+ "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
-				+ "&& SYSTEMD_COLORS=true systemctl status invidious | head -n3 >> /tmp/eurydice-status"
-			)];
+			systemCronJobs = [
+				("* * * * * u3836 "
+				 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status "
+				 + "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
+				 + "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
+				 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
+					 # + "&& SYSTEMD_COLORS=true systemctl status invidious | head -n3 >> /tmp/eurydice-status"
+				)
+				("* * * * * root ${update-website}/bin/update-website")
+				# ("* * * * * root "
+				#  + "cd /var/www/liamjardine.se; ${pkgs.git} pull")
+			];
 		};
 		nix-serve = {
 			enable = true;
