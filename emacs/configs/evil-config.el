@@ -1,5 +1,6 @@
 (provide 'evil-config)
 
+;; These functions can't be used for bindings starting with space
 (defun set-nvm (key command)
   "Set a keybinding in normal, visual and motion modes at once"
   (define-key evil-normal-state-map key command)
@@ -10,7 +11,7 @@
   "Set a keybinding in normal, motion and emacs modes at once"
   (define-key evil-normal-state-map key command)
   (define-key evil-motion-state-map key command)
-  (define-key evil-emacs-state-map key command)
+  (define-key evil-emacs-state-map key command))
 
 (defun set-nm (key command)
   "Set a keybinding in normal and motion modes at once"
@@ -21,6 +22,11 @@
   "Set a keybinding in normal and emacs modes at once"
   (define-key evil-normal-state-map key command)
   (define-key evil-emacs-state-map key command))
+
+(defun set-nv (key command)
+  "Set a keybinding in normal and visual modes at once"
+  (define-key evil-normal-state-map key command)
+  (define-key evil-visual-state-map key command))
 
 (defun set-v (key command)
   "Set a keybinding in visual mode"
@@ -45,10 +51,10 @@
 (set-nm (kbd "C-t") 'multi-vterm)
 (set-nm (kbd "C-+") 'text-scale-increase)
 (set-nm (kbd "C--") 'text-scale-decrease)
-(set-nm (kbd "SPC m") 'magit)
-(set-nm (kbd "SPC n") 'magit-blame)
-(set-nm (kbd "SPC r") 'eval-buffer)
-(set-v  (kbd "SPC r") 'eval-region)
+(define-key evil-normal-state-map (kbd "SPC m") 'magit)
+(define-key evil-normal-state-map (kbd "SPC n") 'magit-blame)
+(define-key evil-normal-state-map (kbd "SPC r") 'eval-buffer)
+(define-key evil-visual-state-map (kbd "SPC r") 'eval-region)
 
 ;; Evil quit
 (evil-define-command evil-quit
@@ -66,9 +72,9 @@
 (set-nvm (kbd "s") 'evil-next-visual-line)
 
 ;; Larger movements
-(set-nv (kbd "C-a") 'evil-backward-word-begin)
-(set-nv (kbd "C-d") 'evil-forward-word-begin)
-(set-v (kbd "C-d") 'evil-forward-word-end)
+(set-nv  (kbd "C-a") 'evil-backward-word-begin)
+(set-nv  (kbd "C-d") 'evil-forward-word-begin)
+(set-v   (kbd "C-d") 'evil-forward-word-end)
 (set-nvm (kbd "C-w") (lambda () (interactive) (evil-scroll-line-up 5)))
 (set-nvm (kbd "C-s") (lambda () (interactive) (evil-scroll-line-down 5)))
 
@@ -158,6 +164,12 @@
 (set-v (kbd "[") 'wrap-in-squares)
 (set-v (kbd "<") 'wrap-in-angles)
 
+;; (defun remove-wrappers ()
+  ;; (interactive)
+  ;; (save-mark-and-excursion
+;; 
+    ;; ))
+
 ;; Find
 (set-nm (kbd "C-f") 'evil-search-forward)
 (set-nm (kbd "C-g") (kbd ":%s/"))
@@ -203,11 +215,12 @@
 (set-ne (kbd "M-A") 'evil-window-decrease-width)
 (define-key evil-normal-state-map (kbd "SPC o") 'transpose-with-treemacs) ;; SPC prefix breaks typing in Emacs mode
 
-(set-nme (kbd "C-<tab>") 'next-buffer))
-(set-nme [C-?\t] 'next-buffer))
-(set-nme (kbd "C-<backtab>") 'previous-buffer))
-(set-nme (kbd "C-<iso-lefttab>") 'previous-buffer))
-(set-nme (kbd "SPC <tab>") 'list-buffer)
+(set-nme (kbd "C-<tab>") 'next-buffer)
+(set-nme [C-?\t] 'next-buffer)
+(set-nme (kbd "C-<backtab>") 'previous-buffer)
+(set-nme (kbd "C-<iso-lefttab>") 'previous-buffer)
+(define-key evil-normal-state-map (kbd "SPC <tab>") 'list-buffer)
+(define-key evil-visual-state-map (kbd "SPC <tab>") 'list-buffer)
 
 ;; Completion-buffer
 ;; Up/down when completing in the minibuffer
