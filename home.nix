@@ -86,6 +86,7 @@ in {
 			bat
 			viu
 			ripgrep
+			fzf
 			bottom
 			htop
 			du-dust
@@ -305,6 +306,7 @@ in {
 				transpose-frame
 				# tramp
 				editorconfig
+				ripgrep
 
 				org-appear
 				mixed-pitch
