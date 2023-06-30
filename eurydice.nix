@@ -1,12 +1,6 @@
 { config, pkgs, lib, ... }:
 
 let
-	stable = import (pkgs.fetchFromGitHub {
-		owner = "NixOS";
-		repo = "nixpkgs";
-		rev = "8bd260eb578e3fea6bce158b24c93ab158d031e7";
-		sha256 = "sha256-dgXEUbz2hgaJL4xCD/5JLhA36UJOhP4qn7Cp6UZhB0I=";
-	}) {};
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
 		${pkgs.git}/bin/git clone https://github.com/SKyletoft/samuel.kyletoft.se tmp 2>&1 >> /tmp/website-update-log
@@ -145,7 +139,6 @@ in {
 			secretKeyFile = "/var/cache-priv-key.pem";
 			bindAddress = "127.0.0.1";
 			port = 5000;
-			package = stable.nix-serve;
 		};
 		nginx = {
 			enable = true;
