@@ -1,5 +1,35 @@
 (provide 'evil-config)
 
+(defun set-nvm (key command)
+  "Set a keybinding in normal, visual and motion modes at once"
+  (define-key evil-normal-state-map key command)
+  (define-key evil-visual-state-map key command)
+  (define-key evil-motion-state-map key command))
+
+(defun set-nme (key command)
+  "Set a keybinding in normal, motion and emacs modes at once"
+  (define-key evil-normal-state-map key command)
+  (define-key evil-motion-state-map key command)
+  (define-key evil-emacs-state-map key command)
+
+(defun set-nm (key command)
+  "Set a keybinding in normal and motion modes at once"
+  (define-key evil-normal-state-map key command)
+  (define-key evil-motion-state-map key command))
+
+(defun set-ne (key command)
+  "Set a keybinding in normal and emacs modes at once"
+  (define-key evil-normal-state-map key command)
+  (define-key evil-emacs-state-map key command))
+
+(defun set-v (key command)
+  "Set a keybinding in visual mode"
+  (define-key evil-visual-state-map key command))
+
+(defun set-i (key command)
+  "Set a keybinding in insert mode"
+  (define-key evil-visual-state-map key command))
+
 (use-package evil)
 (setq evil-disable-insert-state-bindings t
       evil-emacs-state-cursor evil-insert-state-cursor
