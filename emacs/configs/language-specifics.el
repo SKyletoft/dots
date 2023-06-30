@@ -89,7 +89,7 @@
             (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
             (define-key evil-normal-state-map (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>")
             (define-key evil-normal-state-map (kbd "C-b C-b") 'hs-slime)
-            (define-key evil-normal-state-map (kbd "<f5>") 'hs-run)
+            (define-key haskell-mode-map (kbd "<f5>") 'hs-run)
             (editorconfig-apply)
             (ghci)
             ))
@@ -133,6 +133,7 @@
               (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
               (define-key evil-normal-state-map (kbd "SPC t") 'lsp-rust-analyzer-inlay-hints-mode)
               (define-key evil-normal-state-map (kbd "<f2>") 'lsp-rename)
+              (define-key rustic-mode-map (kbd "<f5>") 'rustic-cargo-run)
 
               ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
               (editorconfig-apply)
