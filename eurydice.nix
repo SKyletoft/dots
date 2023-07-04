@@ -3,34 +3,44 @@
 let
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
-		${pkgs.git}/bin/git clone https://github.com/SKyletoft/samuel.kyletoft.se tmp 2>&1 >> /tmp/website-update-log
-		${pkgs.git}/bin/git clone https://github.com/SKyletoft/valkompass_2022 tmp/valkompass 2>&1 >> /tmp/website-update-log
-		rm tmp/.git -rf
-		rm tmp/.gitignore -rf
-		rm tmp/LICENSE -rf
-		rm tmp/valkompass/.git -rf
-		rm tmp/valkompass/.gitignore -rf
-		rm tmp/valkompass/LICENSE -rf
-		rm -rf samuel.kyletoft.se 2>&1 >> /tmp/website-update-log
-		mv tmp samuel.kyletoft.se 2>&1 >> /tmp/website-update-log
-		${pkgs.git}/bin/git clone https://github.com/SKyletoft/u3836.se tmp 2>&1 >> /tmp/website-update-log
-		rm tmp/.git -rf
-		rm tmp/.gitignore -rf
-		rm tmp/LICENSE -rf
-		rm -rf u3836.se 2>&1 >> /tmp/website-update-log
-		mv tmp u3836.se 2>&1 >> /tmp/website-update-log
-		${pkgs.git}/bin/git clone https://github.com/SKyletoft/secure-passwords tmp 2>&1 >> /tmp/website-update-log
-		rm tmp/.git -rf
-		rm tmp/.gitignore -rf
-		rm tmp/LICENSE -rf
-		rm -rf secure-passwords 2>&1 >> /tmp/website-update-log
-		mv tmp secure-passwords 2>&1 >> /tmp/website-update-log
-		${pkgs.git}/bin/git clone https://github.com/liamjardine/liamjardine.github.io tmp 2>&1 >> /tmp/website-update-log
-		rm tmp/.git -rf
-		rm tmp/.gitignore -rf
-		rm tmp/LICENSE -rf
-		rm -rf liamjardine.se 2>&1 >> /tmp/website-update-log
-		mv tmp liamjardine.se 2>&1 >> /tmp/website-update-log
+
+		${pkgs.git}/bin/git clone \
+			https://github.com/SKyletoft/samuel.kyletoft.se tmp
+		${pkgs.git}/bin/git clone \
+			https://github.com/SKyletoft/valkompass_2022 tmp/valkompass
+		rm -rf \
+			tmp/.git \
+			tmp/.gitignore \
+			tmp/LICENSE \
+			tmp/valkompass/.git \
+			tmp/valkompass/.gitignore \
+			tmp/valkompass/LICENSE \
+			samuel.kyletoft.se
+		mv tmp samuel.kyletoft.se
+
+		${pkgs.git}/bin/git clone \
+			https://github.com/SKyletoft/u3836.se tmp
+		rm -rf \
+			tmp/.git \
+			tmp/.gitignore \
+			tmp/LICENSE \
+			u3836.se
+		mv tmp u3836.se
+
+		${pkgs.git}/bin/git clone \
+			https://github.com/SKyletoft/secure-passwords tmp
+		rm -rf \
+			tmp/.git
+			tmp/LICENSE \
+			secure-passwords
+		mv tmp secure-passwords
+
+		${pkgs.git}/bin/git clone \
+			https://github.com/liamjardine/liamjardine.github.io tmp
+		rm -rf \
+			tmp/.git \
+			liamjardine.se
+		mv tmp liamjardine.se
 	'';
 in {
 	imports = [];
