@@ -192,6 +192,7 @@ in {
 			"docker"
 			"vboxusers"
 			"video"
+			"adbusers"
 		];
 		shell = pkgs.bash;
 	};
@@ -269,6 +270,7 @@ in {
 		dconf.enable = true;
 		xonsh.enable = false;
 		ssh.startAgent = true;
+		adb.enable = true;
 	};
 
 	system.stateVersion = "21.11";
