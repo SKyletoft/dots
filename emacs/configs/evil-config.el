@@ -55,6 +55,7 @@
 (define-key evil-normal-state-map (kbd "SPC n") 'magit-blame)
 (define-key evil-normal-state-map (kbd "SPC r") 'eval-buffer)
 (define-key evil-visual-state-map (kbd "SPC r") 'eval-region)
+(define-key evil-normal-state-map (kbd "SPC v") 'hs-toggle-hiding)
 
 ;; Evil quit
 (evil-define-command evil-quit

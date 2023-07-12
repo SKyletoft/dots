@@ -20,6 +20,7 @@
 (setq after-delete-frame-functions (cons 'kill-buffers-on-all-frames-exited after-delete-frame-functions)
       visual-line-mode -1
       global-auto-revert-mode 1
+      hs-minor-mode 1
       xterm-mouse-mode 1
       recentf-mode 1
       global-auto-revert-non-file-buffers t
