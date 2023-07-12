@@ -94,6 +94,21 @@
             (ghci)
             ))
 
+(use-package idris-mode
+  :config
+  (setq idris-interpreter-path "idris2"
+        )
+  (add-hook 'idris-mode-hook
+            (lambda ()
+              (define-key evil-normal-state-map (kbd "SPC c") 'idris-case-dwim)
+              (define-key evil-normal-state-map (kbd "SPC d") 'idris-type-at-point)
+              (define-key evil-normal-state-map (kbd "SPC l") 'idris-make-lemma)
+              (define-key evil-normal-state-map (kbd "SPC m") 'idris-add-missing)
+              (define-key evil-normal-state-map (kbd "SPC r") 'idris-load-file)
+              (define-key evil-normal-state-map (kbd "SPC s") 'idris-type-search)
+              (define-key evil-normal-state-map (kbd "SPC t") 'idris-make-lemma)
+              )))
+
 (use-package rustic
   :config
   (setq rustic-format-on-save t

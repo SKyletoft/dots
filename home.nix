@@ -327,6 +327,8 @@ in {
 
 				nix-mode
 				haskell-mode
+				# idris2-mode
+				idris-mode
 				merlin
 				tuareg
 				ocamlformat
