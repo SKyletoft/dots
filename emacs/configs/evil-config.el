@@ -166,18 +166,43 @@
 (set-v (kbd "[") 'wrap-in-squares)
 ;; (set-v (kbd "<") 'wrap-in-angles) ; Interferes with outdent
 
+(defun return-to-open-brace ()
+  "Move to previous (, [ or {"
+  (let ((open-p 0)
+        (open-s 0)
+        (open-c 0)
+        (cont 't))
+    (while cont
+      (let ((c (char-after)))
+        (cond ((or (and (eq c ?\() (eq open-p 0))
+                   (and (eq c ?\[) (eq open-s 0))
+                   (and (eq c ?\{) (eq open-c 0))
+                   (eq (point) 1))
+               (setq cont nil))
+              ((eq c ?\))
+               (setq open-p (- open-p 1)))
+              ((eq c ?\])
+               (setq open-s (- open-s 1)))
+              ((eq c ?\})
+               (setq open-c (- open-c 1)))
+              ((eq c ?\()
+               (setq open-p (+ open-p 1)))
+              ((eq c ?\[)
+               (setq open-s (+ open-s 1)))
+              ((eq c ?\{)
+               (setq open-c (+ open-c 1)))))
+      (backward-char))
+    (forward-char)))
+
 (defun remove-wrappers ()
   "Remove closest wrapping (), [] or {}"
   (interactive)
-  (when (let ((c (char-after)))
-          (not (or (eq c "(")
-                   (eq c "[")
-                   (eq c "{"))))
-    (evil-jump-item))
   (save-mark-and-excursion
-    (evil-jump-item)
-    (delete-forward-char 1))
-  (delete-forword-char 1))
+    (return-to-open-brace)
+    (save-mark-and-excursion
+      (evil-jump-item)
+      (delete-forward-char 1))
+    (delete-forward-char 1)))
 
 ;; Find
 (set-nm (kbd "C-f") 'evil-search-forward)
