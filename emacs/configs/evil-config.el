@@ -164,7 +164,7 @@
 (set-v (kbd "(") 'wrap-in-parentheses)
 (set-v (kbd "{") 'wrap-in-curlies)
 (set-v (kbd "[") 'wrap-in-squares)
-(set-v (kbd "<") 'wrap-in-angles)
+;; (set-v (kbd "<") 'wrap-in-angles) ; Interferes with outdent
 
 (defun remove-wrappers ()
   "Remove closest wrapping (), [] or {}"
