@@ -1,7 +1,7 @@
 (provide 'language-specifics)
 
 (electric-pair-mode 1)
-(electric-indent-mode -1)
+;; (electric-indent-mode nil)
 (global-eldoc-mode -1)
 
 (setq-default indent-tabs-mode t
