@@ -73,6 +73,16 @@
       (vterm-send-return)
       (switch-to-buffer b))))
 
+(use-package haskell-mode)
+
+(evil-define-key 'normal haskell-mode-map
+  (kbd "SPC g") 'xref-find-definitions
+  (kbd "SPC a") 'lsp-execute-code-action
+  (kbd "SPC f") 'lsp-ui-doc-glance
+  (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>"
+  (kbd "C-b C-b") 'hs-slime
+  (kbd "<f5>") 'hs-run)
+
 (add-hook 'haskell-mode-hook
           (lambda ()
             (lsp)
@@ -84,30 +94,26 @@
                         lsp-haskell-plugin-ghcide-class-global-on nil)
             (lsp-restart-workspace)
             (lsp-ui-doc-mode t)
-            (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
-            (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
-            (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
-            (define-key evil-normal-state-map (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>")
-            (define-key evil-normal-state-map (kbd "C-b C-b") 'hs-slime)
-            (define-key haskell-mode-map (kbd "<f5>") 'hs-run)
             (editorconfig-apply)
             (ghci)
             ))
 
 (use-package idris-mode
   :config
-  (setq idris-interpreter-path "idris2"
-        )
+  (setq idris-interpreter-path "idris2")
   (add-hook 'idris-mode-hook
             (lambda ()
-              (define-key evil-normal-state-map (kbd "SPC c") 'idris-case-dwim)
-              (define-key evil-normal-state-map (kbd "SPC d") 'idris-type-at-point)
-              (define-key evil-normal-state-map (kbd "SPC l") 'idris-make-lemma)
-              (define-key evil-normal-state-map (kbd "SPC m") 'idris-add-missing)
-              (define-key evil-normal-state-map (kbd "SPC r") 'idris-load-file)
-              (define-key evil-normal-state-map (kbd "SPC s") 'idris-type-search)
-              (define-key evil-normal-state-map (kbd "SPC t") 'idris-make-lemma)
+              (set-indents 8 2 nil)
               )))
+
+(evil-define-key 'normal idris-mode-map
+  (kbd "SPC c") 'idris-case-dwim
+  (kbd "SPC d") 'idris-type-at-point
+  (kbd "SPC l") 'idris-make-lemma
+  (kbd "SPC m") 'idris-add-missing
+  (kbd "SPC r") 'idris-load-file
+  (kbd "SPC s") 'idris-type-search
+  (kbd "SPC t") 'idris-make-lemma)
 
 (use-package rustic
   :config
@@ -141,26 +147,26 @@
                           lsp-ui-doc-mode t
                           lsp-ui-sideline-show-hover nil
                           lsp-ui-sideline-enable t)
-
-              (define-key evil-normal-state-map (kbd "SPC i") 'rustic-format-buffer)
-              (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
-              (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
-              (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
-              (define-key evil-normal-state-map (kbd "SPC t") 'lsp-rust-analyzer-inlay-hints-mode)
-              (define-key evil-normal-state-map (kbd "<f2>") 'lsp-rename)
               (define-key rustic-mode-map (kbd "<f5>") 'rustic-cargo-run)
-
               ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
               (editorconfig-apply)
               )))
+
+(evil-define-key 'normal rustic-mode-map
+  (kbd "SPC i") 'rustic-format-buffer
+  (kbd "SPC f") 'lsp-ui-doc-glance
+  (kbd "SPC g") 'xref-find-definitions
+  (kbd "SPC a") 'lsp-execute-code-action
+  (kbd "SPC t") 'lsp-rust-analyzer-inlay-hints-mode
+  (kbd "<f2>") 'lsp-rename)
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (flycheck-elsa-setup)
             (setq-local flycheck-mode 1
                         indent-tabs-mode nil)
-            (define-key evil-normal-state-map (kbd "SPC i") 'indent-according-to-mode)
-            (define-key evil-visual-state-map (kbd "SPC i") 'indent-region)
+            (evil-define-key 'normal emacs-lisp-mode-map (kbd "SPC i") 'indent-according-to-mode)
+            (evil-define-key 'visual emacs-lisp-mode-map (kbd "SPC i") 'indent-region)
             (editorconfig-apply)))
 
 (defun americanise ()
@@ -182,11 +188,16 @@
               electric-indent-mode -1
               )
   (lsp)
-  (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
-  (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
-  (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
+  (evil-define-key 'normal c++-mode-map
+    (kbd "SPC f") 'lsp-ui-doc-glance
+    (kbd "SPC g") 'xref-find-definitions
+    (kbd "SPC a") 'lsp-execute-code-action)
+  (evil-define-key 'normal c-mode-map
+    (kbd "SPC f") 'lsp-ui-doc-glance
+    (kbd "SPC g") 'xref-find-definitions
+    (kbd "SPC a") 'lsp-execute-code-action)
   (editorconfig-apply))
-  
+
 
 (add-hook 'c-mode-hook 'c-cpp-mode-hook-impl)
 (add-hook 'c++-mode-hook 'c-cpp-mode-hook-impl)
@@ -229,10 +240,11 @@
             (ocamlformat-setup-indents)
             (set-indents 8 2 nil)
             (setq-local eldoc-mode nil)
-            (define-key evil-normal-state-map (kbd "SPC g") 'xref-find-definitions)
-            (define-key evil-normal-state-map (kbd "SPC a") 'lsp-execute-code-action)
-            (define-key evil-normal-state-map (kbd "SPC f") 'lsp-ui-doc-glance)
-            (define-key evil-normal-state-map (kbd "SPC i") 'ocamlformat)
+            (evil-define-key 'normal tuareg-mode-map
+              (kbd "SPC g") 'xref-find-definitions
+              (kbd "SPC a") 'lsp-execute-code-action
+              (kbd "SPC f") 'lsp-ui-doc-glance
+              (kbd "SPC i") 'ocamlformat)
             (lsp)
             (editorconfig-apply)))
 
@@ -260,11 +272,13 @@
               (setq-local vterm-term-environment-variable 'eterm-color
                           vterm-kill-buffer-on-exit t
                           vterm-timer-delay nil)
-              (evil-emacs-state)))
-  (define-key vterm-mode-map (kbd "C-M-w") 'windmove-up)
-  (define-key vterm-mode-map (kbd "C-M-s") 'windmove-down)
-  (define-key vterm-mode-map (kbd "C-M-a") 'windmove-left)
-  (define-key vterm-mode-map (kbd "C-M-d") 'windmove-right))
+              (evil-emacs-state))))
+
+(evil-define-key '(normal emacs) vterm-mode-map
+  (kbd "C-M-w") 'windmove-up
+  (kbd "C-M-s") 'windmove-down
+  (kbd "C-M-a") 'windmove-left
+  (kbd "C-M-d") 'windmove-right)
 
 ;; Line numbers
 (global-display-line-numbers-mode t) ;; Needed because reasons
