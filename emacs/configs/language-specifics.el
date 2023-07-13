@@ -280,6 +280,9 @@
   (kbd "C-M-a") 'windmove-left
   (kbd "C-M-d") 'windmove-right)
 
+(use-package treemacs)
+(evil-define-key 'normal treemacs-mode-map (kbd "C-<tab>") 'treemacs-switch-workspace)
+
 ;; Line numbers
 (global-display-line-numbers-mode t) ;; Needed because reasons
 
