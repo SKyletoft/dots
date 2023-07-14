@@ -253,8 +253,8 @@
 (set-nme [C-?\t] 'next-buffer)
 (set-nme (kbd "C-<backtab>") 'previous-buffer)
 (set-nme (kbd "C-<iso-lefttab>") 'previous-buffer)
-(define-key evil-normal-state-map (kbd "SPC <tab>") 'list-buffer)
-(define-key evil-visual-state-map (kbd "SPC <tab>") 'list-buffer)
+(define-key evil-normal-state-map (kbd "SPC <tab>") 'list-buffers)
+(define-key evil-visual-state-map (kbd "SPC <tab>") 'list-buffers)
 
 ;; Completion-buffer
 ;; Up/down when completing in the minibuffer
