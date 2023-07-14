@@ -276,6 +276,7 @@ in {
 		cascadia-code
 		fantasque-sans-mono
 		roboto
+		(pkgs.callPackage ./packages/0xproto.nix {})
 		(nerdfonts.override {fonts = [
 			"FiraCode"
 			"DroidSansMono"
