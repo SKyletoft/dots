@@ -19,7 +19,7 @@
                        (string-match "\\.art\\'" buffer-file-name))
               (set-indents 8 8 t)
               (editorconfig-apply)
-              (setq-local prog-mode 1))
+              (setq-local artemis-mode 1))
             ))
 
 (add-hook 'markdown-mode-hook
