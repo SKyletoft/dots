@@ -41,6 +41,14 @@ let
 					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
 					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
 				});
+				tree-sitter-haskell = prev.tree-sitter-grammars.tree-sitter-haskell.overrideAttrs (_: {
+					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				});
+				tree-sitter-python = prev.tree-sitter-grammars.tree-sitter-python.overrideAttrs (_: {
+					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				});
 				tree-sitter-elisp = prev.tree-sitter-grammars.tree-sitter-elisp.overrideAttrs (_: {
 					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
 					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
@@ -50,6 +58,10 @@ let
 					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
 				});
 				tree-sitter-latex = prev.tree-sitter-grammars.tree-sitter-latex.overrideAttrs (_: {
+					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				});
+				tree-sitter-bash = prev.tree-sitter-grammars.tree-sitter-bash.overrideAttrs (_: {
 					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
 					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
 				});
