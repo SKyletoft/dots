@@ -147,7 +147,14 @@
                           lsp-ui-doc-mode t
                           lsp-ui-sideline-show-hover nil
                           lsp-ui-sideline-enable t)
-              (define-key rustic-mode-map (kbd "<f5>") 'rustic-cargo-run)
+              (evil-define-key 'normal rustic-mode-map
+                (kbd "<f5>") 'rustic-cargo-run
+                (kbd "C-<f5>") 'rustic-cargo-build
+                (kbd "M-<f5>") 'rustic-cargo-test)
+              (evil-define-key 'normal conf-toml-mode-map
+                (kbd "<f5>") 'rustic-cargo-run
+                (kbd "C-<f5>") 'rustic-cargo-build
+                (kbd "M-<f5>") 'rustic-cargo-test)
               ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
               (editorconfig-apply)
               )))
