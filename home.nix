@@ -416,10 +416,20 @@ in {
 		".gdbinit".source           = ./gdbinit;
 		".nanorc".source            = ./nanorc;
 		".clang-format".source      = ./clang-format;
-		".cargo/config.toml".source = ./cargo_config;
 		".ghci".source              = ./ghci;
 		".xonshrc".source           = ./xonshrc;
 		".vimrc".source             = ./vimrc;
+		".cargo/config.toml".text   =
+''[build]
+rustflags = "-Ctarget-cpu=native"
+
+[net]
+git-fetch-with-cli = true
+
+[target.x86_64-unknown-linux-gnu]
+linker = "${pkgs.clang_16}/bin/clang"
+rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
+'';
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;
