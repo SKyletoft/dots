@@ -19,10 +19,10 @@
 ;; (setq use-package-always-ensure t)
 
 (require 'setup)
+(require 'org-config)
 (require 'evil-config)
 (require 'aesthetics)
 (require 'dap)
 (require 'artemis-mode)
 (require 'language-checking)
 (require 'language-specifics)
-(require 'org-config)

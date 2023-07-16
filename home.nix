@@ -321,6 +321,8 @@ in {
 				ripgrep
 
 				org-appear
+				yasnippet
+				yasnippet-snippets
 				mixed-pitch
 				company-posframe
 				org-superstar

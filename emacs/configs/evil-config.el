@@ -56,6 +56,7 @@
 (define-key evil-normal-state-map (kbd "SPC r") 'eval-buffer)
 (define-key evil-visual-state-map (kbd "SPC r") 'eval-region)
 (define-key evil-normal-state-map (kbd "SPC v") 'hs-toggle-hiding)
+(define-key company-active-map (kbd "<tab>") 'company-complete-common 'delete)
 
 ;; Evil quit
 (evil-define-command evil-quit
