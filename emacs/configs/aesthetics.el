@@ -45,8 +45,8 @@
   :hook
   (text-mode . mixed-pitch-mode)
   :config
-  (set-face-attribute 'default nil :font "Fira Code Nerd Font" :height 110)
-  (set-face-attribute 'fixed-pitch nil :font "Fira Code Nerd Font")
+  (set-face-attribute 'default nil :font "0xProto" :height 110)
+  (set-face-attribute 'fixed-pitch nil :font "0xProto")
   (set-face-attribute 'variable-pitch nil :font "TeX Gyre Heros" :height 150))
 
 (use-package ligature
