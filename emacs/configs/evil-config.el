@@ -114,6 +114,8 @@
 (setq backward-delete-char-untabify-method 'hungry)
 (setq-default evil-shift-width tab-width)
 
+(define-key evil-emacs-state-map (kbd "TAB") 'insert-tab-at-start) ; For gui
+(define-key evil-emacs-state-map [?\t] 'insert-tab-at-start) ; For terminal
 (define-key evil-insert-state-map (kbd "TAB") 'insert-tab-at-start) ; For gui
 (define-key evil-insert-state-map [?\t] 'insert-tab-at-start) ; For terminal
 
