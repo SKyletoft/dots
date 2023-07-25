@@ -38,8 +38,8 @@
 
 (use-package evil)
 (setq evil-disable-insert-state-bindings t
-      evil-emacs-state-cursor evil-insert-state-cursor
-      evil-undo-system 'undo-redo)
+      evil-emacs-state-cursor evil-insert-state-cursor)
+(evil-set-undo-system 'undo-redo)
 (evil-mode 1)
 
 ;; Emacs stuff
@@ -212,8 +212,8 @@
 (set-nm (kbd "C-g") (kbd ":%s/"))
 
 ;; Undo and redo
-(set-nm (kbd "C-z") 'evil-undo)
-(set-nm (kbd "C-r") 'evil-redo)
+(set-nmi (kbd "C-z") 'evil-undo)
+(set-nmi (kbd "C-r") 'evil-redo)
 
 ;; And preserve wasd behaviour somewhere
 
