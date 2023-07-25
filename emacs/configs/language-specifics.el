@@ -126,7 +126,7 @@
         lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names t
         lsp-rust-analyzer-display-closure-return-type-hints t
         lsp-rust-analyzer-display-parameter-hints t
-        lsp-rust-analyzer-display-reborrow-hints t
+        lsp-rust-analyzer-display-reborrow-hints nil
         ;; rustic-rustfmt-args "+nightly"
         lsp-eldoc-hook nil
         lsp-enable-symbol-highlighting nil
