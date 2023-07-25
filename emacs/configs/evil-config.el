@@ -13,6 +13,12 @@
   (define-key evil-motion-state-map key command)
   (define-key evil-emacs-state-map key command))
 
+(defun set-nmi (key command)
+  "Set a keybinding in normal and motion modes at once"
+  (define-key evil-normal-state-map key command)
+  (define-key evil-insert-state-map key command)
+  (define-key evil-motion-state-map key command))
+
 (defun set-nm (key command)
   "Set a keybinding in normal and motion modes at once"
   (define-key evil-normal-state-map key command)
