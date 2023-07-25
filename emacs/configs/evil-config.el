@@ -213,6 +213,8 @@
       (delete-forward-char 1))
     (delete-forward-char 1)))
 
+(set-v (kbd "SPC k") 'comment-or-uncomment-region)
+
 ;; Find
 (set-nm (kbd "C-f") 'evil-search-forward)
 (set-nm (kbd "C-g") (kbd ":%s/"))
