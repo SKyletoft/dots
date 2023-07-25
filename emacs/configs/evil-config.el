@@ -271,7 +271,7 @@
 (define-key evil-normal-state-map (kbd "SPC o") 'transpose-with-treemacs) ;; SPC prefix breaks typing in Emacs mode
 
 (define-key evil-visual-state-map (kbd "SPC b") 'narrow-to-region)
-(set-nm (kbd "SPC b") 'widen)
+(set-n (kbd "SPC b") 'widen)
 
 (set-nme (kbd "C-<tab>") 'next-buffer)
 (set-nme [C-?\t] 'next-buffer)
