@@ -34,6 +34,10 @@
   (define-key evil-normal-state-map key command)
   (define-key evil-visual-state-map key command))
 
+(defun set-n (key command)
+  "Set a keybinding in normal mode"
+  (define-key evil-normal-state-map key command))
+
 (defun set-v (key command)
   "Set a keybinding in visual mode"
   (define-key evil-visual-state-map key command))
@@ -213,7 +217,13 @@
       (delete-forward-char 1))
     (delete-forward-char 1)))
 
+(defun comment-or-uncomment-line ()
+  "Mark current line as region and run comment-or-uncomment-region"
+  (interactive)
+  (comment-or-uncomment-region (line-beginning-position)
+                               (line-end-position)))
 (set-v (kbd "SPC k") 'comment-or-uncomment-region)
+(set-n (kbd "SPC k") 'comment-or-uncomment-line)
 
 ;; Find
 (set-nm (kbd "C-f") 'evil-search-forward)
