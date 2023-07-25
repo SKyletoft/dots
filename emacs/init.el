@@ -15,8 +15,7 @@
 (add-to-list 'load-path "~/.emacs.d/configs")
 (add-to-list 'load-path "~/.emacs.d/configs/languages")
 (load custom-file 'noerror 'nomessage)
-
-;; (setq use-package-always-ensure t)
+(put 'narrow-to-region 'disabled nil)
 
 (require 'setup)
 (require 'org-config)
