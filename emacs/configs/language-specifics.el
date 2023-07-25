@@ -288,8 +288,9 @@
 
 (use-package treemacs)
 (evil-define-key 'normal treemacs-mode-map (kbd "C-<tab>") 'treemacs-switch-workspace)
-(evil-define-key 'normal treemacs-mode-map (kbd "x") 'treemacs-delete-file)
-(evil-define-key 'normal treemacs-mode-map (kbd "<delete>") 'treemacs-delete-file)
+(evil-define-key 'normal treemacs-mode-map
+  (kbd "x") 'treemacs-delete-file
+  (kbd "<delete>") 'treemacs-delete-file)
 
 ;; Line numbers
 (global-display-line-numbers-mode t) ;; Needed because reasons
