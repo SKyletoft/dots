@@ -117,7 +117,7 @@
 
 (use-package rustic
   :config
-  (setq rustic-format-on-save t
+  (setq rustic-format-on-save nil
         lsp-rust-analyzer-server-display-inlay-hints t
         lsp-rust-analyzer-cargo-watch-command "clippy"
         lsp-rust-analyzer-server-display-inlay-hints t
@@ -127,7 +127,6 @@
         lsp-rust-analyzer-display-closure-return-type-hints t
         lsp-rust-analyzer-display-parameter-hints t
         lsp-rust-analyzer-display-reborrow-hints t
-        rustic-format-on-save nil
         ;; rustic-rustfmt-args "+nightly"
         lsp-eldoc-hook nil
         lsp-enable-symbol-highlighting nil
