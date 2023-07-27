@@ -146,14 +146,6 @@
                           lsp-ui-doc-mode t
                           lsp-ui-sideline-show-hover nil
                           lsp-ui-sideline-enable t)
-              (evil-define-key 'normal rustic-mode-map
-                (kbd "<f5>") 'rustic-cargo-run
-                (kbd "C-<f5>") 'rustic-cargo-build
-                (kbd "M-<f5>") 'rustic-cargo-test)
-              (evil-define-key 'normal conf-toml-mode-map
-                (kbd "<f5>") 'rustic-cargo-run
-                (kbd "C-<f5>") 'rustic-cargo-build
-                (kbd "M-<f5>") 'rustic-cargo-test)
               ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
               (editorconfig-apply)
               )))
@@ -167,7 +159,15 @@
   (kbd "SPC g") 'xref-find-definitions
   (kbd "SPC a") 'lsp-execute-code-action
   (kbd "SPC t") 'lsp-rust-analyzer-inlay-hints-mode
-  (kbd "<f2>") 'lsp-rename)
+  (kbd "<f2>") 'lsp-rename
+  (kbd "<f5>") 'rustic-cargo-run
+  (kbd "C-<f5>") 'rustic-cargo-build
+  (kbd "M-<f5>") 'rustic-cargo-test)
+
+(evil-define-key 'normal conf-toml-mode-map
+  (kbd "<f5>") 'rustic-cargo-run
+  (kbd "C-<f5>") 'rustic-cargo-build
+  (kbd "M-<f5>") 'rustic-cargo-test)
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
