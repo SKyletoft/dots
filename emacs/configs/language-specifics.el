@@ -174,6 +174,10 @@
             (evil-define-key 'normal emacs-lisp-mode-map (kbd "SPC i") 'indent-according-to-mode)
             (evil-define-key 'visual emacs-lisp-mode-map (kbd "SPC i") 'indent-region)
             (editorconfig-apply)))
+(evil-define-key 'normal lisp-mode-shared-map
+  (kbd "SPC r") 'eval-buffer)
+(evil-define-key 'visual lisp-mode-shared-map
+  (kbd "SPC r") 'eval-region)
 
 (defun americanise ()
   "Ruin spellings of words like centre or colour to work with HTML

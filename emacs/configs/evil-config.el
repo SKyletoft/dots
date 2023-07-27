@@ -63,8 +63,6 @@
 (set-nm (kbd "C--") 'text-scale-decrease)
 (define-key evil-normal-state-map (kbd "SPC m") 'magit)
 (define-key evil-normal-state-map (kbd "SPC n") 'magit-blame)
-(define-key evil-normal-state-map (kbd "SPC r") 'eval-buffer)
-(define-key evil-visual-state-map (kbd "SPC r") 'eval-region)
 (define-key evil-normal-state-map (kbd "SPC v") 'hs-toggle-hiding)
 (define-key company-active-map (kbd "<tab>") 'company-complete-common 'delete)
 
