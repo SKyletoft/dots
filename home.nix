@@ -61,6 +61,10 @@ let
 					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
 					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
 				});
+				tree-sitter-javascript = prev.tree-sitter-grammars.tree-sitter-javascript.overrideAttrs (_: {
+					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				});
 				tree-sitter-bash = prev.tree-sitter-grammars.tree-sitter-bash.overrideAttrs (_: {
 					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
 					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
@@ -431,6 +435,30 @@ git-fetch-with-cli = true
 linker = "${pkgs.clang_16}/bin/clang"
 rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 '';
+
+		# Treesitter grammars
+		".emacs.d/tree-sitter/libtree-sitter-cpp.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-cpp}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-c.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-c}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-java.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-java}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-rust.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-rust}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-haskell.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-haskell}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-python.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-python}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-elisp.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-elisp}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-make.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-make}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-bash.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-bash}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-latex.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-latex}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-javascript.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-javascript}/parser";
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;

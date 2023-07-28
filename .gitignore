@@ -14,3 +14,4 @@ emacs/session*
 emacs/.dap-breakpoints
 emacs/games
 emacs/racket-mode
+emacs/tree-sitter
