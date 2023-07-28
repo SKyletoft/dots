@@ -335,7 +335,7 @@ in {
 				lsp-ui
 				dap-mode
 
-				tree-sitter
+				# tree-sitter
 				tree-sitter-langs
 
 				flycheck
