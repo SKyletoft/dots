@@ -15,12 +15,12 @@ let
 	emacsOverlayPin = import (builtins.fetchGit {
 		url = "https://github.com/nix-community/emacs-overlay.git";
 		ref = "master";
-		rev = "d938b780a3d8072aeac0178c46121060079ff217"; # change the revision
+		rev = "d2dac086c3bcaf686be6deb56368fcd426e5c434"; # change the revision
 	});
 	emacsPin = import (builtins.fetchGit {
 		url = "https://github.com/nixos/nixpkgs";
-		ref = "nixos-22.11";
-		rev = "dfef2e61107dc19c211ead99a5a61374ad8317f4";
+		ref = "nixos-23.05";
+		rev = "f3fbbc36b4e179a5985b9ab12624e9dfe7989341";
 	}) { overlays = [
 		emacsOverlayPin
 		(final: prev: {
@@ -295,12 +295,11 @@ in {
 
 		emacs = {
 			enable = true;
-			package = emacsPin.emacsGit.override {
-				withGTK2     = false;
-				withGTK3     = false;
-				withX        = gui;
-				withWebP     = gui;
-				noTreeSitter = false;
+			package = emacsPin.emacs-git.override {
+				withGTK2       = false;
+				withGTK3       = false;
+				withX          = gui;
+				withWebP       = gui;
 			};
 			extraPackages = epkgs: (with emacsPin.emacsPackages; [
 				emacsPin.python311Packages.python
