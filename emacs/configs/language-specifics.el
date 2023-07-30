@@ -161,6 +161,7 @@
   (kbd "SPC a") 'lsp-execute-code-action
   (kbd "SPC t") 'lsp-inlay-hints-mode
   (kbd "<f2>") 'lsp-rename
+  (kbd "<f4>") 'rustic-popup
   (kbd "<f5>") 'rustic-cargo-run
   (kbd "C-<f5>") 'rustic-cargo-build
   (kbd "M-<f5>") 'rustic-cargo-test)
