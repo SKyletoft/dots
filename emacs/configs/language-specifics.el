@@ -159,7 +159,7 @@
   (kbd "SPC f") 'lsp-ui-doc-glance
   (kbd "SPC g") 'xref-find-definitions
   (kbd "SPC a") 'lsp-execute-code-action
-  (kbd "SPC t") 'lsp-rust-analyzer-inlay-hints-mode
+  (kbd "SPC t") 'lsp-inlay-hints-mode
   (kbd "<f2>") 'lsp-rename
   (kbd "<f5>") 'rustic-cargo-run
   (kbd "C-<f5>") 'rustic-cargo-build
