@@ -245,6 +245,8 @@
 
 ;; Unmap undo because it's poorly placed
 (set-nm (kbd "u") nil)
+;; Same with repeat substitute
+(set-nm (kbd "&") nil)
 
 ;; Pane management
 (defun transpose-with-treemacs ()
