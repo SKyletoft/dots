@@ -295,10 +295,12 @@
   (kbd "C-M-d") 'windmove-right)
 
 (use-package treemacs)
-(evil-define-key 'normal treemacs-mode-map (kbd "C-<tab>") 'treemacs-switch-workspace)
 (evil-define-key 'normal treemacs-mode-map
+  (kbd "C-<tab>") 'treemacs-switch-workspace
   (kbd "x") 'treemacs-delete-file
-  (kbd "<delete>") 'treemacs-delete-file)
+  (kbd "<delete>") 'treemacs-delete-file
+  (kbd "a") nil
+  (kbd "d") nil)
 
 ;; Line numbers
 (global-display-line-numbers-mode t) ;; Needed because reasons
