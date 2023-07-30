@@ -148,7 +148,8 @@
                           lsp-ui-sideline-enable t)
               ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
               (editorconfig-apply)
-              )))
+              ))
+  (add-hook 'rustic-popup-mode-hook 'evil-emacs-state))
 
 (evil-define-key 'normal rustic-mode-map
   (kbd "SPC i") 'rustic-format-buffer)
