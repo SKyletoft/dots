@@ -307,6 +307,7 @@ in {
 			};
 			extraPackages = epkgs: (with emacsPin.emacsPackages; [
 				emacsPin.python311Packages.python
+				nodejs
 				
 				direnv
 				use-package
