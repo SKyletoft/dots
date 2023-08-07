@@ -7,6 +7,8 @@
 (setq-default indent-tabs-mode t
               evil-shift-width 8)
 
+(defvaralias 'c-basic-offset 'tab-width)
+
 (defun set-indents (tab-width-p shift-width-p tabs-p)
   (setq-local tab-width tab-width-p
               evil-shift-width shift-width-p
