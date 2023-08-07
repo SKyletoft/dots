@@ -8,6 +8,6 @@
                              (list :type "gdb"
                                    :request "launch"
                                    :name "GDB::Run"
-                           :gdbpath "rust-gdb"
+                                   :gdbpath "rust-gdb"
                                    :target nil
                                    :cwd nil))
