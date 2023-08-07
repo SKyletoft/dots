@@ -17,11 +17,12 @@
   (add-to-list 'default-frame-alist '(font . "0xProto-11"))
   (add-to-list 'default-frame-alist '(undecorated-round . t))
 
-  (set-frame-parameter (selected-frame)
-                       'alpha
-                       '(90 . 90))
-  (add-to-list 'default-frame-alist
-               '(alpha . (90 . 90)))
+  (when (not (string-match "PGTK" system-configuration-features))
+    (set-frame-parameter (selected-frame)
+                         'alpha
+                         '(90 . 90))
+    (add-to-list 'default-frame-alist
+                 '(alpha . (90 . 90))))
 
   (load-theme 'custom-monokai t)
   (global-tree-sitter-mode)
