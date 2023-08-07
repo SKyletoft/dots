@@ -180,6 +180,7 @@
             (evil-define-key 'visual emacs-lisp-mode-map (kbd "SPC i") 'indent-region)
             (editorconfig-apply)))
 (evil-define-key 'normal lisp-mode-shared-map
+  (kbd "SPC f") 'describe-symbol
   (kbd "SPC r") 'eval-buffer)
 (evil-define-key 'visual lisp-mode-shared-map
   (kbd "SPC r") 'eval-region)
