@@ -153,6 +153,21 @@
               ))
   (add-hook 'rustic-popup-mode-hook 'evil-emacs-state))
 
+(defun rust-compile-and-dap ()
+  (interactive)
+  (let* ((workspace (lsp-workspace-root))
+         (project-name (file-name-nondirectory workspace))
+         (exe-dir (concat workspace
+                          "/target/debug/"
+                          project-name)))
+    (save-window-excursion (rustic-cargo-build))
+    (dap-debug (list :type "gdb"
+                     :request "launch"
+                     :name "GDB::Run Cargo project"
+                     :gdbpath "rust-gdb"
+                     :target exe-dir
+                     :cwd workspace))))
+
 (evil-define-key 'normal rustic-mode-map
   (kbd "SPC i") 'rustic-format-buffer)
 (evil-define-key 'visual rustic-mode-map
@@ -164,12 +179,12 @@
   (kbd "SPC t") 'lsp-inlay-hints-mode
   (kbd "<f2>") 'lsp-rename
   (kbd "<f4>") 'rustic-popup
-  (kbd "<f5>") 'rustic-cargo-run
+  (kbd "<f5>") 'rust-compile-and-dap
   (kbd "C-<f5>") 'rustic-cargo-build
   (kbd "M-<f5>") 'rustic-cargo-test)
 
 (evil-define-key 'normal conf-toml-mode-map
-  (kbd "<f5>") 'rustic-cargo-run
+  (kbd "<f5>") 'rust-compile-and-dap
   (kbd "C-<f5>") 'rustic-cargo-build
   (kbd "M-<f5>") 'rustic-cargo-test)
 
