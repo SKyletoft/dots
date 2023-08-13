@@ -67,3 +67,9 @@
 (use-package yasnippet
   :config
   (yas-global-mode 1))
+
+(use-package ivy)
+(ivy-mode)
+
+(use-package projectile)
+(projectile-mode +1)

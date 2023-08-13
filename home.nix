@@ -328,6 +328,8 @@ in {
 				mixed-pitch
 				company-posframe
 				topsy
+				ivy
+				projectile
 
 				org-appear
 				org-superstar

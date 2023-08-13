@@ -65,6 +65,7 @@
 (define-key evil-normal-state-map (kbd "SPC n") 'magit-blame)
 (define-key evil-normal-state-map (kbd "SPC v") 'hs-toggle-hiding)
 (define-key company-active-map (kbd "<tab>") 'company-complete-common 'delete)
+(set-n (kbd "SPC å") 'projectile-command-map)
 
 ;; Evil quit
 (evil-define-command evil-quit
@@ -224,6 +225,7 @@
 (set-n (kbd "SPC k") 'comment-or-uncomment-line)
 
 ;; Find
+(set-n  (kbd "SPC p") 'projectile-find-file)
 (set-nm (kbd "C-f") 'evil-search-forward)
 (set-nm (kbd "C-g") (kbd ":%s/"))
 

@@ -16,3 +16,4 @@ emacs/games
 emacs/racket-mode
 emacs/tree-sitter
 emacs/tramp
+emacs/projectile-bookmarks.eld
