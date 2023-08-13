@@ -166,7 +166,12 @@
                      :name "GDB::Run Cargo project"
                      :gdbpath "rust-gdb"
                      :target exe-dir
-                     :cwd workspace))))
+                     :cwd workspace))
+    (save-window-excursion
+      (switch-buffer "*GDB::Run Cargo project out*")
+      (evil-motion-state)
+      (switch-buffer "*GDB::Run Cargo project stderr*")
+      (evil-motion-state))))
 
 (evil-define-key 'normal rustic-mode-map
   (kbd "SPC i") 'rustic-format-buffer)
