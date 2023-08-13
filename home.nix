@@ -327,6 +327,7 @@ in {
 				yasnippet-snippets
 				mixed-pitch
 				company-posframe
+				topsy
 
 				org-appear
 				org-superstar
