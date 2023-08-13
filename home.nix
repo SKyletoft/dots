@@ -308,7 +308,7 @@ in {
 			extraPackages = epkgs: (with emacsPin.emacsPackages; [
 				emacsPin.python311Packages.python
 				emacsPin.nodejs
-				
+
 				direnv
 				use-package
 				magit
