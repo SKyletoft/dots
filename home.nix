@@ -320,7 +320,7 @@ in {
 				gcmh
 				crdt
 				transpose-frame
-				# tramp
+				tramp
 				editorconfig
 				ripgrep
 				yasnippet
