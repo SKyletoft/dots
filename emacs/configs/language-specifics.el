@@ -132,6 +132,7 @@
   (kbd "SPC r") 'idris-load-file
   (kbd "SPC s") 'idris-type-search
   (kbd "SPC t") 'idris-make-lemma
+  (kbd "SPC g") 'idris-proof-search
   (kbd "SPC h") 'toggle-hole)
 
 (use-package rustic
