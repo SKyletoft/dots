@@ -83,6 +83,7 @@
   (kbd "SPC f") 'lsp-ui-doc-glance
   (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>"
   (kbd "C-b C-b") 'hs-slime
+  (kbd "SPC r") 'hs-slime
   (kbd "<f5>") 'hs-run)
 
 (add-hook 'haskell-mode-hook
