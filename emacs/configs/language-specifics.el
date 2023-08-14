@@ -121,6 +121,7 @@
   (add-hook 'idris-mode-hook
             (lambda ()
               (set-indents 8 2 nil)
+              (setq-local topsy-mode 0)
               )))
 
 (evil-define-key 'normal idris-mode-map
