@@ -100,6 +100,20 @@
             (ghci)
             ))
 
+(defun toggle-hole ()
+  "Toggle having a ? at the start of the word"
+  (interactive)
+  (save-excursion
+    ;; Unless we check this first it will toggle the ? on the previous
+    ;; word if both this and the previous word are holes
+    (if (eq ?? (char-before))
+        (backward-delete-char 1)
+      (if (not (eq ?\s (char-before)))
+          (backward-word))
+      (cond ((eq ?? (char-before)) (backward-delete-char 1))
+            ((eq ?? (char-after)) (delete-char 1))
+            (t (insert "?"))))))
+
 (use-package idris-mode
   :config
   (setq idris-interpreter-path "idris2")
@@ -111,11 +125,13 @@
 (evil-define-key 'normal idris-mode-map
   (kbd "SPC c") 'idris-case-dwim
   (kbd "SPC d") 'idris-type-at-point
+  (kbd "SPC f") 'idris-type-at-point
   (kbd "SPC l") 'idris-make-lemma
   (kbd "SPC m") 'idris-add-missing
   (kbd "SPC r") 'idris-load-file
   (kbd "SPC s") 'idris-type-search
-  (kbd "SPC t") 'idris-make-lemma)
+  (kbd "SPC t") 'idris-make-lemma
+  (kbd "SPC h") 'toggle-hole)
 
 (use-package rustic
   :config
