@@ -1,75 +1,30 @@
 { config, pkgs, inputs, ... }:
 
 let
-	stable = import (builtins.fetchGit {
-		url = "https://github.com/nixos/nixpkgs";
-		ref = "nixos-22.05";
-	}) {};
-
-	vimPin = import (builtins.fetchGit {
-		url = "https://github.com/nixos/nixpkgs";
-		ref = "master";
-		rev = "9813adc7f7c0edd738c6bdd8431439688bb0cb3d";
-	}) {};
-
-	emacsOverlayPin = import (builtins.fetchGit {
-		url = "https://github.com/nix-community/emacs-overlay.git";
-		ref = "master";
-		rev = "791acfa700b9f96c35635fde2a17a66b4ed88c9e"; # change the revision
-	});
-	emacsPin = import (builtins.fetchGit {
-		url = "https://github.com/nixos/nixpkgs";
-		ref = "nixos-23.05";
-		rev = "f3fbbc36b4e179a5985b9ab12624e9dfe7989341";
-	}) { overlays = [
-		emacsOverlayPin
+	stablePkgs = inputs.stablePkgs.legacyPackages.${pkgs.system};
+	vimPin = inputs.vimPin.legacyPackages.${pkgs.system};
+	emacsPin = import inputs.emacsPkgs { overlays = [
+		inputs.emacsOverlay.overlays.default
 		(final: prev: {
-			tree-sitter-grammars = prev.tree-sitter-grammars // {
-				tree-sitter-cpp = prev.tree-sitter-grammars.tree-sitter-cpp.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-				tree-sitter-c = prev.tree-sitter-grammars.tree-sitter-c.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-				tree-sitter-java = prev.tree-sitter-grammars.tree-sitter-java.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-				tree-sitter-rust = prev.tree-sitter-grammars.tree-sitter-rust.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-				tree-sitter-haskell = prev.tree-sitter-grammars.tree-sitter-haskell.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-				tree-sitter-python = prev.tree-sitter-grammars.tree-sitter-python.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-				tree-sitter-elisp = prev.tree-sitter-grammars.tree-sitter-elisp.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-				tree-sitter-make = prev.tree-sitter-grammars.tree-sitter-make.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-				tree-sitter-latex = prev.tree-sitter-grammars.tree-sitter-latex.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-				tree-sitter-javascript = prev.tree-sitter-grammars.tree-sitter-javascript.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-				tree-sitter-bash = prev.tree-sitter-grammars.tree-sitter-bash.overrideAttrs (_: {
-					nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-					configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-				});
-			};
+			tree-sitter-grammars =
+				let overrideAttrs = {
+						nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+						configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+					};
+					tsg = prev.tree-sitter-grammars;
+				in tsg // {
+					tree-sitter-cpp = tsg.tree-sitter-cpp.overrideAttrs (_: overrideAttrs);
+					tree-sitter-c = tsg.tree-sitter-c.overrideAttrs (_: overrideAttrs);
+					tree-sitter-java = tsg.tree-sitter-java.overrideAttrs (_: overrideAttrs);
+					tree-sitter-rust = tsg.tree-sitter-rust.overrideAttrs (_: overrideAttrs);
+					tree-sitter-haskell = tsg.tree-sitter-haskell.overrideAttrs (_: overrideAttrs);
+					tree-sitter-python = tsg.tree-sitter-python.overrideAttrs (_: overrideAttrs);
+					tree-sitter-elisp = tsg.tree-sitter-elisp.overrideAttrs (_: overrideAttrs);
+					tree-sitter-make = tsg.tree-sitter-make.overrideAttrs (_: overrideAttrs);
+					tree-sitter-latex = tsg.tree-sitter-latex.overrideAttrs (_: overrideAttrs);
+					tree-sitter-javascript = tsg.tree-sitter-javascript.overrideAttrs (_: overrideAttrs);
+					tree-sitter-bash = tsg.tree-sitter-bash.overrideAttrs (_: overrideAttrs);
+				};
 		})
 	]; };
 
@@ -132,8 +87,8 @@ in {
 			signal-desktop
 			slack
 
-			stable.libreoffice
-			stable.hunspellDicts.sv_SE
+			stablePkgs.libreoffice
+			stablePkgs.hunspellDicts.sv_SE
 
 			ark
 			pcmanfm
