@@ -5,11 +5,11 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "0xProto";
-  version = "1.001";
+  version = "1.100";
 
   src = fetchzip {
-    url = "https://github.com/0xType/0xProto/releases/download/1.001/0xProto_1_001.zip";
-    sha256 = "sha256-jbtqJK8bCC3viatYi1hMfbJh/TulDdoB+IyK8wQT/kQ=";
+    url = "https://github.com/0xType/0xProto/releases/download/1.100/0xProto_1_100.zip";
+    sha256 = "sha256-vY1VlMX/SwpADQS3Xlj9j7MWeoJ5MMdlfSJ4LR5qp9M=";
   };
 
   installPhase = ''
