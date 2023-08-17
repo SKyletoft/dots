@@ -66,6 +66,8 @@
 (define-key evil-normal-state-map (kbd "SPC v") 'hs-toggle-hiding)
 (define-key company-active-map (kbd "<tab>") 'company-complete-common 'delete)
 (set-n (kbd "SPC å") 'projectile-command-map)
+(set-n (kbd "ö") 'evil-ex)
+(set-n (kbd "Ö") 'eval-expression)
 
 ;; Evil quit
 (evil-define-command evil-quit
