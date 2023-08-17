@@ -134,6 +134,7 @@
   (kbd "SPC s") 'idris-type-search
   (kbd "SPC t") 'idris-make-lemma
   (kbd "SPC g") 'idris-proof-search
+  (kbd "SPC G") 'idris-generate-def
   (kbd "SPC h") 'toggle-hole)
 
 (use-package rustic
