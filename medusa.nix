@@ -72,6 +72,7 @@ in {
 
 	hardware = {
 		opengl.enable = true;
+		cpu.amd.updateMicrocode = true;
 	};
 
 	fileSystems."/mnt/SDD" = {
