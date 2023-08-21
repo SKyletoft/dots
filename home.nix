@@ -23,7 +23,10 @@ let
 					tree-sitter-make = tsg.tree-sitter-make.overrideAttrs (_: overrideAttrs);
 					tree-sitter-latex = tsg.tree-sitter-latex.overrideAttrs (_: overrideAttrs);
 					tree-sitter-javascript = tsg.tree-sitter-javascript.overrideAttrs (_: overrideAttrs);
+					tree-sitter-html = tsg.tree-sitter-html.overrideAttrs (_: overrideAttrs);
+					tree-sitter-css = tsg.tree-sitter-css.overrideAttrs (_: overrideAttrs);
 					tree-sitter-bash = tsg.tree-sitter-bash.overrideAttrs (_: overrideAttrs);
+					tree-sitter-nix = tsg.tree-sitter-nix.overrideAttrs (_: overrideAttrs);
 				};
 		})
 	]; };
