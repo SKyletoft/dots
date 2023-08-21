@@ -7,27 +7,29 @@ let
 		inputs.emacsOverlay.overlays.default
 		(final: prev: {
 			tree-sitter-grammars =
-				let overrideAttrs = {
-						nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-						configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+				let useAbi13 = lang: {
+						name = "tree-sitter-${lang}";
+						value = prev.tree-sitter-grammars."tree-sitter-${lang}".overrideAttrs (_: {
+							nativeBuildInputs = [ final.nodejs final.tree-sitter ];
+							configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
+						});
 					};
-					tsg = prev.tree-sitter-grammars;
-				in tsg // {
-					tree-sitter-cpp = tsg.tree-sitter-cpp.overrideAttrs (_: overrideAttrs);
-					tree-sitter-c = tsg.tree-sitter-c.overrideAttrs (_: overrideAttrs);
-					tree-sitter-java = tsg.tree-sitter-java.overrideAttrs (_: overrideAttrs);
-					tree-sitter-rust = tsg.tree-sitter-rust.overrideAttrs (_: overrideAttrs);
-					tree-sitter-haskell = tsg.tree-sitter-haskell.overrideAttrs (_: overrideAttrs);
-					tree-sitter-python = tsg.tree-sitter-python.overrideAttrs (_: overrideAttrs);
-					tree-sitter-elisp = tsg.tree-sitter-elisp.overrideAttrs (_: overrideAttrs);
-					tree-sitter-make = tsg.tree-sitter-make.overrideAttrs (_: overrideAttrs);
-					tree-sitter-latex = tsg.tree-sitter-latex.overrideAttrs (_: overrideAttrs);
-					tree-sitter-javascript = tsg.tree-sitter-javascript.overrideAttrs (_: overrideAttrs);
-					tree-sitter-html = tsg.tree-sitter-html.overrideAttrs (_: overrideAttrs);
-					tree-sitter-css = tsg.tree-sitter-css.overrideAttrs (_: overrideAttrs);
-					tree-sitter-bash = tsg.tree-sitter-bash.overrideAttrs (_: overrideAttrs);
-					tree-sitter-nix = tsg.tree-sitter-nix.overrideAttrs (_: overrideAttrs);
-				};
+				in prev.tree-sitter-grammars // (builtins.listToAttrs (builtins.map useAbi13 [
+					"cpp"
+					"c"
+					"java"
+					"rust"
+					"haskell"
+					"python"
+					"elisp"
+					"make"
+					"latex"
+					"javascript"
+					"html"
+					"css"
+					"bash"
+					"nix"
+				]));
 		})
 	]; };
 
