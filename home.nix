@@ -301,6 +301,7 @@ in {
 
 				# tree-sitter
 				tree-sitter-langs
+				evil-textobj-tree-sitter
 
 				flycheck
 				eldoc-box
