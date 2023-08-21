@@ -292,6 +292,7 @@ in {
 		sway.enable = waylandSupport;
 		xwayland.enable = waylandSupport;
 
+		gamemode.enable = true;
 		steam.enable = true;
 		kdeconnect = {
 			enable = true;
