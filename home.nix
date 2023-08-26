@@ -302,6 +302,7 @@ in {
 				# tree-sitter
 				tree-sitter-langs
 				evil-textobj-tree-sitter
+				paredit
 
 				flycheck
 				eldoc-box
