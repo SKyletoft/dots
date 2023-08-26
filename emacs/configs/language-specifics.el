@@ -200,8 +200,11 @@
 (evil-define-key '(normal visual) rustic-mode-map
   (kbd "SPC f") 'lsp-ui-doc-glance
   (kbd "SPC g") 'xref-find-definitions
+  (kbd "SPC G") 'lsp-goto-type-definition
   (kbd "SPC a") 'lsp-execute-code-action
   (kbd "SPC t") 'lsp-inlay-hints-mode
+  (kbd "SPC r") 'rustic-cargo-run
+  (kbd "SPC R") 'compile
   (kbd "<f2>") 'lsp-rename
   (kbd "<f4>") 'rustic-popup
   (kbd "<f5>") 'rust-compile-and-dap
@@ -222,6 +225,7 @@
             (evil-define-key 'visual emacs-lisp-mode-map (kbd "SPC i") 'indent-region)
             (editorconfig-apply)))
 (evil-define-key 'normal lisp-mode-shared-map
+  (kbd "SPC g") 'xref-find-definitions
   (kbd "SPC f") 'describe-symbol
   (kbd "SPC r") 'eval-buffer)
 (evil-define-key 'visual lisp-mode-shared-map
@@ -243,16 +247,26 @@
               electric-indent-mode -1
               )
   (lsp)
-  (evil-define-key 'normal c++-mode-map
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action)
-  (evil-define-key 'normal c-mode-map
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action)
   (editorconfig-apply))
 
+(evil-define-key 'visual c++-mode-map
+  (kbd "SPC i") 'indent-region)
+
+(evil-define-key 'visual c-mode-ma
+  (kbd "SPC i") 'indent-region)
+
+(evil-define-key 'normal c++-mode-map
+  (kbd "SPC r") 'compile
+  (kbd "SPC i") 'indent-according-to-mode
+  (kbd "SPC f") 'lsp-ui-doc-glance
+  (kbd "SPC g") 'xref-find-definitions
+  (kbd "SPC a") 'lsp-execute-code-action)
+(evil-define-key 'normal c-mode-map
+  (kbd "SPC r") 'compile
+  (kbd "SPC i") 'indent-according-to-mode
+  (kbd "SPC f") 'lsp-ui-doc-glance
+  (kbd "SPC g") 'xref-find-definitions
+  (kbd "SPC a") 'lsp-execute-code-action)
 
 (add-hook 'c-mode-hook 'c-cpp-mode-hook-impl)
 (add-hook 'c++-mode-hook 'c-cpp-mode-hook-impl)
@@ -331,11 +345,16 @@
                           vterm-timer-delay nil)
               (evil-emacs-state))))
 
+(evil-define-key 'insert vterm-mode-map
+  (kbd "C-V") 'vterm-yank)
+
 (evil-define-key '(normal emacs) vterm-mode-map
   (kbd "C-M-w") 'windmove-up
   (kbd "C-M-s") 'windmove-down
   (kbd "C-M-a") 'windmove-left
-  (kbd "C-M-d") 'windmove-right)
+  (kbd "C-M-d") 'windmove-right
+  (kbd "C-V") 'vterm-yank
+  (kbd "C-v") 'vterm-yank)
 
 (use-package treemacs)
 (evil-define-key 'normal treemacs-mode-map
