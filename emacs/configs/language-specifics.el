@@ -274,6 +274,7 @@
 (add-hook 'c++-ts-mode-hook 'c-cpp-mode-hook-impl)
 
 (add-hook 'xref-etags-mode-hook 'evil-emacs-state)
+(add-hook 'xref--xref-buffer-mode-hook 'evil-emacs-state)
 
 (add-hook 'java-mode-hook
           (lambda ()
