@@ -231,12 +231,9 @@
   "Ruin spellings of words like centre or colour to work with HTML
   and CSS that have hardcoded the American spellings"
   (interactive)
-  (let ((pos (point))) ;; Save cursor pos
-
+  (save-excursion
     (replace-string "centre" "center")
-    (replace-string "colour" "color")
-
-    (goto-char pos))) ;; Restore cursor pos
+    (replace-string "colour" "color")))
 
 (defun c-cpp-mode-hook-impl ()
   (set-indents 8 8 t)
