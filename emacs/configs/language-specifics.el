@@ -60,21 +60,21 @@
 
 (defun send-to-ghci ()
   "Paste the clipboard into the ghci session wrapped in :{ :}"
-  (save-mark-and-excursion
-    (let ((b (current-buffer)))
-      (switch-to-buffer "ghci")
-      (vterm-insert ":{\n")
-      (vterm-yank)
-      (vterm-send-return)
-      (vterm-insert ":}")
-      (vterm-send-return)
-      (switch-to-buffer b))))
+  (let ((b (current-buffer)))
+    (switch-to-buffer "ghci")
+    (vterm-insert ":{\n")
+    (vterm-yank)
+    (vterm-send-return)
+    (vterm-insert ":}")
+    (vterm-send-return)
+    (switch-to-buffer b)))
 
 (defun hs-slime-n ()
   "Copy the current paragraph and send it to ghci"
   (interactive)
-  (copy-paragraph)
-  (send-to-ghci))
+  (save-mark-and-excursion
+    (copy-paragraph)
+    (send-to-ghci)))
 
 (defun hs-slime-v ()
   "Copy the current selection and send it to ghci"
@@ -86,9 +86,8 @@
   "Do hs-slime-n or hs-slime-v depending on if there's a current selection"
   (interactive)
   (if (region-active-p)
-      (kill-ring-save (region-beginning) (region-end))
-    (copy-paragraph))
-  (send-to-ghci))
+      (hs-slime-v)
+    (hs-slime-n)))
 
 (defun hs-run ()
   "Reload the file in ghci and run `main`'"
