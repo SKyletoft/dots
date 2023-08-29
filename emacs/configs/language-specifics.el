@@ -114,9 +114,9 @@
   (kbd "SPC i") (lambda () (interactive)
                   (save-buffer)
                   (shell-command (concat "hindent "
-                                         (buffer-name)
-                                         "&&  stylish-haskell -i "
-                                         (buffer-name)))
+                                         (buffer-file-name)
+                                         " && stylish-haskell -i "
+                                         (buffer-file-name)))
                   (revert-buffer t t t)))
 
 (add-hook 'haskell-mode-hook
