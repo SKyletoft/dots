@@ -81,10 +81,16 @@
   (kbd "SPC g") 'xref-find-definitions
   (kbd "SPC a") 'lsp-execute-code-action
   (kbd "SPC f") 'lsp-ui-doc-glance
-  (kbd "SPC i") ":!hindent % && stylish-haskell -i %<CR>"
   (kbd "C-b C-b") 'hs-slime
   (kbd "SPC r") 'hs-slime
-  (kbd "<f5>") 'hs-run)
+  (kbd "<f5>") 'hs-run
+  (kbd "SPC i") (lambda () (interactive)
+                  (save-buffer)
+                  (shell-command (concat "hindent "
+                                         (buffer-name)
+                                         "&&  stylish-haskell -i "
+                                         (buffer-name)))
+                  (revert-buffer t t t)))
 
 (add-hook 'haskell-mode-hook
           (lambda ()
