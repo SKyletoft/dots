@@ -32,6 +32,7 @@
             (editorconfig-apply)))
 
 (defun ghci ()
+  "Spawn a ghci terminal in a buffer named ghci. If currently in haskell-mode, load the current file"
   (interactive)
   (let ((file-name (buffer-file-name))
         (is-haskell (eq major-mode 'haskell-mode)))
@@ -49,15 +50,18 @@
           (vterm-insert "ghci")
           (vterm-send-return))))))
 
-(defun hs-slime ()
-  (interactive)
+(defun copy-paragraph ()
+  "Mark and copy the current paragraph"
+  (backward-paragraph)
+  (let ((start (point)))
+    (forward-paragraph)
+    (let ((end (point)))
+      (kill-ring-save start end))))
+
+(defun send-to-ghci ()
+  "Paste the clipboard into the ghci session wrapped in :{ :}"
   (save-mark-and-excursion
     (let ((b (current-buffer)))
-      (backward-paragraph)
-      (let ((start (point)))
-        (forward-paragraph)
-        (let ((end (point)))
-          (kill-ring-save start end)))
       (switch-to-buffer "ghci")
       (vterm-insert ":{\n")
       (vterm-yank)
@@ -66,7 +70,28 @@
       (vterm-send-return)
       (switch-to-buffer b))))
 
+(defun hs-slime-n ()
+  "Copy the current paragraph and send it to ghci"
+  (interactive)
+  (copy-paragraph)
+  (send-to-ghci))
+
+(defun hs-slime-v ()
+  "Copy the current selection and send it to ghci"
+  (interactive)
+  (kill-ring-save (region-beginning) (region-end))
+  (send-to-ghci))
+
+(defun hs-slime-dwim ()
+  "Do hs-slime-n or hs-slime-v depending on if there's a current selection"
+  (interactive)
+  (if (region-active-p)
+      (kill-ring-save (region-beginning) (region-end))
+    (copy-paragraph))
+  (send-to-ghci))
+
 (defun hs-run ()
+  "Reload the file in ghci and run `main`'"
   (interactive)
   (save-mark-and-excursion
     (let ((b (current-buffer)))
@@ -77,12 +102,14 @@
 
 (use-package haskell-mode)
 
+(evil-define-key 'visual haskell-mode-map
+  (kbd "SPC r") 'hs-slime-v)
+
 (evil-define-key 'normal haskell-mode-map
   (kbd "SPC g") 'xref-find-definitions
   (kbd "SPC a") 'lsp-execute-code-action
   (kbd "SPC f") 'lsp-ui-doc-glance
-  (kbd "C-b C-b") 'hs-slime
-  (kbd "SPC r") 'hs-slime
+  (kbd "SPC r") 'hs-slime-n
   (kbd "<f5>") 'hs-run
   (kbd "SPC i") (lambda () (interactive)
                   (save-buffer)
