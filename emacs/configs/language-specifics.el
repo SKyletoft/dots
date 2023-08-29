@@ -104,7 +104,7 @@
             (lsp-restart-workspace)
             (lsp-ui-doc-mode t)
             (editorconfig-apply)
-            (ghci)
+            ;; (ghci)
             ))
 
 (defun toggle-hole ()
