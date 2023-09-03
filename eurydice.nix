@@ -140,7 +140,7 @@ in {
 		earlyoom.enable = true;
 		ananicy = {
 			enable = true;
-			# package = pkgs.ananicy-cpp;
+			package = pkgs.ananicy-cpp;
 		};
 		mullvad-vpn.enable = true;
 		jellyfin = {
