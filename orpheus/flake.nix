@@ -4,7 +4,7 @@
 		nixos-hardware.url = "github:NixOS/nixos-hardware";
 	};
 	outputs = { self, nixpkgs, nixos-hardware }: {
-		nixosConfigurations.eurydice = nixpkgs.lib.nixosSystem {
+		nixosConfigurations.orpheus = nixpkgs.lib.nixosSystem {
 			system = "aarch64-linux";
 			modules = [
 				../orpheus.nix
