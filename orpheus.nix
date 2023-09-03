@@ -1,11 +1,16 @@
 { config, pkgs, lib, ... }:
 
 {
-	imports = [
-		<nixos-hardware/raspberry-pi/4>
-	];
+	imports = [];
 
-	nixpkgs.config.allowUnfree = true;
+	nixpkgs = {
+		config.allowUnfree = true;
+		overlays = [
+			(final: prev: {
+				mullvad-vpn = prev.mullvad;
+			})
+		];
+	};
 	nix = {
 		settings = {
 			auto-optimise-store = true;
@@ -37,16 +42,12 @@
 			address = "192.168.1.202";
 			prefixLength = 24;
 		} ];
-		defaultGateway = "192.168.1.1";
-		nameservers = [ "8.8.8.8" ];
 		firewall = {
 			enable = true;
 			allowedTCPPorts =
-				[ 80 443 8000 8080 12825 ] # Development
-				++ [ 53 1401 ]; # Mullvad
+				[ 53 1401 ]; # Mullvad
 			allowedUDPPorts =
-				[ 80 443 8000 8080 12825 ] # Development
-				++ [ 53 1194 1195 1196 1197 1399 1391 1392 1393 1400 51820 ]; # Mullvad
+				[ 53 1194 1195 1196 1197 1399 1391 1392 1393 1400 51820 ]; # Mullvad
 		};
 	};
 
@@ -62,7 +63,7 @@
 	};
 
 	environment.systemPackages = with pkgs; [
-		neovim
+		micro
 		man-pages
 		man-pages-posix
 	];
@@ -75,7 +76,6 @@
 
 	hardware = {
 		pulseaudio.enable = false;
-		# Enable GPU acceleration
 		raspberry-pi."4".fkms-3d.enable = false;
 	};
 	powerManagement.cpuFreqGovernor = "ondemand";
