@@ -316,8 +316,10 @@
 (set-nme (kbd "M-S") 'evil-window-increase-height)
 (set-nme (kbd "M-D") 'evil-window-increase-width)
 (set-nme (kbd "M-A") 'evil-window-decrease-width)
-(define-key evil-normal-state-map (kbd "SPC o") 'transpose-with-treemacs) ;; SPC prefix breaks typing in Emacs mode
-(define-key evil-normal-state-map (kbd "SPC O") 'olivetti-mode)
+(set-n   (kbd "SPC o") 'transpose-with-treemacs) ;; SPC prefix breaks typing in Emacs mode
+(set-n   (kbd "SPC O") 'olivetti-mode)
+
+(set-n   (kbd "C-n") 'scratch-buffer)
 
 (define-key evil-visual-state-map (kbd "SPC b") 'narrow-to-region)
 (set-n (kbd "SPC b") 'widen)
