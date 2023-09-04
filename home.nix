@@ -268,6 +268,7 @@ in {
 			extraPackages = epkgs: (with emacsPin.emacsPackages; [
 				emacsPin.python311Packages.python
 				emacsPin.nodejs
+				emacsPin.typst
 
 				direnv
 				use-package
@@ -293,6 +294,7 @@ in {
 
 				org-appear
 				org-superstar
+				typst-mode
 				olivetti
 
 				lsp-mode
