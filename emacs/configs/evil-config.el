@@ -345,7 +345,7 @@
 
 ;; Section header insertion function
 (defun insert-header ()
-"Insert a - wrapped title with the text centred
+  "Insert a - wrapped title with the text centred
 ----- EXAMPLE -----
 "
   (interactive)
@@ -355,17 +355,15 @@
            (if (<= len 1) ;; At least one - or it just looks dumb
                "-"
              (concat "-" (create-sidebar (- len 1))))))
-        (create-header
-         (lambda (title width)
-           (let ((sidebar (create-sidebar
-                           (/ (- width (+ 2 (length title))) 2))))
-             (concat sidebar
-                     " "
-                     title
-                     " "
-                     sidebar))))
         (title (read-from-minibuffer "Enter title: "))
         (width (string-to-number
                 (read-from-minibuffer "Enter buffer-width: "
-                                      (number-to-string fill-column)))))
-  (insert (create-header title width))))
+                                      (number-to-string fill-column))))
+        (sidebar (create-sidebar
+                  (/ (- width (+ 2 (length title))) 2)))
+        (header (concat sidebar
+                        " "
+                        title
+                        " "
+                        sidebar)))
+    (insert header)))
