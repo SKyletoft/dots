@@ -35,8 +35,9 @@ let
 
 	enableHyprland = false;
 	enableGnome = true;
+	enableRiver = true;
 	enableDebugging = false;
-	gui = enableGnome || enableHyprland;
+	gui = enableGnome || enableHyprland || enableRiver;
 in {
 	home = {
 		username      = "u3836";
@@ -148,6 +149,13 @@ in {
 			hyprpaper
 			wofi
 			waybar
+		] else [])
+		++ (if enableRiver then [
+			river
+			rivercarro
+			xonsh
+			wlr-randr
+			foot
 		] else []);
 
 		sessionVariables = {
