@@ -55,7 +55,7 @@ in {
 		in with pkgs; [
 			git
 			wget
-			exa
+			eza
 			fd
 			tealdeer
 			zoxide
@@ -335,9 +335,9 @@ in {
 			shellAliases = {
 				cat = "bat --paging=never --tabs=8";
 				cd  = "z";
-				ls  = "exa -a --icons --colour=always";
-				ll  = "exa -la";
-				lt  = "exa -a --tree";
+				ls  = "eza -a --icons --colour=always";
+				ll  = "eza -la";
+				lt  = "eza -a --tree";
 				rm  = "trash-put";
 				em  = "emacs -nw";
 				vi  = "emacsclient -nw";
