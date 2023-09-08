@@ -57,8 +57,68 @@
 (define-key evil-operator-state-map "o" evil-outer-text-objects-map)
 (define-key evil-visual-state-map "o" evil-outer-text-objects-map)
 
+(define-key evil-inner-text-objects-map "e" (evil-textobj-tree-sitter-get-textobj ("try_expr"
+                                                                                   "unary_expr"
+                                                                                   "binary_expr"
+                                                                                   "call_expr"
+                                                                                   "field_expr"
+                                                                                   "identifier"
+                                                                                   "scoped_identifier"
+                                                                                   "reference_expr"
+                                                                                   "struct_expr"
+                                                                                   "tuple_expr"
+                                                                                   "integer_literal"
+                                                                                   "float_literal"
+                                                                                   "boolean_literal")
+                                              '((rustic-mode . [(try_expression) @try_expr
+                                                                (unary_expression) @unary_expr
+                                                                (binary_expression) @binary_expr
+                                                                (call_expression) @call_expr
+                                                                (field_expression) @field_expr
+                                                                (identifier) @identifier
+                                                                (scoped_identifier) @scoped_identifier
+                                                                (reference_expression) @reference_expr
+                                                                (struct_expression) @struct_expr
+                                                                (tuple_expression) @tuple_expr
+                                                                (integer_literal) @integer_literal
+                                                                (float_literal) @float_literal
+                                                                (boolean_literal) @boolean_literal]))))
+(define-key evil-outer-text-objects-map "e" (evil-textobj-tree-sitter-get-textobj ("try_expr"
+                                                                                   "unary_expr"
+                                                                                   "binary_expr"
+                                                                                   "call_expr"
+                                                                                   "field_expr"
+                                                                                   "identifier"
+                                                                                   "scoped_identifier"
+                                                                                   "reference_expr"
+                                                                                   "struct_expr"
+                                                                                   "tuple_expr"
+                                                                                   "integer_literal"
+                                                                                   "float_literal"
+                                                                                   "boolean_literal")
+                                              '((rustic-mode . [(try_expression) @try_expr
+                                                                (unary_expression) @unary_expr
+                                                                (binary_expression) @binary_expr
+                                                                (call_expression) @call_expr
+                                                                (field_expression) @field_expr
+                                                                (identifier) @identifier
+                                                                (scoped_identifier) @scoped_identifier
+                                                                (reference_expression) @reference_expr
+                                                                (struct_expression) @struct_expr
+                                                                (tuple_expression) @tuple_expr
+                                                                (integer_literal) @integer_literal
+                                                                (float_literal) @float_literal
+                                                                (boolean_literal) @boolean_literal]))))
+
+(define-key evil-outer-text-objects-map "m" (evil-textobj-tree-sitter-get-textobj "import"
+                                              '((python-mode . [(import_statement) @import])
+                                                (rustic-mode . [(use_declaration) @import]))))
+
 (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.inner"))
 (define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
+
+(define-key evil-inner-text-objects-map "e" (evil-textobj-tree-sitter-get-textobj "expression.inner"))
+(define-key evil-outer-text-objects-map "e" (evil-textobj-tree-sitter-get-textobj "expression.outer"))
 
 (define-key evil-inner-text-objects-map "s" (evil-textobj-tree-sitter-get-textobj "statement.inner"))
 (define-key evil-outer-text-objects-map "s" (evil-textobj-tree-sitter-get-textobj "statement.outer"))
