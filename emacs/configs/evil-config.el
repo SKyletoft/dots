@@ -343,6 +343,11 @@
 (define-key completion-in-region-mode-map (kbd "C-p") #'minibuffer-previous-completion)
 (define-key completion-in-region-mode-map (kbd "C-n") #'minibuffer-next-completion)
 
+(defun create-sidebar (len)
+  (if (<= len 1) ;; At least one - or it just looks dumb
+      "-"
+    (concat "-" (create-sidebar (- len 1)))))
+
 ;; Section header insertion function
 (defun insert-header ()
   "Insert a - wrapped title with the text centred
@@ -350,20 +355,15 @@
 "
   (interactive)
   ;; These are lambdas for scoping reasons
-  (let ((create-sidebar
-         (lambda (len)
-           (if (<= len 1) ;; At least one - or it just looks dumb
-               "-"
-             (concat "-" (create-sidebar (- len 1))))))
-        (title (read-from-minibuffer "Enter title: "))
-        (width (string-to-number
-                (read-from-minibuffer "Enter buffer-width: "
-                                      (number-to-string fill-column))))
-        (sidebar (create-sidebar
-                  (/ (- width (+ 2 (length title))) 2)))
-        (header (concat sidebar
-                        " "
-                        title
-                        " "
-                        sidebar)))
+  (let* ((title (read-from-minibuffer "Enter title: "))
+         (width (string-to-number
+                 (read-from-minibuffer "Enter buffer-width: "
+                                       (number-to-string fill-column))))
+         (sidebar (create-sidebar
+                   (/ (- width (+ 2 (length title))) 2)))
+         (header (concat sidebar
+                         " "
+                         title
+                         " "
+                         sidebar)))
     (insert header)))
