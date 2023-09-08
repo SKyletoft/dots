@@ -292,6 +292,10 @@ in {
 				ivy
 				projectile
 
+				pdf-tools
+				multi-vterm
+				vterm
+
 				org-appear
 				org-superstar
 				typst-mode
@@ -323,9 +327,7 @@ in {
 				elsa
 				flycheck-elsa
 				racket-mode
-				pdf-tools
-				multi-vterm
-				vterm
+				xonsh-mode
 			]);
 		};
 
