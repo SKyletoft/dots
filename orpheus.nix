@@ -39,7 +39,7 @@
 	networking = {
 		hostName = "orpheus";
 		interfaces.eth0.ipv4.addresses = [ {
-			address = "192.168.1.202";
+			address = "192.168.0.202";
 			prefixLength = 24;
 		} ];
 		firewall = {
