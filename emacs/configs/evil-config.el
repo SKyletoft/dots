@@ -215,6 +215,9 @@
 (defun wrap-in-angles ()
   (interactive)
   (wrap-selection-in "<" ">"))
+(defun wrap-in-dollar ()
+  (interactive)
+  (wrap-selection-in "$" "$"))
 
 (set-v (kbd "\"") 'wrap-in-quotes)
 (set-v (kbd "'") 'wrap-in-apostrophes)
@@ -223,6 +226,7 @@
 (set-v (kbd "{") 'wrap-in-curlies)
 (set-v (kbd "[") 'wrap-in-squares)
 ;; (set-v (kbd "<") 'wrap-in-angles) ; Interferes with outdent
+(set-v (kbd "$") 'wrap-in-dollar)
 
 (defun return-to-open-brace ()
   "Move to previous (, [ or {"
