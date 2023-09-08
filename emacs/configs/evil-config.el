@@ -345,7 +345,11 @@
 
 ;; Section header insertion function
 (defun insert-header ()
+"Insert a - wrapped title with the text centred
+----- EXAMPLE -----
+"
   (interactive)
+  ;; These are lambdas for scoping reasons
   (let ((create-sidebar
          (lambda (len)
            (if (<= len 1) ;; At least one - or it just looks dumb
@@ -359,8 +363,9 @@
                      " "
                      title
                      " "
-                     sidebar))))))
-  (insert (create-header (read-from-minibuffer "Enter title: ")
-                         (string-to-number
-                          (read-from-minibuffer "Enter buffer-width: "
-                                                (number-to-string fill-column))))))
+                     sidebar))))
+        (title (read-from-minibuffer "Enter title: "))
+        (width (string-to-number
+                (read-from-minibuffer "Enter buffer-width: "
+                                      (number-to-string fill-column)))))
+  (insert (create-header title width))))
