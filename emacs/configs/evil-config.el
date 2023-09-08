@@ -342,3 +342,25 @@
 ;; Up/down when competing in a normal buffer
 (define-key completion-in-region-mode-map (kbd "C-p") #'minibuffer-previous-completion)
 (define-key completion-in-region-mode-map (kbd "C-n") #'minibuffer-next-completion)
+
+;; Section header insertion function
+(defun insert-header ()
+  (interactive)
+  (let ((create-sidebar
+         (lambda (len)
+           (if (<= len 1) ;; At least one - or it just looks dumb
+               "-"
+             (concat "-" (create-sidebar (- len 1))))))
+        (create-header
+         (lambda (title width)
+           (let ((sidebar (create-sidebar
+                           (/ (- width (+ 2 (length title))) 2))))
+             (concat sidebar
+                     " "
+                     title
+                     " "
+                     sidebar))))))
+  (insert (create-header (read-from-minibuffer "Enter title: ")
+                         (string-to-number
+                          (read-from-minibuffer "Enter buffer-width: "
+                                                (number-to-string fill-column))))))
