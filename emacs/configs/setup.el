@@ -21,6 +21,7 @@
       visual-line-mode -1
       global-auto-revert-mode 1
       hs-minor-mode 1
+      frame-resize-pixelwise t
       xterm-mouse-mode 1
       recentf-mode 1
       global-auto-revert-non-file-buffers t
