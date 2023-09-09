@@ -267,7 +267,7 @@ in {
 
 		emacs = {
 			enable = true;
-			package = emacsPin.emacs-git.override {
+			package = emacsPin.emacs29.override {
 				withGTK2       = false;
 				withGTK3       = false;
 				withX          = gui;
