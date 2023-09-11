@@ -28,7 +28,6 @@
           (lambda ()
             (set-indents 16 16 t)
             (olivetti-mode)
-            (olivetti-set-width 70)
             (editorconfig-apply)))
 
 (defun ghci ()
@@ -199,7 +198,8 @@
                           eldoc-documentation-function #'ignore
                           lsp-ui-doc-mode t
                           lsp-ui-sideline-show-hover nil
-                          lsp-ui-sideline-enable t)
+                          lsp-ui-sideline-enable t
+                          fill-column 100)
               ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
               (editorconfig-apply)
               ))
@@ -368,6 +368,12 @@
    (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
                     :major-modes '(nix-mode)
                     :server-id 'nix)))
+
+(use-package olivetti
+  :config
+  (add-hook 'olivetti-mode-hook
+            (lambda ()
+              (olivetti-set-width (+ 5 fill-column)))))
 
 (use-package pdf-tools
   :init

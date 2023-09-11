@@ -17,6 +17,7 @@
   (add-to-list 'default-frame-alist '(font . "0xProto-11"))
   (add-to-list 'default-frame-alist '(undecorated-round . t))
 
+  (setq fill-column 80)
   (when (not (string-match "PGTK" system-configuration-features))
     (set-frame-parameter (selected-frame)
                          'alpha
