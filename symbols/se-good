@@ -64,4 +64,8 @@ xkb_symbols "se-good" {
 	key <KPMU> {[        asterisk,        multiply ]};
 	key <KPDV> {[           slash,        division ]};
 	key <KPDL> {[           comma,          period ]};
+
+	key <LWIN> {[         Super_L ]};
+	key <RWIN> {[         Super_L ]};
+	key <PRSC> {[         Super_L ]};
 };
