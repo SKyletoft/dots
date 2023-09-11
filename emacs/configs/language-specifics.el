@@ -263,6 +263,10 @@
 (evil-define-key 'visual lisp-mode-shared-map
   (kbd "SPC r") 'eval-region)
 
+(evil-define-key 'visual sh-mode-map
+  (kbd "SPC r") (lambda () (interactive)
+                  (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
+
 (defun americanise ()
   "Ruin spellings of words like centre or colour to work with HTML
   and CSS that have hardcoded the American spellings"
