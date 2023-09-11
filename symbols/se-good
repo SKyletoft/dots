@@ -29,7 +29,7 @@ xkb_symbols "se-good" {
 	key <AD09> {[               o,               O,          degree,           U2295 ]};
 	key <AD10> {[               p,               P,     bracketleft,        Greek_pi ]};
 	key <AD11> {[           aring,           Aring,    bracketright,           U2205 ]};
-	key <AD12> {[      asciitilde,     asciicircum,       diaeresis,           U2248 ]};
+	key <AD12> {[      asciitilde,     asciicircum,  dead_diaeresis,           U2248 ]};
 	key <RTRN> {[          Return ]};
 
 	key <AC01> {[               a,               A,     Greek_alpha,           U2200 ]};
