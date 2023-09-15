@@ -335,6 +335,7 @@
 (set-n (kbd "SPC k") 'comment-or-uncomment-line)
 
 ;; Find
+(set-n  (kbd "SPC P") 'projectile-switch-project)
 (set-n  (kbd "SPC p") 'projectile-find-file)
 (set-nm (kbd "C-f") 'evil-search-forward)
 (set-nm (kbd "C-g") (kbd ":%s/"))
