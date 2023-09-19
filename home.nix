@@ -36,8 +36,10 @@ let
 	enableHyprland = false;
 	enableGnome = true;
 	enableRiver = true;
+	enableSway = true;
 	enableDebugging = false;
-	gui = enableGnome || enableHyprland || enableRiver;
+	gui = enableGnome || enableHyprland || enableRiver || enableSway;
+	wm = enableHyprland || enableRiver || enableSway;
 in {
 	home = {
 		username      = "u3836";
@@ -152,10 +154,26 @@ in {
 		] else [])
 		++ (if enableRiver then [
 			river
+
 			rivercarro
-			xonsh
+			kile-wl
+			stacktile
+
+			wofi
+
+			ristate
+			swaylock
+			waybar
+			swaybg
+			swayosd
+			swayidle
+			swaynag-battery
+			wayshot
 			wlr-randr
-			foot
+			xonsh
+		] else [])
+		++ (if enableSway then [
+			sway
 		] else []);
 
 		sessionVariables = {
