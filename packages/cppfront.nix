@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
 	pname = "cppfront";
-	version = "20230813";
+	version = "20230910";
 
 	src = fetchFromGitHub {
 		owner = "hsutter";
 		repo = "cppfront";
-		rev = "6ce2643e3ae7f91d0b21bc574fc321f7f015a466";
-		sha256 = "sha256-g2nkAijhzFhM6F43AjFkoV1cqH3mX6Ma36R8CG7yqnc=";
+		rev = "ecd37263f9b5a71f5beb18affc275d76ee537f9f";
+		sha256 = "sha256-ijXoobSZoIsZLqee3igQhH8JymFG2rDUWA61TyrJWH8=";
 	};
 
 	nativeBuildInputs = [ stdenv ];
