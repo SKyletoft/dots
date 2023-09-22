@@ -180,7 +180,7 @@
         lsp-rust-analyzer-display-closure-return-type-hints t
         lsp-rust-analyzer-display-parameter-hints t
         lsp-rust-analyzer-display-reborrow-hints nil
-        ;; rustic-rustfmt-args "+nightly"
+        rustic-rustfmt-args "--edition=2021"
         lsp-eldoc-hook nil
         lsp-enable-symbol-highlighting nil
         lsp-signature-auto-activate nil
