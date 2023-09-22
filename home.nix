@@ -17,6 +17,7 @@ let
 				in prev.tree-sitter-grammars // (builtins.listToAttrs (builtins.map useAbi13 [
 					"cpp"
 					"c"
+					"cmake"
 					"java"
 					"rust"
 					"haskell"
@@ -437,6 +438,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 			"${emacsPin.tree-sitter-grammars.tree-sitter-cpp}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-c.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-c}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-cmake.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-cmake}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-java.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-java}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-rust.so".source =
