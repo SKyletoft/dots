@@ -184,6 +184,8 @@
         lsp-eldoc-hook nil
         lsp-enable-symbol-highlighting nil
         lsp-signature-auto-activate nil
+        lsp-inlay-hint-enable t
+        lsp-inlay-hints-enable t
         )
   (add-hook 'rustic-mode-hook
             (lambda ()
@@ -201,6 +203,8 @@
                           lsp-ui-sideline-enable t
                           fill-column 100)
               ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
+              (lsp-lens-hide)
+              (lsp-inlay-hints-mode)
               (editorconfig-apply)
               ))
   (add-hook 'rustic-popup-mode-hook 'evil-emacs-state))
