@@ -355,6 +355,7 @@ in {
 				flycheck-elsa
 				racket-mode
 				xonsh-mode
+				wgsl-mode
 			]);
 		};
 
