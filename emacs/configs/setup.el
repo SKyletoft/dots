@@ -36,7 +36,8 @@
       scroll-preserve-screen-position 1
       mouse-wheel-scroll-amount '(1 ((shift) . 1))
       mouse-wheel-progressive-speed nil
-      mouse-wheel-follow-mouse 't)
+      mouse-wheel-follow-mouse 't
+      initial-scratch-message "")
 
 ;; Load packages
 
