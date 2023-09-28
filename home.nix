@@ -36,8 +36,8 @@ let
 
 	enableHyprland = false;
 	enableGnome = true;
-	enableRiver = true;
-	enableSway = true;
+	enableRiver = false;
+	enableSway = false;
 	enableDebugging = false;
 	gui = enableGnome || enableHyprland || enableRiver || enableSway;
 	wm = enableHyprland || enableRiver || enableSway;
