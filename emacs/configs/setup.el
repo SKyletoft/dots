@@ -80,3 +80,8 @@
 
 (use-package projectile)
 (projectile-mode +1)
+
+;; (use-package combobulate
+  ;; :bind (:map combobulate-key-map
+              ;; ("M-<left>" . nil)
+              ;; ("M-<right>" . nil)))
