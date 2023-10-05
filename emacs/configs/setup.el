@@ -85,3 +85,19 @@
   ;; :bind (:map combobulate-key-map
               ;; ("M-<left>" . nil)
               ;; ("M-<right>" . nil)))
+
+(use-package symex
+  :config
+  (setq symex--user-evil-keyspec
+        '(("s" . symex-go-up)
+          ("w" . symex-go-down)
+          ("C-s" . symex-climb-branch)
+          ("C-w" . symex-descend-branch)
+          ("M-s" . symex-goto-highest)
+          ("M-w" . symex-goto-lowest)
+          ("d" . symex-go-forward)
+          ("a" . symex-go-backward)
+          ("C-d" . symex-traverse-forward)
+          ("C-a" . symex-traverse-backward)
+          ))
+  (symex-initialize))

@@ -428,3 +428,20 @@
                          " "
                          sidebar)))
     (insert header)))
+
+
+(defun evil-esc ()
+  "Return to symex state if in a mode supported by symex, otherwise return to normal mode"
+  (interactive)
+  (if (member major-mode '(emacs-lisp-mode
+                           rust-ts-mode
+                           c-ts-mode
+                           c++-ts-mode))
+      (symex-mode-interface)
+    (evil-force-normal-state)))
+(define-key evil-normal-state-map (kbd "<escape>") 'evil-esc)
+(define-key evil-motion-state-map (kbd "<escape>") 'evil-esc)
+(define-key evil-visual-state-map (kbd "<escape>") 'evil-esc)
+(define-key evil-insert-state-map (kbd "<escape>") 'evil-esc)
+(define-key evil-symex-state-map (kbd "<escape>") 'evil-esc)
+
