@@ -302,6 +302,7 @@ in {
 				use-package
 				magit
 				evil
+				symex
 				treemacs
 				telephone-line
 				ligature
