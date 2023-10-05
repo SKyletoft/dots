@@ -73,6 +73,7 @@ in {
 	hardware = {
 		opengl.enable = true;
 		cpu.amd.updateMicrocode = true;
+		keyboard.zsa.enable = true;
 	};
 
 	fileSystems."/mnt/SDD" = {
@@ -235,6 +236,7 @@ in {
 			man-pages-posix
 			cachix
 			git
+			wally-cli
 		];
 		sessionVariables = {
 			MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
