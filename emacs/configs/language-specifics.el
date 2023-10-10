@@ -98,24 +98,8 @@
       (vterm-send-return)
       (switch-to-buffer b))))
 
-(use-package haskell-mode)
-
-(evil-define-key 'visual haskell-mode-map
-  (kbd "SPC r") 'hs-slime-v)
-
-(evil-define-key 'normal haskell-mode-map
-  (kbd "SPC g") 'xref-find-definitions
-  (kbd "SPC a") 'lsp-execute-code-action
-  (kbd "SPC f") 'lsp-ui-doc-glance
-  (kbd "SPC r") 'hs-slime-n
-  (kbd "<f5>") 'hs-run
-  (kbd "SPC i") (lambda () (interactive)
-                  (save-buffer)
-                  (shell-command (concat "hindent "
-                                         (buffer-file-name)
-                                         " && stylish-haskell -i "
-                                         (buffer-file-name)))
-                  (revert-buffer t t t)))
+(use-package haskell-mode
+  :config
 
 (add-hook 'haskell-mode-hook
           (lambda ()
@@ -130,7 +114,7 @@
             (lsp-ui-doc-mode t)
             (editorconfig-apply)
             ;; (ghci)
-            ))
+            )))
 
 (defun toggle-hole ()
   "Toggle having a ? at the start of the word"
@@ -154,19 +138,6 @@
               (set-indents 8 2 nil)
               (setq-local topsy-mode 0)
               )))
-
-(evil-define-key 'normal idris-mode-map
-  (kbd "SPC c") 'idris-case-dwim
-  (kbd "SPC d") 'idris-type-at-point
-  (kbd "SPC f") 'idris-type-at-point
-  (kbd "SPC l") 'idris-make-lemma
-  (kbd "SPC m") 'idris-add-missing
-  (kbd "SPC r") 'idris-load-file
-  (kbd "SPC s") 'idris-type-search
-  (kbd "SPC t") 'idris-make-lemma
-  (kbd "SPC g") 'idris-proof-search
-  (kbd "SPC G") 'idris-generate-def
-  (kbd "SPC h") 'toggle-hole)
 
 (use-package rustic
   :config
@@ -229,29 +200,6 @@
       (switch-buffer "*GDB::Run Cargo project stderr*")
       (evil-motion-state))))
 
-(evil-define-key 'normal rustic-mode-map
-  (kbd "SPC i") 'rustic-format-buffer)
-(evil-define-key 'visual rustic-mode-map
-  (kbd "SPC i") 'rustic-format-region)
-(evil-define-key '(normal visual) rustic-mode-map
-  (kbd "SPC f") 'lsp-ui-doc-glance
-  (kbd "SPC g") 'xref-find-definitions
-  (kbd "SPC G") 'lsp-goto-type-definition
-  (kbd "SPC a") 'lsp-execute-code-action
-  (kbd "SPC t") 'lsp-inlay-hints-mode
-  (kbd "SPC r") 'rustic-cargo-run
-  (kbd "SPC R") 'compile
-  (kbd "<f2>") 'lsp-rename
-  (kbd "<f4>") 'rustic-popup
-  (kbd "<f5>") 'rust-compile-and-dap
-  (kbd "C-<f5>") 'rustic-cargo-build
-  (kbd "M-<f5>") 'rustic-cargo-test)
-
-(evil-define-key 'normal conf-toml-mode-map
-  (kbd "<f5>") 'rust-compile-and-dap
-  (kbd "C-<f5>") 'rustic-cargo-build
-  (kbd "M-<f5>") 'rustic-cargo-test)
-
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (flycheck-elsa-setup)
@@ -260,16 +208,6 @@
             (evil-define-key 'normal emacs-lisp-mode-map (kbd "SPC i") 'indent-according-to-mode)
             (evil-define-key 'visual emacs-lisp-mode-map (kbd "SPC i") 'indent-region)
             (editorconfig-apply)))
-(evil-define-key 'normal lisp-mode-shared-map
-  (kbd "SPC g") 'xref-find-definitions
-  (kbd "SPC f") 'describe-symbol
-  (kbd "SPC r") 'eval-buffer)
-(evil-define-key 'visual lisp-mode-shared-map
-  (kbd "SPC r") 'eval-region)
-
-(evil-define-key 'visual sh-mode-map
-  (kbd "SPC r") (lambda () (interactive)
-                  (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
 (defun americanise ()
   "Ruin spellings of words like centre or colour to work with HTML
@@ -288,25 +226,6 @@
               )
   (lsp)
   (editorconfig-apply))
-
-(evil-define-key 'visual c++-mode-map
-  (kbd "SPC i") 'indent-region)
-
-(evil-define-key 'visual c-mode-ma
-  (kbd "SPC i") 'indent-region)
-
-(evil-define-key 'normal c++-mode-map
-  (kbd "SPC r") 'compile
-  (kbd "SPC i") 'indent-according-to-mode
-  (kbd "SPC f") 'lsp-ui-doc-glance
-  (kbd "SPC g") 'xref-find-definitions
-  (kbd "SPC a") 'lsp-execute-code-action)
-(evil-define-key 'normal c-mode-map
-  (kbd "SPC r") 'compile
-  (kbd "SPC i") 'indent-according-to-mode
-  (kbd "SPC f") 'lsp-ui-doc-glance
-  (kbd "SPC g") 'xref-find-definitions
-  (kbd "SPC a") 'lsp-execute-code-action)
 
 (add-hook 'c-mode-hook 'c-cpp-mode-hook-impl)
 (add-hook 'c++-mode-hook 'c-cpp-mode-hook-impl)
@@ -352,11 +271,6 @@
             (ocamlformat-setup-indents)
             (set-indents 8 2 nil)
             (setq-local eldoc-mode nil)
-            (evil-define-key 'normal tuareg-mode-map
-              (kbd "SPC g") 'xref-find-definitions
-              (kbd "SPC a") 'lsp-execute-code-action
-              (kbd "SPC f") 'lsp-ui-doc-glance
-              (kbd "SPC i") 'ocamlformat)
             (lsp)
             (editorconfig-apply)))
 
@@ -392,25 +306,7 @@
                           vterm-timer-delay nil)
               (evil-emacs-state))))
 
-(evil-define-key 'insert vterm-mode-map
-  (kbd "C-V") 'vterm-yank)
-
-(evil-define-key '(normal emacs) vterm-mode-map
-  (kbd "C-M-w") 'windmove-up
-  (kbd "C-M-s") 'windmove-down
-  (kbd "C-M-a") 'windmove-left
-  (kbd "C-M-d") 'windmove-right
-  (kbd "C-V") 'vterm-yank
-  (kbd "C-v") 'vterm-yank)
-
 (use-package treemacs)
-(evil-define-key 'normal treemacs-mode-map
-  (kbd "SPC") 'treemacs-TAB-action
-  (kbd "C-<tab>") 'treemacs-switch-workspace
-  (kbd "x") 'treemacs-delete-file
-  (kbd "<delete>") 'treemacs-delete-file
-  (kbd "a") nil
-  (kbd "d") nil)
 
 ;; Line numbers
 (global-display-line-numbers-mode t) ;; Needed because reasons
