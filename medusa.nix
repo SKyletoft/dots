@@ -201,6 +201,7 @@ in {
 	xdg.portal.extraPortals = if flatpak then [ pkgs.xdg-desktop-portal-gtk ] else [];
 
 	users.groups.i2c = {};
+	users.groups.plugdev = {};
 	users.users.u3836 = {
 		description = "Samuel Kyletoft";
 		home = "/home/u3836";
@@ -213,6 +214,7 @@ in {
 			"docker"          # docker
 			"i2c"             # screen brightness
 			"adbusers"        # android debugging (screen sharing)
+			"plugdev"         # keyboard flashing
 		];
 		shell = pkgs.bash;
 	};
@@ -237,6 +239,7 @@ in {
 			cachix
 			git
 			wally-cli
+			zsa-udev-rules
 		];
 		sessionVariables = {
 			MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
