@@ -113,7 +113,7 @@ in {
 	virtualisation = {
 		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
-		docker.enable = false;
+		docker.enable = true;
 	};
 
 	powerManagement.powertop.enable = false;
