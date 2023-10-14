@@ -45,7 +45,12 @@
   :config
   (editorconfig-mode 1))
 
-(use-package telephone-line)
+(use-package telephone-line
+  :config
+  (defface telephone-line-evil-symex
+    '((t (:background "purple" :inherit telephone-line-evil)))
+    "Face used in evil color-coded segments when in Symex state."
+    :group 'telephone-line-evil))
 
 (use-package treemacs
   :config
@@ -88,16 +93,4 @@
 
 (use-package symex
   :config
-  (setq symex--user-evil-keyspec
-        '(("s" . symex-go-up)
-          ("w" . symex-go-down)
-          ("C-s" . symex-climb-branch)
-          ("C-w" . symex-descend-branch)
-          ("M-s" . symex-goto-highest)
-          ("M-w" . symex-goto-lowest)
-          ("d" . symex-go-forward)
-          ("a" . symex-go-backward)
-          ("C-d" . symex-traverse-forward)
-          ("C-a" . symex-traverse-backward)
-          ))
   (symex-initialize))

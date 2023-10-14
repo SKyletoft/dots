@@ -27,3 +27,9 @@
 (require 'number-hl-mode)
 (require 'language-checking)
 (require 'language-specifics)
+(require 'qwerty)
+(require 'colemak)
+
+;; (if (eq (system-name) "medusa")
+;;     (colemak-keymap)
+;;   (qwerty-keymap))
