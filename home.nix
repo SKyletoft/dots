@@ -81,6 +81,7 @@ in {
 			# code-server
 			# mdpdf
 			hstr
+			rnix-lsp
 		] ++
 		(if gui then [
 			monitor
