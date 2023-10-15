@@ -3,11 +3,13 @@
 ;; Functions
 
 (defun hide-menu ()
+  (interactive)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
   (menu-bar-mode -1))
 
 (defun show-menu ()
+  (interactive)
   (tool-bar-mode nil)
   (scroll-bar-mode nil)
   (menu-bar-mode nil))
