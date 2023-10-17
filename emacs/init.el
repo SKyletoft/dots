@@ -33,3 +33,4 @@
 ;; (if (eq (system-name) "medusa")
 ;;     (colemak-keymap)
 ;;   (qwerty-keymap))
+(setq use-symex-default t)
