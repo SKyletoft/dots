@@ -173,9 +173,11 @@
   (evil-define-key 'normal lisp-mode-shared-map
     (kbd "SPC i") 'xref-find-definitions
     (kbd "SPC e") 'describe-symbol
-    (kbd "SPC l") 'eval-buffer)
+    (kbd "SPC l") 'eval-buffer
+    (kbd "SPC o") 'indent-according-to-mode)
   (evil-define-key 'visual lisp-mode-shared-map
-    (kbd "SPC l") 'eval-region)
+    (kbd "SPC l") 'eval-region
+    (kbd "SPC o") 'indent-region)
   
   (evil-define-key 'visual sh-mode-map
     (kbd "SPC l") (lambda () (interactive)
