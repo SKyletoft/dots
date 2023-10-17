@@ -245,5 +245,6 @@
           ("i" . evil-insert)
           ("r" . symex-change)
           ("C-c" . symex-yank)
-          ("C-x" . symex-delete)))
+          ("C-x" . symex-delete)
+          ("C-v" . symex-paste-after)))
   (symex-initialize))

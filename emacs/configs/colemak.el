@@ -250,5 +250,7 @@
           ("n" . evil-insert)
           ("p" . symex-change)
           ("e" . symex-yank)
-          ("i" . symex-delete)))
+          ("i" . symex-delete)
+          ("o" . symex-paste-after)
+          ("O" . symex-paste-before)))
   (symex-initialize))
