@@ -313,3 +313,8 @@
             (lambda ()
               (interactive)
               (evil-textobj-tree-sitter-goto-textobj "function.outer" t t)))
+
+(defun select-with-symex ()
+  (interactive)
+  (evil-visual-state)
+  (symex-select-nearest))
