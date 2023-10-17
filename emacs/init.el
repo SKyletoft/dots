@@ -30,7 +30,9 @@
 (require 'qwerty)
 (require 'colemak)
 
-;; (if (eq (system-name) "medusa")
-;;     (colemak-keymap)
-;;   (qwerty-keymap))
-(setq use-symex-default t)
+(if (string-equal (system-name) "medusa")
+    (progn (colemak-keymap)
+           (setq use-symex-default t))
+  (progn (qwerty-keymap)
+         (setq use-symex-default nil)))
+
