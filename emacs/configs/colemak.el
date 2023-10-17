@@ -230,8 +230,8 @@
   (setq symex--user-evil-keyspec
         '(("s" . symex-go-up)
           ("f" . symex-go-down)
-          ("C-s" . symex-climb-branch)
-          ("C-f" . symex-descend-branch)
+          ("C-s" . evil-scroll-line-down)
+          ("C-f" . evil-scroll-line-up)
           ("M-s" . symex-goto-highest)
           ("M-f" . symex-goto-lowest)
           ("t" . symex-go-forward)
