@@ -30,6 +30,8 @@ let
 					"css"
 					"bash"
 					"nix"
+					"hlsl"
+					"glsl"
 				]));
 		})
 	]; };
@@ -358,6 +360,7 @@ in {
 				racket-mode
 				xonsh-mode
 				wgsl-mode
+				glsl-mode
 			]);
 		};
 
