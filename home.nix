@@ -361,6 +361,7 @@ in {
 				xonsh-mode
 				wgsl-mode
 				glsl-mode
+				bnfc
 			]);
 		};
 
