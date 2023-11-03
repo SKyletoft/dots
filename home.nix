@@ -50,6 +50,7 @@ in {
 		stateVersion  = "22.05";
 
 		packages = let
+			ruffle    = pkgs.callPackage ./packages/ruffle.nix {};
 			eterm8    = pkgs.callPackage ./packages/eterm8.nix {};
 			digiflisp = pkgs.callPackage ./packages/digiflisp.nix {};
 			cppfront  = pkgs.callPackage ./packages/cppfront.nix {};
@@ -113,6 +114,7 @@ in {
 			pinta
 			fragments
 			heroic
+			ruffle
 
 			i2c-tools
 
