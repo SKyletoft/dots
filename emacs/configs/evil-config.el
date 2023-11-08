@@ -204,13 +204,14 @@
   "Return to symex state if in a mode supported by symex, otherwise return to normal mode"
   (interactive)
   (if (and (member major-mode '(emacs-lisp-mode
-                           rust-ts-mode
-                           c-mode
-                           c++-mode
-                           c-ts-mode
-                           c++-ts-mode
-                           rustic-mode
-                           haskell-mode))
+                                ;; rust-ts-mode
+                                ;; c-mode
+                                ;; c++-mode
+                                ;; c-ts-mode
+                                ;; c++-ts-mode
+                                ;; rustic-mode
+                                ;; haskell-mode
+                                ))
            use-symex-default)
       (symex-mode-interface)
     (evil-force-normal-state)))
