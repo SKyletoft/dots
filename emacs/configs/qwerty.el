@@ -99,7 +99,7 @@
   (set-nme (kbd "M-D") 'evil-window-increase-width)
   (set-nme (kbd "M-A") 'evil-window-decrease-width)
   (set-n   (kbd "SPC o") 'transpose-with-treemacs)
-  (set-n   (kbd "SPC O") 'olivetti-mode)
+  (set-n   (kbd "SPC O") 'toggle-left-margin)
 
   (define-key evil-visual-state-map (kbd "SPC b") 'narrow-to-region)
   (set-n (kbd "SPC b") 'widen)

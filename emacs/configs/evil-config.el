@@ -323,3 +323,12 @@
   (interactive)
   (evil-visual-state)
   (symex-select-nearest))
+
+(setq left-margin-p nil)
+(defun toggle-left-margin ()
+  (interactive)
+    (set-window-margins (car (get-buffer-window-list (current-buffer) nil nil))
+                        (if left-margin-p
+                            0
+                          85))
+  (setq-local left-margin-p (not left-margin-p)))
