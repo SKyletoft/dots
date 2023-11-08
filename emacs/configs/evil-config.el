@@ -325,10 +325,14 @@
   (symex-select-nearest))
 
 (setq left-margin-p nil)
+
+(defun set-left-margin (to)
+  (interactive)
+  (set-window-margins (car (get-buffer-window-list (current-buffer) nil nil)) to))
+
 (defun toggle-left-margin ()
   (interactive)
-    (set-window-margins (car (get-buffer-window-list (current-buffer) nil nil))
-                        (if left-margin-p
-                            0
-                          85))
+    (set-left-margin (if left-margin-p
+                         85
+                       0))
   (setq-local left-margin-p (not left-margin-p)))
