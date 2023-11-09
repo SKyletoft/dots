@@ -343,4 +343,4 @@
   (interactive)
   (switch-to-buffer "*Buffer List*")
   (list-buffers)
-  (evil-motion-state))
+  (evil-emacs-state))
