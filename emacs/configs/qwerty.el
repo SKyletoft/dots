@@ -192,6 +192,7 @@
     (kbd "SPC f") 'lsp-ui-doc-glance
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC a") 'lsp-execute-code-action
+    (kbd "SPC t") 'lsp-inlay-hints-mode
     (kbd "C-<f5>") 'dap-debug
     (kbd "<f5>") 'dap-debug-last)
   (evil-define-key 'normal c-mode-map
@@ -200,6 +201,7 @@
     (kbd "SPC f") 'lsp-ui-doc-glance
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC a") 'lsp-execute-code-action
+    (kbd "SPC t") 'lsp-inlay-hints-mode
     (kbd "C-<f5>") 'dap-debug
     (kbd "<f5>") 'dap-debug-last)
 
