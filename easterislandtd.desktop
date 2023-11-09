@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Easter Island TD
-Exec=ruffle ~/games/easterislandtd.swf
+Exec=WINIT_UNIX_BACKEND=x11 ruffle_desktop ~/games/easterislandtd.swf
 Terminal=false
 Type=Application
