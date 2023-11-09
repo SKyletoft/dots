@@ -124,6 +124,7 @@
     (kbd "SPC a") 'lsp-execute-code-action
     (kbd "SPC f") 'lsp-ui-doc-glance
     (kbd "SPC r") 'hs-slime-n
+    (kbd "SPC t") 'lsp-ui-sideline-mode
     (kbd "<f5>") 'hs-run
     (kbd "SPC i") (lambda () (interactive)
                     (save-buffer)
