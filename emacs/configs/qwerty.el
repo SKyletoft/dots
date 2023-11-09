@@ -108,7 +108,7 @@
   (set-nme [C-?\t] 'next-buffer)
   (set-nme (kbd "C-<backtab>") 'previous-buffer)
   (set-nme (kbd "C-<iso-lefttab>") 'previous-buffer)
-  (set-nv  (kbd "SPC <tab>") 'list-buffers)
+  (set-nv  (kbd "SPC <tab>") 'get-buffer-list)
 
   ;; Completion-buffer
   (define-key minibuffer-local-map (kbd "C-p") #'minibuffer-previous-completion)

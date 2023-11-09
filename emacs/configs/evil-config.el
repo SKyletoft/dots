@@ -337,3 +337,10 @@
                          85
                        0))
   (setq-local left-margin-p (not left-margin-p)))
+
+(defun get-buffer-list ()
+  "Switches to the buffer list in the current window. As opposed to `list-buffers` which will split the window"
+  (interactive)
+  (switch-to-buffer "*Buffer List*")
+  (list-buffers)
+  (evil-motion-state))
