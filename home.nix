@@ -471,6 +471,7 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;
+		".local/share/applications/easterislandtd.desktop".source    = ./easterislandtd.desktop;
 		".local/share/applications/emacs.desktop".source             = ./emacsclient.desktop;
 		".local/share/applications/discord.desktop".source           = ./discord.desktop;
 

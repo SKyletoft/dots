@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Easter Island TD
+Exec=ruffle ~/games/easterislandtd.swf
+Terminal=false
+Type=Application
