@@ -228,6 +228,10 @@
     (kbd "r") nil
     (kbd "t") nil)
 
+  (evil-define-key '(normal emacs motion) Buffer-menu-mode-map
+    (kbd "<return>") 'Buffer-menu-this-window
+    (kbd "C-n") 'nuke-all-buffers)
+
   (setq symex--user-evil-keyspec
         '(("s" . symex-go-up)
           ("f" . symex-go-down)

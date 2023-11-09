@@ -227,6 +227,10 @@
     (kbd "<delete>") 'treemacs-delete-file
     (kbd "a") nil
     (kbd "d") nil)
+
+  (evil-define-key '(normal emacs motion) Buffer-menu-mode-map
+    (kbd "<return>") 'Buffer-menu-this-window
+    (kbd "C-n") 'nuke-all-buffers)
     
   (setq symex--user-evil-keyspec
         '(("s" . symex-go-up)
