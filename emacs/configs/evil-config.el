@@ -343,4 +343,8 @@
   (interactive)
   (switch-to-buffer "*Buffer List*")
   (list-buffers)
-  (evil-emacs-state))
+  (evil-motion-state))
+
+(evil-define-key '(emacs motion) Buffer-menu-mode-map
+  (kbd "<return>") 'Buffer-menu-this-window)
+
