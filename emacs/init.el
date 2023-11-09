@@ -34,5 +34,5 @@
     (progn (qwerty-keymap)
            (setq use-symex-default t))
   (progn (qwerty-keymap)
-         (setq use-symex-default nil)))
+         (setq use-symex-default t)))
 
