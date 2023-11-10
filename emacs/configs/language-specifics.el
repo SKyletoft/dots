@@ -223,6 +223,7 @@
               lsp-ui-sideline-show-hover nil
               lsp-ui-sideline-enable t
               electric-indent-mode -1
+              lsp-clients-clangd-arguments "--clang-tidy"
               )
   (lsp)
   (editorconfig-apply))
