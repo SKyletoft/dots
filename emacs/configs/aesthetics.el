@@ -39,8 +39,8 @@
 ;; Disable background when in terminal
 (defun on-after-init ()
   "Disable background when in terminal"
-       (unless (display-graphic-p (selected-frame))
-               (set-face-background 'default "unspecified-bg" (selected-frame))))
+  (unless (display-graphic-p (selected-frame))
+    (set-face-background 'default "unspecified-bg" (selected-frame))))
 
 (add-hook 'window-setup-hook 'on-after-init)
 (add-hook 'server-switch-hook 'on-after-init)
