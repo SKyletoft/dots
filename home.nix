@@ -107,7 +107,7 @@ in {
 			ark
 			pcmanfm
 			vlc
-			sgtpuzzles
+			sgt-puzzles
 			xournalpp
 			prismlauncher
 			dolphin-emu-primehack
