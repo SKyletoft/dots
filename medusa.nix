@@ -285,6 +285,7 @@ in {
 		fantasque-sans-mono
 		roboto
 		(pkgs.callPackage ./packages/0xproto.nix {})
+		(pkgs.callPackage ./packages/monaspace.nix {})
 		(nerdfonts.override {fonts = [
 			"FiraCode"
 			"DroidSansMono"
