@@ -174,27 +174,27 @@ in {
 			# settings.PasswordAuthentication = false;
 		};
 
-		github-runners = builtins.listToAttrs (builtins.map (i:
-			let idx = builtins.toString i;
-			in {
-				name = "amba-runner${idx}";
-				value = lib.mkMerge [
-					{
-						enable = true;
-						name = "amba-runner${idx}-medusa";
-						tokenFile = "/etc/nixos/secret/amba-github-runner-token";
-						url = "https://github.com/lokegustafsson/amba";
-						extraLabels = [ "nixos" "performant" ];
-					}
-					(lib.mkIf (i == 1) {
-						extraLabels = [ "impure-persistent-amba-data-dir" ];
-						extraEnvironment = {
-							CARGO_TARGET_DIR = "%S/github-runner/amba-runner${idx}/ci_target";
-							AMBA_DATA_DIR = "%S/github-runner/amba-runner${idx}/amba";
-						};
-					})
-				];
-			}) (lib.lists.range 1 3));
+		# github-runners = builtins.listToAttrs (builtins.map (i:
+			# let idx = builtins.toString i;
+			# in {
+				# name = "amba-runner${idx}";
+				# value = lib.mkMerge [
+					# {
+						# enable = true;
+						# name = "amba-runner${idx}-medusa";
+						# tokenFile = "/etc/nixos/secret/amba-github-runner-token";
+						# url = "https://github.com/lokegustafsson/amba";
+						# extraLabels = [ "nixos" "performant" ];
+					# }
+					# (lib.mkIf (i == 1) {
+						# extraLabels = [ "impure-persistent-amba-data-dir" ];
+						# extraEnvironment = {
+							# CARGO_TARGET_DIR = "%S/github-runner/amba-runner${idx}/ci_target";
+							# AMBA_DATA_DIR = "%S/github-runner/amba-runner${idx}/amba";
+						# };
+					# })
+				# ];
+			# }) (lib.lists.range 1 3));
 	};
 
 	# Flatpak nonsense
@@ -280,7 +280,7 @@ in {
 		}];
 	};
 
-	fonts.fonts = with pkgs; [
+	fonts.packages = with pkgs; [
 		cascadia-code
 		fantasque-sans-mono
 		roboto
