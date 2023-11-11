@@ -85,12 +85,12 @@ in {
 	hardware = {
 		opengl = {
 			enable = true;
-			extraPackages = with pkgs; [
-				intel-media-driver
-				vaapiIntel
-				vaapiVdpau
-				libvdpau-va-gl
-			];
+			# extraPackages = with pkgs; [
+			# 	intel-media-driver
+			# 	vaapiIntel
+			# 	vaapiVdpau
+			# 	libvdpau-va-gl
+			# ];
 		};
 		cpu.intel.updateMicrocode = true;
 	};
@@ -244,7 +244,7 @@ in {
 		}];
 	};
 
-	fonts.fonts = with pkgs; [
+	fonts.packages = with pkgs; [
 		cascadia-code
 		fantasque-sans-mono
 		roboto
