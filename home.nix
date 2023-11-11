@@ -113,7 +113,7 @@ in {
 			dolphin-emu-primehack
 			pinta
 			fragments
-			heroic
+			# heroic
 			ruffle
 
 			i2c-tools
