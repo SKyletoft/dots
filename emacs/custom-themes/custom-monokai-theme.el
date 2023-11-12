@@ -35,6 +35,7 @@
     :blue   "#78dce8"
     :purple "#ab9df2"
     :pink   "#ff6188"
+    :black  "#000000"
 
     ;; Colors from the original Monokai colorschemes. Some of these are used
     ;; rarely as highlight colors. They should be avoided if possible.
@@ -49,19 +50,19 @@
 
     ;; Colours from neofetch in alacritty
     :al-black     "#1D1F21"
-    :al-black'    "#666666"
+    :al-black-l   "#666666"
     :al-red       "#D54E53"
-    :al-red'      "#CC6666"
+    :al-red-l     "#CC6666"
     :al-green     "#B9CA4A"
-    :al-green'    "#B5BD68"
+    :al-green-l   "#B5BD68"
     :al-yellow    "#E7C547"
-    :al-yellow'   "#F0C674"
+    :al-yellow-l  "#F0C674"
     :al-blue      "#7AA6DA"
-    :al-blue'     "#81A2BE"
+    :al-blue-l    "#81A2BE"
     :al-purple    "#C397D8"
-    :al-purple'   "#B294BB"
+    :al-purple-l  "#B294BB"
     :al-cyan      "#70C0B1"
-    :al-cyan'     "#8ABEB7"
+    :al-cyan-l    "#8ABEB7"
     :al-white     "#EAEAEA"
     :al-grey      "#C5C8C6"
 ))
@@ -193,14 +194,14 @@
      (tab-bar-tab-inactive                         :foreground fg-1 :inherit tab-bar)
 
 ;;;; term
-     ;; (term-color-black                             :foreground al-black :background al-black')
-     ;; (term-color-blue                              :foreground al-blue :background al-blue')
-     ;; (term-color-cyan                              :foreground al-purple :background al-purple')
-     ;; (term-color-green                             :foreground al-green :background al-green')
-     ;; (term-color-magenta                           :foreground al-pink :background al-purple')
-     ;; (term-color-red                               :foreground al-red :background al-red')
-     ;; (term-color-white                             :foreground al-white :background al-grey)
-     ;; (term-color-yellow                            :foreground al-yellow :background al-yellow')
+     (term-color-black                             :foreground black       :background al-black-l)
+     (term-color-blue                              :foreground al-blue-l   :background al-blue)
+     (term-color-cyan                              :foreground al-cyan-l   :background al-cyan)
+     (term-color-green                             :foreground al-green-l  :background al-green)
+     (term-color-magenta                           :foreground al-purple-l :background al-purple)
+     (term-color-red                               :foreground al-red-l    :background al-red)
+     (term-color-white                             :foreground al-grey     :background white)
+     (term-color-yellow                            :foreground al-yellow-l :background al-yellow)
 
 ;;; Third-party
 
