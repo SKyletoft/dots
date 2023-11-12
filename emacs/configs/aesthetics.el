@@ -17,7 +17,8 @@
 (defun monokai-purple ()
   ;; (add-to-list 'default-frame-alist '(font . "Fira Code Nerd Font-11"))
   ;; (add-to-list 'default-frame-alist '(font . "0xProto-11"))
-  (add-to-list 'default-frame-alist '(font . "Monaspace Neon-11")) ;; åäö, wait are all comments in italics now?
+  ;; (add-to-list 'default-frame-alist '(font . "Monaspace Neon-11")) ;; åäö, wait are all comments in italics now?
+  (add-to-list 'default-frame-alist '(font . "Cascadia Code-11"))
   (add-to-list 'default-frame-alist '(undecorated-round . t))
   (setq-default line-spacing 0.1)
 
