@@ -215,6 +215,7 @@ in {
 			"i2c"             # screen brightness
 			"adbusers"        # android debugging (screen sharing)
 			"plugdev"         # keyboard flashing
+			"video" "render"  # blender
 		];
 		shell = pkgs.bash;
 	};
