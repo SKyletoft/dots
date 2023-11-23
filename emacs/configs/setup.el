@@ -12,8 +12,9 @@
   "Kills all buffers if no frames exist"
   (let ((frames (length (x-frame-list-z-order))))
     (if (eq frames 0)
-        (nuke-all-buffers)
-      ())))
+        (progn
+          (nuke-all-buffers)
+          (about-emacs)))))
 
 ;; Variables
 
