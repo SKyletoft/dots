@@ -315,6 +315,18 @@
 
 (use-package treemacs)
 
+(use-package jasmin
+  :config
+  (setq jasmin-instruction-indent 8
+        jasmin-label-indent 0
+        jasmin-unknown-line-indent 32
+        jasmin-tableswitch-case-indent 16
+        jasmin-method-directive-indent 0
+        jasmin-global-directive-indent 0)
+  (add-hook 'jasmin-mode-hok
+            (lambda ()
+              (set-indents 8 8 t))))
+
 ;; Line numbers
 (global-display-line-numbers-mode t) ;; Needed because reasons
 

@@ -24,6 +24,7 @@
 (require 'aesthetics)
 (require 'dap)
 (require 'artemis-mode)
+(require 'jasmin)
 (require 'number-hl-mode)
 (require 'language-checking)
 (require 'language-specifics)
