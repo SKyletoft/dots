@@ -116,7 +116,7 @@ in {
 		docker.enable = true;
 	};
 
-	powerManagement.powertop.enable = false;
+	powerManagement.powertop.enable = true;
 
 	services = {
 		xserver = {
@@ -146,7 +146,7 @@ in {
 		};
 
 		ananicy = {
-			enable = true;
+			enable = false;
 			package = pkgs.ananicy-cpp;
 		};
 
