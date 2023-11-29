@@ -327,6 +327,15 @@
             (lambda ()
               (set-indents 8 8 t))))
 
+(use-package futhark-mode
+  :config
+  (add-to-list 'lsp-language-id-configuration '(futhark-mode . "futhark"))
+
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("futhark" "lsp"))
+                    :activation-fn (lsp-activate-on "futhark")
+                    :server-id 'futhark)))
+
 ;; Line numbers
 (global-display-line-numbers-mode t) ;; Needed because reasons
 

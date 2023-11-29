@@ -364,6 +364,7 @@ in {
 				wgsl-mode
 				glsl-mode
 				bnfc
+				futhark-mode
 			]);
 		};
 
