@@ -323,7 +323,7 @@
         jasmin-tableswitch-case-indent 16
         jasmin-method-directive-indent 0
         jasmin-global-directive-indent 0)
-  (add-hook 'jasmin-mode-hok
+  (add-hook 'jasmin-mode-hook
             (lambda ()
               (set-indents 8 8 t))))
 
