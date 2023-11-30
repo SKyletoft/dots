@@ -209,6 +209,19 @@
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC o") 'ocamlformat)
 
+  (evil-define-key 'visual futhark-mode-map
+    (kbd "SPC o") 'indent-region)
+  (evil-define-key 'normal futhark-mode-map
+    (kbd "SPC o") 'indent-according-to-mode
+    (kbd "SPC i") 'xref-find-definitions
+    (kbd "SPC n") 'lsp-execute-code-action
+    (kbd "SPC e") 'lsp-ui-doc-glance
+    (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC I") 'lsp-goto-type-definition
+    (kbd "SPC l") 'compile
+    (kbd "<f2>") 'lsp-rename
+    (kbd "<f5>") 'dap-debug)
+
   (evil-define-key 'insert vterm-mode-map
     (kbd "C-V") 'vterm-yank)
 

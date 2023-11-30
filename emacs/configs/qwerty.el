@@ -116,18 +116,18 @@
   (define-key completion-in-region-mode-map (kbd "C-p") #'minibuffer-previous-completion)
   (define-key completion-in-region-mode-map (kbd "C-n") #'minibuffer-next-completion)
 
-  (evil-define-key 'visual lsp-mode-map
-    (kbd "SPC i") 'indent-region)
-  (evil-define-key 'normal lsp-mode-map
-    (kbd "SPC i") 'indent-according-to-mode
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC G") 'lsp-goto-type-definition
-    (kbd "SPC r") 'compile
-    (kbd "<f2>") 'lsp-rename
-    (kbd "<f5>") 'dap-debug)
+  ;; (evil-define-key 'visual lsp-mode-map
+  ;;   (kbd "SPC i") 'indent-region)
+  ;; (evil-define-key 'normal lsp-mode-map
+  ;;   (kbd "SPC i") 'indent-according-to-mode
+  ;;   (kbd "SPC g") 'xref-find-definitions
+  ;;   (kbd "SPC a") 'lsp-execute-code-action
+  ;;   (kbd "SPC f") 'lsp-ui-doc-glance
+  ;;   (kbd "SPC t") 'lsp-inlay-hints-mode
+  ;;   (kbd "SPC G") 'lsp-goto-type-definition
+  ;;   (kbd "SPC r") 'compile
+  ;;   (kbd "<f2>") 'lsp-rename
+  ;;   (kbd "<f5>") 'dap-debug)
 
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC r") 'hs-slime-v)
@@ -224,6 +224,19 @@
     (kbd "SPC a") 'lsp-execute-code-action
     (kbd "SPC f") 'lsp-ui-doc-glance
     (kbd "SPC i") 'ocamlformat)
+
+  (evil-define-key 'visual futhark-mode-map
+    (kbd "SPC i") 'indent-region)
+  (evil-define-key 'normal futhark-mode-map
+    (kbd "SPC i") 'indent-according-to-mode
+    (kbd "SPC g") 'xref-find-definitions
+    (kbd "SPC a") 'lsp-execute-code-action
+    (kbd "SPC f") 'lsp-ui-doc-glance
+    (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC G") 'lsp-goto-type-definition
+    (kbd "SPC r") 'compile
+    (kbd "<f2>") 'lsp-rename
+    (kbd "<f5>") 'dap-debug)
 
   (evil-define-key 'insert vterm-mode-map
     (kbd "C-V") 'vterm-yank)
