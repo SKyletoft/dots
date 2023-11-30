@@ -71,7 +71,13 @@ in {
 	};
 
 	hardware = {
-		opengl.enable = true;
+		opengl = {
+			enable = true;
+			extraPackages = with pkgs; [
+				rocm-opencl-icd
+				rocm-opencl-runtime
+			];
+		};
 		cpu.amd.updateMicrocode = true;
 		keyboard.zsa.enable = true;
 	};
@@ -109,6 +115,10 @@ in {
 		spiceUSBRedirection.enable = true;
 		docker.enable = false;
 	};
+
+	systemd.tmpfiles.rules = [
+		"L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+	];
 
 	services = {
 		xserver = {
