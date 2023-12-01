@@ -61,6 +61,8 @@
   (set-v    (kbd "<backtab>")     'outdent-region)
   (set-v    (kbd "<iso-lefttab")  'outdent-region)
 
+  (set-v (kbd "A") 'align-regex)
+
   (set-v (kbd "\"") 'wrap-in-quotes)
   (set-v (kbd "'") 'wrap-in-apostrophes)
   (set-v (kbd "`") 'wrap-in-ticks)
