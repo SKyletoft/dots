@@ -51,8 +51,6 @@
   (set-nmi  [?\t]                 'indent-line) ; For terminal use
   (set-nmie (kbd "<backtab>")     'outdent-line)
   (set-nmie (kbd "<iso-lefttab>") 'outdent-line)
-  (set-e    (kbd "<tab>")         'indent-according-to-mode)
-  (set-e    [?\t]                 'indent-according-to-mode)
   (set-v    (kbd "<tab>")         'indent-region)
   (set-v    [?\t]                 'indent-region)
   (set-v    (kbd "<backtab>")     'outdent-region)
