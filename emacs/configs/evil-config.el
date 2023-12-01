@@ -78,26 +78,21 @@
   (define-key evil-emacs-state-map key command))
 
 ;; Indents
-(defun shift-width-spaces (width)
-  "Create a string of spaces that is `width` wide"
-  (if (eq width 0)
-      ""
-    (concat " " (shift-width-spaces (- width 1)))))
-
-(defun insert-tab-at-start ()
-  "Insert a tab or `evil-shift-width` spaces (controlled by `indent-tabs-mode`) at
-   the beginning of the line and move the cursor accordingly"
+(defun indent-line ()
   (interactive)
-  (let ((pos (point))
-        (indent-with (if indent-tabs-mode
-                         "\t"
-                       (shift-width-spaces evil-shift-width)))
-        (step-by (if indent-tabs-mode
-                     1
-                   evil-shift-width)))
-    (beginning-of-line)
-    (insert indent-with)
-    (goto-char (+ step-by pos))))
+  (evil-shift-right-line 1))
+
+(defun outdent-line ()
+  (interactive)
+  (evil-shift-left-line 1))
+
+(defun indent-region ()
+  (interactive)
+  (evil-shift-right (region-beginning) (region-end) 1))
+
+(defun outdent-region ()
+  (interactive)
+  (evil-shift-left (region-beginning) (region-end) 1))
 
 (setq backward-delete-char-untabify-method 'hungry)
 (setq-default evil-shift-width tab-width)

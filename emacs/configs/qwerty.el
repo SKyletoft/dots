@@ -47,19 +47,16 @@
   (set-nm (kbd "C-x") 'evil-delete)
   (set-nm (kbd "M-V") 'evil-visual-block)
 
-  (define-key evil-emacs-state-map (kbd "TAB") 'insert-tab-at-start) ; For gui
-  (define-key evil-emacs-state-map [?\t] 'insert-tab-at-start) ; For terminal
-  (define-key evil-insert-state-map (kbd "TAB") 'insert-tab-at-start) ; For gui
-  (define-key evil-insert-state-map [?\t] 'insert-tab-at-start) ; For terminal
-
-  (set-nvm (kbd "<tab>") (kbd ">>")) ; For gui
-  (set-nvm [?\t] (kbd ">>")) ; For terminal use
-  (set-nvm (kbd "<backtab>") (kbd "<<"))
-  (set-nvm (kbd "<iso-lefttab>") (kbd "<<"))
-  (set-v   (kbd "<tab>") (kbd ">gv"))
-  (set-v   [?\t] (kbd ">gv"))
-  (set-v   (kbd "<backtab>") (kbd "<gv"))
-  (set-v   (kbd "<iso-lefttab>") (kbd "<gv"))
+  (set-nmi  (kbd "<tab>")         'indent-line) ; For gui
+  (set-nmi  [?\t]                 'indent-line) ; For terminal use
+  (set-nmie (kbd "<backtab>")     'outdent-line)
+  (set-nmie (kbd "<iso-lefttab>") 'outdent-line)
+  (set-e    (kbd "<tab>")         'indent-according-to-mode)
+  (set-e    [?\t]                 'indent-according-to-mode)
+  (set-v    (kbd "<tab>")         'indent-region)
+  (set-v    [?\t]                 'indent-region)
+  (set-v    (kbd "<backtab>")     'outdent-region)
+  (set-v    (kbd "<iso-lefttab")  'outdent-region)
 
   (set-v (kbd "\"") 'wrap-in-quotes)
   (set-v (kbd "'") 'wrap-in-apostrophes)
