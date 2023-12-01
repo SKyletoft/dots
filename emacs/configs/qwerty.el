@@ -39,8 +39,8 @@
   (set-nvm (kbd "C-w") (lambda () (interactive) (evil-scroll-line-up 5)))
   (set-nvm (kbd "C-s") (lambda () (interactive) (evil-scroll-line-down 5)))
 
-  (set-nvm "W" "%")
-  (set-nvm "S" "}")
+  (set-nvm (kbd "W") 'evil-jump-item)
+  (set-nvm (kbd "S") 'evil-jump-paragraph)
 
   (set-nm (kbd "C-c") 'evil-yank)
   (set-nm (kbd "C-v") 'evil-paste-after)
