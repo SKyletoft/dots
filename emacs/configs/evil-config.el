@@ -1,6 +1,28 @@
 (provide 'evil-config)
 
 ;; These functions can't be used for bindings starting with space
+(defun set-nvmie (key command)
+  "Set a keybinding in normal, visual and motion modes at once"
+  (define-key evil-normal-state-map key command)
+  (define-key evil-visual-state-map key command)
+  (define-key evil-motion-state-map key command)
+  (define-key evil-emacs-state-map key command)
+  (define-key evil-insert-state-map key command))
+
+(defun set-nvmi (key command)
+  "Set a keybinding in normal, visual and motion modes at once"
+  (define-key evil-normal-state-map key command)
+  (define-key evil-visual-state-map key command)
+  (define-key evil-motion-state-map key command)
+  (define-key evil-insert-state-map key command))
+
+(defun set-nmie (key command)
+  "Set a keybinding in normal, visual and motion modes at once"
+  (define-key evil-normal-state-map key command)
+  (define-key evil-emacs-state-map key command)
+  (define-key evil-motion-state-map key command)
+  (define-key evil-insert-state-map key command))
+
 (defun set-nvm (key command)
   "Set a keybinding in normal, visual and motion modes at once"
   (define-key evil-normal-state-map key command)
@@ -34,6 +56,11 @@
   (define-key evil-normal-state-map key command)
   (define-key evil-visual-state-map key command))
 
+(defun set-ie (key command)
+  "Set a keybinding in insert and emacs modes at once"
+  (define-key evil-insert-state-map key command)
+  (define-key evil-emacs-state-map key command))
+
 (defun set-n (key command)
   "Set a keybinding in normal mode"
   (define-key evil-normal-state-map key command))
@@ -44,7 +71,11 @@
 
 (defun set-i (key command)
   "Set a keybinding in insert mode"
-  (define-key evil-visual-state-map key command))
+  (define-key evil-insert-state-map key command))
+
+(defun set-e (key command)
+  "Set a keybinding in emacs mode"
+  (define-key evil-emacs-state-map key command))
 
 ;; Indents
 (defun shift-width-spaces (width)
