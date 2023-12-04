@@ -28,6 +28,11 @@
   (define-key evil-insert-state-map (kbd "<escape>") 'evil-esc)
   (define-key evil-symex-state-map  (kbd "<escape>") 'evil-esc)
 
+  (define-key evil-operator-state-map "u" evil-inner-text-objects-map)
+  (define-key evil-visual-state-map "u" evil-inner-text-objects-map)
+  (define-key evil-operator-state-map "y" evil-outer-text-objects-map)
+  (define-key evil-visual-state-map "y" evil-outer-text-objects-map)
+
   (set-nvm (kbd "r") 'evil-backward-char)
   (set-nvm (kbd "t") 'evil-forward-char)
   (set-nvm (kbd "f") 'evil-previous-visual-line)
