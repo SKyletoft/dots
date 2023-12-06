@@ -88,11 +88,15 @@
 
 (defun indent-region ()
   (interactive)
-  (evil-shift-right (region-beginning) (region-end) 1))
+  (evil-shift-right (region-beginning) (region-end) 1)
+  (evil-force-normal-state)
+  (evil-visual-restore))
 
 (defun outdent-region ()
   (interactive)
-  (evil-shift-left (region-beginning) (region-end) 1))
+  (evil-shift-left (region-beginning) (region-end) 1)
+  (evil-force-normal-state)
+  (evil-visual-make-selection (region-beginning) (region-end)))
 
 (setq backward-delete-char-untabify-method 'hungry)
 (setq-default evil-shift-width tab-width)
