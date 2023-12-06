@@ -75,22 +75,25 @@ in {
 		supportedFilesystems = [ "ntfs" ];
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		kernelModules = [ "xpad" "hid-nintendo" "xone" "xpadneo" ];
-		extraModulePackages = [
-			config.boot.kernelPackages.xone
-			config.boot.kernelPackages.xpadneo
-			(config.boot.kernelPackages.callPackage ./packages/xpad.nix {})
+		extraModulePackages = with config.boot.kernelPackages; [
+			xone
+			xpadneo
+			(callPackage ./packages/xpad.nix {})
 		];
 	};
 
 	hardware = {
 		opengl = {
 			enable = true;
-			# extraPackages = with pkgs; [
+			extraPackages = with pkgs; [
+				intel-compute-runtime
+				intel-ocl
+				ocl-icd
 			# 	intel-media-driver
 			# 	vaapiIntel
 			# 	vaapiVdpau
 			# 	libvdpau-va-gl
-			# ];
+			];
 		};
 		cpu.intel.updateMicrocode = true;
 	};
