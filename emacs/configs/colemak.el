@@ -46,14 +46,14 @@
 
   (set-nvm (kbd "C-f") 'evil-jump-item)
   (set-nvm (kbd "C-s") 'evil-forward-item)
-  (set-n   (kbd "p") 'evil-replace)
-  (set-n   (kbd "P") 'evil-enter-replace-state)
+  (set-n   (kbd "p")   'evil-replace)
+  (set-n   (kbd "P")   'evil-enter-replace-state)
 
   (set-nvm (kbd "n")   'evil-insert)
   (set-nvm (kbd "e")   'evil-yank)
   (set-nvm (kbd "i")   'evil-delete)
   (set-nm  (kbd "o")   'evil-paste-after)
-  (set-nm  (kbd "M-V") 'evil-visual-block)
+  (set-nm  (kbd "M-v") 'evil-visual-block)
 
   (set-nmi  (kbd "<tab>")         'indent-line) ; For gui
   (set-nmi  [?\t]                 'indent-line) ; For terminal use
@@ -64,7 +64,7 @@
   (set-v    (kbd "<backtab>")     'outdent-region)
   (set-v    (kbd "<iso-lefttab")  'outdent-region)
 
-  (set-v (kbd "A") 'align-regexp)
+  (set-nv (kbd "A") 'align-regexp)
 
   (set-v (kbd "\"") 'wrap-in-quotes)
   (set-v (kbd "'") 'wrap-in-apostrophes)
@@ -88,7 +88,7 @@
 
   (set-nm (kbd "C-r") 'evil-insert-line)
   (set-nm (kbd "C-t") 'evil-append-line)
-  (set-nm (kbd "X") 'evil-delete-line)
+  (set-nm (kbd "I") 'evil-delete-line)
   (set-nm (kbd "u") nil)
   (set-nm (kbd "&") nil)
   (define-key evil-symex-state-map (kbd "a") nil)
@@ -104,7 +104,7 @@
   (set-nme (kbd "M-T") 'evil-window-increase-width)
   (set-nme (kbd "M-R") 'evil-window-decrease-width)
   (set-n   (kbd "SPC g") 'transpose-with-treemacs)
-  (set-n   (kbd "SPC G") 'olivetti-mode)
+  (set-n   (kbd "SPC G") 'toggle-left-margin)
 
   (define-key evil-visual-state-map (kbd "SPC b") 'narrow-to-region)
   (set-n (kbd "SPC b") 'widen)
