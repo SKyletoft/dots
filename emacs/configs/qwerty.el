@@ -205,6 +205,7 @@
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC a") 'lsp-execute-code-action
     (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "<f2>") 'lsp-rename
     (kbd "C-<f5>") 'dap-debug
     (kbd "<f5>") 'dap-debug-last)
   (evil-define-key 'normal c-mode-map
@@ -214,6 +215,7 @@
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC a") 'lsp-execute-code-action
     (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "<f2>") 'lsp-rename
     (kbd "C-<f5>") 'dap-debug
     (kbd "<f5>") 'dap-debug-last)
 
