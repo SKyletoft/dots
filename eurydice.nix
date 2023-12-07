@@ -1,46 +1,70 @@
 { config, pkgs, lib, ... }:
 
 let
+	update-keys = pkgs.writeShellScriptBin "update-keys" ''
+		cd ~/.ssh
+
+		${pkgs.curl}/bin/curl \
+			https://github.com/$(echo $1).keys
+			> authorized_keys
+		chmod 700 ~/.ssh
+		chmod 600 ~/.ssh/authorized_keys
+	'';
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
 
 		${pkgs.git}/bin/git clone \
-			https://github.com/SKyletoft/samuel.kyletoft.se tmp
+			https://github.com/SKyletoft/samuel.kyletoft.se tmp1
 		${pkgs.git}/bin/git clone \
-			https://github.com/SKyletoft/valkompass_2022 tmp/valkompass
+			https://github.com/SKyletoft/valkompass_2022 tmp1/valkompass
 		rm -rf \
-			tmp/.git \
-			tmp/.gitignore \
-			tmp/LICENSE \
-			tmp/valkompass/.git \
-			tmp/valkompass/.gitignore \
-			tmp/valkompass/LICENSE \
+			tmp1/.git \
+			tmp1/.gitignore \
+			tmp1/LICENSE \
+			tmp1/valkompass/.git \
+			tmp1/valkompass/.gitignore \
+			tmp1/valkompass/LICENSE \
 			samuel.kyletoft.se
-		mv tmp samuel.kyletoft.se
+		mv tmp1 samuel.kyletoft.se
+
+		sleep 15s
 
 		${pkgs.git}/bin/git clone \
-			https://github.com/SKyletoft/u3836.se tmp
+			https://github.com/SKyletoft/u3836.se tmp2
 		rm -rf \
-			tmp/.git \
-			tmp/.gitignore \
-			tmp/LICENSE \
+			tmp2/.git \
+			tmp2/.gitignore \
+			tmp2/LICENSE \
 			u3836.se
-		mv tmp u3836.se
+		mv tmp2 u3836.se
+
+		sleep 15s
 
 		${pkgs.git}/bin/git clone \
-			https://github.com/SKyletoft/secure-passwords tmp
+			https://github.com/liamjardine/liamjardine.github.io tmp3
 		rm -rf \
-			tmp/.git
-			tmp/LICENSE \
-			secure-passwords
-		mv tmp secure-passwords
-
-		${pkgs.git}/bin/git clone \
-			https://github.com/liamjardine/liamjardine.github.io tmp
-		rm -rf \
-			tmp/.git \
+			tmp3/.git \
 			liamjardine.se
-		mv tmp liamjardine.se
+		mv tmp3 liamjardine.se
+
+		sleep 15s
+
+		${pkgs.git}/bin/git clone \
+			https://github.com/SKyletoft/secure-passwords tmp4
+		rm -rf \
+			tmp4/.git
+			tmp4/LICENSE \
+			secure-passwords
+		mv tmp4 secure-passwords
+
+		sleep 15s
+
+		${pkgs.git}/bin/git clone \
+			https://github.com/SKyletoft/nuschka tmp5
+		rm -rf \
+			tmp5/.git
+			nuschka.u3836.se
+		mv tmp5 nuschka.u3836.se
 	'';
 in {
 	imports = [];
@@ -79,6 +103,10 @@ in {
 	boot = {
 		supportedFilesystems = [ "exfat" ];
 		binfmt.emulatedSystems = [ "x86_64-linux" ];
+		loader.raspberryPi.firmwareConfig = ''
+			gpu_mem=192
+			dtparam=audio=on
+		'';
 	};
 
 	networking = {
@@ -113,10 +141,21 @@ in {
 		man-pages
 		man-pages-posix
 		hugo
+		update-website
+		
+		jellyfin-ffmpeg
 	];
 
 	users.users = {
 		u3836 = {
+			isNormalUser = true;
+			extraGroups = [ "wheel" ];
+		};
+		nyerik = {
+			isNormalUser = true;
+			extraGroups = [ "wheel" ];
+		};
+		pingu = {
 			isNormalUser = true;
 			extraGroups = [ "wheel" ];
 		};
@@ -126,10 +165,16 @@ in {
 	};
 
 	hardware = {
-		pulseaudio.enable = false;
-		raspberry-pi."4".fkms-3d.enable = false;
+		# raspberry-pi."4".fkms-3d.enable = true;
+		opengl = {
+			enable = true;
+			setLdLibraryPath = true;
+			package = pkgs.mesa_drivers;
+		};
+		pulseaudio.enable = true;
 	};
 	powerManagement.cpuFreqGovernor = "ondemand";
+	sound.enable = true;
 
 	services = {
 		xserver.enable = false;
@@ -156,7 +201,8 @@ in {
 				 + "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
 				 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
 				)
-				("* * * * * root ${update-website}/bin/update-website")
+				("*/05 * * * * root ${update-website}/bin/update-website")
+				("*/05 * * * * enaya ${update-keys}/bin/update-keys SKyletoft")
 			];
 		};
 		nix-serve = {
@@ -204,7 +250,7 @@ in {
 					enableACME = true;
 					root = "/var/www/liamjardine.se";
 				};
-				"dhack.kyletoft.se" = {
+				"dhack.u3836.se" = {
 					forceSSL = true;
 					enableACME = true;
 					root = "/var/www/dhack.kyletoft.se";
@@ -238,6 +284,11 @@ in {
 						proxy_set_header X-Real-IP $remote_addr;
 						proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 					'';	
+				};
+				"nuschka.u3836.se" = {
+					addSSL = true;
+					enableACME = true;
+					root = "/var/www/nuschka.u3836.se";
 				};
 			};
 		};
