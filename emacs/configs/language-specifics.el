@@ -338,6 +338,12 @@
             (lambda ()
               (set-indents (8 2 t)))))
 
+(use-package agda2-mode
+  :config
+  (add-hook 'agda2-mode-hook
+            (lambda ()
+              (set-indents (8 2 t)))))
+
 ;; Line numbers
 (global-display-line-numbers-mode t) ;; Needed because reasons
 
