@@ -229,11 +229,11 @@
     (kbd "C-V") 'vterm-yank)
 
   (evil-define-key '(normal emacs) vterm-mode-map
-    (kbd "C-F") 'windmove-up
-    (kbd "C-S") 'windmove-down
-    (kbd "C-R") 'windmove-left
-    (kbd "C-T") 'windmove-right
-    (kbd "C-V") 'vterm-yank
+    (kbd "C-S-F") 'windmove-up
+    (kbd "C-S-S") 'windmove-down
+    (kbd "C-S-R") 'windmove-left
+    (kbd "C-S-T") 'windmove-right
+    (kbd "C-S-V") 'vterm-yank
     (kbd "C-v") 'vterm-yank)
 
   (evil-define-key 'normal treemacs-mode-map
