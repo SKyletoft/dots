@@ -20,7 +20,7 @@
 (require 'setup)
 (require 'org-config)
 (require 'evil-config)
-(require 'typst)
+;; (require 'typst)
 (require 'aesthetics)
 (require 'dap)
 (require 'artemis-mode)
