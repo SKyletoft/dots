@@ -115,6 +115,11 @@
   (set-nme (kbd "C-<iso-lefttab>") 'previous-buffer)
   (set-nv  (kbd "SPC <tab>") 'get-buffer-list)
 
+  (set-nm (kbd "-") 'evil-search-forward)
+  (set-nm (kbd "_") 'evil-search-backward)
+  (set-nm (kbd "m") 'evil-search-next)
+  (set-nm (kbd "M") 'evil-search-prev)
+
   ;; Completion-buffer
   (define-key minibuffer-local-map (kbd "C-p") #'minibuffer-previous-completion)
   (define-key minibuffer-local-map (kbd "C-n") #'minibuffer-next-completion)
