@@ -4,7 +4,7 @@
 		stablePkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
 		vimPin.url = "github:NixOS/nixpkgs?rev=9813adc7f7c0edd738c6bdd8431439688bb0cb3d";
 		emacsOverlay.url = "github:nix-community/emacs-overlay";
-		emacsPkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+		emacsPkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
