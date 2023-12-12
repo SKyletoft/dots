@@ -351,6 +351,7 @@ in {
 				nix-mode
 				haskell-mode
 				idris-mode
+				agda2-mode
 				merlin
 				tuareg
 				ocamlformat
