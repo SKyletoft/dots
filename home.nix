@@ -1,9 +1,9 @@
 { config, pkgs, inputs, ... }:
 
 let
-	stablePkgs = inputs.stablePkgs.legacyPackages.${pkgs.system};
-	vimPin = inputs.vimPin.legacyPackages.${pkgs.system};
-	emacsPin = import inputs.emacsPkgs { overlays = [
+	stablePkgs = import inputs.stablePkgs {};
+	vimPin     = import inputs.vimPin {};
+	emacsPin   = import inputs.emacsPkgs { overlays = [
 		inputs.emacsOverlay.overlays.default
 		(final: prev: {
 			tree-sitter-grammars =
