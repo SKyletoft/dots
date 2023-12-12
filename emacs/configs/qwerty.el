@@ -22,11 +22,11 @@
   (set-n (kbd "Ö") 'eval-expression)
   (set-n (kbd "C-n") 'scratch-buffer)
 
-  (define-key evil-normal-state-map (kbd "<escape>") 'evil-esc)
-  (define-key evil-motion-state-map (kbd "<escape>") 'evil-esc)
-  (define-key evil-visual-state-map (kbd "<escape>") 'evil-esc)
-  (define-key evil-insert-state-map (kbd "<escape>") 'evil-esc)
-  (define-key evil-symex-state-map (kbd "<escape>") 'evil-esc)
+  ;; (define-key evil-normal-state-map (kbd "<escape>") 'evil-esc)
+  ;; (define-key evil-motion-state-map (kbd "<escape>") 'evil-esc)
+  ;; (define-key evil-visual-state-map (kbd "<escape>") 'evil-esc)
+  ;; (define-key evil-insert-state-map (kbd "<escape>") 'evil-esc)
+  ;; (define-key evil-symex-state-map (kbd "<escape>") 'evil-esc)
 
   (set-nvm (kbd "a") 'evil-backward-char)
   (set-nvm (kbd "d") 'evil-forward-char)
