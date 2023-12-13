@@ -336,13 +336,13 @@
                     :server-id 'futhark))
   (add-hook 'futhark-mode-hook
             (lambda ()
-              (set-indents (8 2 t)))))
+              (set-indents (8 2 nil)))))
 
 (use-package agda2-mode
   :config
   (add-hook 'agda2-mode-hook
             (lambda ()
-              (set-indents (8 2 t)))))
+              (set-indents (8 2 nil)))))
 
 ;; Line numbers
 (global-display-line-numbers-mode t) ;; Needed because reasons
