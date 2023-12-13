@@ -125,6 +125,9 @@
   (define-key minibuffer-local-map (kbd "C-n") #'minibuffer-next-completion)
   (define-key completion-in-region-mode-map (kbd "C-p") #'minibuffer-previous-completion)
   (define-key completion-in-region-mode-map (kbd "C-n") #'minibuffer-next-completion)
+
+  (evil-define-key '(normal motion) evil-command-window-mode-map
+    (kbd "C-g") 'evil-quit)
   
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC l") 'hs-slime-v)

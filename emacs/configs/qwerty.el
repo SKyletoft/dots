@@ -74,7 +74,6 @@
   (set-n  (kbd "SPC P") 'projectile-switch-project)
   (set-n  (kbd "SPC p") 'projectile-find-file)
   (set-nm (kbd "C-f") 'evil-search-forward)
-  (set-nm (kbd "C-g") (kbd ":%s/"))
 
   ;; Undo and redo
   (set-nmi (kbd "C-z") 'evil-undo)
@@ -126,6 +125,9 @@
   ;;   (kbd "SPC r") 'compile
   ;;   (kbd "<f2>") 'lsp-rename
   ;;   (kbd "<f5>") 'dap-debug)
+
+  (evil-define-key '(normal motion) evil-command-window-mode-map
+    (kbd "C-g") 'evil-quit)
 
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC r") 'hs-slime-v)
