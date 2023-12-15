@@ -94,3 +94,6 @@
 (use-package symex
   :config
   (symex-initialize))
+
+(use-package whitespace
+  :hook (before-save . whitespace-cleanup))
