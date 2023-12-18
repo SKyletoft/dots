@@ -324,6 +324,7 @@ in {
 				topsy
 				ivy
 				projectile
+				fzf
 
 				pdf-tools
 				multi-vterm
