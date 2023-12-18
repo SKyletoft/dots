@@ -99,22 +99,20 @@
       (switch-to-buffer b))))
 
 (use-package haskell-mode
-  :config
-
-(add-hook 'haskell-mode-hook
-          (lambda ()
-            (lsp)
-            (set-indents 8 2 nil)
-            (setq-local lsp-eldoc-enable-hover nil
-                        eldoc-documentation-function #'ignore
-                        eldoc-mode nil
-                        lsp-haskell-plugin-ghcide-type-lenses-global-on nil
-                        lsp-haskell-plugin-ghcide-class-global-on nil)
-            (lsp-restart-workspace)
-            (lsp-ui-doc-mode t)
-            (editorconfig-apply)
-            ;; (ghci)
-            )))
+  :hook
+  (haskell-mode . (lambda ()
+                    (lsp)
+                    (set-indents 8 2 nil)
+                    (setq-local lsp-eldoc-enable-hover nil
+                                eldoc-documentation-function #'ignore
+                                eldoc-mode nil
+                                lsp-haskell-plugin-ghcide-type-lenses-global-on nil
+                                lsp-haskell-plugin-ghcide-class-global-on nil)
+                    (lsp-restart-workspace)
+                    (lsp-ui-doc-mode t)
+                    (editorconfig-apply)
+                    ;; (ghci)
+                    )))
 
 (defun toggle-hole ()
   "Toggle having a ? at the start of the word"
@@ -131,15 +129,33 @@
             (t (insert "?"))))))
 
 (use-package idris-mode
+  :hook (idris-mode . (lambda ()
+                        (set-indents 8 2 nil)
+                        (setq-local topsy-mode 0)))
   :config
-  (setq idris-interpreter-path "idris2")
-  (add-hook 'idris-mode-hook
-            (lambda ()
-              (set-indents 8 2 nil)
-              (setq-local topsy-mode 0)
-              )))
+  (setq idris-interpreter-path "idris2"))
 
 (use-package rustic
+  :hook
+  (rustic-mode . (lambda ()
+                   (when buffer-file-name
+                     (setq-local buffer-save-without-query t))
+                   (set-indents 8 8 t)
+                   (setq-local rust-indent-offset 8
+                               lsp-idle-delay 0.6
+                               eldoc-mode nil
+                               lsp-lens-mode nil
+                               lsp-eldoc-enable-hover nil
+                               eldoc-documentation-function #'ignore
+                               lsp-ui-doc-mode t
+                               lsp-ui-sideline-show-hover nil
+                               lsp-ui-sideline-enable t
+                               fill-column 100)
+                   ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
+                   (lsp-lens-hide)
+                   (lsp-inlay-hints-mode)
+                   (editorconfig-apply)))
+  (rustic-popup-mode . 'evil-emacs-state)
   :config
   (setq rustic-format-on-save nil
         lsp-rust-analyzer-server-display-inlay-hints t
@@ -157,28 +173,7 @@
         lsp-signature-auto-activate nil
         lsp-inlay-hint-enable t
         lsp-inlay-hints-enable t
-        )
-  (add-hook 'rustic-mode-hook
-            (lambda ()
-              (when buffer-file-name
-                (setq-local buffer-save-without-query t))
-              (set-indents 8 8 t)
-              (setq-local rust-indent-offset 8
-                          lsp-idle-delay 0.6
-                          eldoc-mode nil
-                          lsp-lens-mode nil
-                          lsp-eldoc-enable-hover nil
-                          eldoc-documentation-function #'ignore
-                          lsp-ui-doc-mode t
-                          lsp-ui-sideline-show-hover nil
-                          lsp-ui-sideline-enable t
-                          fill-column 100)
-              ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
-              (lsp-lens-hide)
-              (lsp-inlay-hints-mode)
-              (editorconfig-apply)
-              ))
-  (add-hook 'rustic-popup-mode-hook 'evil-emacs-state))
+        ))
 
 (defun rust-compile-and-dap ()
   (interactive)
@@ -282,12 +277,11 @@
                   :server-id 'nix))
 
 (use-package nix-mode
+  :hook
+  (nix-mode . (lambda ()
+                (set-indents 4 4 t)
+                (editorconfig-apply)))
   :config
-  (add-hook 'nix-mode-hook
-            (lambda ()
-              (set-indents 4 4 t)
-              (editorconfig-apply)
-              ))
   (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
   (lsp-register-client
    (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
@@ -295,37 +289,33 @@
                     :server-id 'nix)))
 
 (use-package olivetti
-  :config
-  (add-hook 'olivetti-mode-hook
-            (lambda ()
-              (olivetti-set-width (+ 5 fill-column)))))
+  :hook
+  (olivetti-mode . (lambda () (olivetti-set-width (+ 5 fill-column)))))
 
 (use-package pdf-tools
   :init
   (pdf-tools-install))
 
 (use-package vterm
-  :config
-  (add-hook 'vterm-mode-hook
-            (lambda ()
-              (setq-local vterm-term-environment-variable 'eterm-color
-                          vterm-kill-buffer-on-exit t
-                          vterm-timer-delay nil)
-              (evil-emacs-state))))
+  :hook
+  (vterm-mode . (lambda ()
+                  (setq-local vterm-term-environment-variable 'eterm-color
+                              vterm-kill-buffer-on-exit t
+                              vterm-timer-delay nil)
+                  (evil-emacs-state))))
 
 (use-package treemacs)
 
 (use-package jasmin
+  :hook
+  (jasmin-mode . (lambda () (set-indents 8 8 t)))
   :config
   (setq jasmin-instruction-indent 8
         jasmin-label-indent 0
         jasmin-unknown-line-indent 32
         jasmin-tableswitch-case-indent 16
         jasmin-method-directive-indent 0
-        jasmin-global-directive-indent 0)
-  (add-hook 'jasmin-mode-hook
-            (lambda ()
-              (set-indents 8 8 t))))
+        jasmin-global-directive-indent 0))
 
 (use-package futhark-mode
   :hook
