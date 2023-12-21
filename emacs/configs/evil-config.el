@@ -228,7 +228,10 @@
   :repeat nil
   (if (eq (window-main-window) (selected-window))
       (if (equal (buffer-name) "*dashboard*") nil (kill-buffer))
-    (evil-window-delete)))
+      (if (eq (length (get-buffer-window-list))
+              1)
+          (kill-buffer-and-window)
+        (evil-window-delete))))
 
 (defun evil-esc ()
   "Return to symex state if in a mode supported by symex, otherwise return to normal mode"
