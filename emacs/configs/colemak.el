@@ -128,7 +128,7 @@
 
   (evil-define-key '(normal motion) evil-command-window-mode-map
     (kbd "C-g") 'evil-quit)
-  
+
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC l") 'hs-slime-v)
 
@@ -190,7 +190,7 @@
   (evil-define-key 'visual lisp-mode-shared-map
     (kbd "SPC l") 'eval-region
     (kbd "SPC o") 'indent-region)
-  
+
   (evil-define-key 'visual sh-mode-map
     (kbd "SPC l") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))

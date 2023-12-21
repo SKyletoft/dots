@@ -182,7 +182,7 @@
     (kbd "<f5>") 'rust-compile-and-dap
     (kbd "C-<f5>") 'rustic-cargo-build
     (kbd "M-<f5>") 'rustic-cargo-test)
- 
+
   (evil-define-key 'normal lisp-mode-shared-map
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC f") 'describe-symbol
@@ -262,7 +262,7 @@
   (evil-define-key '(normal emacs motion) Buffer-menu-mode-map
     (kbd "<return>") 'Buffer-menu-this-window
     (kbd "C-n") 'nuke-all-buffers)
-    
+
   (setq symex--user-evil-keyspec
         '(("s" . symex-go-up)
           ("w" . symex-go-down)
