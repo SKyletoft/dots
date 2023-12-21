@@ -234,7 +234,7 @@
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC a") 'lsp-execute-code-action
     (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC t") 'lsp-ui-sideline-mode
     (kbd "SPC G") 'lsp-goto-type-definition
     (kbd "SPC r") 'compile
     (kbd "<f2>") 'lsp-rename
