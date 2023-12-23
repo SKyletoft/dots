@@ -34,7 +34,7 @@
       scroll-step 1
       scroll-conservatively 10000
       scroll-preserve-screen-position 1
-      mouse-wheel-scroll-amount '(1 ((shift) . 1))
+      mouse-wheel-scroll-amount '(1 ((shift) . 2))
       mouse-wheel-progressive-speed nil
       mouse-wheel-follow-mouse 't
       initial-scratch-message "")
