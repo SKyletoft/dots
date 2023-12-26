@@ -50,6 +50,8 @@
   (set-n   (kbd "P")   'evil-enter-replace-state)
 
   (set-nvm (kbd "n")   'evil-insert)
+  (set-nvm (kbd "l")   'evil-open-below)
+  (set-nvm (kbd "L")   'evil-open-above)
   (set-nvm (kbd "e")   'evil-yank)
   (set-nvm (kbd "i")   'evil-delete)
   (set-nm  (kbd "o")   'evil-paste-after)
