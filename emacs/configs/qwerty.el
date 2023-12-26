@@ -107,6 +107,10 @@
   (set-nme (kbd "C-<iso-lefttab>") 'previous-buffer)
   (set-nv  (kbd "SPC <tab>") 'get-buffer-list)
 
+  (set-n (kbd "SPC q") 'evil-quit)
+  (set-n (kbd "SPC Q") 'evil-save-modified-and-close)
+  (set-n (kbd "SPC w") 'save-buffer)
+
   ;; Completion-buffer
   (define-key minibuffer-local-map (kbd "C-p") #'minibuffer-previous-completion)
   (define-key minibuffer-local-map (kbd "C-n") #'minibuffer-next-completion)

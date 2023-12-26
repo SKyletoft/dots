@@ -126,6 +126,10 @@
   (define-key completion-in-region-mode-map (kbd "C-p") #'minibuffer-previous-completion)
   (define-key completion-in-region-mode-map (kbd "C-n") #'minibuffer-next-completion)
 
+  (set-n (kbd "SPC q") 'evil-quit)
+  (set-n (kbd "SPC Q") 'evil-save-modified-and-close)
+  (set-n (kbd "SPC w") 'save-buffer)
+
   (evil-define-key '(normal motion) evil-command-window-mode-map
     (kbd "C-g") 'evil-quit)
 
