@@ -33,8 +33,5 @@
 (require 'colemak)
 
 (if (string-equal (system-name) "medusa")
-    (progn (qwerty-keymap)
-           (setq use-symex-default t))
-  (progn (qwerty-keymap)
-         (setq use-symex-default t)))
-
+    (qwerty-keymap)
+  (qwerty-keymap))
