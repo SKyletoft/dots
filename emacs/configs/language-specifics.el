@@ -4,7 +4,7 @@
 ;; (electric-indent-mode nil)
 (global-eldoc-mode -1)
 
-(setq-default indent-tabs-mode t
+(setq-default indent-tabs-mode 't
               evil-shift-width 8)
 
 (defvaralias 'c-basic-offset 'tab-width)
@@ -26,7 +26,7 @@
 
 (add-hook 'markdown-mode-hook
           (lambda ()
-            (set-indents 16 16 t)
+            (set-indents 16 16 't)
             (olivetti-mode)
             (editorconfig-apply)))
 
@@ -336,7 +336,7 @@
   (agda2-mode . (lambda () (set-indents 8 2 nil))))
 
 ;; Line numbers
-(global-display-line-numbers-mode t) ;; Needed because reasons
+(global-display-line-numbers-mode 't) ;; Needed because reasons
 
 ;; Line numbers
 
