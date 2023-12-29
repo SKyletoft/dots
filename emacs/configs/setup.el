@@ -39,6 +39,8 @@
       mouse-wheel-follow-mouse 't
       initial-scratch-message "")
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Load packages
 
 (use-package editorconfig
