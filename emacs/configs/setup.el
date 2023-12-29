@@ -91,6 +91,11 @@
               ;; ("M-<left>" . nil)
               ;; ("M-<right>" . nil)))
 
+;; (use-package copilot
+;;   :hook (prog-mode . copilot-mode)
+;;   :config
+;;   (setq))
+
 (use-package symex
   :config
   (symex-initialize))

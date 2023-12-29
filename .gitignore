@@ -17,3 +17,4 @@ emacs/racket-mode
 emacs/tree-sitter
 emacs/tramp
 emacs/projectile-bookmarks.eld
+emacs/configs/node-path.el
