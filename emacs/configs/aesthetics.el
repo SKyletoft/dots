@@ -25,12 +25,13 @@
   (setq-default line-spacing 0.1)
 
   (setq fill-column 80)
-  ;; (when (not (string-match "PGTK" system-configuration-features))
-  ;;   (set-frame-parameter (selected-frame)
-  ;;                        'alpha
-  ;;                        '(90 . 90))
-  ;;   (add-to-list 'default-frame-alist
-  ;;                '(alpha . (90 . 90))))
+  (when (not (or (string-match "PGTK" system-configuration-features)
+                 (string-match "wayland" (getenv "XDG_SESSION_TYPE"))))
+    (set-frame-parameter (selected-frame)
+                         'alpha
+                         '(90 . 90))
+    (add-to-list 'default-frame-alist
+                 '(alpha . (90 . 90))))
 
   (load-theme 'custom-monokai t)
   (global-tree-sitter-mode)
