@@ -190,9 +190,11 @@
   (evil-define-key 'normal lisp-mode-shared-map
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC f") 'describe-symbol
-    (kbd "SPC r") 'eval-buffer)
+    (kbd "SPC r") 'eval-buffer
+    (kbd "SPC i") 'indent-according-to-mode)
   (evil-define-key 'visual lisp-mode-shared-map
-    (kbd "SPC r") 'eval-region)
+    (kbd "SPC r") 'eval-region
+    (kbd "SPC i") 'indent-region)
 
   (evil-define-key 'visual sh-mode-map
     (kbd "SPC r") (lambda () (interactive)

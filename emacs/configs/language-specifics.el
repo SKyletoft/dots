@@ -200,8 +200,7 @@
             (flycheck-elsa-setup)
             (setq-local flycheck-mode 1
                         indent-tabs-mode nil)
-            (evil-define-key 'normal emacs-lisp-mode-map (kbd "SPC i") 'indent-according-to-mode)
-            (evil-define-key 'visual emacs-lisp-mode-map (kbd "SPC i") 'indent-region)
+            (add-hook 'before-save-hook 'lisp-kdb t)
             (editorconfig-apply)))
 
 (defun americanise ()
@@ -211,6 +210,11 @@
   (save-excursion
     (replace-string "centre" "center")
     (replace-string "colour" "color")))
+
+(defun lisp-kdb ()
+  (interactive)
+  (save-excursion
+    (replace-string "kdb" "kbd")))
 
 (defun c-cpp-mode-hook-impl ()
   (set-indents 8 8 t)
