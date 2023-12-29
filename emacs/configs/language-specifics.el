@@ -252,14 +252,14 @@
 (add-hook 'css-mode-hook
           (lambda ()
             (setq-local css-indent-offset 8)
-            (set-indents 8 8 t)
+            (set-indents 8 8 't)
             (editorconfig-apply)
-            (add-hook 'before-save-hook 'americanise t)))
+            (add-hook 'before-save-hook 'americanise 't)))
 
 (add-hook 'js-mode-hook
           (lambda ()
             (setq-local js-indent-offset 8)
-            (set-indents 8 8 t)
+            (set-indents 8 8 't)
             (editorconfig-apply)))
 
 (add-hook 'tuareg-mode-hook
