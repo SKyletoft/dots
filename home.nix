@@ -54,6 +54,7 @@ in {
 			eterm8    = pkgs.callPackage ./packages/eterm8.nix {};
 			digiflisp = pkgs.callPackage ./packages/digiflisp.nix {};
 			cppfront  = pkgs.callPackage ./packages/cppfront.nix {};
+			hylo      = pkgs.callPackage ./packages/hylo.nix {};
 			doasedit  = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
 			monitor   = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
 			mdpdf     = pkgs.writeShellScript "mdpdf" ''
