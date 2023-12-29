@@ -187,14 +187,14 @@
     (kbd "C-<f5>") 'rustic-cargo-build
     (kbd "M-<f5>") 'rustic-cargo-test)
 
-  (evil-define-key 'normal lisp-mode-shared-map
+  (evil-define-key '(normal visual) lisp-mode-shared-map
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC f") 'describe-symbol
-    (kbd "SPC r") 'eval-buffer
     (kbd "SPC i") 'indent-according-to-mode)
+  (evil-define-key 'normal lisp-mode-shared-map
+    (kbd "SPC r") 'eval-buffer)
   (evil-define-key 'visual lisp-mode-shared-map
-    (kbd "SPC r") 'eval-region
-    (kbd "SPC i") 'indent-region)
+    (kbd "SPC r") 'eval-region)
 
   (evil-define-key 'visual sh-mode-map
     (kbd "SPC r") (lambda () (interactive)
