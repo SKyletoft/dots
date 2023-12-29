@@ -96,7 +96,7 @@
   (interactive)
   (evil-shift-left (region-beginning) (region-end) 1)
   (evil-force-normal-state)
-  (evil-visual-make-selection (region-beginning) (region-end)))
+  (evil-visual-restore))
 
 (setq backward-delete-char-untabify-method 'hungry)
 (setq-default evil-shift-width tab-width)
