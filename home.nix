@@ -486,8 +486,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 		# ".emacs.d/configs".source       = ./emacs.d/configs;
 		# ".emacs.d/custom-themes".source = ./emacs.d/custom-themes;
 		# ".emacs".source                 = ./emacs;
-		".emacs.d/configs/node-path.el".text = ''
-(provide 'node-path)
+		".emacs.d/configs/node-path.el".text =
+''(provide 'node-path)
 (setq copliot-node-executable "${emacsPin.nodejs}/bin/node")
 '';
 	};
