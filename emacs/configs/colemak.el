@@ -220,6 +220,15 @@
     (kbd "SPC i") 'xref-find-definitions
     (kbd "SPC n") 'lsp-execute-code-action)
 
+  (evil-define-key 'normal nix-mode-map
+    (kbd "SPC o") 'indent-according-to-mode)
+  (evil-define-key 'visual nix-mode-map
+    (kbd "SPC o") 'indent-region)
+  (evil-define-key '(normal visual) nix-mode-map
+    (kbd "SPC i") 'xref-find-definitions
+    (kbd "SPC n") 'lsp-execute-code-action
+    (kbd "SPC e") 'lsp-ui-doc-glance)
+
   (evil-define-key 'normal tuareg-mode-map
     (kbd "SPC i") 'xref-find-definitions
     (kbd "SPC n") 'lsp-execute-code-action

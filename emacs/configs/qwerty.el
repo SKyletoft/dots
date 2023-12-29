@@ -225,6 +225,15 @@
     (kbd "C-<f5>") 'dap-debug
     (kbd "<f5>") 'dap-debug-last)
 
+  (evil-define-key 'normal nix-mode-map
+    (kbd "SPC i") 'indent-according-to-mode)
+  (evil-define-key 'visual nix-mode-map
+    (kbd "SPC i") 'indent-region)
+  (evil-define-key '(normal visual) nix-mode-map
+    (kbd "SPC g") 'xref-find-definitions
+    (kbd "SPC a") 'lsp-execute-code-action
+    (kbd "SPC f") 'lsp-ui-doc-glance)
+
   (evil-define-key 'normal tuareg-mode-map
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC a") 'lsp-execute-code-action
