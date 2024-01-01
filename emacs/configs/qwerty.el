@@ -289,6 +289,14 @@
     (kbd "<return>") 'Buffer-menu-this-window
     (kbd "C-n") 'nuke-all-buffers)
 
+  (evil-define-key 'normal pdf-view-mode-map
+    (kbd "SPC g") 'pdf-view-goto-page
+    (kbd "SPC G") 'pdf-view-goto-label
+    (kbd "w") 'pdf-view-previous-page-command
+    (kbd "a") 'pdf-view-previous-page-command
+    (kbd "s") 'pdf-view-next-page-command
+    (kbd "d") 'pdf-view-next-page-command)
+
   (setq symex--user-evil-keyspec
         '(("s" . symex-go-up)
           ("w" . symex-go-down)
