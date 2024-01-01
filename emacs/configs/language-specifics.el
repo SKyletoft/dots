@@ -30,6 +30,43 @@
             (olivetti-mode)
             (editorconfig-apply)))
 
+(defun vterm-slime ()
+  (interactive)
+  (let ((file-name (buffer-file-name)))
+    (when (not (get-buffer "paste-vterm"))
+      (split-window-horizontally)
+      (windmove-right)
+      (multi-vterm)
+      (rename-buffer "paste-vterm"))))
+
+(defun send-to-vterm ()
+  "Paste the clipboard into the ghci session wrapped in :{ :}"
+  (let ((b (current-buffer)))
+    (switch-to-buffer "paste-vterm")
+    (vterm-yank)
+    (vterm-send-return)
+    (switch-to-buffer b)))
+
+(defun slime-n ()
+  "Copy the current paragraph and send it to ghci"
+  (interactive)
+  (save-mark-and-excursion
+    (copy-paragraph)
+    (send-to-vterm)))
+
+(defun slime-buf ()
+  "Copy the current selection and send it to ghci"
+  (interactive)
+  (mark-whole-buffer)
+  (kill-ring-save (region-beginning) (region-end))
+  (send-to-vterm))
+
+(defun slime-v ()
+  "Copy the current selection and send it to ghci"
+  (interactive)
+  (kill-ring-save (region-beginning) (region-end))
+  (send-to-vterm))
+
 (defun ghci ()
   "Spawn a ghci terminal in a buffer named ghci. If currently in haskell-mode, load the current file"
   (interactive)
