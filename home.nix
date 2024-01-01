@@ -347,6 +347,7 @@ in {
 				flycheck
 				eldoc-box
 				company
+				which-key
 
 				nix-mode
 				haskell-mode

@@ -113,3 +113,8 @@
         fzf/grep-command "rg --no-heading -nH"
         fzf/position-bottom t
         fzf/window-height 15))
+
+(use-package which-key
+  :config
+  (setq which-key-idle-delay 0.2))
+(which-key-mode)
