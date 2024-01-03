@@ -17,11 +17,14 @@ fi
 
 if ! pidof emacs -q ; then
 	emacs --daemon 2> /dev/null
+	echo "Started Emacs daemon"
 fi
 
 if ! pidof ssh-agent -q ; then
-	echo 'eval "$(ssh-agent -s)" && ssh-add ~/.ssh/*' | bash > /dev/null 2> /dev/null
+	eval "$(ssh-agent -s)" > /dev/null 2> /dev/null
+	echo "Started ssh agent"
 fi
+ssh-add ~/.ssh/* > /dev/null 2> /dev/null
 
 if [ "$TERM" == linux ]; then
 	PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
