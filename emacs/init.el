@@ -1,23 +1,14 @@
-(require 'package)
-(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
-(unless(package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(eval-and-compile
-  (setq use-package-always-ensure t
-        use-package-expand-minimally t))
-
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups"))
-      custom-file (locate-user-emacs-file "configs/custom-vars.el"))
-(add-to-list 'custom-theme-load-path "~/.emacs.d/custom-themes")
 (add-to-list 'load-path "~/.emacs.d/configs")
 (add-to-list 'load-path "~/.emacs.d/configs/languages")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/custom-themes")
 ;; (add-to-list 'load-path "~/.emacs.d/configs/copilot.el")
 (load custom-file 'noerror 'nomessage)
 (put 'narrow-to-region 'disabled nil)
 
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups"))
+      custom-file (locate-user-emacs-file "configs/custom-vars.el"))
+
+(require 'packages-config)
 (require 'setup)
 (require 'org-config)
 (require 'evil-config)
@@ -32,6 +23,7 @@
 (require 'qwerty)
 (require 'colemak)
 
+;; Would go in setup.el, but needs to be loaded last
 (if (string-equal (system-name) "medusa")
     (colemak-keymap)
   (qwerty-keymap))
