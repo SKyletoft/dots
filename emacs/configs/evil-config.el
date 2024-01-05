@@ -100,6 +100,7 @@
 
 (setq backward-delete-char-untabify-method 'hungry)
 (setq-default evil-shift-width tab-width)
+(setq align-to-tab-stop nil)
 
 ;; Bracket helpers
 (defun wrap-selection-in (start end)
