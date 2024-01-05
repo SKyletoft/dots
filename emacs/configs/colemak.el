@@ -188,14 +188,24 @@
     (kbd "C-<f5>") 'rustic-cargo-build
     (kbd "M-<f5>") 'rustic-cargo-test)
 
-  (evil-define-key 'normal lisp-mode-shared-map
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC e") 'describe-symbol
-    (kbd "SPC l") 'eval-buffer
-    (kbd "SPC o") 'indent-according-to-mode)
-  (evil-define-key 'visual lisp-mode-shared-map
-    (kbd "SPC l") 'eval-region
-    (kbd "SPC o") 'indent-region)
+  (evil-define-key 'normal emacs-lisp-mode-map
+    (kbd "SPC l") 'eval-buffer)
+  (evil-define-key 'visual emacs-lisp-mode-map
+    (kbd "SPC l") 'eval-region)
+
+  (evil-define-key '(normal visual) lisp-mode-shared-map
+    (kbd "SPC i") 'describe-symbol
+    (kbd "SPC i") 'indent-according-to-mode
+    (kbd "SPC t") 'paredit-forward-slurp-sexp
+    (kbd "SPC T") 'paredit-forward-barf-sexp
+    (kbd "SPC a") 'paredit-backward-slurp-sexp
+    (kbd "SPC A") 'paredit-backward-barf-sexp)
+
+  (evil-define-key 'normal scheme-mode-map
+    (kbd "SPC l") 'slime-n
+    (kbd "SPC L") 'slime-buf)
+  (evil-define-key 'visual scheme-mode-map
+    (kbd "SPC l") 'slime-v)
 
   (evil-define-key 'visual sh-mode-map
     (kbd "SPC l") (lambda () (interactive)
