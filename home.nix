@@ -428,13 +428,14 @@ in {
 
 	home.file = {
 		# Files
-		".gdbinit".source           = ./gdbinit;
-		".nanorc".source            = ./nanorc;
-		".clang-format".source      = ./clang-format;
-		".ghci".source              = ./ghci;
-		".xonshrc".source           = ./xonshrc;
-		".vimrc".source             = ./vimrc;
-		".cargo/config.toml".text   =
+		".gdbinit".source              = ./gdbinit;
+		".nanorc".source               = ./nanorc;
+		".clang-format".source         = ./clang-format;
+		".compile_commands.txt".source = ./clangd_config;
+		".ghci".source                 = ./ghci;
+		".xonshrc".source              = ./xonshrc;
+		".vimrc".source                = ./vimrc;
+		".cargo/config.toml".text      =
 ''[build]
 rustflags = "-Ctarget-cpu=native"
 
