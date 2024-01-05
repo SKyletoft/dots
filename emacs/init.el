@@ -33,5 +33,5 @@
 (require 'colemak)
 
 (if (string-equal (system-name) "medusa")
-    (qwerty-keymap)
+    (colemak-keymap)
   (qwerty-keymap))
