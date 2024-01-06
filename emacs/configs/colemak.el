@@ -131,6 +131,7 @@
   (set-n (kbd "SPC q") 'evil-quit)
   (set-n (kbd "SPC Q") 'evil-save-modified-and-close)
   (set-n (kbd "SPC w") 'save-buffer)
+  (set-n (kbd "SPC f") 'save-buffer)
 
   (evil-define-key '(normal motion) evil-command-window-mode-map
     (kbd "C-g") 'evil-quit)
@@ -144,6 +145,7 @@
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC l") 'hs-slime-n
     (kbd "<f5>") 'hs-run
+    (kbd "<f2>") 'lsp-rename
     (kbd "SPC o") (lambda () (interactive)
                     (save-buffer)
                     (shell-command (concat "hindent "
@@ -224,6 +226,7 @@
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC t") 'lsp-inlay-hints-mode
     (kbd "SPC i") 'xref-find-definitions
+    (kbd "<f2>") 'lsp-rename
     (kbd "SPC n") 'lsp-execute-code-action)
   (evil-define-key 'normal c-mode-map
     (kbd "SPC l") 'recompile
@@ -232,6 +235,7 @@
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC t") 'lsp-inlay-hints-mode
     (kbd "SPC i") 'xref-find-definitions
+    (kbd "<f2>") 'lsp-rename
     (kbd "SPC n") 'lsp-execute-code-action)
 
   (evil-define-key 'normal nix-mode-map
@@ -247,6 +251,7 @@
     (kbd "SPC i") 'xref-find-definitions
     (kbd "SPC n") 'lsp-execute-code-action
     (kbd "SPC e") 'lsp-ui-doc-glance
+    (kbd "<f2>") 'lsp-rename
     (kbd "SPC o") 'ocamlformat)
 
   (evil-define-key 'visual futhark-mode-map

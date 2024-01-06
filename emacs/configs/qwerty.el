@@ -143,6 +143,7 @@
     (kbd "SPC r") 'hs-slime-n
     (kbd "SPC t") 'lsp-ui-sideline-mode
     (kbd "<f5>") 'hs-run
+    (kbd "<f2>") 'lsp-rename
     (kbd "SPC i") (lambda () (interactive)
                     (save-buffer)
                     (shell-command (concat "hindent "
