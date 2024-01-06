@@ -78,21 +78,21 @@
   (define-key evil-emacs-state-map key command))
 
 ;; Indents
-(defun indent-line ()
+(defun my/indent-line ()
   (interactive)
   (evil-shift-right-line 1))
 
-(defun outdent-line ()
+(defun my/outdent-line ()
   (interactive)
   (evil-shift-left-line 1))
 
-(defun indent-region ()
+(defun my/indent-region ()
   (interactive)
   (evil-shift-right (region-beginning) (region-end) 1)
   (evil-force-normal-state)
   (evil-visual-restore))
 
-(defun outdent-region ()
+(defun my/outdent-region ()
   (interactive)
   (evil-shift-left (region-beginning) (region-end) 1)
   (evil-force-normal-state)

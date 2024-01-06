@@ -57,14 +57,14 @@
   (set-nm  (kbd "o")   'evil-paste-after)
   (set-nm  (kbd "M-v") 'evil-visual-block)
 
-  (set-nmi  (kbd "<tab>")         'indent-line) ; For gui
-  (set-nmi  [?\t]                 'indent-line) ; For terminal use
-  (set-nmie (kbd "<backtab>")     'outdent-line)
-  (set-nmie (kbd "<iso-lefttab>") 'outdent-line)
-  (set-v    (kbd "<tab>")         'indent-region)
-  (set-v    [?\t]                 'indent-region)
-  (set-v    (kbd "<backtab>")     'outdent-region)
-  (set-v    (kbd "<iso-lefttab")  'outdent-region)
+  (set-nmi  (kbd "<tab>")         'my/indent-line) ; For gui
+  (set-nmi  [?\t]                 'my/indent-line) ; For terminal use
+  (set-nmie (kbd "<backtab>")     'my/outdent-line)
+  (set-nmie (kbd "<iso-lefttab>") 'my/outdent-line)
+  (set-v    (kbd "<tab>")         'my/indent-region)
+  (set-v    [?\t]                 'my/indent-region)
+  (set-v    (kbd "<backtab>")     'my/outdent-region)
+  (set-v    (kbd "<iso-lefttab")  'my/outdent-region)
 
   (set-nv (kbd "A") 'align-regexp)
 
@@ -195,7 +195,7 @@
 
   (evil-define-key '(normal visual) lisp-mode-shared-map
     (kbd "SPC i") 'describe-symbol
-    (kbd "SPC i") 'indent-according-to-mode
+    (kbd "SPC o") 'indent-according-to-mode
     (kbd "SPC t") 'paredit-forward-slurp-sexp
     (kbd "SPC T") 'paredit-forward-barf-sexp
     (kbd "SPC a") 'paredit-backward-slurp-sexp
@@ -212,10 +212,10 @@
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
   (evil-define-key 'visual c++-mode-map
-    (kbd "SPC i") 'indent-region)
+    (kbd "SPC o") 'indent-region)
 
   (evil-define-key 'visual c-mode-ma
-    (kbd "SPC i") 'indent-region)
+    (kbd "SPC o") 'indent-region)
 
   (evil-define-key 'normal c++-mode-map
     (kbd "SPC l") 'compile

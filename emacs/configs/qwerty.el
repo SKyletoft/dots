@@ -47,14 +47,14 @@
   (set-nm (kbd "C-x") 'evil-delete)
   (set-nm (kbd "M-V") 'evil-visual-block)
 
-  (set-nmi  (kbd "<tab>")         'indent-line) ; For gui
-  (set-nmi  [?\t]                 'indent-line) ; For terminal use
-  (set-nmie (kbd "<backtab>")     'outdent-line)
-  (set-nmie (kbd "<iso-lefttab>") 'outdent-line)
-  (set-v    (kbd "<tab>")         'indent-region)
-  (set-v    [?\t]                 'indent-region)
-  (set-v    (kbd "<backtab>")     'outdent-region)
-  (set-v    (kbd "<iso-lefttab")  'outdent-region)
+  (set-nmi  (kbd "<tab>")         'my/indent-line) ; For gui
+  (set-nmi  [?\t]                 'my/indent-line) ; For terminal use
+  (set-nmie (kbd "<backtab>")     'my/outdent-line)
+  (set-nmie (kbd "<iso-lefttab>") 'my/outdent-line)
+  (set-v    (kbd "<tab>")         'my/indent-region)
+  (set-v    [?\t]                 'my/indent-region)
+  (set-v    (kbd "<backtab>")     'my/outdent-region)
+  (set-v    (kbd "<iso-lefttab")  'my/outdent-region)
 
   (set-v (kbd "M-r") 'align-regexp)
 
