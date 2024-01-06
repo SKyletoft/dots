@@ -226,9 +226,9 @@
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC a") 'lsp-execute-code-action
     (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC v") 'gud-break
     (kbd "<f2>") 'lsp-rename
-    (kbd "C-<f5>") 'dap-debug
-    (kbd "<f5>") 'dap-debug-last)
+    (kbd "<f5>") 'gdb)
   (evil-define-key 'normal c-mode-map
     (kbd "SPC r") 'recompile
     (kbd "SPC R") 'compile
@@ -237,9 +237,21 @@
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC a") 'lsp-execute-code-action
     (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC v") 'gud-break
     (kbd "<f2>") 'lsp-rename
-    (kbd "C-<f5>") 'dap-debug
-    (kbd "<f5>") 'dap-debug-last)
+    (kbd "<f5>") 'gdb)
+
+  (evil-define-key 'normal java-ts-mode-map
+    (kbd "SPC r") 'recompile
+    (kbd "SPC R") 'compile
+    (kbd "SPC i") 'indent-according-to-mode
+    (kbd "SPC f") 'lsp-ui-doc-glance
+    (kbd "SPC g") 'xref-find-definitions
+    (kbd "SPC a") 'lsp-execute-code-action
+    (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC v") 'gud-break
+    (kbd "<f2>") 'lsp-rename
+    (kbd "<f5>") 'jdb)
 
   (evil-define-key 'normal nix-mode-map
     (kbd "SPC i") 'indent-according-to-mode)
@@ -268,6 +280,13 @@
     (kbd "SPC r") 'compile
     (kbd "<f2>") 'lsp-rename
     (kbd "<f5>") 'dap-debug)
+
+  (evil-define-key 'normal gud-mode-map
+    (kbd "SPC d") 'gud-step
+    (kbd "SPC s") 'gud-next
+    (kbd "SPC a") 'gud-stepi
+    (kbd "SPC e") 'gud-cont
+    (kbd "SPC w") 'gud-finish)
 
   (evil-define-key 'insert vterm-mode-map
     (kbd "C-V") 'vterm-yank)
