@@ -218,7 +218,8 @@
     (kbd "SPC i") 'indent-region)
 
   (evil-define-key 'normal c++-mode-map
-    (kbd "SPC r") 'compile
+    (kbd "SPC r") 'recompile
+    (kbd "SPC R") 'compile
     (kbd "SPC i") 'indent-according-to-mode
     (kbd "SPC f") 'lsp-ui-doc-glance
     (kbd "SPC g") 'xref-find-definitions
@@ -228,7 +229,8 @@
     (kbd "C-<f5>") 'dap-debug
     (kbd "<f5>") 'dap-debug-last)
   (evil-define-key 'normal c-mode-map
-    (kbd "SPC r") 'compile
+    (kbd "SPC r") 'recompile
+    (kbd "SPC R") 'compile
     (kbd "SPC i") 'indent-according-to-mode
     (kbd "SPC f") 'lsp-ui-doc-glance
     (kbd "SPC g") 'xref-find-definitions
