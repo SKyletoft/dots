@@ -257,10 +257,11 @@
   (set-indents 8 8 t)
   (setq-local xref-etags-mode 1
               lsp-ui-sideline-show-hover nil
-              lsp-ui-sideline-enable t
+              lsp-ui-sideline-enable 't
               electric-indent-mode -1
               lsp-clients-clangd-arguments '("--header-insertion-decorators=0" "--clang-tidy")
-              )
+              gdb-many-windows-mode 1
+              compile-command "make -ksj ")
   (lsp)
   (lsp-inlay-hints-mode)
   (editorconfig-apply))
