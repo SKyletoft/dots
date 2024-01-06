@@ -262,6 +262,7 @@
               lsp-clients-clangd-arguments '("--header-insertion-decorators=0" "--clang-tidy")
               )
   (lsp)
+  (lsp-inlay-hints-mode)
   (editorconfig-apply))
 
 (add-hook 'c-mode-hook 'c-cpp-mode-hook-impl)
