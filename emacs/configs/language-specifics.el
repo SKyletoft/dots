@@ -24,6 +24,9 @@
               (setq-local artemis-mode 1))
             ))
 
+(setq major-mode-remap-alist
+      '((java-mode . java-ts-mode)))
+
 (add-hook 'markdown-mode-hook
           (lambda ()
             (set-indents 16 16 't)
@@ -274,7 +277,7 @@
 (add-hook 'xref-etags-mode-hook 'evil-emacs-state)
 (add-hook 'xref--xref-buffer-mode-hook 'evil-emacs-state)
 
-(add-hook 'java-mode-hook
+(add-hook 'java-ts-mode-hook
           (lambda ()
             (set-indents 8 8 t)
             (editorconfig-apply)))
