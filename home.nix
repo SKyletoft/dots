@@ -338,6 +338,10 @@ in {
 				lsp-mode
 				lsp-ui
 				dap-mode
+				lsp-java
+
+				realgud
+				realgud-jdb
 
 				# tree-sitter
 				tree-sitter-langs

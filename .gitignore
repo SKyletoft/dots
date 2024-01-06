@@ -18,3 +18,5 @@ emacs/tree-sitter
 emacs/tramp
 emacs/projectile-bookmarks.eld
 emacs/configs/node-path.el
+emacs/eclipse.jdt.ls
+emacs/workspace
