@@ -216,7 +216,7 @@
   (evil-define-key 'visual c++-mode-map
     (kbd "SPC o") 'indent-region)
 
-  (evil-define-key 'visual c-mode-ma
+  (evil-define-key 'visual c-mode-map
     (kbd "SPC o") 'indent-region)
 
   (evil-define-key 'normal c++-mode-map
