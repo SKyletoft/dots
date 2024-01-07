@@ -280,7 +280,9 @@
 (add-hook 'java-ts-mode-hook
           (lambda ()
             (set-indents 8 8 t)
-            (editorconfig-apply)))
+            (editorconfig-apply)
+            (lsp-inlay-hints-mode)
+            (lsp)))
 
 (add-hook 'erlang-mode-hook
           (lambda ()
