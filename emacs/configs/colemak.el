@@ -144,8 +144,8 @@
     (kbd "SPC n") 'lsp-execute-code-action
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC l") 'hs-slime-n
-    (kbd "<f5>") 'hs-run
-    (kbd "<f2>") 'lsp-rename
+    (kbd "<f5>")  'hs-run
+    (kbd "<f2>")  'lsp-rename
     (kbd "SPC o") (lambda () (interactive)
                     (save-buffer)
                     (shell-command (concat "hindent "
@@ -172,16 +172,16 @@
   (evil-define-key 'visual rustic-mode-map
     (kbd "SPC o") 'rustic-format-region)
   (evil-define-key '(normal visual) rustic-mode-map
-    (kbd "SPC e") 'lsp-ui-doc-glance
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC I") 'lsp-goto-type-definition
-    (kbd "SPC n") 'lsp-execute-code-action
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC l") 'rustic-cargo-run
-    (kbd "SPC L") 'compile
-    (kbd "<f2>") 'lsp-rename
-    (kbd "<f4>") 'rustic-popup
-    (kbd "<f5>") 'rust-compile-and-dap
+    (kbd "SPC e")  'lsp-ui-doc-glance
+    (kbd "SPC i")  'xref-find-definitions
+    (kbd "SPC I")  'lsp-goto-type-definition
+    (kbd "SPC n")  'lsp-execute-code-action
+    (kbd "SPC t")  'lsp-inlay-hints-mode
+    (kbd "SPC l")  'rustic-cargo-run
+    (kbd "SPC L")  'compile
+    (kbd "<f2>")   'lsp-rename
+    (kbd "<f4>")   'rustic-popup
+    (kbd "<f5>")   'rust-compile-and-dap
     (kbd "C-<f5>") 'rustic-cargo-build
     (kbd "M-<f5>") 'rustic-cargo-test)
 
@@ -226,7 +226,9 @@
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC t") 'lsp-inlay-hints-mode
     (kbd "SPC i") 'xref-find-definitions
-    (kbd "<f2>") 'lsp-rename
+    (kbd "SPC v") 'gud-break
+    (kbd "<f2>")  'lsp-rename
+    (kbd "<f5>")  'gdb
     (kbd "SPC n") 'lsp-execute-code-action)
   (evil-define-key 'normal c-mode-map
     (kbd "SPC l") 'recompile
@@ -235,7 +237,23 @@
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC t") 'lsp-inlay-hints-mode
     (kbd "SPC i") 'xref-find-definitions
-    (kbd "<f2>") 'lsp-rename
+    (kbd "SPC v") 'gud-break
+    (kbd "<f2>")  'lsp-rename
+    (kbd "<f5>")  'gdb
+    (kbd "SPC n") 'lsp-execute-code-action)
+
+  (evil-define-key 'visual java-ts-mode-map
+    (kbd "SPC o") 'indent-region)
+  (evil-define-key 'normal java-ts-mode-map
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile
+    (kbd "SPC o") 'indent-according-to-mode
+    (kbd "SPC e") 'lsp-ui-doc-glance
+    (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC i") 'xref-find-definitions
+    (kbd "SPC v") 'gud-break
+    (kbd "<f2>")  'lsp-rename
+    (kbd "<f5>")  'jdb
     (kbd "SPC n") 'lsp-execute-code-action)
 
   (evil-define-key 'normal nix-mode-map
@@ -251,7 +269,7 @@
     (kbd "SPC i") 'xref-find-definitions
     (kbd "SPC n") 'lsp-execute-code-action
     (kbd "SPC e") 'lsp-ui-doc-glance
-    (kbd "<f2>") 'lsp-rename
+    (kbd "<f2>")  'lsp-rename
     (kbd "SPC o") 'ocamlformat)
 
   (evil-define-key 'visual futhark-mode-map
@@ -264,8 +282,15 @@
     (kbd "SPC t") 'lsp-ui-sideline-mode
     (kbd "SPC I") 'lsp-goto-type-definition
     (kbd "SPC l") 'compile
-    (kbd "<f2>") 'lsp-rename
-    (kbd "<f5>") 'dap-debug)
+    (kbd "<f2>")  'lsp-rename
+    (kbd "<f5>")  'dap-debug)
+
+  (evil-define-key 'normal gud-mode-map
+    (kbd "SPC t") 'gud-step
+    (kbd "SPC s") 'gud-next
+    (kbd "SPC r") 'gud-stepi
+    (kbd "SPC p") 'gud-cont
+    (kbd "SPC f") 'gud-finish)
 
   (evil-define-key 'insert vterm-mode-map
     (kbd "C-V") 'vterm-yank)
@@ -276,19 +301,27 @@
     (kbd "C-S-R") 'windmove-left
     (kbd "C-S-T") 'windmove-right
     (kbd "C-S-V") 'vterm-yank
-    (kbd "C-v") 'vterm-yank)
+    (kbd "C-v")   'vterm-yank)
 
   (evil-define-key 'normal treemacs-mode-map
-    (kbd "SPC") 'treemacs-TAB-action
-    (kbd "C-<tab>") 'treemacs-switch-workspace
-    (kbd "x") 'treemacs-delete-file
+    (kbd "SPC")      'treemacs-TAB-action
+    (kbd "C-<tab>")  'treemacs-switch-workspace
+    (kbd "x")        'treemacs-delete-file
     (kbd "<delete>") 'treemacs-delete-file
-    (kbd "r") nil
-    (kbd "t") nil)
+    (kbd "r")        nil
+    (kbd "t")        nil)
 
   (evil-define-key '(normal emacs motion) Buffer-menu-mode-map
     (kbd "<return>") 'Buffer-menu-this-window
     (kbd "C-n") 'nuke-all-buffers)
+
+  (evil-define-key 'normal pdf-view-mode-map
+    (kbd "SPC g") 'pdf-view-goto-page
+    (kbd "SPC G") 'pdf-view-goto-label
+    (kbd "f")     'pdf-view-previous-page-command
+    (kbd "r")     'pdf-view-previous-page-command
+    (kbd "s")     'pdf-view-next-page-command
+    (kbd "t")     'pdf-view-next-page-command)
 
   (setq symex--user-evil-keyspec
         '(("s" . symex-go-up)
