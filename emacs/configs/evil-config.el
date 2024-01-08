@@ -77,6 +77,22 @@
   "Set a keybinding in emacs mode"
   (define-key evil-emacs-state-map key command))
 
+(defun my/is-whitespace (c)
+  (or (eq c ?\t)
+      (eq c ?\r)
+      (eq c ?\n)
+      (eq c ?\s)
+      (eq c ?\e)
+      (eq c ?\a)))
+
+(defun my/snippet-complete-or-indent ()
+  "Try to complete with Yasnippet, fallback to company, and indent if both fail."
+  (interactive)
+  (cond
+   ((yas-expand) t)
+   ((my/is-whitespace (char-before)) (my/indent-line))
+   ((call-interactively 'company-complete-selection) t)))
+
 ;; Indents
 (defun my/indent-line ()
   (interactive)

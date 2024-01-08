@@ -15,7 +15,7 @@
   (define-key evil-normal-state-map (kbd "SPC m") 'magit)
   (define-key evil-normal-state-map (kbd "SPC n") 'magit-blame)
   (define-key evil-normal-state-map (kbd "SPC v") 'hs-toggle-hiding)
-  (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
+  (define-key company-active-map (kbd "<tab>") 'my/snippet-complete-or-indent)
   (define-key company-active-map (kbd "<return>") 'newline)
   (set-n (kbd "SPC å") 'projectile-command-map)
   (set-n (kbd "ö") 'evil-ex)
