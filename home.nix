@@ -476,6 +476,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 			"${emacsPin.tree-sitter-grammars.tree-sitter-latex}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-javascript.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-javascript}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-c-sharp.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-c-sharp}/parser";
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;

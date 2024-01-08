@@ -256,6 +256,20 @@
     (kbd "<f5>")  'jdb
     (kbd "SPC n") 'lsp-execute-code-action)
 
+  (evil-define-key 'visual csharp-ts-mode-map
+    (kbd "SPC o") 'indent-region)
+  (evil-define-key 'normal csharp-ts-mode-map
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile
+    (kbd "SPC o") 'indent-according-to-mode
+    (kbd "SPC e") 'lsp-ui-doc-glance
+    (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC i") 'xref-find-definitions
+    (kbd "SPC v") 'gud-break
+    (kbd "<f2>")  'lsp-rename
+    ;; (kbd "<f5>")  'jdb
+    (kbd "SPC n") 'lsp-execute-code-action)
+
   (evil-define-key 'normal nix-mode-map
     (kbd "SPC o") 'indent-according-to-mode)
   (evil-define-key 'visual nix-mode-map

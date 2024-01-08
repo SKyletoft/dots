@@ -13,7 +13,8 @@
   (setq-local tab-width tab-width-p
               evil-shift-width shift-width-p
               indent-tabs-mode tabs-p
-              java-ts-mode-indent-offset shift-width-p))
+              java-ts-mode-indent-offset shift-width-p
+              csharp-ts-mode-indent-offset shift-width-p))
 
 ;; For filetypes without hooks
 (add-hook 'find-file-hook
@@ -26,7 +27,8 @@
             ))
 
 (setq major-mode-remap-alist
-      '((java-mode . java-ts-mode)))
+      '((java-mode . java-ts-mode)
+        (csharp-mode . csharp-ts-mode)))
 
 (add-hook 'markdown-mode-hook
           (lambda ()
@@ -284,6 +286,17 @@
             (editorconfig-apply)
             (lsp-inlay-hints-mode)
             (lsp)))
+
+(add-hook 'csharp-ts-mode-hook
+          (lambda ()
+            (set-indents 8 8 t)
+            (editorconfig-apply)
+            (lsp-inlay-hints-mode)
+            (setq-local compile-command "time dotnet run"
+                        lsp-ui-sideline-enable 't)
+            (lsp))
+          80 ; We want the hook to run late, after direnv mode
+          )
 
 (add-hook 'erlang-mode-hook
           (lambda ()
