@@ -241,9 +241,10 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (flycheck-elsa-setup)
-            (setq-local flycheck-mode 1
-                        indent-tabs-mode nil)
-            (add-hook 'before-save-hook 'lisp-kdb t)
+            (set-indents 8 2 nil)
+            (flycheck-mode)
+            (company-mode)
+            (add-hook 'before-save-hook 'lisp-kbd t)
             (editorconfig-apply)))
 
 (defun americanise ()
