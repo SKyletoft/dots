@@ -12,7 +12,8 @@
 (defun set-indents (tab-width-p shift-width-p tabs-p)
   (setq-local tab-width tab-width-p
               evil-shift-width shift-width-p
-              indent-tabs-mode tabs-p))
+              indent-tabs-mode tabs-p
+              java-ts-mode-indent-offset shift-width-p))
 
 ;; For filetypes without hooks
 (add-hook 'find-file-hook
