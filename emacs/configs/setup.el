@@ -93,10 +93,9 @@
               ;; ("M-<left>" . nil)
               ;; ("M-<right>" . nil)))
 
-;; (use-package copilot
-;;   :hook (prog-mode . copilot-mode)
-;;   :config
-;;   (setq))
+(use-package copilot
+  :hook (prog-mode . copilot-mode)
+  :config (require 'node-path))
 
 (use-package symex
   :config
