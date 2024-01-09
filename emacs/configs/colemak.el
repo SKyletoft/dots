@@ -214,9 +214,11 @@
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
   (evil-define-key 'visual c++-mode-map
+    (kbd "SPC n") 'lsp-execute-code-action
     (kbd "SPC o") 'indent-region)
 
   (evil-define-key 'visual c-mode-map
+    (kbd "SPC n") 'lsp-execute-code-action
     (kbd "SPC o") 'indent-region)
 
   (evil-define-key 'normal c++-mode-map
@@ -245,9 +247,10 @@
   (evil-define-key 'visual java-ts-mode-map
     (kbd "SPC o") 'indent-region)
   (evil-define-key 'normal java-ts-mode-map
+    (kbd "SPC o") 'indent-according-to-mode)
+  (evil-define-key '(normal visual) java-ts-mode-map
     (kbd "SPC l") 'recompile
     (kbd "SPC L") 'compile
-    (kbd "SPC o") 'indent-according-to-mode
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC t") 'lsp-inlay-hints-mode
     (kbd "SPC i") 'xref-find-definitions
@@ -259,9 +262,10 @@
   (evil-define-key 'visual csharp-ts-mode-map
     (kbd "SPC o") 'indent-region)
   (evil-define-key 'normal csharp-ts-mode-map
+    (kbd "SPC o") 'indent-accoridng-to-mode)
+  (evil-define-key '(normal visual) csharp-ts-mode-map
     (kbd "SPC l") 'recompile
     (kbd "SPC L") 'compile
-    (kbd "SPC o") 'indent-according-to-mode
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC t") 'lsp-inlay-hints-mode
     (kbd "SPC i") 'xref-find-definitions
