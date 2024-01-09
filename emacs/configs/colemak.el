@@ -45,7 +45,7 @@
   (set-nvm (kbd "S") (lambda () (interactive) (evil-scroll-line-down 5)))
 
   (set-nvm (kbd "C-f") 'evil-jump-item)
-  (set-nvm (kbd "C-s") 'evil-forward-item)
+  (set-nvm (kbd "C-s") 'evil-jump-paragraph)
   (set-n   (kbd "p")   'evil-replace)
   (set-n   (kbd "P")   'evil-enter-replace-state)
 
