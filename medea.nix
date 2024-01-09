@@ -268,7 +268,7 @@ in {
 		sway.enable = false;
 		kdeconnect = {
 			enable = true;
-			package = pkgs.gnomeExtensions.gsconnect;	
+			package = pkgs.gnomeExtensions.gsconnect;
 		};
 		xwayland.enable = waylandSupport;
 		steam.enable = true;
