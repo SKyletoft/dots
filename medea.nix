@@ -276,6 +276,7 @@ in {
 		xonsh.enable = false;
 		ssh.startAgent = true;
 		adb.enable = true;
+		nix-ld.enable = true;
 	};
 
 	system.stateVersion = "21.11";
