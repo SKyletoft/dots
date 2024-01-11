@@ -55,6 +55,7 @@ in {
 			digiflisp = pkgs.callPackage ./packages/digiflisp.nix {};
 			cppfront  = pkgs.callPackage ./packages/cppfront.nix {};
 			hylo      = pkgs.callPackage ./packages/hylo.nix {};
+			lsp-booster = emacsPin.callPackage ./packages/lsp-booster.nix {};
 			doasedit  = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
 			monitor   = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
 			mdpdf     = pkgs.writeShellScript "mdpdf" ''
@@ -85,7 +86,9 @@ in {
 			# code-server
 			# mdpdf
 			hstr
+
 			rnix-lsp
+			lsp-booster
 		] ++
 		(if gui then [
 			monitor
