@@ -210,6 +210,7 @@
         lsp-rust-analyzer-display-closure-return-type-hints t
         lsp-rust-analyzer-display-parameter-hints t
         lsp-rust-analyzer-display-reborrow-hints nil
+        lsp-rust-analyzer-proc-macro-enable t
         rustic-rustfmt-args "--edition=2021"
         lsp-eldoc-hook nil
         lsp-enable-symbol-highlighting nil
