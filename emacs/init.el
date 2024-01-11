@@ -21,6 +21,7 @@
 (require 'number-hl-mode)
 (require 'language-checking)
 (require 'language-specifics)
+;; (require 'lsp-booster)
 (require 'qwerty)
 (require 'colemak)
 
