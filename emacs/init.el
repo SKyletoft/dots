@@ -27,4 +27,5 @@
 ;; Would go in setup.el, but needs to be loaded last
 (if (string-equal (system-name) "medusa")
     (colemak-keymap)
-  (qwerty-keymap))
+  (qwerty-keymap)
+  (setq left-margin-default 80))

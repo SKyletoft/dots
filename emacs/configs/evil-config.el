@@ -376,6 +376,7 @@
   (symex-select-nearest))
 
 (setq left-margin-p nil)
+(setq-default left-margin-default 85)
 
 (defun set-left-margin (to)
   (interactive)
@@ -384,7 +385,7 @@
 (defun toggle-left-margin ()
   (interactive)
     (set-left-margin (if left-margin-p
-                         85
+                         left-margin-default
                        0))
   (setq-local left-margin-p (not left-margin-p)))
 
