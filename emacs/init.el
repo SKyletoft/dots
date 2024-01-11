@@ -1,6 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/configs")
 (add-to-list 'load-path "~/.emacs.d/configs/languages")
-(add-to-list 'load-path "~/.emacs.d/configs/copilot.el")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/custom-themes")
 ;; (add-to-list 'load-path "~/.emacs.d/configs/copilot.el")
 (put 'narrow-to-region 'disabled nil)
