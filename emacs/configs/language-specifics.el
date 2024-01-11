@@ -256,7 +256,7 @@
     (replace-string "centre" "center")
     (replace-string "colour" "color")))
 
-(defun lisp-kdb ()
+(defun lisp-kbd ()
   (interactive)
   (save-excursion
     (replace-string "kdb" "kbd")))
