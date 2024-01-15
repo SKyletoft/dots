@@ -259,6 +259,17 @@
     (kbd "<f5>")  'jdb
     (kbd "SPC n") 'lsp-execute-code-action)
 
+  (evil-define-key 'visual jasmin-mode-map
+    (kbd "SPC o") 'indent-region)
+  (evil-define-key 'normal jasmin-mode-map
+    (kbd "SPC o") 'indent-according-to-mode)
+  (evil-define-key '(normal visual) jasmin-mode-map
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile
+    (kbd "SPC i") 'xref-find-definitions
+    (kbd "SPC v") 'gud-break
+    (kbd "<f5>")  'jdb)
+
   (evil-define-key 'visual csharp-ts-mode-map
     (kbd "SPC o") 'indent-region)
   (evil-define-key 'normal csharp-ts-mode-map
