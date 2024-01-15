@@ -201,7 +201,8 @@ in {
 			userName  = "Samuel Kyletoft";
 			userEmail = "samuel@kyletoft.se";
 
-			difftastic.enable = true;
+			# Reenable whenever I return to vim
+			# difftastic.enable = true;
 			extraConfig = {
 				core.editor = "emacsclient -r";
 				pull = {
