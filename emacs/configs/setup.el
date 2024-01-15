@@ -117,3 +117,6 @@
   :config
   (setq which-key-idle-delay 0.5))
 (which-key-mode)
+
+(use-package diff-hl)
+(global-diff-hl-mode 1)

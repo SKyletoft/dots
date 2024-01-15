@@ -309,6 +309,7 @@ in {
 				direnv
 				use-package
 				magit
+				diff-hl
 				evil
 				symex
 				treemacs
