@@ -273,7 +273,7 @@
   (evil-define-key 'visual csharp-ts-mode-map
     (kbd "SPC o") 'indent-region)
   (evil-define-key 'normal csharp-ts-mode-map
-    (kbd "SPC o") 'indent-accoridng-to-mode)
+    (kbd "SPC o") 'indent-according-to-mode)
   (evil-define-key '(normal visual) csharp-ts-mode-map
     (kbd "SPC l") 'recompile
     (kbd "SPC L") 'compile
