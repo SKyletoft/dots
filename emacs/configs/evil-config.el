@@ -384,9 +384,9 @@
 
 (defun toggle-left-margin ()
   (interactive)
-    (set-left-margin (if left-margin-p
-                         left-margin-default
-                       0))
+  (set-left-margin (if left-margin-p
+                       0
+                     left-margin-default))
   (setq-local left-margin-p (not left-margin-p)))
 
 (defun get-buffer-list ()
