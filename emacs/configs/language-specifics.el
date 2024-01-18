@@ -270,6 +270,7 @@
               lsp-clients-clangd-arguments '("--header-insertion-decorators=0" "--clang-tidy")
               gdb-many-windows-mode 1
               compile-command "make -ksj ")
+  (direnv-update-environment)
   (lsp)
   (lsp-inlay-hints-mode)
   (editorconfig-apply))
