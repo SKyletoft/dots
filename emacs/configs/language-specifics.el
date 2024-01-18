@@ -297,9 +297,8 @@
             (lsp-inlay-hints-mode)
             (setq-local compile-command "time dotnet run"
                         lsp-ui-sideline-enable 't)
-            (lsp))
-          80 ; We want the hook to run late, after direnv mode
-          )
+            (direnv-update-environment)
+            (lsp)))
 
 (add-hook 'erlang-mode-hook
           (lambda ()
