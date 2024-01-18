@@ -276,7 +276,7 @@
     (kbd "SPC i") 'xref-find-definitions
     (kbd "SPC v") 'gud-break
     (kbd "<f2>")  'lsp-rename
-    (kbd "<f5>")  'jdb
+    (kbd "<f5>")  'jdb)
 
   (evil-define-key 'visual jasmin-mode-map
     (kbd "SPC o") 'indent-region)

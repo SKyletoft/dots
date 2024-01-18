@@ -404,7 +404,7 @@
                    (set-indents 8 8 t)
                    (editorconfig-apply)
                    (direnv-update-environment)
-                   (setq-local lsp-ui-sideline-hover nil
+                   (setq-local lsp-ui-sideline-show-hover nil
                                eldoc-mode nil)
                    (lsp))))
 

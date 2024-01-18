@@ -19,7 +19,7 @@ let
 					"c"
 					"cmake"
 					"java"
-					# "kotlin"
+					"kotlin"
 					"rust"
 					"haskell"
 					"python"
