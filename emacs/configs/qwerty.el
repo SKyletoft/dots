@@ -266,6 +266,26 @@
     (kbd "<f2>") 'lsp-rename
     (kbd "<f5>") 'jdb)
 
+  (evil-define-key 'visual kotlin-mode-map
+    (kbd "SPC i") 'indent-region)
+  (evil-define-key 'normal kotlin-mode-map
+    (kbd "SPC i") 'indent-according-to-mode)
+  (evil-define-key '(normal visual) kotlin-mode-map
+    (kbd "SPC I") (lambda () (interactive)
+                    (save-buffer)
+                    (shell-command (concat "ktlint -F "
+                                           (buffer-file-name)))
+                    (revert-buffer t t t))
+    (kbd "SPC r") 'recompile
+    (kbd "SPC R") 'compile
+    (kbd "SPC f") 'lsp-ui-doc-glance
+    (kbd "SPC g") 'xref-find-definitions
+    (kbd "SPC a") 'lsp-execute-code-action
+    (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC v") 'gud-break
+    (kbd "<f2>")  'lsp-rename
+    (kbd "<f5>")  'jdb)
+
   (evil-define-key 'visual csharp-ts-mode-map
     (kbd "SPC i") 'indent-region)
   (evil-define-key 'normal csharp-ts-mode-map

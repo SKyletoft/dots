@@ -19,7 +19,7 @@ let
 					"c"
 					"cmake"
 					"java"
-					"kotlin"
+					# "kotlin"
 					"rust"
 					"haskell"
 					"python"
@@ -377,7 +377,7 @@ in {
 				glsl-mode
 				bnfc
 				futhark-mode
-				kotlin-ts-mode
+				kotlin-mode
 			]);
 		};
 
@@ -467,8 +467,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 			"${emacsPin.tree-sitter-grammars.tree-sitter-cmake}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-java.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-java}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-kotlin.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-kotlin}/parser";
+		# ".emacs.d/tree-sitter/libtree-sitter-kotlin.so".source =
+			# "${emacsPin.tree-sitter-grammars.tree-sitter-kotlin}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-rust.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-rust}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-haskell.so".source =

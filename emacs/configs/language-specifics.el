@@ -395,6 +395,19 @@
   :hook
   (agda2-mode . (lambda () (set-indents 8 2 nil))))
 
+(defvaralias 'kotlin-tab-width 'tab-width)
+(defvaralias 'kotlin-mode-parenthesized-expression-offset 'tab-width)
+(defvaralias 'kotlin-mode-multiline-statement-offset 'tab-width)
+(use-package kotlin-mode
+  :hook
+  (kotlin-mode . (lambda ()
+                   (set-indents 8 8 t)
+                   (editorconfig-apply)
+                   (direnv-update-environment)
+                   (setq-local lsp-ui-sideline-hover nil
+                               eldoc-mode nil)
+                   (lsp))))
+
 ;; Line numbers
 (global-display-line-numbers-mode 't) ;; Needed because reasons
 
