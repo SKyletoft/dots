@@ -62,7 +62,7 @@ in {
 		kernelPackages = pkgs.linuxPackages_xanmod_latest;
 		supportedFilesystems = [ "ntfs" ];
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
-		kernelModules = [ "amdgpu" "i2c-dev" "xpad" "hid-nintendo" "xone" "xpadneo" ];
+		kernelModules = [ "amdgpu" "kvm-amd" "i2c-dev" "xpad" "hid-nintendo" "xone" "xpadneo" ];
 		extraModulePackages = [
 			config.boot.kernelPackages.xone
 			config.boot.kernelPackages.xpadneo
