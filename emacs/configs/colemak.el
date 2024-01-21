@@ -8,6 +8,7 @@
   (global-set-key (kbd "C-M-o") 'evil-force-normal-state)
   (define-key evil-emacs-state-map (kbd "C-M-i") 'evil-force-normal-state)
   (define-key evil-normal-state-map (kbd "C-M-i") 'evil-emacs-state)
+  (define-key evil-normal-state-map (kbd "z x") 'execute-extended-command)
   (global-set-key (kbd "C-S-p") 'treemacs)
   (set-nm (kbd "C-d") 'multi-vterm)
   (set-nm (kbd "C-+") 'text-scale-increase)
