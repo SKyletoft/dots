@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-	waylandSupport = true;
+	waylandSupport = false;
 	windowsFonts = false;
 	nativeBuild = false;
 	flatpak = false;
