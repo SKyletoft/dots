@@ -184,6 +184,14 @@ in {
 			# settings.PasswordAuthentication = false;
 		};
 
+		cron = {
+			enable = true;
+			systemCronJobs = [
+				# Every hour, check for store corruption
+				"0 * * * * root nix-store --repair --verify --check-contents"
+			];
+		};
+
 		# github-runners = builtins.listToAttrs (builtins.map (i:
 			# let idx = builtins.toString i;
 			# in {
