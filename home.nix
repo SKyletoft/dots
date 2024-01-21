@@ -142,21 +142,6 @@ in {
 			gnome.eog
 			gnome.aisleriot
 			gnome.iagno
-
-			gnomeExtensions.brightness-control-using-ddcutil
-			gnomeExtensions.unite
-			gnomeExtensions.just-perfection
-			gnomeExtensions.add-username-to-top-panel
-			gnomeExtensions.blur-my-shell
-			gnomeExtensions.appindicator
-			gnomeExtensions.hot-edge
-			gnomeExtensions.caffeine
-			gnomeExtensions.sound-output-device-chooser
-			gnomeExtensions.fuzzy-app-search
-			gnomeExtensions.pop-shell
-			gnomeExtensions.burn-my-windows
-			gnomeExtensions.dotspaces
-			gnomeExtensions.hibernate-status-button
 		] else [])
 		++ (if enableHyprland then [
 			hyprland

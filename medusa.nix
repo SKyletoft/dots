@@ -251,7 +251,22 @@ in {
 			git
 			wally-cli
 			zsa-udev-rules
-		];
+		] ++ (with pkgs.gnomeExtensions; [
+			brightness-control-using-ddcutil
+			unite
+			just-perfection
+			add-username-to-top-panel
+			blur-my-shell
+			appindicator
+			hot-edge
+			caffeine
+			sound-output-device-chooser
+			fuzzy-app-search
+			pop-shell
+			burn-my-windows
+			dotspaces
+			hibernate-status-button
+		]);
 		# sessionVariables = {
 			# MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
 			# WEBKIT_DISABLE_COMPOSITING_MODE = "1";
