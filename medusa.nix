@@ -252,23 +252,23 @@ in {
 			wally-cli
 			zsa-udev-rules
 		];
-		sessionVariables = {
-			MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
-			WEBKIT_DISABLE_COMPOSITING_MODE = "1";
-			__GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
-		} // (if waylandSupport then {
-			LIBVA_DRIVER_NAME = "nvidia";
-			CLUTTER_BACKEND = "wayland";
-			XDG_SESSION_TYPE = "wayland";
-			QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-			MOZ_ENABLE_WAYLAND = "1";
-			GBM_BACKEND = "nvidia-drm";
-			__GLX_VENDOR_LIBRARY_NAME = "nvidia";
-			WLR_NO_HARDWARE_CURSORS = "1";
-			WLR_BACKEND = "vulkan";
-			QT_QPA_PLATFORM = "wayland";
-			GDK_BACKEND = "wayland";
-		} else {});
+		# sessionVariables = {
+			# MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
+			# WEBKIT_DISABLE_COMPOSITING_MODE = "1";
+			# __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+		# } // (if waylandSupport then {
+			# LIBVA_DRIVER_NAME = "nvidia";
+			# CLUTTER_BACKEND = "wayland";
+			# XDG_SESSION_TYPE = "wayland";
+			# QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+			# MOZ_ENABLE_WAYLAND = "1";
+			# GBM_BACKEND = "nvidia-drm";
+			# __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+			# WLR_NO_HARDWARE_CURSORS = "1";
+			# WLR_BACKEND = "vulkan";
+			# QT_QPA_PLATFORM = "wayland";
+			# GDK_BACKEND = "wayland";
+		# } else {});
 	};
 
 	security = {
