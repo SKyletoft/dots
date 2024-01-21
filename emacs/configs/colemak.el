@@ -264,13 +264,14 @@
   (evil-define-key 'normal kotlin-mode-map
     (kbd "SPC o") 'indent-according-to-mode)
   (evil-define-key '(normal visual) kotlin-mode-map
-    (kbd "SPC o") (lambda () (interactive)
+    (kbd "SPC O") (lambda () (interactive)
                     (save-buffer)
                     (shell-command (concat "ktlint -F "
                                            (buffer-file-name)))
                     (revert-buffer t t t))
     (kbd "SPC l") 'recompile
     (kbd "SPC L") 'compile
+    (kbd "SPC n") 'lsp-execute-code-action
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC t") 'lsp-inlay-hints-mode
     (kbd "SPC i") 'xref-find-definitions
