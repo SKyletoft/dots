@@ -181,6 +181,14 @@ in {
 
 		flatpak.enable = false;
 		openssh.enable = false;
+
+		cron = {
+			enable = true;
+			systemCronJobs = [
+				# Every hour, check for store corruption
+				"0 * * * * root nix-store --repair --verify --check-contents"
+			];
+		};
 	};
 
 	users.users.u3836 = {
