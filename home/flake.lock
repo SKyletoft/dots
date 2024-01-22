@@ -55,6 +55,24 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1705309234,
+        "narHash": "sha256-uNRRNRKmJyCRC/8y1RqBkqWBLM034y4qN7EprSdmgyA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "1ef2e671c3b0c19053962c07dbda38332dcebf26",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -123,6 +141,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1705536301,
+        "narHash": "sha256-cQiqeRGGoXjXOCGpP+IqWrLzLaFII1O3IbMtDGzOH9g=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "921fb3319c2a296fc65048272d22f3db889d7292",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "emacsOverlay": "emacsOverlay",
@@ -130,6 +164,7 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
         "stablePkgs": "stablePkgs",
+        "upwards": "upwards",
         "vimPin": "vimPin"
       }
     },
@@ -161,6 +196,40 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "upwards": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1705581869,
+        "narHash": "sha256-xuDoa/6mIV1KCf8G6TkYlwZj4F3DwSCdIwC4PkSz0Vc=",
+        "owner": "SKyletoft",
+        "repo": "upwards",
+        "rev": "7a7766854db21d361f1d39b43dfa5e0f48908268",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SKyletoft",
+        "repo": "upwards",
         "type": "github"
       }
     },
