@@ -90,6 +90,7 @@ in {
 
 			rnix-lsp
 			lsp-booster
+			inputs.upwards.packages.${system}.default
 		] ++
 		(if gui then [
 			monitor

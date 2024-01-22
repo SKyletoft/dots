@@ -9,6 +9,7 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		upwards.url = "github:SKyletoft/upwards";
 	};
 
 	outputs = {self, nixpkgs, home-manager, ...}@inputs: {
