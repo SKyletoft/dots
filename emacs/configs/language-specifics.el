@@ -9,6 +9,9 @@
 
 (defvaralias 'c-basic-offset 'tab-width)
 
+(defadvice align-regexp (around smart-tabs activate)
+      (let ((indent-tabs-mode nil)) ad-do-it))
+
 (defun set-indents (tab-width-p shift-width-p tabs-p)
   (setq-local tab-width tab-width-p
               evil-shift-width shift-width-p
