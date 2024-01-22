@@ -415,7 +415,7 @@ in {
 	# };
 
 	xdg.configFile = {
-		"alacritty/alacritty.yml".source  = ./alacritty.yml;
+		"alacritty/alacritty.toml".source = ./alacritty.toml;
 		"rustfmt/rustfmt.toml".source     = ./rustfmt.toml;
 		"kitty/kitty.conf".source         = ./kitty.conf;
 		"hypr/hyprland.conf".source       = ./hyprland.conf;
