@@ -415,7 +415,8 @@
                    (editorconfig-apply)
                    (direnv-update-environment)
                    (setq-local lsp-ui-sideline-show-hover nil
-                               eldoc-mode nil)
+                               eldoc-mode nil
+                               compile-command "make -skj -C ../../.. ")
                    (lsp))))
 
 ;; Line numbers
