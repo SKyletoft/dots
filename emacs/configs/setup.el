@@ -65,18 +65,6 @@
   :config
   (setq direnv-always-show-summary t))
 
-(use-package gcmh
-  :config
-  (setq garbage-collection-messages t
-        gcmh-idle-delay 10
-        gcmh-high-cons-threshold (* 1024 1024 128))
-  (gcmh-mode 1))
-(unless (version< emacs-version "27.0")
-  (add-function :after after-focus-change-function
-                (lambda ()
-                  (unless (frame-focus-state)
-                    (garbage-collect)))))
-
 (use-package yasnippet-snippets)
 (use-package yasnippet
   :config

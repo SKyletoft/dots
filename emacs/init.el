@@ -8,6 +8,9 @@
       custom-file (locate-user-emacs-file "configs/custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
 
+;; Set GC super high and then set it to something reasonable after configuration is done
+(setq gc-cons-threshold (* 16 1024 1024 1024))
+
 (require 'packages-config)
 (require 'setup)
 (require 'org-config)
@@ -29,3 +32,15 @@
     (colemak-keymap)
   (qwerty-keymap)
   (setq left-margin-default 80))
+
+(use-package gcmh
+  :config
+  (setq garbage-collection-messages t
+        gcmh-idle-delay 10
+        gcmh-high-cons-threshold (* 1024 1024 128))
+  (gcmh-mode 1))
+(unless (version< emacs-version "27.0")
+  (add-function :after after-focus-change-function
+                (lambda ()
+                  (unless (frame-focus-state)
+                    (garbage-collect)))))
