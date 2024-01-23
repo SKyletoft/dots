@@ -89,10 +89,10 @@ in {
 				intel-compute-runtime
 				intel-ocl
 				ocl-icd
-			# 	intel-media-driver
-			# 	vaapiIntel
-			# 	vaapiVdpau
-			# 	libvdpau-va-gl
+				# intel-media-driver
+				# vaapiIntel
+				# vaapiVdpau
+				# libvdpau-va-gl
 			];
 		};
 		cpu.intel.updateMicrocode = true;
