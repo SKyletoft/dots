@@ -259,6 +259,8 @@ in {
 			git
 			wally-cli
 			zsa-udev-rules
+
+			gnome.gnome-tweaks
 		] ++ (with pkgs.gnomeExtensions; [
 			brightness-control-using-ddcutil
 			unite

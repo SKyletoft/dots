@@ -130,7 +130,6 @@ in {
 			docker-compose
 		] else [])
 		++ (if enableGnome then [
-			gnome.gnome-tweaks
 			gnome.baobab
 			gnome.totem
 			gnome.gnome-system-monitor
