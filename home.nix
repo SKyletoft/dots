@@ -34,6 +34,14 @@ let
 					"hlsl"
 					"glsl"
 				]));
+			# emacs29 = prev.emacs29.overrideAttrs(old: {
+			#	LSP_USE_PLISTS = true;
+			# });
+			# emacsPackages = prev.emacsPackages.overrideScope' (efinal: eprev: {
+			#	lsp-mode = eprev.lsp-mode.overrideAttrs(old: {
+			#		LSP_USE_PLISTS = true;
+			#	});
+			# });
 		})
 	]; };
 
