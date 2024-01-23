@@ -33,6 +33,8 @@
       '((java-mode . java-ts-mode)
         (csharp-mode . csharp-ts-mode)))
 
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+
 (add-hook 'markdown-mode-hook
           (lambda ()
             (set-indents 16 16 't)
