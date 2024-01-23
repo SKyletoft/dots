@@ -147,16 +147,16 @@
 (use-package haskell-mode
   :hook
   (haskell-mode . (lambda ()
-                    (lsp)
+                    (direnv-update-environment)
                     (set-indents 8 2 nil)
                     (setq-local lsp-eldoc-enable-hover nil
                                 eldoc-documentation-function #'ignore
                                 eldoc-mode nil
                                 lsp-haskell-plugin-ghcide-type-lenses-global-on nil
                                 lsp-haskell-plugin-ghcide-class-global-on nil)
-                    (lsp-restart-workspace)
                     (lsp-ui-doc-mode t)
                     (editorconfig-apply)
+                    (lsp)
                     ;; (ghci)
                     )))
 
@@ -197,7 +197,7 @@
                                lsp-ui-sideline-show-hover nil
                                lsp-ui-sideline-enable t
                                fill-column 100)
-                   ;; (add-hook 'before-save-hook 'lsp-format-buffer nil t)
+                   (direnv-update-environment)
                    (lsp-lens-hide)
                    (lsp-inlay-hints-mode)
                    (editorconfig-apply)))
@@ -290,6 +290,7 @@
           (lambda ()
             (set-indents 8 8 t)
             (editorconfig-apply)
+            (direnv-update-environment)
             (lsp-inlay-hints-mode)
             (lsp)))
 
@@ -334,6 +335,7 @@
             (ocamlformat-setup-indents)
             (set-indents 8 2 nil)
             (setq-local eldoc-mode nil)
+            (direnv-update-environment)
             (lsp)
             (editorconfig-apply)))
 
@@ -347,7 +349,9 @@
   :hook
   (nix-mode . (lambda ()
                 (set-indents 4 4 t)
-                (editorconfig-apply)))
+                (editorconfig-apply)
+                (direnv-update-environment)
+                (lsp)))
   :config
   (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
   (lsp-register-client
@@ -386,7 +390,10 @@
 
 (use-package futhark-mode
   :hook
-  (futhark-mode . (lambda () (set-indents 8 2 nil)))
+  (futhark-mode . (lambda ()
+                    (set-indents 8 2 nil)
+                    (direnv-update-environment)
+                    (lsp)))
   :config
   (add-to-list 'lsp-language-id-configuration '(futhark-mode . "futhark"))
   (lsp-register-client
