@@ -18,9 +18,7 @@ in {
 			allowUnfree = true;
 			allowBroken = false;
 			packageOverrides = pkgs: {
-				vaapiIntel = pkgs.vaapiIntel.override {
-					enableHybridCodec = true;
-				};
+				vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
 			};
 		};
 		overlays = (import ./overlays.nix) nativeBuild;
