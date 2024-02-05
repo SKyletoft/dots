@@ -272,7 +272,7 @@ in {
 			in
 			with vimPin.vimPlugins; [
 				custom_monokai
-				treesitter
+				# treesitter
 				vim-table-mode
 				zen-mode-nvim
 				vim-slime
