@@ -84,13 +84,13 @@ in {
 		opengl = {
 			enable = true;
 			extraPackages = with pkgs; [
-				intel-compute-runtime
-				intel-ocl
-				ocl-icd
-				# intel-media-driver
+				# intel-compute-runtime
+				# intel-ocl
+				# ocl-icd
+				intel-media-driver
 				# vaapiIntel
-				# vaapiVdpau
-				# libvdpau-va-gl
+				vaapiVdpau
+				libvdpau-va-gl
 			];
 		};
 		cpu.intel.updateMicrocode = true;
