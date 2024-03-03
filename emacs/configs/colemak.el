@@ -84,6 +84,7 @@
   ;; Find
   (set-n  (kbd "SPC P") 'projectile-switch-project)
   (set-n  (kbd "SPC p") 'projectile-find-file)
+  (set-n  (kbd "SPC d") 'ripgrep-regexp)
 
   ;; Undo and redo
   (set-nmi (kbd "C-q") 'evil-undo)
