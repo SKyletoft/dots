@@ -108,6 +108,7 @@ in {
 			alacritty
 			vscode
 			pinta
+			gimp
 			cura
 			blender
 
