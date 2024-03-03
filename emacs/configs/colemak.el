@@ -254,6 +254,10 @@
     (kbd "<f2>")  'lsp-rename
     (kbd "<f5>")  'gdb
     (kbd "SPC n") 'lsp-execute-code-action)
+  (evil-define-key '(normal visual) makefile-gmake-mode-map
+    (kbd "<f5>")  'gdb
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile)
 
   (evil-define-key 'visual java-ts-mode-map
     (kbd "SPC o") 'indent-region)
