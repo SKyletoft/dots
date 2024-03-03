@@ -3,7 +3,7 @@
 		nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 		stablePkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
 		vimPin.url = "github:NixOS/nixpkgs?rev=9813adc7f7c0edd738c6bdd8431439688bb0cb3d";
-		emacsOverlay.url = "github:nix-community/emacs-overlay?rev=15237ecc6c37985dcb55574d6df249d333f0dff7";
+		emacsOverlay.url = "github:nix-community/emacs-overlay?rev=0c9de2665a034fbc19782514e32595412cb6a781";
 		emacsPkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
 		home-manager = {
 			url = "github:nix-community/home-manager";
