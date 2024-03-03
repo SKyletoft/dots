@@ -125,7 +125,6 @@ in {
 			xournalpp
 			prismlauncher
 			dolphin-emu-primehack
-			pinta
 			fragments
 			# heroic
 			ruffle
