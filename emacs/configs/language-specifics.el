@@ -441,6 +441,7 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   (unless (or (minibufferp)
               (member major-mode display-line-numbers-exempt-modes))
     (display-line-numbers-mode)
-    (setq-local display-line-numbers 'relative)))
+    ;; (setq-local display-line-numbers 'relative)
+    ))
 
 (global-display-line-numbers-mode)
