@@ -1,12 +1,12 @@
 (setq number-highlights
-      '(("1" . 'font-lock-comment-face)
-        ("2" . 'font-lock-type-face)
-        ("3" . 'font-lock-keyword-face)
-        ("4" . 'font-lock-function-name-face)
-        ("5" . 'font-lock-string-name-face)
-        ("6" . 'font-lock-negation-char-face)
-        ("7" . 'font-lock-warning-face)
-        ("8" . 'font-lock-constant-face) ;
+      '(("1" . 'org-level-1)
+        ("2" . 'org-level-2)
+        ("3" . 'org-level-3)
+        ("4" . 'org-level-4)
+        ("5" . 'org-level-5)
+        ("6" . 'org-level-6)
+        ("7" . 'org-level-7)
+        ("8" . 'org-level-8) ;
         ("9" . 'font-lock-preprocessor-face)
         ("0" . 'font-lock-doc-face)
         ))
