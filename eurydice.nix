@@ -2,6 +2,7 @@
 
 let
 	update-keys = pkgs.writeShellScriptBin "update-keys" ''
+		mkdir -p ~/.ssh
 		cd ~/.ssh
 
 		${pkgs.curl}/bin/curl \
