@@ -159,6 +159,10 @@ in {
 			isNormalUser = true;
 			extraGroups = [ "wheel" ];
 		};
+		rachel-spechtachel = {
+			isNormalUser = true;
+			extraGroups = [ "wheel" ];
+		};
 		maky.isNormalUser = true;
 		liam.isNormalUser = true;
 		enaya.isNormalUser = true;
