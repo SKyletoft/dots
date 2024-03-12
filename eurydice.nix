@@ -19,7 +19,14 @@ let
 			https://github.com/SKyletoft/valkompass_2022 tmp1/valkompass
 		${pkgs.git}/bin/git clone \
 			https://github.com/SKyletoft/cv tmp0
+		cd tmp0
+		${pkgs.tectonic}/bin/tectonic en.tex
+		${pkgs.tectonic}/bin/tectonic sv.tex
+		mv en.pdf ../tmp1/cv/en/CV.pdf
+		mv sv.pdf ../tmp1/cv/sv/CV.pdf
+		cd ..
 		rm -rf \
+			tmp0
 			tmp1/.git \
 			tmp1/.gitignore \
 			tmp1/LICENSE \
@@ -27,12 +34,6 @@ let
 			tmp1/valkompass/.gitignore \
 			tmp1/valkompass/LICENSE \
 			samuel.kyletoft.se
-		cd tmp0
-		nix-shell --run "make"
-		mv en.pdf ../tmp1/cv/en/CV.pdf
-		mv sv.pdf ../tmp1/cv/sv/CV.pdf
-		cd ..
-		rm tmp0
 		mv tmp1 samuel.kyletoft.se
 
 		sleep 15s
