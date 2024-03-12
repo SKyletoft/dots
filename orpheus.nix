@@ -92,6 +92,10 @@
 			package = pkgs.ananicy-cpp;
 		};
 		mullvad-vpn.enable = true;
+		lorri = {
+			enable = true;
+			package = pkgs.lorri;
+		};
 	};
 
 	programs = {

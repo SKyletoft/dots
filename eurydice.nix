@@ -209,6 +209,10 @@ in {
 				("*/05 * * * * enaya ${update-keys}/bin/update-keys SKyletoft")
 			];
 		};
+		lorri = {
+			enable = true;
+			package = pkgs.lorri;
+		};
 		nix-serve = {
 			enable = true;
 			secretKeyFile = "/var/cache-priv-key.pem";

@@ -194,6 +194,11 @@ in {
 			];
 		};
 
+		lorri = {
+			enable = true;
+			package = pkgs.lorri;
+		};
+
 		# github-runners = builtins.listToAttrs (builtins.map (i:
 			# let idx = builtins.toString i;
 			# in {

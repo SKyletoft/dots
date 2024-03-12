@@ -407,7 +407,6 @@ in {
 		};
 	};
 
-	services.lorri.enable = true;
 	services.emacs = {
 		enable = false;
 		defaultEditor = true;
