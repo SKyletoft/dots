@@ -389,6 +389,7 @@ in {
 				# hms = "home-manager switch --impure";
 				hms = "echo 'cd ~/dots/home && home-manager switch --flake . --impure -L' | bash";
 				restart-emacs = "pkill emacs && emacs --daemon";
+				".." = "cd ..";
 			};
 
 			shellOptions = [
