@@ -398,6 +398,39 @@
                     :activation-fn (lsp-activate-on "futhark")
                     :server-id 'futhark)))
 
+(use-package wgsl-mode
+  :hook
+  (wgsl-mode . (lambda ()
+                    (set-indents 8 8 t)
+                    (direnv-update-environment)
+                    (lsp)
+                    (setq-local compile-command "cargo run"
+                                wgsl-inlay-hints-enabled t
+                                wgsl-inlay-hints-types t
+                                wgsl-inlay-hints-parameters t
+                                wgsl-inlay-hints-struct-layout nil
+                                wgsl-inlay-hints-type-verbosity "compact"
+                                wgsl-diagnostics-types t
+                                wgsl-diagnostics-naga-parsing nil
+                                wgsl-diagnostics-naga-validation t
+                                wgsl-diagnostics-naga-version "0.14")))
+  :config
+  (add-to-list 'lsp-language-id-configuration '(wgsl-mode . "wgsl"))
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("wgsl_analyzer"))
+                    :activation-fn (lsp-activate-on "wgsl")
+                    :server-id 'wgsl))
+  (lsp-register-custom-settings
+   '(("wgsl-analyzer.inlayHints.enabled" wgsl-inlay-hints-enabled)
+     ("wgsl-analyzer.inlayHints.typeHints" wgsl-inlay-hints-types)
+     ("wgsl-analyzer.inlayHints.parameterHints" wgsl-inlay-hints-parameters)
+     ("wgsl-analyzer.inlayHints.structLayoutHints" wgsl-inlay-hints-struct-layout)
+     ("wgsl-analyzer.inlayHints.typeVerbosity" wgsl-inlay-hints-type-verbosity)
+     ("wgsl-analyzer.diagnostics.typeErrors" wgsl-diagnostics-types)
+     ("wgsl-analyzer.diagnostics.nagaParsing" wgsl-diagnostics-naga-parsing)
+     ("wgsl-analyzer.diagnostics.nagaValidation" wgsl-diagnostics-naga-validation)
+     ("wgsl-analyzer.diagnostics.nagaVersion" wgsl-diagnostics-naga-version))))
+
 (use-package agda2-mode
   :hook
   (agda2-mode . (lambda () (set-indents 8 2 nil))))
