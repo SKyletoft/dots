@@ -218,7 +218,11 @@ in {
 				 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
 				)
 				("*/05 * * * * root ${update-website}/bin/update-website")
-				("*/05 * * * * enaya ${update-keys}/bin/update-keys SKyletoft")
+				("*/05 * * * * enaya ${update-keys}/bin/update-keys Enayaaa")
+				("*/05 * * * * u3836 ${update-keys}/bin/update-keys SKyletoft")
+				("*/05 * * * * pingu ${update-keys}/bin/update-keys The1Penguin")
+				("*/05 * * * * rachel-spechtachel ${update-keys}/bin/update-keys rachelambda")
+				("*/05 * * * * liam ${update-keys}/bin/update-keys liamjardine")
 			];
 		};
 		lorri = {
