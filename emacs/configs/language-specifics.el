@@ -345,7 +345,7 @@
   :hook
   (nix-mode . (lambda ()
                 (set-indents 4 4 t)
-                (setq-local compile-command "nix run")
+                (setq-local compile-command "nix run -L")
                 (editorconfig-apply)
                 (direnv-update-environment)
                 (lsp)))
