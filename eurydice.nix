@@ -140,8 +140,8 @@ in {
 	};
 
 	documentation = {
-		dev.enable = true;
-		man.generateCaches = true;
+		dev.enable = false;
+		man.generateCaches = false;
 	};
 
 	environment.systemPackages = with pkgs; [
