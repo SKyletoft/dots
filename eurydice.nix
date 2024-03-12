@@ -150,7 +150,9 @@ in {
 		man-pages
 		man-pages-posix
 		hugo
+
 		update-website
+		update-keys
 
 		jellyfin-ffmpeg
 	];
