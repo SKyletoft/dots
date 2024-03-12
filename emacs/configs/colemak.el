@@ -325,11 +325,15 @@
   (evil-define-key 'visual nix-mode-map
     (kbd "SPC o") 'indent-region)
   (evil-define-key '(normal visual) nix-mode-map
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile
     (kbd "SPC i") 'xref-find-definitions
     (kbd "SPC n") 'lsp-execute-code-action
     (kbd "SPC e") 'lsp-ui-doc-glance)
 
   (evil-define-key 'normal tuareg-mode-map
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile
     (kbd "SPC i") 'xref-find-definitions
     (kbd "SPC n") 'lsp-execute-code-action
     (kbd "SPC e") 'lsp-ui-doc-glance
@@ -339,13 +343,14 @@
   (evil-define-key 'visual futhark-mode-map
     (kbd "SPC o") 'indent-region)
   (evil-define-key 'normal futhark-mode-map
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile
     (kbd "SPC o") 'indent-according-to-mode
     (kbd "SPC i") 'xref-find-definitions
     (kbd "SPC n") 'lsp-execute-code-action
     (kbd "SPC e") 'lsp-ui-doc-glance
     (kbd "SPC t") 'lsp-ui-sideline-mode
     (kbd "SPC I") 'lsp-goto-type-definition
-    (kbd "SPC l") 'compile
     (kbd "<f2>")  'lsp-rename
     (kbd "<f5>")  'dap-debug)
 
