@@ -5,10 +5,10 @@ let
 		cd ~/.ssh
 
 		${pkgs.curl}/bin/curl \
-			https://github.com/$(echo $1).keys
+			https://github.com/$(echo $1).keys \
 			> authorized_keys
 		chmod 700 ~/.ssh
-		chmod 600 ~/.ssh/authorized_keys
+		chmod 644 ~/.ssh/authorized_keys
 	'';
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
