@@ -14,7 +14,7 @@
 	nix = {
 		settings = {
 			auto-optimise-store = true;
-			post-build-hook = "/home/u3836/dots/upload-to-cache.sh";
+			# post-build-hook = "/home/u3836/dots/upload-to-cache.sh";
 			substituters = [
 				"https://nix-community.cachix.org"
 				"https://cache.nixos.org/"
@@ -26,9 +26,9 @@
 			];
 		};
 		gc = {
-			automatic = true;
-			dates = "weekly";
-			options = "--delete-older-than 30d";
+			# automatic = true;
+			# dates = "weekly";
+			# options = "--delete-older-than 30d";
 		};
 		extraOptions = ''
 			min-free = ${toString (1024 * 1024 * 1024)}
@@ -38,10 +38,10 @@
 
 	networking = {
 		hostName = "orpheus";
-		interfaces.eth0.ipv4.addresses = [ {
-			address = "192.168.0.202";
-			prefixLength = 24;
-		} ];
+		# interfaces.eth0.ipv4.addresses = [ {
+		#	address = "192.168.0.202";
+		#	prefixLength = 24;
+		# } ];
 		firewall = {
 			enable = true;
 			allowedTCPPorts =
@@ -57,21 +57,29 @@
 		options = [ "noatime" ];
 	};
 
-	documentation = {
-		dev.enable = true;
-		man.generateCaches = true;
-	};
+	# documentation = {
+		# dev.enable = true;
+		# man.generateCaches = true;
+	# };
 
 	environment.systemPackages = with pkgs; [
 		micro
-		man-pages
-		man-pages-posix
+		# man-pages
+		# man-pages-posix
 	];
 
 
-	users.users.u3836 = {
-		isNormalUser = true;
-		extraGroups = [ "wheel" ];
+	users.users = {
+		u3836 = {
+			isNormalUser = true;
+			extraGroups = [ "wheel" ];
+		};
+		root.openssh.authorizedKeys.keys = [
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNXgCDGyWMeQBTCloSMMEASjOLjvIOcx+HazUOrS3OR"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGzlJyY+rRehRff2s9aL8XtA6flDCqnLBz0AN7q50ivU"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJB8NV4FJc7y9gBDTBtfenUSm97Hn1eFRjmwMnILB737"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOKctWKuIyHNzEe6hPt/1B/elI+0hvXKjLgUS5Kiz15o"
+		];
 	};
 
 	hardware = {
@@ -87,21 +95,32 @@
 			settings.PasswordAuthentication = false;
 		};
 		earlyoom.enable = true;
-		ananicy = {
-			enable = true;
-			package = pkgs.ananicy-cpp;
-		};
-		mullvad-vpn.enable = true;
+		# ananicy = {
+			# enable = true;
+			# package = pkgs.ananicy-cpp;
+		# };
+		# mullvad-vpn.enable = true;
 		lorri = {
 			enable = true;
 			package = pkgs.lorri;
+		};
+		cron = {
+			enable = true;
+			systemCronJobs = [
+				("* * * * * u3836 "
+					+ "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status "
+					+ "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
+					+ "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
+					+ "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
+				)
+			];
 		};
 	};
 
 	programs = {
 		bash.shellInit = ''
-			${pkgs.neofetch}/bin/neofetch --disable packages
-			SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3
+			[[ $- == *i* ]] || return
+			cat /tmp/eurydice-status
 		'';
 		ssh.startAgent = true;
 	};
