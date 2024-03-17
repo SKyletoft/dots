@@ -62,16 +62,9 @@ in {
 		};
 	};
 
-	documentation = {
-		dev.enable = false;
-		man.generateCaches = false;
-	};
-
 	environment.systemPackages = with pkgs; [
 		micro
 		git
-		man-pages
-		man-pages-posix
 
 		update-system
 		update-keys
