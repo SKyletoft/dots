@@ -92,8 +92,7 @@ in {
 			xclip
 			direnv
 			doasedit
-			# code-server
-			# mdpdf
+			mdpdf
 			hstr
 
 			rnix-lsp
