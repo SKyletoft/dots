@@ -302,17 +302,17 @@ in {
 				emacsPin.nodejs
 
 				direnv
-				use-package
+				# use-package
 				magit
 				diff-hl
-				evil
-				symex
+				# evil
+				# symex
 				treemacs
 				telephone-line
 				ligature
-				dashboard
+				# dashboard
 				gcmh
-				crdt
+				# crdt
 				transpose-frame
 				tramp
 				editorconfig
@@ -321,7 +321,7 @@ in {
 				yasnippet-snippets
 				mixed-pitch
 				company-posframe
-				topsy
+				# topsy
 				ivy
 				projectile
 				fzf
@@ -330,9 +330,9 @@ in {
 				multi-vterm
 				vterm
 
-				org-appear
-				org-superstar
-				olivetti
+				# org-appear
+				# org-superstar
+				# olivetti
 
 				lsp-mode
 				lsp-ui
@@ -345,10 +345,10 @@ in {
 				# tree-sitter
 				tree-sitter-langs
 				evil-textobj-tree-sitter
-				paredit
+				# paredit
 
 				flycheck
-				eldoc-box
+				# eldoc-box
 				company
 				which-key
 

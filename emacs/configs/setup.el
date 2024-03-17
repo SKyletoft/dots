@@ -85,9 +85,9 @@
   ;; :hook (prog-mode . copilot-mode)
   ;; :config (require 'node-path))
 
-(use-package symex
-  :config
-  (symex-initialize))
+;; (use-package symex
+;;   :config
+;;   (symex-initialize))
 
 (use-package whitespace
   :hook (before-save . whitespace-cleanup))
@@ -108,3 +108,5 @@
 
 (use-package diff-hl)
 (global-diff-hl-mode 1)
+
+(use-package company)

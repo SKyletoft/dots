@@ -13,7 +13,7 @@
 
 (require 'packages-config)
 (require 'setup)
-(require 'org-config)
+;; (require 'org-config)
 (require 'evil-config)
 ;; (require 'typst)
 (require 'aesthetics)
@@ -21,8 +21,8 @@
 (require 'artemis-mode)
 (require 'jasmin)
 (require 'number-hl-mode)
-(require 'language-checking)
 (require 'language-specifics)
+(require 'language-checking)
 ;; (require 'lsp-booster)
 (require 'qwerty)
 (require 'colemak)

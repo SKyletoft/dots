@@ -38,7 +38,7 @@
 (add-hook 'markdown-mode-hook
           (lambda ()
             (set-indents 16 16 't)
-            (olivetti-mode)
+            ;; (olivetti-mode)
             (editorconfig-apply)))
 
 (defun vterm-slime ()
@@ -356,9 +356,9 @@
                     :major-modes '(nix-mode)
                     :server-id 'nix)))
 
-(use-package olivetti
-  :hook
-  (olivetti-mode . (lambda () (olivetti-set-width (+ 5 fill-column)))))
+;; (use-package olivetti
+;;   :hook
+;;   (olivetti-mode . (lambda () (olivetti-set-width (+ 5 fill-column)))))
 
 (use-package pdf-tools
   :init
