@@ -58,12 +58,8 @@ in {
 		hostName = "orpheus";
 		firewall = {
 			enable = true;
-			allowedTCPPorts =
-				[ 80 443 8000 8080 12825 ] # Development
-				++ [ 53 1401 ]; # Mullvad
-			allowedUDPPorts =
-				[ 80 443 8000 8080 12825 ] # Development
-				++ [ 53 1194 1195 1196 1197 1399 1391 1392 1393 1400 51820 ]; # Mullvad
+			allowedTCPPorts = [ 53 1401 ]; # Mullvad
+			allowedUDPPorts = [ 53 1194 1195 1196 1197 1399 1391 1392 1393 1400 51820 ]; # Mullvad
 		};
 	};
 
@@ -112,7 +108,7 @@ in {
 		pulseaudio.enable = true;
 	};
 	powerManagement.cpuFreqGovernor = "ondemand";
-	sound.enable = false;
+	sound.enable = true;
 
 	services = {
 		xserver.enable = false;
@@ -130,10 +126,9 @@ in {
 			enable = true;
 			systemCronJobs = [
 				("* * * * * u3836 "
-				 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status "
-				 + "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
-				 + "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
-				 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
+				 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status; "
+				 + "SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status; "
+				 + "curl https://am.i.mullvad.net/connected >> /tmp/eurydice-status; "
 				)
 				("*/05 * * * * u3836 ${update-keys}/bin/update-keys SKyletoft")
 			];
