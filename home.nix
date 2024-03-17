@@ -120,6 +120,7 @@ in {
 			stablePkgs.libreoffice
 			stablePkgs.hunspellDicts.sv_SE
 
+			mullvad-vpn
 			ark
 			pcmanfm
 			vlc
