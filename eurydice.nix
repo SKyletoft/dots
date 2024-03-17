@@ -171,6 +171,13 @@ in {
 		maky.isNormalUser = true;
 		liam.isNormalUser = true;
 		enaya.isNormalUser = true;
+
+		root.openssh.authorizedKeys.keys = [
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNXgCDGyWMeQBTCloSMMEASjOLjvIOcx+HazUOrS3OR"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGzlJyY+rRehRff2s9aL8XtA6flDCqnLBz0AN7q50ivU"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJB8NV4FJc7y9gBDTBtfenUSm97Hn1eFRjmwMnILB737"
+			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOKctWKuIyHNzEe6hPt/1B/elI+0hvXKjLgUS5Kiz15o"
+		];
 	};
 
 	hardware = {
