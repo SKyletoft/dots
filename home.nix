@@ -101,6 +101,8 @@ in {
 			inputs.upwards.packages.${system}.default
 		] ++
 		(if gui then [
+			inputs.lem.packages.${system}.default
+
 			monitor
 			iptsd
 
