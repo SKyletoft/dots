@@ -178,7 +178,7 @@ in {
 		'';
 
 		journald.extraConfig = "SystemMaxUse=256M";
-		# mullvad-vpn.enable = true;
+		mullvad-vpn.enable = true;
 		fwupd.enable = true;
 		flatpak.enable = flatpak;
 		openssh = {
