@@ -211,7 +211,7 @@ in {
 		cron = {
 			enable = true;
 			systemCronJobs =
-				let update-keys = "${update-keys}/bin/update-keys";
+				let update-keys' = "${update-keys}/bin/update-keys";
 				in [
 					("* * * * * u3836 "
 					 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status "
@@ -220,11 +220,11 @@ in {
 					 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
 					)
 					("*/05 * * * * root ${update-website}/bin/update-website")
-					("*/05 * * * * enaya ${update-keys} Enayaaa")
-					("*/05 * * * * u3836 ${update-keys} SKyletoft")
-					("*/05 * * * * pingu ${update-keys} The1Penguin")
-					("*/05 * * * * rachel-spechtachel ${update-keys} rachelambda")
-					("*/05 * * * * liam ${update-keys} liamjardine")
+					("*/05 * * * * enaya ${update-keys'} Enayaaa")
+					("*/05 * * * * u3836 ${update-keys'} SKyletoft")
+					("*/05 * * * * pingu ${update-keys'} The1Penguin")
+					("*/05 * * * * rachel-spechtachel ${update-keys'} rachelambda")
+					("*/05 * * * * liam ${update-keys'} liamjardine")
 				];
 		};
 		lorri = {

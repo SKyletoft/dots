@@ -125,14 +125,14 @@ in {
 		cron = {
 			enable = true;
 			systemCronJobs =
-				let update-keys = "${update-keys}/bin/update-keys";
+				let update-keys' = "${update-keys}/bin/update-keys";
 				in [
 					("* * * * * u3836 "
 					 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status; "
 					 + "SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status; "
 					 + "curl https://am.i.mullvad.net/connected >> /tmp/eurydice-status; "
 					)
-					("*/05 * * * * u3836 ${update-keys} SKyletoft")
+					("*/05 * * * * u3836 ${update-keys'} SKyletoft")
 				];
 		};
 	};
