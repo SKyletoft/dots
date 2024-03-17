@@ -122,6 +122,9 @@ in {
 			package = pkgs.ananicy-cpp;
 		};
 		mullvad-vpn.enable = true;
+		transmission = {
+			enable = true;
+		};
 		cron = {
 			enable = true;
 			systemCronJobs = [
