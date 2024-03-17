@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
-let update-keys = pkgs.callPackage ./packages/update-keys {};
-	update-system = pkgs.callPackage ./packages/update-system {};
+let update-keys = pkgs.callPackage ./packages/update-keys.nix {};
+	update-system = pkgs.callPackage ./packages/update-system.nix {};
 in {
 	imports = [];
 

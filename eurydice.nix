@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let
-	update-system = pkgs.callPackage ./packages/update-system {};
-	update-keys = pkgs.callPackage ./packages/update-keys {};
+	update-system = pkgs.callPackage ./packages/update-system.nix {};
+	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
 
