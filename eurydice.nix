@@ -147,8 +147,6 @@ in {
 		update-website
 		update-keys
 		update-system
-
-		jellyfin-ffmpeg
 	];
 
 	users.users = {
@@ -207,6 +205,7 @@ in {
 		jellyfin = {
 			enable = true;
 			openFirewall = true;
+			package = pkgs.jellyfin-ffmpeg;
 		};
 		cron = {
 			enable = true;
