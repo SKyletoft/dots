@@ -154,7 +154,7 @@ in {
 	users.users = {
 		u3836 = {
 			isNormalUser = true;
-			extraGroups = [ "wheel" ];
+			extraGroups = [ "wheel" "jellyfin" ];
 		};
 		nyerik = {
 			isNormalUser = true;
