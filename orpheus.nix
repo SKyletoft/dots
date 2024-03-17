@@ -82,6 +82,7 @@ in {
 		man-pages
 		man-pages-posix
 
+		(pkgs.callPackages ./packages/update-system.nix {})
 		update-keys
 	];
 
@@ -147,7 +148,7 @@ in {
 		wantedBy = [ "default.target" ];
 		serviceConfig = {
 			Type = "simple";
-			ExecStart = "${pkgs.callPackages ./packages/update-system.nix}/bin/update-system";
+			ExecStart = "${pkgs.callPackages ./packages/update-system.nix {}}/bin/update-system";
 		};
 	};
 

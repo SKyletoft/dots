@@ -1,6 +1,6 @@
 { pkgs }:
 
-pkgs.writeShellScript "update-system" ''
+pkgs.writeShellScriptBin "update-system" ''
 	export PATH=${pkgs.lib.strings.makeBinPath [ pkgs.git ]}
 	set -e
 	cd /etc/nixos/dots
