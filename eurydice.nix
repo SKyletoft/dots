@@ -1,16 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let
-	update-keys = pkgs.writeShellScriptBin "update-keys" ''
-		mkdir -p ~/.ssh
-		cd ~/.ssh
-
-		${pkgs.curl}/bin/curl \
-			https://github.com/$(echo $1).keys \
-			> authorized_keys
-		chmod 700 ~/.ssh
-		chmod 644 ~/.ssh/authorized_keys
-	'';
+	update-system = pkgs.callPackage ./packages/update-system {};
+	update-keys = pkgs.callPackage ./packages/update-keys {};
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
 
@@ -154,6 +146,7 @@ in {
 
 		update-website
 		update-keys
+		update-system
 
 		jellyfin-ffmpeg
 	];
@@ -210,20 +203,22 @@ in {
 		};
 		cron = {
 			enable = true;
-			systemCronJobs = [
-				("* * * * * u3836 "
-				 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status "
-				 + "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
-				 + "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
-				 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
-				)
-				("*/05 * * * * root ${update-website}/bin/update-website")
-				("*/05 * * * * enaya ${update-keys}/bin/update-keys Enayaaa")
-				("*/05 * * * * u3836 ${update-keys}/bin/update-keys SKyletoft")
-				("*/05 * * * * pingu ${update-keys}/bin/update-keys The1Penguin")
-				("*/05 * * * * rachel-spechtachel ${update-keys}/bin/update-keys rachelambda")
-				("*/05 * * * * liam ${update-keys}/bin/update-keys liamjardine")
-			];
+			systemCronJobs =
+				let update-keys = "${update-keys}/bin/update-keys";
+				in [
+					("* * * * * u3836 "
+					 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status "
+					 + "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
+					 + "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
+					 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
+					)
+					("*/05 * * * * root ${update-website}/bin/update-website")
+					("*/05 * * * * enaya ${update-keys} Enayaaa")
+					("*/05 * * * * u3836 ${update-keys} SKyletoft")
+					("*/05 * * * * pingu ${update-keys} The1Penguin")
+					("*/05 * * * * rachel-spechtachel ${update-keys} rachelambda")
+					("*/05 * * * * liam ${update-keys} liamjardine")
+				];
 		};
 		lorri = {
 			enable = true;

@@ -1,16 +1,7 @@
 { config, pkgs, lib, ... }:
 
-let
-	update-keys = pkgs.writeShellScriptBin "update-keys" ''
-		mkdir -p ~/.ssh
-		cd ~/.ssh
-
-		${pkgs.curl}/bin/curl \
-			https://github.com/$(echo $1).keys \
-			> authorized_keys
-		chmod 700 ~/.ssh
-		chmod 644 ~/.ssh/authorized_keys
-	'';
+let update-keys = pkgs.callPackage ./packages/update-keys {};
+	update-system = pkgs.callPackage ./packages/update-system {};
 in {
 	imports = [];
 
@@ -82,7 +73,7 @@ in {
 		man-pages
 		man-pages-posix
 
-		(pkgs.callPackages ./packages/update-system.nix {})
+		update-system
 		update-keys
 	];
 
@@ -133,14 +124,16 @@ in {
 		};
 		cron = {
 			enable = true;
-			systemCronJobs = [
-				("* * * * * u3836 "
-				 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status; "
-				 + "SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status; "
-				 + "curl https://am.i.mullvad.net/connected >> /tmp/eurydice-status; "
-				)
-				("*/05 * * * * u3836 ${update-keys}/bin/update-keys SKyletoft")
-			];
+			systemCronJobs =
+				let update-keys = "${update-keys}/bin/update-keys";
+				in [
+					("* * * * * u3836 "
+					 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status; "
+					 + "SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status; "
+					 + "curl https://am.i.mullvad.net/connected >> /tmp/eurydice-status; "
+					)
+					("*/05 * * * * u3836 ${update-keys} SKyletoft")
+				];
 		};
 	};
 
@@ -148,7 +141,7 @@ in {
 		wantedBy = [ "default.target" ];
 		serviceConfig = {
 			Type = "simple";
-			ExecStart = "${pkgs.callPackages ./packages/update-system.nix {}}/bin/update-system";
+			ExecStart = "${update-system}/bin/update-system";
 		};
 	};
 
