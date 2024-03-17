@@ -390,7 +390,8 @@
   (futhark-mode . (lambda ()
                     (set-indents 8 2 nil)
                     (direnv-update-environment)
-                    (lsp)))
+                    (lsp)
+                    (editorconfig-apply)))
   :config
   (add-to-list 'lsp-language-id-configuration '(futhark-mode . "futhark"))
   (lsp-register-client
