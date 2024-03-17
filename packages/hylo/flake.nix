@@ -1,7 +1,7 @@
 {
 	description = "The Hylo programming language";
 	inputs = {
-		nixpkgs.url     = "github:NixOS/nixpkgs/nixos-23.05";
+		nixpkgs.url     = "github:stephank/nixpkgs/feat/swift-5.9";
 		flake-utils.url = "github:numtide/flake-utils";
 	};
 
@@ -12,13 +12,13 @@
 			packages.hylo =
 			pkgs.stdenv.mkDerivation rec {
 				pname = "hylo";
-				version = "231226";
+				version = "240313";
 
 				src = pkgs.fetchFromGitHub {
 					owner = "hylo-lang";
 					repo = "hylo";
-					rev = "e07a6d32fc40a6bb8b382e4d8a72aa36c0e1ae51";
-					sha256 = "sha256-p4KoItnr/xdb5DZ6sFuWSz/syFPf8zCojsHdic9GfTA=";
+					rev = "2c4594919cbb958cf75a511f36ccc89b604178b6";
+					sha256 = "sha256-nujSTxs54YhvmBLyhI04buXFd8TeqKn2sdL5rJA7vBA=";
 				};
 
 				nativeBuildInputs = [ pkgs.llvmPackages_15.libllvm ];
@@ -27,9 +27,7 @@
 					swift-driver
 					swiftpm
 					Foundation
-					pkgs.gcc
-					pkgs.stdenv
-					pkgs.pkg-config
+					stdenv
 				];
 
 				buildPhase = ''
