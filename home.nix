@@ -129,7 +129,7 @@ in {
 			prismlauncher
 			dolphin-emu-primehack
 			fragments
-			# heroic
+			heroic
 			ruffle
 
 			i2c-tools
