@@ -67,7 +67,7 @@ in {
 			lsp-booster = emacsPin.callPackage ./packages/lsp-booster.nix {};
 			doasedit  = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
 			monitor   = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
-			mdpdf     = pkgs.writeShellScript "mdpdf" ''
+			mdpdf     = pkgs.writeShellScriptBin "mdpdf" ''
 				export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ tectonic pandoc ])}
 				pandoc $1 -o $2 --pdf-engine=tectonic -s -V papersize:a4
 			'';
