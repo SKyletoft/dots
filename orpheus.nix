@@ -143,6 +143,24 @@ in {
 		};
 	};
 
+	# Written by ChatGPT
+	systemd.services.autoUpdateConfig = {
+		wantedBy = [ "multi-user.target" ];
+		serviceConfig = {
+			Type =  "simple";
+			ExecStart = ''
+				${pkgs.runCommandNoCC "auto-update-config" { buildInputs = [ pkgs.git ]; } ""}
+				set -e
+				git fetch origin
+				if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
+					git pull origin master
+					nixos-rebuild switch
+				fi
+			'';
+			WorkingDirectory = "/etc/nixos/dots";
+		};
+	};
+
 	programs = {
 		bash.shellInit = ''
 			[[ $- == *i* ]] || return
