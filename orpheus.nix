@@ -167,7 +167,6 @@ in {
 		bash.shellInit = ''
 			[[ $- == *i* ]] || return
 			cat /tmp/eurydice-status
-			echo "Remote update"
 		'';
 		ssh.startAgent = true;
 	};
