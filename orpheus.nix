@@ -143,25 +143,13 @@ in {
 		};
 	};
 
-	systemd.services.autoUpdateConfig =
-		let the_script = pkgs.writeShellScript "update-system" ''
-			export PATH=${pkgs.lib.strings.makeBinPath [ pkgs.git ]}
-			set -e
-			cd /etc/nixos/dots
-			git reset --hard
-			git fetch origin
-			if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
-				git pull origin master
-				nixos-rebuild switch
-			fi
-		'';
-		in {
-			wantedBy = [ "default.target" ];
-			serviceConfig = {
-				Type = "simple";
-				ExecStart = "${the_script}";
-			};
+	systemd.services.autoUpdateConfig = {
+		wantedBy = [ "default.target" ];
+		serviceConfig = {
+			Type = "simple";
+			ExecStart = "${pkgs.callPackages ./packages/update-system.nix}/bin/update-system";
 		};
+	};
 
 	programs = {
 		bash.shellInit = ''
