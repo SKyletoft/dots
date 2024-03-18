@@ -17,7 +17,7 @@
 		defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
 		homeConfigurations."u3836" = home-manager.lib.homeManagerConfiguration {
-			pkgs = nixpkgs.legacyPackages.x86_64-linux;
+			pkgs = nixpkgs.legacyPackages.${builtins.currentSystem};
 			extraSpecialArgs = { inherit inputs; };
 			modules = [
 				../home.nix
