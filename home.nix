@@ -291,7 +291,7 @@ in {
 		};
 
 		emacs = {
-			enable = true;
+			enable = gui;
 			package = emacsPin.emacs29.override {
 				withGTK2       = false;
 				withGTK3       = false;
