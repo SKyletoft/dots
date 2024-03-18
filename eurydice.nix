@@ -205,7 +205,6 @@ in {
 		jellyfin = {
 			enable = true;
 			openFirewall = true;
-			package = pkgs.jellyfin-ffmpeg;
 		};
 		cron = {
 			enable = true;
