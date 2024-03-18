@@ -38,7 +38,6 @@ in {
 
 	boot = {
 		supportedFilesystems = [ "exfat" ];
-		binfmt.emulatedSystems = [ "x86_64-linux" ];
 		loader.raspberryPi.firmwareConfig = ''
 			gpu_mem=192
 			dtparam=audio=on
