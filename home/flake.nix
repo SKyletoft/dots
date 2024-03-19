@@ -15,6 +15,7 @@
 
 	outputs = {self, nixpkgs, home-manager, ...}@inputs: {
 		defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+		defaultPackage.aarch64-linux = home-manager.defaultPackage.aarch64-linux;
 
 		homeConfigurations."u3836" = home-manager.lib.homeManagerConfiguration {
 			pkgs = nixpkgs.legacyPackages.${builtins.currentSystem};
