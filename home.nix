@@ -306,7 +306,7 @@ in {
 				# use-package
 				magit
 				diff-hl
-				# evil
+				evil
 				# symex
 				treemacs
 				telephone-line
