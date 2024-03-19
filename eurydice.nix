@@ -302,7 +302,7 @@ in {
 				"transmission.u3836.se" = {
 					addSSL = true;
 					enableACME = true;
-					locations."/".proxyPass = "http://192.168.0.200:9091";
+					root = "/var/www/u3836.se/transmission";
 				};
 				"nix.u3836.se" = {
 					addSSL = true;
