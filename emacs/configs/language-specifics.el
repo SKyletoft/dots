@@ -432,6 +432,13 @@
      ("wgsl-analyzer.diagnostics.nagaValidation" wgsl-diagnostics-naga-validation)
      ("wgsl-analyzer.diagnostics.nagaVersion" wgsl-diagnostics-naga-version))))
 
+(use-package pest-mode
+  :hook
+  (pest-mode . (lambda () (set-indents 8 8 t)))
+  :config
+  (autoload 'pest-mode "pest-mode")
+  (add-to-list #'auto-mode-alist '("\\.pest\\'" . pest-mode)))
+
 (use-package agda2-mode
   :hook
   (agda2-mode . (lambda () (set-indents 8 2 nil))))

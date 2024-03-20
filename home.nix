@@ -373,6 +373,7 @@ in {
 				bnfc
 				futhark-mode
 				kotlin-mode
+				pest-mode
 			]);
 		};
 

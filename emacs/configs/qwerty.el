@@ -183,6 +183,24 @@
     (kbd "C-<f5>") 'rustic-cargo-build
     (kbd "M-<f5>") 'rustic-cargo-test)
 
+  (evil-define-key 'normal pest-mode-map
+    (kbd "SPC i") 'rustic-format-buffer)
+  (evil-define-key 'visual pest-mode-map
+    (kbd "SPC i") 'rustic-format-region)
+  (evil-define-key '(normal visual) pest-mode-map
+    (kbd "SPC f") 'lsp-ui-doc-glance
+    (kbd "SPC g") 'xref-find-definitions
+    (kbd "SPC G") 'lsp-goto-type-definition
+    (kbd "SPC a") 'lsp-execute-code-action
+    (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC r") 'rustic-cargo-run
+    (kbd "SPC R") 'compile
+    (kbd "<f2>") 'lsp-rename
+    (kbd "<f4>") 'rustic-popup
+    (kbd "<f5>") 'rust-compile-and-dap
+    (kbd "C-<f5>") 'rustic-cargo-build
+    (kbd "M-<f5>") 'rustic-cargo-test)
+
   (evil-define-key 'normal conf-toml-mode-map
     (kbd "<f5>") 'rust-compile-and-dap
     (kbd "C-<f5>") 'rustic-cargo-build
