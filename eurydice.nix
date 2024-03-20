@@ -297,7 +297,7 @@ in {
 				"jellyfin.u3836.se" = {
 					addSSL = true;
 					enableACME = true;
-					locations."/".proxyPass = "http://127.0.0.1:8096";
+					locations."/".proxyPass = "https://127.0.0.1:8096";
 				};
 				"transmission.u3836.se" = {
 					addSSL = true;
