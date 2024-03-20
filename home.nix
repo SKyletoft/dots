@@ -114,6 +114,7 @@ in {
 			blender
 
 			discord
+			dissent
 			signal-desktop
 			slack
 
@@ -487,6 +488,7 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 		".local/share/applications/easterislandtd.desktop".source    = ./easterislandtd.desktop;
 		".local/share/applications/emacs.desktop".source             = ./emacsclient.desktop;
 		".local/share/applications/discord.desktop".source           = ./discord.desktop;
+		".local/share/applications/dissent.desktop".source           = ./dissent.desktop;
 
 		# Folders
 		# ".themes/yaru".source                         = ./.themes/yaru;
