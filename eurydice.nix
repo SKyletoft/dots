@@ -295,12 +295,12 @@ in {
 					locations."/".proxyPass = "http://127.0.0.1:12825";
 				};
 				"jellyfin.u3836.se" = {
-					addSSL = true;
+					forceSSL = true;
 					enableACME = true;
 					locations."/".proxyPass = "http://127.0.0.1:8096";
 				};
 				"transmission.u3836.se" = {
-					addSSL = true;
+					forceSSL = true;
 					enableACME = true;
 					root = "/var/www/u3836.se/transmission";
 				};
@@ -315,7 +315,7 @@ in {
 					'';
 				};
 				"nuschka.u3836.se" = {
-					addSSL = true;
+					forceSSL = true;
 					enableACME = true;
 					root = "/var/www/nuschka.u3836.se";
 				};
