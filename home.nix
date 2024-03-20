@@ -95,7 +95,7 @@ in {
 			mdpdf
 			hstr
 
-			rnix-lsp
+			nil
 			lsp-booster
 			inputs.upwards.packages.${system}.default
 		] ++
