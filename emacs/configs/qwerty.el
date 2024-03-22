@@ -230,14 +230,33 @@
     (kbd "SPC r") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
+  (evil-define-key 'visual js-mode-map
+    (kbd "SPC i") 'indent-region)
   (evil-define-key 'visual c++-mode-map
     (kbd "SPC i") 'indent-region)
   (evil-define-key 'visual c-mode-map
     (kbd "SPC i") 'indent-region)
-  (evil-define-key 'normal c-mode-map
+  (evil-define-key 'normal js-mode-map
     (kbd "SPC i") 'indent-according-to-mode)
   (evil-define-key 'normal c++-mode-map
     (kbd "SPC i") 'indent-according-to-mode)
+  (evil-define-key 'normal c-mode-map
+    (kbd "SPC i") 'indent-according-to-mode)
+  (evil-define-key '(normal visual) js-mode-map
+    (kbd "SPC r") 'recompile
+    (kbd "SPC R") 'compile
+    (kbd "SPC I") (lambda () (interactive)
+                    (save-buffer)
+                    (shell-command (concat "clang-format -i "
+                                           (buffer-file-name)))
+                    (revert-buffer t t t))
+    (kbd "SPC f") 'lsp-ui-doc-glance
+    (kbd "SPC g") 'xref-find-definitions
+    (kbd "SPC a") 'lsp-execute-code-action
+    (kbd "SPC t") 'lsp-inlay-hints-mode
+    (kbd "SPC v") 'gud-break
+    (kbd "<f2>") 'lsp-rename
+    (kbd "<f5>") 'gdb)
   (evil-define-key '(normal visual) c++-mode-map
     (kbd "SPC r") 'recompile
     (kbd "SPC R") 'compile
