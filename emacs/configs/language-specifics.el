@@ -17,7 +17,11 @@
               evil-shift-width shift-width-p
               indent-tabs-mode tabs-p
               java-ts-mode-indent-offset shift-width-p
-              csharp-ts-mode-indent-offset shift-width-p))
+              csharp-ts-mode-indent-offset shift-width-p
+              css-indent-offset shift-width-p
+              js-indent-offset shift-width-p
+              js-indent-level shift-width-p
+              html-indent-offset shift-width-p))
 
 ;; For filetypes without hooks
 (add-hook 'find-file-hook
@@ -313,22 +317,19 @@
 
 (add-hook 'mhtml-mode-hook
           (lambda ()
-            (setq-local html-indent-offset 8
-                        electric-indent-mode nil)
+            (setq-local electric-indent-mode nil)
             (set-indents 8 8 t)
             (editorconfig-apply)
             (add-hook 'before-save-hook 'americanise t)))
 
 (add-hook 'css-mode-hook
           (lambda ()
-            (setq-local css-indent-offset 8)
             (set-indents 8 8 't)
             (editorconfig-apply)
             (add-hook 'before-save-hook 'americanise 't)))
 
 (add-hook 'js-mode-hook
           (lambda ()
-            (setq-local js-indent-offset 8)
             (set-indents 8 8 't)
             (editorconfig-apply)))
 
