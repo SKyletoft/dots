@@ -22,12 +22,6 @@
   (set-n (kbd "Ö") 'eval-expression)
   (set-n (kbd "C-n") 'scratch-buffer)
 
-  ;; (define-key evil-normal-state-map (kbd "<escape>") 'evil-esc)
-  ;; (define-key evil-motion-state-map (kbd "<escape>") 'evil-esc)
-  ;; (define-key evil-visual-state-map (kbd "<escape>") 'evil-esc)
-  ;; (define-key evil-insert-state-map (kbd "<escape>") 'evil-esc)
-  ;; (define-key evil-symex-state-map (kbd "<escape>") 'evil-esc)
-
   (set-nvm (kbd "a") 'evil-backward-char)
   (set-nvm (kbd "d") 'evil-forward-char)
   (set-nvm (kbd "w") 'evil-previous-visual-line)
@@ -276,30 +270,4 @@
     (kbd "w") 'pdf-view-previous-page-command
     (kbd "a") 'pdf-view-previous-page-command
     (kbd "s") 'pdf-view-next-page-command
-    (kbd "d") 'pdf-view-next-page-command)
-
-  ;; (setq symex--user-evil-keyspec
-  ;;       '(("s" . symex-go-up)
-  ;;         ("w" . symex-go-down)
-  ;;         ("C-s" . evil-scroll-line-down)
-  ;;         ("C-w" . evil-scroll-line-up)
-  ;;         ("M-s" . symex-goto-highest)
-  ;;         ("M-w" . symex-goto-lowest)
-  ;;         ("d" . symex-go-forward)
-  ;;         ("a" . symex-go-backward)
-  ;;         ("C-d" . symex-traverse-forward)
-  ;;         ("C-a" . symex-traverse-backward)
-  ;;         ("D" . symex-insert-at-end)
-  ;;         ("A" . symex-insert-before)
-  ;;         ("SPC u d" . symex-capture-forward)
-  ;;         ("SPC u a" . symex-capture-backward)
-  ;;         ("SPC y d" . symex-emit-forward)
-  ;;         ("SPC y a" . symex-emit-forward)
-  ;;         ("v" . select-with-symex)
-  ;;         ("i" . evil-insert)
-  ;;         ("r" . symex-change)
-  ;;         ("C-c" . symex-yank)
-  ;;         ("C-x" . symex-delete)
-  ;;         ("C-v" . symex-paste-after)))
-  ;; (symex-initialize)
-  )
+    (kbd "d") 'pdf-view-next-page-command))
