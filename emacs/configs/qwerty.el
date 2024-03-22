@@ -117,33 +117,40 @@
   (define-key completion-in-region-mode-map (kbd "C-p") #'minibuffer-previous-completion)
   (define-key completion-in-region-mode-map (kbd "C-n") #'minibuffer-next-completion)
 
-  ;; (evil-define-key 'visual lsp-mode-map
-  ;;   (kbd "SPC i") 'indent-region)
-  ;; (evil-define-key 'normal lsp-mode-map
-  ;;   (kbd "SPC i") 'indent-according-to-mode
-  ;;   (kbd "SPC g") 'xref-find-definitions
-  ;;   (kbd "SPC a") 'lsp-execute-code-action
-  ;;   (kbd "SPC f") 'lsp-ui-doc-glance
-  ;;   (kbd "SPC t") 'lsp-inlay-hints-mode
-  ;;   (kbd "SPC G") 'lsp-goto-type-definition
-  ;;   (kbd "SPC r") 'compile
-  ;;   (kbd "<f2>") 'lsp-rename
-  ;;   (kbd "<f5>") 'dap-debug)
-
   (evil-define-key '(normal motion) evil-command-window-mode-map
     (kbd "C-g") 'evil-quit)
 
+  ;; Default language with lsp-mode bindings
+(defmacro lang-with-lsp (map)
+    `(progn (evil-define-key 'visual ,map
+              (kbd "SPC i") 'indent-region)
+            (evil-define-key 'normal ,map
+              (kbd "SPC i") 'indent-according-to-mode)
+            (evil-define-key '(normal visual) ,map
+              (kbd "SPC r") 'recompile
+              (kbd "SPC R") 'compile
+              (kbd "SPC I") (lambda () (interactive)
+                              (save-buffer)
+                              (shell-command (concat "clang-format -i "
+                                                     (buffer-file-name)))
+                              (revert-buffer t t t))
+              (kbd "SPC f") 'lsp-ui-doc-glance
+              (kbd "SPC g") 'xref-find-definitions
+              (kbd "SPC a") 'lsp-execute-code-action
+              (kbd "SPC t") 'lsp-inlay-hints-mode
+              (kbd "SPC v") 'gud-break
+              (kbd "<f2>") 'lsp-rename)))
+
+  (lang-with-lsp js-mode-map)
+  (lang-with-lsp pest-mode-map)
+  (lang-with-lsp csharp-ts-mode-map)
+  (lang-with-lsp nix-mode-map)
+  (lang-with-lsp futhark-mode-map)
+
+  (lang-with-lsp haskell-mode-map)
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC r") 'hs-slime-v)
-
   (evil-define-key 'normal haskell-mode-map
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC r") 'hs-slime-n
-    (kbd "SPC t") 'lsp-ui-sideline-mode
-    (kbd "<f5>") 'hs-run
-    (kbd "<f2>") 'lsp-rename
     (kbd "SPC i") (lambda () (interactive)
                     (save-buffer)
                     (shell-command (concat "hindent "
@@ -170,24 +177,6 @@
   (evil-define-key 'visual rustic-mode-map
     (kbd "SPC i") 'rustic-format-region)
   (evil-define-key '(normal visual) rustic-mode-map
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC G") 'lsp-goto-type-definition
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC r") 'rustic-cargo-run
-    (kbd "SPC R") 'compile
-    (kbd "<f2>") 'lsp-rename
-    (kbd "<f4>") 'rustic-popup
-    (kbd "<f5>") 'rust-compile-and-dap
-    (kbd "C-<f5>") 'rustic-cargo-build
-    (kbd "M-<f5>") 'rustic-cargo-test)
-
-  (evil-define-key 'normal pest-mode-map
-    (kbd "SPC i") 'rustic-format-buffer)
-  (evil-define-key 'visual pest-mode-map
-    (kbd "SPC i") 'rustic-format-region)
-  (evil-define-key '(normal visual) pest-mode-map
     (kbd "SPC f") 'lsp-ui-doc-glance
     (kbd "SPC g") 'xref-find-definitions
     (kbd "SPC G") 'lsp-goto-type-definition
@@ -230,140 +219,26 @@
     (kbd "SPC r") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
-  (evil-define-key 'visual js-mode-map
-    (kbd "SPC i") 'indent-region)
-  (evil-define-key 'visual c++-mode-map
-    (kbd "SPC i") 'indent-region)
-  (evil-define-key 'visual c-mode-map
-    (kbd "SPC i") 'indent-region)
-  (evil-define-key 'normal js-mode-map
-    (kbd "SPC i") 'indent-according-to-mode)
-  (evil-define-key 'normal c++-mode-map
-    (kbd "SPC i") 'indent-according-to-mode)
+
+  (lang-with-lsp c-mode-map)
+  (lang-with-lsp c++-mode-map)
   (evil-define-key 'normal c-mode-map
-    (kbd "SPC i") 'indent-according-to-mode)
-  (evil-define-key '(normal visual) js-mode-map
-    (kbd "SPC r") 'recompile
-    (kbd "SPC R") 'compile
-    (kbd "SPC I") (lambda () (interactive)
-                    (save-buffer)
-                    (shell-command (concat "clang-format -i "
-                                           (buffer-file-name)))
-                    (revert-buffer t t t))
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>") 'lsp-rename
     (kbd "<f5>") 'gdb)
-  (evil-define-key '(normal visual) c++-mode-map
-    (kbd "SPC r") 'recompile
-    (kbd "SPC R") 'compile
-    (kbd "SPC I") (lambda () (interactive)
-                    (save-buffer)
-                    (shell-command (concat "clang-format -i "
-                                           (buffer-file-name)))
-                    (revert-buffer t t t))
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>") 'lsp-rename
-    (kbd "<f5>") 'gdb)
-  (evil-define-key '(normal visual) c-mode-map
-    (kbd "SPC r") 'recompile
-    (kbd "SPC R") 'compile
-    (kbd "SPC I") (lambda () (interactive)
-                    (save-buffer)
-                    (shell-command (concat "clang-format -i "
-                                           (buffer-file-name)))
-                    (revert-buffer t t t))
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>") 'lsp-rename
+  (evil-define-key 'normal c++-mode-map
     (kbd "<f5>") 'gdb)
 
-  (evil-define-key 'visual java-ts-mode-map
-    (kbd "SPC i") 'indent-region)
+  (lang-with-lsp java-ts-mode-map)
   (evil-define-key 'normal java-ts-mode-map
-    (kbd "SPC i") 'indent-according-to-mode)
-  (evil-define-key '(normal visual) java-ts-mode-map
-    (kbd "SPC r") 'recompile
-    (kbd "SPC R") 'compile
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>") 'lsp-rename
     (kbd "<f5>") 'jdb)
 
-  (evil-define-key 'visual kotlin-mode-map
-    (kbd "SPC i") 'indent-region)
+  (lang-with-lsp kotlin-mode-map)
   (evil-define-key 'normal kotlin-mode-map
-    (kbd "SPC i") 'indent-according-to-mode)
-  (evil-define-key '(normal visual) kotlin-mode-map
-    (kbd "SPC I") (lambda () (interactive)
-                    (save-buffer)
-                    (shell-command (concat "ktlint -F "
-                                           (buffer-file-name)))
-                    (revert-buffer t t t))
-    (kbd "SPC r") 'recompile
-    (kbd "SPC R") 'compile
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>")  'lsp-rename
-    (kbd "<f5>")  'jdb)
+    (kbd "<f5>") 'jdb)
 
-  (evil-define-key 'visual csharp-ts-mode-map
-    (kbd "SPC i") 'indent-region)
-  (evil-define-key 'normal csharp-ts-mode-map
-    (kbd "SPC i") 'indent-according-to-mode)
-  (evil-define-key '(normal visual) csharp-ts-mode-map
-    (kbd "SPC r") 'recompile
-    (kbd "SPC R") 'compile
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>") 'lsp-rename)
-
-  (evil-define-key 'normal nix-mode-map
-    (kbd "SPC i") 'indent-according-to-mode)
-  (evil-define-key 'visual nix-mode-map
-    (kbd "SPC i") 'indent-region)
-  (evil-define-key '(normal visual) nix-mode-map
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC f") 'lsp-ui-doc-glance)
-
+  (lang-with-lsp tuareg-mode-map)
   (evil-define-key 'normal tuareg-mode-map
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC i") 'ocamlformat)
+    (kbd "SPC I") 'ocamlformat)
 
-  (evil-define-key 'visual futhark-mode-map
-    (kbd "SPC i") 'indent-region)
-  (evil-define-key 'normal futhark-mode-map
-    (kbd "SPC i") 'indent-according-to-mode
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC t") 'lsp-ui-sideline-mode
-    (kbd "SPC G") 'lsp-goto-type-definition
-    (kbd "SPC r") 'compile
-    (kbd "<f2>") 'lsp-rename
-    (kbd "<f5>") 'dap-debug)
 
   (evil-define-key 'normal gud-mode-map
     (kbd "SPC d") 'gud-step
