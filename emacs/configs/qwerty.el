@@ -58,7 +58,7 @@
   (set-v (kbd "(") 'wrap-in-parentheses)
   (set-v (kbd "{") 'wrap-in-curlies)
   (set-v (kbd "[") 'wrap-in-squares)
-  ;; (set-v (kbd "<") 'wrap-in-angles) ; Interferes with outdent
+  (set-v (kbd "<") 'wrap-in-angles) ; Interferes with outdent
   (set-v (kbd "$") 'wrap-in-dollar)
 
   (set-v (kbd "SPC k") 'comment-or-uncomment-region)
