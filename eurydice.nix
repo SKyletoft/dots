@@ -162,6 +162,14 @@ in {
 			isNormalUser = true;
 			extraGroups = [ "wheel" ];
 		};
+		kryddan = {
+			isNormalUser = true;
+			extraGroups = [ "wheel" ];
+		};
+		koko = {
+			isNormalUser = true;
+			extraGroups = [ "wheel" ];
+		};
 		rachel-spechtachel = {
 			isNormalUser = true;
 			extraGroups = [ "wheel" ];
@@ -223,6 +231,8 @@ in {
 					("*/05 * * * * pingu ${update-keys'} The1Penguin")
 					("*/05 * * * * rachel-spechtachel ${update-keys'} rachelambda")
 					("*/05 * * * * liam ${update-keys'} liamjardine")
+					("*/05 * * * * kryddan {update-keys'} ErikOrtenberg")
+					("*/05 * * * * koko ${update-keys'} KokoRobinn")
 				];
 		};
 		lorri = {
