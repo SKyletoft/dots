@@ -7,7 +7,16 @@
 (setq-default indent-tabs-mode 't
               evil-shift-width 8)
 
-(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'c-basic-offset 'evil-shift-width)
+(defvaralias 'java-ts-mode-indent-offset 'evil-shift-width)
+(defvaralias 'csharp-ts-mode-indent-offset 'evil-shift-width)
+(defvaralias 'css-indent-offset 'evil-shift-width)
+(defvaralias 'js-indent-offset 'evil-shift-width)
+(defvaralias 'js-indent-level 'evil-shift-width)
+(defvaralias 'html-indent-offset 'evil-shift-width)
+(defvaralias 'kotlin-tab-width 'evil-shift-width)
+(defvaralias 'kotlin-mode-parenthesized-expression-offset 'evil-shift-width)
+(defvaralias 'kotlin-mode-multiline-statement-offset 'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
       (let ((indent-tabs-mode nil)) ad-do-it))
@@ -444,9 +453,6 @@
   :hook
   (agda2-mode . (lambda () (set-indents 8 2 nil))))
 
-(defvaralias 'kotlin-tab-width 'tab-width)
-(defvaralias 'kotlin-mode-parenthesized-expression-offset 'tab-width)
-(defvaralias 'kotlin-mode-multiline-statement-offset 'tab-width)
 (use-package kotlin-mode
   :hook
   (kotlin-mode . (lambda ()
