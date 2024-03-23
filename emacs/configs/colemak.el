@@ -138,23 +138,52 @@
   (evil-define-key '(normal motion) evil-command-window-mode-map
     (kbd "C-g") 'evil-quit)
 
+  ;; Default language with lsp-mode bindings
+  (defmacro lang-with-lsp (map)
+    `(progn (evil-define-key 'visual ,map
+              (kbd "SPC o") 'indent-region)
+            (evil-define-key 'normal ,map
+              (kbd "SPC o") 'indent-according-to-mode)
+            (evil-define-key '(normal visual) ,map
+              (kbd "SPC l") 'recompile
+              (kbd "SPC L") 'compile
+              (kbd "SPC O") (lambda () (interactive)
+                              (save-buffer)
+                              (shell-command (concat "clang-format -i "
+                                                     (buffer-file-name)))
+                              (revert-buffer t t t))
+              (kbd "SPC e") 'lsp-ui-doc-glance
+              (kbd "SPC i") 'xref-find-definitions
+              (kbd "SPC I") 'lsp-goto-type-definition
+              (kbd "SPC n") 'lsp-execute-code-action
+              (kbd "SPC t") 'lsp-inlay-hints-mode
+              (kbd "SPC v") 'gud-break
+              (kbd "<f2>") 'lsp-rename
+              (kbd "<f5>")  'dap-debug)))
+
+  (lang-with-lsp js-mode-map)
+  (lang-with-lsp pest-mode-map)
+  (lang-with-lsp csharp-ts-mode-map)
+  (lang-with-lsp nix-mode-map)
+  (lang-with-lsp futhark-mode-map)
+  (lang-with-lsp c-mode-map)
+  (lang-with-lsp c++-mode-map)
+  (lang-with-lsp java-ts-mode-map)
+  (lang-with-lsp kotlin-mode-map)
+  (lang-with-lsp tuareg-mode-map)
+  (lang-with-lsp haskell-mode-map)
+
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC l") 'hs-slime-v)
-
   (evil-define-key 'normal haskell-mode-map
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC n") 'lsp-execute-code-action
-    (kbd "SPC e") 'lsp-ui-doc-glance
-    (kbd "SPC l") 'hs-slime-n
-    (kbd "<f5>")  'hs-run
-    (kbd "<f2>")  'lsp-rename
-    (kbd "SPC o") (lambda () (interactive)
+    (kbd "SPC O") (lambda () (interactive)
                     (save-buffer)
                     (shell-command (concat "hindent "
                                            (buffer-file-name)
                                            " && stylish-haskell -i "
                                            (buffer-file-name)))
-                    (revert-buffer t t t)))
+                    (revert-buffer t t t))
+    (kbd "<f5>")  'hs-run)
 
   (evil-define-key 'normal idris-mode-map
     (kbd "SPC c") 'idris-case-dwim
@@ -215,144 +244,19 @@
     (kbd "SPC l") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
-  (evil-define-key 'normal c++-mode-map
-    (kbd "SPC o") 'indent-according-to-mode)
   (evil-define-key 'normal c-mode-map
-    (kbd "SPC o") 'indent-according-to-mode)
-  (evil-define-key 'visual c++-mode-map
-    (kbd "SPC o") 'indent-region)
-  (evil-define-key 'visual c-mode-map
-    (kbd "SPC o") 'indent-region)
-  (evil-define-key '(normal visual) c++-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
-    (kbd "SPC O") (lambda () (interactive)
-                    (save-buffer)
-                    (shell-command (concat "clang-format -i "
-                                           (buffer-file-name)))
-                    (revert-buffer t t t))
-    (kbd "SPC e") 'lsp-ui-doc-glance
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>")  'lsp-rename
-    (kbd "<f5>")  'gdb
-    (kbd "SPC n") 'lsp-execute-code-action)
-  (evil-define-key '(normal visual) c-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
-    (kbd "SPC O") (lambda () (interactive)
-                    (save-buffer)
-                    (shell-command (concat "clang-format -i "
-                                           (buffer-file-name)))
-                    (revert-buffer t t t))
-    (kbd "SPC o") 'indent-according-to-mode
-    (kbd "SPC e") 'lsp-ui-doc-glance
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>")  'lsp-rename
-    (kbd "<f5>")  'gdb
-    (kbd "SPC n") 'lsp-execute-code-action)
-  (evil-define-key '(normal visual) makefile-gmake-mode-map
-    (kbd "<f5>")  'gdb
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile)
+    (kbd "<f5>") 'gdb)
+  (evil-define-key 'normal c++-mode-map
+    (kbd "<f5>") 'gdb)
 
-  (evil-define-key 'visual java-ts-mode-map
-    (kbd "SPC o") 'indent-region)
   (evil-define-key 'normal java-ts-mode-map
-    (kbd "SPC o") 'indent-according-to-mode)
-  (evil-define-key '(normal visual) java-ts-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
-    (kbd "SPC e") 'lsp-ui-doc-glance
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>")  'lsp-rename
-    (kbd "<f5>")  'jdb
-    (kbd "SPC n") 'lsp-execute-code-action)
+    (kbd "<f5>") 'jdb)
 
-  (evil-define-key 'visual kotlin-mode-map
-    (kbd "SPC o") 'indent-region)
   (evil-define-key 'normal kotlin-mode-map
-    (kbd "SPC o") 'indent-according-to-mode)
-  (evil-define-key '(normal visual) kotlin-mode-map
-    (kbd "SPC O") (lambda () (interactive)
-                    (save-buffer)
-                    (shell-command (concat "ktlint -F "
-                                           (buffer-file-name)))
-                    (revert-buffer t t t))
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
-    (kbd "SPC n") 'lsp-execute-code-action
-    (kbd "SPC e") 'lsp-ui-doc-glance
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>")  'lsp-rename
-    (kbd "<f5>")  'jdb)
-
-  (evil-define-key 'visual jasmin-mode-map
-    (kbd "SPC o") 'indent-region)
-  (evil-define-key 'normal jasmin-mode-map
-    (kbd "SPC o") 'indent-according-to-mode)
-  (evil-define-key '(normal visual) jasmin-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC v") 'gud-break
-    (kbd "<f5>")  'jdb)
-
-  (evil-define-key 'visual csharp-ts-mode-map
-    (kbd "SPC o") 'indent-region)
-  (evil-define-key 'normal csharp-ts-mode-map
-    (kbd "SPC o") 'indent-according-to-mode)
-  (evil-define-key '(normal visual) csharp-ts-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
-    (kbd "SPC e") 'lsp-ui-doc-glance
-    (kbd "SPC t") 'lsp-inlay-hints-mode
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC v") 'gud-break
-    (kbd "<f2>")  'lsp-rename
-    ;; (kbd "<f5>")  'jdb
-    (kbd "SPC n") 'lsp-execute-code-action)
-
-  (evil-define-key 'normal nix-mode-map
-    (kbd "SPC o") 'indent-according-to-mode)
-  (evil-define-key 'visual nix-mode-map
-    (kbd "SPC o") 'indent-region)
-  (evil-define-key '(normal visual) nix-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC n") 'lsp-execute-code-action
-    (kbd "SPC e") 'lsp-ui-doc-glance)
+    (kbd "<f5>") 'jdb)
 
   (evil-define-key 'normal tuareg-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC n") 'lsp-execute-code-action
-    (kbd "SPC e") 'lsp-ui-doc-glance
-    (kbd "<f2>")  'lsp-rename
-    (kbd "SPC o") 'ocamlformat)
-
-  (evil-define-key 'visual futhark-mode-map
-    (kbd "SPC o") 'indent-region)
-  (evil-define-key 'normal futhark-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
-    (kbd "SPC o") 'indent-according-to-mode
-    (kbd "SPC i") 'xref-find-definitions
-    (kbd "SPC n") 'lsp-execute-code-action
-    (kbd "SPC e") 'lsp-ui-doc-glance
-    (kbd "SPC t") 'lsp-ui-sideline-mode
-    (kbd "SPC I") 'lsp-goto-type-definition
-    (kbd "<f2>")  'lsp-rename
-    (kbd "<f5>")  'dap-debug)
+    (kbd "SPC O") 'ocamlformat)
 
   (evil-define-key 'normal gud-mode-map
     (kbd "SPC t") 'gud-step
@@ -390,32 +294,4 @@
     (kbd "f")     'pdf-view-previous-page-command
     (kbd "r")     'pdf-view-previous-page-command
     (kbd "s")     'pdf-view-next-page-command
-    (kbd "t")     'pdf-view-next-page-command)
-
-  ;; (setq symex--user-evil-keyspec
-  ;;       '(("s" . symex-go-up)
-  ;;         ("f" . symex-go-down)
-  ;;         ("S" . evil-scroll-line-down)
-  ;;         ("F" . evil-scroll-line-up)
-  ;;         ("M-s" . symex-goto-highest)
-  ;;         ("M-f" . symex-goto-lowest)
-  ;;         ("t" . symex-go-forward)
-  ;;         ("r" . symex-go-backward)
-  ;;         ("T" . symex-traverse-forward)
-  ;;         ("R" . symex-traverse-backward)
-  ;;         ("C-t" . symex-insert-at-end)
-  ;;         ("C-r" . symex-insert-before)
-  ;;         ("a" . nil)
-  ;;         ("SPC u t" . symex-capture-forward)
-  ;;         ("SPC u r" . symex-capture-backward)
-  ;;         ("SPC y t" . symex-emit-forward)
-  ;;         ("SPC y r" . symex-emit-forward)
-  ;;         ("v" . select-with-symex)
-  ;;         ("n" . evil-insert)
-  ;;         ("p" . symex-change)
-  ;;         ("e" . symex-yank)
-  ;;         ("i" . symex-delete)
-  ;;         ("o" . symex-paste-after)
-  ;;         ("O" . symex-paste-before)))
-  ;; (symex-initialize)
-  )
+    (kbd "t")     'pdf-view-next-page-command))
