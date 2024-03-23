@@ -115,7 +115,7 @@
     (kbd "C-g") 'evil-quit)
 
   ;; Default language with lsp-mode bindings
-(defmacro lang-with-lsp (map)
+  (defmacro lang-with-lsp (map)
     `(progn (evil-define-key 'visual ,map
               (kbd "SPC i") 'indent-region)
             (evil-define-key 'normal ,map
@@ -140,8 +140,13 @@
   (lang-with-lsp csharp-ts-mode-map)
   (lang-with-lsp nix-mode-map)
   (lang-with-lsp futhark-mode-map)
-
+  (lang-with-lsp c-mode-map)
+  (lang-with-lsp c++-mode-map)
+  (lang-with-lsp java-ts-mode-map)
+  (lang-with-lsp kotlin-mode-map)
+  (lang-with-lsp tuareg-mode-map)
   (lang-with-lsp haskell-mode-map)
+
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC r") 'hs-slime-v)
   (evil-define-key 'normal haskell-mode-map
@@ -213,26 +218,19 @@
     (kbd "SPC r") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
-
-  (lang-with-lsp c-mode-map)
-  (lang-with-lsp c++-mode-map)
   (evil-define-key 'normal c-mode-map
     (kbd "<f5>") 'gdb)
   (evil-define-key 'normal c++-mode-map
     (kbd "<f5>") 'gdb)
 
-  (lang-with-lsp java-ts-mode-map)
   (evil-define-key 'normal java-ts-mode-map
     (kbd "<f5>") 'jdb)
 
-  (lang-with-lsp kotlin-mode-map)
   (evil-define-key 'normal kotlin-mode-map
     (kbd "<f5>") 'jdb)
 
-  (lang-with-lsp tuareg-mode-map)
   (evil-define-key 'normal tuareg-mode-map
     (kbd "SPC I") 'ocamlformat)
-
 
   (evil-define-key 'normal gud-mode-map
     (kbd "SPC d") 'gud-step
