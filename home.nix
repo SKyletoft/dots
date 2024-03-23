@@ -130,6 +130,8 @@ in {
 			dolphin-emu-primehack
 			fragments
 			heroic
+			lutris
+			mangohud
 			ruffle
 
 			i2c-tools
