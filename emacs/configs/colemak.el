@@ -179,7 +179,7 @@
               (kbd "SPC n") 'lsp-execute-code-action
               (kbd "SPC t") 'lsp-inlay-hints-mode
               (kbd "SPC v") 'gud-break
-              (kbd "<f2>") 'lsp-rename
+              (kbd "<f2>")  'lsp-rename
               (kbd "<f5>")  'dap-debug)))
 
   (lang-with-lsp js-mode-map)
