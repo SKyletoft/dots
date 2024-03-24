@@ -193,6 +193,8 @@
   (lang-with-lsp kotlin-mode-map)
   (lang-with-lsp tuareg-mode-map)
   (lang-with-lsp haskell-mode-map)
+  (lang-with-lsp rustic-mode-map)
+  (lang-with-lsp rust-ts-mode-map)
 
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC l") 'hs-slime-v)
@@ -224,14 +226,7 @@
   (evil-define-key 'visual rustic-mode-map
     (kbd "SPC o") 'rustic-format-region)
   (evil-define-key '(normal visual) rustic-mode-map
-    (kbd "SPC e")  'lsp-ui-doc-glance
-    (kbd "SPC i")  'xref-find-definitions
-    (kbd "SPC I")  'lsp-goto-type-definition
-    (kbd "SPC n")  'lsp-execute-code-action
-    (kbd "SPC t")  'lsp-inlay-hints-mode
     (kbd "SPC l")  'rustic-cargo-run
-    (kbd "SPC L")  'compile
-    (kbd "<f2>")   'lsp-rename
     (kbd "<f4>")   'rustic-popup
     (kbd "<f5>")   'rust-compile-and-dap
     (kbd "C-<f5>") 'rustic-cargo-build
