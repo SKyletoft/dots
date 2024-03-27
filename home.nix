@@ -376,6 +376,7 @@ in {
 				futhark-mode
 				kotlin-mode
 				pest-mode
+				typescript-mode
 			]);
 		};
 
@@ -483,6 +484,10 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 			"${emacsPin.tree-sitter-grammars.tree-sitter-latex}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-javascript.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-javascript}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-typescript.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-typescript}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-tsx.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-tsx}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-c-sharp.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-c-sharp}/parser";
 
