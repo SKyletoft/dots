@@ -181,6 +181,7 @@ in {
 
 		flatpak.enable = false;
 		openssh.enable = false;
+		mullvad-vpn.enable = true;
 
 		cron = {
 			enable = true;
