@@ -136,6 +136,9 @@
               (kbd "<f2>") 'lsp-rename)))
 
   (lang-with-lsp js-mode-map)
+  (lang-with-lsp js-ts-mode-map)
+  (lang-with-lsp typescript-mode-map)
+  (lang-with-lsp typescript-ts-mode-map)
   (lang-with-lsp pest-mode-map)
   (lang-with-lsp csharp-ts-mode-map)
   (lang-with-lsp nix-mode-map)
