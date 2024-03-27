@@ -150,6 +150,10 @@
   (lang-with-lsp tuareg-mode-map)
   (lang-with-lsp haskell-mode-map)
 
+  (evil-define-key 'normal makefile-gmake-mode-map
+    (kbd "SPC r") 'recompile
+    (kbd "SPC R") 'compile)
+
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC r") 'hs-slime-v)
   (evil-define-key 'normal haskell-mode-map
