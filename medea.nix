@@ -103,8 +103,14 @@ in {
 		hostName = "medea";
 		networkmanager.enable = true;
 		firewall = {
-			allowedTCPPorts = [ 80 6530 8080 12345 ];
-			allowedUDPPorts = [ 80 6530 8080 12345 ];
+			allowedTCPPorts
+				= [ 80 443 6530 8000 8080 12825 ] # Development
+				++ [ 53 1401 ] # Mullvad
+				++ [ 25565 ];
+			allowedUDPPorts
+				= [ 80 443 6530 8000 8080 12825 ] # Development
+				++ [ 53 1194 1195 1196 1197 1399 1391 1392 1393 1400 ] # Mullvad
+				++ [ 25565 ];
 		};
 	};
 
