@@ -202,7 +202,10 @@ in {
 		xserver.enable = false;
 		openssh = {
 			enable = true;
-			settings.PasswordAuthentication = false;
+			settings = {
+				PasswordAuthentication = false;
+				X11Forwarding = true;
+			};
 		};
 		earlyoom.enable = true;
 		ananicy = {
