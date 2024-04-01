@@ -358,13 +358,7 @@
                 (setq-local compile-command "nix run -L")
                 (editorconfig-apply)
                 (direnv-update-environment)
-                (lsp)))
-  :config
-  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
-                    :major-modes '(nix-mode)
-                    :server-id 'nix)))
+                (lsp))))
 
 ;; (use-package olivetti
 ;;   :hook
