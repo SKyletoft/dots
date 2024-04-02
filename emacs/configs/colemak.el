@@ -222,9 +222,9 @@
     (kbd "SPC h") 'toggle-hole)
 
   (evil-define-key 'normal rustic-mode-map
-    (kbd "SPC o") 'rustic-format-buffer)
+    (kbd "SPC O") 'rustic-format-buffer)
   (evil-define-key 'visual rustic-mode-map
-    (kbd "SPC o") 'rustic-format-region)
+    (kbd "SPC O") 'rustic-format-buffer)
   (evil-define-key '(normal visual) rustic-mode-map
     (kbd "SPC l")  'rustic-cargo-run
     (kbd "<f4>")   'rustic-popup

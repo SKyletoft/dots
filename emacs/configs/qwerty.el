@@ -179,9 +179,9 @@
     (kbd "SPC h") 'toggle-hole)
 
   (evil-define-key 'normal rustic-mode-map
-    (kbd "SPC i") 'rustic-format-buffer)
+    (kbd "SPC I") 'rustic-format-buffer)
   (evil-define-key 'visual rustic-mode-map
-    (kbd "SPC i") 'rustic-format-region)
+    (kbd "SPC I") 'rustic-format-region)
   (evil-define-key '(normal visual) rustic-mode-map
     (kbd "SPC f") 'lsp-ui-doc-glance
     (kbd "SPC g") 'xref-find-definitions
