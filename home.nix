@@ -133,6 +133,7 @@ in {
 			lutris
 			mangohud
 			ruffle
+			gamescope
 
 			i2c-tools
 
