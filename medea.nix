@@ -243,6 +243,7 @@ in {
 			git
 			wally-cli
 			zsa-udev-rules
+			thinkfan
 			auto-cpufreq
 
 			gnome.gnome-tweaks
