@@ -169,6 +169,8 @@ in {
 				RUN+="${pkgs.bash}/bin/sh -c 'echo 2dc8 3106 > /sys/bus/usb/drivers/xpad/new_id'"
 		'';
 
+		auto-cpufreq.enable = true;
+
 		thermald.enable = true;
 
 		printing.enable = true;
@@ -241,6 +243,7 @@ in {
 			git
 			wally-cli
 			zsa-udev-rules
+			auto-cpufreq
 
 			gnome.gnome-tweaks
 		] ++ (with pkgs.gnomeExtensions; [
