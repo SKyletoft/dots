@@ -130,6 +130,7 @@
                               (revert-buffer t t t))
               (kbd "SPC f") 'lsp-ui-doc-glance
               (kbd "SPC g") 'xref-find-definitions
+              (kbd "SPC G") 'lsp-goto-type-definition
               (kbd "SPC a") 'lsp-execute-code-action
               (kbd "SPC t") 'lsp-inlay-hints-mode
               (kbd "SPC v") 'gud-break
@@ -149,6 +150,7 @@
   (lang-with-lsp kotlin-mode-map)
   (lang-with-lsp tuareg-mode-map)
   (lang-with-lsp haskell-mode-map)
+  (lang-with-lsp rustic-mode-map)
 
   (evil-define-key 'normal makefile-gmake-mode-map
     (kbd "SPC r") 'recompile
@@ -183,14 +185,7 @@
   (evil-define-key 'visual rustic-mode-map
     (kbd "SPC I") 'rustic-format-region)
   (evil-define-key '(normal visual) rustic-mode-map
-    (kbd "SPC f") 'lsp-ui-doc-glance
-    (kbd "SPC g") 'xref-find-definitions
-    (kbd "SPC G") 'lsp-goto-type-definition
-    (kbd "SPC a") 'lsp-execute-code-action
-    (kbd "SPC t") 'lsp-inlay-hints-mode
     (kbd "SPC r") 'rustic-cargo-run
-    (kbd "SPC R") 'compile
-    (kbd "<f2>") 'lsp-rename
     (kbd "<f4>") 'rustic-popup
     (kbd "<f5>") 'rust-compile-and-dap
     (kbd "C-<f5>") 'rustic-cargo-build
