@@ -32,9 +32,8 @@
     (progn
       (colemak-keymap)
       (setq left-margin-default 80))
-  (progn
-    (qwerty-keymap)
-    (setq left-margin-default 60)))
+  (qwerty-keymap)
+  (setq left-margin-default 60))
 
 (use-package gcmh
   :config
