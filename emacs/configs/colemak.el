@@ -199,6 +199,7 @@
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC l") 'hs-slime-v)
   (evil-define-key 'normal haskell-mode-map
+    (kbd "SPC l") 'hs-slime-n
     (kbd "SPC O") (lambda () (interactive)
                     (save-buffer)
                     (shell-command (concat "hindent "
