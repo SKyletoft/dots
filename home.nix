@@ -34,14 +34,14 @@ let
 					"hlsl"
 					"glsl"
 				]));
-			# emacs29 = prev.emacs29.overrideAttrs(old: {
-			#	LSP_USE_PLISTS = true;
-			# });
-			# emacsPackages = prev.emacsPackages.overrideScope' (efinal: eprev: {
-			#	lsp-mode = eprev.lsp-mode.overrideAttrs(old: {
-			#		LSP_USE_PLISTS = true;
-			#	});
-			# });
+			emacs-git = prev.emacs-git.overrideAttrs(old: {
+				LSP_USE_PLISTS = true;
+			});
+			emacsPackages = prev.emacsPackages.overrideScope' (efinal: eprev: {
+				lsp-mode = eprev.lsp-mode.overrideAttrs(old: {
+					LSP_USE_PLISTS = true;
+				});
+			});
 		})
 	]; };
 
@@ -296,7 +296,7 @@ in {
 
 		emacs = {
 			enable = true;
-			package = emacsPin.emacs29.override {
+			package = emacsPin.emacs-git.override {
 				withGTK2       = false;
 				withGTK3       = false;
 				withX          = gui;

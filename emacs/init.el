@@ -23,7 +23,7 @@
 (require 'number-hl-mode)
 (require 'language-specifics)
 (require 'language-checking)
-;; (require 'lsp-booster)
+(require 'lsp-booster)
 (require 'qwerty)
 (require 'colemak)
 
