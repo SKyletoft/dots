@@ -124,6 +124,7 @@ in {
 			ark
 			pcmanfm
 			vlc
+			mpv
 			sgt-puzzles
 			xournalpp
 			prismlauncher
