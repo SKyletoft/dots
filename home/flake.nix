@@ -7,6 +7,7 @@
 		emacsOverlay = {
 			url = "github:nix-community/emacs-overlay?rev=cb16f015f4dd579cf5bd00d09e6a7ada6e72f5ab";
 			inputs.nixpkgs.follows = "emacsPkgs";
+			inputs.nixpkgs-stable.follows = "emacsPkgs";
 		};
 		home-manager = {
 			url = "github:nix-community/home-manager";
