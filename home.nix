@@ -398,6 +398,7 @@ in {
 				hms = "echo 'cd ~/dots/home && home-manager switch --flake . --impure -L' | bash";
 				restart-emacs = "pkill emacs && emacs --daemon";
 				".." = "cd ..";
+				update-lorri = "nix develop -L < /dev/null && nix-shell < /dev/null && lorri init && direnv allow && lorri watch";
 			};
 
 			shellOptions = [
