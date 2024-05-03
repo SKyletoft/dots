@@ -332,6 +332,11 @@ in {
 					enableACME = true;
 					root = "/var/www/nuschka.u3836.se";
 				};
+				"static-test.u3836.se" = {
+					addSSL = true;
+					enableACME = true;
+					root = "/var/www/test";
+				};
 			};
 		};
 	};
