@@ -162,17 +162,18 @@
   ;; Default language with lsp-mode bindings
   (defmacro lang-with-lsp (map)
     `(progn (evil-define-key 'visual ,map
-              (kbd "SPC o") 'indent-region)
+              (kbd "SPC o") 'indent-region
+              (kbd "SPC O") 'lsp-format-region)
             (evil-define-key 'normal ,map
-              (kbd "SPC o") 'indent-according-to-mode)
-            (evil-define-key '(normal visual) ,map
-              (kbd "SPC l") 'recompile
-              (kbd "SPC L") 'compile
+              (kbd "SPC o") 'indent-according-to-mode
               (kbd "SPC O") (lambda () (interactive)
                               (save-buffer)
                               (shell-command (concat "clang-format -i "
                                                      (buffer-file-name)))
-                              (revert-buffer t t t))
+                              (revert-buffer t t t)))
+            (evil-define-key '(normal visual) ,map
+              (kbd "SPC l") 'recompile
+              (kbd "SPC L") 'compile
               (kbd "SPC e") 'lsp-ui-doc-glance
               (kbd "SPC i") 'xref-find-definitions
               (kbd "SPC I") 'lsp-goto-type-definition
