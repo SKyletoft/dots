@@ -321,8 +321,10 @@
 
 (add-hook 'erlang-mode-hook
           (lambda ()
-            (editorconfig-apply)))
+            (editorconfig-apply)
             (set-indents 8 2 nil)
+            (direnv-update-directory-environment)
+            (lsp)))
 
 (add-hook 'mhtml-mode-hook
           (lambda ()
