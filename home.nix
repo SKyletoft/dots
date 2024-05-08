@@ -2,6 +2,7 @@
 
 let
 	stablePkgs = import inputs.stablePkgs {};
+	citraPkgs = import inputs.stablePkgs {};
 	vimPin     = import inputs.vimPin {};
 	emacsPin   = import inputs.emacsPkgs { overlays = [
 		inputs.emacsOverlay.overlays.default
@@ -129,6 +130,9 @@ in {
 			xournalpp
 			prismlauncher
 			dolphin-emu-primehack
+			citraPkgs.citra
+			citraPkgs.yuzu
+			cemu
 			fragments
 			heroic
 			lutris

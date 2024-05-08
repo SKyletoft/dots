@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "citraPkgs": {
+      "locked": {
+        "lastModified": 1709671075,
+        "narHash": "sha256-olnS33Bxk07k9TD89epeGuPq5GlOxiOKYblH4LPz+kA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1cba04796fe93e7f657c62f9d1fb9cae9d0dd86e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1cba04796fe93e7f657c62f9d1fb9cae9d0dd86e",
+        "type": "github"
+      }
+    },
     "emacsOverlay": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -162,6 +178,7 @@
     },
     "root": {
       "inputs": {
+        "citraPkgs": "citraPkgs",
         "emacsOverlay": "emacsOverlay",
         "emacsPkgs": "emacsPkgs",
         "home-manager": "home-manager",
