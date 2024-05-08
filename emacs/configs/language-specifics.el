@@ -321,8 +321,8 @@
 
 (add-hook 'erlang-mode-hook
           (lambda ()
-            (set-indents 3 3 t)
             (editorconfig-apply)))
+            (set-indents 8 2 nil)
 
 (add-hook 'mhtml-mode-hook
           (lambda ()
