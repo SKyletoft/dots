@@ -196,6 +196,7 @@
   (lang-with-lsp haskell-mode-map)
   (lang-with-lsp rustic-mode-map)
   (lang-with-lsp rust-ts-mode-map)
+  (lang-with-lsp erlang-mode-map)
 
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC l") 'hs-slime-v)
