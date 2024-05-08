@@ -288,7 +288,8 @@
     (kbd "SPC f") 'gud-finish)
 
   (evil-define-key 'insert vterm-mode-map
-    (kbd "C-V") 'vterm-yank)
+    (kbd "C-V") 'vterm-yank
+    (kbd "C-g") 'vterm--self-insert)
 
   (evil-define-key '(normal emacs) vterm-mode-map
     (kbd "C-S-F") 'windmove-up
