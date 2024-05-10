@@ -177,6 +177,7 @@ in {
 		maky.isNormalUser = true;
 		liam.isNormalUser = true;
 		enaya.isNormalUser = true;
+		ibra.isNormalUser = true;
 
 		root.openssh.authorizedKeys.keys = [
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNXgCDGyWMeQBTCloSMMEASjOLjvIOcx+HazUOrS3OR"
@@ -236,6 +237,7 @@ in {
 					("*/05 * * * * liam ${update-keys'} liamjardine")
 					("*/05 * * * * kryddan {update-keys'} ErikOrtenberg")
 					("*/05 * * * * koko ${update-keys'} KokoRobinn")
+					("*/05 * * * * ibra {update-keys'} FlySlime")
 				];
 		};
 		lorri = {
