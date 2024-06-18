@@ -17,7 +17,7 @@
 (require 'evil-config)
 ;; (require 'typst)
 (require 'aesthetics)
-(require 'dap)
+;; (require 'dap)
 (require 'artemis-mode)
 (require 'jasmin)
 (require 'number-hl-mode)
