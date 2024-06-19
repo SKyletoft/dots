@@ -121,11 +121,7 @@
               (kbd "SPC I") 'lsp-format-region)
             (evil-define-key 'normal ,map
               (kbd "SPC i") 'indent-according-to-mode
-              (kbd "SPC I") (lambda () (interactive)
-                              (save-buffer)
-                              (shell-command (concat "clang-format -i "
-                                                     (buffer-file-name)))
-                              (revert-buffer t t t)))
+              (kbd "SPC I") 'lsp-format-buffer)
             (evil-define-key '(normal visual) ,map
               (kbd "SPC r") 'recompile
               (kbd "SPC R") 'compile
@@ -227,8 +223,10 @@
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
   (evil-define-key 'normal c-mode-map
+    (kbd "I") 'save-and-clang-format-buffer
     (kbd "<f5>") 'gdb)
   (evil-define-key 'normal c++-mode-map
+    (kbd "I") 'save-and-clang-format-buffer
     (kbd "<f5>") 'gdb)
 
   (evil-define-key 'normal java-ts-mode-map
