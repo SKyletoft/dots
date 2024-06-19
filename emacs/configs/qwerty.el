@@ -143,6 +143,8 @@
   (lang-with-lsp futhark-mode-map)
   (lang-with-lsp c-mode-map)
   (lang-with-lsp c++-mode-map)
+  (lang-with-lsp c-ts-mode-map)
+  (lang-with-lsp c++-ts-mode-map)
   (lang-with-lsp java-ts-mode-map)
   (lang-with-lsp kotlin-mode-map)
   (lang-with-lsp tuareg-mode-map)
@@ -228,8 +230,15 @@
   (evil-define-key 'normal c++-mode-map
     (kbd "I") 'save-and-clang-format-buffer
     (kbd "<f5>") 'gdb)
+  (evil-define-key 'normal c-ts-mode-map
+    (kbd "I") 'save-and-clang-format-buffer
+    (kbd "<f5>") 'gdb)
+  (evil-define-key 'normal c++-ts-mode-map
+    (kbd "I") 'save-and-clang-format-buffer
+    (kbd "<f5>") 'gdb)
 
   (evil-define-key 'normal java-ts-mode-map
+    (kbd "I") 'save-and-clang-format-buffer
     (kbd "<f5>") 'jdb)
 
   (evil-define-key 'normal kotlin-mode-map
