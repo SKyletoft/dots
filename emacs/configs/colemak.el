@@ -159,13 +159,6 @@
   (evil-define-key '(normal motion) evil-command-window-mode-map
     (kbd "C-g") 'evil-quit)
 
-  (defun save-and-clang-format-buffer ()
-    (interactive)
-    (save-buffer)
-    (shell-command (concat "clang-format -i "
-                           (buffer-file-name)))
-    (revert-buffer t t t))
-
   ;; Default language with lsp-mode bindings
   (defmacro lang-with-lsp (map)
     `(progn (evil-define-key 'visual ,map

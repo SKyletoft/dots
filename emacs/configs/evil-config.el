@@ -379,3 +379,10 @@
   (switch-to-buffer "*Buffer List*")
   (list-buffers)
   (evil-motion-state))
+
+(defun save-and-clang-format-buffer ()
+    (interactive)
+    (save-buffer)
+    (shell-command (concat "clang-format -i "
+                           (buffer-file-name)))
+    (revert-buffer t t t))
