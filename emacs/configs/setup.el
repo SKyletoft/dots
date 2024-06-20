@@ -89,6 +89,13 @@
 ;;   :config
 ;;   (symex-initialize))
 
+(use-package ivy-posframe
+  :custom
+  (vertico-posframe-parameters
+   '((left-fringe . 8)
+     (right-fringe . 8))))
+(ivy-posframe-mode 1)
+
 (use-package whitespace
   :hook (before-save . whitespace-cleanup))
 

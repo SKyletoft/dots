@@ -333,6 +333,7 @@ in {
 				company-posframe
 				# topsy
 				ivy
+				ivy-posframe
 				projectile
 				fzf
 
