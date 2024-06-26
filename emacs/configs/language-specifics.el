@@ -269,8 +269,8 @@
             (editorconfig-apply)))
 
 (defun americanise ()
-  "Ruin spellings of words like centre or colour to work with HTML
-  and CSS that have hardcoded the American spellings"
+"Ruin spellings of words like centre or colour to work with HTML
+and CSS that have hardcoded the American spellings."
   (interactive)
   (save-excursion
     (replace-string "centre" "center")
