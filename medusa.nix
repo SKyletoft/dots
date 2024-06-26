@@ -180,6 +180,7 @@ in {
 		journald.extraConfig = "SystemMaxUse=256M";
 		mullvad-vpn.enable = true;
 		fwupd.enable = true;
+		lorri.enable = true;
 		flatpak.enable = flatpak;
 		openssh = {
 			enable = true;
@@ -192,11 +193,6 @@ in {
 				# Every hour, check for store corruption
 				"0 * * * * root nix-store --repair --verify --check-contents"
 			];
-		};
-
-		lorri = {
-			enable = true;
-			package = pkgs.lorri;
 		};
 
 		# github-runners = builtins.listToAttrs (builtins.map (i:
