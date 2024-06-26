@@ -51,11 +51,6 @@
 
 ;; Load packages
 
-;; (use-package topsy
-;;   :hook
-;;   (prog-mode . topsy-mode)
-;;   (magit-section-mode . topsy-mode))
-
 (use-package mixed-pitch
   :hook
   (text-mode . mixed-pitch-mode)

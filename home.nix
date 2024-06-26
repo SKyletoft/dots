@@ -331,7 +331,6 @@ in {
 				yasnippet-snippets
 				mixed-pitch
 				company-posframe
-				# topsy
 				ivy
 				ivy-posframe
 				projectile
