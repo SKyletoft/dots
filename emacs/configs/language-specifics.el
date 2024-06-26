@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (provide 'language-specifics)
 
 (electric-pair-mode 1)
@@ -70,7 +71,7 @@
       (rename-buffer "paste-vterm"))))
 
 (defun send-to-vterm ()
-  "Paste the clipboard into the ghci session wrapped in :{ :}"
+"Paste the clipboard into the ghci session wrapped in :{ :}."
   (let ((b (current-buffer)))
     (switch-to-buffer "paste-vterm")
     (vterm-yank)
@@ -78,27 +79,27 @@
     (switch-to-buffer b)))
 
 (defun slime-n ()
-  "Copy the current paragraph and send it to ghci"
+"Copy the current paragraph and send it to ghci."
   (interactive)
   (save-mark-and-excursion
     (copy-paragraph)
     (send-to-vterm)))
 
 (defun slime-buf ()
-  "Copy the current selection and send it to ghci"
+"Copy the current selection and send it to ghci."
   (interactive)
   (mark-whole-buffer)
   (kill-ring-save (region-beginning) (region-end))
   (send-to-vterm))
 
 (defun slime-v ()
-  "Copy the current selection and send it to ghci"
+"Copy the current selection and send it to ghci."
   (interactive)
   (kill-ring-save (region-beginning) (region-end))
   (send-to-vterm))
 
 (defun ghci ()
-  "Spawn a ghci terminal in a buffer named ghci. If currently in haskell-mode, load the current file"
+"Spawn a ghci terminal in a buffer named ghci.  If currently in haskell-mode, load the current file."
   (interactive)
   (let ((file-name (buffer-file-name))
         (is-haskell (eq major-mode 'haskell-mode)))
@@ -117,7 +118,7 @@
           (vterm-send-return))))))
 
 (defun copy-paragraph ()
-  "Mark and copy the current paragraph"
+"Mark and copy the current paragraph."
   (backward-paragraph)
   (let ((start (point)))
     (forward-paragraph)
@@ -125,7 +126,7 @@
       (kill-ring-save start end))))
 
 (defun send-to-ghci ()
-  "Paste the clipboard into the ghci session wrapped in :{ :}"
+"Paste the clipboard into the ghci session wrapped in :{ :}."
   (let ((b (current-buffer)))
     (switch-to-buffer "ghci")
     (vterm-insert ":{\n")
@@ -136,27 +137,27 @@
     (switch-to-buffer b)))
 
 (defun hs-slime-n ()
-  "Copy the current paragraph and send it to ghci"
+"Copy the current paragraph and send it to ghci."
   (interactive)
   (save-mark-and-excursion
     (copy-paragraph)
     (send-to-ghci)))
 
 (defun hs-slime-v ()
-  "Copy the current selection and send it to ghci"
+"Copy the current selection and send it to ghci."
   (interactive)
   (kill-ring-save (region-beginning) (region-end))
   (send-to-ghci))
 
 (defun hs-slime-dwim ()
-  "Do hs-slime-n or hs-slime-v depending on if there's a current selection"
+"Do hs-slime-n or hs-slime-v depending on if there's a current selection."
   (interactive)
   (if (region-active-p)
       (hs-slime-v)
     (hs-slime-n)))
 
 (defun hs-run ()
-  "Reload the file in ghci and run `main`'"
+"Reload the file in ghci and run `main`'."
   (interactive)
   (save-mark-and-excursion
     (let ((b (current-buffer)))
@@ -182,7 +183,7 @@
                     )))
 
 (defun toggle-hole ()
-  "Toggle having a ? at the start of the word"
+"Toggle having a ? at the start of the word."
   (interactive)
   (save-excursion
     ;; Unless we check this first it will toggle the ? on the previous
@@ -274,8 +275,7 @@
             (editorconfig-apply)))
 
 (defun americanise ()
-"Ruin spellings of words like centre or colour to work with HTML
-and CSS that have hardcoded the American spellings."
+"Ruin spellings of words like centre or colour to work with HTML and CSS that have hardcoded the American spellings."
   (interactive)
   (save-excursion
     (replace-string "centre" "center")
