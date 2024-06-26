@@ -9,6 +9,7 @@
 
 (defvaralias 'c-basic-offset 'evil-shift-width)
 (defvaralias 'java-ts-mode-indent-offset 'evil-shift-width)
+(defvaralias 'rust-ts-mode-indent-offset 'evil-shift-width)
 (defvaralias 'csharp-ts-mode-indent-offset 'evil-shift-width)
 (defvaralias 'css-indent-offset 'evil-shift-width)
 (defvaralias 'js-indent-offset 'evil-shift-width)
@@ -46,6 +47,7 @@
       '((java-mode . java-ts-mode)
         (c++-mode . c++-ts-mode)
         (c-mode . c-ts-mode)
+        (rustic-mode . rust-ts-mode)
         (csharp-mode . csharp-ts-mode)))
 
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
@@ -198,9 +200,9 @@
   :config
   (setq idris-interpreter-path "idris2"))
 
-(use-package rustic
+(use-package rust-ts-mode
   :hook
-  (rustic-mode . (lambda ()
+  (rust-ts-mode . (lambda ()
                    (when buffer-file-name
                      (setq-local buffer-save-without-query t))
                    (set-indents 8 8 t)
@@ -215,13 +217,12 @@
                                lsp-ui-sideline-enable t
                                fill-column 100)
                    (direnv-update-environment)
+                   (lsp)
                    (lsp-lens-hide)
                    (lsp-inlay-hints-mode)
                    (editorconfig-apply)))
-  (rustic-popup-mode . 'evil-emacs-state)
   :config
-  (setq rustic-format-on-save nil
-        lsp-rust-analyzer-server-display-inlay-hints t
+  (setq lsp-rust-analyzer-server-display-inlay-hints t
         lsp-rust-analyzer-cargo-watch-command "clippy"
         lsp-rust-analyzer-server-display-inlay-hints t
         lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial"
@@ -231,14 +232,16 @@
         lsp-rust-analyzer-display-parameter-hints t
         lsp-rust-analyzer-display-reborrow-hints nil
         lsp-rust-analyzer-proc-macro-enable t
-        rustic-rustfmt-args "--edition=2021"
+        lsp-rust-analyzer-rustfmt-args "--edition=2021"
         lsp-eldoc-hook nil
         lsp-enable-symbol-highlighting nil
         lsp-signature-auto-activate nil
         lsp-inlay-hint-enable t
         lsp-inlay-hints-enable t
+        compile-command "cargo run --color always "
         ))
 
+;; For rustic mode only
 (defun rust-compile-and-dap ()
   (interactive)
   (let* ((workspace (lsp-workspace-root))
