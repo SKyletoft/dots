@@ -47,12 +47,7 @@
   :config
   (editorconfig-mode 1))
 
-(use-package telephone-line
-  :config
-  (defface telephone-line-evil-symex
-    '((t (:background "purple" :inherit telephone-line-evil)))
-    "Face used in evil color-coded segments when in Symex state."
-    :group 'telephone-line-evil))
+(use-package telephone-line)
 
 (use-package treemacs
   :config
