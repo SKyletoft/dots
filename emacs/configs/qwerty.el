@@ -150,6 +150,7 @@
   (lang-with-lsp tuareg-mode-map)
   (lang-with-lsp haskell-mode-map)
   (lang-with-lsp rustic-mode-map)
+  (lang-with-lsp rust-ts-mode-map)
   (lang-with-lsp erlang-mode-map)
 
   (evil-define-key 'normal makefile-gmake-mode-map
