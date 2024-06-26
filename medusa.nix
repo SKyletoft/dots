@@ -166,7 +166,17 @@ in {
 			package = pkgs.ananicy-cpp;
 		};
 
-		earlyoom.enable = true;
+		earlyoom = {
+			enable = true;
+			extraArgs = [
+				"--prefer \"gcc|ghc|rustc|a\.out\""
+				"--avoid  \"mutter|gnome-shell|x|firefox\""
+			];
+			killHook = pkgs.writeShellScript "earlyoom-kill-hook" ''
+				${pkgs.libnotify}/bin/notify-send
+					'Killed $EARLYOOM_NAME ($EARLYOOM_PID) to reclaim memory'
+			'';
+		};
 
 		# https://discourse.nixos.org/t/how-to-enable-ddc-brightness-control-i2c-permissions/20800/2
 		udev.extraRules = ''
