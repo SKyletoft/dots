@@ -50,6 +50,7 @@
       '((java-mode . java-ts-mode)
         (c++-mode . c++-ts-mode)
         (c-mode . c-ts-mode)
+        (nix-mode . nix-ts-mode)
         (rustic-mode . rust-ts-mode)
         (csharp-mode . csharp-ts-mode)))
 
@@ -360,14 +361,15 @@
             (lsp)
             (editorconfig-apply)))
 
-(use-package nix-mode
+(use-package nix-ts-mode
+  :mode "\\.nix\\'"
   :hook
-  (nix-mode . (lambda ()
-                (set-indents 4 4 t)
-                (setq-local compile-command "nix run -L")
-                (editorconfig-apply)
-                (direnv-update-environment)
-                (lsp))))
+  (nix-ts-mode . (lambda ()
+                   (set-indents 4 4 t)
+                   (setq-local compile-command "nix run -L")
+                   (editorconfig-apply)
+                   (direnv-update-environment)
+                   (lsp))))
 
 ;; (use-package olivetti
 ;;   :hook

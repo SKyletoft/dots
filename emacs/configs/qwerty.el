@@ -139,7 +139,7 @@
   (lang-with-lsp typescript-ts-mode-map)
   (lang-with-lsp pest-mode-map)
   (lang-with-lsp csharp-ts-mode-map)
-  (lang-with-lsp nix-mode-map)
+  (lang-with-lsp nix-ts-mode-map)
   (lang-with-lsp futhark-mode-map)
   (lang-with-lsp c-mode-map)
   (lang-with-lsp c++-mode-map)

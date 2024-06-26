@@ -351,7 +351,7 @@ in {
 				company
 				which-key
 
-				nix-mode
+				nix-ts-mode
 				haskell-mode
 				idris-mode
 				agda2-mode
@@ -488,6 +488,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 			"${emacsPin.tree-sitter-grammars.tree-sitter-c-sharp}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-dockerfile.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-dockerfile}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-nix.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-nix}/parser";
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;
