@@ -312,17 +312,13 @@ in {
 				emacsPin.nodejs
 
 				direnv
-				# use-package
 				magit
 				diff-hl
 				evil
-				# symex
 				treemacs
 				telephone-line
 				ligature
-				# dashboard
 				gcmh
-				# crdt
 				transpose-frame
 				tramp
 				editorconfig
@@ -340,10 +336,6 @@ in {
 				multi-vterm
 				vterm
 
-				# org-appear
-				# org-superstar
-				# olivetti
-
 				lsp-mode
 				lsp-ui
 				dap-mode
@@ -352,13 +344,10 @@ in {
 				realgud
 				realgud-jdb
 
-				# tree-sitter
 				tree-sitter-langs
 				evil-textobj-tree-sitter
-				# paredit
 
 				flycheck
-				# eldoc-box
 				company
 				which-key
 
