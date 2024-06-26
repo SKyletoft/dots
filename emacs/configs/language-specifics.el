@@ -9,6 +9,8 @@
 (setq-default indent-tabs-mode 't
               evil-shift-width 8)
 
+;; Evil shift width is the only one I control in my bindings
+;; (tab/S-tab) so just alias all the language specific ones to that
 (defvaralias 'c-basic-offset 'evil-shift-width)
 (defvaralias 'java-ts-mode-indent-offset 'evil-shift-width)
 (defvaralias 'c-ts-mode-indent-offset 'evil-shift-width)
@@ -27,15 +29,10 @@
       (let ((indent-tabs-mode nil)) ad-do-it))
 
 (defun set-indents (tab-width-p shift-width-p tabs-p)
+"Set the tab width (TAB-WIDTH-P), evil shift width (SHIFT-WIDTH-P) and whether or not to use tabs (TABS-P)."
   (setq-local tab-width tab-width-p
               evil-shift-width shift-width-p
-              indent-tabs-mode tabs-p
-              java-ts-mode-indent-offset shift-width-p
-              csharp-ts-mode-indent-offset shift-width-p
-              css-indent-offset shift-width-p
-              js-indent-offset shift-width-p
-              js-indent-level shift-width-p
-              html-indent-offset shift-width-p))
+              indent-tabs-mode tabs-p))
 
 ;; For filetypes without hooks
 (add-hook 'find-file-hook
