@@ -9,6 +9,8 @@
 
 (defvaralias 'c-basic-offset 'evil-shift-width)
 (defvaralias 'java-ts-mode-indent-offset 'evil-shift-width)
+(defvaralias 'c-ts-mode-indent-offset 'evil-shift-width)
+(defvaralias 'c++-ts-mode-indent-offset 'evil-shift-width)
 (defvaralias 'rust-ts-mode-indent-offset 'evil-shift-width)
 (defvaralias 'csharp-ts-mode-indent-offset 'evil-shift-width)
 (defvaralias 'css-indent-offset 'evil-shift-width)
