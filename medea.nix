@@ -24,8 +24,8 @@ in {
 		overlays = (import ./overlays.nix) nativeBuild;
 	} // (if nativeBuild then {
 		localSystem =  {
-			gcc.arch = "skylake";
-			gcc.tune = "skylake";
+			gcc.arch = "alderlake";
+			gcc.tune = "alderlake";
 			system = "x86_64-linux";
 		};
 	} else {});
@@ -36,7 +36,7 @@ in {
 			system-features = [
 				"benchmark"
 				"big-parallel"
-				"gccarch-skylake"
+				"gccarch-alderlake"
 				"kvm"
 				"nixos-test"
 			];
