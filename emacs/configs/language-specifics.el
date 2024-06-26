@@ -416,19 +416,20 @@
 (use-package wgsl-mode
   :hook
   (wgsl-mode . (lambda ()
-                    (set-indents 8 8 t)
-                    (direnv-update-environment)
-                    (lsp)
-                    (setq-local compile-command "cargo run"
-                                wgsl-inlay-hints-enabled t
-                                wgsl-inlay-hints-types t
-                                wgsl-inlay-hints-parameters t
-                                wgsl-inlay-hints-struct-layout nil
-                                wgsl-inlay-hints-type-verbosity "compact"
-                                wgsl-diagnostics-types t
-                                wgsl-diagnostics-naga-parsing nil
-                                wgsl-diagnostics-naga-validation t
-                                wgsl-diagnostics-naga-version "0.14"))))
+                 (set-indents 8 8 t)
+                 (direnv-update-environment)
+                 (lsp)))
+  :config
+  (setq-local compile-command "cargo run"
+              wgsl-inlay-hints-enabled t
+              wgsl-inlay-hints-types t
+              wgsl-inlay-hints-parameters t
+              wgsl-inlay-hints-struct-layout nil
+              wgsl-inlay-hints-type-verbosity "compact"
+              wgsl-diagnostics-types t
+              wgsl-diagnostics-naga-parsing nil
+              wgsl-diagnostics-naga-validation t
+              wgsl-diagnostics-naga-version "0.14"))
 
 (use-package pest-mode
   :hook
