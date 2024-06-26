@@ -278,7 +278,7 @@ in {
 		doas = {
 			enable = true;
 			extraRules = [{
-				users = [ "u3836" ];
+				groups = [ "wheel" ];
 				keepEnv = true;
 				persist = true;
 			}];
