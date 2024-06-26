@@ -12,6 +12,8 @@
 
 (use-package lsp-ui
   :commands lsp-ui-mode
+  :config
+  (setq lsp-ui-doc-position 'at-point)
   :custom
   (lsp-ui-peek-always-show t)
   (lsp-ui-sideline-show-hover t)
