@@ -194,28 +194,6 @@ in {
 				"0 * * * * root nix-store --repair --verify --check-contents"
 			];
 		};
-
-		# github-runners = builtins.listToAttrs (builtins.map (i:
-			# let idx = builtins.toString i;
-			# in {
-				# name = "amba-runner${idx}";
-				# value = lib.mkMerge [
-					# {
-						# enable = true;
-						# name = "amba-runner${idx}-medusa";
-						# tokenFile = "/etc/nixos/secret/amba-github-runner-token";
-						# url = "https://github.com/lokegustafsson/amba";
-						# extraLabels = [ "nixos" "performant" ];
-					# }
-					# (lib.mkIf (i == 1) {
-						# extraLabels = [ "impure-persistent-amba-data-dir" ];
-						# extraEnvironment = {
-							# CARGO_TARGET_DIR = "%S/github-runner/amba-runner${idx}/ci_target";
-							# AMBA_DATA_DIR = "%S/github-runner/amba-runner${idx}/amba";
-						# };
-					# })
-				# ];
-			# }) (lib.lists.range 1 3));
 	};
 
 	# Flatpak nonsense
@@ -280,23 +258,6 @@ in {
 			dotspaces
 			hibernate-status-button
 		]);
-		# sessionVariables = {
-			# MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
-			# WEBKIT_DISABLE_COMPOSITING_MODE = "1";
-			# __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
-		# } // (if waylandSupport then {
-			# LIBVA_DRIVER_NAME = "nvidia";
-			# CLUTTER_BACKEND = "wayland";
-			# XDG_SESSION_TYPE = "wayland";
-			# QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-			# MOZ_ENABLE_WAYLAND = "1";
-			# GBM_BACKEND = "nvidia-drm";
-			# __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-			# WLR_NO_HARDWARE_CURSORS = "1";
-			# WLR_BACKEND = "vulkan";
-			# QT_QPA_PLATFORM = "wayland";
-			# GDK_BACKEND = "wayland";
-		# } else {});
 	};
 
 	security = {
