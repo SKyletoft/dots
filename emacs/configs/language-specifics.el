@@ -1,5 +1,6 @@
-;; -*- lexical-binding: t -*-
-(provide 'language-specifics)
+;;; language-specifics.el --- Configuration for specific languages  -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
 (electric-pair-mode 1)
 ;; (electric-indent-mode nil)
@@ -479,3 +480,6 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
     ))
 
 (global-display-line-numbers-mode)
+
+(provide 'language-specifics)
+;;; language-specifics.el ends here
