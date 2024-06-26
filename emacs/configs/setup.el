@@ -76,19 +76,6 @@
 (use-package projectile)
 (projectile-mode +1)
 
-;; (use-package combobulate
-  ;; :bind (:map combobulate-key-map
-              ;; ("M-<left>" . nil)
-              ;; ("M-<right>" . nil)))
-
-;; (use-package copilot
-  ;; :hook (prog-mode . copilot-mode)
-  ;; :config (require 'node-path))
-
-;; (use-package symex
-;;   :config
-;;   (symex-initialize))
-
 (use-package ivy-posframe
   :custom
   (vertico-posframe-parameters
