@@ -44,6 +44,8 @@
 
 (setq major-mode-remap-alist
       '((java-mode . java-ts-mode)
+        (c++-mode . c++-ts-mode)
+        (c-mode . c-ts-mode)
         (csharp-mode . csharp-ts-mode)))
 
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
