@@ -236,9 +236,9 @@ in {
 					("*/05 * * * * pingu ${update-keys'} The1Penguin")
 					("*/05 * * * * rachel-spechtachel ${update-keys'} rachelambda")
 					("*/05 * * * * liam ${update-keys'} liamjardine")
-					("*/05 * * * * kryddan {update-keys'} ErikOrtenberg")
+					("*/05 * * * * kryddan ${update-keys'} ErikOrtenberg")
 					("*/05 * * * * koko ${update-keys'} KokoRobinn")
-					("*/05 * * * * ibra {update-keys'} FlySlime")
+					("*/05 * * * * ibra ${update-keys'} FlySlime")
 
 					("*/05 * * * * root ${update-website}/bin/update-website")
 					("*/05 * * * * root ${update-system}/bin/update-system")
