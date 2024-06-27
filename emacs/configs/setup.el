@@ -100,10 +100,6 @@
 
 (use-package company)
 
-(require 'tramp-sh)
-(setq tramp-remote-path
-      (append tramp-remote-path
-              '(tramp-own-remote-path)))
 (use-package vterm
   :hook
   (vterm-mode . (lambda ()
@@ -112,3 +108,7 @@
                               vterm-timer-delay nil)
                   (evil-emacs-state))))
 
+(use-package tramp-sh
+  :config
+  (setq tramp-remote-path (append tramp-remote-path
+                                  '(tramp-own-remote-path))))
