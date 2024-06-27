@@ -230,6 +230,7 @@ in {
 					 + "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
 					 + "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
 					 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
+					 + "&& ${pkgs.git}/bin/git -C /etc/nixos/dots rev-parse HEAD"
 					)
 					("*/05 * * * * enaya ${update-keys'} Enayaaa")
 					("*/05 * * * * u3836 ${update-keys'} SKyletoft")
