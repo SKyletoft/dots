@@ -179,6 +179,9 @@ in {
 		enaya.isNormalUser = true;
 		ibra.isNormalUser = true;
 
+		jellyfin = {
+			extraGroups = [ "jellyfin" "video" ];
+		};
 		root.openssh.authorizedKeys.keys = [
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNXgCDGyWMeQBTCloSMMEASjOLjvIOcx+HazUOrS3OR"
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGzlJyY+rRehRff2s9aL8XtA6flDCqnLBz0AN7q50ivU"
