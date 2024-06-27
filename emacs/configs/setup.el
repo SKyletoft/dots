@@ -104,3 +104,11 @@
 (setq tramp-remote-path
       (append tramp-remote-path
               '(tramp-own-remote-path)))
+(use-package vterm
+  :hook
+  (vterm-mode . (lambda ()
+                  (setq-local vterm-term-environment-variable 'eterm-color
+                              vterm-kill-buffer-on-exit t
+                              vterm-timer-delay nil)
+                  (evil-emacs-state))))
+
