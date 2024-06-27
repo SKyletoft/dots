@@ -20,6 +20,7 @@
 
 (setq visual-line-mode -1
       global-auto-revert-mode 1
+      auto-revert-mode 1
       hs-minor-mode 1
       frame-resize-pixelwise t
       xterm-mouse-mode 1
