@@ -1,7 +1,7 @@
 { pkgs }:
 
 pkgs.writeShellScriptBin "update-system" ''
-	export PATH=${pkgs.lib.strings.makeBinPath (with pkgs;[ git nixos-rebuild ]) }
+	export PATH=${pkgs.lib.strings.makeBinPath (with pkgs;[ git nixos-rebuild systemd ]) }
 	set -e
 	cd /etc/nixos/dots
 	git reset --hard
