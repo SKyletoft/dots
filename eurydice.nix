@@ -231,7 +231,6 @@ in {
 					 + "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
 					 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
 					)
-					("*/05 * * * * root ${update-website}/bin/update-website")
 					("*/05 * * * * enaya ${update-keys'} Enayaaa")
 					("*/05 * * * * u3836 ${update-keys'} SKyletoft")
 					("*/05 * * * * pingu ${update-keys'} The1Penguin")
@@ -240,6 +239,9 @@ in {
 					("*/05 * * * * kryddan {update-keys'} ErikOrtenberg")
 					("*/05 * * * * koko ${update-keys'} KokoRobinn")
 					("*/05 * * * * ibra {update-keys'} FlySlime")
+
+					("*/05 * * * * root ${update-website}/bin/update-website")
+					("*/05 * * * * root ${update-system}/bin/update-system")
 				];
 		};
 		lorri = {
