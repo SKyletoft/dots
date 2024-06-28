@@ -320,7 +320,6 @@ in {
 				ligature
 				gcmh
 				transpose-frame
-				tramp
 				editorconfig
 				ripgrep
 				yasnippet
@@ -348,7 +347,6 @@ in {
 
 				flycheck
 				company
-				which-key
 
 				nix-ts-mode
 				haskell-mode
