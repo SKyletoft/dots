@@ -356,7 +356,6 @@ in {
 				ocamlformat
 				erlang
 				lsp-haskell
-				rustic
 				elsa
 				flycheck # Todo: Replace flycheck-elsa with lsp when supported
 				flycheck-elsa
