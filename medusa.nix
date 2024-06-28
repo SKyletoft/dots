@@ -195,7 +195,7 @@ in {
 		flatpak.enable = flatpak;
 		openssh = {
 			enable = true;
-			# settings.PasswordAuthentication = false;
+			settings.PasswordAuthentication = false;
 		};
 
 		cron = {
