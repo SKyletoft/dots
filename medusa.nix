@@ -5,6 +5,9 @@ let
 	windowsFonts = false;
 	nativeBuild = false;
 	flatpak = false;
+
+	update-system = pkgs.callPackage ./packages/update-system.nix {};
+	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
 in {
 	imports = [ medusa/hardware-configuration.nix ];
 
@@ -251,6 +254,9 @@ in {
 			git
 			wally-cli
 			zsa-udev-rules
+
+			update-keys
+			update-system
 
 			gnome.gnome-tweaks
 		] ++ (with pkgs.gnomeExtensions; [
