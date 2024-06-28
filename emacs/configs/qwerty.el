@@ -1,4 +1,7 @@
-(provide 'qwerty)
+;;; qwerty.el --- My keymap on qwerty keyboards  -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 
 (defun qwerty-keymap ()
   (interactive)
@@ -286,3 +289,6 @@
     (kbd "a") 'pdf-view-previous-page-command
     (kbd "s") 'pdf-view-next-page-command
     (kbd "d") 'pdf-view-next-page-command))
+
+(provide 'qwerty)
+;;; qwerty.el ends here
