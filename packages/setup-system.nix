@@ -4,7 +4,7 @@ pkgs.writeShellScriptBin "setup-system" ''
 	export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ git ])}
 	set -e
 	cd /etc/nixos
-	rm flake.nix dots || true
+	rm -rf flake.nix dots || true
 	git clone https://github.com/SKyletoft/dots
 	ln -s dots/$1/flake.nix flake.nix
 ''
