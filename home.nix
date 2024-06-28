@@ -330,7 +330,6 @@ in {
 				ivy
 				ivy-posframe
 				projectile
-				fzf
 
 				pdf-tools
 				multi-vterm
