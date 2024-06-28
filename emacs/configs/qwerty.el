@@ -67,6 +67,7 @@
   ;; Find
   (set-n  (kbd "SPC P") 'projectile-switch-project)
   (set-n  (kbd "SPC p") 'projectile-find-file)
+  (set-n  (kbd "M-p") 'find-file)
   (set-nm (kbd "C-f") 'evil-search-forward)
 
   ;; Undo and redo

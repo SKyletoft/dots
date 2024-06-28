@@ -99,6 +99,7 @@
   (evil-define-key 'normal 'global
     (kbd "SPC P") 'projectile-switch-project
     (kbd "SPC p") 'projectile-find-file
+    (kbd "M-p")   'find-file
     (kbd "SPC d") 'ripgrep-regexp)
 
   ;; Undo and redo
