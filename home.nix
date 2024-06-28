@@ -337,7 +337,6 @@ in {
 				lsp-mode
 				lsp-ui
 				dap-mode
-				lsp-java
 
 				realgud
 				realgud-jdb
@@ -345,9 +344,9 @@ in {
 				tree-sitter-langs
 				evil-textobj-tree-sitter
 
-				flycheck
 				company
 
+				lsp-java
 				nix-ts-mode
 				haskell-mode
 				idris-mode
@@ -359,6 +358,7 @@ in {
 				lsp-haskell
 				rustic
 				elsa
+				flycheck # Todo: Replace flycheck-elsa with lsp when supported
 				flycheck-elsa
 				racket-mode
 				xonsh-mode
