@@ -1,7 +1,7 @@
 { pkgs }:
 
 pkgs.writeShellScriptBin "setup-system" ''
-	export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ git ])}
+	export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ git coreutils ])}
 	set -e
 	cd /etc/nixos
 	rm -rf flake.nix dots || true
