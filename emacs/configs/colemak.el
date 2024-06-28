@@ -1,4 +1,7 @@
-(provide 'colemak)
+;;; colemak.el --- My keymap on my colemak keyboard  -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 
 (defun colemak-keymap ()
   (interactive)
@@ -329,3 +332,6 @@
     (kbd "r")     'pdf-view-previous-page-command
     (kbd "s")     'pdf-view-next-page-command
     (kbd "t")     'pdf-view-next-page-command))
+
+(provide 'colemak)
+;;; colemak.el ends here
