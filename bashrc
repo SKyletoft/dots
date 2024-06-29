@@ -16,6 +16,7 @@ if [[ "$DISPLAY" ]]; then
 fi
 
 if ! pidof emacs -q ; then
+	clear
 	emacs --daemon 2> /dev/null
 	echo "Started Emacs daemon"
 fi
