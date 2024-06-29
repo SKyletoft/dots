@@ -184,6 +184,10 @@
               (kbd "<f5>")  'dap-debug)))
 
   (lang-with-lsp js-mode-map)
+  (lang-with-lsp js-ts-mode-map)
+  (lang-with-lsp html-ts-mode-map)
+  (lang-with-lsp css-ts-mode-map)
+  (lang-with-lsp json-ts-mode-map)
   (lang-with-lsp pest-mode-map)
   (lang-with-lsp csharp-ts-mode-map)
   (lang-with-lsp nix-ts-mode-map)
