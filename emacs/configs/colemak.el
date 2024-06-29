@@ -36,6 +36,7 @@
     (kbd "y") evil-outer-text-objects-map)
 
   (evil-define-key '(normal visual motion) 'global
+    (kbd "⊸") 'whitespace-mode
     (kbd "r") 'evil-backward-char
     (kbd "t") 'evil-forward-char
     (kbd "f") 'evil-previous-visual-line
