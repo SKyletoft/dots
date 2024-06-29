@@ -25,6 +25,8 @@
   (set-n (kbd "Ö") 'eval-expression)
   (set-n (kbd "C-n") 'scratch-buffer)
 
+  (set-nv (kbd "μ") 'whitespace-mode)
+
   (set-nvm (kbd "a") 'evil-backward-char)
   (set-nvm (kbd "d") 'evil-forward-char)
   (set-nvm (kbd "w") 'evil-previous-visual-line)
