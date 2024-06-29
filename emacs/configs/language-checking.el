@@ -7,8 +7,7 @@
         lsp-signature-doc-lines 1
         lsp-signature-render-documentation nil
         read-process-output-max (* 1024 1024) ;; LSP perf hack
-        lsp-headerline-breadcrumb-enable nil
-        lsp-semantic-tokens-enable t)
+        lsp-headerline-breadcrumb-enable nil)
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package lsp-ui
