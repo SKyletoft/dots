@@ -140,6 +140,7 @@ in {
 			mangohud
 			ruffle
 			gamescope
+			mission-center
 
 			i2c-tools
 
