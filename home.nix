@@ -477,6 +477,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 			"${emacsPin.tree-sitter-grammars.tree-sitter-latex}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-json.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-json}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-jsdoc.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-jsdoc}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-javascript.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-javascript}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-typescript.so".source =
