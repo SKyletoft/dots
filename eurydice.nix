@@ -209,6 +209,9 @@ in {
 				PasswordAuthentication = false;
 				X11Forwarding = true;
 			};
+			extraConfig = ''
+				LoginGraceTime 0
+			'';
 		};
 		earlyoom.enable = true;
 		ananicy = {
