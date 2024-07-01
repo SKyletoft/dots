@@ -105,7 +105,8 @@
   (set-nme [C-?\t] 'next-buffer)
   (set-nme (kbd "C-<backtab>") 'previous-buffer)
   (set-nme (kbd "C-<iso-lefttab>") 'previous-buffer)
-  (set-nv  (kbd "SPC <tab>") 'get-buffer-list)
+  (set-nv  (kbd "SPC <tab>") 'get-buffer-list) ; GUI
+  (set-nv  (kbd "SPC TAB") 'get-buffer-list) ; TUI
 
   (set-n (kbd "SPC q") 'evil-quit)
   (set-n (kbd "SPC Q") 'evil-save-modified-and-close)
