@@ -29,7 +29,7 @@ ALACRITTY = "yes"
 TERM = "xterm-256color"
 
 [font.normal]
-family = "Cascadia Mono PL"
+family = "Cascadia Mono NF"
 
 [font.offset]
 x = 0
