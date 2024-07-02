@@ -4,6 +4,10 @@ let
 	waylandSupport = true;
 	windowsFonts = false;
 	nativeBuild = false;
+
+	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
+	update-system = pkgs.callPackage ./packages/update-system.nix {};
+	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
 in {
 	imports = [ # Include the results of the hardware scan.
 		medea/hardware-configuration.nix
@@ -249,6 +253,10 @@ in {
 			git
 			wally-cli
 			zsa-udev-rules
+
+			setup-system
+			update-keys
+			update-system
 
 			gnome.gnome-tweaks
 		] ++ (with pkgs.gnomeExtensions; [
