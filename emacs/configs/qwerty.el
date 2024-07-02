@@ -138,6 +138,7 @@
               (kbd "SPC a") 'lsp-execute-code-action
               (kbd "SPC t") 'lsp-inlay-hints-mode
               (kbd "SPC v") 'gud-break
+              (kbd "SPC e") 'lsp-treemacs-errors-list
               (kbd "<f2>") 'lsp-rename)))
 
   (lang-with-lsp js-mode-map)
@@ -282,7 +283,8 @@
     (kbd "x") 'treemacs-delete-file
     (kbd "<delete>") 'treemacs-delete-file
     (kbd "a") nil
-    (kbd "d") nil)
+    (kbd "d") nil
+    (kbd "q") 'evil-quit)
 
   (evil-define-key '(normal emacs motion) Buffer-menu-mode-map
     (kbd "<return>") 'Buffer-menu-this-window
