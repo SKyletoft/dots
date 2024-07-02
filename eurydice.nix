@@ -191,11 +191,7 @@ in {
 	};
 
 	hardware = {
-		opengl = {
-			enable = true;
-			setLdLibraryPath = true;
-			package = pkgs.mesa_drivers;
-		};
+		graphics.enable = true;
 		pulseaudio.enable = true;
 	};
 	powerManagement.cpuFreqGovernor = "ondemand";
