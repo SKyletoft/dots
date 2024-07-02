@@ -99,9 +99,6 @@ in {
 		openssh = {
 			enable = true;
 			settings.PasswordAuthentication = false;
-			extraConfig = ''
-				LoginGraceTime 0
-			'';
 		};
 		earlyoom.enable = true;
 		ananicy = {

@@ -194,9 +194,6 @@ in {
 		flatpak.enable = false;
 		openssh = {
 			enable = false;
-			extraConfig = ''
-				LoginGraceTime 0
-			'';
 		};
 		mullvad-vpn.enable = true;
 
