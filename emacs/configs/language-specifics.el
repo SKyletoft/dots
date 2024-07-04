@@ -221,7 +221,8 @@
                                lsp-ui-doc-mode t
                                lsp-ui-sideline-show-hover nil
                                lsp-ui-sideline-enable t
-                               fill-column 100)
+                               fill-column 100
+                               compile-command "cargo run --color always ")
                    (direnv-update-environment)
                    (lsp)
                    (lsp-lens-hide)
@@ -244,7 +245,6 @@
         lsp-signature-auto-activate nil
         lsp-inlay-hint-enable t
         lsp-inlay-hints-enable t
-        compile-command "cargo run --color always "
         ))
 
 ;; For rustic mode only
