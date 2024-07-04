@@ -386,3 +386,12 @@
     (shell-command (concat "clang-format -i "
                            (buffer-file-name)))
     (revert-buffer t t t))
+
+(setq last-command-buffer "")
+(defun run-command (command)
+"A second compilation buffer that remembers the COMMAND seperately from 'compile-command'."
+  (interactive "MShell command: ")
+  (let ((old-compile-command compile-command))
+    (compile command)
+    (setq-local compile-command old-compile-command
+                last-command-buffer command)))
