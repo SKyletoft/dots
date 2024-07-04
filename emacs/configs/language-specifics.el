@@ -17,6 +17,7 @@
 (defvaralias 'c++-ts-mode-indent-offset 'evil-shift-width)
 (defvaralias 'rust-ts-mode-indent-offset 'evil-shift-width)
 (defvaralias 'csharp-ts-mode-indent-offset 'evil-shift-width)
+(defvaralias 'nix-ts-mode-indent-offset 'evil-shift-width)
 (defvaralias 'css-indent-offset 'evil-shift-width)
 (defvaralias 'js-indent-offset 'evil-shift-width)
 (defvaralias 'js-indent-level 'evil-shift-width)
