@@ -223,7 +223,7 @@
                                lsp-ui-sideline-show-hover nil
                                lsp-ui-sideline-enable t
                                fill-column 100
-                               compile-command "cargo run --color always ")
+                               compile-command "cargo --color always run ")
                    (direnv-update-environment)
                    (lsp)
                    (lsp-lens-hide)
