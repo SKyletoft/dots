@@ -163,6 +163,7 @@
   (lang-with-lsp rustic-mode-map)
   (lang-with-lsp rust-ts-mode-map)
   (lang-with-lsp erlang-mode-map)
+  (lang-with-lsp bash-ts-mode-map)
 
   (evil-define-key 'normal makefile-gmake-mode-map
     (kbd "SPC r") 'recompile
@@ -232,7 +233,12 @@
   (evil-define-key 'visual scheme-mode-map
     (kbd "SPC r") 'slime-v)
 
-  (evil-define-key 'visual sh-mode-map
+  (evil-define-key 'normal bash-ts-mode-map
+    (kbd "SPC r") (lambda () (interactive)
+                    (save-buffer)
+                    (shell-command (concat "bash" (buffer-file-name)))
+                    (revert-buffer t t t)))
+  (evil-define-key 'visual bash-ts-mode-map
     (kbd "SPC r") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 

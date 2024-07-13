@@ -99,6 +99,9 @@ in {
 
 			nil
 			lsp-booster
+			nodePackages.bash-language-server
+			shellcheck
+			shfmt
 			inputs.upwards.packages.${system}.default
 		] ++
 		(if gui then [

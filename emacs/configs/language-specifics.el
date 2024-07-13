@@ -25,6 +25,7 @@
 (defvaralias 'kotlin-tab-width 'evil-shift-width)
 (defvaralias 'kotlin-mode-parenthesized-expression-offset 'evil-shift-width)
 (defvaralias 'kotlin-mode-multiline-statement-offset 'evil-shift-width)
+(defvaralias 'sh-indentation 'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
       (let ((indent-tabs-mode nil)) ad-do-it))
@@ -38,6 +39,9 @@
 ;; For filetypes without hooks
 (add-hook 'find-file-hook
           (lambda ()
+            (when (and (stringp buffer-file-name)
+                       (string-match "bashrc" buffer-file-name))
+              (bash-ts-mode))
             (when (and (stringp buffer-file-name)
                        (string-match "\\.art\\'" buffer-file-name))
               (set-indents 8 8 t)
@@ -55,6 +59,7 @@
         (html-mode . html-ts-mode)
         (nix-mode . nix-ts-mode)
         (rustic-mode . rust-ts-mode)
+        (sh-mode . bash-ts-mode)
         (csharp-mode . csharp-ts-mode)))
 
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
@@ -373,6 +378,13 @@
                    (editorconfig-apply)
                    (direnv-update-environment)
                    (lsp))))
+
+(add-hook 'bash-ts-mode-hook
+          (lambda ()
+            (set-indents 8 8 t)
+            (editorconfig-apply)
+            (direnv-update-environment)
+            (lsp)))
 
 ;; (use-package olivetti
 ;;   :hook
