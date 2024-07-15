@@ -23,6 +23,7 @@
   (set-n (kbd "SPC å") 'projectile-command-map)
   (set-n (kbd "ö") 'evil-ex)
   (set-n (kbd "Ö") 'eval-expression)
+  (set-n (kbd "·") 'run-command)
   (set-n (kbd "C-n") 'scratch-buffer)
 
   (set-nv (kbd "μ") 'whitespace-mode)
