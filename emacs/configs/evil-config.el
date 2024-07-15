@@ -1,4 +1,6 @@
-(provide 'evil-config)
+;;; evil-config.el --- A bunch of functions I use interactively -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
 ;; These functions can't be used for bindings starting with space
 (defun set-nvmie (key command)
@@ -395,3 +397,5 @@
     (compile command)
     (setq-local compile-command old-compile-command
                 last-command-buffer command)))
+
+(provide 'evil-config)
