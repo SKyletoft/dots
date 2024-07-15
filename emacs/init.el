@@ -51,8 +51,5 @@
                   (unless (frame-focus-state)
                     (garbage-collect)))))
 
-; Has to to the last thing to run for linking not to error?
-(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
-
 (provide 'init)
 ;;; init.el ends here
