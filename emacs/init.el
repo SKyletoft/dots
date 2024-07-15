@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
+
 (add-to-list 'load-path "~/.emacs.d/configs")
 (add-to-list 'load-path "~/.emacs.d/configs/languages")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/custom-themes")
