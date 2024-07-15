@@ -1,3 +1,7 @@
+;;; init.el --- Load the config and set keymaps  -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (add-to-list 'load-path "~/.emacs.d/configs")
 (add-to-list 'load-path "~/.emacs.d/configs/languages")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/custom-themes")
@@ -46,3 +50,6 @@
                 (lambda ()
                   (unless (frame-focus-state)
                     (garbage-collect)))))
+
+(provide 'init)
+;;; init.el ends here
