@@ -398,4 +398,12 @@
     (setq-local compile-command old-compile-command
                 last-command-buffer command)))
 
+(defun up-five ()
+  (interactive)
+  (evil-scroll-line-up 5))
+
+(defun down-five ()
+  (interactive)
+  (evil-scroll-line-down 5))
+
 (provide 'evil-config)

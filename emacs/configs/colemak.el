@@ -47,8 +47,8 @@
   (evil-define-key 'visual 'global
     (kbd "T") 'evil-forward-word-end)
   (evil-define-key '(normal visual motion) 'global
-    (kbd "F") (lambda () (interactive) (evil-scroll-line-up 5))
-    (kbd "S") (lambda () (interactive) (evil-scroll-line-down 5))
+    (kbd "F") 'up-five
+    (kbd "S") 'down-five
     (kbd "R") 'evil-backward-word-begin)
 
   (evil-define-key '(normal visual motion) 'global
