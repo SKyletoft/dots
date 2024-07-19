@@ -101,7 +101,7 @@
     (kbd "SPC P") 'projectile-switch-project
     (kbd "SPC p") 'projectile-find-file
     (kbd "M-p")   'find-file
-    (kbd "SPC d") 'ripgrep-regexp)
+    (kbd "SPC SPC") 'projectile-ripgrep)
 
   ;; Undo and redo
   (evil-define-key '(normal motion insert) 'global
