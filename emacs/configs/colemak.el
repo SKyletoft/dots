@@ -24,16 +24,16 @@
     (kbd "SPC n") 'magit-blame
     (kbd "SPC v") 'hs-toggle-hiding
     (kbd "SPC å") 'projectile-command-map
-    (kbd "ö") 'evil-ex
-    (kbd "Ö") 'eval-expression
-    (kbd "C-n") 'scratch-buffer)
+    (kbd "ö")     'evil-ex
+    (kbd "Ö")     'eval-expression
+    (kbd "C-n")   'scratch-buffer)
 
   (evil-define-key 'operator 'global
-    (kbd "u") evil-inner-text-objects-map
-    (kbd "y") evil-outer-text-objects-map)
+    (kbd "u") 'evil-inner-text-objects-map
+    (kbd "y") 'evil-outer-text-objects-map)
   (evil-define-key 'visual 'global
-    (kbd "u") evil-inner-text-objects-map
-    (kbd "y") evil-outer-text-objects-map)
+    (kbd "u") 'evil-inner-text-objects-map
+    (kbd "y") 'evil-outer-text-objects-map)
 
   (evil-define-key '(normal visual motion) 'global
     (kbd "⊸") 'whitespace-mode
@@ -55,8 +55,8 @@
     (kbd "C-f") 'evil-jump-item
     (kbd "C-s") 'evil-jump-paragraph)
   (evil-define-key 'normal 'global
-    (kbd "p")   'evil-replace
-    (kbd "P")   'evil-enter-replace-state)
+    (kbd "p") 'evil-replace
+    (kbd "P") 'evil-enter-replace-state)
 
   (evil-define-key '(normal visual motion) 'global
     (kbd "n")   'evil-insert
@@ -69,16 +69,16 @@
     (kbd "M-v") 'evil-visual-block)
 
   (evil-define-key '(normal motion insert) 'global
-    (kbd "<tab>")         'my/indent-line  ; For gui
-    [?\t]                 'my/indent-line) ; For terminal use
+    (kbd "<tab>") 'my/indent-line  ; For gui
+    [?\t]         'my/indent-line) ; For terminal use
   (evil-define-key '(normal motion insert emacs) 'global
     (kbd "<backtab>")     'my/outdent-line
     (kbd "<iso-lefttab>") 'my/outdent-line)
   (evil-define-key 'visual 'global
-    (kbd "<tab>")         'my/indent-region
-    [?\t]                 'my/indent-region
-    (kbd "<backtab>")     'my/outdent-region
-    (kbd "<iso-lefttab")  'my/outdent-region)
+    (kbd "<tab>")        'my/indent-region
+    [?\t]                'my/indent-region
+    (kbd "<backtab>")    'my/outdent-region
+    (kbd "<iso-lefttab") 'my/outdent-region)
 
   (evil-define-key '(normal visual) 'global
     (kbd "A") 'align-regexp)
@@ -98,34 +98,34 @@
 
   ;; Find
   (evil-define-key 'normal 'global
-    (kbd "SPC P") 'projectile-switch-project
-    (kbd "SPC p") 'projectile-find-file
-    (kbd "M-p")   'find-file
+    (kbd "SPC P")   'projectile-switch-project
+    (kbd "SPC p")   'projectile-find-file
+    (kbd "M-p")     'find-file
     (kbd "SPC SPC") 'projectile-ripgrep)
 
   ;; Undo and redo
   (evil-define-key '(normal motion insert) 'global
-    (kbd "C-q") 'evil-undo
+    (kbd "C-q")   'evil-undo
     (kbd "C-S-q") 'evil-redo)
 
   (evil-define-key '(normal motion) 'global
     (kbd "C-r") 'evil-insert-line
     (kbd "C-t") 'evil-append-line
-    (kbd "I") 'evil-delete-line
-    (kbd "u") nil
-    (kbd "&") nil)
+    (kbd "I")   'evil-delete-line
+    (kbd "u")   nil
+    (kbd "&")   nil)
 
   (evil-define-key '(normal motion emacs) 'global
-    (kbd "C-p") 'split-window-horizontally
-    (kbd "C-w") 'split-window-vertically
+    (kbd "C-p")   'split-window-horizontally
+    (kbd "C-w")   'split-window-vertically
     (kbd "C-S-f") 'evil-window-up
     (kbd "C-S-s") 'evil-window-down
     (kbd "C-S-r") 'evil-window-left
     (kbd "C-S-t") 'evil-window-right
-    (kbd "M-F") 'evil-window-decrease-height
-    (kbd "M-S") 'evil-window-increase-height
-    (kbd "M-T") 'evil-window-increase-width
-    (kbd "M-R") 'evil-window-decrease-width)
+    (kbd "M-F")   'evil-window-decrease-height
+    (kbd "M-S")   'evil-window-increase-height
+    (kbd "M-T")   'evil-window-increase-width
+    (kbd "M-R")   'evil-window-decrease-width)
   (evil-define-key 'normal 'global
     (kbd "SPC g") 'transpose-with-treemacs
     (kbd "SPC G") 'toggle-left-margin)
@@ -136,9 +136,9 @@
     (kbd "SPC b") 'narrow-to-region)
 
   (evil-define-key '(normal motion emacs) 'global
-    (kbd "C-<tab>") 'next-buffer
-    [C-?\t] 'next-buffer
-    (kbd "C-<backtab>") 'previous-buffer
+    (kbd "C-<tab>")         'next-buffer
+    [C-?\t]                 'next-buffer
+    (kbd "C-<backtab>")     'previous-buffer
     (kbd "C-<iso-lefttab>") 'previous-buffer)
   (evil-define-key '(normal visual) 'global
     (kbd "SPC <tab>") 'get-buffer-list)
@@ -245,7 +245,7 @@
     (kbd "M-<f5>") 'rustic-cargo-test)
 
   (evil-define-key 'normal conf-toml-mode-map
-    (kbd "<f5>") 'rust-compile-and-dap
+    (kbd "<f5>")   'rust-compile-and-dap
     (kbd "C-<f5>") 'rustic-cargo-build
     (kbd "M-<f5>") 'rustic-cargo-test)
 
@@ -277,24 +277,24 @@
 
   (evil-define-key 'normal c-mode-map
     (kbd "SPC O") 'save-and-clang-format-buffer
-    (kbd "<f5>") 'gdb)
+    (kbd "<f5>")  'gdb)
   (evil-define-key 'normal c++-mode-map
     (kbd "SPC O") 'save-and-clang-format-buffer
-    (kbd "<f5>") 'gdb)
+    (kbd "<f5>")  'gdb)
   (evil-define-key 'normal c-ts-mode-map
     (kbd "SPC O") 'save-and-clang-format-buffer
-    (kbd "<f5>") 'gdb)
+    (kbd "<f5>")  'gdb)
   (evil-define-key 'normal c++-ts-mode-map
     (kbd "SPC O") 'save-and-clang-format-buffer
-    (kbd "<f5>") 'gdb)
+    (kbd "<f5>")  'gdb)
 
   (evil-define-key 'normal java-ts-mode-map
     (kbd "SPC O") 'save-and-clang-format-buffer
-    (kbd "<f5>") 'jdb)
+    (kbd "<f5>")  'jdb)
 
   (evil-define-key 'normal kotlin-mode-map
     (kbd "SPC O") 'save-and-clang-format-buffer
-    (kbd "<f5>") 'jdb)
+    (kbd "<f5>")  'jdb)
 
   (evil-define-key 'normal js-mode-map
     (kbd "SPC O") 'save-and-clang-format-buffer)
