@@ -115,7 +115,7 @@ in {
 			vscode
 			pinta
 			gimp
-			cura
+			stablePkgs.cura
 			blender
 
 			discord
@@ -153,16 +153,16 @@ in {
 			docker-compose
 		] else [])
 		++ (if enableGnome then [
-			gnome.baobab
-			gnome.totem
-			gnome.gnome-system-monitor
+			baobab
+			totem
+			gnome-system-monitor
 			gnome.gnome-logs
 			gnome-text-editor
-			gnome.gnome-calendar
+			gnome-calendar
 			gnome.gnome-weather
 			evince
-			gnome.gnome-disk-utility
-			gnome.eog
+			gnome-disk-utility
+			eog
 			gnome.aisleriot
 			gnome.iagno
 		] else [])
@@ -313,7 +313,7 @@ in {
 				withWebP       = gui;
 			};
 			extraPackages = epkgs: (with emacsPin.emacsPackages; [
-				emacsPin.python311Packages.python
+				emacsPin.python313Packages.python
 				emacsPin.nodejs
 
 				direnv
