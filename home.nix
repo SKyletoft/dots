@@ -112,6 +112,7 @@ in {
 
 			firefox-devedition-bin
 			alacritty
+			kitty
 			vscode
 			pinta
 			gimp
