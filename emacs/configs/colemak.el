@@ -304,8 +304,11 @@
 
   (evil-define-key 'normal gud-mode-map
     (kbd "SPC t") 'gud-step
+    (kbd "n")     'gud-step
     (kbd "SPC s") 'gud-next
+    (kbd "e")     'gud-next
     (kbd "SPC r") 'gud-stepi
+    (kbd "i")     'gud-stepi
     (kbd "SPC p") 'gud-cont
     (kbd "SPC f") 'gud-finish)
 
