@@ -106,7 +106,7 @@ in {
 		supportedFilesystems = [ "exfat" ];
 		binfmt.emulatedSystems = [];
 		loader.raspberryPi.firmwareConfig = ''
-			gpu_mem=192
+			gpu_mem=320
 			dtparam=audio=on
 		'';
 	};
