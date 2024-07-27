@@ -144,6 +144,10 @@ in {
 		man-pages-posix
 		hugo
 
+		jellyfin
+		jellyfin-web
+		jellyfin-ffmpeg
+
 		update-website
 		update-keys
 		update-system
