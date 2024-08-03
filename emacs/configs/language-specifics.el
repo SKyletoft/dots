@@ -120,11 +120,11 @@
       (rename-buffer "ghci")
       (if is-haskell
           (progn
-            (vterm-insert "ghci ")
+            (vterm-insert "ghci -XGHC2021 -XLambdaCase")
             (vterm-insert file-name)
             (vterm-send-return))
         (progn
-          (vterm-insert "ghci")
+          (vterm-insert "ghci -XGHC2021 -XLambdaCase")
           (vterm-send-return))))))
 
 (defun copy-paragraph ()
