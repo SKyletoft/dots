@@ -118,14 +118,10 @@
       (windmove-right)
       (multi-vterm)
       (rename-buffer "ghci")
+      (vterm-insert "ghci -XGHC2021 -XLambdaCase ")
       (if is-haskell
-          (progn
-            (vterm-insert "ghci -XGHC2021 -XLambdaCase")
-            (vterm-insert file-name)
-            (vterm-send-return))
-        (progn
-          (vterm-insert "ghci -XGHC2021 -XLambdaCase")
-          (vterm-send-return))))))
+          (vterm-insert file-name))
+      (vterm-send-return))))
 
 (defun copy-paragraph ()
 "Mark and copy the current paragraph."
