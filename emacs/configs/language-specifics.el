@@ -219,8 +219,7 @@
                    (when buffer-file-name
                      (setq-local buffer-save-without-query t))
                    (set-indents 8 8 t)
-                   (setq-local rust-indent-offset 8
-                               lsp-idle-delay 0.6
+                   (setq-local lsp-idle-delay 0.6
                                eldoc-mode nil
                                lsp-lens-mode nil
                                lsp-eldoc-enable-hover nil
