@@ -173,6 +173,7 @@
       (switch-to-buffer b))))
 
 (use-package haskell-mode
+  :defer t
   :hook
   (haskell-mode . (lambda ()
                     (direnv-update-environment)
@@ -207,6 +208,7 @@
             (t (insert "?"))))))
 
 (use-package idris-mode
+  :defer t
   :hook (idris-mode . (lambda ()
                         (set-indents 8 2 nil)
                         (setq-local topsy-mode 0)))
@@ -214,6 +216,7 @@
   (setq idris-interpreter-path "idris2"))
 
 (use-package rust-ts-mode
+  :defer t
   :hook
   (rust-ts-mode . (lambda ()
                    (when buffer-file-name
@@ -370,6 +373,7 @@
             (editorconfig-apply)))
 
 (use-package nix-ts-mode
+  :defer t
   :mode "\\.nix\\'"
   :hook
   (nix-ts-mode . (lambda ()
@@ -391,12 +395,15 @@
 ;;   (olivetti-mode . (lambda () (olivetti-set-width (+ 5 fill-column)))))
 
 (use-package pdf-tools
+  :defer t
   :init
   (pdf-tools-install))
 
-(use-package treemacs)
+(use-package treemacs
+  :defer t)
 
 (use-package jasmin
+  :defer t
   :hook
   (jasmin-mode . (lambda () (set-indents 8 8 t)))
   :config
@@ -408,6 +415,7 @@
         jasmin-global-directive-indent 0))
 
 (use-package futhark-mode
+  :defer t
   :hook
   (futhark-mode . (lambda ()
                     (set-indents 8 2 nil)
@@ -423,6 +431,7 @@
                     )
 
 (use-package wgsl-mode
+  :defer t
   :hook
   (wgsl-mode . (lambda ()
                  (set-indents 8 8 t)
@@ -441,6 +450,7 @@
               wgsl-diagnostics-naga-version "0.14"))
 
 (use-package pest-mode
+  :defer t
   :hook
   (pest-mode . (lambda () (set-indents 8 8 t)))
   :config
@@ -448,10 +458,12 @@
   (add-to-list #'auto-mode-alist '("\\.pest\\'" . pest-mode)))
 
 (use-package agda2-mode
+  :defer t
   :hook
   (agda2-mode . (lambda () (set-indents 8 2 nil))))
 
 (use-package kotlin-mode
+  :defer t
   :hook
   (kotlin-mode . (lambda ()
                    (set-indents 8 8 t)
@@ -461,6 +473,9 @@
                                eldoc-mode nil
                                compile-command "make -skj -C ../../.. ")
                    (lsp))))
+
+(use-package typescript-ts-mode
+  :defer t)
 
 ;; Line numbers
 (global-display-line-numbers-mode 't) ;; Needed because reasons

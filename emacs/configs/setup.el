@@ -61,8 +61,10 @@
   :config
   (setq direnv-always-show-summary t))
 
-(use-package yasnippet-snippets)
+(use-package yasnippet-snippets
+  :defer t)
 (use-package yasnippet
+  :defer t
   :config
   (yas-global-mode 1))
 
