@@ -216,7 +216,7 @@
   (setq idris-interpreter-path "idris2"))
 
 (use-package rust-ts-mode
-  :defer t
+  :defer 3
   :hook
   (rust-ts-mode . (lambda ()
                    (when buffer-file-name
