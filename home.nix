@@ -347,7 +347,7 @@ in {
 				realgud
 				realgud-jdb
 
-				tree-sitter-langs
+				# tree-sitter-langs
 				evil-textobj-tree-sitter
 
 				company

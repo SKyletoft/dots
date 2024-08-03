@@ -36,7 +36,7 @@
                  '(alpha . (90 . 90))))
 
   (load-theme 'custom-monokai t)
-  (global-tree-sitter-mode)
+  ;; (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
   (telephone-line-mode)
   (setq-default truncate-lines t)
