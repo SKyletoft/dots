@@ -181,12 +181,16 @@
   (haskell-mode . (lambda ()
                     (direnv-update-environment)
                     (set-indents 8 2 nil)
-                    (setq-local lsp-eldoc-enable-hover nil
-                                eldoc-documentation-function #'ignore
+                    (setq-local lsp-idle-delay 0.6
                                 eldoc-mode nil
+                                lsp-lens-mode nil
+                                lsp-eldoc-enable-hover nil
+                                eldoc-documentation-function #'ignore
+                                lsp-ui-doc-mode t
+                                lsp-ui-sideline-show-hover nil
+                                lsp-ui-sideline-enable t
                                 lsp-haskell-plugin-ghcide-type-lenses-global-on nil
                                 lsp-haskell-plugin-ghcide-class-global-on nil)
-                    (lsp-ui-doc-mode t)
                     (editorconfig-apply)
                     (lsp)
                     ;; (ghci)
