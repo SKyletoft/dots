@@ -260,7 +260,7 @@ in {
 			update-keys
 			update-system
 
-			gnome.gnome-tweaks
+			gnome-tweaks
 		] ++ (with pkgs.gnomeExtensions; [
 			brightness-control-using-ddcutil
 			unite
