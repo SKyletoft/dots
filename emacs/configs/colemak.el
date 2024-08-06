@@ -184,7 +184,9 @@
               (kbd "SPC y") 'lsp-treemacs-errors-list
               (kbd "SPC Y") 'lsp-treemacs-errors-list--refresh
               (kbd "<f2>")  'lsp-rename
-              (kbd "<f5>")  'dap-debug)))
+              (kbd "<f5>")  'dap-debug
+              (kbd "M-n")   'flycheck-next-error
+              (kbd "M-p")   'flycheck-previous-error)))
 
   (lang-with-lsp js-mode-map)
   (lang-with-lsp js-ts-mode-map)
