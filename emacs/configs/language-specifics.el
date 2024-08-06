@@ -48,7 +48,13 @@
               (set-indents 8 8 t)
               (editorconfig-apply)
               (setq-local artemis-mode 1))
-            ))
+            (when (and (stringp buffer-file-name)
+                       (string-match "\\.agda\\'" buffer-file-name))
+              (direnv-update-directory-environment)
+              (load-file (let ((coding-system-for-read 'utf-8))
+                           (shell-command-to-string "agda-mode locate")))
+              (agda2-mode)
+              (set-indents 8 2 nil))))
 
 (setq major-mode-remap-alist
       '((java-mode . java-ts-mode)
@@ -457,10 +463,10 @@
   (autoload 'pest-mode "pest-mode")
   (add-to-list #'auto-mode-alist '("\\.pest\\'" . pest-mode)))
 
-(use-package agda2-mode
-  :defer 1
-  :hook
-  (agda2-mode . (lambda () (set-indents 8 2 nil))))
+;; (use-package agda2-mode
+;;   :defer 1
+;;   :hook
+;;   (agda2-mode . (lambda () (set-indents 8 2 nil))))
 
 (use-package kotlin-mode
   :defer t
