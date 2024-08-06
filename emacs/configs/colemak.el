@@ -235,6 +235,22 @@
     (kbd "SPC G") 'idris-generate-def
     (kbd "SPC h") 'toggle-hole)
 
+  (evil-define-key 'normal agda2-mode-map
+    (kbd "SPC o") 'indent-according-to-mode)
+  (evil-define-key 'visual agda2-mode-map
+    (kbd "SPC o") 'indent-region)
+  (evil-define-key '(normal visual) agda2-mode-map
+    (kbd "SPC l")   'agda2-load
+    (kbd "SPC L")   'agda2-compile
+    (kbd "SPC e")   'agda2-infer-type-maybe-toplevel
+    (kbd "SPC i")   'agda2-goto-definition-keyboard
+    (kbd "SPC n r") 'agda2-refine
+    (kbd "SPC n s") 'agda2-solve-maybe-all
+    (kbd "SPC n a") 'agda2-auto-maybe-all
+    (kbd "SPC n c") 'agda2-make-case
+    (kbd "M-n")     'agda2-next-goal
+    (kbd "M-p")     'agda2-previous-goal)
+
   (evil-define-key 'normal rustic-mode-map
     (kbd "SPC O") 'rustic-format-buffer)
   (evil-define-key 'visual rustic-mode-map
