@@ -458,7 +458,7 @@
   (add-to-list #'auto-mode-alist '("\\.pest\\'" . pest-mode)))
 
 (use-package agda2-mode
-  :defer t
+  :defer 1
   :hook
   (agda2-mode . (lambda () (set-indents 8 2 nil))))
 
