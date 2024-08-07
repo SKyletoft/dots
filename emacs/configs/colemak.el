@@ -217,9 +217,11 @@
     (kbd "<f5>")  'hs-run)
 
   (evil-define-key 'normal idris-mode-map
-    (kbd "SPC o") 'indent-according-to-mode)
+    (kbd "SPC o") 'indent-according-to-mode
+    (kbd "SPC O") 'save-and-stylish-hindent-buffer)
   (evil-define-key 'visual idris-mode-map
-    (kbd "SPC o") 'indent-region)
+    (kbd "SPC o") 'indent-region
+    (kbd "SPC O") 'save-and-stylish-hindent-buffer)
   (evil-define-key '(normal visual) idris-mode-map
     (kbd "SPC l")   'idris-load-file
     (kbd "SPC L")   'recompile
