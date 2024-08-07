@@ -223,17 +223,24 @@
     (kbd "<f5>")  'hs-run)
 
   (evil-define-key 'normal idris-mode-map
-    (kbd "SPC c") 'idris-case-dwim
-    (kbd "SPC d") 'idris-type-at-point
-    (kbd "SPC f") 'idris-type-at-point
-    (kbd "SPC l") 'idris-make-lemma
-    (kbd "SPC m") 'idris-add-missing
-    (kbd "SPC r") 'idris-load-file
-    (kbd "SPC s") 'idris-type-search
-    (kbd "SPC t") 'idris-make-lemma
-    (kbd "SPC g") 'idris-proof-search
-    (kbd "SPC G") 'idris-generate-def
-    (kbd "SPC h") 'toggle-hole)
+    (kbd "SPC o") 'indent-according-to-mode)
+  (evil-define-key 'visual idris-mode-map
+    (kbd "SPC o") 'indent-region)
+  (evil-define-key '(normal visual) idris-mode-map
+    (kbd "SPC l")   'idris-load-file
+    (kbd "SPC L")   'recompile
+    (kbd "SPC e")   'idris-type-at-point
+    (kbd "SPC i")   'idris-goto-location
+    (kbd "SPC n r") 'idris-refine
+    (kbd "SPC n p") 'idris-proof-search
+    (kbd "SPC n t") 'idris-type-search
+    (kbd "SPC n c") 'idris-case-dwim
+    (kbd "SPC n l") 'idris-make-lemma
+    (kbd "SPC n m") 'idris-add-missing
+    (kbd "SPC n g") 'idris-generate-def
+    (kbd "SPC h")   'toggle-hole
+    (kbd "M-n")     'idris-next-error
+    (kbd "M-p")     'idris-previous-error)
 
   (evil-define-key 'normal agda2-mode-map
     (kbd "SPC o") 'indent-according-to-mode)
