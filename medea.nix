@@ -101,7 +101,10 @@ in {
 
 	networking = {
 		hostName = "medea";
-		networkmanager.enable = true;
+		networkmanager = {
+			enable = true;
+			wifi.powersave = true;
+		};
 		firewall = {
 			allowedTCPPorts
 				= [ 80 443 6530 8000 8080 12825 ] # Development
