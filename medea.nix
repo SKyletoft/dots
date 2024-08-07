@@ -104,6 +104,12 @@ in {
 		networkmanager = {
 			enable = true;
 			wifi.powersave = true;
+			/*
+			# And this imperative hack
+			$ cat /etc/modprobe.d/intel_wifi.conf
+			options iwlmvm power_scheme=1
+			options iwlwifi power_save=Y power_level=5
+			*/
 		};
 		firewall = {
 			allowedTCPPorts
