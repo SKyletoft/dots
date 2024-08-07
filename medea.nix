@@ -205,7 +205,7 @@ in {
 			enable = true;
 			systemCronJobs = [
 				# Every hour, check for store corruption
-				"0 * * * * root nix-store --repair --verify --check-contents || su u3836 -c ${pkgs.libnotify}/bin/notify-send 'Nix store corruption!'"
+				# "0 * * * * root nix-store --repair --verify --check-contents || su u3836 -c ${pkgs.libnotify}/bin/notify-send 'Nix store corruption!'"
 			];
 		};
 
