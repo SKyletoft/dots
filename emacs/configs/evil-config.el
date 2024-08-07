@@ -389,6 +389,15 @@
                            (buffer-file-name)))
     (revert-buffer t t t))
 
+(defun save-and-stylish-hindent-buffer ()
+  (interactive)
+  (save-buffer)
+  (shell-command (concat "hindent "
+                         (buffer-file-name)
+                         " && stylish-haskell -i "
+                         (buffer-file-name)))
+  (revert-buffer t t t))
+
 (setq last-command-buffer "")
 (defun run-command (command)
 "A second compilation buffer that remembers the COMMAND seperately from 'compile-command'."

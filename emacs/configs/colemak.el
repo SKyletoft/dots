@@ -213,13 +213,7 @@
     (kbd "SPC l") 'hs-slime-v)
   (evil-define-key 'normal haskell-mode-map
     (kbd "SPC l") 'hs-slime-n
-    (kbd "SPC O") (lambda () (interactive)
-                    (save-buffer)
-                    (shell-command (concat "hindent "
-                                           (buffer-file-name)
-                                           " && stylish-haskell -i "
-                                           (buffer-file-name)))
-                    (revert-buffer t t t))
+    (kbd "SPC O") 'save-and-stylish-hindent-buffer
     (kbd "<f5>")  'hs-run)
 
   (evil-define-key 'normal idris-mode-map
