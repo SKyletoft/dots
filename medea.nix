@@ -256,6 +256,7 @@ in {
 			git
 			wally-cli
 			zsa-udev-rules
+			powertop
 
 			setup-system
 			update-keys
