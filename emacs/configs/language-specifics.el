@@ -29,7 +29,7 @@
 (defvaralias 'sh-indentation 'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
-      (let ((indent-tabs-mode nil)) ad-do-it))
+  (let ((indent-tabs-mode nil)) ad-do-it))
 
 (defun set-indents (tab-width-p shift-width-p tabs-p)
 "Set the tab width (TAB-WIDTH-P), evil shift width (SHIFT-WIDTH-P) and whether or not to use tabs (TABS-P)."
