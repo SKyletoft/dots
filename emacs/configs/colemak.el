@@ -215,7 +215,7 @@
   (evil-define-key 'normal haskell-mode-map
     (kbd "SPC l") 'hs-slime-n
     (kbd "SPC O") 'save-and-stylish-hindent-buffer
-    (kbd "<f5>")  'hs-run)
+    (kbd "<f5>")  'ghci)
 
   (evil-define-key 'visual python-ts-mode-map
     (kbd "SPC l") 'slime-v)
