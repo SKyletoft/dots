@@ -210,6 +210,10 @@
   (lang-with-lsp erlang-mode-map)
   (lang-with-lsp python-ts-mode-map)
 
+  (evil-define-key 'normal makefile-gmake-mode-map
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile)
+
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC l") 'hs-slime-v)
   (evil-define-key 'normal haskell-mode-map
