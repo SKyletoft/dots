@@ -27,6 +27,7 @@
 (defvaralias 'kotlin-mode-parenthesized-expression-offset 'evil-shift-width)
 (defvaralias 'kotlin-mode-multiline-statement-offset 'evil-shift-width)
 (defvaralias 'sh-indentation 'evil-shift-width)
+(defvaralias 'python-indent-offset 'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
   (let ((indent-tabs-mode nil)) ad-do-it))
@@ -66,6 +67,7 @@
         (html-mode . html-ts-mode)
         (nix-mode . nix-ts-mode)
         (rustic-mode . rust-ts-mode)
+        (python-mode . python-ts-mode)
         (sh-mode . bash-ts-mode)
         (csharp-mode . csharp-ts-mode)))
 
@@ -80,6 +82,12 @@
 (defun vterm-slime ()
   (interactive)
   (let ((file-name (buffer-file-name)))
+    (when (get-buffer "paste-vterm")
+      (save-excursion)
+      (switch-to-buffer "paste-vterm")
+      (if (eq major-mode
+              'fundamental-mode)
+          (kill-buffer "paste-vterm")))
     (when (not (get-buffer "paste-vterm"))
       (split-window-horizontally)
       (windmove-right)
@@ -91,6 +99,7 @@
   (let ((b (current-buffer)))
     (switch-to-buffer "paste-vterm")
     (vterm-yank)
+    (vterm-send-return)
     (vterm-send-return)
     (switch-to-buffer b)))
 
@@ -124,10 +133,33 @@
       (windmove-right)
       (multi-vterm)
       (rename-buffer "ghci")
+      ; $ command -v ghci &> /dev/null && command ghci || nix-shell -p ghc --run "command ghci"
       (vterm-insert "ghci -XGHC2021 -XLambdaCase ")
       (if is-haskell
           (vterm-insert file-name))
       (vterm-send-return))))
+
+(defun python-repl ()
+  (interactive)
+  (let ((file-name (file-name-sans-extension (file-name-nondirectory (buffer-file-name))))
+        (is-python (eq major-mode 'python-ts-mode)))
+    (vterm-slime)
+    (vterm-insert "python3 ")
+    (vterm-send-return)
+    (if is-python
+        (vterm-insert (concat "from "
+                              file-name
+                              " import *")))
+    (vterm-send-return)))
+
+(defun copy-function ()
+"Mark and copy the current function as defined by tree sitter."
+  (evil-visual-state)
+  (call-interactively 'evil-a-paragraph)
+  (condition-case nil
+      (call-interactively 'evil-textobj-tree-sitter-function--function.outer)
+    (error nil))
+  (call-interactively 'evil-yank))
 
 (defun copy-paragraph ()
 "Mark and copy the current paragraph."
@@ -388,6 +420,17 @@
                    (editorconfig-apply)
                    (direnv-update-environment)
                    (lsp))))
+
+(add-hook 'python-ts-mode-hook
+          (lambda ()
+            (set-indents 8 4 nil)
+            (setq-local compile-command (concat "python3 "
+                                                (buffer-file-name))
+                        lsp-pyright-typechecking-mode "strict")
+            (direnv-update-directory-environment)
+            (require 'lsp-pyright)
+            (lsp)))
+(use-package lsp-pyright)
 
 (add-hook 'bash-ts-mode-hook
           (lambda ()

@@ -165,6 +165,7 @@
   (lang-with-lsp rust-ts-mode-map)
   (lang-with-lsp erlang-mode-map)
   (lang-with-lsp bash-ts-mode-map)
+  (lang-with-lsp python-ts-mode-map)
 
   (evil-define-key 'normal makefile-gmake-mode-map
     (kbd "SPC r") 'recompile
@@ -174,7 +175,14 @@
     (kbd "SPC r") 'hs-slime-v)
   (evil-define-key 'normal haskell-mode-map
     (kbd "SPC r") 'hs-slime-n
-    (kbd "SPC i") 'save-and-stylish-hindent-buffer)
+    (kbd "SPC i") 'save-and-stylish-hindent-buffer
+    (kbd "<f5>")  'ghci)
+
+  (evil-define-key 'visual python-ts-mode-map
+    (kbd "SPC r") 'slime-v)
+  (evil-define-key 'normal python-ts-mode-map
+    (kbd "SPC r") 'slime-n
+    (kbd "<f5>")  'python-repl)
 
   (evil-define-key 'normal idris-mode-map
     (kbd "SPC i") 'indent-according-to-mode
