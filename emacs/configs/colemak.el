@@ -208,6 +208,7 @@
   (lang-with-lsp rustic-mode-map)
   (lang-with-lsp rust-ts-mode-map)
   (lang-with-lsp erlang-mode-map)
+  (lang-with-lsp python-ts-mode-map)
 
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC l") 'hs-slime-v)
@@ -215,6 +216,12 @@
     (kbd "SPC l") 'hs-slime-n
     (kbd "SPC O") 'save-and-stylish-hindent-buffer
     (kbd "<f5>")  'hs-run)
+
+  (evil-define-key 'visual python-ts-mode-map
+    (kbd "SPC l") 'slime-v)
+  (evil-define-key 'normal python-ts-mode-map
+    (kbd "SPC l") 'slime-n
+    (kbd "<f5>")  'python-repl)
 
   (evil-define-key 'normal idris-mode-map
     (kbd "SPC o") 'indent-according-to-mode
