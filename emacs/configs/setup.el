@@ -55,11 +55,9 @@
   (setq treemacs-space-between-root-nodes nil))
 
 (use-package direnv
-  :hook
-  ((after-init . direnv-mode)
-   (lsp-before-initialize-hook . direnv-update-environment)) ;; Doesn't work?
   :config
-  (setq direnv-always-show-summary t))
+  (setq direnv-always-show-summary t)
+  (direnv-mode))
 
 (use-package yasnippet-snippets
   :defer 2)
