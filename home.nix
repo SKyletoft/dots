@@ -416,6 +416,10 @@ in {
 		defaultEditor = true;
 		startWithUserSession = false;
 	};
+	services.lorri = {
+		enable = true;
+		enableNotifications = true;
+	};
 
 	# wayland.windowManager.hyprland.enable = hyprland;
 
