@@ -1,8 +1,6 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 let
-	stablePkgs = import inputs.stablePkgs {};
-
 	waylandSupport = false;
 	windowsFonts = false;
 	nativeBuild = false;
@@ -197,10 +195,7 @@ in {
 		journald.extraConfig = "SystemMaxUse=256M";
 		mullvad-vpn.enable = true;
 		fwupd.enable = true;
-		lorri = {
-			enable = true;
-			package = stablePkgs.lorri;
-		};
+		lorri.enable = true;
 		flatpak.enable = flatpak;
 		openssh = {
 			enable = true;
