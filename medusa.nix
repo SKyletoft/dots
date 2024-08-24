@@ -87,6 +87,7 @@ in {
 		};
 		cpu.amd.updateMicrocode = true;
 		keyboard.zsa.enable = true;
+		i2c.enable = true;
 	};
 
 	fileSystems."/mnt/SDD" = {
@@ -185,7 +186,6 @@ in {
 			'';
 		};
 
-		# https://discourse.nixos.org/t/how-to-enable-ddc-brightness-control-i2c-permissions/20800/2
 		udev.extraRules = ''
 			ACTION=="add", \
 				ATTRS{idVendor}=="2dc8", \
