@@ -335,6 +335,7 @@ in {
 				ivy
 				ivy-posframe
 				projectile
+				casual-calc
 
 				pdf-tools
 				multi-vterm
