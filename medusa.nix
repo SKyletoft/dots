@@ -260,6 +260,7 @@ in {
 			git
 			wally-cli
 			zsa-udev-rules
+			xorg.xkill
 
 			setup-system
 			update-keys
