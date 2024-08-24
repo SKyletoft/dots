@@ -426,7 +426,7 @@
             (set-indents 8 4 nil)
             (setq-local compile-command (concat "python3 "
                                                 (buffer-file-name))
-                        lsp-pyright-typechecking-mode "strict")
+                        lsp-pyright-typechecking-mode "standard")
             (direnv-update-directory-environment)
             (require 'lsp-pyright)
             (lsp)))
