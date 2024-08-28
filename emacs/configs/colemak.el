@@ -93,8 +93,10 @@
     (kbd "<") 'wrap-in-angles
     (kbd "$") 'wrap-in-dollar)
 
-  (set-v (kbd "SPC u") 'comment-or-uncomment-region)
-  (set-n (kbd "SPC u") 'comment-or-uncomment-line)
+  (evil-define-key 'visual 'global
+    (kbd "SPC u") 'comment-or-uncomment-region)
+  (evil-define-key 'normal 'global
+    (kbd "SPC u") 'comment-or-uncomment-line)
 
   ;; Find
   (evil-define-key 'normal 'global
