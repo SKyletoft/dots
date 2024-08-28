@@ -11,107 +11,132 @@
   (define-key evil-emacs-state-map (kbd "C-M-i") 'evil-force-normal-state)
   (define-key evil-normal-state-map (kbd "C-M-i") 'evil-emacs-state)
   (global-set-key (kbd "C-M-p") 'treemacs)
-  (set-nm (kbd "C-t") 'multi-vterm)
-  (set-nm (kbd "C-+") 'text-scale-increase)
-  (set-nm (kbd "C--") 'text-scale-decrease)
-  (define-key evil-normal-state-map (kbd "SPC m") 'magit)
-  (define-key evil-normal-state-map (kbd "SPC n") 'magit-blame)
-  (define-key evil-normal-state-map (kbd "SPC v") 'hs-toggle-hiding)
   (define-key company-active-map (kbd "<tab>") 'my/snippet-complete-or-indent)
   (define-key company-active-map (kbd "<return>") 'newline)
-  (set-n (kbd "SPC å") 'projectile-command-map)
-  (set-n (kbd "ö") 'evil-ex)
-  (set-n (kbd "Ö") 'eval-expression)
-  (set-n (kbd "·") 'run-command)
-  (set-n (kbd "C-n") 'scratch-buffer)
+  (evil-define-key '(normal visual) 'global
+    (kbd "C-t") 'multi-vterm
+    (kbd "C-+") 'text-scale-increase
+    (kbd "C--") 'text-scale-decrease)
+  (evil-define-key 'normal 'global
+    (kbd "SPC m") 'magit
+    (kbd "SPC n") 'magit-blame
+    (kbd "SPC v") 'hs-toggle-hiding
+    (kbd "SPC å") 'projectile-command-map
+    (kbd "ö")     'evil-ex
+    (kbd "Ö")     'eval-expression
+    (kbd "·")     'run-command
+    (kbd "C-n")   'scratch-buffer)
 
-  (set-nv (kbd "μ") 'whitespace-mode)
+  (evil-define-key '(normal visual) 'global
+    (kbd "μ") 'whitespace-mode)
 
-  (set-nvm (kbd "a") 'evil-backward-char)
-  (set-nvm (kbd "d") 'evil-forward-char)
-  (set-nvm (kbd "w") 'evil-previous-visual-line)
-  (set-nvm (kbd "s") 'evil-next-visual-line)
+  (evil-define-key '(normal visual motion) 'global
+    (kbd "a") 'evil-backward-char
+    (kbd "d") 'evil-forward-char
+    (kbd "w") 'evil-previous-visual-line
+    (kbd "s") 'evil-next-visual-line)
 
-  (set-nvm (kbd "C-a") 'evil-backward-word-begin)
-  (set-nm  (kbd "C-d") 'evil-forward-word-begin)
-  (set-v   (kbd "C-d") 'evil-forward-word-end)
-  (set-nvm (kbd "C-w") 'up-five)
-  (set-nvm (kbd "C-s") 'down-five)
+  (evil-define-key '(normal motion) 'global
+    (kbd "C-d") 'evil-forward-word-begin)
+  (evil-define-key 'visual 'global
+    (kbd "C-d") 'evil-forward-word-end)
+  (evil-define-key '(normal visual motion) 'global
+    (kbd "C-a") 'evil-backward-word-begin
+    (kbd "C-w") 'up-five
+    (kbd "C-s") 'down-five)
 
-  (set-nvm (kbd "W") 'evil-jump-item)
-  (set-nvm (kbd "S") 'evil-jump-paragraph)
+  (evil-define-key '(normal visual motion) 'global
+    (kbd "W") 'evil-jump-item
+    (kbd "S") 'evil-jump-paragraph)
 
-  (set-nm (kbd "C-c") 'evil-yank)
-  (set-nm (kbd "C-v") 'evil-paste-after)
-  (set-nm (kbd "C-x") 'evil-delete)
-  (set-nm (kbd "M-V") 'evil-visual-block)
+  (evil-define-key '(normal motion) 'global
+    (kbd "C-c") 'evil-yank
+    (kbd "C-v") 'evil-paste-after
+    (kbd "C-x") 'evil-delete
+    (kbd "M-V") 'evil-visual-block)
 
-  (set-nmi  (kbd "<tab>")         'my/indent-line) ; For gui
-  (set-nmi  [?\t]                 'my/indent-line) ; For terminal use
-  (set-nmie (kbd "<backtab>")     'my/outdent-line)
-  (set-nmie (kbd "<iso-lefttab>") 'my/outdent-line)
-  (set-v    (kbd "<tab>")         'my/indent-region)
-  (set-v    [?\t]                 'my/indent-region)
-  (set-v    (kbd "<backtab>")     'my/outdent-region)
-  (set-v    (kbd "<iso-lefttab")  'my/outdent-region)
+  (evil-define-key '(normal motion insert) 'global
+    (kbd "<tab>") 'my/indent-line  ; For gui
+    [?\t]         'my/indent-line) ; For terminal use
+  (evil-define-key '(normal motion insert emacs) 'global
+    (kbd "<backtab>")     'my/outdent-line
+    (kbd "<iso-lefttab>") 'my/outdent-line)
+  (evil-define-key 'visual 'global
+    (kbd "<tab>")        'my/indent-region
+    [?\t]                'my/indent-region
+    (kbd "<backtab>")    'my/outdent-region
+    (kbd "<iso-lefttab") 'my/outdent-region)
 
-  (set-v (kbd "M-r") 'align-regexp)
+  (evil-define-key 'visual 'global
+    (kbd "M-r") 'align-regexp)
 
-  (set-v (kbd "\"") 'wrap-in-quotes)
-  (set-v (kbd "'") 'wrap-in-apostrophes)
-  (set-v (kbd "`") 'wrap-in-ticks)
-  (set-v (kbd "(") 'wrap-in-parentheses)
-  (set-v (kbd "{") 'wrap-in-curlies)
-  (set-v (kbd "[") 'wrap-in-squares)
-  (set-v (kbd "<") 'wrap-in-angles) ; Interferes with outdent
-  (set-v (kbd "$") 'wrap-in-dollar)
+  (evil-define-key 'visual 'global
+    (kbd "\"") 'wrap-in-quotes
+    (kbd "'") 'wrap-in-apostrophes
+    (kbd "`") 'wrap-in-ticks
+    (kbd "(") 'wrap-in-parentheses
+    (kbd "{") 'wrap-in-curlies
+    (kbd "[") 'wrap-in-squares
+    (kbd "<") 'wrap-in-angles
+    (kbd "$") 'wrap-in-dollar)
 
-  (set-v (kbd "SPC k") 'comment-or-uncomment-region)
-  (set-n (kbd "SPC k") 'comment-or-uncomment-line)
+  (evil-define-key 'visual 'global
+    (kbd "SPC k") 'comment-or-uncomment-region)
+  (evil-define-key 'normal 'global
+    (kbd "SPC k") 'comment-or-uncomment-line)
 
   ;; Find
-  (set-n  (kbd "SPC P") 'projectile-switch-project)
-  (set-n  (kbd "SPC p") 'projectile-find-file)
-  (set-n  (kbd "SPC SPC") 'projectile-ripgrep)
-  (set-n  (kbd "M-p") 'find-file)
-  (set-nm (kbd "C-f") 'evil-search-forward)
+  (evil-define-key 'normal 'global
+    (kbd "SPC P")   'projectile-switch-project
+    (kbd "SPC p")   'projectile-find-file
+    (kbd "SPC SPC") 'projectile-ripgrep
+    (kbd "M-p")     'find-file)
 
   ;; Undo and redo
-  (set-nmi (kbd "C-z") 'evil-undo)
-  (set-nmi (kbd "C-r") 'evil-redo)
+  (evil-define-key '(normal motion insert) 'global
+    (kbd "C-z") 'evil-undo
+    (kbd "C-r") 'evil-redo)
 
-  (set-nm "A" 'evil-insert-line)
-  (set-nm "D" 'evil-append-line)
-  (set-nm (kbd "X") 'evil-delete-line)
-  (set-nm (kbd "u") nil)
-  (set-nm (kbd "&") nil)
+  (evil-define-key '(normal motion) 'global
+    (kbd "A") 'evil-insert-line
+    (kbd "D") 'evil-append-line
+    (kbd "X") 'evil-delete-line
+    (kbd "u") nil
+    (kbd "&") nil)
 
-  (set-nme (kbd "C-e") 'split-window-horizontally)
-  (set-nme (kbd "C-q") 'split-window-vertically)
-  (set-nme (kbd "C-M-w") 'evil-window-up)
-  (set-nme (kbd "C-M-s") 'evil-window-down)
-  (set-nme (kbd "C-M-a") 'evil-window-left)
-  (set-nme (kbd "C-M-d") 'evil-window-right)
-  (set-nme (kbd "M-W") 'evil-window-decrease-height)
-  (set-nme (kbd "M-S") 'evil-window-increase-height)
-  (set-nme (kbd "M-D") 'evil-window-increase-width)
-  (set-nme (kbd "M-A") 'evil-window-decrease-width)
-  (set-n   (kbd "SPC o") 'transpose-with-treemacs)
-  (set-n   (kbd "SPC O") 'toggle-left-margin)
+  (evil-define-key '(normal motion emacs) 'global
+    (kbd "C-e")   'split-window-horizontally
+    (kbd "C-q")   'split-window-vertically
+    (kbd "C-M-w") 'evil-window-up
+    (kbd "C-M-s") 'evil-window-down
+    (kbd "C-M-a") 'evil-window-left
+    (kbd "C-M-d") 'evil-window-right
+    (kbd "M-W")   'evil-window-decrease-height
+    (kbd "M-S")   'evil-window-increase-height
+    (kbd "M-D")   'evil-window-increase-width
+    (kbd "M-A")   'evil-window-decrease-width)
+  (evil-define-key 'normal 'global
+    (kbd "SPC o") 'transpose-with-treemacs
+    (kbd "SPC O") 'toggle-left-margin)
 
-  (define-key evil-visual-state-map (kbd "SPC b") 'narrow-to-region)
-  (set-n (kbd "SPC b") 'widen)
+  (evil-define-key 'visual 'global
+    (kbd "SPC b") 'narrow-to-region)
+  (evil-define-key 'normal 'global
+    (kbd "SPC b") 'widen)
 
-  (set-nme (kbd "C-<tab>") 'next-buffer)
-  (set-nme [C-?\t] 'next-buffer)
-  (set-nme (kbd "C-<backtab>") 'previous-buffer)
-  (set-nme (kbd "C-<iso-lefttab>") 'previous-buffer)
-  (set-nv  (kbd "SPC <tab>") 'get-buffer-list) ; GUI
-  (set-nv  (kbd "SPC TAB") 'get-buffer-list) ; TUI
+  (evil-define-key '(normal motion emacs) 'global
+    (kbd "C-<tab>")         'next-buffer
+    [C-?\t]                 'next-buffer
+    (kbd "C-<backtab>")     'previous-buffer
+    (kbd "C-<iso-lefttab>") 'previous-buffer)
+  (evil-define-key '(normal visual) 'global
+    (kbd "SPC <tab>") 'get-buffer-list  ; GUI
+    (kbd "SPC TAB")   'get-buffer-list) ; TUI
 
-  (set-n (kbd "SPC q") 'evil-quit)
-  (set-n (kbd "SPC Q") 'evil-save-modified-and-close)
-  (set-n (kbd "SPC w") 'save-buffer)
+  (evil-define-key 'normal 'global
+    (kbd "SPC q") 'evil-quit
+    (kbd "SPC Q") 'evil-save-modified-and-close
+    (kbd "SPC w") 'save-buffer)
 
   ;; Completion-buffer
   (define-key minibuffer-local-map (kbd "C-p") #'minibuffer-previous-completion)
@@ -140,7 +165,7 @@
               (kbd "SPC t") 'lsp-inlay-hints-mode
               (kbd "SPC v") 'gud-break
               (kbd "SPC e") 'lsp-treemacs-errors-list
-              (kbd "<f2>") 'lsp-rename)))
+              (kbd "<f2>")  'lsp-rename)))
 
   (lang-with-lsp js-mode-map)
   (lang-with-lsp js-ts-mode-map)
@@ -227,14 +252,14 @@
   (evil-define-key 'visual rustic-mode-map
     (kbd "SPC I") 'rustic-format-region)
   (evil-define-key '(normal visual) rustic-mode-map
-    (kbd "SPC r") 'rustic-cargo-run
-    (kbd "<f4>") 'rustic-popup
-    (kbd "<f5>") 'rust-compile-and-dap
+    (kbd "SPC r")  'rustic-cargo-run
+    (kbd "<f4>")   'rustic-popup
+    (kbd "<f5>")   'rust-compile-and-dap
     (kbd "C-<f5>") 'rustic-cargo-build
     (kbd "M-<f5>") 'rustic-cargo-test)
 
   (evil-define-key 'normal conf-toml-mode-map
-    (kbd "<f5>") 'rust-compile-and-dap
+    (kbd "<f5>")   'rust-compile-and-dap
     (kbd "C-<f5>") 'rustic-cargo-build
     (kbd "M-<f5>") 'rustic-cargo-test)
 
@@ -271,16 +296,16 @@
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
   (evil-define-key 'normal c-mode-map
-    (kbd "I") 'save-and-clang-format-buffer
+    (kbd "I")    'save-and-clang-format-buffer
     (kbd "<f5>") 'gdb)
   (evil-define-key 'normal c++-mode-map
-    (kbd "I") 'save-and-clang-format-buffer
+    (kbd "I")    'save-and-clang-format-buffer
     (kbd "<f5>") 'gdb)
   (evil-define-key 'normal c-ts-mode-map
-    (kbd "I") 'save-and-clang-format-buffer
+    (kbd "I")    'save-and-clang-format-buffer
     (kbd "<f5>") 'gdb)
   (evil-define-key 'normal c++-ts-mode-map
-    (kbd "I") 'save-and-clang-format-buffer
+    (kbd "I")    'save-and-clang-format-buffer
     (kbd "<f5>") 'gdb)
 
   (evil-define-key 'normal java-ts-mode-map
@@ -308,29 +333,29 @@
     (kbd "C-M-s") 'windmove-down
     (kbd "C-M-a") 'windmove-left
     (kbd "C-M-d") 'windmove-right
-    (kbd "C-V") 'vterm-yank
-    (kbd "C-v") 'vterm-yank)
+    (kbd "C-V")   'vterm-yank
+    (kbd "C-v")   'vterm-yank)
 
   (evil-define-key 'normal treemacs-mode-map
-    (kbd "SPC") 'treemacs-TAB-action
-    (kbd "C-<tab>") 'treemacs-switch-workspace
-    (kbd "x") 'treemacs-delete-file
+    (kbd "SPC")      'treemacs-TAB-action
+    (kbd "C-<tab>")  'treemacs-switch-workspace
+    (kbd "x")        'treemacs-delete-file
     (kbd "<delete>") 'treemacs-delete-file
-    (kbd "a") nil
-    (kbd "d") nil
-    (kbd "q") 'evil-quit)
+    (kbd "a")        nil
+    (kbd "d")        nil
+    (kbd "q")        'evil-quit)
 
   (evil-define-key '(normal emacs motion) Buffer-menu-mode-map
     (kbd "<return>") 'Buffer-menu-this-window
-    (kbd "C-n") 'nuke-all-buffers)
+    (kbd "C-n")      'nuke-all-buffers)
 
   (evil-define-key 'normal pdf-view-mode-map
     (kbd "SPC g") 'pdf-view-goto-page
     (kbd "SPC G") 'pdf-view-goto-label
-    (kbd "w") 'pdf-view-previous-page-command
-    (kbd "a") 'pdf-view-previous-page-command
-    (kbd "s") 'pdf-view-next-page-command
-    (kbd "d") 'pdf-view-next-page-command))
+    (kbd "w")     'pdf-view-previous-page-command
+    (kbd "a")     'pdf-view-previous-page-command
+    (kbd "s")     'pdf-view-next-page-command
+    (kbd "d")     'pdf-view-next-page-command))
 
 (provide 'qwerty)
 ;;; qwerty.el ends here
