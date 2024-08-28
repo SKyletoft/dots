@@ -374,7 +374,6 @@ in {
 				kotlin-mode
 				pest-mode
 				typescript-mode
-				lsp-pyright
 			]);
 		};
 

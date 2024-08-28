@@ -428,9 +428,7 @@
                                                 (buffer-file-name))
                         lsp-pyright-typechecking-mode "standard")
             (direnv-update-directory-environment)
-            (require 'lsp-pyright)
             (lsp)))
-(use-package lsp-pyright)
 
 (add-hook 'bash-ts-mode-hook
           (lambda ()
