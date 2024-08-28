@@ -378,7 +378,13 @@
     (kbd "f")     'pdf-view-previous-page-command
     (kbd "r")     'pdf-view-previous-page-command
     (kbd "s")     'pdf-view-next-page-command
-    (kbd "t")     'pdf-view-next-page-command))
+    (kbd "t")     'pdf-view-next-page-command)
+
+  (evil-define-key 'normal forge-issue-mode-map
+    (kbd "n")     'forge-create-post
+    (kbd "F")     'forge-pull-this-topic
+    (kbd "<tab>") 'magit-section-toggle
+    (kbd "q")     'magit-mode-bury-buffer))
 
 (provide 'colemak)
 ;;; colemak.el ends here

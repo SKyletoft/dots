@@ -38,7 +38,8 @@
       mouse-wheel-scroll-amount '(1 ((shift) . 2))
       mouse-wheel-progressive-speed nil
       mouse-wheel-follow-mouse 't
-      initial-scratch-message "")
+      initial-scratch-message ""
+      auth-sources '("~/.authinfo"))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -104,3 +105,7 @@
   :config
   (setq tramp-remote-path (append tramp-remote-path
                                   '(tramp-own-remote-path))))
+
+(use-package magit)
+(use-package forge
+  :after magit)

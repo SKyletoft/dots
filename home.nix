@@ -218,6 +218,7 @@ in {
 				pull = {
 					ff = "only";
 				};
+				github.user = "SKyletoft";
 			};
 		};
 
@@ -319,6 +320,7 @@ in {
 
 				direnv
 				magit
+				forge
 				diff-hl
 				evil
 				treemacs
