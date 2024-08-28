@@ -212,7 +212,8 @@
     (kbd "SPC r") 'slime-v)
   (evil-define-key 'normal python-ts-mode-map
     (kbd "SPC r") 'slime-n
-    (kbd "<f5>")  'python-repl)
+    (kbd "<f5>")  'python-repl
+    (kbd "SPC I") 'save-and-black-buffer)
 
   (evil-define-key 'normal idris-mode-map
     (kbd "SPC i") 'indent-according-to-mode
