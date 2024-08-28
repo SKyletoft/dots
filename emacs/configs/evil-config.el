@@ -254,8 +254,6 @@
 
 ;; Tree-sitter textobjs
 (use-package evil-textobj-tree-sitter)
-(define-key evil-operator-state-map "o" evil-outer-text-objects-map)
-(define-key evil-visual-state-map "o" evil-outer-text-objects-map)
 
 (define-key evil-inner-text-objects-map "e" (evil-textobj-tree-sitter-get-textobj ("try_expr"
                                                                                    "unary_expr"

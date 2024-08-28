@@ -27,6 +27,11 @@
     (kbd "·")     'run-command
     (kbd "C-n")   'scratch-buffer)
 
+  (evil-define-key 'operator 'global
+    (kbd "o") evil-outer-text-objects-map)
+  (evil-define-key 'visual 'global
+    (kbd "o") evil-outer-text-objects-map)
+
   (evil-define-key '(normal visual) 'global
     (kbd "μ") 'whitespace-mode)
 
