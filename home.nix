@@ -215,9 +215,7 @@ in {
 			# difftastic.enable = true;
 			extraConfig = {
 				core.editor = "emacsclient -r";
-				pull = {
-					ff = "only";
-				};
+				pull.ff     = "only";
 				github.user = "SKyletoft";
 			};
 		};
