@@ -361,7 +361,13 @@
     (kbd "w")     'pdf-view-previous-page-command
     (kbd "a")     'pdf-view-previous-page-command
     (kbd "s")     'pdf-view-next-page-command
-    (kbd "d")     'pdf-view-next-page-command))
+    (kbd "d")     'pdf-view-next-page-command)
+
+  (evil-define-key 'normal forge-issue-mode-map
+    (kbd "i")     'forge-create-post
+    (kbd "F")     'forge-pull-this-topic
+    (kbd "<tab>") 'magit-section-toggle
+    (kbd "q")     'magit-mode-bury-buffer))
 
 (provide 'qwerty)
 ;;; qwerty.el ends here
