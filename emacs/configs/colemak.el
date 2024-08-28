@@ -29,11 +29,11 @@
     (kbd "C-n")   'scratch-buffer)
 
   (evil-define-key 'operator 'global
-    (kbd "u") 'evil-inner-text-objects-map
-    (kbd "y") 'evil-outer-text-objects-map)
+    (kbd "u") evil-inner-text-objects-map
+    (kbd "y") evil-outer-text-objects-map)
   (evil-define-key 'visual 'global
-    (kbd "u") 'evil-inner-text-objects-map
-    (kbd "y") 'evil-outer-text-objects-map)
+    (kbd "u") evil-inner-text-objects-map
+    (kbd "y") evil-outer-text-objects-map)
 
   (evil-define-key '(normal visual motion) 'global
     (kbd "⊸") 'whitespace-mode
