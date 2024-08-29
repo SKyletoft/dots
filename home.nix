@@ -7,35 +7,6 @@ let
 	emacsPin   = import inputs.emacsPkgs { overlays = [
 		inputs.emacsOverlay.overlays.default
 		(final: prev: {
-			tree-sitter-grammars =
-				let useAbi13 = lang: {
-						name = "tree-sitter-${lang}";
-						value = prev.tree-sitter-grammars."tree-sitter-${lang}".overrideAttrs (_: {
-							nativeBuildInputs = [ final.nodejs final.tree-sitter ];
-							configurePhase = "tree-sitter generate --abi 13 src/grammar.json";
-						});
-					};
-				in prev.tree-sitter-grammars // (builtins.listToAttrs (builtins.map useAbi13 [
-					"cpp"
-					"c"
-					"cmake"
-					"java"
-					"kotlin"
-					"rust"
-					"haskell"
-					"python"
-					"elisp"
-					"make"
-					"latex"
-					"javascript"
-					"json"
-					"html"
-					"css"
-					"bash"
-					"nix"
-					"hlsl"
-					"glsl"
-				]));
 			emacs-git = prev.emacs-git.overrideAttrs(old: {
 				LSP_USE_PLISTS = true;
 			});
