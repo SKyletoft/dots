@@ -437,6 +437,11 @@
             (direnv-update-environment)
             (lsp)))
 
+(add-hook 'latex-mode-hook
+          (lambda ()
+            (set-indents 8 8 t)
+            (editorconfig-apply)))
+
 ;; (use-package olivetti
 ;;   :hook
 ;;   (olivetti-mode . (lambda () (olivetti-set-width (+ 5 fill-column)))))
