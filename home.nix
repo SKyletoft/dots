@@ -500,6 +500,10 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 			"${emacsPin.tree-sitter-grammars.tree-sitter-dockerfile}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-nix.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-nix}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-html.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-html}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-css.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-css}/parser";
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;
