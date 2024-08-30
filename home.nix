@@ -2,18 +2,14 @@
 
 let
 	stablePkgs = import inputs.stablePkgs {};
-	citraPkgs = import inputs.stablePkgs {};
+	citraPkgs  = import inputs.stablePkgs {};
 	vimPin     = import inputs.vimPin {};
 	emacsPin   = import inputs.emacsPkgs { overlays = [
 		inputs.emacsOverlay.overlays.default
 		(final: prev: {
-			emacs-git = prev.emacs-git.overrideAttrs(old: {
-				LSP_USE_PLISTS = true;
-			});
+			emacs-git = prev.emacs-git.overrideAttrs(old: { LSP_USE_PLISTS = true; });
 			emacsPackages = prev.emacsPackages.overrideScope' (efinal: eprev: {
-				lsp-mode = eprev.lsp-mode.overrideAttrs(old: {
-					LSP_USE_PLISTS = true;
-				});
+				lsp-mode = eprev.lsp-mode.overrideAttrs(old: { LSP_USE_PLISTS = true; });
 			});
 		})
 	]; };
