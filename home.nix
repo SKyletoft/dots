@@ -6,11 +6,10 @@ let
 	vimPin     = import inputs.vimPin {};
 	emacsPin   = import inputs.emacsPkgs { overlays = [
 		inputs.emacsOverlay.overlays.default
-		(final: prev: {
-			emacs-git = prev.emacs-git.overrideAttrs(old: { LSP_USE_PLISTS = true; });
-			emacsPackages = prev.emacsPackages.overrideScope' (efinal: eprev: {
-				lsp-mode = eprev.lsp-mode.overrideAttrs(old: { LSP_USE_PLISTS = true; });
-			});
+		(_: p: {
+			emacs-git = p.emacs-git.overrideAttrs(_: { LSP_USE_PLISTS = true; });
+			emacsPackages = p.emacsPackages.overrideScope'
+				(_: p': { lsp-mode = p'.lsp-mode.overrideAttrs(_: { LSP_USE_PLISTS = true; }); });
 		})
 	]; };
 
