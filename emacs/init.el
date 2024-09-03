@@ -25,6 +25,7 @@
 (require 'artemis-mode)
 (require 'jasmin)
 (require 'number-hl-mode)
+(require 'slimish)
 (require 'language-specifics)
 (require 'language-checking)
 (require 'lsp-booster)
