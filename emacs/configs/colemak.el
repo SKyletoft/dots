@@ -263,7 +263,7 @@
     (kbd "SPC i")   'agda2-goto-definition-keyboard
     (kbd "SPC n r") 'agda2-refine
     (kbd "SPC n s") 'agda2-solve-maybe-all
-    (kbd "SPC n a") 'agda2-auto-maybe-all
+    (kbd "SPC n a") 'agda2-mimer-maybe-all
     (kbd "SPC n c") 'agda2-make-case
     (kbd "M-n")     'agda2-next-goal
     (kbd "M-p")     'agda2-previous-goal)
