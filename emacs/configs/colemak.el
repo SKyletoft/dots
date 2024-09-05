@@ -306,6 +306,10 @@
     (kbd "SPC o") 'indent-region
     (kbd "SPC l") 'slime-v)
 
+  (evil-define-key '(normal visual) promela-2-mode-map
+    (kbd "SPC L") 'compile
+    (kbd "SPC l") 'recompile)
+
   (evil-define-key 'visual sh-mode-map
     (kbd "SPC l") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))

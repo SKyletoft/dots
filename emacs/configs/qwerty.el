@@ -292,6 +292,10 @@
   (evil-define-key 'visual scheme-mode-map
     (kbd "SPC r") 'slime-v)
 
+  (evil-define-key '(normal visual) promela-2-mode-map
+    (kbd "SPC R") 'compile
+    (kbd "SPC r") 'recompile)
+
   (evil-define-key 'normal bash-ts-mode-map
     (kbd "SPC r") (lambda () (interactive)
                     (save-buffer)
