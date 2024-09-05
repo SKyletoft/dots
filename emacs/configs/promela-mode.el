@@ -52,12 +52,12 @@
 ;; To-Do:
 ;;  - compile/syntax-check/verify? (suggested by R.Goldman)
 ;;  - indentation - splitting lines at logical operators (M. Rangarajan)
-;;    [ This might "devolve" to indentation after "→" or ";"
+;;    [ This might "devolve" to indentation after "->" or ";"
 ;;      being as is, but anything else indent even more? ]
-;;       :: SomeReallyLongArrayRef[this].typedefField != SomeReallyLongConstant → /* some-comment */
+;;       :: SomeReallyLongArrayRef[this].typedefField != SomeReallyLongConstant -> /* some-comment */
 ;;    [ Suggestion would be to break the first line after the !=, therefore: ]
 ;;       :: SomeReallyLongArrayRef[this].typedefField
-;;	      != SomeReallyLongConstant → /* some-comment */
+;;	      != SomeReallyLongConstant -> /* some-comment */
 ;;    [ at this point I'm not so sure about this change... EE: 2001/05/19 ]
 
 ;;; -------------------------------------------------------------------------
@@ -343,11 +343,11 @@ If (match-beginning 2) is non-nil, the item is followed by a `value'."
 ;; "install" the font-lock-defaults based upon version of emacs we have
 (cond (promela-xemacsp
        (put 'promela-mode 'font-lock-defaults promela-font-lock-defaults))
-      ((not (assq 'promela-mode font-lock-defaults-alist))
-       (setq font-lock-defaults-alist
+      ((not (assq 'promela-mode font-lock-defaults))
+       (setq font-lock-defaults
              (cons
               (cons 'promela-mode promela-font-lock-defaults)
-              font-lock-defaults-alist))))
+              font-lock-defaults))))
 
 
 ;; -------------------------------------------------------------------------
@@ -597,22 +597,22 @@ indents the current line before running a regular newline-and-indent."
 (defun promela-insert-and-indent ()
   "Insert the last character typed and re-indent the current line"
   (interactive)
-  (insert last-command-char)
+  (insert last-command-event)
   (save-excursion (promela-indent-command)))
 
 (defun promela-open-delimiter ()
   "Inserts the open and matching close delimiters, indenting as appropriate."
   (interactive)
-  (insert last-command-char)
+  (insert last-command-event)
   (if (and promela-auto-match-delimiter (not (promela-inside-comment-p)))
       (save-excursion
-        (insert (cdr (assq last-command-char promela-matching-delimiter-alist)))
+        (insert (cdr (assq last-command-event promela-matching-delimiter-alist)))
         (promela-indent-command))))
 
 (defun promela-close-delimiter ()
   "Inserts and indents a close delimiter."
   (interactive)
-  (insert last-command-char)
+  (insert last-command-event)
   (if (not (promela-inside-comment-p))
       (save-excursion (promela-indent-command))))
 
@@ -751,7 +751,7 @@ with optional arg, limit search back to `limit'"
          ;; indent (generic code) inside "::" option
          ((eq 'option block-type)
           (if (and (not indent-type)
-                   (re-search-forward "::.*→[ \t]*\\sw"
+                   (re-search-forward "::.*->[ \t]*\\sw"
                                       (save-excursion (end-of-line) (point))
                                       t))
               (1- (current-column))
