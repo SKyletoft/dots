@@ -1,5 +1,5 @@
 ;; promela-mode.el --- major mode for editing PROMELA program files
-;; $Revision: 1.11 $ $Date: 2001/07/09 18:36:45 $ $Author: engstrom $
+;; $Revision: 1.12 $ $Date: 2014/12/12 09:50:00 $ $Author: engstrom, g15ecb$
 
 ;; Author: Eric Engstrom <eric.engstrom@honeywell.com>
 ;; Maintainer: Eric Engstrom
@@ -29,7 +29,7 @@
 ;;		     (cons "\\.spin$"     'promela-mode)
 ;;		     (cons "\\.pml$"      'promela-mode)
 ;;		     ;; (cons "\\.other-extensions$"     'promela-mode)
-;;	             )
+;;                   )
 ;;	       auto-mode-alist))
 
 ;;	If you wish for promela-mode to be used for files with other
@@ -913,7 +913,7 @@ Stop at `limit' or beginning of buffer."
         (setq level (+ level
                        (cond ((or (nth 3 state) (nth 4 state))           0)
                              ((and (= 1 level) (looking-at "::")
-                                   (not (equal type 'option)))	        -1)
+                                   (not (equal type 'option)))          -1)
                              ((looking-at "\\({\\|\\(do\\|if\\)\\b\\)") -1)
                              ((looking-at "\\(}\\|\\(od\\|fi\\)\\b\\)") +1)
                              (t 0)))))
@@ -949,6 +949,9 @@ Stop at limit or beginning of buffer."
 ;; Change History:
 ;;
 ;; $Log: promela-mode.el,v $
+;; Revision 1.12  2014/12/12 g15ecb
+;;  - Updated promela-mode to work with Emacs 24.
+;;
 ;; Revision 1.11  2001/07/09 18:36:45  engstrom
 ;;  - added comments on use of font-lock-maximum-decoration
 ;;  - moved basic preprocess directive fontification to "level 2"
