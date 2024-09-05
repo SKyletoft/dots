@@ -24,6 +24,7 @@
 ;; (require 'dap)
 (require 'artemis-mode)
 (require 'jasmin)
+(require 'promela-mode)
 (require 'number-hl-mode)
 (require 'slimish)
 (require 'language-specifics)
