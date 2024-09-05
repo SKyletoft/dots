@@ -197,12 +197,14 @@
 "Ruin spellings of words like centre or colour to work with HTML and CSS that have hardcoded the American spellings."
   (interactive)
   (save-excursion
+    (goto-line 0)
     (replace-string "centre" "center")
     (replace-string "colour" "color")))
 
 (defun lisp-kbd ()
   (interactive)
   (save-excursion
+    (goto-line 0)
     (replace-string "kdb" "kbd")))
 
 (defun c-cpp-mode-hook-impl ()
