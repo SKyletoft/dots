@@ -207,6 +207,12 @@
     (goto-line 0)
     (replace-string "kdb" "kbd")))
 
+(defun agda-arrow-fix ()
+  (interactive)
+  (save-excursion
+    (goto-line 0)
+    (replace-string "->" "→")))
+
 (defun c-cpp-mode-hook-impl ()
   (set-indents 8 8 t)
   (setq-local xref-etags-mode 1
