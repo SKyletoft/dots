@@ -55,6 +55,7 @@
               (load-file (let ((coding-system-for-read 'utf-8))
                            (shell-command-to-string "agda-mode locate")))
               (agda2-mode)
+              (add-hook 'before-save-hook 'agda-arrow-fix 't)
               (set-indents 8 2 nil))))
 
 (setq major-mode-remap-alist
