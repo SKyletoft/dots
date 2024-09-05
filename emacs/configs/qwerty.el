@@ -248,7 +248,7 @@
     (kbd "SPC g")   'agda2-goto-definition-keyboard
     (kbd "SPC a r") 'agda2-refine
     (kbd "SPC a s") 'agda2-solve-maybe-all
-    (kbd "SPC a a") 'agda2-auto-maybe-all
+    (kbd "SPC a a") 'agda2-mimer-maybe-all
     (kbd "SPC a c") 'agda2-make-case
     (kbd "M-n")     'agda2-next-goal
     (kbd "M-p")     'agda2-previous-goal)
