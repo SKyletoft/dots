@@ -1,4 +1,6 @@
-(provide 'setup)
+;;; setup.el --- Stuff that used to live in init.el before I decided to make that just imports  -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
 ;; Functions
 
@@ -109,3 +111,6 @@
 (use-package magit)
 (use-package forge
   :after magit)
+
+(provide 'setup)
+;;; setup.el ends here.
