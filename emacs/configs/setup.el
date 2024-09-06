@@ -21,7 +21,6 @@
 (setq visual-line-mode -1
       global-auto-revert-mode 1
       auto-revert-mode 1
-      hs-minor-mode 1
       frame-resize-pixelwise t
       xterm-mouse-mode 1
       recentf-mode 1
@@ -40,6 +39,7 @@
       mouse-wheel-follow-mouse 't
       initial-scratch-message ""
       auth-sources '("~/.authinfo"))
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
