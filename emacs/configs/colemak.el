@@ -266,6 +266,8 @@
     (kbd "SPC n s") 'agda2-solve-maybe-all
     (kbd "SPC n a") 'agda2-mimer-maybe-all
     (kbd "SPC n c") 'agda2-make-case
+    (kbd "SPC n e") 'agda2-compute-normalised-maybe-toplevel
+    (kbd "SPC n g") 'agda2-give
     (kbd "M-n")     'agda2-next-goal
     (kbd "M-p")     'agda2-previous-goal)
 
