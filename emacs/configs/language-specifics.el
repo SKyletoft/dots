@@ -361,6 +361,21 @@
                     ;; :server-id 'futhark))
                     )
 
+(add-hook 'dafny-mode-hook
+          (lambda ()
+            (set-indents 8 8 t)
+            (setq-local prettify-symbols-alist '(("in"     . 8712)
+                                                 ("!in"    . 8713)
+                                                 ("&&"     . 8743)
+                                                 ("||"     . 8744)
+                                                 ("exists" . ?∃)
+                                                 ("::"     . 8729)
+                                                 ("forall" . ?∀))
+                        dafny-verification-backend 'lsp)
+            (prettify-symbols-mode -1)
+            (direnv-update-environment)
+            (lsp)))
+
 (use-package wgsl-mode
   :defer t
   :hook
