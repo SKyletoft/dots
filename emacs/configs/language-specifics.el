@@ -421,7 +421,7 @@
   (ada-mode . (lambda ()
                 (set-indents 8 8 t)
                 (direnv-update-environment)
-                (lsp)))
+                (lsp))))
 
 (use-package typescript-ts-mode
   :defer t)
