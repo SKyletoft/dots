@@ -211,6 +211,7 @@
   (lang-with-lsp rust-ts-mode-map)
   (lang-with-lsp erlang-mode-map)
   (lang-with-lsp python-ts-mode-map)
+  (lang-with-lsp ada-mode)
 
   (evil-define-key 'normal makefile-gmake-mode-map
     (kbd "SPC l") 'recompile

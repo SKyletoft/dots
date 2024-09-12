@@ -340,6 +340,7 @@ in {
 				kotlin-mode
 				pest-mode
 				typescript-mode
+				ada-mode
 			]);
 		};
 
