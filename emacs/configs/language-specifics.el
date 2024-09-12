@@ -192,6 +192,7 @@
             (flycheck-mode)
             (company-mode)
             (add-hook 'before-save-hook 'lisp-kbd t)
+            (prettify-symbols-mode 1)
             (editorconfig-apply)))
 
 (defun americanise ()
