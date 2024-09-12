@@ -7,7 +7,7 @@
   '(("/\\*\\(.\\|\n\\)*?\\*/\\|;" . 'font-lock-comment-face)
     ("\\b\\(int\\|byte\\|bool\\|short\\|unsigned\\|chan\\)\\b" . 'font-lock-type-face)
     ("[0-9]+" . 'font-lock-number-face)
-    ("+\\|-\\|*\\|/\\|->\\|→\\|::\\|==\\|!\\|!=\\|<\\|>\\|<=\\|>==" . 'font-lock-operator-face)
+    ("+\\|-\\|*\\|/\\|->\\|→\\|::\\|==\\|!\\|!=\\|<\\|>\\|<=\\|>==\\|!\\|?" . 'font-lock-operator-face)
     ("\\b\\(active\\|if\\|fi\\|do\\|od\\|assert\\|goto\\|atomic\\|else\\|inline\\|of\\)\\b" . 'font-lock-keyword-face)
     ("#define\\|#include\\|#if\\|#endif\\|#else" . 'font-lock-preprocessor-face)))
 
