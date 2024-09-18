@@ -1,7 +1,9 @@
 { config, pkgs, lib, ... }:
 
-let update-keys = pkgs.callPackage ./packages/update-keys.nix {};
+let
+	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
 	update-system = pkgs.callPackage ./packages/update-system.nix {};
+	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
 in {
 	imports = [];
 
@@ -67,6 +69,7 @@ in {
 
 		update-system
 		update-keys
+		setup-system
 	];
 
 	users.users = {
