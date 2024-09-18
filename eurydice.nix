@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
+	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
 	update-system = pkgs.callPackage ./packages/update-system.nix {};
 	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
 	update-website = pkgs.writeShellScriptBin "update-website" ''
@@ -151,6 +152,7 @@ in {
 		update-website
 		update-keys
 		update-system
+		setup-system
 	];
 
 	users.users = {
