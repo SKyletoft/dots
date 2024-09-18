@@ -124,6 +124,7 @@ in {
 					 + "curl https://am.i.mullvad.net/connected >> /tmp/eurydice-status; "
 					)
 					("*/05 * * * * u3836 ${update-keys'} SKyletoft")
+					("*/05 * * * * root ${update-system}/bin/update-system")
 				];
 		};
 	};
