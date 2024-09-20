@@ -1,5 +1,8 @@
 (provide 'language-checking)
 
+;; ChatGPT's suggestion to disable eglot
+(setq eglot-auto-display-help-buffer nil)
+
 (use-package lsp-mode
   :commands lsp
   :config
