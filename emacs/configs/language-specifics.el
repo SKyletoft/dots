@@ -55,7 +55,7 @@
               (load-file (let ((coding-system-for-read 'utf-8))
                            (shell-command-to-string "agda-mode locate")))
               (agda2-mode)
-              (add-hook 'before-save-hook 'agda-arrow-fix 't)
+              (add-hook 'before-save-hook 'agda-arrow-fix 90 't)
               (set-indents 8 2 nil))))
 
 (setq major-mode-remap-alist
@@ -191,7 +191,7 @@
             (set-indents 8 2 nil)
             (flycheck-mode)
             (company-mode)
-            (add-hook 'before-save-hook 'lisp-kbd t)
+            (add-hook 'before-save-hook 'lisp-kbd 90 't)
             (prettify-symbols-mode 1)
             (editorconfig-apply)))
 
@@ -267,13 +267,13 @@
             (setq-local electric-indent-mode nil)
             (set-indents 8 8 t)
             (editorconfig-apply)
-            (add-hook 'before-save-hook 'americanise t)))
+            (add-hook 'before-save-hook 'americanise 90 't)))
 
 (add-hook 'css-mode-hook
           (lambda ()
             (set-indents 8 8 't)
             (editorconfig-apply)
-            (add-hook 'before-save-hook 'americanise 't)))
+            (add-hook 'before-save-hook 'americanise 90 't)))
 
 (add-hook 'js-mode-hook
           (lambda ()
