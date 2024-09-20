@@ -268,6 +268,7 @@
     (kbd "SPC n c") 'agda2-make-case
     (kbd "SPC n e") 'agda2-compute-normalised-maybe-toplevel
     (kbd "SPC n g") 'agda2-give
+    (kbd "SPC n ,") 'agda2-goal-and-context
     (kbd "M-n")     'agda2-next-goal
     (kbd "M-p")     'agda2-previous-goal)
 
