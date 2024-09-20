@@ -77,6 +77,8 @@ in {
 			iptsd
 
 			firefox-devedition-bin
+			vdhcoapp
+
 			alacritty
 			kitty
 			vscode
