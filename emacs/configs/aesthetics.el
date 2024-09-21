@@ -17,18 +17,14 @@
     (scroll-bar-mode nil)))
 
 (defun monokai-purple ()
-  ;; (add-to-list 'default-frame-alist '(font . "Fira Code Nerd Font-11"))
-  ;; (add-to-list 'default-frame-alist '(font . "0xProto-11"))
-  ;; (add-to-list 'default-frame-alist '(font . "Monaspace Neon-11")) ;; åäö, wait are all comments in italics now?
+  (interactive)
   (add-to-list 'default-frame-alist '(undecorated-round . t))
   (setq-default line-spacing 0.1)
 
   (setq fill-column 80)
-  ;; (add-to-list 'default-frame-alist '(font . "Cascadia Code-22"))
   (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-11"))
   (when (not (or (string-match "PGTK" system-configuration-features)
                  (string-match "wayland" (getenv "XDG_SESSION_TYPE"))))
-    (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-11"))
     (set-frame-parameter (selected-frame)
                          'alpha
                          '(90 . 90))
@@ -36,8 +32,6 @@
                  '(alpha . (90 . 90))))
 
   (load-theme 'custom-monokai t)
-  ;; (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
   (telephone-line-mode)
   (setq-default truncate-lines t)
   (hide-menu))
