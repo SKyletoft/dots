@@ -309,7 +309,6 @@ in {
 			"FiraCode"
 			"DroidSansMono"
 			"RobotoMono"
-			"Symbols"
 		];})
 	] ++ (if windowsFonts then [
 		winePackages.fonts
