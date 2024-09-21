@@ -345,7 +345,6 @@ in {
 				pest-mode
 				typescript-mode
 				boogie-friends # dafny-mode
-				ada-mode
 			]);
 		};
 

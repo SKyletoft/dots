@@ -415,14 +415,6 @@
                                compile-command "make -skj -C ../../.. ")
                    (lsp))))
 
-(use-package ada-mode
-  :defer t
-  :hook
-  (ada-mode . (lambda ()
-                (set-indents 8 8 t)
-                (direnv-update-environment)
-                (lsp))))
-
 (use-package typescript-ts-mode
   :defer t)
 
