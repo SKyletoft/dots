@@ -53,6 +53,8 @@
 
 (use-package telephone-line)
 
+(use-package doom-modeline)
+
 (use-package treemacs
   :config
   (setq treemacs-space-between-root-nodes nil))

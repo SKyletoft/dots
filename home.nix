@@ -291,6 +291,7 @@ in {
 				evil
 				treemacs
 				telephone-line
+				doom-modeline
 				ligature
 				gcmh
 				transpose-frame
