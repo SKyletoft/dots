@@ -112,5 +112,7 @@
 (use-package forge
   :after magit)
 
+(use-package nerd-icons)
+
 (provide 'setup)
 ;;; setup.el ends here.

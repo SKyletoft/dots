@@ -304,6 +304,7 @@ in {
 				ivy-posframe
 				projectile
 				casual-calc
+				nerd-icons
 
 				pdf-tools
 				multi-vterm
