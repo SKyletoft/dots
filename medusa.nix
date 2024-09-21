@@ -303,6 +303,7 @@ in {
 		cascadia-code
 		fantasque-sans-mono
 		roboto
+		emacs-all-the-icons-fonts
 		(pkgs.callPackage ./packages/0xproto.nix {})
 		(pkgs.callPackage ./packages/monaspace.nix {})
 		(nerdfonts.override {fonts = [
