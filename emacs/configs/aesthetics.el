@@ -36,6 +36,18 @@
   (setq-default truncate-lines t)
   (hide-menu))
 
+(defun modus-operandi-load ()
+  (interactive)
+  (add-to-list 'default-frame-alist '(undecorated-round . t))
+  (setq-default line-spacing 0.1)
+
+  (setq fill-column 80)
+  (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-11"))
+  (load-theme 'modus-operandi t)
+  (doom-modeline-mode)
+  (setq-default truncate-lines t)
+  (hide-menu))
+
 ;; Disable background when in terminal
 (defun on-after-init ()
   "Disable background when in terminal"
