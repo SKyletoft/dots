@@ -306,6 +306,8 @@ in {
 				projectile
 				casual-calc
 				nerd-icons
+				all-the-icons
+				all-the-icons-nerd-fonts
 				tramp # Not a part of Emacs?
 
 				pdf-tools

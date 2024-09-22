@@ -115,6 +115,9 @@
   :after magit)
 
 (use-package nerd-icons)
+(use-package all-the-icons)
+;; (nerd-icons-install-fonts 't)
+;; (all-the-icons-install-fonts 't)
 
 (provide 'setup)
 ;;; setup.el ends here.
