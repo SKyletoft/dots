@@ -342,10 +342,6 @@
             (set-indents 8 8 t)
             (editorconfig-apply)))
 
-;; (use-package olivetti
-;;   :hook
-;;   (olivetti-mode . (lambda () (olivetti-set-width (+ 5 fill-column)))))
-
 (use-package pdf-tools
   :defer t
   :init
