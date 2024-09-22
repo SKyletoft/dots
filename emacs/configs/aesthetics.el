@@ -1,4 +1,6 @@
-(provide 'aesthetics)
+;;; aesthetics.el --- Theme loading -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
 ;; Functions
 
@@ -93,3 +95,6 @@
 ;; Run setup
 
 (monokai-purple)
+
+(provide 'aesthetics)
+;;; aesthetics.el ends here
