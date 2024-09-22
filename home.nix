@@ -275,10 +275,10 @@ in {
 		emacs = {
 			enable = true;
 			package = emacsPin.emacs-git.override {
-				withGTK2       = false;
-				withGTK3       = false;
-				withX          = gui;
-				withWebP       = gui;
+				withGTK2 = false;
+				withGTK3 = false;
+				withX    = gui;
+				withWebP = gui;
 			};
 			extraPackages = epkgs: (with emacsPin.emacsPackages; [
 				emacsPin.python313Packages.python
