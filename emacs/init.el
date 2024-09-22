@@ -17,11 +17,8 @@
 
 (require 'packages-config)
 (require 'setup)
-;; (require 'org-config)
 (require 'evil-config)
-;; (require 'typst)
 (require 'aesthetics)
-;; (require 'dap)
 (require 'artemis-mode)
 (require 'jasmin)
 (require 'promela-2-mode)
