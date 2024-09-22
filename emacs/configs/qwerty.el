@@ -190,6 +190,7 @@
   (lang-with-lsp java-ts-mode-map)
   (lang-with-lsp kotlin-mode-map)
   (lang-with-lsp tuareg-mode-map)
+  (lang-with-lsp haskell-ts-mode-map)
   (lang-with-lsp haskell-mode-map)
   (lang-with-lsp rustic-mode-map)
   (lang-with-lsp rust-ts-mode-map)
@@ -202,6 +203,12 @@
     (kbd "SPC r") 'recompile
     (kbd "SPC R") 'compile)
 
+  (evil-define-key 'visual haskell-ts-mode-map
+    (kbd "SPC r") 'hs-slime-v)
+  (evil-define-key 'normal haskell-ts-mode-map
+    (kbd "SPC r") 'hs-slime-n
+    (kbd "SPC i") 'save-and-stylish-hindent-buffer
+    (kbd "<f5>")  'ghci)
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC r") 'hs-slime-v)
   (evil-define-key 'normal haskell-mode-map

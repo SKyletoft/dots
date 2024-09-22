@@ -80,26 +80,47 @@
             ;; (olivetti-mode)
             (editorconfig-apply)))
 
+(defun haskell-hook-fn ()
+  (direnv-update-environment)
+  (set-indents 8 2 nil)
+  (require 'lsp-mode)
+  (require 'lsp-haskell)
+  ;; To be removed when lsp-mode and lsp-haskell update on melpa (I've already upstreamed fixes but I'm sticking to released versions)
+  (add-to-list 'lsp-language-id-configuration '(haskell-ts-mode . "haskell"))
+  (lsp-register-client
+   (make-lsp--client
+    :new-connection (lsp-stdio-connection (lambda () (lsp-haskell--server-command)))
+    :major-modes '(haskell-mode haskell-literate-mode haskell-tng-mode haskell-cabal-mode haskell-ts-mode)
+    :server-id 'lsp-haskell
+    :initialized-fn (lambda (workspace)
+                      (with-lsp-workspace workspace
+                        (lsp--set-configuration (lsp-configuration-section "haskell"))))
+    :synchronize-sections '("haskell")
+    :language-id "haskell"
+    :completion-in-comments? lsp-haskell-completion-in-comments
+    :action-filter #'lsp-haskell--action-filter))
+  (setq-local lsp-idle-delay 0.6
+              eldoc-mode nil
+              lsp-lens-mode nil
+              lsp-eldoc-enable-hover nil
+              eldoc-documentation-function #'ignore
+              lsp-ui-doc-mode t
+              lsp-ui-sideline-show-hover nil
+              lsp-ui-sideline-enable t
+              lsp-haskell-plugin-ghcide-type-lenses-global-on nil
+              lsp-haskell-plugin-ghcide-class-global-on nil)
+  (editorconfig-apply)
+  (lsp)
+  ;; (ghci)
+  )
 (use-package haskell-mode
   :defer t
   :hook
-  (haskell-mode . (lambda ()
-                    (direnv-update-environment)
-                    (set-indents 8 2 nil)
-                    (setq-local lsp-idle-delay 0.6
-                                eldoc-mode nil
-                                lsp-lens-mode nil
-                                lsp-eldoc-enable-hover nil
-                                eldoc-documentation-function #'ignore
-                                lsp-ui-doc-mode t
-                                lsp-ui-sideline-show-hover nil
-                                lsp-ui-sideline-enable t
-                                lsp-haskell-plugin-ghcide-type-lenses-global-on nil
-                                lsp-haskell-plugin-ghcide-class-global-on nil)
-                    (editorconfig-apply)
-                    (lsp)
-                    ;; (ghci)
-                    )))
+  (haskell-mode . haskell-hook-fn))
+(use-package haskell-ts-mode
+  :defer t
+  :hook
+  (haskell-ts-mode . haskell-hook-fn))
 
 (defun toggle-hole ()
 "Toggle having a ? at the start of the word."

@@ -50,7 +50,8 @@
 "Spawn a ghci terminal in a buffer named ghci.  If currently in haskell-mode, load the current file."
   (interactive)
   (let ((file-name (buffer-file-name))
-        (is-haskell (eq major-mode 'haskell-mode)))
+        (is-haskell (or (eq major-mode 'haskell-mode)
+                        (eq major-mode 'haskell-ts-mode))))
     (when (not (get-buffer "ghci"))
       (split-window-horizontally)
       (windmove-right)
@@ -61,6 +62,10 @@
       (if is-haskell
           (vterm-insert file-name))
       (vterm-send-return))))
+
+(defun kill-ghci ()
+  (interactive)
+  (kill-buffer "ghci"))
 
 (defun python-repl ()
   (interactive)
