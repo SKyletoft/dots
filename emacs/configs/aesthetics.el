@@ -20,41 +20,47 @@
 
 (defun monokai-purple ()
   (interactive)
+  (disable-theme 'modus-operandi)
   (add-to-list 'default-frame-alist '(undecorated-round . t))
   (setq-default line-spacing 0.1)
 
   (setq fill-column 80)
   (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-11"))
-  (when (not (or (string-match "PGTK" system-configuration-features)
-                 (string-match "wayland" (getenv "XDG_SESSION_TYPE"))))
-    (set-frame-parameter (selected-frame)
-                         'alpha
-                         '(90 . 90))
-    (add-to-list 'default-frame-alist
-                 '(alpha . (90 . 90))))
+  ;; (when (not (or (string-match "PGTK" system-configuration-features)
+  ;;                (string-match "wayland" (getenv "XDG_SESSION_TYPE"))))
+  ;;   (set-frame-parameter (selected-frame)
+  ;;                        'alpha
+  ;;                        '(90 . 90))
+  ;;   (add-to-list 'default-frame-alist
+  ;;                '(alpha . (90 . 90))))
 
   (load-theme 'custom-monokai t)
-  (telephone-line-mode)
+  ;; (telephone-line-mode 1)
+  (doom-modeline-mode 1)
   (setq-default truncate-lines t)
   (hide-menu))
 
 (defun modus-operandi-load ()
   (interactive)
+  (disable-theme 'custom-monokai)
   (add-to-list 'default-frame-alist '(undecorated-round . t))
   (setq-default line-spacing 0.1)
 
   (setq fill-column 80)
   (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-11"))
   (load-theme 'modus-operandi t)
-  (doom-modeline-mode)
+  (doom-modeline-mode 1)
+  ;; (telephone-line-mode 0)
   (setq-default truncate-lines t)
   (hide-menu))
 
 ;; Disable background when in terminal
 (defun on-after-init ()
   "Disable background when in terminal"
-  (unless (display-graphic-p (selected-frame))
-    (set-face-background 'default "unspecified-bg" (selected-frame))))
+  (if (not (display-graphic-p (selected-frame)))
+      (progn (set-face-background 'default "unspecified-bg" (selected-frame))
+             (monokai-purple))
+    (modus-operandi-load)))
 
 (add-hook 'window-setup-hook 'on-after-init)
 (add-hook 'server-switch-hook 'on-after-init)
@@ -94,7 +100,8 @@
 
 ;; Run setup
 
-(monokai-purple)
+
+(on-after-init)
 
 (provide 'aesthetics)
 ;;; aesthetics.el ends here
