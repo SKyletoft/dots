@@ -105,7 +105,7 @@
                               vterm-timer-delay nil)
                   (evil-emacs-state))))
 
-(use-package tramp-sh
+(use-package tramp
   :config
   (setq tramp-remote-path (append tramp-remote-path
                                   '(tramp-own-remote-path))))
