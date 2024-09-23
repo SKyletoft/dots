@@ -1,5 +1,6 @@
 ;;; slimish.el --- Shortcuts to quickly and easily copy code to a repl  -*- lexical-binding: t -*-
-;;; Commentary: Depends on vterm and multi-vterm
+;;; Commentary:
+;;; Depends on vterm and multi-vterm
 ;;; Code:
 
 (defun vterm-slime ()
