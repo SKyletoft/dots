@@ -61,7 +61,8 @@
       (vterm-insert "ghci -XGHC2021 -XLambdaCase ")
       (if is-haskell
           (vterm-insert file-name))
-      (vterm-send-return))))
+      (vterm-send-return)
+      (vterm-send "C-l"))))
 
 (defun kill-ghci ()
   (interactive)
