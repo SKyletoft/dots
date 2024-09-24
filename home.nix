@@ -125,15 +125,15 @@ in {
 			baobab
 			totem
 			gnome-system-monitor
-			gnome.gnome-logs
+			gnome-logs
 			gnome-text-editor
 			gnome-calendar
-			gnome.gnome-weather
+			gnome-weather
 			evince
 			gnome-disk-utility
 			eog
-			gnome.aisleriot
-			gnome.iagno
+			aisleriot
+			iagno
 		] else [])
 		++ (if enableHyprland then [
 			hyprland
