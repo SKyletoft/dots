@@ -41,7 +41,7 @@
       mouse-wheel-follow-mouse 't
       initial-scratch-message ""
       auth-sources '("~/.authinfo"))
-(add-hook 'prog-mode-hook #'hs-minor-mode)
+;; (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 

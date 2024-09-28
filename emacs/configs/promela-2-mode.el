@@ -5,10 +5,12 @@
 
 (defconst promela-2-highlights
   '(("\\*\\(?:.\\|\n\\)*?\\*/\\|//\\(?:.\\|\n\\)*?$" . 'font-lock-comment-face)
-    ("\\b\\(proctype\\|int\\|byte\\|bool\\|short\\|unsigned\\|chan\\)\\b" . 'font-lock-type-face)
+    ("\\b\\(proctype\\|int\\|byte\\|bool\\|short\\|unsigned\\|chan\\|mtype\\)\\b" . 'font-lock-type-face)
     ("[0-9]+" . 'font-lock-number-face)
-    ("+\\|-\\|*\\|/\\|->\\|→\\|::\\|==\\|!\\|!=\\|<\\|>\\|<=\\|>==\\|!\\|?" . 'font-lock-operator-face)
-    ("\\b\\(for\\|in\\|ltl\\|break\\|init\\|active\\|if\\|fi\\|do\\|od\\|assert\\|goto\\|atomic\\|else\\|inline\\|of\\)\\b" . 'font-lock-keyword-face)
+    ("\\b\\(true\\|false\\)\\b" . 'font-lock-constant-face)
+    ("+\\|-\\|*\\|/\\|->\\|→\\|::\\|==\\|!\\|!=\\|<\\|>\\|<=\\|>==\\|!\\|?\\|??" . 'font-lock-operator-face)
+    ("\\b\\(for\\|in\\|ltl\\|break\\|init\\|active\\|if\\|fi\\|do\\|od\\|assert\\|goto\\|atomic\\|else\\|inline\\|of\\|typedef\\)\\b" . 'font-lock-keyword-face)
+    ("\\b\\(printf\\|eval\\)\\b" . 'font-lock-function-call-face)
     ("#define\\|#include\\|#if\\|#endif\\|#else" . 'font-lock-preprocessor-face)))
 
 (define-derived-mode promela-2-mode prog-mode "Promela"
