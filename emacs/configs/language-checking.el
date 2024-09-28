@@ -11,7 +11,8 @@
         lsp-signature-render-documentation nil
         read-process-output-max (* 1024 1024) ;; LSP perf hack
         lsp-headerline-breadcrumb-enable nil
-        lsp-lens-place-position 'above-line)
+        lsp-lens-place-position 'above-line
+        lsp-auto-execute-action nil)
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package lsp-ui
