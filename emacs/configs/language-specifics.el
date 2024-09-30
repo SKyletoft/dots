@@ -234,7 +234,7 @@
   (interactive)
   (save-excursion
     (goto-line 0)
-    (replace-string "->" "→")))
+    (replace-regexp "\\b->\\b" "→")))
 
 (defun c-cpp-mode-hook-impl ()
   (set-indents 8 8 t)
