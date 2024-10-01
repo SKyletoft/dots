@@ -175,20 +175,20 @@
               (kbd "SPC o") 'indent-according-to-mode
               (kbd "SPC O") 'lsp-format-buffer)
             (evil-define-key '(normal visual) ,map
-              (kbd "SPC l") 'recompile
-              (kbd "SPC L") 'compile
-              (kbd "SPC e") 'lsp-ui-doc-glance
-              (kbd "SPC i") 'xref-find-definitions
-              (kbd "SPC I") 'lsp-goto-type-definition
-              (kbd "SPC n") 'lsp-execute-code-action
-              (kbd "SPC t") 'lsp-inlay-hints-mode
-              (kbd "SPC v") 'gud-break
-              (kbd "SPC y") 'lsp-treemacs-errors-list
-              (kbd "SPC Y") 'lsp-treemacs-errors-list--refresh
-              (kbd "<f2>")  'lsp-rename
-              (kbd "<f5>")  'dap-debug
-              (kbd "M-n")   'flycheck-next-error
-              (kbd "M-p")   'flycheck-previous-error)))
+              (kbd "SPC l")   'recompile
+              (kbd "SPC L")   'compile
+              (kbd "SPC e")   'lsp-ui-doc-glance
+              (kbd "SPC i")   'xref-find-definitions
+              (kbd "SPC I")   'lsp-goto-type-definition
+              (kbd "SPC n")   'lsp-execute-code-action
+              (kbd "SPC t")   'lsp-inlay-hints-mode
+              (kbd "SPC v")   'gud-break
+              (kbd "SPC y")   'lsp-treemacs-errors-list
+              (kbd "SPC Y")   'lsp-treemacs-errors-list--refresh
+              (kbd "<f2>")    'lsp-rename
+              (kbd "<f5>")    'dap-debug
+              (kbd "SPC M-n") 'flycheck-next-error
+              (kbd "SPC M-p") 'flycheck-previous-error)))
 
   (lang-with-lsp js-mode-map)
   (lang-with-lsp js-ts-mode-map)
