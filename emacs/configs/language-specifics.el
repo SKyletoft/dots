@@ -369,20 +369,23 @@
                     (lsp)
                     (editorconfig-apply))))
 
-(add-hook 'dafny-mode-hook
-          (lambda ()
-            (set-indents 8 8 t)
-            (setq-local prettify-symbols-alist '(("in"     . 8712)
-                                                 ("!in"    . 8713)
-                                                 ("&&"     . 8743)
-                                                 ("||"     . 8744)
-                                                 ("exists" . ?∃)
-                                                 ("::"     . 8729)
-                                                 ("forall" . ?∀))
-                        dafny-verification-backend 'lsp)
-            (prettify-symbols-mode -1)
-            (direnv-update-environment)
-            (lsp)))
+(use-package boogie-friends
+  :hook
+  (dafny-mode . (lambda ()
+                  (require 'dafny-mode)
+                  (require 'lsp-dafny)
+                  (set-indents 8 8 t)
+                  (setq-local prettify-symbols-alist '(("in"     . 8712)
+                                                       ("!in"    . 8713)
+                                                       ("&&"     . 8743)
+                                                       ("||"     . 8744)
+                                                       ("exists" . ?∃)
+                                                       ("::"     . 8729)
+                                                       ("forall" . ?∀)))
+                  (prettify-symbols-mode -1)
+                  (direnv-update-environment)
+                  (lsp)
+                  (lsp-ui-mode 1))))
 
 (use-package wgsl-mode
   :defer t

@@ -282,6 +282,20 @@ in {
 			};
 			extraPackages =
 				let
+					my-dafny-mode = emacsPin.stdenv.mkDerivation {
+						pname = "dafny-mode";
+						version = "241001";
+						src = emacsPin.fetchFromGitHub {
+							owner = "SKyletoft";
+							repo = "boogie-friends";
+							rev = "ca902b37e0756c4d69c7dd28afe3070c62821807";
+							hash = "sha256-1YlOeinld7LSlQC/OwhR0mzKqqB2NriuulUoHh4KDpk=";
+						};
+						installPhase = ''
+							mkdir -p $out/share/emacs/site-lisp
+							cp -r * $out/share/emacs/site-lisp/
+						'';
+					};
 				in epkgs: (with emacsPin.emacsPackages; [
 					emacsPin.python313Packages.python
 					emacsPin.nodejs
@@ -350,6 +364,7 @@ in {
 					kotlin-mode
 					pest-mode
 					typescript-mode
+					my-dafny-mode
 				]);
 		};
 
