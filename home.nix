@@ -272,7 +272,7 @@ in {
 			vimAlias = true;
 		};
 
-		emacs = {
+		emacs = rec {
 			enable = true;
 			package = emacsPin.emacs-git.override {
 				withGTK2 = false;
@@ -280,76 +280,77 @@ in {
 				withX    = gui;
 				withWebP = gui;
 			};
-			extraPackages = epkgs: (with emacsPin.emacsPackages; [
-				emacsPin.python313Packages.python
-				emacsPin.nodejs
+			extraPackages =
+				let
+				in epkgs: (with emacsPin.emacsPackages; [
+					emacsPin.python313Packages.python
+					emacsPin.nodejs
 
-				direnv
-				magit
-				forge
-				diff-hl
-				evil
-				treemacs
-				telephone-line
-				doom-modeline
-				ligature
-				gcmh
-				transpose-frame
-				editorconfig
-				ripgrep
-				yasnippet
-				yasnippet-snippets
-				mixed-pitch
-				company-posframe
-				ivy
-				ivy-posframe
-				projectile
-				casual-calc
-				nerd-icons
-				all-the-icons
-				all-the-icons-nerd-fonts
-				tramp # Not a part of Emacs?
+					direnv
+					magit
+					forge
+					diff-hl
+					evil
+					treemacs
+					telephone-line
+					doom-modeline
+					ligature
+					gcmh
+					transpose-frame
+					editorconfig
+					ripgrep
+					yasnippet
+					yasnippet-snippets
+					mixed-pitch
+					company-posframe
+					ivy
+					ivy-posframe
+					projectile
+					casual-calc
+					nerd-icons
+					all-the-icons
+					all-the-icons-nerd-fonts
+					tramp # Not a part of Emacs?
 
-				pdf-tools
-				multi-vterm
-				vterm
+					pdf-tools
+					multi-vterm
+					vterm
 
-				lsp-mode
-				lsp-ui
-				dap-mode
+					lsp-mode
+					lsp-ui
+					dap-mode
 
-				realgud
-				realgud-jdb
+					realgud
+					realgud-jdb
 
-				# tree-sitter-langs
-				evil-textobj-tree-sitter
+					# tree-sitter-langs
+					evil-textobj-tree-sitter
 
-				company
+					company
 
-				lsp-java
-				nix-ts-mode
-				haskell-mode
-				haskell-ts-mode
-				idris-mode
-				merlin
-				tuareg
-				ocamlformat
-				erlang
-				lsp-haskell
-				elsa
-				flycheck # Todo: Replace flycheck-elsa with lsp when supported
-				flycheck-elsa
-				racket-mode
-				xonsh-mode
-				wgsl-mode
-				glsl-mode
-				bnfc
-				futhark-mode
-				kotlin-mode
-				pest-mode
-				typescript-mode
-				boogie-friends # dafny-mode
-			]);
+					lsp-java
+					nix-ts-mode
+					haskell-mode
+					haskell-ts-mode
+					idris-mode
+					merlin
+					tuareg
+					ocamlformat
+					erlang
+					lsp-haskell
+					elsa
+					flycheck # Todo: Replace flycheck-elsa with lsp when supported
+					flycheck-elsa
+					racket-mode
+					xonsh-mode
+					wgsl-mode
+					glsl-mode
+					bnfc
+					futhark-mode
+					kotlin-mode
+					pest-mode
+					typescript-mode
+				]);
 		};
 
 		bash = {
