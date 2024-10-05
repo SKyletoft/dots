@@ -93,6 +93,11 @@ in {
 				libvdpau-va-gl
 			];
 		};
+		# Camera
+		ipu6 = {
+			enable = true;
+			platform = "ipu6ep";
+		};
 		cpu.intel.updateMicrocode = true;
 	};
 
@@ -232,6 +237,7 @@ in {
 			"vboxusers"
 			"video"
 			"adbusers"
+			"camera"
 		];
 		shell = pkgs.bash;
 	};
