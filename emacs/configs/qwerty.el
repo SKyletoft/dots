@@ -245,8 +245,8 @@
     (kbd "SPC a m") 'idris-add-missing
     (kbd "SPC a g") 'idris-generate-def
     (kbd "SPC h")   'toggle-hole
-    (kbd "M-n")     'idris-next-error
-    (kbd "M-p")     'idris-previous-error)
+    (kbd "SPC M-n") 'idris-next-error
+    (kbd "SPC M-p") 'idris-previous-error)
 
   (evil-define-key 'normal agda2-mode-map
     (kbd "SPC i") 'indent-according-to-mode)
@@ -264,8 +264,8 @@
     (kbd "SPC a e") 'agda2-compute-normalised-maybe-toplevel
     (kbd "SPC a g") 'agda2-give
     (kbd "SPC a ,") 'agda2-goal-and-context
-    (kbd "M-n")     'agda2-next-goal
-    (kbd "M-p")     'agda2-previous-goal)
+    (kbd "SPC M-n") 'agda2-next-goal
+    (kbd "SPC M-p") 'agda2-previous-goal)
 
   (evil-define-key 'normal rustic-mode-map
     (kbd "SPC I") 'rustic-format-buffer)
