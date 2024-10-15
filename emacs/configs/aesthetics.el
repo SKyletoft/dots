@@ -56,14 +56,16 @@
 
 ;; Disable background when in terminal
 (defun on-after-init ()
-  "Disable background when in terminal"
+  "Disable background when in terminal."
+  (interactive)
   (if (not (display-graphic-p (selected-frame)))
-      (progn (set-face-background 'default "unspecified-bg" (selected-frame))
-             (monokai-purple))
+      (progn (monokai-purple)
+             (set-face-background 'default "unspecified-bg" (selected-frame)))
     (modus-operandi-load)))
 
 (add-hook 'window-setup-hook 'on-after-init)
 (add-hook 'server-switch-hook 'on-after-init)
+;; (add-to-list 'after-make-frame-functions 'on-after-init)
 
 ;; Load packages
 
