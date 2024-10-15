@@ -140,5 +140,18 @@
       (vterm-send-return)
       (switch-to-buffer b))))
 
+(defun hs-reload ()
+  (interactive)
+  (save-mark-and-excursion
+    (let ((b (current-buffer)))
+      (switch-to-buffer "ghci")
+      (vterm-insert ":r")
+      (vterm-send-return)
+      (switch-to-buffer b))))
+
+(defun vt-reload ()
+  (interactive)
+  (vterm-insert ":!clear\n:r\n"))
+
 (provide 'slimish)
 ;;; slimish.el ends here

@@ -351,7 +351,6 @@
 
   (evil-define-key 'insert vterm-mode-map
     (kbd "C-V") 'vterm-yank)
-
   (evil-define-key '(normal emacs) vterm-mode-map
     (kbd "C-M-w") 'windmove-up
     (kbd "C-M-s") 'windmove-down
@@ -359,6 +358,8 @@
     (kbd "C-M-d") 'windmove-right
     (kbd "C-V")   'vterm-yank
     (kbd "C-v")   'vterm-yank)
+  (evil-define-key 'normal vterm-mode-map
+    (kbd "SPC r") 'vt-reload)
 
   (evil-define-key 'normal treemacs-mode-map
     (kbd "SPC")      'treemacs-TAB-action
