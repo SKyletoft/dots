@@ -67,6 +67,8 @@
   (evil-define-key '(normal motion) 'global
     (kbd "o")   'evil-paste-after
     (kbd "M-v") 'evil-visual-block)
+  (evil-define-key 'visual 'global
+    (kbd "o") 'evil-visual-paste)
 
   (evil-define-key '(normal motion insert) 'global
     (kbd "<tab>") 'my/indent-line  ; For gui

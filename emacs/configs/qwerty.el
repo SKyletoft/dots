@@ -59,6 +59,8 @@
     (kbd "C-v") 'evil-paste-after
     (kbd "C-x") 'evil-delete
     (kbd "M-V") 'evil-visual-block)
+  (evil-define-key 'visual 'global
+    (kbd "C-v") 'evil-visual-paste)
 
   (evil-define-key '(normal motion insert) 'global
     (kbd "<tab>") 'my/indent-line  ; For gui
