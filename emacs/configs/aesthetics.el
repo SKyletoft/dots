@@ -103,7 +103,8 @@
 ;; Run setup
 
 
-(on-after-init)
+;; (on-after-init)
+(modus-operandi-load)
 
 (provide 'aesthetics)
 ;;; aesthetics.el ends here
