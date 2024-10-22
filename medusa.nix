@@ -208,6 +208,10 @@ in {
 				"0 * * * * root nix-store --repair --verify --check-contents"
 			];
 		};
+		ollama = {
+			enable = true;
+			acceleration = "rocm";
+		};
 	};
 
 	# Flatpak nonsense
