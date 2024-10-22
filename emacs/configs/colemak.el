@@ -59,11 +59,11 @@
     (kbd "P") 'evil-enter-replace-state)
 
   (evil-define-key '(normal visual motion) 'global
-    (kbd "n")   'evil-insert
-    (kbd "l")   'evil-open-below
-    (kbd "L")   'evil-open-above
-    (kbd "e")   'evil-yank
-    (kbd "i")   'evil-delete)
+    (kbd "n") 'evil-insert
+    (kbd "l") 'evil-open-below
+    (kbd "L") 'evil-open-above
+    (kbd "e") 'evil-yank
+    (kbd "i") 'evil-delete)
   (evil-define-key '(normal motion) 'global
     (kbd "o")   'evil-paste-after
     (kbd "M-v") 'evil-visual-block)
