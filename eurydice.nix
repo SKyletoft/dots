@@ -201,7 +201,6 @@ in {
 		pulseaudio.enable = true;
 	};
 	powerManagement.cpuFreqGovernor = "ondemand";
-	sound.enable = true;
 
 	services = {
 		xserver.enable = false;
