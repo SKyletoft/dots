@@ -88,10 +88,9 @@ in {
 	hardware = {
 		# raspberry-pi."4".fkms-3d.enable = true;
 		graphics.enable = false;
-		pulseaudio.enable = true;
+		pulseaudio.enable = false;
 	};
 	powerManagement.cpuFreqGovernor = "ondemand";
-	sound.enable = true;
 
 	services = {
 		xserver.enable = false;
