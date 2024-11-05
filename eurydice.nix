@@ -10,7 +10,7 @@ let
 		${pkgs.git}/bin/git clone \
 			https://github.com/SKyletoft/samuel.kyletoft.se tmp1
 		${pkgs.git}/bin/git clone \
-			https://github.com/SKyletoft/valkompass_2022 tmp1/valkompass
+			https://github.com/SKyletoft/valkompass_2022 tmp1-1
 		${pkgs.git}/bin/git clone \
 			https://github.com/SKyletoft/cv tmp0
 		cd tmp0
@@ -24,10 +24,11 @@ let
 			tmp1/.git \
 			tmp1/.gitignore \
 			tmp1/LICENSE \
-			tmp1/valkompass/.git \
-			tmp1/valkompass/.gitignore \
-			tmp1/valkompass/LICENSE \
+			tmp1-1/.git \
+			tmp1-1/.gitignore \
+			tmp1-1/LICENSE \
 			samuel.kyletoft.se
+		mv tmp1-1 tmp1/valkompass
 		mv tmp1 samuel.kyletoft.se
 
 		sleep 15s
