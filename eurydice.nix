@@ -66,7 +66,7 @@ let
 		${pkgs.git}/bin/git clone \
 			https://github.com/SKyletoft/nuschka tmp5
 		rm -rf \
-			tmp5/.git
+			tmp5/.git \
 			nuschka.u3836.se
 		mv tmp5 nuschka.u3836.se
 
