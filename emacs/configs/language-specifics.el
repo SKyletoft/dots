@@ -129,10 +129,18 @@
   :config
   (setq idris-interpreter-path "idris2"))
 
+(defun unwarp ()
+"Fix rust's most common typo"
+  (interactive)
+  (save-excursion
+    (goto-line 0)
+    (replace-string "unwarp" "unwrap")))
+
 (use-package rust-ts-mode
   :defer 3
   :hook
   (rust-ts-mode . (lambda ()
+                    (add-hook 'before-save-hook 'unwarp 90 't)
                     (when buffer-file-name
                       (setq-local buffer-save-without-query t))
                     (set-indents 8 8 t)
