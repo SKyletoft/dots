@@ -68,6 +68,8 @@ let
 			tmp5/.git
 			nuschka.u3836.se
 		mv tmp5 nuschka.u3836.se
+
+		rm -rf tmp*
 	'';
 in {
 	imports = [];
