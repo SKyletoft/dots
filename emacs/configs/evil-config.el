@@ -18,6 +18,13 @@
    ((my/is-whitespace (char-before)) (my/indent-line))
    ((call-interactively 'company-complete-selection) t)))
 
+(defun my/snippet-or-indent ()
+  "Try to complete with Yasnippet and indent if it fails."
+  (interactive)
+  (cond
+   ((yas-expand) t)
+   ((my/is-whitespace (char-before)) (my/indent-line))))
+
 ;; Indents
 (defun my/indent-line ()
   (interactive)

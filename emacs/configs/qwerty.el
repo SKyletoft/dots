@@ -62,7 +62,10 @@
   (evil-define-key 'visual 'global
     (kbd "C-v") 'evil-visual-paste)
 
-  (evil-define-key '(normal motion insert) 'global
+  (evil-define-key '(normal motion) 'global
+    (kbd "<tab>") 'my/snippet-or-indent
+    [?\t]         'my/snippet-or-indent) ; For terminal use
+  (evil-define-key 'insert 'global
     (kbd "<tab>") 'my/snippet-complete-or-indent
     [?\t]         'my/snippet-complete-or-indent) ; For terminal use
   (evil-define-key '(normal motion insert emacs) 'global
