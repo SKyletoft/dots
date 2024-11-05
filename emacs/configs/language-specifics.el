@@ -133,24 +133,24 @@
   :defer 3
   :hook
   (rust-ts-mode . (lambda ()
-                   (when buffer-file-name
-                     (setq-local buffer-save-without-query t))
-                   (set-indents 8 8 t)
-                   (setq-local lsp-idle-delay 0.6
-                               eldoc-mode nil
-                               lsp-lens-mode nil
-                               lsp-eldoc-enable-hover nil
-                               eldoc-documentation-function #'ignore
-                               lsp-ui-doc-mode t
-                               lsp-ui-sideline-show-hover nil
-                               lsp-ui-sideline-enable t
-                               fill-column 100
-                               compile-command "cargo --color always run ")
-                   (direnv-update-environment)
-                   (lsp)
-                   (lsp-lens-hide)
-                   (lsp-inlay-hints-mode)
-                   (editorconfig-apply)))
+                    (when buffer-file-name
+                      (setq-local buffer-save-without-query t))
+                    (set-indents 8 8 t)
+                    (setq-local lsp-idle-delay 0.6
+                                eldoc-mode nil
+                                lsp-lens-mode nil
+                                lsp-eldoc-enable-hover nil
+                                eldoc-documentation-function #'ignore
+                                lsp-ui-doc-mode t
+                                lsp-ui-sideline-show-hover nil
+                                lsp-ui-sideline-enable t
+                                fill-column 100
+                                compile-command "cargo --color always run ")
+                    (direnv-update-environment)
+                    (lsp)
+                    (lsp-lens-hide)
+                    (lsp-inlay-hints-mode)
+                    (editorconfig-apply)))
   :config
   (setq lsp-rust-analyzer-server-display-inlay-hints t
         lsp-rust-analyzer-cargo-watch-command "clippy"
