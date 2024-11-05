@@ -63,8 +63,8 @@
     (kbd "C-v") 'evil-visual-paste)
 
   (evil-define-key '(normal motion insert) 'global
-    (kbd "<tab>") 'my/indent-line  ; For gui
-    [?\t]         'my/indent-line) ; For terminal use
+    (kbd "<tab>") 'my/snippet-complete-or-indent
+    [?\t]         'my/snippet-complete-or-indent) ; For terminal use
   (evil-define-key '(normal motion insert emacs) 'global
     (kbd "<backtab>")     'my/outdent-line
     (kbd "<iso-lefttab>") 'my/outdent-line)
