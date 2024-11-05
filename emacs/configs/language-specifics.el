@@ -66,6 +66,7 @@
         (typescript-mode . typescript-ts-mode)
         (json-mode . json-ts-mode)
         (html-mode . html-ts-mode)
+        (mhtml-mode . html-ts-mode)
         (nix-mode . nix-ts-mode)
         (rustic-mode . rust-ts-mode)
         (python-mode . python-ts-mode)
@@ -279,6 +280,12 @@
             (lsp)))
 
 (add-hook 'mhtml-mode-hook
+          (lambda ()
+            (setq-local electric-indent-mode nil)
+            (set-indents 8 8 t)
+            (editorconfig-apply)
+            (add-hook 'before-save-hook 'americanise 90 't)))
+(add-hook 'html-ts-mode-hook
           (lambda ()
             (setq-local electric-indent-mode nil)
             (set-indents 8 8 t)
