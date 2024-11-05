@@ -20,7 +20,7 @@ let
 		mv sv.pdf ../tmp1/cv/sv/CV.pdf
 		cd ..
 		rm -rf \
-			tmp0
+			tmp0 \
 			tmp1/.git \
 			tmp1/.gitignore \
 			tmp1/LICENSE \
