@@ -28,6 +28,7 @@
 (defvaralias 'kotlin-mode-multiline-statement-offset      'evil-shift-width)
 (defvaralias 'sh-indentation                              'evil-shift-width)
 (defvaralias 'python-indent-offset                        'evil-shift-width)
+(defvaralias 'html-ts-mode-indent-offset                  'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
   (let ((indent-tabs-mode nil)) ad-do-it))
