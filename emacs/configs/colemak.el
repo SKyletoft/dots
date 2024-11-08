@@ -305,7 +305,8 @@
     (kbd "SPC l") 'eval-region)
 
   (evil-define-key '(normal visual) lisp-mode-shared-map
-    (kbd "SPC i") 'describe-symbol
+    (kbd "SPC e") 'describe-symbol
+    (kbd "SPC i") 'xref-goto-xref
     (kbd "SPC t") 'paredit-forward-slurp-sexp
     (kbd "SPC T") 'paredit-forward-barf-sexp
     (kbd "SPC a") 'paredit-backward-slurp-sexp
