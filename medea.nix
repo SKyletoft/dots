@@ -176,13 +176,10 @@ in {
 		earlyoom = {
 			enable = true;
 			extraArgs = [
-				"--prefer \"gcc|ghc|rustc|a\.out\""
-				"--avoid  \"mutter|gnome-shell|x|firefox\""
+				"--prefer '(^|/)(gcc|g\+\+|cc1plus|ghc|rustc|a\.out)$'"
+				"--avoid  '(^|/)(init|mutter|gnome-shell|Xorg|firefox)$'"
 			];
-			killHook = pkgs.writeShellScript "earlyoom-kill-hook" ''
-				${pkgs.libnotify}/bin/notify-send
-					'Killed $EARLYOOM_NAME ($EARLYOOM_PID) to reclaim memory'
-			'';
+			enableNotifications = true;
 		};
 
 		udev.extraRules = ''
