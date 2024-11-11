@@ -409,6 +409,18 @@
               wgsl-diagnostics-naga-validation t
               wgsl-diagnostics-naga-version "0.14"))
 
+(defun glsl-hook ()
+  (interactive)
+  (set-indents 8 8 t)
+  (editorconfig-apply)
+  (direnv-update-environment)
+  (lsp))
+
+(use-package glsl-mode
+  :hook
+  (glsl-mode . glsl-hook)
+  (glsl-ts-mode . glsl-hook))
+
 (use-package pest-mode
   :defer t
   :hook
