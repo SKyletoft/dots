@@ -84,8 +84,8 @@ in {
 			vscode
 			pinta
 			gimp
-			stablePkgs.cura
 			blender
+			(import inputs.curaPkgs {}).cura
 
 			discord
 			dissent

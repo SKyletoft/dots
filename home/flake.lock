@@ -179,6 +179,7 @@
     "root": {
       "inputs": {
         "citraPkgs": "citraPkgs",
+        "curaPkgs": "curaPkgs",
         "emacsOverlay": "emacsOverlay",
         "emacsPkgs": "emacsPkgs",
         "home-manager": "home-manager",
