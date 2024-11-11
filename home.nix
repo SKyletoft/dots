@@ -104,9 +104,9 @@ in {
 			xournalpp
 			prismlauncher
 			dolphin-emu-primehack
-			citraPkgs.citra
-			citraPkgs.yuzu
-			cemu
+			# citraPkgs.citra
+			# citraPkgs.yuzu
+			# cemu
 			fragments
 			heroic
 			lutris
