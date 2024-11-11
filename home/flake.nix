@@ -1,7 +1,7 @@
 {
 	inputs = {
 		nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-		stablePkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+		stablePkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 		curaPkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
 		citraPkgs.url = "github:NixOS/nixpkgs?rev=1cba04796fe93e7f657c62f9d1fb9cae9d0dd86e"; # Last commit before it was removed
 		# citraPkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
