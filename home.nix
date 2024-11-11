@@ -366,6 +366,7 @@ in {
 					pest-mode
 					typescript-mode
 					my-dafny-mode
+					ein
 				]);
 		};
 
