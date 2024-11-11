@@ -177,7 +177,8 @@ in {
 			enable = true;
 			extraArgs = [
 				"--prefer '(^|/)(gcc|g\+\+|cc1plus|ghc|rustc|a\.out)$'"
-				"--avoid  '(^|/)(init|mutter|gnome-shell|Xorg|firefox)$'"
+				"--avoid  '(^|/)(firefox-develop|firefox-bin)$'"
+				"--ignore '(^|/)(init|mutter|gnome-shell|Xorg)$'"
 			];
 			enableNotifications = true;
 		};
