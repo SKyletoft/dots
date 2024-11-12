@@ -183,9 +183,10 @@ in {
 			# Reenable whenever I return to vim
 			# difftastic.enable = true;
 			extraConfig = {
-				core.editor = "emacsclient -r";
-				pull.ff     = "only";
-				github.user = "SKyletoft";
+				core.editor    = "emacsclient -r";
+				pull.ff        = "only";
+				github.user    = "SKyletoft";
+				safe.directory = "/etc/nixos/dots";
 			};
 		};
 
