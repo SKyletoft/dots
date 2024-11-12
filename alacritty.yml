@@ -39,7 +39,7 @@ window:
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
-  
+
   # Moved here after window_opacity was deprecated
   opacity: 0.9
 
@@ -317,7 +317,7 @@ selection:
   #unfocused_hollow: true
 
 # Live config reload (changes require restart)
-live_config_reload: true
+# live_config_reload: true
 
 # Shell
 #
