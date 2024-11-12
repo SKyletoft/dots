@@ -232,6 +232,7 @@ in {
 					("* * * * * u3836 "
 					 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status "
 					 + "&& ${pkgs.git}/bin/git -C /etc/nixos/dots rev-parse HEAD >> /tmp/eurydice-status "
+					 + "&& ${pkgs.git}/bin/git -C /etc/nixos/dots log -1 | head -n3 | tail -n1 >> /tmp/eurydice-status "
 					 + "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
 					 + "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
 					 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
