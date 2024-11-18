@@ -411,6 +411,7 @@
 
 (defun glsl-hook ()
   (interactive)
+  (define-key glsl-mode-map (kbd "S-<iso-lefttab>") 'ff-find-other-file 'remove)
   (set-indents 8 8 t)
   (editorconfig-apply)
   (direnv-update-environment)
