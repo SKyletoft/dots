@@ -3,6 +3,7 @@
 ;;; Code:
 
 (defun my/is-whitespace (c)
+  "Returns true if C is \\t, \\r, \\n, \\s, \\e or \\a."
   (or (eq c ?\t)
       (eq c ?\r)
       (eq c ?\n)
@@ -114,7 +115,7 @@
     (forward-char)))
 
 (defun remove-wrappers ()
-  "Remove closest wrapping (), [] or {}"
+  "Remove closest wrapping (), [] or {}."
   (interactive)
   (save-mark-and-excursion
     (return-to-open-brace)
@@ -124,13 +125,14 @@
     (delete-forward-char 1)))
 
 (defun comment-or-uncomment-line ()
-  "Mark current line as region and run comment-or-uncomment-region"
+  "Mark current line as region and run \"comment-or-uncomment-region\"."
   (interactive)
   (comment-or-uncomment-region (line-beginning-position)
                                (line-end-position)))
 
 ;; Pane management
 (defun transpose-with-treemacs ()
+  "Transpose the frame but without breaking treemacs."
   (interactive)
   (pcase (treemacs-current-visibility)
     ('visible (treemacs)
@@ -140,22 +142,20 @@
     ('none (transpose-frame))))
 
 (defun create-sidebar (len)
+  "Create a LEN long string of dashes."
   (if (<= len 1) ;; At least one - or it just looks dumb
       "-"
     (concat "-" (create-sidebar (- len 1)))))
 
 ;; Section header insertion function
-(defun insert-header ()
-  "Insert a - wrapped title with the text centred
------ EXAMPLE -----
-"
-  (interactive)
-  ;; These are lambdas for scoping reasons
-  (let* ((title (read-from-minibuffer "Enter title: "))
-         (width (string-to-number
-                 (read-from-minibuffer "Enter buffer-width: "
-                                       (number-to-string fill-column))))
-         (sidebar (create-sidebar
+(defun insert-header (title width)
+  "Insert a - wrapped TITLE with the text centred on a WIDTH long line:
+----- EXAMPLE -----"
+  (interactive
+   (list
+    (read-string "Title: ")
+    (read-number "Width: " fill-column)))
+  (let* ((sidebar (create-sidebar
                    (/ (- width (+ 2 (length title))) 2)))
          (header (concat sidebar
                          " "
@@ -289,22 +289,24 @@
   (evil-visual-state)
   (symex-select-nearest))
 
-(setq left-margin-p nil)
-(setq-default left-margin-default 85)
+(setq my/left-margin-p nil)
+(setq-default my/left-margin-default 85)
 
-(defun set-left-margin (to)
-  (interactive)
+(defun my/set-left-margin (to)
+  "Sets how wide the indent of \"my/toggle-left-margin\" should be (= TO)."
+  (interactive "nTo: ")
   (set-window-margins (car (get-buffer-window-list (current-buffer) nil nil)) to))
 
-(defun toggle-left-margin ()
+(defun my/toggle-left-margin ()
   (interactive)
-  (set-left-margin (if left-margin-p
+  (my/set-left-margin (if my/left-margin-p
                        0
-                     left-margin-default))
-  (setq-local left-margin-p (not left-margin-p)))
+                     my/left-margin-default))
+  (setq-local my/left-margin-p (not my/left-margin-p)))
 
 (defun get-buffer-list ()
-  "Switches to the buffer list in the current window. As opposed to `list-buffers` which will split the window"
+  "Switches to the buffer list in the current window.
+As opposed to `list-buffers` which will split the window."
   (interactive)
   (switch-to-buffer "*Buffer List*")
   (list-buffers)
@@ -333,14 +335,14 @@
                          (buffer-file-name)))
   (revert-buffer t t t))
 
-(setq last-command-buffer "")
+(setq my/last-command-buffer "")
 (defun run-command (command)
 "A second compilation buffer that remembers the COMMAND seperately from 'compile-command'."
   (interactive "MShell command: ")
   (let ((old-compile-command compile-command))
     (compile command)
     (setq-local compile-command old-compile-command
-                last-command-buffer command)))
+                my/last-command-buffer command)))
 
 (defun up-five ()
   (interactive)

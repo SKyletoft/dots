@@ -132,7 +132,7 @@
     (kbd "M-R")   'evil-window-decrease-width)
   (evil-define-key 'normal 'global
     (kbd "SPC g") 'transpose-with-treemacs
-    (kbd "SPC G") 'toggle-left-margin)
+    (kbd "SPC G") 'my/toggle-left-margin)
 
   (evil-define-key 'normal 'global
     (kbd "SPC b") 'widen)

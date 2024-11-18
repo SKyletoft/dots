@@ -34,9 +34,9 @@
 (if (string-equal (system-name) "medusa")
     (progn
       (colemak-keymap)
-      (setq left-margin-default 80))
+      (setq my/left-margin-default 80))
   (qwerty-keymap)
-  (setq left-margin-default 60))
+  (setq my/left-margin-default 60))
 
 (use-package gcmh
   :config
