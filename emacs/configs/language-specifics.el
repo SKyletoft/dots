@@ -81,7 +81,12 @@
           (lambda ()
             (set-indents 16 16 't)
             ;; (olivetti-mode)
-            (editorconfig-apply)))
+            (editorconfig-apply)
+          (setq-local compile-command (concat "mdpdf "
+                                                (buffer-file-name)
+                                                " "
+                                                (buffer-file-name)
+                                                ".pdf"))))
 
 (defun haskell-hook-fn ()
   (direnv-update-environment)

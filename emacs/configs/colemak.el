@@ -217,6 +217,12 @@
   (lang-with-lsp dafny-mode-map)
   (lang-with-lsp glsl-mode-map)
 
+  (define-key glsl-mode-map (kbd "S-<iso-lefttab>") 'ff-find-other-file 'remove)
+
+  (evil-define-key '(normal visual) markdown-mode-map
+    (kbd "SPC l")   'recompile
+    (kbd "SPC L")   'compile)
+
   (evil-define-key 'normal makefile-gmake-mode-map
     (kbd "SPC l") 'recompile
     (kbd "SPC L") 'compile)
