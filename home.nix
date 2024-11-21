@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, homeConfig, ... }:
 
 let
 	stablePkgs = import inputs.stablePkgs {};
@@ -13,13 +13,14 @@ let
 		})
 	]; };
 
-	enableHyprland = false;
-	enableGnome = true;
-	enableRiver = false;
-	enableSway = false;
-	enableDebugging = false;
+	enableHyprland  = homeConfig.enableHyprland;
+	enableGnome     = homeConfig.enableGnome;
+	enableRiver     = homeConfig.enableRiver;
+	enableSway      = homeConfig.enableSway;
+	enableDebugging = homeConfig.enableDebugging;
+
 	gui = enableGnome || enableHyprland || enableRiver || enableSway;
-	wm = enableHyprland || enableRiver || enableSway;
+	wm  = enableHyprland || enableRiver || enableSway;
 in {
 	home = {
 		username      = "u3836";

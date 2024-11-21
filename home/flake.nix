@@ -20,17 +20,36 @@
 		lem.url = "github:dariof4/lem-flake";
 	};
 
-	outputs = {self, nixpkgs, home-manager, ...}@inputs: {
-		defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
-		defaultPackage.aarch64-linux = home-manager.defaultPackage.aarch64-linux;
-
-		homeConfigurations."u3836" = home-manager.lib.homeManagerConfiguration {
+	outputs = {self, nixpkgs, home-manager, ...}@inputs:
+	let
+		home = homeConfig: home-manager.lib.homeManagerConfiguration {
 			pkgs = nixpkgs.legacyPackages.${builtins.currentSystem};
-			extraSpecialArgs = { inherit inputs; };
+			extraSpecialArgs = { inherit inputs; inherit homeConfig; };
 			modules = [
 				../home.nix
 				{ nixpkgs.config.allowUnfreePredicate = _: true; }
 			];
 		};
+		graphicalHome = home {
+			enableHyprland  = false;
+			enableGnome     = true;
+			enableRiver     = false;
+			enableSway      = false;
+			enableDebugging = false;
+		};
+		serverHome = home {
+			enableHyprland  = false;
+			enableGnome     = false;
+			enableRiver     = false;
+			enableSway      = false;
+			enableDebugging = false;
+		};
+	in {
+		defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+		defaultPackage.aarch64-linux = home-manager.defaultPackage.aarch64-linux;
+
+		homeConfigurations."u3836@eurydice" = serverHome;
+		homeConfigurations."u3836@orpheus"  = serverHome;
+		homeConfigurations."u3836"          = graphicalHome;
 	};
 }
