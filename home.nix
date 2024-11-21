@@ -86,7 +86,7 @@ in {
 			gimp
 
 			(import inputs.curaPkgs {}).cura
-			stablePkgs.blender
+			# stablePkgs.blender # Crashes on launch, try steam version?
 
 			discord
 			dissent
@@ -112,7 +112,7 @@ in {
 			lutris
 			mangohud
 			ruffle
-			gamescope
+			# gamescope
 			mission-center
 
 			i2c-tools
