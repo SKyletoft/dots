@@ -33,7 +33,6 @@ in {
 			digiflisp   = pkgs.callPackage ./packages/digiflisp.nix {};
 			cppfront    = pkgs.callPackage ./packages/cppfront.nix {};
 			hylo        = pkgs.callPackage ./packages/hylo.nix {};
-			lsp-booster = emacsPin.callPackage ./packages/lsp-booster.nix {};
 			doasedit    = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
 			monitor     = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
 			mdpdf       = pkgs.writeShellScriptBin "mdpdf" ''
@@ -65,7 +64,7 @@ in {
 			hstr
 
 			nil
-			lsp-booster
+			inputs.lsp-booster.packages.${system}.default
 			nodePackages.bash-language-server
 			shellcheck
 			shfmt
@@ -271,7 +270,7 @@ in {
 
 			# package = vimPin.neovim;
 			extraConfig = (builtins.readFile ./neovim_init.vim)
-			            + (if enableDebugging then builtins.readFile ./debug.vim else "");
+						+ (if enableDebugging then builtins.readFile ./debug.vim else "");
 			vimAlias = true;
 		};
 
