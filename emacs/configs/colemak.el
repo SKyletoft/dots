@@ -218,8 +218,8 @@
   (lang-with-lsp glsl-mode-map)
 
   (evil-define-key '(normal visual) markdown-mode-map
-    (kbd "SPC l")   'recompile
-    (kbd "SPC L")   'compile)
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile)
 
   (evil-define-key 'normal makefile-gmake-mode-map
     (kbd "SPC l") 'recompile
