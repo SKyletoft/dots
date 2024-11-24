@@ -17,6 +17,7 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		upwards.url = "github:SKyletoft/upwards";
+		revpath.url = "github:SKyletoft/revpath";
 		lem.url = "github:dariof4/lem-flake";
 		lsp-booster.url = "path:../packages/lsp-booster";
 	};

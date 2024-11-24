@@ -69,6 +69,7 @@ in {
 			shellcheck
 			shfmt
 			inputs.upwards.packages.${system}.default
+			inputs.revpath.packages.${system}.default
 		] ++
 		(if gui then [
 			inputs.lem.packages.${system}.default
