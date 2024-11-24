@@ -15,17 +15,17 @@ if [[ "$DISPLAY" ]]; then
 	gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 25 # ms
 fi
 
-if ! pidof emacs -q ; then
+if ! pidof emacs -q; then
 	clear
-	emacs --daemon 2> /dev/null
+	emacs --daemon 2>/dev/null
 	echo "Started Emacs daemon"
 fi
 
-if ! pidof ssh-agent -q ; then
-	eval "$(ssh-agent -s)" > /dev/null 2> /dev/null
+if ! pidof ssh-agent -q; then
+	eval "$(ssh-agent -s)" >/dev/null 2>/dev/null
 	echo "Started ssh agent"
 fi
-ssh-add ~/.ssh/* > /dev/null 2> /dev/null
+ssh-add ~/.ssh/* >/dev/null 2>/dev/null
 
 if [ "$TERM" == linux ]; then
 	PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
@@ -35,7 +35,7 @@ else
 	PS1='\u@\h $ '
 fi
 
-run () {
+run() {
 	if [ -n "$2" ]; then
 		nix-shell -p $1 --run $2
 	else
