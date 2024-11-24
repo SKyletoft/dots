@@ -204,6 +204,7 @@
   (lang-with-lsp rust-ts-mode-map)
   (lang-with-lsp erlang-mode-map)
   (lang-with-lsp bash-ts-mode-map)
+  (lang-with-lsp sh-mode-map)
   (lang-with-lsp python-ts-mode-map)
   (lang-with-lsp dafny-mode-map)
   (lang-with-lsp glsl-mode-map)
@@ -326,6 +327,14 @@
                     (shell-command (concat "bash" (buffer-file-name)))
                     (revert-buffer t t t)))
   (evil-define-key 'visual bash-ts-mode-map
+    (kbd "SPC r") (lambda () (interactive)
+                    (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
+  (evil-define-key 'normal sh-mode-map
+    (kbd "SPC r") (lambda () (interactive)
+                    (save-buffer)
+                    (shell-command (concat "bash" (buffer-file-name)))
+                    (revert-buffer t t t)))
+  (evil-define-key 'visual sh-mode-map
     (kbd "SPC r") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 

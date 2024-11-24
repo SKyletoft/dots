@@ -216,6 +216,8 @@
   (lang-with-lsp python-ts-mode-map)
   (lang-with-lsp dafny-mode-map)
   (lang-with-lsp glsl-mode-map)
+  (lang-with-lsp bash-ts-mode-map)
+  (lang-with-lsp sh-mode-map)
 
   (evil-define-key '(normal visual) markdown-mode-map
     (kbd "SPC l") 'recompile
@@ -329,6 +331,19 @@
     (kbd "SPC L") 'compile
     (kbd "SPC l") 'recompile)
 
+  (evil-define-key 'normal bash-ts-mode-map
+    (kbd "SPC l") (lambda () (interactive)
+                    (save-buffer)
+                    (shell-command (concat "bash" (buffer-file-name)))
+                    (revert-buffer t t t)))
+  (evil-define-key 'visual bash-ts-mode-map
+    (kbd "SPC l") (lambda () (interactive)
+                    (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
+  (evil-define-key 'normal sh-mode-map
+    (kbd "SPC l") (lambda () (interactive)
+                    (save-buffer)
+                    (shell-command (concat "bash" (buffer-file-name)))
+                    (revert-buffer t t t)))
   (evil-define-key 'visual sh-mode-map
     (kbd "SPC l") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
