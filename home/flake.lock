@@ -189,14 +189,17 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-WpyBev9GXrSePp/gqTSOQbAbP7JVNxzThg01Jhh2vFA=",
-        "path": "../packages/lsp-booster",
-        "type": "path"
+        "lastModified": 1732663943,
+        "narHash": "sha256-o6NPtvH7FFZ/9vWdT2nMjhPMMuXLAgy64cqiKcm5Y8E=",
+        "owner": "SKyletoft",
+        "repo": "lsp-booster-flake",
+        "rev": "d264d67d788cf3a8c065f94c4ef2846ebba98ca7",
+        "type": "github"
       },
       "original": {
-        "path": "../packages/lsp-booster",
-        "type": "path"
+        "owner": "SKyletoft",
+        "repo": "lsp-booster-flake",
+        "type": "github"
       }
     },
     "nixpkgs": {

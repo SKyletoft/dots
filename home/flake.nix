@@ -19,7 +19,7 @@
 		upwards.url = "github:SKyletoft/upwards";
 		revpath.url = "github:SKyletoft/revpath";
 		lem.url = "github:dariof4/lem-flake";
-		lsp-booster.url = "path:../packages/lsp-booster";
+		lsp-booster.url = "github:SKyletoft/lsp-booster-flake";
 	};
 
 	outputs = {self, nixpkgs, home-manager, ...}@inputs:
