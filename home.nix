@@ -370,6 +370,7 @@ in {
 					typescript-mode
 					my-dafny-mode
 					ein
+					dyalog-mode
 				]);
 		};
 
