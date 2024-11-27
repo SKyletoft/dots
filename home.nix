@@ -89,6 +89,7 @@ in {
 			(import inputs.curaPkgs {}).cura
 			# stablePkgs.blender # Crashes on launch, try steam version?
 
+			vesktop
 			discord
 			dissent
 			signal-desktop
