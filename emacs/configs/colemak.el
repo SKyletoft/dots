@@ -77,10 +77,10 @@
     (kbd "<backtab>")     'my/outdent-line
     (kbd "<iso-lefttab>") 'my/outdent-line)
   (evil-define-key 'visual 'global
-    (kbd "<tab>")        'my/indent-region
-    [?\t]                'my/indent-region
-    (kbd "<backtab>")    'my/outdent-region
-    (kbd "<iso-lefttab") 'my/outdent-region)
+    (kbd "<tab>")         'my/indent-region
+    [?\t]                 'my/indent-region
+    (kbd "<backtab>")     'my/outdent-region
+    (kbd "<iso-lefttab>") 'my/outdent-region)
 
   (evil-define-key '(normal visual) 'global
     (kbd "A") 'align-regexp)
