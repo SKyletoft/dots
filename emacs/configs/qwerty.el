@@ -361,6 +361,11 @@
   (evil-define-key 'normal tuareg-mode-map
     (kbd "SPC I") 'ocamlformat)
 
+  (evil-define-key 'insert dyalog-mode-map
+    (kbd "SPC R") 'compile
+    (kbd "SPC r") 'recompile
+    (kbd "<tab>") 'yas-expand)
+
   (evil-define-key 'normal gud-mode-map
     (kbd "SPC d") 'gud-step
     (kbd "SPC s") 'gud-next

@@ -451,7 +451,11 @@
   :defer t)
 
 (use-package dyalog-mode
-  :defer t)
+  :defer t
+  :hook
+  (dyalog-mode . (lambda ()
+                   (setq-local compile-command (concat "dyalog -script "
+                                                       (buffer-file-name))))))
 
 ;; Line numbers
 (global-display-line-numbers-mode 't) ;; Needed because reasons
