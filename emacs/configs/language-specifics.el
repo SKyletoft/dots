@@ -451,11 +451,13 @@
   :defer t)
 
 (use-package dyalog-mode
-  :defer t
+  :defer 3
   :hook
   (dyalog-mode . (lambda ()
                    (setq-local compile-command (concat "dyalog -script "
-                                                       (buffer-file-name))))))
+                                                       (buffer-file-name)))))
+  :config
+  (add-to-list #'auto-mode-alist '("\\.apl$" . dyalog-mode)))
 
 ;; Line numbers
 (global-display-line-numbers-mode 't) ;; Needed because reasons
