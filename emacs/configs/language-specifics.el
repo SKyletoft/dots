@@ -144,7 +144,9 @@
     (replace-string "unwarp" "unwrap")))
 
 (use-package rust-ts-mode
-  :defer 3
+  :defer nil ; Everything else should defer, but I'm almost always
+             ; using Rust and have managed to open a file before it
+             ; loads too many times at this point.
   :hook
   (rust-ts-mode . (lambda ()
                     (add-hook 'before-save-hook 'unwarp 90 't)
