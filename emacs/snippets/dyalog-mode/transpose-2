@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: transpose 2
+# key: \O
+# --
+⍉
