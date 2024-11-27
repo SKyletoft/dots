@@ -450,6 +450,9 @@
 (use-package typescript-ts-mode
   :defer t)
 
+(use-package dyalog-mode
+  :defer t)
+
 ;; Line numbers
 (global-display-line-numbers-mode 't) ;; Needed because reasons
 
