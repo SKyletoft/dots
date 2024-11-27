@@ -261,6 +261,7 @@ in {
 			wally-cli
 			zsa-udev-rules
 			xorg.xkill
+			logiops
 
 			setup-system
 			update-keys
