@@ -456,8 +456,9 @@
   :defer 3
   :hook
   (dyalog-mode . (lambda ()
-                   (setq-local compile-command (concat "dyalog -script "
-                                                       (buffer-file-name))
+                   (setq-local compile-command (concat "cat "
+                                                       (buffer-file-name)
+                                                       " | dyalog 2>/dev/null ")
                                dyalog-leading-spaces 0
                                electric-pair-mode 0)))
   :config
