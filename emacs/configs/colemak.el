@@ -221,7 +221,8 @@
 
   (evil-define-key '(normal visual) markdown-mode-map
     (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile)
+    (kbd "SPC L") 'compile
+    (kbd "SPC o") (kbd "vypgq"))
 
   (evil-define-key 'normal makefile-gmake-mode-map
     (kbd "SPC l") 'recompile
