@@ -69,6 +69,8 @@
   :defer 1
   :config
   (yas-global-mode 1))
+(add-hook snippet-mode-hook (lambda () (remove-hook before-save whitespace-cleanup t)))
+
 
 (use-package ivy)
 (ivy-mode)

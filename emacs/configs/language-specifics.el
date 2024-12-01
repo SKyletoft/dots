@@ -457,7 +457,9 @@
   :hook
   (dyalog-mode . (lambda ()
                    (setq-local compile-command (concat "dyalog -script "
-                                                       (buffer-file-name)))))
+                                                       (buffer-file-name))
+                               dyalog-leading-spaces 0
+                               electric-pair-mode 0)))
   :config
   (add-to-list #'auto-mode-alist '("\\.apl$" . dyalog-mode)))
 
