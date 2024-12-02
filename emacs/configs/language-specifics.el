@@ -456,6 +456,7 @@
   :defer 3
   :hook
   (dyalog-mode . (lambda ()
+                   (set-indents 8 8 t)
                    (setq-local compile-command (concat "cat "
                                                        (buffer-file-name)
                                                        " | dyalog 2>/dev/null ")
