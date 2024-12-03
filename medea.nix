@@ -316,13 +316,13 @@ in {
 		cascadia-code
 		fantasque-sans-mono
 		roboto
-		nerd-fonts.iosevka
 		(pkgs.callPackage ./packages/0xproto.nix {})
 		(pkgs.callPackage ./packages/monaspace.nix {})
 		(nerdfonts.override {fonts = [
 			"FiraCode"
 			"DroidSansMono"
 			"RobotoMono"
+			"iosevka"
 		];})
 	] ++ (if windowsFonts then [
 		winePackages.fonts
