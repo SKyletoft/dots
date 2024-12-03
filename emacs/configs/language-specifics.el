@@ -461,7 +461,9 @@
                                                        (buffer-file-name)
                                                        " | dyalog 2>/dev/null ")
                                dyalog-leading-spaces 0
-                               electric-pair-mode 0)))
+                               electric-pair-mode 0
+                               buffer-face-mode-face '(:family "Iosevka"))
+                   (buffer-face-mode)))
   :config
   (add-to-list #'auto-mode-alist '("\\.apl$" . dyalog-mode)))
 
