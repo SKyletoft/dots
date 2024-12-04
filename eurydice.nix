@@ -4,6 +4,13 @@ let
 	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
 	update-system = pkgs.callPackage ./packages/update-system.nix {};
 	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
+	update-motd = pkgs.writeShellScriptBin "update-motd" ''
+		${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status
+		${pkgs.git}/bin/git -C /etc/nixos/dots log -1 >> /tmp/eurydice-status
+		SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status
+		SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status
+		SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status
+	'';
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
 
@@ -152,6 +159,7 @@ in {
 		jellyfin-web
 		jellyfin-ffmpeg
 
+		update-motd
 		update-website
 		update-keys
 		update-system
@@ -229,16 +237,8 @@ in {
 			systemCronJobs =
 				let update-keys' = "${update-keys}/bin/update-keys";
 				in [
-					("* * * * * u3836 "
-					 + "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status "
-					 + "&& ${pkgs.git}/bin/git -C /etc/nixos/dots log -1 >> /tmp/eurydice-status "
-					 + "&& printf \"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\" >> /tmp/eurydice-status "
-					 + "&& SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status "
-					 + "&& SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status "
-					 + "&& SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status "
-					)
-					("*/05 * * * * enaya ${update-keys'} Enayaaa")
 					("*/05 * * * * u3836 ${update-keys'} SKyletoft")
+					("*/05 * * * * enaya ${update-keys'} Enayaaa")
 					("*/05 * * * * pingu ${update-keys'} The1Penguin")
 					("*/05 * * * * rachel-spechtachel ${update-keys'} rachelambda")
 					("*/05 * * * * liam ${update-keys'} liamjardine")
@@ -246,6 +246,7 @@ in {
 					("*/05 * * * * koko ${update-keys'} KokoRobinn")
 					("*/05 * * * * ibra ${update-keys'} FlySlime")
 
+					("* * * * * u3836   ${update-motd}/bin/update-motd")
 					("*/05 * * * * root ${update-website}/bin/update-website")
 					("*/05 * * * * root ${update-system}/bin/update-system")
 				];
