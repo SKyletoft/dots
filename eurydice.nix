@@ -330,6 +330,11 @@ in {
 					enableACME = true;
 					root = "/var/www/u3836.se/transmission";
 				};
+				"hekate.u3836.se" = {
+					forceSSL = true;
+					enableACME = true;
+					root = "/var/www/u3836.se/hekate";
+				};
 				"nix.u3836.se" = {
 					addSSL = true;
 					enableACME = true;
