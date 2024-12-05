@@ -114,7 +114,7 @@ in {
 	};
 
 	boot = {
-		supportedFilesystems = [ "exfat" ];
+		supportedFilesystems = [ "exfat" "fuse.sshfs" ];
 		binfmt.emulatedSystems = [];
 		loader.raspberryPi.firmwareConfig = ''
 			gpu_mem=320
@@ -140,6 +140,17 @@ in {
 			device = "/dev/disk/by-label/NIXOS_SD";
 			fsType = "ext4";
 			options = [ "noatime" ];
+		};
+		"/mnt/hekate" = {
+			device = "u3836@hekate:/volume1/files";
+			fsType = "fuse.sshfs";
+			options = [
+				"identityfile=/home/u3836/.ssh/id_ed25519"
+				"idmap=user"
+				"x-systemd.automount"
+				"allow_other"
+				"user"
+			];
 		};
 	};
 
