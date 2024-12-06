@@ -380,7 +380,7 @@
     (kbd "SPC L") 'compile
     (kbd "SPC l") 'recompile)
   (evil-define-key 'insert dyalog-mode-map
-    (kbd "<tab>") 'yas-expand)
+    (kbd "C-r")   apl-keymap)
 
   (evil-define-key 'normal gud-mode-map
     (kbd "SPC t") 'gud-step

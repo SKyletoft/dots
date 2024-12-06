@@ -452,6 +452,59 @@
 (use-package typescript-ts-mode
   :defer t)
 
+(defun insert-lambda (str)
+  (lambda (interactive) (insert str)))
+(defvar-keymap apl-keymap
+  "|" "⋄"
+  "§" "⋄" ; Same as above
+  "1" "¨"
+  ;; "2" ""
+  "3" "×"
+  "4" "≤"
+  ;; "5" ""
+  "6" "≥"
+  "&" "⍉"
+  "7" "÷"
+  "/" "⊖"
+  "8" "≠"
+  "9" "∧"
+  "0" "∨"
+  ;; "q" ""
+  "w" "⍵"
+  "e" "∊"
+  "r" "⍴"
+  ;; "t" ""
+  "y" "↑"
+  "u" "↓"
+  "i" "⍳"
+  "o" "○"
+  ;; "p" ""
+  "a" "⍺"
+  "s" "⌈"
+  "d" "⌊"
+  "f" "_"
+  "g" "∇"
+  ;; "h" ""
+  "j" "∘"
+  ;; "k" ""
+  "l" "⎕"
+  "L" "⌷"
+  "z" "⊂"
+  "x" "⊃"
+  "c" "∩"
+  "v" "∪"
+  "b" "⊥"
+  "n" "⊤"
+  "m" "⍝"
+  "," "⌿"
+  "." "⍀"
+  "-" "¯"
+  "ö" "←"
+  "ä" "→"
+  "å" "⍎"
+  "~" "⍕"
+  "'" "⊢"
+  )
 (use-package dyalog-mode
   :defer 3
   :hook

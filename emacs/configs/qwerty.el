@@ -365,7 +365,7 @@
     (kbd "SPC R") 'compile
     (kbd "SPC r") 'recompile)
   (evil-define-key 'insert dyalog-mode-map
-    (kbd "<tab>") 'yas-expand)
+    (kbd "C-a")   apl-keymap)
 
   (evil-define-key 'normal gud-mode-map
     (kbd "SPC d") 'gud-step
