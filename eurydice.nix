@@ -145,7 +145,7 @@ in {
 			options = [ "noatime" ];
 		};
 		"/mnt/hekate" = {
-			device = "u3836@hekate:/";
+			device = "u3836@192.168.0.203:/";
 			fsType = "sshfs";
 			options = [
 				"identityfile=/home/u3836/.ssh/id_ed25519"
