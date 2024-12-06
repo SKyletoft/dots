@@ -114,7 +114,10 @@ in {
 	};
 
 	boot = {
-		supportedFilesystems = [ "exfat" "fuse.sshfs" ];
+		supportedFilesystems = {
+			exfat = true;
+			sshfs = true;
+		};
 		binfmt.emulatedSystems = [];
 		loader.raspberryPi.firmwareConfig = ''
 			gpu_mem=320
@@ -143,7 +146,7 @@ in {
 		};
 		"/mnt/hekate" = {
 			device = "u3836@hekate:/";
-			fsType = "fuse.sshfs";
+			fsType = "sshfs";
 			options = [
 				"identityfile=/home/u3836/.ssh/id_ed25519"
 				"idmap=user"
