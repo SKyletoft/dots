@@ -211,7 +211,12 @@
 
   (evil-define-key '(normal visual) markdown-mode-map
     (kbd "SPC r")   'recompile
-    (kbd "SPC R")   'compile)
+    (kbd "SPC R")   'compile
+    (kbd "SPC i") (kbd "vipgq"))
+  (evil-define-key '(normal visual) latex-mode-map
+    (kbd "SPC r")   'recompile
+    (kbd "SPC R")   'compile
+    (kbd "SPC i") (kbd "vipgq"))
 
   (evil-define-key 'normal makefile-gmake-mode-map
     (kbd "SPC r") 'recompile

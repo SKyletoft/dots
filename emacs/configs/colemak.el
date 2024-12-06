@@ -224,6 +224,11 @@
     (kbd "SPC L") 'compile
     (kbd "SPC o") (kbd "vypgq"))
 
+  (evil-define-key '(normal visual) latex-mode-map
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile
+    (kbd "SPC o") (kbd "vypgq"))
+
   (evil-define-key 'normal makefile-gmake-mode-map
     (kbd "SPC l") 'recompile
     (kbd "SPC L") 'compile)

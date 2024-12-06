@@ -73,7 +73,8 @@
         (python-mode . python-ts-mode)
         (sh-mode . bash-ts-mode)
         ;; (haskell-mode . haskell-ts-mode)
-        (csharp-mode . csharp-ts-mode)))
+        (csharp-mode . csharp-ts-mode)
+        (tex-mode . latex-mode)))
 
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 
