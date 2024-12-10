@@ -370,7 +370,7 @@
   (evil-define-key 'normal dyalog-mode-map
     (kbd "SPC R") 'compile
     (kbd "SPC r") 'recompile)
-  (evil-define-key 'insert dyalog-mode-map
+  (evil-define-key '(insert replace) dyalog-mode-map
     (kbd "C-a")   apl-keymap)
 
   (evil-define-key 'normal gud-mode-map
