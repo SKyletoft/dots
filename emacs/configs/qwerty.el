@@ -169,6 +169,7 @@
               (kbd "SPC r")   'recompile
               (kbd "SPC R")   'compile
               (kbd "SPC f")   'lsp-ui-doc-glance
+              (kbd "SPC F")   'lsp-describe-thing-at-point
               (kbd "SPC g")   'xref-find-definitions
               (kbd "SPC G")   'lsp-goto-type-definition
               (kbd "SPC a")   'lsp-execute-code-action

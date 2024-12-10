@@ -180,6 +180,7 @@
               (kbd "SPC l")   'recompile
               (kbd "SPC L")   'compile
               (kbd "SPC e")   'lsp-ui-doc-glance
+              (kbd "SPC E")   'lsp-describe-thing-at-point
               (kbd "SPC i")   'xref-find-definitions
               (kbd "SPC I")   'lsp-goto-type-definition
               (kbd "SPC n")   'lsp-execute-code-action
