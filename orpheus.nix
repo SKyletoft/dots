@@ -40,10 +40,6 @@ in {
 
 	boot = {
 		supportedFilesystems = [ "exfat" ];
-		loader.raspberryPi.firmwareConfig = ''
-			gpu_mem=192
-			dtparam=audio=on
-		'';
 	};
 
 	networking = {
