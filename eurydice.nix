@@ -119,10 +119,6 @@ in {
 			sshfs = true;
 		};
 		binfmt.emulatedSystems = [];
-		loader.raspberryPi.firmwareConfig = ''
-			gpu_mem=320
-			dtparam=audio=on
-		'';
 	};
 
 	networking = {
