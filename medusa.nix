@@ -123,6 +123,17 @@ in {
 				"user"
 			];
 		};
+		"/mnt/orpheus" = {
+			device = "u3836@192.168.0.202:/";
+			fsType = "sshfs";
+			options = [
+				"identityfile=/home/u3836/.ssh/medusa"
+				"idmap=user"
+				"x-systemd.automount"
+				"allow_other"
+				"user"
+			];
+		};
 	};
 
 	time.timeZone = "Europe/Stockholm";
