@@ -65,7 +65,9 @@ in {
 			efi.canTouchEfiVariables = true;
 		};
 		kernelPackages = pkgs.linuxPackages_xanmod_latest;
-		supportedFilesystems = [ "ntfs" ];
+		supportedFilesystems = {
+			ntfs = true;
+		};
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		kernelModules = [ "amdgpu" "kvm-amd" "i2c-dev" "xpad" "hid-nintendo" "xone" "xpadneo" ];
 		extraModulePackages = [
@@ -88,13 +90,15 @@ in {
 		i2c.enable = true;
 	};
 
-	fileSystems."/mnt/SDD" = {
-		device = "/dev/disk/by-label/SDD"; # Actual device is randomised for some reason
-		fsType = "ntfs";
-		options = [
-			"allow_other"
-			"x-systemd.automount"
-		];
+	fileSystems = {
+		"/mnt/SDD" = {
+			device = "/dev/disk/by-label/SDD"; # Actual device is randomised for some reason
+			fsType = "ntfs";
+			options = [
+				"allow_other"
+				"x-systemd.automount"
+			];
+		};
 	};
 
 	time.timeZone = "Europe/Stockholm";
