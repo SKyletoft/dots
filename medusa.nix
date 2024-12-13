@@ -66,6 +66,7 @@ in {
 		};
 		kernelPackages = pkgs.linuxPackages_xanmod_latest;
 		supportedFilesystems = {
+			exfat = true;
 			ntfs = true;
 		};
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
