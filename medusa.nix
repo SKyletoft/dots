@@ -68,6 +68,7 @@ in {
 		supportedFilesystems = {
 			exfat = true;
 			ntfs = true;
+			sshfs = true;
 		};
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		kernelModules = [ "amdgpu" "kvm-amd" "i2c-dev" "xpad" "hid-nintendo" "xone" "xpadneo" ];
@@ -98,6 +99,28 @@ in {
 			options = [
 				"allow_other"
 				"x-systemd.automount"
+			];
+		};
+		"/mnt/hekate" = {
+			device = "u3836@192.168.0.203:/";
+			fsType = "sshfs";
+			options = [
+				"identityfile=/home/u3836/.ssh/medusa"
+				"idmap=user"
+				"x-systemd.automount"
+				"allow_other"
+				"user"
+			];
+		};
+		"/mnt/eurydice" = {
+			device = "root@192.168.0.200:/";
+			fsType = "sshfs";
+			options = [
+				"identityfile=/home/u3836/.ssh/medusa"
+				"idmap=user"
+				"x-systemd.automount"
+				"allow_other"
+				"user"
 			];
 		};
 	};
