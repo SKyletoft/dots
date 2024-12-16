@@ -37,7 +37,7 @@ in {
 			monitor     = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
 			mdpdf       = pkgs.writeShellScriptBin "mdpdf" ''
 				export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ tectonic pandoc ])}
-				pandoc $1 -o $2 --pdf-engine=tectonic -s -V papersize:a4
+				pandoc $1 -o $2 --pdf-engine=tectonic -s -V papersize:a4 --citeproc
 			'';
 		in with pkgs; [
 			git
