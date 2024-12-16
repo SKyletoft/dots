@@ -13,7 +13,7 @@
   (define-key evil-normal-state-map (kbd "C-M-i") 'evil-emacs-state)
   (define-key evil-normal-state-map (kbd "z x") 'execute-extended-command)
   (global-set-key (kbd "C-S-p") 'treemacs)
-  (evil-define-key '(normal motion) 'global
+  (evil-define-key '(normal visual motion) 'global
     (kbd "C-d") 'multi-vterm
     (kbd "C-+") 'text-scale-increase
     (kbd "C--") 'text-scale-decrease)

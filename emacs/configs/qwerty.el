@@ -13,7 +13,7 @@
   (global-set-key (kbd "C-M-p") 'treemacs)
   (define-key company-active-map (kbd "<tab>") 'my/snippet-complete-or-indent)
   (define-key company-active-map (kbd "<return>") 'newline)
-  (evil-define-key '(normal visual) 'global
+  (evil-define-key '(normal visual motion) 'global
     (kbd "C-t") 'multi-vterm
     (kbd "C-+") 'text-scale-increase
     (kbd "C--") 'text-scale-decrease)
