@@ -19,30 +19,34 @@
       (rename-buffer "paste-vterm"))))
 
 (defun send-to-vterm ()
-"Paste the clipboard into the ghci session wrapped in :{ :}."
-  (let ((b (current-buffer)))
-    (switch-to-buffer "paste-vterm")
-    (vterm-yank)
-    (vterm-send-return)
-    (vterm-send-return)
-    (switch-to-buffer b)))
+"Paste the clipboard into the repl session.
+If no repl exists it just runs recompile instead."
+  (if (not (get-buffer "paste-vterm"))
+      (recompile)
+    (let ((b (current-buffer)))
+      (switch-to-buffer "paste-vterm")
+      (vterm-yank)
+      (vterm-send-return)
+      (vterm-send-return)
+      (switch-to-buffer b))))
 
 (defun slime-n ()
-"Copy the current paragraph and send it to ghci."
+"Copy the current paragraph and send it to the repl."
   (interactive)
+
   (save-mark-and-excursion
     (copy-paragraph)
     (send-to-vterm)))
 
 (defun slime-buf ()
-"Copy the current selection and send it to ghci."
+"Copy the current selection and send it to the repl."
   (interactive)
   (mark-whole-buffer)
   (kill-ring-save (region-beginning) (region-end))
   (send-to-vterm))
 
 (defun slime-v ()
-"Copy the current selection and send it to ghci."
+"Copy the current selection and send it to the repl."
   (interactive)
   (kill-ring-save (region-beginning) (region-end))
   (send-to-vterm))
@@ -82,6 +86,10 @@
                               " import *")))
     (vterm-send-return)))
 
+(defun kill-repl ()
+  (interactive)
+  (kill-buffer "paste-vterm"))
+
 (defun copy-function ()
 "Mark and copy the current function as defined by tree sitter."
   (evil-visual-state)
@@ -100,15 +108,18 @@
       (kill-ring-save start end))))
 
 (defun send-to-ghci ()
-"Paste the clipboard into the ghci session wrapped in :{ :}."
-  (let ((b (current-buffer)))
-    (switch-to-buffer "ghci")
-    (vterm-insert ":{\n")
-    (vterm-yank)
-    (vterm-send-return)
-    (vterm-insert ":}")
-    (vterm-send-return)
-    (switch-to-buffer b)))
+"Paste the clipboard into the ghci session wrapped in :{ :}.
+If the ghci buffer doesn't exist it runs recompile instead."
+  (if (not (get-buffer "ghci"))
+      (recompile)
+    (let ((b (current-buffer)))
+      (switch-to-buffer "ghci")
+      (vterm-insert ":{\n")
+      (vterm-yank)
+      (vterm-send-return)
+      (vterm-insert ":}")
+      (vterm-send-return)
+      (switch-to-buffer b))))
 
 (defun hs-slime-n ()
 "Copy the current paragraph and send it to ghci."
