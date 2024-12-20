@@ -52,6 +52,7 @@
 
 		homeConfigurations."u3836@eurydice" = serverHome;
 		homeConfigurations."u3836@orpheus"  = serverHome;
+		homeConfigurations."u3836@hekate"   = serverHome;
 		homeConfigurations."u3836"          = graphicalHome;
 	};
 }
