@@ -104,7 +104,7 @@
     (kbd "SPC u") 'comment-or-uncomment-line)
 
   ;; Find
-  (evil-define-key 'normal 'global
+  (evil-define-key '(normal motion) 'global
     (kbd "SPC P")   'projectile-switch-project
     (kbd "SPC p")   'projectile-find-file
     (kbd "M-p")     'find-file
