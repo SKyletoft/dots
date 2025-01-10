@@ -24,3 +24,4 @@ emacs/workspace
 emacs/eshell
 emacs/ielm-history.eld
 emacs/forge-database.sqlite
+emacs/projects
