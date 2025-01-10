@@ -20,6 +20,10 @@
 		revpath.url = "github:SKyletoft/revpath";
 		lem.url = "github:dariof4/lem-flake";
 		lsp-booster.url = "github:SKyletoft/lsp-booster-flake";
+		roc-ts = {
+			url = "github:faldor20/tree-sitter-roc";
+			inputs.nixpkgs.follows = "emacsPkgs";
+		};
 	};
 
 	outputs = {self, nixpkgs, home-manager, ...}@inputs:

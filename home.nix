@@ -372,6 +372,7 @@ in {
 					my-dafny-mode
 					ein
 					dyalog-mode
+					roc-ts-mode
 				]);
 		};
 
@@ -502,6 +503,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 			"${emacsPin.tree-sitter-grammars.tree-sitter-html}/parser";
 		".emacs.d/tree-sitter/libtree-sitter-css.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-css}/parser";
+		".emacs.d/tree-sitter/libtree-sitter-roc.so".source =
+			"${with emacsPin; inputs.roc-ts.defaultPackage.${system}}/parser";
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;

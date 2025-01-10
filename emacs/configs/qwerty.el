@@ -209,6 +209,7 @@
   (lang-with-lsp python-ts-mode-map)
   (lang-with-lsp dafny-mode-map)
   (lang-with-lsp glsl-mode-map)
+  (lang-with-lsp roc-ts-mode-map)
 
   (evil-define-key '(normal visual) markdown-mode-map
     (kbd "SPC r")   'recompile
