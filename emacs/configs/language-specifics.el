@@ -168,6 +168,7 @@
                     (lsp)
                     (lsp-lens-hide)
                     (lsp-inlay-hints-mode)
+                    (hs-minor-mode)
                     (editorconfig-apply)))
   :config
   (setq lsp-rust-analyzer-server-display-inlay-hints t
