@@ -369,7 +369,8 @@
 
   (evil-define-key 'normal dyalog-mode-map
     (kbd "SPC R") 'compile
-    (kbd "SPC r") 'recompile)
+    (kbd "SPC r") 'recompile
+    (kbd "SPC d") 'my/toggle-display)
   (evil-define-key '(insert replace) dyalog-mode-map
     (kbd "C-a")   apl-keymap)
 

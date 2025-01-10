@@ -335,6 +335,16 @@ As opposed to `list-buffers` which will split the window."
                          (buffer-file-name)))
   (revert-buffer t t t))
 
+(defun my/toggle-display ()
+"Toggle whether or not line starts with ]DISPLAY.  Useful for Dyalog APL."
+  (interactive)
+  (save-excursion
+    (back-to-indentation)
+    (if (string= "]DISPLAY "
+                 (buffer-substring (point) (+ (point) 9)))
+        (delete-char 9)
+      (insert "]DISPLAY "))))
+
 (setq my/last-command-buffer "")
 (defun run-command (command)
 "A second compilation buffer that remembers the COMMAND seperately from 'compile-command'."
