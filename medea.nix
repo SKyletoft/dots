@@ -337,7 +337,24 @@ in {
 			package = pkgs.gnomeExtensions.gsconnect;
 		};
 		xwayland.enable = waylandSupport;
-		steam.enable = true;
+		steam = {
+			enable = true;
+			gamescopeSession.enable = true;
+			package = pkgs.steam.override {
+				extraPkgs = p: with p; [
+					xorg.libXcursor
+					xorg.libXi
+					xorg.libXinerama
+					xorg.libXScrnSaver
+					libpng
+					libpulseaudio
+					libvorbis
+					stdenv.cc.cc.lib
+					libkrb5
+					keyutils
+				];
+			};
+		};
 		dconf.enable = true;
 		xonsh.enable = false;
 		ssh.startAgent = true;
