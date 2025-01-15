@@ -389,7 +389,6 @@ in {
 				rm  = "trash-put";
 				em  = "emacs -nw";
 				vi  = "emacsclient -nw";
-				# hms = "home-manager switch --impure";
 				hms = "echo 'cd ~/dots/home && home-manager switch --flake . --impure -L' | bash";
 				restart-emacs = "pkill -9 emacs && emacs --daemon";
 				".." = "cd ..";
