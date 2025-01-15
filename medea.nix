@@ -278,11 +278,7 @@ in {
 			appindicator
 			hot-edge
 			caffeine
-			sound-output-device-chooser
-			fuzzy-app-search
 			pop-shell
-			burn-my-windows
-			dotspaces
 			hibernate-status-button
 		]);
 		sessionVariables = {
