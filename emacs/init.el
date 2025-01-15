@@ -2,13 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-to-list 'load-path "~/.emacs.d/configs")
-(add-to-list 'load-path "~/.emacs.d/configs/languages")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/custom-themes")
+(add-to-list 'load-path "~/.config/emacs/configs")
+(add-to-list 'load-path "~/.config/emacs/configs/languages")
+(add-to-list 'custom-theme-load-path "~/.config/emacs/custom-themes")
 ;; (add-to-list 'load-path "~/.emacs.d/configs/copilot.el")
 (put 'narrow-to-region 'disabled nil)
 
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups"))
+(setq backup-directory-alist `(("." . "~/.config/emacs/backups"))
       custom-file (locate-user-emacs-file "configs/custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
 

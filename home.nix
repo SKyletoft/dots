@@ -460,51 +460,51 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 '';
 
 		# Treesitter grammars
-		".emacs.d/tree-sitter/libtree-sitter-cpp.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-cpp.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-cpp}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-c.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-c.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-c}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-cmake.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-cmake.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-cmake}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-java.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-java.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-java}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-kotlin.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-kotlin.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-kotlin}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-rust.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-rust.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-rust}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-haskell.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-haskell.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-haskell}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-python.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-python.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-python}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-elisp.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-elisp.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-elisp}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-make.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-make.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-make}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-bash.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-bash.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-bash}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-latex.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-latex.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-latex}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-json.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-json.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-json}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-jsdoc.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-jsdoc.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-jsdoc}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-javascript.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-javascript.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-javascript}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-typescript.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-typescript.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-typescript}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-tsx.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-tsx.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-tsx}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-c-sharp.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-c-sharp.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-c-sharp}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-dockerfile.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-dockerfile.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-dockerfile}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-nix.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-nix.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-nix}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-html.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-html.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-html}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-css.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-css.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-css}/parser";
-		".emacs.d/tree-sitter/libtree-sitter-roc.so".source =
+		".config/emacs/tree-sitter/libtree-sitter-roc.so".source =
 			"${with emacsPin; inputs.roc-ts.defaultPackage.${system}}/parser";
 
 		# Extra desktop files
@@ -520,10 +520,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 		# ".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
 
 		# Emacs
-		# ".emacs.d/configs".source       = ./emacs.d/configs;
-		# ".emacs.d/custom-themes".source = ./emacs.d/custom-themes;
-		# ".emacs".source                 = ./emacs;
-		".emacs.d/configs/node-path.el".text =
+		# ".config/emacs".source                    = ./emacs;
+		".config/emacs/configs/node-path.el".text =
 ''(provide 'node-path)
 (setq copilot-node-executable "${emacsPin.nodejs}/bin/node")
 '';
