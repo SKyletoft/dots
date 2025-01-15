@@ -95,7 +95,7 @@ in {
 		};
 		# Camera
 		ipu6 = {
-			enable = true;
+			enable = false; # Broken as of 19/11-24 apparently
 			platform = "ipu6ep";
 		};
 		cpu.intel.updateMicrocode = true;
