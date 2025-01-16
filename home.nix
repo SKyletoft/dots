@@ -95,6 +95,8 @@ in {
 			dissent
 			signal-desktop
 			slack
+			isync # Emacs email
+			mu
 
 			stablePkgs.libreoffice
 			stablePkgs.hunspellDicts.sv_SE
@@ -331,6 +333,7 @@ in {
 					all-the-icons-nerd-fonts
 					tramp # Not a part of Emacs?
 					gptel
+					mu4e
 
 					pdf-tools
 					multi-vterm

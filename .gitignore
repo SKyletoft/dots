@@ -25,3 +25,4 @@ emacs/eshell
 emacs/ielm-history.eld
 emacs/forge-database.sqlite
 emacs/projects
+emacs/mu4e
