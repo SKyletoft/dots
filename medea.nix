@@ -211,6 +211,7 @@ in {
 		openssh = {
 			enable = false;
 		};
+		pcscd.enable = true;
 		mullvad-vpn.enable = true;
 
 		cron = {
@@ -310,7 +311,6 @@ in {
 			item = "nofile";
 			value = "32768";
 		}];
-		pcscd.enable = true;
 	};
 
 	fonts.packages = with pkgs; [
