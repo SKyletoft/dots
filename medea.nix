@@ -315,9 +315,11 @@ in {
 		iosevka # Update to nerdfont version when I update medea
 		(pkgs.callPackage ./packages/0xproto.nix {})
 		(pkgs.callPackage ./packages/monaspace.nix {})
-		nerd-fonts.fira-code
-		nerd-fonts.droid-sans-mono
-		nerd-fonts.roboto-mono
+		(nerdfonts.override {fonts = [
+			"FiraCode"
+			"DroidSansMono"
+			"RobotoMono"
+		];})
 	] ++ (if windowsFonts then [
 		winePackages.fonts
 		vistafonts
