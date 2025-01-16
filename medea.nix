@@ -264,7 +264,6 @@ in {
 			wally-cli
 			zsa-udev-rules
 			powertop
-			pinentry
 
 			setup-system
 			update-keys
@@ -362,7 +361,10 @@ in {
 		ssh.startAgent = true;
 		adb.enable = true;
 		nix-ld.enable = true;
-		gnupg.agent.enable = true;
+		gnupg.agent = {
+			enable = true;
+			pinentryPackage = pkgs.pinentry-gtk2; # GTK2 by recommendation of nixos-discourse
+		};
 	};
 
 	system.stateVersion = "21.11";
