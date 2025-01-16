@@ -361,11 +361,7 @@ in {
 		ssh.startAgent = true;
 		adb.enable = true;
 		nix-ld.enable = true;
-		gnupg.agent = {
-			enable = true;
-			pinentryFlavor = "gtk2";
-			enableSSHSupport = true;
-		};
+		gnupg.agent.enable = true;
 	};
 
 	system.stateVersion = "21.11";
