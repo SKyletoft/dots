@@ -69,7 +69,7 @@ in {
 			systemd-boot.enable = true;
 			efi.canTouchEfiVariables = true;
 		};
-		kernelPackages = pkgs.linuxPackages_xanmod;
+		kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel >6.10 required for webcam drivers
 		supportedFilesystems = [ "ntfs" ];
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		kernelModules = [ "xpad" "hid-nintendo" "xone" "xpadneo" ];
@@ -95,7 +95,7 @@ in {
 		};
 		# Camera
 		ipu6 = {
-			enable = false; # Broken as of 19/11-24 apparently
+			enable = true;
 			platform = "ipu6ep";
 		};
 		cpu.intel.updateMicrocode = true;
