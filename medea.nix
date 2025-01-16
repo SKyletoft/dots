@@ -310,6 +310,7 @@ in {
 			item = "nofile";
 			value = "32768";
 		}];
+		pcscd.enable = true;
 	};
 
 	fonts.packages = with pkgs; [
@@ -360,6 +361,11 @@ in {
 		ssh.startAgent = true;
 		adb.enable = true;
 		nix-ld.enable = true;
+		gnupg.agent = {
+			enable = true;
+			pinentryFlavor = "gtk2";
+			enableSSHSupport = true;
+		};
 	};
 
 	system.stateVersion = "21.11";
