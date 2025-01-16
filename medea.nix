@@ -69,7 +69,7 @@ in {
 			systemd-boot.enable = true;
 			efi.canTouchEfiVariables = true;
 		};
-		kernelPackages = pkgs.linuxPackages_xanmod_latest; # Kernel >6.10 required for webcam drivers
+		kernelPackages = pkgs.linuxPackages_xanmod;
 		supportedFilesystems = [ "ntfs" ];
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		kernelModules = [ "xpad" "hid-nintendo" "xone" "xpadneo" ];
