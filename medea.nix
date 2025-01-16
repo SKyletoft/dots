@@ -264,6 +264,7 @@ in {
 			wally-cli
 			zsa-udev-rules
 			powertop
+			pinentry
 
 			setup-system
 			update-keys
