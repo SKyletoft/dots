@@ -334,6 +334,8 @@ in {
 					tramp # Not a part of Emacs?
 					gptel
 					mu4e
+					org
+					org-mime
 
 					pdf-tools
 					multi-vterm
