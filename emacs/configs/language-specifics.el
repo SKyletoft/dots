@@ -460,7 +460,16 @@
   (roc-ts-mode . (lambda ()
                    (set-indents 8 4 nil)
                    (editorconfig-apply)
-                   (setq-local compile-command "roc run"))))
+                   (setq-local compile-command "roc run")))
+  :config
+  (with-eval-after-load 'roc-ts-mode
+    (require 'lsp-mode)
+    (add-to-list 'lsp-language-id-configuration '(roc-ts-mode . "roc"))
+    (lsp-register-client (make-lsp-client :new-connection (lsp-stdio-connection "roc_language_server")
+                                          :activation-fn (lsp-activate-on "roc")
+                                          :major-modes '(roc-ts-mode)
+                                          :server-id 'roc_language_server))
+    (add-hook 'roc-ts-mode-hook #'lsp-deferred)))
 
 (defvar-keymap apl-keymap
   "§" "⋄"
