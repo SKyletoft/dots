@@ -410,7 +410,7 @@
 (add-hook 'typst-ts-mode-hook
           (lambda ()
             (set-indents 8 8 t)
-            (setq-local compile-command (concat "typst c "
+            (setq-local compile-command (concat "typst w "
                                                 (buffer-file-name)))
             (direnv-update-environment)
             (editorconfig-apply)
