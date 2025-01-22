@@ -399,6 +399,22 @@
                   (lsp)
                   (lsp-ui-mode 1))))
 
+(require 'lsp)
+(add-to-list 'lsp-language-id-configuration '(typst-ts-mode . "Typst"))
+(lsp-register-client (make-lsp-client :new-connection (lsp-stdio-connection "tinymist")
+                                      :activation-fn (lsp-activate-on "Typst")
+                                      :major-modes '(typst-ts-mode)
+                                      :server-id 'tinymist))
+(require 'typst-ts-mode)
+(add-hook 'typst-ts-mode-hook
+          (lambda ()
+            (set-indents 8 8 t)
+            (setq-local compile-command (concat "typst c "
+                                                (buffer-file-name)))
+            (direnv-update-environment)
+            (editorconfig-apply)
+            (lsp)))
+
 (use-package wgsl-mode
   :defer t
   :hook
