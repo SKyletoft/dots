@@ -2,6 +2,7 @@
 	inputs = {
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		nixos-hardware.url = "github:NixOS/nixos-hardware";
+		nixGL.url = "github:nix-community/nixGL";
 	};
 	outputs = { self, nixpkgs, nixos-hardware }: {
 		nixosConfigurations.medea = nixpkgs.lib.nixosSystem {
