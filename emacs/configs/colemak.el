@@ -228,8 +228,11 @@
     (kbd "SPC l") 'recompile
     (kbd "SPC L") 'compile
     (kbd "SPC o") (kbd "vypgq"))
-
   (evil-define-key '(normal visual) latex-mode-map
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile
+    (kbd "SPC o") (kbd "vypgq"))
+  (evil-define-key '(normal visual) typst-ts-mode-map
     (kbd "SPC l") 'recompile
     (kbd "SPC L") 'compile
     (kbd "SPC o") (kbd "vypgq"))
