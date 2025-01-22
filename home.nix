@@ -74,7 +74,7 @@ in {
 			update-lorri
 		] ++
 		(if gui then [
-			inputs.nixGL.packages.${system}.nixGLIntel
+			# inputs.nixGL.packages.${system}.nixGLIntel
 			inputs.lem.packages.${system}.default
 
 			monitor
