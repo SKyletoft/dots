@@ -28,14 +28,15 @@ in {
 		stateVersion  = "22.05";
 
 		packages = let
-			# ruffle      = pkgs.callPackage ./packages/ruffle.nix {};
-			eterm8      = pkgs.callPackage ./packages/eterm8.nix {};
-			digiflisp   = pkgs.callPackage ./packages/digiflisp.nix {};
-			cppfront    = pkgs.callPackage ./packages/cppfront.nix {};
-			hylo        = pkgs.callPackage ./packages/hylo.nix {};
-			doasedit    = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
-			monitor     = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
-			mdpdf       = pkgs.writeShellScriptBin "mdpdf" ''
+			# ruffle       = pkgs.callPackage ./packages/ruffle.nix {};
+			eterm8       = pkgs.callPackage ./packages/eterm8.nix {};
+			digiflisp    = pkgs.callPackage ./packages/digiflisp.nix {};
+			cppfront     = pkgs.callPackage ./packages/cppfront.nix {};
+			hylo         = pkgs.callPackage ./packages/hylo.nix {};
+			update-lorri = pkgs.writeShellScriptBin "update-lorri" (builtins.readFile scripts/update-lorri);
+			doasedit     = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
+			monitor      = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
+			mdpdf        = pkgs.writeShellScriptBin "mdpdf" ''
 				export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ tectonic pandoc ])}
 				pandoc $1 -o $2 --pdf-engine=tectonic -s -V papersize:a4 --citeproc
 			'';
@@ -70,6 +71,7 @@ in {
 			shfmt
 			inputs.upwards.packages.${system}.default
 			inputs.revpath.packages.${system}.default
+			update-lorri
 		] ++
 		(if gui then [
 			inputs.nixGL.packages.${system}.nixGLIntel
@@ -80,6 +82,7 @@ in {
 
 			firefox-devedition-bin
 			vdhcoapp
+			google-chrome
 
 			alacritty
 			kitty
@@ -397,7 +400,6 @@ in {
 				hms = "echo 'cd ~/dots/home && home-manager switch --flake . --impure -L' | bash";
 				restart-emacs = "pkill -9 emacs && emacs --daemon";
 				".." = "cd ..";
-				update-lorri = "nix develop -L < /dev/null && nix-shell < /dev/null && lorri init && direnv allow && lorri watch";
 			};
 
 			shellOptions = [
