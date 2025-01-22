@@ -356,6 +356,7 @@
 
 (use-package pdf-tools
   :defer t
+  :hook (pdf-view-mode . (lambda () (auto-revert-mode)))
   :init
   (pdf-tools-install))
 
