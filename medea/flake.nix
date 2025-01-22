@@ -9,7 +9,7 @@
 			system = "x86_64-linux";
 			modules = [
 				../medea.nix
-				nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga-7th-gen 
+				nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga-7th-gen
 			];
 		};
 	};
