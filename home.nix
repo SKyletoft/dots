@@ -396,6 +396,7 @@ in {
 					dyalog-mode
 					roc-ts-mode
 					typst-ts-mode
+					swift-ts-mode
 				]);
 		};
 
@@ -528,6 +529,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 			"${emacsPin.tree-sitter-grammars.tree-sitter-typst}/parser";
 		".config/emacs/tree-sitter/libtree-sitter-roc.so".source =
 			"${with emacsPin; inputs.roc-ts.defaultPackage.${system}}/parser";
+		".config/emacs/tree-sitter/libtree-sitter-swift.so".source =
+			"${with emacsPin; inputs.swift-ts.defaultPackage.${system}}/parser";
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;

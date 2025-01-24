@@ -24,6 +24,10 @@
 			url = "github:faldor20/tree-sitter-roc";
 			inputs.nixpkgs.follows = "emacsPkgs";
 		};
+		swift-ts = {
+			url = "github:SKyletoft/tree-sitter-swift-flake";
+			inputs.nixpkgs.follows = "emacsPkgs";
+		};
 	};
 
 	outputs = {self, nixpkgs, home-manager, ...}@inputs:
