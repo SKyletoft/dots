@@ -488,6 +488,14 @@
                                           :server-id 'roc_language_server))
     (add-hook 'roc-ts-mode-hook #'lsp-deferred)))
 
+(use-package swift-ts-mode
+  :hook
+  (swift-ts-mode . (lambda ()
+                   (set-indents 8 8 t)
+                   (editorconfig-apply)
+                   (setq-local compile-command "swift run"))))
+(use-package lsp-sourcekit)
+
 (defvar-keymap apl-keymap
   "§" "⋄"
   "|" "⋄"

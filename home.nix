@@ -397,6 +397,7 @@ in {
 					roc-ts-mode
 					typst-ts-mode
 					swift-ts-mode
+					lsp-sourcekit # Swift LSP support
 				]);
 		};
 
