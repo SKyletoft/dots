@@ -220,11 +220,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737120639,
-        "narHash": "sha256-p5e/45V41YD3tMELuiNIoVCa25/w4nhOTm0B9MtdHFI=",
+        "lastModified": 1737669579,
+        "narHash": "sha256-v9WQ3c4ctwPMfdBZMZxpdM9xXev4uChce4BxOpvsu0E=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a0046af169ce7b1da503974e1b22c48ef4d71887",
+        "rev": "7b9ece1bf3c8780cde9b975b28c2d9ccd7e9cdb9",
         "type": "github"
       },
       "original": {
@@ -300,11 +300,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1737003892,
-        "narHash": "sha256-RCzJE9wKByLCXmRBp+z8LK9EgdW+K+W/DXnJS4S/NVo=",
+        "lastModified": 1737557748,
+        "narHash": "sha256-BaMuhctP1x00+8cBE2cJveJQb70/tWHI50MHj/ZrtOY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ae06b9c2d83cb5c8b12d7d0e32692e93d1379713",
+        "rev": "606996d74f6e2a12635d41c1bf58bfc7ea3bb5ec",
         "type": "github"
       },
       "original": {
@@ -430,11 +430,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737680487,
-        "narHash": "sha256-HERAux1U964Nu5BBtBxDz0dyFAOf30daVt3ONqopEpU=",
+        "lastModified": 1737681123,
+        "narHash": "sha256-LJvD7u/JLRbr+Z8vUFy1wfAlrh5yWEF3+7Uf6F9QGUk=",
         "owner": "SKyletoft",
         "repo": "tree-sitter-swift-flake",
-        "rev": "6ffe3a3165a06f8b893e56c91c2b6cf4803ee2b8",
+        "rev": "63a47d683570d1365b1582edc4da81694bb5e8e9",
         "type": "github"
       },
       "original": {
