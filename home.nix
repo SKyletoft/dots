@@ -94,7 +94,7 @@ in {
 
 			vesktop
 			# discord
-			dissent
+			# dissent
 			signal-desktop
 			slack
 			isync # Emacs email
