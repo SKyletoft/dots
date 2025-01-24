@@ -93,7 +93,7 @@ in {
 			# stablePkgs.blender # Crashes on launch, try steam version?
 
 			vesktop
-			discord
+			# discord
 			dissent
 			signal-desktop
 			slack
