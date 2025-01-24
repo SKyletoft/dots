@@ -223,6 +223,7 @@
   (lang-with-lsp bash-ts-mode-map)
   (lang-with-lsp sh-mode-map)
   (lang-with-lsp roc-ts-mode-map)
+  (lang-with-lsp swift-ts-mode-map)
 
   (evil-define-key '(normal visual) markdown-mode-map
     (kbd "SPC l") 'recompile
