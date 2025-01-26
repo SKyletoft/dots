@@ -495,7 +495,13 @@
                    (set-indents 8 8 t)
                    (editorconfig-apply)
                    (setq-local compile-command "swift run"))))
-(use-package lsp-sourcekit)
+;; (use-package lsp-sourcekit)
+(lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection "sourcekit-lsp")
+                    :activation-fn (lsp-activate-on "swift-ts")
+                    :major-modes '(swift-mode swift-ts-mode)
+                    :server-id 'sourcekit-ls))
+(add-to-list 'lsp-language-id-configuration '(swift-ts-mode . "swift-ts"))
 
 (defvar-keymap apl-keymap
   "§" "⋄"
