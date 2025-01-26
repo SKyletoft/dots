@@ -16,7 +16,8 @@
   (evil-define-key '(normal visual motion) 'global
     (kbd "C-d") 'multi-vterm
     (kbd "C-+") 'text-scale-increase
-    (kbd "C--") 'text-scale-decrease)
+    (kbd "C--") 'text-scale-decrease
+    (kbd "M-c") 'run-command)
   (define-key company-active-map (kbd "<tab>") 'my/snippet-complete-or-indent)
   (define-key company-active-map (kbd "<return>") 'newline)
   (evil-define-key 'normal 'global
