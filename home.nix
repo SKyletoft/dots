@@ -34,6 +34,7 @@ in {
 			cppfront     = pkgs.callPackage ./packages/cppfront.nix {};
 			hylo         = pkgs.callPackage ./packages/hylo.nix {};
 			update-lorri = pkgs.writeShellScriptBin "update-lorri" (builtins.readFile scripts/update-lorri);
+			hms          = pkgs.writeShellScriptBin "hms" (builtins.readFile scripts/hms);
 			doasedit     = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
 			monitor      = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
 			mdpdf        = pkgs.writeShellScriptBin "mdpdf" ''
@@ -413,7 +414,6 @@ in {
 				rm  = "trash-put";
 				em  = "emacs -nw";
 				vi  = "emacsclient -nw";
-				hms = "echo 'cd ~/dots/home && home-manager switch --flake . --impure -L' | bash";
 				restart-emacs = "pkill -9 emacs && emacs --daemon";
 				".." = "cd ..";
 			};
