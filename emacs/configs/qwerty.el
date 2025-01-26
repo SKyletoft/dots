@@ -373,6 +373,9 @@
   (evil-define-key 'normal tuareg-mode-map
     (kbd "SPC I") 'ocamlformat)
 
+  (evil-define-key 'normal swift-ts-mode-map
+    (kbd "SPC I") 'save-and-swift-format-buffer)
+
   (evil-define-key 'normal dyalog-mode-map
     (kbd "SPC R") 'compile
     (kbd "SPC r") 'recompile

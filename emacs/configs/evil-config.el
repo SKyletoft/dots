@@ -326,6 +326,13 @@ As opposed to `list-buffers` which will split the window."
                          (buffer-file-name)))
   (revert-buffer t t t))
 
+(defun save-and-swift-format-buffer ()
+  (interactive)
+  (save-buffer)
+  (shell-command (concat "swift-format -i "
+                         (buffer-file-name)))
+  (revert-buffer t t t))
+
 (defun save-and-stylish-hindent-buffer ()
   (interactive)
   (save-buffer)
