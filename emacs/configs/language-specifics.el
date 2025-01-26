@@ -617,6 +617,9 @@
   :config
   (add-to-list #'auto-mode-alist '("\\.apl$" . dyalog-mode)))
 
+(add-hook 'compilation-mode-hook (lambda ()
+                                   (visual-line-mode 1)))
+
 ;; Line numbers
 (global-display-line-numbers-mode 't) ;; Needed because reasons
 
