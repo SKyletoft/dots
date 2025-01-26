@@ -412,8 +412,12 @@
     (kbd "SPC w") 'gdb-many-windows)
 
   (evil-define-key 'insert vterm-mode-map
-    (kbd "C-V") 'vterm-yank
-    (kbd "C-g") 'vterm--self-insert)
+    (kbd "C-V")      'vterm-yank
+    (kbd "<delete>") 'vterm-send-delete
+    (kbd "C-g")      'vterm--self-insert
+    (kbd "C-a")      'vterm--self-insert
+    [?\t]            'vterm--self-insert
+    (kbd "<tab>")    'vterm--self-insert)
   (evil-define-key '(normal emacs) vterm-mode-map
     (kbd "C-S-F") 'windmove-up
     (kbd "C-S-S") 'windmove-down

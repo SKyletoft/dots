@@ -391,7 +391,12 @@
     (kbd "SPC w") 'gud-finish)
 
   (evil-define-key 'insert vterm-mode-map
-    (kbd "C-V") 'vterm-yank)
+    (kbd "C-V")      'vterm-yank
+    (kbd "<delete>") 'vterm-send-delete
+    (kbd "C-g")      'vterm--self-insert
+    (kbd "C-a")      'vterm--self-insert
+    [?\t]            'vterm--self-insert
+    (kbd "<tab>")    'vterm--self-insert)
   (evil-define-key '(normal emacs) vterm-mode-map
     (kbd "C-M-w") 'windmove-up
     (kbd "C-M-s") 'windmove-down
