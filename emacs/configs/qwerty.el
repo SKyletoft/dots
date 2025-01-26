@@ -407,6 +407,14 @@
   (evil-define-key 'normal vterm-mode-map
     (kbd "SPC r") 'vt-reload)
 
+  (evil-define-key 'motion compilation-mode-map
+    (kbd "SPC m") 'magit
+    (kbd "SPC v") 'hs-toggle-hiding
+    (kbd "ö")     'evil-ex
+    (kbd "Ö")     'eval-expression)
+  (evil-define-key 'visual compilation-mode-map
+    (kbd "SPC r") 'enable-ansi-in-shell-output)
+
   (evil-define-key 'normal treemacs-mode-map
     (kbd "SPC")      'treemacs-TAB-action
     (kbd "C-<tab>")  'treemacs-switch-workspace

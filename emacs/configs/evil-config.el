@@ -342,6 +342,14 @@ As opposed to `list-buffers` which will split the window."
                          (buffer-file-name)))
   (revert-buffer t t t))
 
+(require 'ansi-color)
+(defun enable-ansi-in-shell-output ()
+  "Switch to shell output and enable ansi colours."
+  (interactive)
+  (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))
+  (switch-to-buffer-other-window "*Shell Command Output*")
+  (ansi-color-apply-on-region (point-min) (point-max)))
+
 (defun my/toggle-display ()
 "Toggle whether or not line starts with ]DISPLAY.  Useful for Dyalog APL."
   (interactive)
