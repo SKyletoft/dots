@@ -73,6 +73,7 @@ in {
 			inputs.upwards.packages.${system}.default
 			inputs.revpath.packages.${system}.default
 			update-lorri
+			hms
 		] ++
 		(if gui then [
 			inputs.lem.packages.${system}.default
