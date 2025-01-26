@@ -1,50 +1,65 @@
 {
 	description = "The Hylo programming language";
 	inputs = {
-		nixpkgs.url     = "github:stephank/nixpkgs/feat/swift-5.9";
+		nixpkgs.url     = "github:NixOS/nixpkgs";
 		flake-utils.url = "github:numtide/flake-utils";
+		swift.url       = "github:SKyletoft/swift-flake";
 	};
 
-	outputs = { self, nixpkgs, flake-utils }: flake-utils.lib.eachDefaultSystem(system:
-		let pkgs = nixpkgs.legacyPackages.${system};
+	outputs = { self, nixpkgs, swift, flake-utils }: flake-utils.lib.eachDefaultSystem(system:
+		let pkgs = import nixpkgs {
+			inherit system;
+			sandbox = false;
+		};
 		in rec {
-			packages.default = packages.hylo;
-			packages.hylo =
-			pkgs.stdenv.mkDerivation rec {
-				pname = "hylo";
-				version = "240313";
+			packages = {
+				default = packages.hylo;
+				hylo =
+					pkgs.stdenv.mkDerivation {
+						pname = "hylo";
+						version = "250124";
 
-				src = pkgs.fetchFromGitHub {
-					owner = "hylo-lang";
-					repo = "hylo";
-					rev = "2c4594919cbb958cf75a511f36ccc89b604178b6";
-					sha256 = "sha256-nujSTxs54YhvmBLyhI04buXFd8TeqKn2sdL5rJA7vBA=";
-				};
+						src = pkgs.fetchFromGitHub {
+							owner = "hylo-lang";
+							repo = "hylo";
+							rev = "c322d349fe34f4a9a21b137e980dc8f94a5fc33c";
+							sha256 = "sha256-JEWy4d4sjUrszf05QDYVtbqzl5lh6bnBeoV8qCuS7DM=";
+						};
 
-				nativeBuildInputs = [ pkgs.llvmPackages_15.libllvm ];
-				buildInputs = with pkgs.swiftPackages; [
-					swift
-					swift-driver
-					swiftpm
-					Foundation
-					stdenv
-				];
+						nativeBuildInputs = [ pkgs.llvmPackages_17.libllvm ];
+						buildInputs = [
+							swift.packages.${system}.swift
+							pkgs.stdenv
+							pkgs.cmake
+							pkgs.ninja
+							pkgs.git
+						];
 
-				buildPhase = ''
-					swift build -c release
-				'';
+						SWIFTC="${swift.packages.${system}.swiftc}/bin/swiftc";
+						configurePhase = ''
+							cmake -D CMAKE_BUILD_TYPE=Release \
+								-D LLVM_DIR=${pkgs.llvmPackages_17.libllvm}/lib/cmake/llvm \
+								-G Ninja -S . -B build
+						'';
 
-				installPhase = ''
-					mkdir -p $out/bin
-					ls $out
-				'';
+						# CMake wants to clone stuff
+						buildPhase = ''
+							export NIX_REMOTE=https://github.com
+							cmake --build build
+						'';
+						allowNetwork = true;
 
-				meta = with pkgs.lib; {
-					description = "The Hylo programming language";
-					homepage = "https://github.com/hylo-lang/hylo";
-					# license = licenses.CC-BY-NC-ND-4.0;
-					platforms = platforms.linux;
-				};
+						installPhase = ''
+							mkdir -p $out/bin
+							ls $out
+						'';
+
+						meta = with pkgs.lib; {
+							description = "The Hylo programming language";
+							homepage = "https://github.com/hylo-lang/hylo";
+							platforms = platforms.linux;
+						};
+					};
 			};
 		});
 }

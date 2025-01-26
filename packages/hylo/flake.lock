@@ -18,18 +18,51 @@
         "type": "github"
       }
     },
-    "nixpkgs": {
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
+      },
       "locked": {
-        "lastModified": 1708855400,
-        "narHash": "sha256-QlDt0hDHZ+ofZTmfu4+zIIxMJIRwnuWJITatkZU19Qo=",
-        "owner": "stephank",
-        "repo": "nixpkgs",
-        "rev": "e18cfdb0ef4e8736df4ec3189b05a94b08b11a38",
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
         "type": "github"
       },
       "original": {
-        "owner": "stephank",
-        "ref": "feat/swift-5.9",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1737753923,
+        "narHash": "sha256-O30NErrRU1AMlHoIbsKWs57Lvi8IgGvs+2ZtkTtq7b8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a019ad96aa3710cd05710839f153f58c0325d486",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1737717945,
+        "narHash": "sha256-ET91TMkab3PmOZnqiJQYOtSGvSTvGeHoegAv4zcTefM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ecd26a469ac56357fd333946a99086e992452b6a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -37,10 +70,73 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "swift": "swift"
+      }
+    },
+    "swift": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_2",
+        "swift-bin-aarch64-linux": "swift-bin-aarch64-linux",
+        "swift-bin-x86_64-linux": "swift-bin-x86_64-linux"
+      },
+      "locked": {
+        "lastModified": 1737755748,
+        "narHash": "sha256-J9Sz+nIKl/xo//IJ18HfZDYyh6HJMbLJfO1OvWJdOyI=",
+        "owner": "SKyletoft",
+        "repo": "swift-flake",
+        "rev": "193d1d2c6fda6298ba674008bc5e27493a0e8cb4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SKyletoft",
+        "repo": "swift-flake",
+        "type": "github"
+      }
+    },
+    "swift-bin-aarch64-linux": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737751152,
+        "narHash": "sha256-UKynTv9Ds3HLBoOt5ti6tjJnrqAzOO57GXsjahxLVxA=",
+        "type": "tarball",
+        "url": "https://download.swift.org/swift-6.0.2-release/debian12/swift-6.0.2-RELEASE/swift-6.0.2-RELEASE-debian12.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://download.swift.org/swift-6.0.2-release/debian12/swift-6.0.2-RELEASE/swift-6.0.2-RELEASE-debian12.tar.gz"
+      }
+    },
+    "swift-bin-x86_64-linux": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737751152,
+        "narHash": "sha256-UKynTv9Ds3HLBoOt5ti6tjJnrqAzOO57GXsjahxLVxA=",
+        "type": "tarball",
+        "url": "https://download.swift.org/swift-6.0.2-release/debian12/swift-6.0.2-RELEASE/swift-6.0.2-RELEASE-debian12.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://download.swift.org/swift-6.0.2-release/debian12/swift-6.0.2-RELEASE/swift-6.0.2-RELEASE-debian12.tar.gz"
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
