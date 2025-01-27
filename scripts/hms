@@ -1,1 +1,2 @@
-echo 'cd ~/dots/home && home-manager switch --flake . --impure -L' | bash
+cd ~/dots/home
+home-manager switch --flake . --impure -L
