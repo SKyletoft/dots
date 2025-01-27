@@ -416,6 +416,7 @@
     (kbd "<delete>") 'vterm-send-delete
     (kbd "C-g")      'vterm--self-insert
     (kbd "C-a")      'vterm--self-insert
+    (kbd "C-d")      'vterm--self-insert
     [?\t]            'vterm--self-insert
     (kbd "<tab>")    'vterm--self-insert)
   (evil-define-key '(normal emacs) vterm-mode-map
