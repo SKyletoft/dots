@@ -4,7 +4,7 @@
 
 (defconst cpp2-highlights
   '(("\\(\\*\\(?:.\\|\n\\)*?\\*/\\|//\\(?:.\\|\n\\)*?$\\)\\|;" . 'font-lock-comment-face)
-    ("\\(\\b[A-Z]\\([A-Z]\\|[a-z]\\|[0-9]\\|-\\|_\\)*\\b\\)\\|\\(\\b\\(i8\\|i16\\|i32\\|i64\\|u8\\|u16\\|u32\\|u64\\|bool\\|char\\|size_t\\|ssize_t\\|void\\)\\b\\)" . 'font-lock-type-face)
+    ("\\(\\b[A-Z]\\([A-Z]\\|[a-z]\\|[0-9]\\|-\\|_\\)*\\b\\)\\|\\(\\b\\(i8\\|i16\\|i32\\|i64\\|u8\\|u16\\|u32\\|u64\\|f32\\|f64\\|bool\\|char\\|size_t\\|ssize_t\\|void\\)\\b\\)" . 'font-lock-type-face)
     ("[0-9]+" . 'font-lock-number-face)
     ("\\b\\(true\\|false\\)\\b" . 'font-lock-constant-face)
     ("+\\|-\\|*\\|/\\||\\|&&\\||\\|&\\|->\\|::\\|==\\|!\\|!=\\|<\\|>\\|<=\\|>==\\|!\\|?\\|:\\|:=\\|=" . 'font-lock-operator-face)
