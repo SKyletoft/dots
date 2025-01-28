@@ -75,7 +75,7 @@ If no repl exists it just runs recompile instead."
 
 (defun python-repl ()
   (interactive)
-  (let ((file-name (file-name-sans-extension (file-name-nondirectory (buffer-file-name))))
+  (let ((file-name (file-name-base (buffer-file-name)))
         (is-python (eq major-mode 'python-ts-mode)))
     (vterm-slime)
     (vterm-insert "python3 ")
