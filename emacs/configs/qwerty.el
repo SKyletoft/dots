@@ -25,7 +25,9 @@
     (kbd "ö")     'evil-ex
     (kbd "Ö")     'eval-expression
     (kbd "·")     'run-command
-    (kbd "C-n")   'scratch-buffer)
+    (kbd "C-n")   'scratch-buffer
+    (kbd "SPC R") 'compile
+    (kbd "SPC r") 'recompile)
 
   (evil-define-key 'operator 'global
     (kbd "o") evil-outer-text-objects-map)
@@ -166,8 +168,6 @@
               (kbd "SPC i") 'indent-according-to-mode
               (kbd "SPC I") 'lsp-format-buffer)
             (evil-define-key '(normal visual) ,map
-              (kbd "SPC r")   'recompile
-              (kbd "SPC R")   'compile
               (kbd "SPC f")   'lsp-ui-doc-glance
               (kbd "SPC F")   'lsp-describe-thing-at-point
               (kbd "SPC g")   'xref-find-definitions
@@ -213,21 +213,11 @@
   (lang-with-lsp swift-ts-mode-map)
 
   (evil-define-key '(normal visual) markdown-mode-map
-    (kbd "SPC r")   'recompile
-    (kbd "SPC R")   'compile
     (kbd "SPC i") (kbd "vipgq"))
   (evil-define-key '(normal visual) latex-mode-map
-    (kbd "SPC r")   'recompile
-    (kbd "SPC R")   'compile
     (kbd "SPC i") (kbd "vipgq"))
   (evil-define-key '(normal visual) typst-ts-mode-map
-    (kbd "SPC r")   'recompile
-    (kbd "SPC R")   'compile
     (kbd "SPC i") (kbd "vipgq"))
-
-  (evil-define-key 'normal makefile-gmake-mode-map
-    (kbd "SPC r") 'recompile
-    (kbd "SPC R") 'compile)
 
   (evil-define-key 'visual haskell-ts-mode-map
     (kbd "SPC r") 'hs-slime-v)
@@ -257,7 +247,6 @@
     (kbd "SPC I") 'save-and-stylish-hindent-buffer)
   (evil-define-key '(normal visual) idris-mode-map
     (kbd "SPC r")   'idris-load-file
-    (kbd "SPC R")   'recompile
     (kbd "SPC f")   'idris-type-at-point
     (kbd "SPC g")   'idris-goto-location
     (kbd "SPC a r") 'idris-refine
@@ -329,10 +318,6 @@
   (evil-define-key 'visual scheme-mode-map
     (kbd "SPC r") 'slime-v)
 
-  (evil-define-key '(normal visual) promela-2-mode-map
-    (kbd "SPC R") 'compile
-    (kbd "SPC r") 'recompile)
-
   (evil-define-key 'normal bash-ts-mode-map
     (kbd "SPC r") (lambda () (interactive)
                     (save-buffer)
@@ -369,8 +354,6 @@
     (kbd "SPC i") 'indent-according-to-mode
     (kbd "SPC I") 'my/indent-buffer)
   (evil-define-key '(normal visual) cpp2-mode-map
-    (kbd "SPC r")  'recompile
-    (kbd "SPC R")  'compile
     (kbd "SPC v")  'gud-break)
 
   (evil-define-key 'normal java-ts-mode-map
@@ -387,8 +370,6 @@
     (kbd "SPC I") 'save-and-swift-format-buffer)
 
   (evil-define-key 'normal dyalog-mode-map
-    (kbd "SPC R") 'compile
-    (kbd "SPC r") 'recompile
     (kbd "SPC d") 'my/toggle-display)
   (evil-define-key '(insert replace) dyalog-mode-map
     (kbd "C-a")   apl-keymap)
