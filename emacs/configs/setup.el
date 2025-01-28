@@ -8,7 +8,8 @@
   "Kills all buffers."
   (interactive)
   (mapcar 'kill-buffer (buffer-list))
-  (delete-other-windows))
+  (delete-other-windows)
+  (about-emacs))
 
 (defun kill-buffers-on-all-frames-exited (_)
   "Kills all buffers if no frames exist."
