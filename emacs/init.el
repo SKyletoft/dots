@@ -5,7 +5,7 @@
 (add-to-list 'load-path "~/.config/emacs/configs")
 (add-to-list 'load-path "~/.config/emacs/configs/languages")
 (add-to-list 'custom-theme-load-path "~/.config/emacs/custom-themes")
-;; (add-to-list 'load-path "~/.emacs.d/configs/copilot.el")
+;; (add-to-list 'load-path "~/.config/emacs/configs/copilot.el")
 (put 'narrow-to-region 'disabled nil)
 
 (setq backup-directory-alist `(("." . "~/.config/emacs/backups"))
@@ -28,6 +28,7 @@
 (require 'language-specifics)
 (require 'language-checking)
 (require 'lsp-booster)
+(require 'my-mu4e-config)
 (require 'qwerty)
 (require 'colemak)
 
