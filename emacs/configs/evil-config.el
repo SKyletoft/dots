@@ -47,6 +47,11 @@
   (evil-force-normal-state)
   (evil-visual-restore))
 
+(defun my/indent-buffer ()
+  "Runs indent region over the entire buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
 (setq backward-delete-char-untabify-method 'hungry)
 (setq-default evil-shift-width tab-width)
 (setq align-to-tab-stop nil)
