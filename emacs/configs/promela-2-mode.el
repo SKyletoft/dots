@@ -13,9 +13,11 @@
     ("\\b\\(printf\\|eval\\)\\b" . 'font-lock-function-call-face)
     ("#define\\|#include\\|#if\\|#endif\\|#else" . 'font-lock-preprocessor-face)))
 
+(require 'js)
 (define-derived-mode promela-2-mode prog-mode "Promela"
-  "major mode for editing promela code."
-  (setq font-lock-defaults '(promela-2-highlights)))
+  "Major mode for editing Promela code."
+  (setq-local indent-line-function #'js-indent-line
+              font-lock-defaults '(promela-2-highlights)))
 
 (setq auto-mode-alist
       (append

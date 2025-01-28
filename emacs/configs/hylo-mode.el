@@ -12,9 +12,11 @@
     ("\\b\\(printf\\|eval\\)\\b" . 'font-lock-function-call-face)
     ("#define\\|#include\\|#if\\|#endif\\|#else" . 'font-lock-preprocessor-face)))
 
+(require 'js)
 (define-derived-mode hylo-mode c-mode "Hylo"
   "Major mode for editing Hylo code."
-  (setq font-lock-defaults '(hylo-highlights)))
+  (setq-local indent-line-function #'js-indent-line
+              font-lock-defaults '(hylo-highlights)))
 
 (setq auto-mode-alist
       (append
