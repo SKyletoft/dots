@@ -85,7 +85,7 @@
             ;; (olivetti-mode)
             (editorconfig-apply)
           (setq-local compile-command (concat "mdpdf "
-                                                (buffer-file-name)
+                                                (file-name-sans-extension (buffer-file-name))
                                                 " "
                                                 (buffer-file-name)
                                                 ".pdf"))))
