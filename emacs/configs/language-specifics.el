@@ -86,9 +86,9 @@
             ;; (olivetti-mode)
             (editorconfig-apply)
           (setq-local compile-command (concat "mdpdf "
-                                                (file-name-sans-extension (buffer-file-name))
-                                                " "
                                                 (buffer-file-name)
+                                                " "
+                                                (file-name-sans-extension (buffer-file-name))
                                                 ".pdf"))))
 
 (defun haskell-hook-fn ()
