@@ -363,6 +363,16 @@
     (kbd "I")    'save-and-clang-format-buffer
     (kbd "<f5>") 'gdb)
 
+  (evil-define-key 'visual cpp2-mode-map
+    (kbd "SPC i") 'indent-region)
+  (evil-define-key 'normal cpp2-mode-map
+    (kbd "SPC i") 'indent-according-to-mode
+    (kbd "SPC I") 'my/indent-buffer)
+  (evil-define-key '(normal visual) cpp2-mode-map
+    (kbd "SPC r")  'recompile
+    (kbd "SPC R")  'compile
+    (kbd "SPC v")  'gud-break)
+
   (evil-define-key 'normal java-ts-mode-map
     (kbd "I") 'save-and-clang-format-buffer
     (kbd "<f5>") 'jdb)
