@@ -27,7 +27,9 @@
     (kbd "SPC å") 'projectile-command-map
     (kbd "ö")     'evil-ex
     (kbd "Ö")     'eval-expression
-    (kbd "C-n")   'scratch-buffer)
+    (kbd "C-n")   'scratch-buffer
+    (kbd "SPC l") 'recompile
+    (kbd "SPC L") 'compile)
 
   (evil-define-key 'operator 'global
     (kbd "u") evil-inner-text-objects-map
@@ -181,8 +183,6 @@
               (kbd "SPC o") 'indent-according-to-mode
               (kbd "SPC O") 'lsp-format-buffer)
             (evil-define-key '(normal visual) ,map
-              (kbd "SPC l")   'recompile
-              (kbd "SPC L")   'compile
               (kbd "SPC e")   'lsp-ui-doc-glance
               (kbd "SPC E")   'lsp-describe-thing-at-point
               (kbd "SPC i")   'xref-find-definitions
@@ -227,21 +227,11 @@
   (lang-with-lsp swift-ts-mode-map)
 
   (evil-define-key '(normal visual) markdown-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
     (kbd "SPC o") (kbd "vypgq"))
   (evil-define-key '(normal visual) latex-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
     (kbd "SPC o") (kbd "vypgq"))
   (evil-define-key '(normal visual) typst-ts-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
     (kbd "SPC o") (kbd "vypgq"))
-
-  (evil-define-key 'normal makefile-gmake-mode-map
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile)
 
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC l") 'hs-slime-v)
@@ -271,7 +261,6 @@
     (kbd "SPC O") 'save-and-stylish-hindent-buffer)
   (evil-define-key '(normal visual) idris-mode-map
     (kbd "SPC l")   'idris-load-file
-    (kbd "SPC L")   'recompile
     (kbd "SPC e")   'idris-type-at-point
     (kbd "SPC i")   'idris-goto-location
     (kbd "SPC n r") 'idris-refine
@@ -343,10 +332,6 @@
     (kbd "SPC o") 'indent-region
     (kbd "SPC l") 'slime-v)
 
-  (evil-define-key '(normal visual) promela-2-mode-map
-    (kbd "SPC L") 'compile
-    (kbd "SPC l") 'recompile)
-
   (evil-define-key 'normal bash-ts-mode-map
     (kbd "SPC l") (lambda () (interactive)
                     (save-buffer)
@@ -383,8 +368,6 @@
     (kbd "SPC o")  'indent-according-to-mode
     (kbd "SPC O")  'my/indent-buffer)
   (evil-define-key '(normal visual) cpp2-mode-map
-    (kbd "SPC l")  'recompile
-    (kbd "SPC L")  'compile
     (kbd "SPC v")  'gud-break)
 
   (evil-define-key 'normal java-ts-mode-map
@@ -404,9 +387,6 @@
   (evil-define-key 'normal swift-ts-mode-map
     (kbd "SPC O") 'save-and-swift-format-buffer)
 
-  (evil-define-key 'normal dyalog-mode-map
-    (kbd "SPC L") 'compile
-    (kbd "SPC l") 'recompile)
   (evil-define-key '(insert replace) dyalog-mode-map
     (kbd "C-r")   apl-keymap)
 
