@@ -47,9 +47,8 @@
 
 ;; Load packages
 
-(use-package editorconfig
-  :config
-  (editorconfig-mode 1))
+(use-package editorconfig)
+(editorconfig-mode 1)
 
 (use-package telephone-line)
 (use-package doom-modeline)
