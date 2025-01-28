@@ -5,13 +5,13 @@
 ;; Functions
 
 (defun nuke-all-buffers ()
-  "Kills all buffers"
+  "Kills all buffers."
   (interactive)
   (mapcar 'kill-buffer (buffer-list))
   (delete-other-windows))
 
 (defun kill-buffers-on-all-frames-exited (_)
-  "Kills all buffers if no frames exist"
+  "Kills all buffers if no frames exist."
   (let ((frames (length (x-frame-list-z-order))))
     (if (eq frames 0)
         (progn
