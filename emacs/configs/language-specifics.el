@@ -32,10 +32,11 @@
 (defvaralias 'swift-ts-mode-indent-offset                 'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
+  "Disables tab characters in alignment."
   (let ((indent-tabs-mode nil)) ad-do-it))
 
 (defun set-indents (tab-width-p shift-width-p tabs-p)
-"Set the tab width (TAB-WIDTH-P), evil shift width (SHIFT-WIDTH-P) and whether or not to use tabs (TABS-P)."
+  "Set the tab width (TAB-WIDTH-P), evil shift width (SHIFT-WIDTH-P) and whether or not to use tabs (TABS-P)."
   (setq-local tab-width tab-width-p
               evil-shift-width shift-width-p
               indent-tabs-mode tabs-p))
