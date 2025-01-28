@@ -102,7 +102,8 @@
               lsp-ui-sideline-show-hover nil
               lsp-ui-sideline-enable t
               lsp-haskell-plugin-ghcide-type-lenses-global-on nil
-              lsp-haskell-plugin-ghcide-class-global-on nil)
+              lsp-haskell-plugin-ghcide-class-global-on nil
+              compile-command (concat "runhaskell " (buffer-file-name)))
   (editorconfig-apply)
   (lsp)
   ;; (ghci)
