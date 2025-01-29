@@ -8,7 +8,7 @@
   "Kills all buffers."
   (interactive)
   (about-emacs)
-  (mapcar (lambda (buf)
+  (mapc (lambda (buf)
             (if (not (string= (buffer-name buf) "*About GNU Emacs*"))
                 (kill-buffer buf)))
           (buffer-list))
