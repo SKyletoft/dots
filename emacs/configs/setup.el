@@ -14,6 +14,9 @@
           (buffer-list))
   (delete-other-windows))
 
+;; Nuke all buffers after 8h of idle time
+(run-with-idle-timer (* 60 60 8) t 'nuke-all-buffers)
+
 (defun kill-buffers-on-all-frames-exited (_)
   "Kills all buffers if no frames exist."
   (let ((frames (length (x-frame-list-z-order))))
