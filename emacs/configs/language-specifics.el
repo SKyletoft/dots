@@ -30,6 +30,7 @@
 (defvaralias 'python-indent-offset                        'evil-shift-width)
 (defvaralias 'html-ts-mode-indent-offset                  'evil-shift-width)
 (defvaralias 'swift-ts-mode-indent-offset                 'evil-shift-width)
+(defvaralias 'typst-ts-mode-indent-offset                 'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
   "Disables tab characters in alignment."
