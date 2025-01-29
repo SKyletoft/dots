@@ -123,6 +123,7 @@ in {
 			ruffle
 			# gamescope
 			mission-center
+			scanmem # gameconqueror (cheatengine alternative)
 
 			i2c-tools
 
