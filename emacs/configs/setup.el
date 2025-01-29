@@ -7,9 +7,12 @@
 (defun nuke-all-buffers ()
   "Kills all buffers."
   (interactive)
-  (mapcar 'kill-buffer (buffer-list))
-  (delete-other-windows)
-  (about-emacs))
+  (about-emacs)
+  (mapcar (lambda (buf)
+            (if (not (string= (buffer-name buf) "*About GNU Emacs*"))
+                (kill-buffer buf)))
+          (buffer-list))
+  (delete-other-windows))
 
 (defun kill-buffers-on-all-frames-exited (_)
   "Kills all buffers if no frames exist."
