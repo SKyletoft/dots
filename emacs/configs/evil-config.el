@@ -382,4 +382,13 @@ As opposed to `list-buffers` which will split the window."
   (interactive)
   (evil-scroll-line-down 5))
 
+(defun preview-pdf ()
+  "Open the file of the same name but with a .pdf extension in a split window."
+  (interactive)
+  (split-window-right)
+  (evil-window-right 1)
+  (find-file (concat (file-name-sans-extension (buffer-file-name))
+                     ".pdf"))
+  (evil-window-left 1))
+
 (provide 'evil-config)
