@@ -67,7 +67,8 @@ If no repl exists it just runs recompile instead."
       (if is-haskell
           (vterm-insert file-name))
       (vterm-send-return)
-      (vterm-send "C-l"))))
+      (vterm-send "C-l")
+      (evil-force-normal-state))))
 
 (defun kill-ghci ()
   (interactive)
@@ -84,7 +85,8 @@ If no repl exists it just runs recompile instead."
         (vterm-insert (concat "from "
                               file-name
                               " import *")))
-    (vterm-send-return)))
+    (vterm-send-return)
+    (evil-force-normal-state)))
 
 (defun kill-repl ()
   (interactive)
