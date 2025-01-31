@@ -96,24 +96,31 @@
   (direnv-update-environment)
   (set-indents 8 2 nil)
   (setq-local lsp-idle-delay 0.6
-              eldoc-mode nil
-              lsp-lens-mode nil
+              eldoc-mode 0
+              lsp-lens-mode 0
               lsp-eldoc-enable-hover nil
               eldoc-documentation-function #'ignore
               lsp-ui-doc-mode t
               lsp-ui-sideline-show-hover nil
               lsp-ui-sideline-enable t
-              lsp-haskell-plugin-ghcide-type-lenses-global-on nil
+              lsp-haskell-plugin-ghcide-type-lenses-global-on t
               lsp-haskell-plugin-ghcide-class-global-on nil
               compile-command (concat "runhaskell " (buffer-file-name)))
   (editorconfig-apply)
   (lsp)
   ;; (ghci)
   )
+(defun not-eq-fix()
+"Ruin spellings of words like centre or colour to work with HTML and CSS that have hardcoded the American spellings."
+  (interactive)
+  (save-excursion
+    (goto-line 0)
+    (replace-string "!=" "/=")))
 (use-package haskell-mode
   :defer t
   :hook
-  (haskell-mode . haskell-hook-fn))
+  (haskell-mode . haskell-hook-fn)
+  (haskell-mode . not-eq-fix))
 (use-package haskell-ts-mode
   :defer t
   :hook
