@@ -242,13 +242,17 @@
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC l") 'hs-slime-v)
   (evil-define-key 'normal haskell-mode-map
+    (kbd "SPC t") 'lsp-lens-mode
     (kbd "SPC l") 'hs-slime-n
+    (kbd "SPC o") 'save-and-stylish-hindent-buffer
     (kbd "SPC O") 'save-and-stylish-hindent-buffer
     (kbd "<f5>")  'ghci)
   (evil-define-key 'visual haskell-ts-mode-map
     (kbd "SPC l") 'hs-slime-v)
   (evil-define-key 'normal haskell-ts-mode-map
+    (kbd "SPC t") 'lsp-lens-mode
     (kbd "SPC l") 'hs-slime-n
+    (kbd "SPC o") 'save-and-stylish-hindent-buffer
     (kbd "SPC O") 'save-and-stylish-hindent-buffer
     (kbd "<f5>")  'ghci)
 

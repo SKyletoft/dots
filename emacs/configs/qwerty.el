@@ -222,14 +222,19 @@
   (evil-define-key 'visual haskell-ts-mode-map
     (kbd "SPC r") 'hs-slime-v)
   (evil-define-key 'normal haskell-ts-mode-map
+    (kbd "SPC t") 'lsp-lens-mode
     (kbd "SPC r") 'hs-slime-n
     (kbd "SPC i") 'save-and-stylish-hindent-buffer
+    (kbd "SPC I") 'save-and-stylish-hindent-buffer
     (kbd "<f5>")  'ghci)
+
   (evil-define-key 'visual haskell-mode-map
     (kbd "SPC r") 'hs-slime-v)
   (evil-define-key 'normal haskell-mode-map
+    (kbd "SPC t") 'lsp-lens-mode
     (kbd "SPC r") 'hs-slime-n
     (kbd "SPC i") 'save-and-stylish-hindent-buffer
+    (kbd "SPC I") 'save-and-stylish-hindent-buffer
     (kbd "<f5>")  'ghci)
 
   (evil-define-key 'visual python-ts-mode-map
