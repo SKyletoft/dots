@@ -16,6 +16,7 @@ in {
 		config = {
 			allowUnfree = true;
 			allowBroken = false;
+			rocmSupport = true;
 		};
 		overlays = (import ./overlays.nix) nativeBuild;
 	} // (if nativeBuild then {
