@@ -409,7 +409,7 @@
     (kbd "SPC v") 'hs-toggle-hiding
     (kbd "ö")     'evil-ex
     (kbd "Ö")     'eval-expression
-    (kbd "C-c")   'kill-compilation)
+    (kbd "SPC c") 'kill-compilation)
   (evil-define-key 'visual compilation-mode-map
     (kbd "SPC r") 'enable-ansi-in-shell-output)
 
