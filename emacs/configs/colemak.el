@@ -409,7 +409,11 @@
     (kbd "i")     'gud-stepi
     (kbd "SPC p") 'gud-cont
     (kbd "SPC f") 'gud-finish
-    (kbd "SPC w") 'gdb-many-windows)
+    (kbd "SPC w") 'gdb-many-windows
+    (kbd "SPC q") (lambda ()
+                    (interactive)
+                    (gdb-many-windows -1)
+                    (evil-quit)))
 
   (evil-define-key 'insert vterm-mode-map
     (kbd "C-V")      'vterm-yank
