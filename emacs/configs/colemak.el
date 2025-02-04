@@ -380,6 +380,9 @@
   (evil-define-key '(normal visual) cpp2-mode-map
     (kbd "SPC v")  'gud-break)
 
+  (evil-define-key 'normal nix-ts-mode-map
+    (kbd "SPC O")  'my/indent-buffer)
+
   (evil-define-key 'normal java-ts-mode-map
     (kbd "SPC O") 'save-and-clang-format-buffer
     (kbd "<f5>")  'jdb)
