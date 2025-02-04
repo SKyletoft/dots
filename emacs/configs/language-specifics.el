@@ -107,6 +107,7 @@
               lsp-haskell-plugin-ghcide-class-global-on nil
               compile-command (concat "runhaskell " (buffer-file-name)))
   (editorconfig-apply)
+  (hs-minor-mode 1)
   (lsp)
   ;; (ghci)
   )
@@ -229,6 +230,7 @@
             (company-mode)
             (add-hook 'before-save-hook 'lisp-kbd 90 't)
             (prettify-symbols-mode 1)
+            (hs-minor-mode 1)
             (editorconfig-apply)))
 
 (defun americanise ()
@@ -262,6 +264,7 @@
               lsp-clients-clangd-arguments '("--header-insertion-decorators=0" "--clang-tidy")
               gdb-many-windows-mode 1
               compile-command "make -ksj ")
+  (hs-minor-mode 1)
   (direnv-update-environment)
   (lsp)
   (lsp-inlay-hints-mode)
@@ -277,6 +280,7 @@
 
 (add-hook 'java-ts-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (set-indents 8 8 t)
             (editorconfig-apply)
             (direnv-update-environment)
@@ -285,6 +289,7 @@
 
 (add-hook 'csharp-ts-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (set-indents 8 8 t)
             (editorconfig-apply)
             (lsp-inlay-hints-mode)
@@ -295,6 +300,7 @@
 
 (add-hook 'erlang-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (editorconfig-apply)
             (set-indents 8 2 nil)
             (direnv-update-directory-environment)
@@ -302,12 +308,14 @@
 
 (add-hook 'mhtml-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (setq-local electric-indent-mode nil)
             (set-indents 8 8 t)
             (editorconfig-apply)
             (add-hook 'before-save-hook 'americanise 90 't)))
 (add-hook 'html-ts-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (setq-local electric-indent-mode nil)
             (set-indents 8 8 t)
             (editorconfig-apply)
@@ -315,17 +323,20 @@
 
 (add-hook 'css-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (set-indents 8 8 't)
             (editorconfig-apply)
             (add-hook 'before-save-hook 'americanise 90 't)))
 
 (add-hook 'js-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (set-indents 8 8 't)
             (editorconfig-apply)))
 
 (add-hook 'tuareg-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (ocamlformat-setup-indents)
             (set-indents 8 2 nil)
             (setq-local eldoc-mode nil)
@@ -338,6 +349,7 @@
   :mode "\\.nix\\'"
   :hook
   (nix-ts-mode . (lambda ()
+                   (hs-minor-mode 1)
                    (set-indents 4 4 t)
                    (setq-local compile-command "nix run -L")
                    (editorconfig-apply)
@@ -346,6 +358,7 @@
 
 (add-hook 'python-ts-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (set-indents 8 4 nil)
             (setq-local compile-command (concat "python3 "
                                                 (buffer-file-name))
@@ -355,6 +368,7 @@
 
 (add-hook 'bash-ts-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (set-indents 8 8 t)
             (editorconfig-apply)
             (direnv-update-environment)
@@ -362,6 +376,7 @@
 
 (add-hook 'latex-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (set-indents 8 8 t)
             (editorconfig-apply)))
 
@@ -388,6 +403,7 @@
   :defer t
   :hook
   (futhark-mode . (lambda ()
+                    (hs-minor-mode 1)
                     (set-indents 8 2 nil)
                     (direnv-update-environment)
                     (lsp)
@@ -398,6 +414,7 @@
   (dafny-mode . (lambda ()
                   (require 'dafny-mode)
                   (require 'lsp-dafny)
+                  (hs-minor-mode 1)
                   (set-indents 8 8 t)
                   (setq-local prettify-symbols-alist '(("in"     . 8712)
                                                        ("!in"    . 8713)
@@ -420,6 +437,7 @@
 (require 'typst-ts-mode)
 (add-hook 'typst-ts-mode-hook
           (lambda ()
+            (hs-minor-mode 1)
             (set-indents 8 8 t)
             (setq-local compile-command (concat "typst w "
                                                 (buffer-file-name)))
@@ -431,6 +449,7 @@
   :defer t
   :hook
   (wgsl-mode . (lambda ()
+                 (hs-minor-mode 1)
                  (set-indents 8 8 t)
                  (direnv-update-environment)
                  (lsp)))
@@ -448,6 +467,7 @@
 
 (defun glsl-hook ()
   (interactive)
+  (hs-minor-mode 1)
   (define-key glsl-mode-map (kbd "S-<iso-lefttab>") 'ff-find-other-file 'remove)
   (set-indents 8 8 t)
   (editorconfig-apply)
@@ -462,7 +482,9 @@
 (use-package pest-mode
   :defer t
   :hook
-  (pest-mode . (lambda () (set-indents 8 8 t)))
+  (pest-mode . (lambda ()
+                 (hs-minor-mode 1)
+                 (set-indents 8 8 t)))
   :config
   (autoload 'pest-mode "pest-mode")
   (add-to-list #'auto-mode-alist '("\\.pest\\'" . pest-mode)))
@@ -471,6 +493,7 @@
   :defer t
   :hook
   (kotlin-mode . (lambda ()
+                   (hs-minor-mode 1)
                    (set-indents 8 8 t)
                    (editorconfig-apply)
                    (direnv-update-environment)
@@ -486,6 +509,7 @@
   :defer t
   :hook
   (roc-ts-mode . (lambda ()
+                   (hs-minor-mode 1)
                    (set-indents 8 4 nil)
                    (editorconfig-apply)
                    (setq-local compile-command "roc run")))
@@ -502,9 +526,10 @@
 (use-package swift-ts-mode
   :hook
   (swift-ts-mode . (lambda ()
-                   (set-indents 8 8 t)
-                   (editorconfig-apply)
-                   (setq-local compile-command "swift run"))))
+                     (hs-minor-mode 1)
+                     (set-indents 8 8 t)
+                     (editorconfig-apply)
+                     (setq-local compile-command "swift run"))))
 ;; (use-package lsp-sourcekit)
 (lsp-register-client
    (make-lsp-client :new-connection (lsp-stdio-connection "sourcekit-lsp")
