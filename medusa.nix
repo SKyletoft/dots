@@ -369,7 +369,24 @@ in {
 		xwayland.enable = waylandSupport;
 
 		gamemode.enable = true;
-		steam.enable = true;
+		steam = {
+			enable = true;
+			gamescopeSession.enable = true;
+			package = pkgs.steam.override {
+				extraPkgs = p: with p; [
+					xorg.libXcursor
+					xorg.libXi
+					xorg.libXinerama
+					xorg.libXScrnSaver
+					libpng
+					libpulseaudio
+					libvorbis
+					stdenv.cc.cc.lib
+					libkrb5
+					keyutils
+				];
+			};
+		};
 		kdeconnect = {
 			enable = true;
 			package = pkgs.gnomeExtensions.gsconnect;
