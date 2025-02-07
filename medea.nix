@@ -265,7 +265,7 @@ in {
 			zsa-udev-rules
 			powertop
 			pinentry
-			inputs.nixGL.packages.${system}.nixGLIntel
+			nixGL.packages.${system}.nixGLIntel
 
 			setup-system
 			update-keys
