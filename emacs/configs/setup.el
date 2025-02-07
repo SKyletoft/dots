@@ -132,7 +132,7 @@
                         :models '(mistral:latest))))
 
 ;; GDB/GUD-GDB
-(gdb-debuginfod-enable-setting nil)
+(setq gdb-debuginfod-enable-setting nil)
 
 (provide 'setup)
 ;;; setup.el ends here.
