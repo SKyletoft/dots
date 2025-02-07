@@ -4,7 +4,7 @@
 		nixos-hardware.url = "github:NixOS/nixos-hardware";
 		nixGL.url = "github:nix-community/nixGL";
 	};
-	outputs = { self, nixpkgs, nixos-hardware, nixGL }: {
+	outputs = { self, nixpkgs, nixos-hardware, nixGL }@inputs: {
 		nixosConfigurations.medea = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
