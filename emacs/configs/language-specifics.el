@@ -111,12 +111,14 @@
   (lsp)
   ;; (ghci)
   )
+
 (defun not-eq-fix()
-"Ruin spellings of words like centre or colour to work with HTML and CSS that have hardcoded the American spellings."
+"Swap out != with /= for languages like Haskell."
   (interactive)
   (save-excursion
-    (goto-line 0)
+    (goto-char (point-min))
     (replace-string "!=" "/=")))
+
 (use-package haskell-mode
   :defer t
   :hook
