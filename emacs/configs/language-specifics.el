@@ -75,7 +75,7 @@
         (rustic-mode . rust-ts-mode)
         (python-mode . python-ts-mode)
         (sh-mode . bash-ts-mode)
-        ;; (haskell-mode . haskell-ts-mode)
+        (haskell-mode . haskell-ts-mode)
         (csharp-mode . csharp-ts-mode)
         (tex-mode . latex-mode)))
 
@@ -124,10 +124,11 @@
   :hook
   (haskell-mode . haskell-hook-fn)
   (haskell-mode . not-eq-fix))
-;; (use-package haskell-ts-mode
-;;   :defer t
-;;   :hook
-;;   (haskell-ts-mode . haskell-hook-fn))
+(use-package haskell-ts-mode
+  :defer t
+  :hook
+  (haskell-mode . not-eq-fix)
+  (haskell-ts-mode . haskell-hook-fn))
 
 (defun toggle-hole ()
 "Toggle having a ? at the start of the word."
