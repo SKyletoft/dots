@@ -287,7 +287,6 @@ in {
 		emacs = rec {
 			enable = true;
 			package = emacsPin.emacs-git.override {
-				withGTK2 = false;
 				withGTK3 = false;
 				withX    = gui;
 				withWebP = gui;
