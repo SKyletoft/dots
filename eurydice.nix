@@ -10,6 +10,7 @@ let
 		SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status
 		SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status
 		SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status
+		SYSTEMD_COLORS=true systemctl status github-runner-runner1 | head -n3 >> /tmp/eurydice-status
 	'';
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
