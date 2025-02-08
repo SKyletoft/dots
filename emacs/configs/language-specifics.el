@@ -122,10 +122,10 @@
   :hook
   (haskell-mode . haskell-hook-fn)
   (haskell-mode . not-eq-fix))
-(use-package haskell-ts-mode
-  :defer t
-  :hook
-  (haskell-ts-mode . haskell-hook-fn))
+;; (use-package haskell-ts-mode
+;;   :defer t
+;;   :hook
+;;   (haskell-ts-mode . haskell-hook-fn))
 
 (defun toggle-hole ()
 "Toggle having a ? at the start of the word."
