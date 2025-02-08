@@ -367,6 +367,14 @@ in {
 				};
 			};
 		};
+		github-runners = {
+			runner1 = {
+				enable = true;
+				name = "runner1";
+				tokenFile = "/etc/nixos/secret/thesis-runner-token";
+				url = "https://github.com/SKyletoft/masters-thesis";
+			};
+		};
 	};
 
 	programs = {
