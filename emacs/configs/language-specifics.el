@@ -122,12 +122,12 @@
 (use-package haskell-mode
   :defer t
   :hook
-  (haskell-mode . haskell-hook-fn)
-  (haskell-mode . not-eq-fix))
+  (haskell-mode . not-eq-fix)
+  (haskell-mode . haskell-hook-fn))
 (use-package haskell-ts-mode
   :defer t
   :hook
-  (haskell-mode . not-eq-fix)
+  (haskell-ts-mode . not-eq-fix)
   (haskell-ts-mode . haskell-hook-fn))
 
 (defun toggle-hole ()
