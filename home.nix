@@ -458,6 +458,7 @@ in {
 		"hypr/hyprland.conf".source       = ./hyprland.conf;
 		"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
 		"waybar/config".source            = ./waybar;
+		"fourmolu.yaml".source            = ./fourmolu.yaml;
 	};
 
 	home.file = {
