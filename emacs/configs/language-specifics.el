@@ -105,7 +105,10 @@
               lsp-ui-sideline-enable t
               lsp-haskell-plugin-ghcide-type-lenses-global-on t
               lsp-haskell-plugin-ghcide-class-global-on nil
-              compile-command (concat "runhaskell " (buffer-file-name)))
+              compile-command (concat "runhaskell " (buffer-file-name))
+              lsp-haskell-formatting-provider "fourmolu"
+              lsp-haskell-plugin-fourmolu-config-external t
+              lsp-haskell-plugin-fourmolu-config-path "fourmolu18")
   (editorconfig-apply)
   (hs-minor-mode 1)
   (lsp)
