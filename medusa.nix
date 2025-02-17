@@ -321,7 +321,6 @@ in {
 			fuzzy-app-search
 			pop-shell
 			burn-my-windows
-			dotspaces
 			hibernate-status-button
 		]);
 	};
