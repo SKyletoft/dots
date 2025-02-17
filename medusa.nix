@@ -340,7 +340,6 @@ in {
 	};
 
 	fonts.packages = with pkgs.nerd-fonts; [
-		cascadia-code
 		fantasque-sans-mono
 		roboto
 		iosevka
@@ -349,7 +348,9 @@ in {
 		fira-code
 		droid-sans-mono
 		roboto-mono
-	] ++ (if windowsFonts then [
+	] ++ (with pkgs; [
+		cascadia-code
+	]) ++ (if windowsFonts then [
 		winePackages.fonts
 		vistafonts
 		corefonts
