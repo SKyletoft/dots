@@ -352,11 +352,9 @@ in {
 		iosevka # Update to nerdfont version when I update medusa
 		(pkgs.callPackage ./packages/0xproto.nix {})
 		(pkgs.callPackage ./packages/monaspace.nix {})
-		(nerdfonts.override {fonts = [
-			"FiraCode"
-			"DroidSansMono"
-			"RobotoMono"
-		];})
+		nerdfonts.fira-code
+		nerdfonts.droid-sans-mono
+		nerdfonts.roboto-mono
 	] ++ (if windowsFonts then [
 		winePackages.fonts
 		vistafonts
