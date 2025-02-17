@@ -81,13 +81,7 @@ in {
 	};
 
 	hardware = {
-		graphics = {
-			enable = true;
-			extraPackages = with pkgs; [
-				rocm-opencl-icd
-				rocm-opencl-runtime
-			];
-		};
+		graphics.enable = true;
 		cpu.amd.updateMicrocode = true;
 		keyboard.zsa.enable = true;
 		i2c.enable = true;
