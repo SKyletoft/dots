@@ -341,7 +341,6 @@ in {
 
 	fonts.packages = with pkgs.nerd-fonts; [
 		fantasque-sans-mono
-		roboto
 		iosevka
 		_0xproto
 		monaspace
@@ -349,6 +348,7 @@ in {
 		droid-sans-mono
 		roboto-mono
 	] ++ (with pkgs; [
+		roboto
 		cascadia-code
 	]) ++ (if windowsFonts then [
 		winePackages.fonts
