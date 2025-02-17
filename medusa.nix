@@ -339,16 +339,16 @@ in {
 		}];
 	};
 
-	fonts.packages = with pkgs; [
+	fonts.packages = with pkgs.nerd-fonts; [
 		cascadia-code
 		fantasque-sans-mono
 		roboto
-		iosevka # Update to nerdfont version when I update medusa
-		(pkgs.callPackage ./packages/0xproto.nix {})
-		(pkgs.callPackage ./packages/monaspace.nix {})
-		nerd-fonts.fira-code
-		nerd-fonts.droid-sans-mono
-		nerd-fonts.roboto-mono
+		iosevka
+		_0xproto
+		monaspace
+		fira-code
+		droid-sans-mono
+		roboto-mono
 	] ++ (if windowsFonts then [
 		winePackages.fonts
 		vistafonts
