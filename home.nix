@@ -416,6 +416,7 @@ in {
 				vi  = "emacsclient -nw";
 				restart-emacs = "pkill -9 emacs && emacs --daemon";
 				".." = "cd ..";
+				chat = "ollama run codellama:13b-instruct";
 			};
 
 			shellOptions = [
