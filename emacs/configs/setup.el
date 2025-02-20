@@ -30,10 +30,7 @@
 (setq visual-line-mode -1
       frame-resize-pixelwise t
       xterm-mouse-mode 1
-      recentf-mode 1
       global-auto-revert-non-file-buffers t
-      recentf-max-menu-items 25
-      recentf-max-saved-items 25
       ring-bell-function 'ignore
       use-dialog-box nil
       show-trailing-whitespace t
