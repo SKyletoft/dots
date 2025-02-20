@@ -11,7 +11,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (eval-and-compile
-  (setq use-package-always-ensure t
+  (setq use-package-always-ensure (/= 0 (call-process-shell-command "uname -a | rg NixOS"))
         use-package-expand-minimally t))
 
 (provide 'packages-config)
