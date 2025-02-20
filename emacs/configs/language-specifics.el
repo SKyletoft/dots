@@ -343,7 +343,6 @@
 (add-hook 'tuareg-mode-hook
           (lambda ()
             (hs-minor-mode 1)
-            (ocamlformat-setup-indents)
             (set-indents 8 2 nil)
             (setq-local eldoc-mode nil)
             (direnv-update-environment)
