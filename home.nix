@@ -361,7 +361,7 @@ in {
 
 					lsp-mode
 					lsp-ui
-					dap-mode
+					# dap-mode
 
 					realgud
 					realgud-jdb
@@ -371,7 +371,7 @@ in {
 
 					company
 
-					lsp-java
+					# lsp-java
 					nix-ts-mode
 					haskell-ts-mode
 					idris-mode
