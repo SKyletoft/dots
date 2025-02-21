@@ -460,6 +460,7 @@ in {
 		"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
 		"waybar/config".source            = ./waybar;
 		"fourmolu.yaml".source            = ./fourmolu.yaml;
+		"mpv/mpv.conf".source             = ./mpv.conf;
 	};
 
 	home.file = {
