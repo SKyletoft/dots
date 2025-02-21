@@ -129,6 +129,7 @@
   (haskell-mode . haskell-hook-fn))
 (use-package haskell-ts-mode
   :defer t
+  :mode ("\\.hs\\'" . haskell-ts-mode)
   :hook
   (haskell-ts-mode . not-eq-fix)
   (haskell-ts-mode . haskell-hook-fn))
