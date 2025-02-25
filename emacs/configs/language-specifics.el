@@ -544,6 +544,14 @@
                     :server-id 'sourcekit-ls))
 (add-to-list 'lsp-language-id-configuration '(swift-ts-mode . "swift-ts"))
 
+(use-package yaml-ts-mode
+  :hook
+  (yaml-ts-mode . (lambda ()
+                    (hs-minor-mode 1)
+                    (set-indents 8 2 nil)
+                    (editorconfig-apply)
+                    (mixed-pitch-mode -1))))
+
 (defvar-keymap apl-keymap
   "§" "⋄"
   "|" "⋄"
