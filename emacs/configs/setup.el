@@ -131,5 +131,10 @@
 ;; GDB/GUD-GDB
 (setq gdb-debuginfod-enable-setting nil)
 
+(require 'dictionary-path)
+(setq flyspell-mode 1
+      flyspell-prog-mode 1)
+(setq ispell-dictionary "en_GB")
+
 (provide 'setup)
 ;;; setup.el ends here.

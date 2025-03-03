@@ -324,6 +324,7 @@ in {
 				in epkgs: (with emacsPin.emacsPackages; [
 					emacsPin.python313Packages.python
 					emacsPin.nodejs
+					emacsPin.ispell
 
 					direnv
 					magit
@@ -552,9 +553,17 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 
 		# Emacs
 		# ".config/emacs".source                    = ./emacs;
-		".config/emacs/configs/node-path.el".text =
-''(provide 'node-path)
+		".config/emacs/configs/node-path.el".text = ''
 (setq copilot-node-executable "${emacsPin.nodejs}/bin/node")
+(provide 'node-path)
+'';
+		".config/emacs/configs/dictionary-path.el".text = ''
+(setq ispell-program-name "${emacsPin.hunspell}/bin/hunspell")
+(setenv "DICPATH" (concat
+	"${emacsPin.hunspellDicts.en_GB-ise}/share/hunspell"
+	":"
+	"${emacsPin.hunspellDicts.sv_SE}/share/hunspell"))
+(provide 'dictionary-path)
 '';
 	};
 
