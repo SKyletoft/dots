@@ -10,6 +10,7 @@
 **recentf
 **.cache**
 **.elc
+emacs/**sqlite
 emacs/url
 emacs/session*
 emacs/.dap-breakpoints
@@ -24,7 +25,6 @@ emacs/eclipse.jdt.ls
 emacs/workspace
 emacs/eshell
 emacs/ielm-history.eld
-emacs/forge-database.sqlite
 emacs/projects
 emacs/mu4e
 emacs/network-security.data
