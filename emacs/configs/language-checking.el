@@ -24,4 +24,6 @@
   (lsp-ui-sideline-show-hover t)
   (lsp-ui-doc-enable nil))
 
+(use-package lsp-treemacs)
+
 (use-package flycheck)

@@ -362,6 +362,7 @@ in {
 
 					lsp-mode
 					lsp-ui
+					lsp-treemacs
 					# dap-mode
 
 					realgud
