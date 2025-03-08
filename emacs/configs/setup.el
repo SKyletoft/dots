@@ -113,7 +113,9 @@
 
 (use-package magit)
 (use-package forge
-  :after magit)
+  :after magit evil
+  :hook
+  (forge-pullreq-mode . (lambda () (evil-emacs-state))))
 
 (use-package nerd-icons)
 (use-package all-the-icons)
