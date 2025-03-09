@@ -105,7 +105,7 @@ in {
 			stablePkgs.libreoffice
 			stablePkgs.hunspellDicts.sv_SE
 
-			ark
+			kdePackages.ark
 			pcmanfm
 			vlc
 			mpv
