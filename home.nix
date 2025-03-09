@@ -536,7 +536,7 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 		".config/emacs/tree-sitter/libtree-sitter-yaml.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-yaml}/parser";
 		".config/emacs/tree-sitter/libtree-sitter-roc.so".source =
-			"${with emacsPin; inputs.roc-ts.defaultPackage.${system}}/parser";
+			"${with emacsPin; inputs.roc-ts.packages.${system}.default}/parser";
 		".config/emacs/tree-sitter/libtree-sitter-swift.so".source =
 			"${with emacsPin; inputs.swift-ts.defaultPackage.${system}}/parser";
 
