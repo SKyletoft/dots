@@ -1,14 +1,14 @@
 { lib, stdenv, fetchFromGitHub, kernel }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
 	pname = "xpad";
-	version = "3.2";
+	version = "0.4";
 
 	src = fetchFromGitHub {
 		owner = "paroj";
 		repo = "xpad";
-		rev = "1821d2822783e8c24733b05138e06d9a9f4d309d";
-		sha256 = "sha256-+KSv+fDwfzsT/rqonCCbl451LzdtDzGvhP5MrMWpfZg=";
+		rev = "ffc6910bf4e089288a500935bee49216a5017836";
+		sha256 = "sha256-rkn8xs9G8YdDgOscEd0vclZVOYySGnsKWsg/NLzjYuI=";
 	};
 
 	setSourceRoot = ''
