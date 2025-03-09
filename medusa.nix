@@ -72,11 +72,11 @@ in {
 			sshfs = true;
 		};
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
-		kernelModules = [ "amdgpu" "kvm-amd" "i2c-dev" "xpad" "hid-nintendo" "xone" "xpadneo" ];
+		kernelModules = [ "amdgpu" "kvm-amd" "i2c-dev" "hid-nintendo" "xone" "xpadneo" ];
 		extraModulePackages = [
 			config.boot.kernelPackages.xone
 			config.boot.kernelPackages.xpadneo
-			(config.boot.kernelPackages.callPackage ./packages/xpad.nix {})
+			# (config.boot.kernelPackages.callPackage ./packages/xpad.nix {})
 		];
 	};
 
