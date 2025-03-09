@@ -7,7 +7,7 @@
 	outputs = { self, nixpkgs, nixos-hardware, nixGL }@inputs: {
 		nixosConfigurations.medea = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
-			inherit inputs;
+			specialArgs = inputs;
 			modules = [
 				../medea.nix
 				nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga-7th-gen
