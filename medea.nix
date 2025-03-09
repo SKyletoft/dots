@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, nixGL, ... }:
 
 let
 	waylandSupport = true;
@@ -267,7 +267,7 @@ in {
 			zsa-udev-rules
 			powertop
 			pinentry
-			inputs.nixGL.packages.${system}.nixGLIntel
+			nixGL.packages.${system}.nixGLIntel
 
 			setup-system
 			update-keys
