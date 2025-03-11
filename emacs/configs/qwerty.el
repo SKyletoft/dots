@@ -49,8 +49,10 @@
     (kbd "C-d") 'evil-forward-word-end)
   (evil-define-key '(normal visual motion) 'global
     (kbd "C-a") 'evil-backward-word-begin
-    (kbd "C-w") 'up-five
-    (kbd "C-s") 'down-five)
+    (kbd "M-w") 'up-five
+    (kbd "M-s") 'down-five
+    (kbd "C-w") 'evil-backward-paragraph
+    (kbd "C-s") 'evil-forward-paragraph)
 
   (evil-define-key '(normal visual motion) 'global
     (kbd "W") 'evil-jump-item
