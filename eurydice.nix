@@ -119,7 +119,7 @@ in {
 			exfat = true;
 			sshfs = true;
 		};
-		binfmt.emulatedSystems = [];
+		binfmt.emulatedSystems = [ "x86_64-linux" ];
 	};
 
 	networking = {
