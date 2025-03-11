@@ -115,7 +115,7 @@
   ;; (ghci)
   )
 
-(defun not-eq-fix()
+(defun not-eq-fix ()
 "Swap out != with /= for languages like Haskell."
   (interactive)
   (save-excursion
