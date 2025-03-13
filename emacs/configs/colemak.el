@@ -229,16 +229,22 @@
   (lang-with-lsp swift-ts-mode-map)
 
   (evil-define-key 'normal markdown-mode-map
+    (kbd "SPC n") 'ispell-region
     (kbd "SPC o") (kbd "vypgq"))
   (evil-define-key 'visual markdown-mode-map
+    (kbd "SPC n") 'ispell-region
     (kbd "SPC o") (kbd "gq"))
   (evil-define-key 'normal latex-mode-map
+    (kbd "SPC n") 'ispell-region
     (kbd "SPC o") (kbd "vypgq"))
   (evil-define-key 'visual latex-mode-map
+    (kbd "SPC n") 'ispell-region
     (kbd "SPC o") (kbd "gq"))
   (evil-define-key 'normal typst-ts-mode-map
+    (kbd "SPC n") 'ispell-word
     (kbd "SPC o") (kbd "vypgq"))
   (evil-define-key 'visual typst-ts-mode-map
+    (kbd "SPC n") 'ispell-region
     (kbd "SPC o") (kbd "gq"))
 
   (evil-define-key 'visual haskell-mode-map
