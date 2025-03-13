@@ -501,6 +501,10 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 			"${emacsPin.tree-sitter-grammars.tree-sitter-rust}/parser";
 		".config/emacs/tree-sitter/libtree-sitter-haskell.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-haskell}/parser";
+		".config/emacs/tree-sitter/libtree-sitter-ocaml.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-ocaml}/parser";
+		".config/emacs/tree-sitter/libtree-sitter-ocaml-interface.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-ocaml-interface}/parser";
 		".config/emacs/tree-sitter/libtree-sitter-python.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-python}/parser";
 		".config/emacs/tree-sitter/libtree-sitter-elisp.so".source =
