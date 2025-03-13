@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+KEY=~/.secret/eurydice-private-key
+
+doas nix store sign --key-file $KEY --recursive ./result
+nix store verify --trusted-public-keys $(nix key convert-secret-to-public < $KEY) ./result
+NIX_SSHOPTS="-p1234" nix copy --to ssh://nix.u3836.se ./result
