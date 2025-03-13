@@ -50,8 +50,10 @@
   (evil-define-key 'visual 'global
     (kbd "T") 'evil-forward-word-end)
   (evil-define-key '(normal visual motion) 'global
-    (kbd "F") 'up-five
-    (kbd "S") 'down-five
+    (kbd "F") 'evil-backward-paragraph
+    (kbd "S") 'evil-forward-paragraph
+    (kbd "M-f") 'up-five
+    (kbd "M-s") 'down-five
     (kbd "R") 'evil-backward-word-begin)
 
   (evil-define-key '(normal visual motion) 'global
