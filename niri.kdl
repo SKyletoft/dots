@@ -51,10 +51,10 @@ input {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
-        mode "1920x1080@120.030"
+        mode "3840x2400@60"
         scale 2
         transform "normal"
-        position x=1280 y=0
+        position x=0 y=0
 }
 output "DP-1" {
         mode "2560x1440@144.005997"
