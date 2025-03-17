@@ -31,6 +31,7 @@
 (defvaralias 'html-ts-mode-indent-offset                  'evil-shift-width)
 (defvaralias 'swift-ts-mode-indent-offset                 'evil-shift-width)
 (defvaralias 'typst-ts-mode-indent-offset                 'evil-shift-width)
+(defvaralias 'kdl-ts-mode-indent-offset                   'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
   "Disables tab characters in alignment."
@@ -551,6 +552,13 @@
                     (set-indents 8 2 nil)
                     (editorconfig-apply)
                     (mixed-pitch-mode -1))))
+
+(use-package kdl-ts-mode
+  :load-path "~/dots/emacs/third-party/kdl-ts-mode"
+  :hook
+  (kdl-ts-mode . (lambda ()
+                   (hs-minor-mode 1)
+                   (editorconfig-apply))))
 
 (defvar-keymap apl-keymap
   "§" "⋄"
