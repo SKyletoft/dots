@@ -301,7 +301,7 @@ in {
 			vimAlias = true;
 		};
 
-		emacs = rec {
+		emacs = {
 			enable = true;
 			package = emacsPin.emacs-git.override {
 				withGTK3 = false;
