@@ -45,6 +45,7 @@
 			enableGnome     = true;
 			enableRiver     = false;
 			enableSway      = false;
+			enableNiri      = false;
 			enableDebugging = false;
 		};
 		serverHome = home {
@@ -52,6 +53,7 @@
 			enableGnome     = false;
 			enableRiver     = false;
 			enableSway      = false;
+			enableNiri      = false;
 			enableDebugging = false;
 		};
 	in {

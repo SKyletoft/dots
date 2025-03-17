@@ -17,10 +17,11 @@ let
 	enableGnome     = homeConfig.enableGnome;
 	enableRiver     = homeConfig.enableRiver;
 	enableSway      = homeConfig.enableSway;
+	enableNiri      = homeConfig.enableNiri;
 	enableDebugging = homeConfig.enableDebugging;
 
-	gui = enableGnome || enableHyprland || enableRiver || enableSway;
-	wm  = enableHyprland || enableRiver || enableSway;
+	gui = enableGnome || wm;
+	wm  = enableHyprland || enableRiver || enableSway || enableNiri;
 in {
 	home = {
 		username      = "u3836";
@@ -41,6 +42,7 @@ in {
 				export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ tectonic pandoc ])}
 				pandoc $1 -o $2 --pdf-engine=tectonic -s -V papersize:a4 --citeproc
 			'';
+
 		in with pkgs; [
 			git
 			wget
@@ -75,6 +77,7 @@ in {
 			update-lorri
 			hms
 		] ++
+
 		(if gui then [
 			inputs.lem.packages.${system}.default
 
@@ -132,6 +135,7 @@ in {
 			virt-manager
 			docker-compose
 		] else [])
+
 		++ (if enableGnome then [
 			baobab
 			totem
@@ -146,21 +150,20 @@ in {
 			aisleriot
 			iagno
 		] else [])
+
 		++ (if enableHyprland then [
 			hyprland
 			hyprpaper
 			wofi
 			waybar
 		] else [])
+
 		++ (if enableRiver then [
 			river
-
 			rivercarro
 			kile-wl
 			stacktile
-
 			wofi
-
 			ristate
 			swaylock
 			waybar
@@ -172,6 +175,20 @@ in {
 			wlr-randr
 			xonsh
 		] else [])
+
+		++ (if enableNiri then [
+			niri
+			xwayland-satellite
+			brightnessctl
+			libnotify
+			fuzzel
+			waybar
+			swaylock
+			swaybg
+			swayidle
+			wlr-randr
+		] else [])
+
 		++ (if enableSway then [
 			sway
 		] else []);
@@ -441,9 +458,15 @@ in {
 		defaultEditor = true;
 		startWithUserSession = false;
 	};
+
 	services.lorri = {
 		enable = true;
 		enableNotifications = true;
+	};
+
+	services.mako = {
+		enable = wm;
+		icons = true;
 	};
 
 	# wayland.windowManager.hyprland.enable = hyprland;
