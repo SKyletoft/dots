@@ -178,7 +178,7 @@ in {
 		] else [])
 
 		++ (if enableNiri then [
-			niri
+			# niri
 			xwayland-satellite
 			brightnessctl
 			libnotify
