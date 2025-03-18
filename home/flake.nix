@@ -41,7 +41,7 @@
 			];
 		};
 		graphicalHome = home {
-			enableHyprland  = false;
+			enableHyprland  = true;
 			enableGnome     = true;
 			enableRiver     = false;
 			enableSway      = false;

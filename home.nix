@@ -85,6 +85,7 @@ in {
 			iptsd
 
 			firefox-devedition-bin
+			firefox
 			vdhcoapp
 			google-chrome
 
