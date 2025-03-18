@@ -74,6 +74,7 @@ in {
 		kernelPackages = pkgs.linuxPackages_xanmod;
 		supportedFilesystems = [ "ntfs" ];
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
+		kernelParams = [ "i915.force_probe=46a6" ];
 		kernelModules = [ "xpad" "hid-nintendo" "xone" "xpadneo" ];
 		extraModulePackages = with config.boot.kernelPackages; [
 			xone
