@@ -481,9 +481,10 @@ in {
 		"alacritty/alacritty.toml".source = ./alacritty.toml;
 		"rustfmt/rustfmt.toml".source     = ./rustfmt.toml;
 		"kitty/kitty.conf".source         = ./kitty.conf;
-		"hypr/hyprland.conf".source       = ./hyprland.conf;
+		# "hypr/hyprland.conf".source       = ./hyprland.conf;
 		"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
-		"waybar/config".source            = ./waybar;
+		# "waybar/config".source            = ./waybar;
+		# "niri/config.kdl".source          = ./niri.kdl;
 		"fourmolu.yaml".source            = ./fourmolu.yaml;
 		"mpv/mpv.conf".source             = ./mpv.conf;
 	};
