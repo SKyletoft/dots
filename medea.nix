@@ -319,19 +319,18 @@ in {
 		}];
 	};
 
-	fonts.packages = with pkgs; [
-		cascadia-code
+	fonts.packages = with pkgs.nerd-fonts; [
 		fantasque-sans-mono
+		iosevka
+		_0xproto
+		monaspace
+		fira-code
+		droid-sans-mono
+		roboto-mono
+	] ++ (with pkgs; [
 		roboto
-		iosevka # Update to nerdfont version when I update medea
-		(pkgs.callPackage ./packages/0xproto.nix {})
-		(pkgs.callPackage ./packages/monaspace.nix {})
-		(nerdfonts.override {fonts = [
-			"FiraCode"
-			"DroidSansMono"
-			"RobotoMono"
-		];})
-	] ++ (if windowsFonts then [
+		cascadia-code
+	]) ++ (if windowsFonts then [
 		winePackages.fonts
 		vistafonts
 		corefonts
