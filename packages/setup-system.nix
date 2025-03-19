@@ -6,5 +6,5 @@ pkgs.writeShellScriptBin "setup-system" ''
 	cd /etc/nixos
 	rm -rf flake.nix dots || true
 	git clone https://github.com/SKyletoft/dots
-	ln -s dots/$(if [ -n "$1" ]; then echo $1; else echo $HOSTNAME; fi;)/flake.nix flake.nix
+	ln -s dots/system/flake.nix flake.nix
 ''

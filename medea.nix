@@ -15,6 +15,8 @@
 		};
 	} else {});
 
+	boot.kernelParams = [ "i915.force_probe=46a6" ];
+
 	hardware = {
 		graphics = {
 			enable = true;
@@ -40,7 +42,6 @@
 	networking = {
 		hostName = "medea";
 		networkmanager = {
-			enable = true;
 			wifi.powersave = true;
 			/*
 			# And this imperative hack
