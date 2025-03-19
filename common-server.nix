@@ -105,12 +105,10 @@ in {
 		mullvad-vpn.enable = true;
 		cron = {
 			enable = true;
-			systemCronJobs =
-				let update-keys' = "${update-keys}/bin/update-keys";
-				in [
-					("*/05 * * * * u3836 ${update-keys'} SKyletoft")
-					("*/05 * * * * root ${update-system}/bin/update-system")
-				];
+			systemCronJobs = [
+				("*/05 * * * * u3836 ${update-keys}/bin/update-keys SKyletoft")
+				("*/05 * * * * root  ${update-system}/bin/update-system")
+			];
 		};
 		lorri = {
 			enable = true;
