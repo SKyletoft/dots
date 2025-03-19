@@ -5,13 +5,12 @@
 		config.packageOverrides = pkgs: {
 			vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
 		};
-	} // (if nativeBuild then {
-		localSystem =  {
+		localSystem = if nativeBuild then {
 			gcc.arch = "alderlake";
 			gcc.tune = "alderlake";
 			system = "x86_64-linux";
-		};
-	} else {});
+		} else {};
+	};
 
 	boot.kernelParams = [ "i915.force_probe=46a6" ];
 
@@ -56,6 +55,7 @@
 		thermald.enable = true;
 		printing.enable = true;
 		thinkfan.enable = false;
+		pcscd.enable = true;
 
 		fprintd = {
 			enable = false;
@@ -64,9 +64,6 @@
 				# driver = todo;
 			};
 		};
-
-		flatpak.enable = false;
-		pcscd.enable = true;
 	};
 
 	environment.systemPackages = with pkgs; [

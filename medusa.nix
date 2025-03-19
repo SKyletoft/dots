@@ -3,13 +3,12 @@
 {
 	nixpkgs = {
 		config.rocmSupport = true;
-	} // (if nativeBuild then {
-		localSystem =  {
+		localSystem = if nativeBuild then {
 			gcc.arch = "znver4";
 			gcc.tune = "znver4";
 			system = "x86_64-linux";
-		};
-	} else {});
+		} else {};
+	};
 
 	boot.kernelModules = [ "amdgpu" "kvm-amd" "i2c-dev" ];
 
@@ -85,11 +84,6 @@
 				Option         "TripleBuffer" "on"
 			'';
 		};
-
-		ddccontrol.enable = true;
-		journald.extraConfig = "SystemMaxUse=256M";
-		fwupd.enable = true;
-		flatpak.enable = flatpak;
 
 		ollama = {
 			acceleration = "rocm";

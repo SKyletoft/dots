@@ -148,6 +148,14 @@ in {
 
 		mullvad-vpn.enable = true;
 
+		flatpak.enable = flatpak;
+
+		ddccontrol.enable = true;
+
+		journald.extraConfig = "SystemMaxUse=256M";
+
+		fwupd.enable = true;
+
 		openssh = {
 			enable = true;
 			settings.PasswordAuthentication = false;
@@ -160,6 +168,7 @@ in {
 				# "0 * * * * root nix-store --repair --verify --check-contents || su u3836 -c ${pkgs.libnotify}/bin/notify-send 'Nix store corruption!'"
 			];
 		};
+
 		ollama.enable = true;
 	};
 
