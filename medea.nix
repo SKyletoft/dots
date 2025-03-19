@@ -68,9 +68,6 @@
 		};
 
 		flatpak.enable = false;
-		openssh = {
-			enable = false;
-		};
 		pcscd.enable = true;
 	};
 
