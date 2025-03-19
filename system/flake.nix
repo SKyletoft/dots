@@ -4,8 +4,10 @@
 		nixos-hardware.url = "github:NixOS/nixos-hardware";
 		nixGL.url = "github:nix-community/nixGL";
 	};
+
 	outputs = { self, nixpkgs, nixos-hardware, nixGL }@args: {
 		nixosConfigurations = {
+
 			medusa = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				specialArgs = args // {
@@ -20,6 +22,7 @@
 					./medusa-hardware.nix
 				];
 			};
+
 			medea = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				specialArgs = args // {
@@ -35,6 +38,7 @@
 					nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga-7th-gen
 				];
 			};
+
 		};
 	};
 }
