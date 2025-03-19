@@ -39,6 +39,23 @@
 				];
 			};
 
+			eurydice = nixpkgs.lib.nixosSystem {
+				system = "aarch64-linux";
+				modules = [
+					../eurydice.nix
+					../common-server.nix
+					nixos-hardware.nixosModules.raspberry-pi-4
+				];
+			};
+
+			orpheus = nixpkgs.lib.nixosSystem {
+				system = "aarch64-linux";
+				modules = [
+					../orpheus.nix
+					../common-server.nix
+					nixos-hardware.nixosModules.raspberry-pi-4
+				];
+			};
 		};
 	};
 }
