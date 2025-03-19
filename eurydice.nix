@@ -142,10 +142,8 @@ in {
 		};
 	};
 
-	hardware = {
-		graphics.enable = true;
-		pulseaudio.enable = true;
-	};
+	hardware.graphics.enable = true;
+	services.pulseaudio.enable = true;
 
 	services = {
 		jellyfin = {

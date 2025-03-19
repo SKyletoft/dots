@@ -12,10 +12,8 @@
 
 	networking.hostName = "orpheus";
 
-	hardware = {
-		graphics.enable = false;
-		pulseaudio.enable = false;
-	};
+	hardware.graphics.enable = false;
+	services.pulseaudio.enable = false;
 
 	services = {
 		transmission = {
