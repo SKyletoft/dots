@@ -14,6 +14,8 @@
 			};
 			modules = [
 				../medea.nix
+				../common-system.nix
+				./hardware-configuration.nix
 				nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga-7th-gen
 			];
 		};
