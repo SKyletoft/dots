@@ -7,8 +7,7 @@
 	outputs = { self, nixpkgs, nixos-hardware, nixGL }@args: {
 		nixosConfigurations.medea = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
-			specialArgs = args;
-			extraSpecialArgs = {
+			specialArgs = args // {
 				waylandSupport = true;
 				windowsFonts = false;
 				nativeBuild = false;
