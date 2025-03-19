@@ -1,11 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, waylandSupport, windowsFonts, nativeBuild, flatpak, ... }:
 
 let
-	waylandSupport = false;
-	windowsFonts = false;
-	nativeBuild = false;
-	flatpak = false;
-
 	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
 	update-system = pkgs.callPackage ./packages/update-system.nix {};
 	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
