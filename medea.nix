@@ -277,21 +277,18 @@ in {
 
 			gnome-tweaks
 		] ++ (with pkgs.gnomeExtensions; [
-			# brightness-control-using-ddcutil
-			# unite
-			# just-perfection
-			# add-username-to-top-panel
-			# blur-my-shell
-			# appindicator
-			# hot-edge
-			# caffeine
-			# sound-output-device-chooser
-			# fuzzy-app-search
-			# pop-shell
-			# burn-my-windows
-			# dotspaces
-			# hibernate-status-button
+			add-username-to-top-panel
+			appindicator
+			blur-my-shell
+			brightness-control-using-ddcutil
+			caffeine
+			hibernate-status-button
+			hot-edge
+			just-perfection
+			pop-shell
+			unite
 		]);
+
 		sessionVariables = {
 			MOZ_ENABLE_WAYLAND = "1";
 			EDITOR = "nvim";
