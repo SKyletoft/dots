@@ -2,10 +2,8 @@
 
 {
 	nixpkgs = {
-		config = {
-			packageOverrides = pkgs: {
-				vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-			};
+		config.packageOverrides = pkgs: {
+			vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
 		};
 	} // (if nativeBuild then {
 		localSystem =  {
@@ -71,11 +69,9 @@
 		pcscd.enable = true;
 	};
 
-	environment = {
-		systemPackages = with pkgs; [
-			nixGL.packages.${system}.nixGLIntel
-		];
-	};
+	environment.systemPackages = with pkgs; [
+		nixGL.packages.${system}.nixGLIntel
+	];
 
 	system.stateVersion = "21.11";
 }
