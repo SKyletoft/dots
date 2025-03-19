@@ -8,6 +8,11 @@
 		nixosConfigurations.medea = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			specialArgs = args;
+			extraSpecialArgs = {
+				waylandSupport = true;
+				windowsFonts = false;
+				nativeBuild = false;
+			};
 			modules = [
 				../medea.nix
 				nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga-7th-gen
