@@ -3,7 +3,7 @@
 {
 	nix.settings = {
 		substituters = [
-			"https://nix.u3836.se/"
+			"https://192.168.0.200"
 		];
 		trusted-public-keys = [
 			"nix.u3836.se:t7H/bFWi14aBFYPE5A00eEQawd7Ssl/fXbq/2C+Bsrs="
