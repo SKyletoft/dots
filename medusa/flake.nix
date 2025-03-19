@@ -6,12 +6,14 @@
 			system = "x86_64-linux";
 			specialArgs = args // {
 				waylandSupport = false;
-				windowsFonts = false;
-				nativeBuild = false;
-				flatpak = false;
+				windowsFonts   = false;
+				nativeBuild    = false;
+				flatpak        = false;
 			};
 			modules = [
 				../medusa.nix
+				../common-system.nix
+				./hardware-configuration.nix
 			];
 		};
 	};

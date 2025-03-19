@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixGL, waylandSupport, windowsFonts, nativeBuild, ... }:
+{ config, pkgs, lib, nixGL, waylandSupport, windowsFonts, nativeBuild, flatpak, ... }:
 
 let
 	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
@@ -55,7 +55,11 @@ in {
 			efi.canTouchEfiVariables = true;
 		};
 		kernelPackages = pkgs.linuxPackages_xanmod;
-		supportedFilesystems = [ "ntfs" ];
+		supportedFilesystems = {
+			exfat = true;
+			ntfs = true;
+			sshfs = true;
+		};
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		kernelParams = [ "i915.force_probe=46a6" ];
 		kernelModules = [ "xpad" "hid-nintendo" "xone" "xpadneo" ];
@@ -69,6 +73,7 @@ in {
 	time.timeZone = "Europe/Stockholm";
 
 	networking = {
+		networkmanager.enable = true;
 		firewall = {
 			allowedTCPPorts
 				= [ 80 443 6530 8000 8080 12825 ] # Development
@@ -144,6 +149,11 @@ in {
 
 		mullvad-vpn.enable = true;
 
+		openssh = {
+			enable = true;
+			settings.PasswordAuthentication = false;
+		};
+
 		cron = {
 			enable = true;
 			systemCronJobs = [
@@ -154,19 +164,24 @@ in {
 		ollama.enable = true;
 	};
 
+	# Flatpak nonsense
+	xdg.portal.extraPortals = if flatpak then [ pkgs.xdg-desktop-portal-gtk ] else [];
+
 	users.users.u3836 = {
 		description = "Samuel Kyletoft";
 		home = "/home/u3836";
 		isNormalUser = true;
 		extraGroups = [
-			"wheel" # Enable ‘sudo’ for the user.
-			"networkmanager"
-			"libvirtd"
-			"dialout"
-			"docker"
+			"wheel"           # sudo
+			"networkmanager"  # networking
+			"libvirtd"        # virtual machines
+			"dialout"         # md407
+			"docker"          # docker
+			"i2c"             # screen brightness
+			"adbusers"        # android debugging (screen sharing)
+			"plugdev"         # keyboard flashing
+			"video" "render"  # blender
 			"vboxusers"
-			"video"
-			"adbusers"
 			"camera"
 		];
 		shell = pkgs.bash;
@@ -195,6 +210,9 @@ in {
 			zsa-udev-rules
 			powertop
 			pinentry
+
+			xorg.xkill
+			logiops
 
 			setup-system
 			update-keys
@@ -266,6 +284,7 @@ in {
 		};
 		niri.enable = true;
 		xwayland.enable = waylandSupport;
+		gamemode.enable = true;
 		steam = {
 			enable = true;
 			gamescopeSession.enable = true;
