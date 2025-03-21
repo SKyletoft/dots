@@ -216,12 +216,15 @@
 
   (evil-define-key '(normal visual) markdown-mode-map
     (kbd "SPC a") 'ispell-word
+    (kbd "SPC A") 'ispell
     (kbd "SPC i") (kbd "vipgq"))
   (evil-define-key '(normal visual) latex-mode-map
     (kbd "SPC a") 'ispell-word
+    (kbd "SPC A") 'ispell
     (kbd "SPC i") (kbd "vipgq"))
   (evil-define-key '(normal visual) typst-ts-mode-map
     (kbd "SPC a") 'ispell-word
+    (kbd "SPC A") 'ispell
     (kbd "SPC i") (kbd "vipgq"))
 
   (evil-define-key 'visual haskell-ts-mode-map
