@@ -133,6 +133,8 @@
 ;; GDB/GUD-GDB
 (setq gdb-debuginfod-enable-setting nil)
 
+(use-package ispell)
+(use-package flyspell)
 (require 'dictionary-path)
 (setq flyspell-mode 1
       flyspell-prog-mode 1)
