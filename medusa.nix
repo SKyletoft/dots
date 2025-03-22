@@ -1,4 +1,4 @@
-{ config, pkgs, waylandSupport, windowsFonts, nativeBuild, flatpak, ... }:
+{ pkgs, nativeBuild, flatpak }:
 
 {
 	nixpkgs = {
