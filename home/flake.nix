@@ -28,12 +28,16 @@
 			url = "github:SKyletoft/tree-sitter-swift-flake";
 			inputs.nixpkgs.follows = "emacsPkgs";
 		};
+		hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 	};
 
 	outputs = {self, nixpkgs, home-manager, ...}@inputs:
 	let
 		home = homeConfig: home-manager.lib.homeManagerConfiguration {
-			pkgs = nixpkgs.legacyPackages.${builtins.currentSystem};
+			pkgs = import nixpkgs {
+				system = builtins.currentSystem;
+				overlays = [ inputs.hyprpanel.overlay ];
+			};
 			extraSpecialArgs = { inherit inputs; inherit homeConfig; };
 			modules = [
 				../home.nix
