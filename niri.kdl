@@ -184,11 +184,11 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-// spawn-at-startup "xwayland-satellite"
+spawn-at-startup "xwayland-satellite" ":10"
 spawn-at-startup "waybar"
 spawn-at-startup "swaybg" "-i" "~/git/dotfiles_art/edited-again.png" "-m" "fill"
 environment {
-        DISPLAY ":0"
+        DISPLAY ":10"
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -279,7 +279,7 @@ binds {
         // Suggested binds for running programs: terminal, app launcher, screen locker.
         Mod+T { spawn "alacritty"; }
         Mod+F { spawn "firefox-developer-edition"; }
-        Mod+R { spawn "emacsclient -c -a 'emacs --daemon' -e '(about-emacs)'"; }
+        Mod+R { spawn "emacsclient" "-c" "-a" "'emacs --daemon'" "-e" "'(about-emacs)'"; }
         Mod+D { spawn "vesktop"; }
         Mod+Shift+R { spawn "emacs"; }
         Mod+Space { spawn "fuzzel"; }
