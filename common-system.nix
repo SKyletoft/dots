@@ -1,4 +1,4 @@
-{ config, pkgs, waylandSupport, windowsFonts, nativeBuild, flatpak, ... }:
+{ config, pkgs, lib, nixGL, waylandSupport, windowsFonts, nativeBuild, flatpak, ... }:
 
 let
 	setup-system = pkgs.callPackage ./packages/setup-system.nix {};

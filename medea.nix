@@ -1,4 +1,4 @@
-{ pkgs, nixGL, nativeBuild, ... }:
+{ config, pkgs, lib, nixGL, waylandSupport, windowsFonts, nativeBuild, ... }:
 
 {
 	nixpkgs = {
