@@ -181,6 +181,7 @@ layout {
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "xwayland-satellite" ":10"
+spawn-at-startup "emacs" "--daemon"
 spawn-at-startup "waybar"
 spawn-at-startup "swaybg" "-i" "~/git/dotfiles_art/edited-again.png" "-m" "fill"
 environment {
