@@ -183,7 +183,7 @@ layout {
 spawn-at-startup "xwayland-satellite" ":10"
 spawn-at-startup "emacs" "--daemon"
 spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "~/git/dotfiles_art/edited-again.png" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/home/u3836/git/dotfiles_art/edited-again.png" "-m" "fill"
 environment {
         DISPLAY ":10"
 }
