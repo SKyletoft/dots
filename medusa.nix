@@ -1,14 +1,7 @@
 { config, pkgs, waylandSupport, windowsFonts, nativeBuild, flatpak, ... }:
 
 {
-	nixpkgs = {
-		config.rocmSupport = true;
-		localSystem = if nativeBuild then {
-			gcc.arch = "znver4";
-			gcc.tune = "znver4";
-			system = "x86_64-linux";
-		} else {};
-	};
+	nixpkgs.config.rocmSupport = true;
 
 	boot.kernelModules = [ "amdgpu" "kvm-amd" "i2c-dev" ];
 

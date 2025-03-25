@@ -1,15 +1,8 @@
 { config, pkgs, lib, nixGL, waylandSupport, windowsFonts, nativeBuild, ... }:
 
 {
-	nixpkgs = {
-		config.packageOverrides = pkgs: {
-			vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-		};
-		localSystem = if nativeBuild then {
-			gcc.arch = "alderlake";
-			gcc.tune = "alderlake";
-			system = "x86_64-linux";
-		} else {};
+	nixpkgs.config.packageOverrides = pkgs: {
+		vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
 	};
 
 	boot.kernelParams = [ "i915.force_probe=46a6" ];
