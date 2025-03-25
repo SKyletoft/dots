@@ -241,10 +241,13 @@ in {
 		]);
 
 		sessionVariables = {
-			MOZ_ENABLE_WAYLAND = "1";
 			EDITOR = "nvim";
 			MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
-		};
+		} // (if waylandSupport then {
+			MOZ_ENABLE_WAYLAND = "1";
+			NIXOS_OZONE_WL = "1";
+			ELECTRON_OZONE_PLATFORM_HINT = "auto";
+		} else {});
 	};
 
 	security = {
