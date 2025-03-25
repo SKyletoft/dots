@@ -475,6 +475,7 @@ binds {
         // Mod+Space       { switch-layout "next"; }
         // Mod+Shift+Space { switch-layout "prev"; }
 
+        Mod+Shift+S { spawn "grimshot" "copy" "area"; }
         Print { screenshot; }
         Ctrl+Print { screenshot-screen; }
         Alt+Print { screenshot-window; }

@@ -188,6 +188,7 @@ in {
 			swaybg
 			swayidle
 			wlr-randr
+			sway-contrib.grimshot
 		] else [])
 
 		++ (if enableSway then [
