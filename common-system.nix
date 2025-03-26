@@ -13,6 +13,8 @@ in {
 		overlays = (import ./overlays.nix) nativeBuild;
 	};
 
+	hardware.keyboard.zsa.enable = true;
+
 	nix = {
 		settings = {
 			auto-optimise-store = true;

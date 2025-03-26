@@ -8,7 +8,6 @@
 	hardware = {
 		graphics.enable = true;
 		cpu.amd.updateMicrocode = true;
-		keyboard.zsa.enable = true;
 		i2c.enable = true;
 	};
 
