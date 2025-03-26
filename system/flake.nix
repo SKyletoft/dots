@@ -11,7 +11,7 @@
 			medusa = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				specialArgs = args // {
-					waylandSupport = false;
+					waylandSupport = true;
 					windowsFonts   = false;
 					nativeBuild    = false;
 					flatpak        = false;
