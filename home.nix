@@ -303,7 +303,7 @@ in {
 
 		emacs = {
 			enable = true;
-			package = emacsPin.emacs-git.override {
+			package = emacsPin.emacs-igc.override {
 				withGTK3 = false;
 				withX    = gui;
 				withWebP = gui;
