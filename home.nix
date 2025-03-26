@@ -84,8 +84,6 @@ in {
 			monitor
 			iptsd
 
-			firefox-devedition-bin
-			firefox
 			vdhcoapp
 			google-chrome
 
@@ -447,6 +445,42 @@ in {
 			];
 
 			initExtra = builtins.readFile ./bashrc;
+		};
+
+		firefox = {
+			enable = true;
+			# package = pkgs.firefox-devedition-bin;
+			profiles.default = {
+				id = 0;
+				name = "default";
+				isDefault = true;
+				settings = {
+
+				};
+				search = {
+					# force = true;
+					default = "DuckDuckGo";
+					order = [ "DuckDuckGo" "Wikipedia (en)" ];
+				};
+
+				extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+					bitwarden
+					ublock-origin
+					privacy-badger
+					vimium
+					sponsorblock
+					enhancer-for-youtube
+					consent-o-matic
+					enhanced-h264ify
+					# refined-hackernews
+					# user-agent-switcher-and-manager
+					# css-override
+					video-downloadhelper
+					old-reddit-redirect
+					reddit-enhancement-suite
+					# wikipedia-en
+				];
+			};
 		};
 
 		zoxide = {

@@ -29,6 +29,10 @@
 			inputs.nixpkgs.follows = "emacsPkgs";
 		};
 		hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+		nur = {
+			url = "github:nix-community/NUR";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
 	outputs = {self, nixpkgs, home-manager, ...}@inputs:
@@ -36,7 +40,7 @@
 		home = homeConfig: home-manager.lib.homeManagerConfiguration {
 			pkgs = import nixpkgs {
 				system = builtins.currentSystem;
-				overlays = [ inputs.hyprpanel.overlay ];
+				overlays = with inputs; [ hyprpanel.overlay nur.overlays.default ];
 			};
 			extraSpecialArgs = { inherit inputs; inherit homeConfig; };
 			modules = [
