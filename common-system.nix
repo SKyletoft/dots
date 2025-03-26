@@ -293,7 +293,8 @@ in {
 			enable = true;
 			package = pkgs.gnomeExtensions.gsconnect;
 		};
-		niri.enable = true;
+		niri.enable = waylandSupport;
+		hyprland.enable = waylandSupport;
 		xwayland.enable = waylandSupport;
 		gamemode.enable = true;
 		steam = {

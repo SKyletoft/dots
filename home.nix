@@ -153,7 +153,7 @@ in {
 		] else [])
 
 		++ (if enableHyprland then [
-			hyprland
+			# hyprland
 			hyprpaper
 			wofi
 			waybar
