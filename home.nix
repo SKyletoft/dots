@@ -182,7 +182,7 @@ in {
 			libnotify
 			fuzzel
 			waybar
-			swaylock
+			swaylock-effects
 			swaybg
 			swayidle
 			wlr-randr
