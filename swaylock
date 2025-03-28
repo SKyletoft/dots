@@ -2,3 +2,6 @@ show-failed-attempts
 ignore-empty-password
 image=/home/u3836/git/dotfiles_art/edited-again-blur.png
 scaling=fill
+clock
+indicator
+datestr=%a %d/%m-%Y
