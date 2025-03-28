@@ -71,7 +71,7 @@ output "DP-2" {
 }
 
 switch-events {
-        lid-close { spawn "swaylock-effects"; }
+        lid-close { spawn "swaylock"; }
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -285,7 +285,7 @@ binds {
         Mod+D { spawn "vesktop"; }
         Mod+Shift+R { spawn "emacs"; }
         Mod+Space { spawn "fuzzel"; }
-        Super+Alt+L { spawn "swaylock-effects"; }
+        Super+Alt+L { spawn "swaylock"; }
 
         // You can also use a shell. Do this if you need pipes, multiple commands, etc.
         // Note: the entire command goes as a single argument in the end.
