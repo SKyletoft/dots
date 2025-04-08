@@ -525,6 +525,15 @@ in {
 		"mpv/mpv.conf".source             = ./mpv.conf;
 	};
 
+	# home.pointerCursor = {
+		# name = "Severa_cursors_linux_expanded";
+		# size = 32;
+	# };
+	# dconf.settings.gnome.configuration = {
+	#	cursor-theme = config.home.pointerCursor.name;
+	#	cursor-size = config.home.pointerCursor.size;
+	# };
+
 	home.file = {
 		# Files
 		".gdbinit".source              = ./gdbinit;
@@ -617,15 +626,6 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 		# ".themes/yaru".source                         = ./.themes/yaru;
 		# ".icons/yaru_edit".source                     = ./.icons/yaru_edit;
 		# ".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
-
-		# home.pointerCursor = {
-		#	name = "Hi";
-		#	size = 32;
-		# };
-		# dconf.settings.gnome.configuration = {
-		#	cursor-theme = config.home.pointerCursor.name;
-		#	cursor-size = config.home.pointerCursor.size;
-		# };
 
 		# Emacs
 		# ".config/emacs".source                    = ./emacs;
