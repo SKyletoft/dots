@@ -35,10 +35,11 @@
 ;; Would go in setup.el, but needs to be loaded last
 (if (string-equal (system-name) "medusa")
     (progn
-      (colemak-keymap)
+      ; (colemak-keymap)
       (setq my/left-margin-default 80))
   (qwerty-keymap)
   (setq my/left-margin-default 60))
+(qwerty-keymap)
 
 ;; Disabled as I switched to the new GC branch
 ;; (use-package gcmh
