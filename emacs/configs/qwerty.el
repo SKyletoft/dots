@@ -419,6 +419,8 @@
 
   (evil-define-key 'normal treemacs-mode-map
     (kbd "SPC")      'treemacs-TAB-action
+    (kbd "<tab>")    'treemacs-TAB-action
+    [?\t]            'treemacs-TAB-action
     (kbd "C-<tab>")  'treemacs-switch-workspace
     (kbd "x")        'treemacs-delete-file
     (kbd "<delete>") 'treemacs-delete-file
