@@ -449,6 +449,7 @@
             (setq-local compile-command (concat "typst w "
                                                 (buffer-file-name)))
             (direnv-update-environment)
+            ;; (remove-hook before-save-hook 'whitespace-cleanup t)
             (editorconfig-apply)
             (lsp)))
 
