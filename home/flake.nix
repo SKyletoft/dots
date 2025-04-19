@@ -8,7 +8,7 @@
 		vimPin.url = "github:NixOS/nixpkgs?rev=9813adc7f7c0edd738c6bdd8431439688bb0cb3d";
 		emacsPkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 		emacsOverlay = {
-			url = "github:nix-community/emacs-overlay?rev=6e4d92e5c26dc81241d4c800531ad1f8ee68f213";
+			url = "github:nix-community/emacs-overlay?rev=46b2111a95afe41d9f9a09d7f33ff5b324cbd96d";
 			inputs.nixpkgs.follows = "emacsPkgs";
 			inputs.nixpkgs-stable.follows = "emacsPkgs";
 		};
