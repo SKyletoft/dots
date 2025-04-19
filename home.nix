@@ -99,7 +99,7 @@ in {
 			vesktop
 			# discord
 			# dissent
-			signal-desktop
+			signal-desktop-source
 			slack
 			isync # Emacs email
 			mu
@@ -459,8 +459,8 @@ in {
 				};
 				search = {
 					# force = true;
-					default = "DuckDuckGo";
-					order = [ "DuckDuckGo" "Wikipedia (en)" ];
+					default = "ddg";
+					order = [ "ddg" "wikipedia" ];
 				};
 
 				extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
