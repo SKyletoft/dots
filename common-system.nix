@@ -29,7 +29,7 @@ in {
 			substituters = [
 				"https://nix-community.cachix.org"
 				"https://cache.nixos.org/"
-				"https://nix.u3836.se/"
+				# "https://nix.u3836.se/"
 				"https://cache.iog.io"
 			];
 			trusted-public-keys = [
