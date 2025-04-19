@@ -455,7 +455,13 @@ in {
 				name = "default";
 				isDefault = true;
 				settings = {
-
+					browser = {
+						newtabpage.enabled = false;
+						startup.homepage = "chrome://browser/content/blanktab.html";
+						toolbars.bookmarks.visibility = "always";
+						translations.neverTranslateLanguages = "sv";
+					};
+					general.autoScroll = true;
 				};
 				search = {
 					# force = true;
