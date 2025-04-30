@@ -81,6 +81,8 @@ in {
 		(if gui then [
 			inputs.lem.packages.${system}.default
 
+			bazecor
+
 			monitor
 			iptsd
 
