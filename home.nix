@@ -112,6 +112,7 @@ in {
 			kdePackages.ark
 			pcmanfm
 			nautilus
+			nautilus-open-any-terminal
 			vlc
 			mpv
 			sgt-puzzles
