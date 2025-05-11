@@ -101,7 +101,7 @@ in {
 			vesktop
 			# discord
 			# dissent
-			signal-desktop-source
+			signal-desktop
 			slack
 			isync # Emacs email
 			mu
