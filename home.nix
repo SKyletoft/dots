@@ -111,6 +111,7 @@ in {
 
 			kdePackages.ark
 			pcmanfm
+			nautilus
 			vlc
 			mpv
 			sgt-puzzles
