@@ -510,7 +510,7 @@ in {
 
 	services.mako = {
 		enable = wm;
-		icons = true;
+		settings.icons = true;
 	};
 
 	# wayland.windowManager.hyprland.enable = hyprland;
