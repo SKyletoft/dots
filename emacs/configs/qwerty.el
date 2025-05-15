@@ -213,6 +213,7 @@
   (lang-with-lsp glsl-mode-map)
   (lang-with-lsp roc-ts-mode-map)
   (lang-with-lsp swift-ts-mode-map)
+  (lang-with-lsp typst-ts-mode-map)
 
   (evil-define-key '(normal visual) markdown-mode-map
     (kbd "SPC a") 'ispell-word
