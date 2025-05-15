@@ -473,6 +473,8 @@ in {
 					order = [ "ddg" "wikipedia" ];
 				};
 
+				languagePacks = [ "en-GB" "sv" ];
+
 				extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
 					bitwarden
 					ublock-origin
