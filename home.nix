@@ -453,6 +453,7 @@ in {
 
 		firefox = {
 			enable = true;
+			languagePacks = [ "en-GB" "sv" ];
 			# package = pkgs.firefox-devedition-bin;
 			profiles.default = {
 				id = 0;
@@ -472,8 +473,6 @@ in {
 					default = "ddg";
 					order = [ "ddg" "wikipedia" ];
 				};
-
-				languagePacks = [ "en-GB" "sv" ];
 
 				extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
 					bitwarden
