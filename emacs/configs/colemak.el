@@ -29,7 +29,9 @@
     (kbd "Ö")     'eval-expression
     (kbd "C-n")   'scratch-buffer
     (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile)
+    (kbd "SPC L") 'compile
+    (kbd "<mouse-8>") 'evil-jump-backward
+    (kbd "<mouse-9>") 'evil-jump-forward)
 
   (evil-define-key 'operator 'global
     (kbd "u") evil-inner-text-objects-map
