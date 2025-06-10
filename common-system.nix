@@ -283,6 +283,7 @@ in {
 	] ++ (with pkgs; [
 		roboto
 		cascadia-code
+		cantarell-fonts
 	]) ++ (if windowsFonts then [
 		winePackages.fonts
 		vistafonts
