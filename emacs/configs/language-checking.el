@@ -12,7 +12,12 @@
         read-process-output-max (* 1024 1024) ;; LSP perf hack
         lsp-headerline-breadcrumb-enable nil
         lsp-lens-place-position 'above-line
-        lsp-auto-execute-action nil)
+        lsp-auto-execute-action nil
+
+        lsp-modeline-diagnostics-enable nil
+        lsp-modeline-code-actions-enable nil
+        lsp-modeline-workspace-status-enable nil)
+
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package lsp-ui

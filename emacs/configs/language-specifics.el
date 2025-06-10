@@ -293,6 +293,7 @@
             (set-indents 8 8 t)
             (editorconfig-apply)
             (direnv-update-environment)
+            (setq-local lsp-java-progress-reports-enabled nil)
             (lsp-inlay-hints-mode)
             (lsp)))
 
