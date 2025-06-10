@@ -100,12 +100,6 @@ in {
 		xserver = {
 			enable = true;
 
-			displayManager.gdm = {
-				enable = true;
-				wayland = waylandSupport;
-			};
-			desktopManager.gnome.enable = true;
-
 			xkb = {
 				options = "caps:swapescape";
 				extraLayouts.se-good = {
@@ -116,11 +110,17 @@ in {
 			};
 		};
 
+		displayManager.gdm = {
+			enable = true;
+			wayland = waylandSupport;
+		};
+		desktopManager.gnome.enable = true;
+
 		gnome = {
 			gnome-keyring.enable = true;
 			core-shell.enable = true;
 			core-os-services.enable = true;
-			core-utilities.enable = false;
+			core-apps.enable = false;
 			core-developer-tools.enable = false;
 			games.enable = false;
 		};
