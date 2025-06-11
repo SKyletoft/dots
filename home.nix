@@ -490,6 +490,8 @@ in {
 					old-reddit-redirect
 					reddit-enhancement-suite
 					# wikipedia-en
+					british-english-dictionary-2
+					swedish-dictionary
 				];
 			};
 		};
