@@ -643,10 +643,14 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 		# Emacs
 		# ".config/emacs".source                    = ./emacs;
 		".config/emacs/configs/node-path.el".text = ''
+;; -*- lexical-binding: t -*-
+
 (setq copilot-node-executable "${emacsPin.nodejs}/bin/node")
 (provide 'node-path)
 '';
 		".config/emacs/configs/dictionary-path.el".text = ''
+;; -*- lexical-binding: t -*-
+
 (setq ispell-program-name "${emacsPin.hunspell}/bin/hunspell")
 (setenv "DICPATH" (concat
 	"${emacsPin.hunspellDicts.en_GB-ise}/share/hunspell"

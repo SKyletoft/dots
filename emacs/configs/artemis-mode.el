@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 (setq artemis-highlights
       '(("\\*\\(?:.\\|\n\\)*?\\*/\\|//\\(?:.\\|\n\\)*?$" . 'font-lock-comment-face)
         ("ℕ\\|ℝ\\|ℤ\\|𝔹\\|∀\\|∃\\|𝕋" . 'font-lock-type-face)

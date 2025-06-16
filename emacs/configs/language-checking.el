@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 (provide 'language-checking)
 
 ;; ChatGPT's suggestion to disable eglot

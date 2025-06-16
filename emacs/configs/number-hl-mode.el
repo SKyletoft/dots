@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 (setq number-highlights
       '(("1" . 'org-level-1)
         ("2" . 'org-level-2)

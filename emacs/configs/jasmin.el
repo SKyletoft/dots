@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 ;; jasmin.el -- major editing mode for Jasmin Java bytecode assembler files
 
 ;; Copyright (C) 1996,2002 Neil W. Van Dyke
