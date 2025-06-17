@@ -469,9 +469,10 @@ in {
 					general.autoScroll = true;
 				};
 				search = {
-					# force = true;
+					force = true;
 					default = "ddg";
 					order = [ "ddg" "wikipedia" ];
+					engines = {};
 				};
 
 				extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
