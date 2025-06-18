@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 cd ~/dots/home
-rm ~/.mozilla/firefox/default/search.json.mozlz4
+# rm ~/.mozilla/firefox/default/search.json.mozlz4
 home-manager switch --flake . --impure -L
