@@ -465,6 +465,14 @@ in {
 						startup.homepage = "chrome://browser/content/blanktab.html";
 						toolbars.bookmarks.visibility = "always";
 						translations.neverTranslateLanguages = "sv";
+						extensions = {
+							autoDisableScopes = 0;
+							enabledScopes = 15;
+							update = {
+								autoUpdateDefault = false;
+								enabled = false;
+							};
+						};
 					};
 					general.autoScroll = true;
 				};
@@ -472,7 +480,13 @@ in {
 					force = true;
 					default = "ddg";
 					order = [ "ddg" "wikipedia" ];
-					engines = {};
+					engines = {
+						"wikipedia".metaData.alias = "@wiki";
+						"google".metaData.hidden = true;
+						"amazondotcom-us".metaData.hidden = true;
+						"bing".metaData.hidden = true;
+						"ebay".metaData.hidden = true;
+					};
 				};
 
 				extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -490,7 +504,6 @@ in {
 					video-downloadhelper
 					old-reddit-redirect
 					reddit-enhancement-suite
-					# wikipedia-en
 					british-english-dictionary-2
 					swedish-dictionary
 				];
