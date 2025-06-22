@@ -441,6 +441,10 @@
     (kbd "s")     'pdf-view-next-page-command
     (kbd "d")     'pdf-view-next-page-command)
 
+  (evil-define-key 'normal image-mode-map
+    (kbd "C-+") 'image-increase-size
+    (kbd "C--") 'image-decrease-size)
+
   (evil-define-key 'normal forge-issue-mode-map
     (kbd "i")     'forge-create-post
     (kbd "F")     'forge-pull-this-topic
