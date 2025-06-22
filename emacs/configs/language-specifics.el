@@ -72,8 +72,8 @@
         (javascript-mode . js-ts-mode)
         (typescript-mode . typescript-ts-mode)
         (json-mode . json-ts-mode)
-        (html-mode . html-ts-mode)
-        (mhtml-mode . html-ts-mode)
+        ;; (html-mode . html-ts-mode) ; Disabled as tree sitter segfaults right now
+        ;; (mhtml-mode . html-ts-mode)
         (nix-mode . nix-ts-mode)
         (rustic-mode . rust-ts-mode)
         (python-mode . python-ts-mode)
