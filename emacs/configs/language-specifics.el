@@ -34,6 +34,7 @@
 (defvaralias 'kdl-ts-mode-indent-offset                   'evil-shift-width)
 (defvaralias 'js-indent-level                             'evil-shift-width)
 (defvaralias 'typescript-ts-mode-indent-offset            'evil-shift-width)
+(defvaralias 'json-ts-mode-indent-offset                  'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
   "Disables tab characters in alignment."
@@ -72,6 +73,7 @@
         (javascript-mode . js-ts-mode)
         (typescript-mode . typescript-ts-mode)
         (json-mode . json-ts-mode)
+        (js-json-mode . json-ts-mode)
         ;; (html-mode . html-ts-mode) ; Disabled as tree sitter segfaults right now
         ;; (mhtml-mode . html-ts-mode)
         (nix-mode . nix-ts-mode)
