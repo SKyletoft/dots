@@ -516,7 +516,20 @@
                    (lsp))))
 
 (use-package typescript-ts-mode
-  :defer t)
+  :defer t
+  :hook
+  (typescript-ts-mode . (lambda ()
+                          (direnv-update-directory-environment)
+                          (hs-minor-mode 1)
+                          (eldoc-mode 0)
+                          (editorconfig-apply)
+                          (setq-local lsp-ui-sideline-show-symbol nil
+                                      lsp-javascript-display-parameter-name-hints 'all
+                                      lsp-javascript-display-parameter-name-hints-when-argument-matches-name nil
+                                      lsp-javascript-display-variable-type-hints t
+                                      lsp-javascript-display-return-type-hints t
+                                      lsp-javascript-display-property-declaration-type-hints t)
+                          (lsp))))
 
 (use-package roc-ts-mode
   :defer t
