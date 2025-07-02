@@ -21,7 +21,6 @@
 (require 'evil-config)
 (require 'aesthetics)
 (require 'artemis-mode)
-(require 'jasmin)
 (require 'promela-2-mode)
 (require 'cpp2-mode)
 (require 'number-hl-mode)

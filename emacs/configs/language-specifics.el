@@ -401,15 +401,17 @@
 (use-package treemacs
   :defer t)
 
-(add-hook 'jasmin-mode-hook
-          (lambda ()
-            (set-indents 8 8 t)
-            (setq jasmin-instruction-indent 8
-                  jasmin-label-indent 0
-                  jasmin-unknown-line-indent 32
-                  jasmin-tableswitch-case-indent 16
-                  jasmin-method-directive-indent 0
-                  jasmin-global-directive-indent 0)))
+(use-package jasmin
+  :load-path "~/dots/emacs/third-party"
+  :hook
+  (jasmin-mode . (lambda ()
+                   (set-indents 8 8 t)
+                   (setq jasmin-instruction-indent 8
+                         jasmin-label-indent 0
+                         jasmin-unknown-line-indent 32
+                         jasmin-tableswitch-case-indent 16
+                         jasmin-method-directive-indent 0
+                         jasmin-global-directive-indent 0))))
 
 (use-package futhark-mode
   :defer t
