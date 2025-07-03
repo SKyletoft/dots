@@ -206,6 +206,8 @@
   (lang-with-lsp html-ts-mode-map)
   (lang-with-lsp css-ts-mode-map)
   (lang-with-lsp json-ts-mode-map)
+  (lang-with-lsp typescript-mode-map)
+  (lang-with-lsp typescript-ts-mode-map)
   (lang-with-lsp pest-mode-map)
   (lang-with-lsp csharp-ts-mode-map)
   (lang-with-lsp nix-ts-mode-map)
@@ -230,6 +232,7 @@
   (lang-with-lsp roc-ts-mode-map)
   (lang-with-lsp swift-ts-mode-map)
   (lang-with-lsp go-ts-mode-map)
+  (lang-with-lsp typst-ts-mode-map)
 
   (evil-define-key 'normal markdown-mode-map
     (kbd "SPC n") 'ispell-word
