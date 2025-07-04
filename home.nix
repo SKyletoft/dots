@@ -147,7 +147,8 @@ in {
 			gnome-text-editor
 			gnome-calendar
 			gnome-weather
-			evince
+			# evince
+			papers
 			gnome-disk-utility
 			eog
 			aisleriot
