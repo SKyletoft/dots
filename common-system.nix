@@ -315,8 +315,9 @@ in {
 					libpng
 					libpulseaudio
 					libvorbis
-					stdenv.cc.cc.lib
 					libkrb5
+					libdecor
+					stdenv.cc.cc.lib
 					keyutils
 				];
 			};
