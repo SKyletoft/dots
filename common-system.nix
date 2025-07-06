@@ -131,7 +131,7 @@ in {
 		};
 
 		earlyoom = {
-			enable = true;
+			enable = false;
 			extraArgs = [
 				"--prefer '(^|/)(gcc|g\+\+|cc1plus|ghc|rustc|a\.out)$'"
 				"--avoid  '(^|/)(firefox-develop|firefox-bin)$'"
