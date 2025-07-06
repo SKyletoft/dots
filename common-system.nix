@@ -324,7 +324,6 @@ in {
 		};
 		dconf.enable = true;
 		xonsh.enable = false;
-		ssh.startAgent = true;
 		adb.enable = true;
 		nix-ld.enable = true;
 		gnupg.agent = {
