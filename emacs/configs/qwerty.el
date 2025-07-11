@@ -214,6 +214,7 @@
   (lang-with-lsp roc-ts-mode-map)
   (lang-with-lsp swift-ts-mode-map)
   (lang-with-lsp typst-ts-mode-map)
+  (lang-with-lsp go-ts-mode-map)
 
   (evil-define-key '(normal visual) markdown-mode-map
     (kbd "SPC a") 'ispell-word
@@ -246,8 +247,7 @@
     (kbd "SPC r") 'slime-v)
   (evil-define-key 'normal python-ts-mode-map
     (kbd "SPC r") 'slime-n
-    (kbd "<f5>")  'python-repl
-    (kbd "SPC I") 'save-and-black-buffer)
+    (kbd "<f5>")  'python-repl)
 
   (evil-define-key 'normal idris-mode-map
     (kbd "SPC i") 'indent-according-to-mode

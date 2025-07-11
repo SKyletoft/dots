@@ -229,6 +229,7 @@
   (lang-with-lsp sh-mode-map)
   (lang-with-lsp roc-ts-mode-map)
   (lang-with-lsp swift-ts-mode-map)
+  (lang-with-lsp go-ts-mode-map)
 
   (evil-define-key 'normal markdown-mode-map
     (kbd "SPC n") 'ispell-word
