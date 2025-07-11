@@ -504,6 +504,17 @@
   (autoload 'pest-mode "pest-mode")
   (add-to-list #'auto-mode-alist '("\\.pest\\'" . pest-mode)))
 
+(use-package go-ts-mode
+  :defer t
+  :hook
+  (go-ts-mode . (lambda ()
+                  (hs-minor-mode 1)
+                  (set-indents 8 8 t)
+                  (editorconfig-apply)
+                  (direnv-update-environment)
+                  (set-local compile-command "go run .")
+                  (lsp))))
+
 (use-package kotlin-mode
   :defer t
   :hook
