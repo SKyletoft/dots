@@ -28,7 +28,6 @@
 			url = "github:SKyletoft/tree-sitter-swift-flake";
 			inputs.nixpkgs.follows = "emacsPkgs";
 		};
-		hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 		nur = {
 			url = "github:nix-community/NUR";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -40,7 +39,7 @@
 		home = homeConfig: home-manager.lib.homeManagerConfiguration {
 			pkgs = import nixpkgs {
 				system = builtins.currentSystem;
-				overlays = with inputs; [ hyprpanel.overlay nur.overlays.default ];
+				overlays = with inputs; [ nur.overlays.default ];
 			};
 			extraSpecialArgs = { inherit inputs; inherit homeConfig; };
 			modules = [
