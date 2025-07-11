@@ -455,6 +455,13 @@ in {
 			enable = true;
 			silent = true;
 		};
+
+		zoxide = {
+			enable                = true;
+			enableBashIntegration = true;
+			enableFishIntegration = true;
+		};
+
 		firefox = {
 			enable = true;
 			languagePacks = [ "en-GB" "sv" ];
@@ -512,11 +519,6 @@ in {
 					swedish-dictionary
 				];
 			};
-		};
-
-		zoxide = {
-			enable                = true;
-			enableBashIntegration = true;
 		};
 	};
 
