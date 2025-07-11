@@ -62,7 +62,6 @@ in {
 			trash-cli
 			rsync
 			xclip
-			direnv
 			doasedit
 			mdpdf
 			hstr
@@ -200,7 +199,6 @@ in {
 
 		sessionVariables = {
 			EDITOR = "emacsclient -nw";
-			DIRENV_LOG_FORMAT = "";
 		} // (if enableHyprland then {
 			MOZ_ENABLE_WAYLAND = "1";
 		} else {});
@@ -452,6 +450,11 @@ in {
 			initExtra = builtins.readFile ./bashrc;
 		};
 
+
+		direnv = {
+			enable = true;
+			silent = true;
+		};
 		firefox = {
 			enable = true;
 			languagePacks = [ "en-GB" "sv" ];
