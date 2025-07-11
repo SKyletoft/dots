@@ -35,6 +35,7 @@
 (defvaralias 'js-indent-level                             'evil-shift-width)
 (defvaralias 'typescript-ts-mode-indent-offset            'evil-shift-width)
 (defvaralias 'json-ts-mode-indent-offset                  'evil-shift-width)
+(defvaralias 'go-ts-mode-indent-offset                    'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
   "Disables tab characters in alignment."
@@ -52,6 +53,9 @@
             (when (and (stringp buffer-file-name)
                        (string-match "bashrc" buffer-file-name))
               (bash-ts-mode))
+            (when (and (stringp buffer-file-name)
+                       (string-match "\\.go\\'" buffer-file-name))
+              (go-ts-mode))
             (when (and (stringp buffer-file-name)
                        (string-match "\\.art\\'" buffer-file-name))
               (set-indents 8 8 t)
@@ -512,7 +516,7 @@
                   (set-indents 8 8 t)
                   (editorconfig-apply)
                   (direnv-update-environment)
-                  (set-local compile-command "go run .")
+                  (setq-local compile-command "go run .")
                   (lsp))))
 
 (use-package kotlin-mode

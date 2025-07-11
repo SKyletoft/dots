@@ -423,7 +423,6 @@ in {
 					typst-ts-mode
 					swift-ts-mode
 					# lsp-sourcekit # Swift LSP support
-					go-ts-mode
 				]);
 		};
 
@@ -587,6 +586,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 		# Treesitter grammars
 		".config/emacs/tree-sitter/libtree-sitter-go.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-go}/parser";
+		".config/emacs/tree-sitter/libtree-sitter-gomod.so".source =
+			"${emacsPin.tree-sitter-grammars.tree-sitter-gomod}/parser";
 		".config/emacs/tree-sitter/libtree-sitter-cpp.so".source =
 			"${emacsPin.tree-sitter-grammars.tree-sitter-cpp}/parser";
 		".config/emacs/tree-sitter/libtree-sitter-c.so".source =
