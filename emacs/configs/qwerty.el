@@ -60,8 +60,10 @@
 
   (evil-define-key '(normal motion) 'global
     (kbd "C-c") 'evil-yank
+    (kbd "c")   'evil-yank
     (kbd "C-v") 'evil-paste-after
     (kbd "C-x") 'evil-delete
+    (kbd "x")   'evil-delete
     (kbd "M-V") 'evil-visual-block)
   (evil-define-key 'visual 'global
     (kbd "C-v") 'evil-visual-paste)
