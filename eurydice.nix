@@ -165,7 +165,7 @@ in {
 
 					("* * * * * u3836   ${update-motd}/bin/update-motd")
 					("*/05 * * * * root ${update-website}/bin/update-website")
-					("* * * * * root    cat /tmp/eurydice-status | ${pkgs.ansi2html}/bin/ansi2html > /var/www/status/index.html")
+					("* * * * * root    cat /tmp/eurydice-status | ${pkgs.ansi2html}/bin/ansi2html -la -t \"Eurydice Status\" > /var/www/status/index.html")
 				];
 		};
 		nix-serve = {
