@@ -51,7 +51,14 @@
 		# pcscd.enable = true;
 
 		power-profiles-daemon.enable = false; # Required by auto-cpufreq
-		auto-cpufreq.enable = true;
+		auto-cpufreq = {
+			enable = true;
+			settings = {
+				battery = {
+					governor = "powersave";
+				};
+			};
+		};
 
 		fprintd = {
 			enable = false;
