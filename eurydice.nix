@@ -165,7 +165,7 @@ in {
 
 					("* * * * * u3836   ${update-motd}/bin/update-motd")
 					("*/05 * * * * root ${update-website}/bin/update-website")
-					("* * * * * u3836   cat /tmp/eurydice-status | ${pkgs.ansi2html}/bin/ansi2html > /tmp/www/status/index.html")
+					("* * * * * root    cat /tmp/eurydice-status | ${pkgs.ansi2html}/bin/ansi2html > /var/www/status/index.html")
 				];
 		};
 		nix-serve = {
@@ -271,7 +271,7 @@ in {
 				"status.u3836.se" = {
 					addSSL = true;
 					enableACME = true;
-					root = "/tmp/www/status";
+					root = "/var/www/status";
 				};
 			};
 		};
