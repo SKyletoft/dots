@@ -48,7 +48,7 @@
 		thermald.enable = true;
 		printing.enable = true;
 		thinkfan.enable = false;
-		pcscd.enable = true;
+		# pcscd.enable = true;
 
 		fprintd = {
 			enable = false;
