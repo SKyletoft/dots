@@ -50,6 +50,7 @@
 		printing.enable = true;
 		# pcscd.enable = true;
 
+		power-profiles-daemon.enable = false; # Required by auto-cpufreq
 		auto-cpufreq.enable = true;
 
 		fprintd = {
