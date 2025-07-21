@@ -45,10 +45,12 @@
 	powerManagement.powertop.enable = true;
 
 	services = {
-		thermald.enable = true;
+		# thermald.enable = true;
+		# thinkfan.enable = false;
 		printing.enable = true;
-		thinkfan.enable = false;
 		# pcscd.enable = true;
+
+		auto-cpufreq.enable = true;
 
 		fprintd = {
 			enable = false;
