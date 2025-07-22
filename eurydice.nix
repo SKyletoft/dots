@@ -16,7 +16,7 @@ let
 		${update-motd}/bin/update-motd
 		rm /var/www/status || true
 		mkdir -p /var/www/status
-		cat /tmp/eurydice-status | ${pkgs.ansi2html}/bin/ansi2html > /var/www/status/index.html
+		cat /tmp/eurydice-status | ${pkgs.ansi2html}/bin/ansi2html -t "Eurydice Status" > /var/www/status/index.html
 	'';
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
