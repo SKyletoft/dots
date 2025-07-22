@@ -117,6 +117,7 @@ in {
 		hugo
 		update-motd
 		update-website
+		update-status
 	];
 
 	users.users = {
