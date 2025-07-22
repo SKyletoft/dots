@@ -17,6 +17,7 @@ let
 		rm /var/www/status -rf || true
 		mkdir -p /var/www/status
 		cat /tmp/eurydice-status | ${pkgs.ansi2html}/bin/ansi2html -t "Eurydice Status" > /var/www/status/index.html
+		echo "<script> setTimeout(() => { window.location.reload(true); }, 1000); </script>" >> /var/www/status/index.html
 	'';
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
