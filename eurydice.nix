@@ -14,7 +14,7 @@ let
 	'';
 	update-status = pkgs.writeShellScriptBin "update-status" ''
 		${update-motd}/bin/update-motd
-		rm /var/www/status || true
+		rm /var/www/status -rf || true
 		mkdir -p /var/www/status
 		cat /tmp/eurydice-status | ${pkgs.ansi2html}/bin/ansi2html -t "Eurydice Status" > /var/www/status/index.html
 	'';
