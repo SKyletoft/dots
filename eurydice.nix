@@ -3,6 +3,7 @@
 let
 	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
 	update-motd = pkgs.writeShellScriptBin "update-motd" ''
+		rm /tmp/eurydice-status
 		${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status
 		${pkgs.git}/bin/git -C /etc/nixos/dots log -1 >> /tmp/eurydice-status
 		echo >> /tmp/eurydice-status
@@ -10,6 +11,12 @@ let
 		SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status
 		SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status
 		SYSTEMD_COLORS=true systemctl status github-runner-runner1 | head -n3 >> /tmp/eurydice-status
+	'';
+	update-status = pkgs.writeShellScriptBin "update-status" ''
+		${update-motd}/bin/update-motd
+		rm /var/www/status
+		mkdir -p /var/www/status
+		cat /tmp/eurydice-status | ${pkgs.ansi2html}/bin/ansi2html > /var/www/status/index.html
 	'';
 	update-website = pkgs.writeShellScriptBin "update-website" ''
 		cd /var/www
@@ -164,9 +171,8 @@ in {
 					("*/05 * * * * koko ${update-keys'} KokoRobinn")
 					("*/05 * * * * ibra ${update-keys'} FlySlime")
 
-					("* * * * * u3836   ${update-motd}/bin/update-motd")
 					("*/05 * * * * root ${update-website}/bin/update-website")
-					("* * * * * root    cat /tmp/eurydice-status | ${pkgs.ansi2html}/bin/ansi2html -t \"Eurydice Status\" > /var/www/status/index.html")
+					("* * * * * root    ${update-status}/bin/update-status")
 				];
 		};
 		nix-serve = {
