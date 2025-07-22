@@ -173,7 +173,7 @@ in {
 					("*/05 * * * * ibra ${update-keys'} FlySlime")
 
 					("*/05 * * * * root ${update-website}/bin/update-website")
-					("* * * * *    u3836 ${update-status}/bin/update-status")
+					("* * * * *    root ${update-status}/bin/update-status")
 				];
 		};
 		nix-serve = {
