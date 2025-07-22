@@ -45,20 +45,20 @@
 	powerManagement.powertop.enable = true;
 
 	services = {
-		# thermald.enable = true;
-		# thinkfan.enable = false;
+		thermald.enable = true;
+		thinkfan.enable = false;
 		printing.enable = true;
 		# pcscd.enable = true;
 
-		power-profiles-daemon.enable = false; # Required by auto-cpufreq
-		auto-cpufreq = {
-			enable = true;
-			settings = {
-				battery = {
-					governor = "powersave";
-				};
-			};
-		};
+		# power-profiles-daemon.enable = false; # Required by auto-cpufreq
+		# auto-cpufreq = {
+		#	enable = true;
+		#	settings = {
+		#		battery = {
+		#			governor = "powersave";
+		#		};
+		#	};
+		# };
 
 		fprintd = {
 			enable = false;
