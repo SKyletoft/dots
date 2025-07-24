@@ -305,7 +305,13 @@ in {
 		gamemode.enable = true;
 		steam = {
 			enable = true;
-			gamescopeSession.enable = true;
+			gamescopeSession = {
+				enable = true;
+				args = [
+					"--backend"
+					"sdl"
+				];
+			};
 			package = pkgs.steam.override {
 				extraPkgs = p: with p; [
 					xorg.libXcursor
