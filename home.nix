@@ -555,7 +555,7 @@ in {
 		# "waybar/config".source            = ./waybar;
 		# "niri/config.kdl".source          = ./niri.kdl;
 		"fourmolu.yaml".source            = ./fourmolu.yaml;
-		"mpv/mpv.conf".source             = ./mpv.conf;
+		# "mpv/mpv.conf".source             = ./mpv.conf; ; It seems like this is what's causing random stuttering on medusa?
 	};
 
 	# home.pointerCursor = {
