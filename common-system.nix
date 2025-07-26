@@ -227,6 +227,8 @@ in {
 			xorg.xkill
 			logiops
 
+			steamcmd
+
 			setup-system
 			update-keys
 			update-system
@@ -303,17 +305,16 @@ in {
 		hyprland.enable = waylandSupport;
 		xwayland.enable = waylandSupport;
 		gamemode.enable = true;
+		gamescope = {
+			enable = true;
+			capSysNice = true;
+		};
 		steam = {
 			enable = true;
 			remotePlay.openFirewall = true;
-			gamescopeSession = {
-				enable = true;
-				args = [
-					"--backend"
-					"sdl"
-				];
-			};
+			gamescopeSession.enable = true;
 			package = pkgs.steam.override {
+				withJava = true;
 				extraPkgs = p: with p; [
 					xorg.libXcursor
 					xorg.libXi

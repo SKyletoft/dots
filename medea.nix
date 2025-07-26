@@ -73,5 +73,15 @@
 		nixGL.packages.${system}.nixGLIntel
 	];
 
+	programs.steam.gamescopeSession.args = [
+		"--backend"
+		"sdl"
+		"-Sinteger"
+		"-w1920"
+		"-h1200"
+		"-f"
+		"-e"
+	];
+
 	system.stateVersion = "21.11";
 }
