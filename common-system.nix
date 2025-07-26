@@ -314,7 +314,6 @@ in {
 			remotePlay.openFirewall = true;
 			gamescopeSession.enable = true;
 			package = pkgs.steam.override {
-				withJava = true;
 				extraPkgs = p: with p; [
 					xorg.libXcursor
 					xorg.libXi
