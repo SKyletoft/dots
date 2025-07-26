@@ -11,11 +11,7 @@
 		graphics = {
 			enable = true;
 			extraPackages = with pkgs; [
-				# intel-compute-runtime
-				# intel-ocl
-				# ocl-icd
 				intel-media-driver
-				# vaapiIntel
 				vaapiVdpau
 				libvdpau-va-gl
 				vpl-gpu-rt
@@ -48,23 +44,11 @@
 		thermald.enable = true;
 		thinkfan.enable = false;
 		printing.enable = true;
-		# pcscd.enable = true;
-
-		# power-profiles-daemon.enable = false; # Required by auto-cpufreq
-		# auto-cpufreq = {
-		#	enable = true;
-		#	settings = {
-		#		battery = {
-		#			governor = "powersave";
-		#		};
-		#	};
-		# };
 
 		fprintd = {
 			enable = false;
 			tod = {
 				enable = false;
-				# driver = todo;
 			};
 		};
 	};
