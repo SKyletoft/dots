@@ -28,6 +28,7 @@
 (require 'language-specifics)
 (require 'language-checking)
 (require 'lsp-booster)
+(require 'gptel-setup)
 ; (require 'my-mu4e-config)
 (require 'qwerty)
 (require 'colemak)

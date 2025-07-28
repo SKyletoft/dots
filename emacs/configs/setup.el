@@ -122,14 +122,6 @@
 ;; (nerd-icons-install-fonts 't)
 ;; (all-the-icons-install-fonts 't)
 
-(use-package gptel
-  :config
-  (setq gptel-model 'mistral:latest
-        gptel-backend (gptel-make-ollama "Ollama"
-                        :host "localhost:11434"
-                        :stream t
-                        :models '(mistral:latest))))
-
 ;; GDB/GUD-GDB
 (setq gdb-debuginfod-enable-setting nil)
 
