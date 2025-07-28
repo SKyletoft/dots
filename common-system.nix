@@ -312,7 +312,6 @@ in {
 		steam = {
 			enable = true;
 			remotePlay.openFirewall = true;
-			gamescopeSession.enable = true;
 			package = pkgs.steam.override {
 				extraPkgs = p: with p; [
 					xorg.libXcursor

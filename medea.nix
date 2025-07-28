@@ -57,7 +57,7 @@
 		nixGL.packages.${system}.nixGLIntel
 	];
 
-	programs.steam.gamescopeSession.args = [
+	programs.gamescope.args = [
 		"--backend"
 		"sdl"
 		"-Sinteger"
