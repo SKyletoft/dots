@@ -126,7 +126,7 @@ in {
 		};
 
 		ananicy = {
-			enable = false;
+			enable = true;
 			package = pkgs.ananicy-cpp;
 		};
 
