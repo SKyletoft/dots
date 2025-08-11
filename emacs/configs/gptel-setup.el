@@ -2,6 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
+(use-package aider
+  :config
+  (setenv OLLAMA_API_BASE "http://localhost:11434")
+  (setq aider-args '("--model ollama_chat/qwen3-coder")))
+
 (use-package gptel
   :ensure t)
 
