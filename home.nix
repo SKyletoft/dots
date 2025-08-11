@@ -377,6 +377,7 @@ in {
 					mu4e
 					org
 					org-mime
+					aider
 
 					pdf-tools
 					multi-vterm
