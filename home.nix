@@ -373,10 +373,11 @@ in {
 					all-the-icons
 					all-the-icons-nerd-fonts
 					tramp # Not a part of Emacs?
-					gptel
 					mu4e
 					org
 					org-mime
+
+					gptel
 					aider
 
 					pdf-tools
