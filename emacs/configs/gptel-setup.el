@@ -10,11 +10,11 @@
 (use-package gptel
   :ensure t)
 
-(setq gptel-model 'llama3.2:latest
+(setq gptel-model 'qwen3-coder
       gptel-backend (gptel-make-ollama "Ollama"
                       :host "localhost:11434"
                       :stream t
-                      :models '(llama3.2:latest)))
+                      :models '(qwen3-coder gpt-oss)))
 
 ;; Tools
 
