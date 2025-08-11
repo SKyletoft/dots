@@ -1,16 +1,32 @@
-#!/usr/bin/env sh -e
+#!/usr/bin/env sh
 
-if [ $1 == "default" ]; then
-	xrandr --output DisplayPort-0 --mode 2560x1440 --rate 144.00 --output DisplayPort-1 --mode 2560x1440 --rate 144.00 --right-of DisplayPort-0
-elif [ $1 == "left" ]; then
-	if [ $2 == "landscape" ]; then
-		xrandr --output DisplayPort-1 --rotate normal --pos 0x0 --output DisplayPort-0 --pos 2560x1440
-	elif [ $2 == "portrait" ]; then
-		xrandr --output DisplayPort-0 --rotate right --pos 0x0 --output DisplayPort-1 --pos 1440x560
+# Ensure arguments are provided
+if [ -z "$1" ]; then
+	echo "Usage: $0 {default|left|right} [landscape|portrait]"
+	exit 1
+fi
+
+if [ "$1" = "default" ]; then
+	xrandr --output DisplayPort-0 --mode 2560x1440 --rate 144 \
+		--output DisplayPort-1 --mode 2560x1440 --rate 144 --right-of DisplayPort-0
+
+elif [ "$1" = "left" ]; then
+	if [ "$2" = "landscape" ]; then
+		xrandr --output DisplayPort-1 --rotate normal --pos 0x0 \
+			--output DisplayPort-0 --pos 2560x1440
+	elif [ "$2" = "portrait" ]; then
+		xrandr --output DisplayPort-0 --rotate right --pos 0x0 \
+			--output DisplayPort-1 --pos 1440x560
 	else
-		# Disables the right monitor
-		xrandr --output DisplayPort-0 --mode 2560x1440 --rate 144.00 --output DisplayPort-1 --off
+		# Disable right monitor
+		xrandr --output DisplayPort-0 --mode 2560x1440 --rate 144 \
+			--output DisplayPort-1 --off
 	fi
-elif [ $1 == "right" ]; then
-	xrandr --output DisplayPort-1 --mode 2560x1440 --rate 144.00 --output DisplayPort-0 --off
+
+elif [ "$1" = "right" ]; then
+	xrandr --output DisplayPort-1 --mode 2560x1440 --rate 144 \
+		--output DisplayPort-0 --off
+else
+	echo "Invalid option: $1"
+	exit 1
 fi
