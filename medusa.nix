@@ -81,6 +81,8 @@
 			acceleration = "rocm";
 			environmentVariables = {
 				HCC_AMDGPU_TARGET = "gfx1100";
+				OLLAMA_GPU_MEMORY_FRACTION = "0.8"; # Only allow 80% VRAM usage
+				OLLAMA_GPU_OVERHEAD = "2147483648"; # Leave 2GB for non-llm tasks, yes this conflicts with above
 			};
 			rocmOverrideGfx = "11.0.0";
 		};
