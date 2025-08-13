@@ -178,6 +178,14 @@
   (evil-define-key '(normal motion) evil-command-window-mode-map
     (kbd "C-g") 'evil-quit)
 
+  (evil-define-key 'normal 'global
+    (kbd "SPC h h") 'gptel
+    (kbd "SPC h t") 'gptel-tools
+    (kbd "SPC h a") 'gptel-add-file
+    (kbd "SPC H")   'aider-transient-menu)
+  (evil-define-key 'visual 'global
+    (kbd "SPC h a") 'gptel-add)
+
   ;; Default language with lsp-mode bindings
   (defmacro lang-with-lsp (map)
     `(progn (evil-define-key 'visual ,map
