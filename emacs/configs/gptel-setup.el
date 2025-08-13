@@ -5,7 +5,22 @@
 (use-package aider
   :config
   (setenv "OLLAMA_API_BASE" "http://localhost:11434")
-  (setq aider-args '("--model ollama_chat/qwen3-coder")))
+  (setq aider-args '("--model" "ollama_chat/qwen3-coder"
+                     "--edit-format" "diff-fenced"
+                     "--architect"
+                     "--light-mode"))
+
+  (defun my-aider-comint-unbind-spc ()
+    ;; Remove from the major mode's keymap
+    (define-key aider-comint-mode-map (kbd "SPC") nil)
+    ;; Remove from Evil normal state bindings in this mode
+    (when (boundp 'evil-normal-state-local-map)
+      (define-key evil-normal-state-local-map (kbd "SPC") nil))
+    ;; Also clear it via evil-define-key just in case
+    (when (fboundp 'evil-define-key)
+      (evil-define-key 'normal aider-comint-mode-map (kbd "SPC") nil)))
+  :hook
+  (aider-comint-mode . my-aider-comint-unbind-spc))
 
 (use-package gptel
   :ensure t)
