@@ -25,7 +25,7 @@
   (setq-default line-spacing 0.1)
 
   (setq fill-column 80)
-  (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-11"))
+  (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-12"))
   ;; (when (not (or (string-match "PGTK" system-configuration-features)
   ;;                (string-match "wayland" (getenv "XDG_SESSION_TYPE"))))
   ;;   (set-frame-parameter (selected-frame)
@@ -47,7 +47,7 @@
   (setq-default line-spacing 0.1)
 
   (setq fill-column 80)
-  (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-11"))
+  (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-12"))
   (load-theme 'modus-operandi t)
   (doom-modeline-mode 1)
   ;; (telephone-line-mode 0)
