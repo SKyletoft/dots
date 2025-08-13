@@ -1,4 +1,4 @@
-;;; gptel-tool-library.el --- A collection of tools for gptel
+;;; gptel-tool-library.el --- A collection of tools for gptel -*- lexical-binding: t -*-
 ;;
 ;; Author: Bernd Wachter
 ;;

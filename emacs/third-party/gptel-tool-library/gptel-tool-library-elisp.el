@@ -1,4 +1,4 @@
-;;; gptel-tool-library-elisp.el --- Functions to help with elisp development
+;;; gptel-tool-library-elisp.el --- Functions to help with elisp development -*- lexical-binding: t -*-
 ;;
 ;; Author: Bernd Wachter
 ;;

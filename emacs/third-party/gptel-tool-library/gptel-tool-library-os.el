@@ -1,4 +1,4 @@
-;;; gptel-tool-library-os.el --- OS interaction tools
+;;; gptel-tool-library-os.el --- OS interaction tools -*- lexical-binding: t -*-
 ;;
 ;; Author: Bernd Wachter
 ;;

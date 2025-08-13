@@ -1,4 +1,4 @@
-;;; gptel-tool-library-buffer.el --- Tool functions for buffer access
+;;; gptel-tool-library-buffer.el --- Tool functions for buffer access -*- lexical-binding: t -*-
 ;;
 ;; Author: Bernd Wachter
 ;;

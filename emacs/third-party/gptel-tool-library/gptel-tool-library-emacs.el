@@ -1,4 +1,4 @@
-;;; gptel-tool-library-emacs.el --- Simple and safe emacs information gathering tools
+;;; gptel-tool-library-emacs.el --- Simple and safe emacs information gathering tools -*- lexical-binding: t -*-
 ;;
 ;; Author: Bernd Wachter
 ;;
