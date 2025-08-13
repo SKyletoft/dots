@@ -49,7 +49,6 @@
 				};
 				modules = [
 					../persephone.nix
-					../common-system.nix
 					./persephone-hardware.nix
 					nixos-hardware.nixosModules.microsoft-surface-pro-intel
 				];
