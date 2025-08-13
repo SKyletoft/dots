@@ -39,6 +39,22 @@
 				];
 			};
 
+			persephone = nixpkgs.lib.nixosSystem {
+				system = "x86_64-linux";
+				specialArgs = args // {
+					waylandSupport = true;
+					windowsFonts   = false;
+					nativeBuild    = false;
+					flatpak        = false;
+				};
+				modules = [
+					../persephone.nix
+					../common-system.nix
+					./persephone-hardware.nix
+					nixos-hardware.nixosModules.microsoft-surface
+				];
+			};
+
 			eurydice = nixpkgs.lib.nixosSystem {
 				system = "aarch64-linux";
 				modules = [
