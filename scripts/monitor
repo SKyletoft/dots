@@ -7,8 +7,8 @@ if [ -z "$1" ]; then
 fi
 
 if [ "$1" = "default" ]; then
-	xrandr --output DisplayPort-0 --mode 2560x1440 --rate 144 \
-		--output DisplayPort-1 --mode 2560x1440 --rate 144 --right-of DisplayPort-0
+	xrandr --output DisplayPort-0 --mode 2560x1440 --rate 120 \
+		--output DisplayPort-1 --mode 2560x1440 --rate 120 --right-of DisplayPort-0
 
 elif [ "$1" = "left" ]; then
 	if [ "$2" = "landscape" ]; then
@@ -19,12 +19,12 @@ elif [ "$1" = "left" ]; then
 			--output DisplayPort-1 --pos 1440x560
 	else
 		# Disable right monitor
-		xrandr --output DisplayPort-0 --mode 2560x1440 --rate 144 \
+		xrandr --output DisplayPort-0 --mode 2560x1440 --rate 120 \
 			--output DisplayPort-1 --off
 	fi
 
 elif [ "$1" = "right" ]; then
-	xrandr --output DisplayPort-1 --mode 2560x1440 --rate 144 \
+	xrandr --output DisplayPort-1 --mode 2560x1440 --rate 120 \
 		--output DisplayPort-0 --off
 else
 	echo "Invalid option: $1"
