@@ -161,6 +161,8 @@ in {
 			hyprpaper
 			wofi
 			waybar
+			playerctl
+			pavucontrol
 		] else [])
 
 		++ (if enableRiver then [
