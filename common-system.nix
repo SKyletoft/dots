@@ -87,7 +87,7 @@ in {
 
 			# Virtualisation networking
 			trustedInterfaces = [ "virbr0" ];
-			backend = "iptables";
+			# backend = "iptables";
 		};
 	};
 
@@ -97,12 +97,12 @@ in {
 	virtualisation = {
 		libvirtd = {
 			enable = true;
-			hooks.network = ''
-				virsh net-autostart default
-			'';
-			extraConfig = ''
-				firewall_backend = "iptables";
-			'';
+			# hooks.network = ''
+			#	virsh net-autostart default
+			# '';
+			# extraConfig = ''
+			#	firewall_backend = "iptables";
+			# '';
 		};
 		spiceUSBRedirection.enable = true;
 		docker.enable = true;
