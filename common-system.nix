@@ -307,6 +307,7 @@ in {
 		roboto
 		cascadia-code
 		cantarell-fonts
+		material-symbols
 	]) ++ (if windowsFonts then [
 		winePackages.fonts
 		vistafonts
