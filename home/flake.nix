@@ -39,7 +39,17 @@
 		home = homeConfig: home-manager.lib.homeManagerConfiguration {
 			pkgs = import nixpkgs {
 				system = builtins.currentSystem;
-				overlays = with inputs; [ nur.overlays.default ];
+				overlays = with inputs; [
+					nur.overlays.default
+					(self: super: {
+						quickshell = super.quickshell.overrideAttrs (old: {
+							buildInputs = (old.buildInputs or []) ++ (with self.kdePackages; [
+								qt5compat
+								qtpositioning
+							]);
+						});
+					})
+				];
 			};
 			extraSpecialArgs = { inherit inputs; inherit homeConfig; };
 			modules = [

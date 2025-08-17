@@ -163,6 +163,7 @@ in {
 			waybar
 			playerctl
 			pavucontrol
+			quickshell
 		] else [])
 
 		++ (if enableRiver then [
