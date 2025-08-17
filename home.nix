@@ -529,20 +529,22 @@ in {
 		};
 	};
 
-	services.emacs = {
-		enable = false;
-		defaultEditor = true;
-		startWithUserSession = false;
-	};
+	services = {
+		emacs = {
+			enable = false;
+			defaultEditor = true;
+			startWithUserSession = false;
+		};
 
-	services.lorri = {
-		enable = true;
-		enableNotifications = true;
-	};
+		lorri = {
+			enable = true;
+			enableNotifications = true;
+		};
 
-	services.mako = {
-		enable = wm;
-		settings.icons = true;
+		mako = {
+			enable = false;
+			settings.icons = true;
+		};
 	};
 
 	# wayland.windowManager.hyprland.enable = hyprland;
