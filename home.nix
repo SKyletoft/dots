@@ -427,6 +427,7 @@ in {
 					typst-ts-mode
 					swift-ts-mode
 					# lsp-sourcekit # Swift LSP support
+					qml-mode
 				]);
 		};
 

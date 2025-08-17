@@ -597,6 +597,8 @@
                    (hs-minor-mode 1)
                    (editorconfig-apply))))
 
+(use-package qml-mode)
+
 (defvar-keymap apl-keymap
   "§" "⋄"
   "|" "⋄"
