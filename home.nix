@@ -22,6 +22,8 @@ let
 
 	gui = enableGnome || wm;
 	wm  = enableHyprland || enableRiver || enableSway || enableNiri;
+
+	mkOutOfStoreSymlink = config.lib.file.mkOutOfStoreSymlink;
 in {
 	home = {
 		username      = "u3836";
@@ -566,6 +568,7 @@ in {
 		# "niri/config.kdl".source          = ./niri.kdl;
 		"fourmolu.yaml".source            = ./fourmolu.yaml;
 		# "mpv/mpv.conf".source             = ./mpv.conf; ; It seems like this is what's causing random stuttering on medusa?
+		"emacs".source                    = mkOutOfStoreSymlink "./emacs";
 	};
 
 	# home.pointerCursor = {
