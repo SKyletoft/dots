@@ -569,6 +569,7 @@ in {
 		# "mpv/mpv.conf".source             = ./mpv.conf; ; It seems like this is what's causing random stuttering on medusa?
 		"emacs".source                    = mkOutOfStoreSymlink "./emacs";
 		"hypr/hyprland.conf".source       = mkOutOfStoreSymlink "./hyprland.conf";
+		"quickshell".source               = mkOutOfStoreSymlink "./quickshell";
 	};
 
 	# home.pointerCursor = {
