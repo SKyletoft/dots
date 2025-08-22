@@ -44,11 +44,11 @@ ShellRoot {
 	property bool enableOnScreenKeyboard: false
 	property bool enableOverview: true
 	property bool enableReloadPopup: true
-	property bool enableScreenCorners: true
+	property bool enableScreenCorners: false
 	property bool enableSession: true
-	property bool enableSidebarLeft: true
+	property bool enableSidebarLeft: false
 	property bool enableSidebarRight: true
-	property bool enableVerticalBar: true
+	property bool enableVerticalBar: false
 
 	// Force initialization of some singletons
 	Component.onCompleted: {
