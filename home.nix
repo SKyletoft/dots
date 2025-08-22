@@ -567,9 +567,9 @@ in {
 		# "niri/config.kdl".source          = ./niri.kdl;
 		"fourmolu.yaml".source            = ./fourmolu.yaml;
 		# "mpv/mpv.conf".source             = ./mpv.conf; ; It seems like this is what's causing random stuttering on medusa?
-		"emacs".source                    = mkOutOfStoreSymlink "./emacs";
-		"hypr/hyprland.conf".source       = mkOutOfStoreSymlink "./hyprland.conf";
-		"quickshell".source               = mkOutOfStoreSymlink "./quickshell";
+		# "emacs".source                    = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/emacs";
+		# "hypr/hyprland.conf".source       = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/hyprland.conf";
+		# "quickshell".source               = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/quickshell";
 	};
 
 	# home.pointerCursor = {
