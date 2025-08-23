@@ -563,6 +563,7 @@ in {
 		"rustfmt/rustfmt.toml".source     = ./rustfmt.toml;
 		"kitty/kitty.conf".source         = ./kitty.conf;
 		"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
+		"swaylock/config".source          = ./swaylock;
 		# "waybar/config".source            = ./waybar;
 		# "niri/config.kdl".source          = ./niri.kdl;
 		"fourmolu.yaml".source            = ./fourmolu.yaml;
