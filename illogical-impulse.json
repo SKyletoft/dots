@@ -1,0 +1,211 @@
+{
+	"appearance": {
+		"extraBackgroundTint": true,
+		"fakeScreenRounding": 0,
+		"palette": {
+			"type": "scheme-monochrome"
+		},
+		"transparency": {
+			"automatic": true,
+			"backgroundTransparency": 0.11,
+			"contentTransparency": 0.57,
+			"enable": false
+		},
+		"wallpaperTheming": {
+			"enableAppsAndShell": true,
+			"enableQtApps": true,
+			"enableTerminal": true
+		}
+	},
+	"apps": {
+		"bluetooth": "alacritty -e bluetui",
+		"network": "alacritty -e nmtui",
+		"networkEthernet": "alacritty -e nmtui",
+		"taskManager": "missioncenter",
+		"terminal": "alacritty"
+	},
+	"audio": {
+		"protection": {
+			"enable": true,
+			"maxAllowed": 100,
+			"maxAllowedIncrease": 100
+		}
+	},
+	"background": {
+		"clockX": -500,
+		"clockY": -500,
+		"fixedClockPosition": false,
+		"parallax": {
+			"enableSidebar": true,
+			"enableWorkspace": true,
+			"workspaceZoom": 1.07
+		},
+		"thumbnailPath": "",
+		"wallpaperPath": ""
+	},
+	"bar": {
+		"autoHide": {
+			"enable": false,
+			"pushWindows": false,
+			"showWhenPressingSuper": {
+				"delay": 140,
+				"enable": true
+			}
+		},
+		"borderless": false,
+		"bottom": false,
+		"cornerStyle": 2,
+		"resources": {
+			"alwaysShowCpu": false,
+			"alwaysShowSwap": true
+		},
+		"screenList": [
+		],
+		"showBackground": true,
+		"topLeftIcon": "spark",
+		"tray": {
+			"monochromeIcons": true
+		},
+		"utilButtons": {
+			"showColorPicker": false,
+			"showDarkModeToggle": false,
+			"showKeyboardToggle": false,
+			"showMicToggle": true,
+			"showPerformanceProfileToggle": true,
+			"showScreenSnip": true
+		},
+		"verbose": true,
+		"vertical": false,
+		"weather": {
+			"city": "Gothenburg",
+			"enable": false,
+			"enableGPS": true,
+			"fetchInterval": 10,
+			"useUSCS": false
+		},
+		"workspaces": {
+			"alwaysShowNumbers": true,
+			"monochromeIcons": true,
+			"showAppIcons": true,
+			"showNumberDelay": 300,
+			"shown": 10
+		}
+	},
+	"battery": {
+		"automaticSuspend": true,
+		"critical": 5,
+		"low": 20,
+		"suspend": 3
+	},
+	"conflictKiller": {
+		"autoKillNotificationDaemons": false,
+		"autoKillTrays": false
+	},
+	"dock": {
+		"enable": true,
+		"height": 60,
+		"hoverRegionHeight": 2,
+		"hoverToReveal": true,
+		"ignoredAppRegexes": [
+		],
+		"monochromeIcons": false,
+		"pinnedApps": [
+			"alacritty",
+			"firefox",
+			"org.gnome.nautilus",
+			"emacs",
+			"vesktop",
+		],
+		"pinnedOnStartup": false
+	},
+	"hacks": {
+		"arbitraryRaceConditionDelay": 20
+	},
+	"interactions": {
+		"scrolling": {
+			"fasterTouchpadScroll": true,
+			"mouseScrollDeltaThreshold": 120,
+			"mouseScrollFactor": 120,
+			"touchpadScrollFactor": 450
+		}
+	},
+	"language": {
+		"translator": {
+			"engine": "auto",
+			"sourceLanguage": "auto",
+			"targetLanguage": "auto"
+		}
+	},
+	"light": {
+		"night": {
+			"automatic": false,
+			"colorTemperature": 5000,
+			"from": "19:00",
+			"to": "06:30"
+		}
+	},
+	"media": {
+		"filterDuplicatePlayers": true
+	},
+	"networking": {
+		"userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+	},
+	"osd": {
+		"timeout": 1000
+	},
+	"osk": {
+		"layout": "qwerty_full",
+		"pinnedOnStartup": false
+	},
+	"overview": {
+		"columns": 5,
+		"enable": true,
+		"rows": 2,
+		"scale": 0.18
+	},
+	"policies": {
+		"ai": 0,
+		"weeb": 0
+	},
+	"resources": {
+		"updateInterval": 3000
+	},
+	"screenshotTool": {
+		"showContentRegions": true
+	},
+	"search": {
+		"engineBaseUrl": "https://www.google.com/search?q=",
+		"excludedSites": [
+			"quora.com"
+		],
+		"nonAppResultDelay": 30,
+		"prefix": {
+			"action": "/",
+			"clipboard": ";",
+			"emojis": ":"
+		},
+		"sloppy": false
+	},
+	"sidebar": {
+		"keepRightSidebarLoaded": true,
+		"translator": {
+			"delay": 300
+		}
+	},
+	"time": {
+		"dateFormat": "ddd, dd MMM",
+		"format": "hh:mm",
+		"pomodoro": {
+			"alertSound": "",
+			"breakTime": 300,
+			"cyclesBeforeLongBreak": 4,
+			"focus": 1500,
+			"longBreak": 900
+		},
+		"shortDateFormat": "dd/MM"
+	},
+	"windows": {
+		"centerTitle": false,
+		"showTitlebar": false
+	}
+}
