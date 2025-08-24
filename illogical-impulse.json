@@ -59,8 +59,7 @@
 			"alwaysShowCpu": false,
 			"alwaysShowSwap": true
 		},
-		"screenList": [
-		],
+		"screenList": [],
 		"showBackground": true,
 		"topLeftIcon": "spark",
 		"tray": {
