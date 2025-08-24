@@ -113,7 +113,7 @@
 			"firefox",
 			"org.gnome.nautilus",
 			"emacs",
-			"vesktop",
+			"vesktop"
 		],
 		"pinnedOnStartup": false
 	},
