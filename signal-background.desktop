@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Signal
-Exec=signal-desktop --start-in-tray
+Exec=signal-desktop --start-in-tray --password-store="gnome-libsecret"
 Terminal=false
 Type=Application
