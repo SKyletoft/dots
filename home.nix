@@ -67,6 +67,7 @@ in {
 			doasedit
 			mdpdf
 			hstr
+			bluetui
 
 			nil
 			inputs.lsp-booster.packages.${system}.default
