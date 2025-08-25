@@ -314,7 +314,22 @@ in {
 
 		emacs = {
 			enable = true;
-			package = emacsPin.emacs-igc.override {
+			package = (emacsPin.emacs-igc.overrideAttrs (old: {
+				preConfigure = ''
+					export CC=${pkgs.llvmPackages.clang}/bin/clang
+					export CXX=${pkgs.llvmPackages.clang}/bin/clang++
+					export AR=${pkgs.llvm}/bin/llvm-ar
+					export NM=${pkgs.llvm}/bin/llvm-nm
+					export LD=${pkgs.lld}/bin/ld.lld
+					export RANLIB=${pkgs.llvm}/bin/llvm-ranlib
+				'';
+				NIX_CFLAGS_COMPILE = toString ([
+					"-O2"
+					"-march=znver4"
+					"-mtune=znver4"
+					"-flto=full"
+				] ++ old.NIX_CFLAGS_COMPILE or []);
+			})).override {
 				withGTK3 = false;
 				withX    = gui;
 				withWebP = gui;
