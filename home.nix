@@ -83,7 +83,7 @@ in {
 		(if gui then [
 			inputs.lem.packages.${system}.default
 
-			aider-chat-full
+			# aider-chat-full
 
 			bazecor
 
