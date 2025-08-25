@@ -65,7 +65,7 @@ in {
 			rsync
 			xclip
 			doasedit
-			mdpdf
+			# mdpdf
 			hstr
 			bluetui
 
