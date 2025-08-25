@@ -360,10 +360,10 @@ in {
 					diff-hl
 					evil
 					treemacs
-					telephone-line
+					# telephone-line
 					doom-modeline
 					ligature
-					gcmh
+					# gcmh
 					transpose-frame
 					editorconfig
 					ripgrep
@@ -374,17 +374,17 @@ in {
 					ivy
 					ivy-posframe
 					projectile
-					casual-calc
-					nerd-icons
-					all-the-icons
-					all-the-icons-nerd-fonts
-					tramp # Not a part of Emacs?
-					mu4e
-					org
-					org-mime
+					# casual-calc
+					# nerd-icons
+					# all-the-icons
+					# all-the-icons-nerd-fonts
+					# tramp # Not a part of Emacs?
+					# mu4e
+					# org
+					# org-mime
 
 					gptel
-					aider
+					# aider
 
 					pdf-tools
 					multi-vterm
@@ -395,8 +395,8 @@ in {
 					lsp-treemacs
 					# dap-mode
 
-					realgud
-					realgud-jdb
+					# realgud
+					# realgud-jdb
 
 					# tree-sitter-langs
 					evil-textobj-tree-sitter
