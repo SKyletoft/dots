@@ -517,7 +517,7 @@ in {
 					privacy-badger
 					vimium
 					sponsorblock
-					enhancer-for-youtube
+					# enhancer-for-youtube
 					consent-o-matic
 					enhanced-h264ify
 					# refined-hackernews
