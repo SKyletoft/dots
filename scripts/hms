@@ -1,16 +1,16 @@
 #!/usr/bin/env sh
 
-rm -r ~/.config/emacs || true
-ln -s ~/dots/emacs ~/.config/emacs
+# rm -r ~/.config/emacs || true
+# ln -s ~/dots/emacs ~/.config/emacs
 
-rm ~/.config/hypr/hyprland.conf || true
-ln -s ~/dots/hyprland.conf ~/.config/hypr/hyprland.conf
+# rm ~/.config/hypr/hyprland.conf || true
+# ln -s ~/dots/hyprland.conf ~/.config/hypr/hyprland.conf
 
-rm ~/.config/illogical-impulse/config.json || true
-ln -s ~/dots/illogical-impulse.json ~/.config/illogical-impulse/config.json
+# rm ~/.config/illogical-impulse/config.json || true
+# ln -s ~/dots/illogical-impulse.json ~/.config/illogical-impulse/config.json
 
-rm -r ~/.config/quickshell || true
-ln -s ~/dots/quickshell ~/.config/quickshell
+# rm -r ~/.config/quickshell || true
+# ln -s ~/dots/quickshell ~/.config/quickshell
 
 cd ~/dots/home
 # rm ~/.mozilla/firefox/default/search.json.mozlz4
