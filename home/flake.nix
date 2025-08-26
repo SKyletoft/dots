@@ -84,6 +84,7 @@
 				"-march=znver4"
 				"-mtune=znver4"
 			];
+			cursorTheme = "severa_cursors_linux_expanded";
 		};
 		homeConfigurations."u3836@medea" = home {
 			enableHyprland  = true;
