@@ -47,7 +47,9 @@
   (setq-default line-spacing 0.1)
 
   (setq fill-column 80)
-  (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-12"))
+  (if (string-equal (system-name) "medea")
+      (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-24"))
+    (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-12")))
   (load-theme 'modus-operandi t)
   (doom-modeline-mode 1)
   ;; (telephone-line-mode 0)
@@ -75,10 +77,14 @@
   :config
   (if (string-equal (system-name) "medea")
       ;; 2x gui scale on medea, but no built-in support for scaling this specific font
-      (set-face-attribute 'fringe nil :font "Cascadia Code NF" :height 240))
-  (set-face-attribute 'default nil :font "Cascadia Code NF" :height 120)
-  (set-face-attribute 'fixed-pitch nil :font "Cascadia Code")
-  (set-face-attribute 'variable-pitch nil :font "TeX Gyre Heros" :height 150))
+      (progn
+        (set-face-attribute 'default nil :font "Cascadia Code NF" :height 240)
+        (set-face-attribute 'fixed-pitch nil :font "Cascadia Code")
+        (set-face-attribute 'variable-pitch nil :font "TeX Gyre Heros" :height 300))
+    (progn
+      (set-face-attribute 'default nil :font "Cascadia Code NF" :height 120)
+      (set-face-attribute 'fixed-pitch nil :font "Cascadia Code")
+      (set-face-attribute 'variable-pitch nil :font "TeX Gyre Heros" :height 150))))
 
 (use-package ligature
   :load-path "path-to-ligature-repo"
