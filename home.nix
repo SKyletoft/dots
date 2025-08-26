@@ -367,6 +367,7 @@ in {
 					};
 				in epkgs: (with emacsPin.emacsPackages; [
 					epkgs.treesit-grammars.with-all-grammars
+					evil-textobj-tree-sitter
 
 					emacsPin.python313Packages.python
 					emacsPin.nodejs
@@ -378,31 +379,21 @@ in {
 					diff-hl
 					evil
 					treemacs
-					# telephone-line
 					doom-modeline
 					ligature
-					# gcmh
 					transpose-frame
 					editorconfig
 					ripgrep
 					yasnippet
 					yasnippet-snippets
 					mixed-pitch
+					company
 					company-posframe
 					ivy
 					ivy-posframe
 					projectile
-					# casual-calc
-					# nerd-icons
-					# all-the-icons
-					# all-the-icons-nerd-fonts
-					# tramp # Not a part of Emacs?
-					# mu4e
-					# org
-					# org-mime
 
 					gptel
-					# aider
 
 					pdf-tools
 					multi-vterm
@@ -411,15 +402,6 @@ in {
 					lsp-mode
 					lsp-ui
 					lsp-treemacs
-					# dap-mode
-
-					# realgud
-					# realgud-jdb
-
-					# tree-sitter-langs
-					evil-textobj-tree-sitter
-
-					company
 
 					# lsp-java
 					nix-ts-mode
