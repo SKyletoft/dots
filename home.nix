@@ -618,7 +618,7 @@ rustflags = "-Ctarget-cpu=native"
 git-fetch-with-cli = true
 
 [target.x86_64-unknown-linux-gnu]
-linker = "${pkgs.clang_16}/bin/clang"
+linker = "${pkgs.clang}/bin/clang"
 rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 '';
 
