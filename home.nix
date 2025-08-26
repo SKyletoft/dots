@@ -366,6 +366,8 @@ in {
 						'';
 					};
 				in epkgs: (with emacsPin.emacsPackages; [
+					epkgs.treesit-grammars.with-all-grammars
+
 					emacsPin.python313Packages.python
 					emacsPin.nodejs
 					emacsPin.ispell
@@ -621,64 +623,64 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 '';
 
 		# Treesitter grammars
-		".config/emacs/tree-sitter/libtree-sitter-go.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-go}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-gomod.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-gomod}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-cpp.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-cpp}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-c.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-c}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-cmake.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-cmake}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-java.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-java}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-kotlin.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-kotlin}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-rust.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-rust}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-haskell.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-haskell}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-ocaml.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-ocaml}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-ocaml-interface.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-ocaml-interface}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-python.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-python}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-elisp.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-elisp}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-make.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-make}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-bash.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-bash}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-latex.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-latex}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-json.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-json}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-jsdoc.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-jsdoc}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-javascript.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-javascript}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-typescript.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-typescript}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-tsx.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-tsx}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-c-sharp.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-c-sharp}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-dockerfile.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-dockerfile}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-nix.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-nix}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-html.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-html}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-css.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-css}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-typst.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-typst}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-yaml.so".source =
-			"${emacsPin.tree-sitter-grammars.tree-sitter-yaml}/parser";
-		".config/emacs/tree-sitter/libtree-sitter-kdl.so".source =
-			"${pkgs.tree-sitter-grammars.tree-sitter-kdl}/parser"; # ---------------------------- UPDATE ME!!!
+		# ".config/emacs/tree-sitter/libtree-sitter-go.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-go}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-gomod.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-gomod}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-cpp.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-cpp}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-c.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-c}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-cmake.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-cmake}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-java.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-java}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-kotlin.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-kotlin}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-rust.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-rust}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-haskell.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-haskell}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-ocaml.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-ocaml}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-ocaml-interface.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-ocaml-interface}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-python.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-python}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-elisp.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-elisp}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-make.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-make}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-bash.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-bash}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-latex.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-latex}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-json.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-json}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-jsdoc.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-jsdoc}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-javascript.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-javascript}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-typescript.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-typescript}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-tsx.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-tsx}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-c-sharp.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-c-sharp}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-dockerfile.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-dockerfile}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-nix.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-nix}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-html.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-html}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-css.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-css}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-typst.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-typst}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-yaml.so".source =
+		#	"${emacsPin.tree-sitter-grammars.tree-sitter-yaml}/parser";
+		# ".config/emacs/tree-sitter/libtree-sitter-kdl.so".source =
+		#	"${pkgs.tree-sitter-grammars.tree-sitter-kdl}/parser"; # ---------------------------- UPDATE ME!!!
 		".config/emacs/tree-sitter/libtree-sitter-roc.so".source =
 			"${with emacsPin; inputs.roc-ts.packages.${system}.default}/parser";
 		".config/emacs/tree-sitter/libtree-sitter-swift.so".source =
