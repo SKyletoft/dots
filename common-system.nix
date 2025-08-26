@@ -242,6 +242,8 @@ in {
 			powertop
 			pinentry
 
+			nix-output-monitor
+
 			xorg.xkill
 			logiops
 
