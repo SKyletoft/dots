@@ -60,18 +60,12 @@
 		graphicalHome = home {
 			enableHyprland  = true;
 			enableGnome     = true;
-			enableRiver     = false;
-			enableSway      = false;
-			enableNiri      = true;
 			enableDebugging = false;
 			nativeFlags     = [];
 		};
 		serverHome = home {
 			enableHyprland  = false;
 			enableGnome     = false;
-			enableRiver     = false;
-			enableSway      = false;
-			enableNiri      = false;
 			enableDebugging = false;
 			nativeFlags     = [];
 		};
@@ -85,9 +79,6 @@
 		homeConfigurations."u3836@medusa"   = home {
 			enableHyprland  = true;
 			enableGnome     = true;
-			enableRiver     = false;
-			enableSway      = false;
-			enableNiri      = true;
 			enableDebugging = false;
 			nativeFlags     = [
 				"-march=znver4"
@@ -97,9 +88,6 @@
 		homeConfigurations."u3836@medea" = home {
 			enableHyprland  = true;
 			enableGnome     = true;
-			enableRiver     = false;
-			enableSway      = false;
-			enableNiri      = true;
 			enableDebugging = false;
 			nativeFlags     = [
 				"-march=alderlake"

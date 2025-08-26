@@ -31,15 +31,10 @@ let
 
 	enableHyprland  = homeConfig.enableHyprland;
 	enableGnome     = homeConfig.enableGnome;
-	enableRiver     = homeConfig.enableRiver;
-	enableSway      = homeConfig.enableSway;
-	enableNiri      = homeConfig.enableNiri;
 	enableDebugging = homeConfig.enableDebugging;
 
 	gui = enableGnome || wm;
-	wm  = enableHyprland || enableRiver || enableSway || enableNiri;
-
-	mkOutOfStoreSymlink = config.lib.file.mkOutOfStoreSymlink;
+	wm  = enableHyprland;
 in {
 	home = {
 		username      = "u3836";
@@ -183,42 +178,6 @@ in {
 			playerctl
 			pavucontrol
 			quickshell
-		] else [])
-
-		++ (if enableRiver then [
-			river
-			rivercarro
-			kile-wl
-			stacktile
-			wofi
-			ristate
-			swaylock
-			waybar
-			swaybg
-			swayosd
-			swayidle
-			swaynag-battery
-			wayshot
-			wlr-randr
-			xonsh
-		] else [])
-
-		++ (if enableNiri then [
-			# niri
-			xwayland-satellite
-			brightnessctl
-			libnotify
-			fuzzel
-			waybar
-			swaylock-effects
-			swaybg
-			swayidle
-			wlr-randr
-			sway-contrib.grimshot
-		] else [])
-
-		++ (if enableSway then [
-			sway
 		] else []);
 
 		sessionVariables = {
