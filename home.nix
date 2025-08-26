@@ -182,6 +182,7 @@ in {
 
 		sessionVariables = {
 			EDITOR = "emacsclient -nw";
+			XCURSOR_THEME = homeConfig.cursorTheme or "severa_cursors_linux_expanded";
 		} // (if enableHyprland then {
 			MOZ_ENABLE_WAYLAND = "1";
 		} else {});

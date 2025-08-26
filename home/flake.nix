@@ -51,7 +51,7 @@
 					})
 				];
 			};
-			extraSpecialArgs = { inherit inputs; inherit homeConfig; };
+			extraSpecialArgs = { inherit inputs homeConfig; };
 			modules = [
 				../home.nix
 				{ nixpkgs.config.allowUnfreePredicate = _: true; }
@@ -93,6 +93,7 @@
 				"-march=alderlake"
 				"-mtune=alderlake"
 			];
+			cursorTheme = "severa_cursors_2x";
 		};
 		homeConfigurations."u3836" = graphicalHome;
 	};
