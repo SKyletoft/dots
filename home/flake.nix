@@ -64,6 +64,7 @@
 			enableSway      = false;
 			enableNiri      = true;
 			enableDebugging = false;
+			nativeFlags     = [];
 		};
 		serverHome = home {
 			enableHyprland  = false;
@@ -72,6 +73,7 @@
 			enableSway      = false;
 			enableNiri      = false;
 			enableDebugging = false;
+			nativeFlags     = [];
 		};
 	in {
 		defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
@@ -80,6 +82,30 @@
 		homeConfigurations."u3836@eurydice" = serverHome;
 		homeConfigurations."u3836@orpheus"  = serverHome;
 		homeConfigurations."u3836@hekate"   = serverHome;
-		homeConfigurations."u3836"          = graphicalHome;
+		homeConfigurations."u3836@medusa"   = home {
+			enableHyprland  = true;
+			enableGnome     = true;
+			enableRiver     = false;
+			enableSway      = false;
+			enableNiri      = true;
+			enableDebugging = false;
+			nativeFlags     = [
+				"-march=znver4"
+				"-mtune=znver4"
+			];
+		};
+		homeConfigurations."u3836@medea" = home {
+			enableHyprland  = true;
+			enableGnome     = true;
+			enableRiver     = false;
+			enableSway      = false;
+			enableNiri      = true;
+			enableDebugging = false;
+			nativeFlags     = [
+				"-march=alderlake"
+				"-mtune=alderlake"
+			];
+		};
+		homeConfigurations."u3836" = graphicalHome;
 	};
 }

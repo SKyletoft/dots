@@ -8,6 +8,22 @@ let
 		inputs.emacsOverlay.overlays.default
 		(_: p: {
 			emacs-git = p.emacs-git.overrideAttrs(_: { LSP_USE_PLISTS = true; });
+			emacs-igc = p.emacs-igc.overrideAttrs(old: {
+				LSP_USE_PLISTS = true;
+				preConfigure = ''
+					export CC=${pkgs.llvmPackages.clang}/bin/clang
+					export CXX=${pkgs.llvmPackages.clang}/bin/clang++
+					export AR=${pkgs.llvm}/bin/llvm-ar
+					export NM=${pkgs.llvm}/bin/llvm-nm
+					export LD=${pkgs.lld}/bin/ld.lld
+					export RANLIB=${pkgs.llvm}/bin/llvm-ranlib
+				'';
+				NIX_CFLAGS_COMPILE = toString (
+					["-O2" "-flto=full"]
+					++ homeConfig.nativeFlags
+					++ old.NIX_CFLAGS_COMPILE or []
+				);
+			});
 			emacsPackages = p.emacsPackages.overrideScope'
 				(_: p': { lsp-mode = p'.lsp-mode.overrideAttrs(_: { LSP_USE_PLISTS = true; }); });
 		})
@@ -314,22 +330,7 @@ in {
 
 		emacs = {
 			enable = true;
-			package = (emacsPin.emacs-igc.overrideAttrs (old: {
-				preConfigure = ''
-					export CC=${pkgs.llvmPackages.clang}/bin/clang
-					export CXX=${pkgs.llvmPackages.clang}/bin/clang++
-					export AR=${pkgs.llvm}/bin/llvm-ar
-					export NM=${pkgs.llvm}/bin/llvm-nm
-					export LD=${pkgs.lld}/bin/ld.lld
-					export RANLIB=${pkgs.llvm}/bin/llvm-ranlib
-				'';
-				NIX_CFLAGS_COMPILE = toString ([
-					"-O2"
-					"-march=znver4"
-					"-mtune=znver4"
-					"-flto=full"
-				] ++ old.NIX_CFLAGS_COMPILE or []);
-			})).override {
+			package = emacsPin.emacs-igc.override {
 				withGTK3 = false;
 				withX    = gui;
 				withWebP = gui;
