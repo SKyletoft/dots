@@ -64,11 +64,11 @@ in {
 		};
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		kernelModules = [ "xpad" "hid-nintendo" "xone" "xpadneo" ];
-		extraModulePackages = with config.boot.kernelPackages; [
-			xone
-			xpadneo
-			(callPackage ./packages/xpad.nix {})
-		];
+		# extraModulePackages = with config.boot.kernelPackages; [
+		#	xone
+		#	xpadneo
+		#	(callPackage ./packages/xpad.nix {})
+		# ];
 	};
 
 	time.timeZone = "Europe/Stockholm";
