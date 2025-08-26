@@ -14,4 +14,4 @@
 
 cd ~/dots/home
 # rm ~/.mozilla/firefox/default/search.json.mozlz4
-home-manager switch --flake . --impure -L
+home-manager switch --flake . --impure -L --json |& nom
