@@ -48,7 +48,7 @@
 
   (setq fill-column 80)
   (if (string-equal (system-name) "medea")
-      (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-24"))
+      (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-25"))
     (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-12")))
   (load-theme 'modus-operandi t)
   (doom-modeline-mode 1)
@@ -78,7 +78,7 @@
   (if (string-equal (system-name) "medea")
       ;; 2x gui scale on medea, but no built-in support for scaling this specific font
       (progn
-        (set-face-attribute 'default nil :font "Cascadia Code NF" :height 240)
+        (set-face-attribute 'default nil :font "Cascadia Code NF" :height 250)
         (set-face-attribute 'fixed-pitch nil :font "Cascadia Code")
         (set-face-attribute 'variable-pitch nil :font "TeX Gyre Heros" :height 300))
     (progn
