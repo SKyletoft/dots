@@ -286,13 +286,16 @@ in {
 				persist = true;
 			}];
 		};
+		pam = {
 		# Increase max open files limit
-		pam.loginLimits = [{
-			domain = "*";
-			type = "soft";
-			item = "nofile";
-			value = "32768";
-		}];
+			loginLimits = [{
+				domain = "*";
+				type = "soft";
+				item = "nofile";
+				value = "32768";
+			}];
+			services.greetd.enableGnomeKeyring = true;
+		};
 	};
 
 	fonts.packages = with pkgs.nerd-fonts; [
