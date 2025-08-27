@@ -14,6 +14,7 @@
 					waylandSupport = true;
 					windowsFonts   = false;
 					nativeBuild    = false;
+					nativeArch     = "znver4";
 					flatpak        = false;
 				};
 				modules = [
@@ -29,6 +30,7 @@
 					waylandSupport = true;
 					windowsFonts   = false;
 					nativeBuild    = false;
+					nativeArch     = "alderlake";
 					flatpak        = false;
 				};
 				modules = [

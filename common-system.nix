@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixGL, waylandSupport, windowsFonts, nativeBuild, flatpak, ... }:
+{ config, pkgs, lib, nixGL, waylandSupport, windowsFonts, nativeBuild, nativeArch, flatpak, ... }:
 
 let
 	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
@@ -10,7 +10,7 @@ in {
 			allowUnfree = true;
 			allowBroken = false;
 		};
-		overlays = (import ./overlays.nix) nativeBuild;
+		overlays = (import ./overlays.nix) nativeBuild nativeArch;
 	};
 
 	hardware.keyboard.zsa.enable = true;

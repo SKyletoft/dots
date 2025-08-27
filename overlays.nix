@@ -1,4 +1,4 @@
-nativeBuild:
+nativeBuild: nativeArch:
 [
 	(self: super: {
 		cascadia-code-greek = super.cascadia-code.overrideAttrs(old: {
@@ -24,7 +24,16 @@ nativeBuild:
 		});
 	})
 ] ++ (if nativeBuild then [
-	(self: super: {
-		stdenv = super.impureUseNativeOptimizations super.stdenv;
+	(final: prev: {
+		linuxPackages_latest = prev.linuxPackages_xanmod.extend (kfinal: kprev: {
+			kernel = (kprev.kernel.override {
+				name = "linux-xandmod-native";
+				extraMakeFlags = [
+					"KCFLAGS+=-O3"
+					("KCFLAGS+=-march=" + nativeArch)
+					("KCFLAGS+=-mtune=" + nativeArch)
+				];
+			});
+		});
 	})
 ] else [])
