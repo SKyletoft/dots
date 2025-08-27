@@ -25,9 +25,9 @@ nativeBuild: nativeArch:
 	})
 ] ++ (if nativeBuild then [
 	(final: prev: {
-		linuxPackages_latest = prev.linuxPackages_xanmod.extend (kfinal: kprev: {
+		linuxPackages_xanmod = prev.linuxPackages_xanmod.extend (kfinal: kprev: {
 			kernel = (kprev.kernel.override {
-				name = "linux-xandmod-native";
+				name = "linux-xanmod-native";
 				extraMakeFlags = [
 					"KCFLAGS+=-O3"
 					("KCFLAGS+=-march=" + nativeArch)
