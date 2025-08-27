@@ -19,7 +19,7 @@ let
 					export RANLIB=${pkgs.llvm}/bin/llvm-ranlib
 				'';
 				NIX_CFLAGS_COMPILE = toString (
-					["-O2" "-flto=full"]
+					["-O2" "-flto"]
 					++ homeConfig.nativeFlags
 					++ old.NIX_CFLAGS_COMPILE or []
 				);
