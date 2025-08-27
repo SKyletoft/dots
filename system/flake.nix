@@ -29,7 +29,7 @@
 				specialArgs = args // {
 					waylandSupport = true;
 					windowsFonts   = false;
-					nativeBuild    = false;
+					nativeBuild    = true;
 					nativeArch     = "alderlake";
 					flatpak        = false;
 				};
