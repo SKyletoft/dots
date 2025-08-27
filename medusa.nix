@@ -89,6 +89,8 @@
 		};
 	};
 
+	environment.sessionVariables.XCURSOR_THEME = "severa_cursors_linux_expanded";
+
 	users.groups = {
 		i2c = {};
 		plugdev = {};
