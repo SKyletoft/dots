@@ -168,12 +168,8 @@ in {
 		] else [])
 
 		++ (if enableHyprland then [
-			# hyprland
 			hyprpaper
-			wofi
-			waybar
 			playerctl
-			pavucontrol
 			quickshell
 			grim
 			wl-clipboard
