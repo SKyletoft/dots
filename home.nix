@@ -175,6 +175,11 @@ in {
 			playerctl
 			pavucontrol
 			quickshell
+			grim
+			wl-clipboard
+			imagemagick
+			swappy
+			swaylock-effects
 		] else []);
 
 		sessionVariables = {
