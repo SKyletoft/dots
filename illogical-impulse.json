@@ -17,6 +17,7 @@
 			"enableTerminal": true
 		}
 	},
+
 	"apps": {
 		"bluetooth": "alacritty -e bluetui",
 		"network": "alacritty -e nmtui",
@@ -24,6 +25,7 @@
 		"taskManager": "missioncenter",
 		"terminal": "alacritty"
 	},
+
 	"audio": {
 		"protection": {
 			"enable": true,
@@ -31,6 +33,7 @@
 			"maxAllowedIncrease": 100
 		}
 	},
+
 	"background": {
 		"clockX": -500,
 		"clockY": -500,
@@ -43,6 +46,7 @@
 		"thumbnailPath": "",
 		"wallpaperPath": ""
 	},
+
 	"bar": {
 		"autoHide": {
 			"enable": false,
@@ -90,16 +94,19 @@
 			"shown": 10
 		}
 	},
+
 	"battery": {
 		"automaticSuspend": true,
 		"critical": 5,
 		"low": 20,
 		"suspend": 3
 	},
+
 	"conflictKiller": {
 		"autoKillNotificationDaemons": false,
 		"autoKillTrays": false
 	},
+
 	"dock": {
 		"enable": true,
 		"height": 60,
@@ -117,9 +124,11 @@
 		],
 		"pinnedOnStartup": false
 	},
+
 	"hacks": {
 		"arbitraryRaceConditionDelay": 20
 	},
+
 	"interactions": {
 		"scrolling": {
 			"fasterTouchpadScroll": true,
@@ -128,6 +137,7 @@
 			"touchpadScrollFactor": 450
 		}
 	},
+
 	"language": {
 		"translator": {
 			"engine": "auto",
@@ -135,6 +145,7 @@
 			"targetLanguage": "auto"
 		}
 	},
+
 	"light": {
 		"night": {
 			"automatic": false,
@@ -143,35 +154,44 @@
 			"to": "06:30"
 		}
 	},
+
 	"media": {
 		"filterDuplicatePlayers": true
 	},
+
 	"networking": {
 		"userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
 	},
+
 	"osd": {
 		"timeout": 1000
 	},
+
 	"osk": {
 		"layout": "qwerty_full",
 		"pinnedOnStartup": false
 	},
+
 	"overview": {
 		"columns": 5,
 		"enable": true,
 		"rows": 2,
 		"scale": 0.18
 	},
+
 	"policies": {
 		"ai": 0,
 		"weeb": 0
 	},
+
 	"resources": {
 		"updateInterval": 3000
 	},
+
 	"screenshotTool": {
 		"showContentRegions": true
 	},
+
 	"search": {
 		"engineBaseUrl": "https://www.google.com/search?q=",
 		"excludedSites": [
@@ -185,12 +205,14 @@
 		},
 		"sloppy": false
 	},
+
 	"sidebar": {
 		"keepRightSidebarLoaded": true,
 		"translator": {
 			"delay": 300
 		}
 	},
+
 	"time": {
 		"dateFormat": "ddd, dd MMM",
 		"format": "hh:mm",
@@ -203,6 +225,7 @@
 		},
 		"shortDateFormat": "dd/MM"
 	},
+
 	"windows": {
 		"centerTitle": false,
 		"showTitlebar": false
