@@ -24,7 +24,6 @@
     (kbd "SPC m") 'magit
     (kbd "SPC n") 'magit-blame
     (kbd "SPC v") 'hs-toggle-hiding
-    (kbd "SPC å") 'projectile-command-map
     (kbd "ö")     'evil-ex
     (kbd "Ö")     'eval-expression
     (kbd "C-n")   'scratch-buffer
@@ -112,10 +111,10 @@
 
   ;; Find
   (evil-define-key 'normal 'global
-    (kbd "SPC P")   'projectile-switch-project
-    (kbd "SPC p")   'projectile-find-file
+    (kbd "SPC P")   'project-switch-project
+    (kbd "SPC p")   'project-find-file
     (kbd "M-p")     'find-file
-    (kbd "SPC SPC") 'projectile-ripgrep)
+    (kbd "SPC SPC") 'project-find-regexp)
 
   ;; Undo and redo
   (evil-define-key '(normal motion insert) 'global

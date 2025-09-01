@@ -349,7 +349,6 @@ in {
 					company-posframe
 					ivy
 					ivy-posframe
-					projectile
 
 					gptel
 

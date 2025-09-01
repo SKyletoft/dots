@@ -21,7 +21,6 @@
     (kbd "SPC m") 'magit
     (kbd "SPC n") 'magit-blame
     (kbd "SPC v") 'hs-toggle-hiding
-    (kbd "SPC å") 'projectile-command-map
     (kbd "ö")     'evil-ex
     (kbd "Ö")     'eval-expression
     (kbd "·")     'run-command
@@ -103,9 +102,9 @@
 
   ;; Find
   (evil-define-key 'normal 'global
-    (kbd "SPC P")   'projectile-switch-project
-    (kbd "SPC p")   'projectile-find-file
-    (kbd "SPC SPC") 'projectile-ripgrep
+    (kbd "SPC P")   'project-switch-project
+    (kbd "SPC p")   'project-find-file
+    (kbd "SPC SPC") 'project-find-regexp
     (kbd "M-p")     'find-file)
 
   ;; Undo and redo

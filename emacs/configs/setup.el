@@ -42,7 +42,8 @@
       mouse-wheel-progressive-speed nil
       mouse-wheel-follow-mouse 't
       initial-scratch-message ""
-      auth-sources '("~/.authinfo"))
+      auth-sources '("~/.authinfo")
+      xref-search-program 'ripgrep)
 (add-hook 'prog-mode-hook 'auto-revert-mode)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -74,9 +75,6 @@
 
 (use-package ivy)
 (ivy-mode)
-
-(use-package projectile)
-(projectile-mode +1)
 
 (use-package ivy-posframe
   :custom
