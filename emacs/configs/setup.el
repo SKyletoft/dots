@@ -53,7 +53,6 @@
 (use-package editorconfig)
 (editorconfig-mode 1)
 
-;; (use-package telephone-line)
 (use-package doom-modeline)
 
 (use-package direnv
@@ -110,11 +109,6 @@
   :after magit evil
   :hook
   (forge-pullreq-mode . (lambda () (evil-emacs-state))))
-
-;; (use-package nerd-icons)
-;; (use-package all-the-icons)
-;; (nerd-icons-install-fonts 't)
-;; (all-the-icons-install-fonts 't)
 
 ;; GDB/GUD-GDB
 (setq gdb-debuginfod-enable-setting nil)
