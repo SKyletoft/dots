@@ -109,7 +109,7 @@
 
 	"dock": {
 		"enable": true,
-		"height": 60,
+		"height": 55,
 		"hoverRegionHeight": 2,
 		"hoverToReveal": true,
 		"ignoredAppRegexes": [
