@@ -30,14 +30,14 @@
 (require 'lsp-booster)
 (require 'gptel-setup)
 ; (require 'my-mu4e-config)
-(require 'qwerty)
-(require 'colemak)
 
 ;; Would go in setup.el, but needs to be loaded last
 (if (string-equal (system-name) "medusa")
     (progn
+      (require 'colemak)
       (colemak-keymap)
       (setq my/left-margin-default 80))
+  (require 'qwerty)
   (qwerty-keymap)
   (setq my/left-margin-default 60))
 
