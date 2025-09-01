@@ -56,10 +56,6 @@
 ;; (use-package telephone-line)
 (use-package doom-modeline)
 
-(use-package treemacs
-  :config
-  (setq treemacs-space-between-root-nodes nil))
-
 (use-package direnv
   :config
   (setq direnv-always-show-summary t)

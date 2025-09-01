@@ -336,7 +336,6 @@ in {
 					forge
 					diff-hl
 					evil
-					treemacs
 					doom-modeline
 					ligature
 					transpose-frame
