@@ -120,7 +120,8 @@
 			"firefox",
 			"org.gnome.nautilus",
 			"emacs",
-			"vesktop"
+			"vesktop",
+			"steam"
 		],
 		"pinnedOnStartup": false
 	},
