@@ -106,27 +106,6 @@ Scope { // Scope
 							spacing: 3
 							property real padding: 5
 
-							VerticalButtonGroup {
-								Layout.topMargin: Appearance.sizes.hyprlandGapsOut // why does this work
-								GroupButton { // Pin button
-									baseWidth: 35
-									baseHeight: 35
-									clickedWidth: baseWidth
-									clickedHeight: baseHeight + 20
-									buttonRadius: Appearance.rounding.normal
-									toggled: root.pinned
-									onClicked: root.pinned = !root.pinned
-									contentItem: MaterialSymbol {
-										text: "keep"
-										horizontalAlignment: Text.AlignHCenter
-										iconSize: Appearance.font.pixelSize.larger
-										color: root.pinned ? Appearance.m3colors.m3onPrimary : Appearance.colors.colOnLayer0
-									}
-								}
-							}
-							DockSeparator {}
-							DockApps { id: dockApps; }
-							DockSeparator {}
 							DockButton {
 								Layout.fillHeight: true
 								onClicked: GlobalStates.overviewOpen = !GlobalStates.overviewOpen
@@ -138,6 +117,8 @@ Scope { // Scope
 									color: Appearance.colors.colOnLayer0
 								}
 							}
+							DockSeparator {}
+							DockApps { id: dockApps; }
 						}
 					}
 				}
