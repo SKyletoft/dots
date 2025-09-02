@@ -18,7 +18,6 @@ import "./modules/notificationPopup/"
 import "./modules/onScreenDisplay/"
 import "./modules/onScreenKeyboard/"
 import "./modules/overview/"
-import "./modules/screenCorners/"
 import "./modules/session/"
 import "./modules/sidebarRight/"
 import "./modules/verticalBar/"
@@ -69,7 +68,6 @@ ShellRoot {
 	/* LazyLoader { active: enableOnScreenKeyboard; component: OnScreenKeyboard {} } */
 	LazyLoader { active: enableOverview; component: Overview {} }
 	LazyLoader { active: enableReloadPopup; component: ReloadPopup {} }
-	/* LazyLoader { active: enableScreenCorners; component: ScreenCorners {} } */
 	LazyLoader { active: enableSession; component: Session {} }
 	LazyLoader { active: enableSidebarRight; component: SidebarRight {} }
 	/* LazyLoader { active: enableVerticalBar && Config.ready && Config.options.bar.vertical; component: VerticalBar {} } */
