@@ -3,7 +3,7 @@
 		"extraBackgroundTint": true,
 		"fakeScreenRounding": 0,
 		"palette": {
-			"type": "scheme-monochrome"
+			"type": "auto"
 		},
 		"transparency": {
 			"automatic": true,
@@ -13,8 +13,8 @@
 		},
 		"wallpaperTheming": {
 			"enableAppsAndShell": true,
-			"enableQtApps": true,
-			"enableTerminal": true
+			"enableQtApps": false,
+			"enableTerminal": false
 		}
 	},
 
