@@ -19,7 +19,7 @@ QuickToggleButton {
 	}
 	Process {
 		id: fetchActiveState
-		running: true
+		running: false
 		command: ["bash", "-c", `test "$(hyprctl getoption animations:enabled -j | jq ".int")" -ne 0`]
 		onExited: (exitCode, exitStatus) => {
 			root.toggled = exitCode !== 0 // Inverted because enabled = nonzero exit
