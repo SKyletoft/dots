@@ -8,9 +8,11 @@
 		vimPin.url = "github:NixOS/nixpkgs?rev=9813adc7f7c0edd738c6bdd8431439688bb0cb3d";
 		emacsPkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 		emacsOverlay = {
-			url = "github:nix-community/emacs-overlay?rev=983dc5dacc3654f92e9c914c10d678ff32f5ca13";
-			inputs.nixpkgs.follows = "emacsPkgs";
-			inputs.nixpkgs-stable.follows = "emacsPkgs";
+			url = "github:nix-community/emacs-overlay?rev=b50c5d02dc718555f5a369c0a0c39d65c371f9a1";
+			inputs = {
+				nixpkgs.follows = "emacsPkgs";
+				nixpkgs-stable.follows = "emacsPkgs";
+			};
 		};
 		home-manager = {
 			url = "github:nix-community/home-manager";
