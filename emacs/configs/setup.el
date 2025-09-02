@@ -78,6 +78,8 @@
      (right-fringe . 8))))
 (ivy-posframe-mode 1)
 
+(use-package company)
+
 (use-package whitespace
   :hook (before-save . whitespace-cleanup))
 
@@ -88,8 +90,6 @@
 
 (use-package diff-hl)
 (global-diff-hl-mode 1)
-
-(use-package company)
 
 (use-package vterm
   :hook
