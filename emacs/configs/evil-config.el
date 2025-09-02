@@ -203,7 +203,7 @@
                                                                                    "integer_literal"
                                                                                    "float_literal"
                                                                                    "boolean_literal")
-                                              '((rustic-mode . [(try_expression) @try_expr
+                                              '((rust-ts-mode . [(try_expression) @try_expr
                                                                 (unary_expression) @unary_expr
                                                                 (binary_expression) @binary_expr
                                                                 (call_expression) @call_expr
@@ -229,7 +229,7 @@
                                                                                    "integer_literal"
                                                                                    "float_literal"
                                                                                    "boolean_literal")
-                                              '((rustic-mode . [(try_expression) @try_expr
+                                              '((rust-ts-mode . [(try_expression) @try_expr
                                                                 (unary_expression) @unary_expr
                                                                 (binary_expression) @binary_expr
                                                                 (call_expression) @call_expr
@@ -245,7 +245,7 @@
 
 (define-key evil-outer-text-objects-map "m" (evil-textobj-tree-sitter-get-textobj "import"
                                               '((python-mode . [(import_statement) @import])
-                                                (rustic-mode . [(use_declaration) @import]))))
+                                                (rust-ts-mode . [(use_declaration) @import]))))
 
 (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.inner"))
 (define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
