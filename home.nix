@@ -169,6 +169,8 @@ in {
 
 		++ (if enableHyprland then [
 			hyprpaper
+			hyprsunset
+			hypridle
 			playerctl
 			quickshell
 			grim
