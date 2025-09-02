@@ -52,7 +52,7 @@ ShellRoot {
 
 	// Force initialization of some singletons
 	Component.onCompleted: {
-		/* MaterialThemeLoader.reapplyTheme() */
+		MaterialThemeLoader.reapplyTheme()
 		Hyprsunset.load()
 		FirstRunExperience.load()
 		ConflictKiller.load()
@@ -60,7 +60,7 @@ ShellRoot {
 	}
 
 	LazyLoader { active: enableBar && Config.ready && !Config.options.bar.vertical; component: Bar {} }
-	LazyLoader { active: enableBackground; component: Background {} }
+	/* LazyLoader { active: enableBackground; component: Background {} } */
 	LazyLoader { active: enableCheatsheet; component: Cheatsheet {} }
 	LazyLoader { active: enableDock && Config.options.dock.enable; component: Dock {} }
 	LazyLoader { active: enableLock; component: Lock {} }
@@ -68,12 +68,12 @@ ShellRoot {
 	LazyLoader { active: enableNotificationPopup; component: NotificationPopup {} }
 	LazyLoader { active: enableOnScreenDisplayBrightness; component: OnScreenDisplayBrightness {} }
 	LazyLoader { active: enableOnScreenDisplayVolume; component: OnScreenDisplayVolume {} }
-	LazyLoader { active: enableOnScreenKeyboard; component: OnScreenKeyboard {} }
+	/* LazyLoader { active: enableOnScreenKeyboard; component: OnScreenKeyboard {} } */
 	LazyLoader { active: enableOverview; component: Overview {} }
 	LazyLoader { active: enableReloadPopup; component: ReloadPopup {} }
-	LazyLoader { active: enableScreenCorners; component: ScreenCorners {} }
+	/* LazyLoader { active: enableScreenCorners; component: ScreenCorners {} } */
 	LazyLoader { active: enableSession; component: Session {} }
-	LazyLoader { active: enableSidebarLeft; component: SidebarLeft {} }
+	/* LazyLoader { active: enableSidebarLeft; component: SidebarLeft {} } */
 	LazyLoader { active: enableSidebarRight; component: SidebarRight {} }
-	LazyLoader { active: enableVerticalBar && Config.ready && Config.options.bar.vertical; component: VerticalBar {} }
+	/* LazyLoader { active: enableVerticalBar && Config.ready && Config.options.bar.vertical; component: VerticalBar {} } */
 }

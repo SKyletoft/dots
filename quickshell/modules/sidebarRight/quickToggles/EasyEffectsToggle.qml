@@ -7,25 +7,25 @@ import Quickshell
 import Quickshell.Hyprland
 
 QuickToggleButton {
-    id: root
-    toggled: EasyEffects.active
-    visible: EasyEffects.available
-    buttonIcon: "instant_mix"
+	id: root
+	toggled: EasyEffects.active
+	visible: EasyEffects.available
+	buttonIcon: "instant_mix"
 
-    Component.onCompleted: {
-        EasyEffects.fetchActiveState()
-    }
+	Component.onCompleted: {
+		EasyEffects.fetchActiveState()
+	}
 
-    onClicked: {
-        EasyEffects.toggle()
-    }
+	onClicked: {
+		EasyEffects.toggle()
+	}
 
-    altAction: () => {
-        Quickshell.execDetached(["easyeffects"])
-        GlobalStates.sidebarRightOpen = false
-    }
+	altAction: () => {
+		Quickshell.execDetached(["easyeffects"])
+		GlobalStates.sidebarRightOpen = false
+	}
 
-    StyledToolTip {
-        content: Translation.tr("EasyEffects | Right-click to configure")
-    }
+	StyledToolTip {
+		content: Translation.tr("EasyEffects | Right-click to configure")
+	}
 }

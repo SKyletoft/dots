@@ -144,14 +144,14 @@ Scope {
 
 			DropShadow {
 				id: shadow
-                anchors.fill: rect
-                horizontalOffset: 0
-                verticalOffset: 2
-                radius: 6
-                samples: radius * 2 + 1 // Ideally should be 2 * radius + 1, see qt docs
-                color: "#44000000"
-                source: rect
-            }
+				anchors.fill: rect
+				horizontalOffset: 0
+				verticalOffset: 2
+				radius: 6
+				samples: radius * 2 + 1 // Ideally should be 2 * radius + 1, see qt docs
+				color: "#44000000"
+				source: rect
+			}
 		}
 	}
 }

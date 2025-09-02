@@ -7,12 +7,12 @@ import "./fuzzysort.js" as FuzzySort
  */
 
 Singleton {
-    function go(...args) {
-        return FuzzySort.go(...args)
-    }
+	function go(...args) {
+		return FuzzySort.go(...args)
+	}
 
-    function prepare(...args) {
-        return FuzzySort.prepare(...args)
-    }
+	function prepare(...args) {
+		return FuzzySort.prepare(...args)
+	}
 }
 

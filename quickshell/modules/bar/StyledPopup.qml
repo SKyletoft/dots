@@ -6,71 +6,71 @@ import Quickshell
 import Quickshell.Wayland
 
 LazyLoader {
-    id: root
+	id: root
 
-    property MouseArea hoverTarget
-    default property Item contentItem
+	property MouseArea hoverTarget
+	default property Item contentItem
 
-    active: hoverTarget && hoverTarget.containsMouse
+	active: hoverTarget && hoverTarget.containsMouse
 
-    component: PanelWindow {
-        id: popupWindow
-        color: "transparent"
+	component: PanelWindow {
+		id: popupWindow
+		color: "transparent"
 
-        anchors.left: !Config.options.bar.vertical || (Config.options.bar.vertical && !Config.options.bar.bottom)
-        anchors.right: Config.options.bar.vertical && Config.options.bar.bottom
-        anchors.top: Config.options.bar.vertical || (!Config.options.bar.vertical && !Config.options.bar.bottom)
-        anchors.bottom: !Config.options.bar.vertical && Config.options.bar.bottom
+		anchors.left: !Config.options.bar.vertical || (Config.options.bar.vertical && !Config.options.bar.bottom)
+		anchors.right: Config.options.bar.vertical && Config.options.bar.bottom
+		anchors.top: Config.options.bar.vertical || (!Config.options.bar.vertical && !Config.options.bar.bottom)
+		anchors.bottom: !Config.options.bar.vertical && Config.options.bar.bottom
 
-        implicitWidth: popupBackground.implicitWidth + Appearance.sizes.hyprlandGapsOut * 2
-        implicitHeight: popupBackground.implicitHeight + Appearance.sizes.hyprlandGapsOut * 2
+		implicitWidth: popupBackground.implicitWidth + Appearance.sizes.hyprlandGapsOut * 2
+		implicitHeight: popupBackground.implicitHeight + Appearance.sizes.hyprlandGapsOut * 2
 
-        exclusionMode: ExclusionMode.Ignore
-        exclusiveZone: 0
-        margins {
-            left: {
-                if (!Config.options.bar.vertical) return root.QsWindow?.mapFromItem(
-                    root.hoverTarget, 
-                    (root.hoverTarget.width - popupBackground.implicitWidth) / 2, 0
-                ).x;
-                return Appearance.sizes.barHeight
-            }
-            top: {
-                if (!Config.options.bar.vertical) return Appearance.sizes.barHeight;
-                return root.QsWindow?.mapFromItem(
-                    root.hoverTarget, 
-                    (root.hoverTarget.height - popupBackground.implicitHeight) / 2, 0
-                ).y;
-            }
-            right: Appearance.sizes.barHeight
-            bottom: Appearance.sizes.barHeight
-        }
-        WlrLayershell.namespace: "quickshell:popup"
-        WlrLayershell.layer: WlrLayer.Overlay
+		exclusionMode: ExclusionMode.Ignore
+		exclusiveZone: 0
+		margins {
+			left: {
+				if (!Config.options.bar.vertical) return root.QsWindow?.mapFromItem(
+					root.hoverTarget, 
+					(root.hoverTarget.width - popupBackground.implicitWidth) / 2, 0
+				).x;
+				return Appearance.sizes.barHeight
+			}
+			top: {
+				if (!Config.options.bar.vertical) return Appearance.sizes.barHeight;
+				return root.QsWindow?.mapFromItem(
+					root.hoverTarget, 
+					(root.hoverTarget.height - popupBackground.implicitHeight) / 2, 0
+				).y;
+			}
+			right: Appearance.sizes.barHeight
+			bottom: Appearance.sizes.barHeight
+		}
+		WlrLayershell.namespace: "quickshell:popup"
+		WlrLayershell.layer: WlrLayer.Overlay
 
-        RectangularShadow {
-            property var target: popupBackground
-            anchors.fill: target
-            radius: target.radius
-            blur: 0.9 * Appearance.sizes.hyprlandGapsOut
-            offset: Qt.vector2d(0.0, 1.0)
-            spread: 0.7
-            color: Appearance.colors.colShadow
-            cached: true
-        }
+		RectangularShadow {
+			property var target: popupBackground
+			anchors.fill: target
+			radius: target.radius
+			blur: 0.9 * Appearance.sizes.hyprlandGapsOut
+			offset: Qt.vector2d(0.0, 1.0)
+			spread: 0.7
+			color: Appearance.colors.colShadow
+			cached: true
+		}
 
-        Rectangle {
-            id: popupBackground
-            readonly property real margin: 10
-            anchors.centerIn: parent
-            implicitWidth: root.contentItem.implicitWidth + margin * 2
-            implicitHeight: root.contentItem.implicitHeight + margin * 2
-            color: ColorUtils.applyAlpha(Appearance.colors.colSurfaceContainer, 1 - Appearance.backgroundTransparency)
-            radius: Appearance.rounding.small
-            children: [root.contentItem]
+		Rectangle {
+			id: popupBackground
+			readonly property real margin: 10
+			anchors.centerIn: parent
+			implicitWidth: root.contentItem.implicitWidth + margin * 2
+			implicitHeight: root.contentItem.implicitHeight + margin * 2
+			color: ColorUtils.applyAlpha(Appearance.colors.colSurfaceContainer, 1 - Appearance.backgroundTransparency)
+			radius: Appearance.rounding.small
+			children: [root.contentItem]
 
-            border.width: 1
-            border.color: Appearance.colors.colLayer0Border
-        }
-    }
+			border.width: 1
+			border.color: Appearance.colors.colLayer0Border
+		}
+	}
 }

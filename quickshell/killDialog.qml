@@ -20,176 +20,176 @@ import qs.modules.common.widgets
 import qs.modules.common.functions
 
 ApplicationWindow {
-    id: root
-    property int conflictCount: 0
-    onConflictCountChanged: {
-        if (conflictCount === 0) {
-            root.close();
-        }
-    }
+	id: root
+	property int conflictCount: 0
+	onConflictCountChanged: {
+		if (conflictCount === 0) {
+			root.close();
+		}
+	}
 
-    property real contentPadding: 8
-    visible: true
-    onClosing: {
-        Qt.quit()
-    }
-    title: Translation.tr("Shell conflicts killer")
+	property real contentPadding: 8
+	visible: true
+	onClosing: {
+		Qt.quit()
+	}
+	title: Translation.tr("Shell conflicts killer")
 
-    Component.onCompleted: {
-        Config.ready // Just read to force init
-        MaterialThemeLoader.reapplyTheme();
-    }
+	Component.onCompleted: {
+		Config.ready // Just read to force init
+		MaterialThemeLoader.reapplyTheme();
+	}
 
-    minimumWidth: 400
-    minimumHeight: 300
-    maximumWidth: 400
-    maximumHeight: 300
-    width: 400
-    height: 300
-    color: Appearance.m3colors.m3background
+	minimumWidth: 400
+	minimumHeight: 300
+	maximumWidth: 400
+	maximumHeight: 300
+	width: 400
+	height: 300
+	color: Appearance.m3colors.m3background
 
-    component ConflictingProgramGroup: ColumnLayout {
-        id: conflictGroup
-        required property list<string> programs
-        required property string description
-        visible: false
-        onVisibleChanged: {
-            conflictCount += visible ? 1 : -1
-        }
+	component ConflictingProgramGroup: ColumnLayout {
+		id: conflictGroup
+		required property list<string> programs
+		required property string description
+		visible: false
+		onVisibleChanged: {
+			conflictCount += visible ? 1 : -1
+		}
 
-        signal alwaysSelected()
+		signal alwaysSelected()
 
-        Process {
-            running: true
-            command: ["pidof", ...conflictGroup.programs]
-            onExited: (exitCode, exitStatus) => {
-                if (exitCode === 0) {
-                    conflictGroup.visible = true
-                }
-            }
-        }
+		Process {
+			running: true
+			command: ["pidof", ...conflictGroup.programs]
+			onExited: (exitCode, exitStatus) => {
+				if (exitCode === 0) {
+					conflictGroup.visible = true
+				}
+			}
+		}
 
-        StyledText {
-            text: conflictGroup.programs.join(", ")
-            font.pixelSize: Appearance.font.pixelSize.normal
-        }
-        StyledText {
-            font {
-                pixelSize: Appearance.font.pixelSize.smaller
-                italic: true
-            }
-            text: conflictGroup.description
-            color: Appearance.colors.colSubtext
-        }
-        RowLayout {
-            Layout.alignment: Qt.AlignRight
+		StyledText {
+			text: conflictGroup.programs.join(", ")
+			font.pixelSize: Appearance.font.pixelSize.normal
+		}
+		StyledText {
+			font {
+				pixelSize: Appearance.font.pixelSize.smaller
+				italic: true
+			}
+			text: conflictGroup.description
+			color: Appearance.colors.colSubtext
+		}
+		RowLayout {
+			Layout.alignment: Qt.AlignRight
 
-            RippleButton {
-                colBackground: Appearance.colors.colLayer2
-                contentItem: StyledText {
-                    text: Translation.tr("Always")
-                }
-                onClicked: {
-                    Quickshell.execDetached(["killall", ...conflictGroup.programs])
-                    conflictGroup.visible = false
-                    conflictGroup.alwaysSelected()
-                }
-            }
-            RippleButton {
-                colBackground: Appearance.colors.colLayer2
-                contentItem: StyledText {
-                    text: Translation.tr("Yes")
-                }
-                onClicked: {
-                    Quickshell.execDetached(["killall", ...conflictGroup.programs])
-                    conflictGroup.visible = false
-                }
-            }
-            RippleButton {
-                colBackground: Appearance.colors.colLayer2
-                contentItem: StyledText {
-                    text: Translation.tr("No")
-                }
-                onClicked: conflictGroup.visible = false
-            }
-        }
-    }
+			RippleButton {
+				colBackground: Appearance.colors.colLayer2
+				contentItem: StyledText {
+					text: Translation.tr("Always")
+				}
+				onClicked: {
+					Quickshell.execDetached(["killall", ...conflictGroup.programs])
+					conflictGroup.visible = false
+					conflictGroup.alwaysSelected()
+				}
+			}
+			RippleButton {
+				colBackground: Appearance.colors.colLayer2
+				contentItem: StyledText {
+					text: Translation.tr("Yes")
+				}
+				onClicked: {
+					Quickshell.execDetached(["killall", ...conflictGroup.programs])
+					conflictGroup.visible = false
+				}
+			}
+			RippleButton {
+				colBackground: Appearance.colors.colLayer2
+				contentItem: StyledText {
+					text: Translation.tr("No")
+				}
+				onClicked: conflictGroup.visible = false
+			}
+		}
+	}
 
-    ColumnLayout {
-        anchors {
-            fill: parent
-            margins: contentPadding
-        }
+	ColumnLayout {
+		anchors {
+			fill: parent
+			margins: contentPadding
+		}
 
-        Item {
-            // Titlebar
-            visible: Config.options?.windows.showTitlebar
-            Layout.fillWidth: true
-            implicitHeight: Math.max(welcomeText.implicitHeight, windowControlsRow.implicitHeight)
-            StyledText {
-                id: welcomeText
-                anchors {
-                    left: Config.options.windows.centerTitle ? undefined : parent.left
-                    horizontalCenter: Config.options.windows.centerTitle ? parent.horizontalCenter : undefined
-                    verticalCenter: parent.verticalCenter
-                    leftMargin: 12
-                }
-                color: Appearance.colors.colOnLayer0
-                text: Translation.tr("Kill conflicting programs?")
-                font.pixelSize: Appearance.font.pixelSize.title
-                font.family: Appearance.font.family.title
-            }
-            RowLayout { // Window controls row
-                id: windowControlsRow
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
-                RippleButton {
-                    buttonRadius: Appearance.rounding.full
-                    implicitWidth: 35
-                    implicitHeight: 35
-                    onClicked: root.close()
-                    contentItem: MaterialSymbol {
-                        anchors.centerIn: parent
-                        horizontalAlignment: Text.AlignHCenter
-                        text: "close"
-                        iconSize: 20
-                    }
-                }
-            }
-        }
-        Rectangle {
-            // Content container
-            color: Appearance.m3colors.m3surfaceContainerLow
-            radius: Appearance.rounding.windowRounding - root.contentPadding
-            implicitHeight: contentColumn.implicitHeight
-            implicitWidth: contentColumn.implicitWidth
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+		Item {
+			// Titlebar
+			visible: Config.options?.windows.showTitlebar
+			Layout.fillWidth: true
+			implicitHeight: Math.max(welcomeText.implicitHeight, windowControlsRow.implicitHeight)
+			StyledText {
+				id: welcomeText
+				anchors {
+					left: Config.options.windows.centerTitle ? undefined : parent.left
+					horizontalCenter: Config.options.windows.centerTitle ? parent.horizontalCenter : undefined
+					verticalCenter: parent.verticalCenter
+					leftMargin: 12
+				}
+				color: Appearance.colors.colOnLayer0
+				text: Translation.tr("Kill conflicting programs?")
+				font.pixelSize: Appearance.font.pixelSize.title
+				font.family: Appearance.font.family.title
+			}
+			RowLayout { // Window controls row
+				id: windowControlsRow
+				anchors.verticalCenter: parent.verticalCenter
+				anchors.right: parent.right
+				RippleButton {
+					buttonRadius: Appearance.rounding.full
+					implicitWidth: 35
+					implicitHeight: 35
+					onClicked: root.close()
+					contentItem: MaterialSymbol {
+						anchors.centerIn: parent
+						horizontalAlignment: Text.AlignHCenter
+						text: "close"
+						iconSize: 20
+					}
+				}
+			}
+		}
+		Rectangle {
+			// Content container
+			color: Appearance.m3colors.m3surfaceContainerLow
+			radius: Appearance.rounding.windowRounding - root.contentPadding
+			implicitHeight: contentColumn.implicitHeight
+			implicitWidth: contentColumn.implicitWidth
+			Layout.fillWidth: true
+			Layout.fillHeight: true
 
-            ColumnLayout {
-                id: contentColumn
-                anchors.fill: parent
-                spacing: 12
+			ColumnLayout {
+				id: contentColumn
+				anchors.fill: parent
+				spacing: 12
 
-                ConflictingProgramGroup {
-                    id: kded6Group
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.fillHeight: false
-                    programs: ["kded6"]
-                    description: Translation.tr("Conflicts with the shell's system tray implementation")
-                    onAlwaysSelected: Config.options.conflictKiller.autoKillTrays = true
-                }
+				ConflictingProgramGroup {
+					id: kded6Group
+					Layout.alignment: Qt.AlignHCenter
+					Layout.fillHeight: false
+					programs: ["kded6"]
+					description: Translation.tr("Conflicts with the shell's system tray implementation")
+					onAlwaysSelected: Config.options.conflictKiller.autoKillTrays = true
+				}
 
-                ConflictingProgramGroup {
-                    id: notificationDaemons
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.fillHeight: false
-                    programs: ["mako", "dunst"]
-                    description: Translation.tr("Conflicts with the shell's notification implementation")
-                    onAlwaysSelected: Config.options.conflictKiller.autoKillNotificationDaemons = true
-                }
-                
-            }
-        }
-    }
+				ConflictingProgramGroup {
+					id: notificationDaemons
+					Layout.alignment: Qt.AlignHCenter
+					Layout.fillHeight: false
+					programs: ["mako", "dunst"]
+					description: Translation.tr("Conflicts with the shell's notification implementation")
+					onAlwaysSelected: Config.options.conflictKiller.autoKillNotificationDaemons = true
+				}
+				
+			}
+		}
+	}
 }

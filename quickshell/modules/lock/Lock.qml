@@ -47,9 +47,9 @@ Scope {
 
 	// Blur layer hack
 	Variants {
-        model: Quickshell.screens
+		model: Quickshell.screens
 
-        LazyLoader {
+		LazyLoader {
 			id: blurLayerLoader
 			required property var modelData
 			active: GlobalStates.screenLocked
@@ -70,33 +70,33 @@ Scope {
 	}
 
 	IpcHandler {
-        target: "lock"
+		target: "lock"
 
-        function activate(): void {
-            GlobalStates.screenLocked = true;
-        }
+		function activate(): void {
+			GlobalStates.screenLocked = true;
+		}
 		function focus(): void {
 			lockContext.shouldReFocus();
 		}
-    }
+	}
 
 	GlobalShortcut {
-        name: "lock"
-        description: "Locks the screen"
+		name: "lock"
+		description: "Locks the screen"
 
-        onPressed: {
-            GlobalStates.screenLocked = true;
-        }
-    }
+		onPressed: {
+			GlobalStates.screenLocked = true;
+		}
+	}
 
 	GlobalShortcut {
-        name: "lockFocus"
-        description: "Re-focuses the lock screen. This is because Hyprland after waking up for whatever reason"
+		name: "lockFocus"
+		description: "Re-focuses the lock screen. This is because Hyprland after waking up for whatever reason"
 			+ "decides to keyboard-unfocus the lock screen"
 
-        onPressed: {
+		onPressed: {
 			// console.log("I BEG FOR PLEAS REFOCUZ")
-            lockContext.shouldReFocus();
-        }
-    }
+			lockContext.shouldReFocus();
+		}
+	}
 }

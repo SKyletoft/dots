@@ -1,7 +1,7 @@
 import QtQuick
 
 MouseArea {
-    anchors.fill: parent
-    onPressed: (mouse) => mouse.accepted = false
-    cursorShape: Qt.PointingHandCursor 
+	anchors.fill: parent
+	onPressed: (mouse) => mouse.accepted = false
+	cursorShape: Qt.PointingHandCursor 
 }

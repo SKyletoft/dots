@@ -3,24 +3,24 @@ import qs.modules.common.widgets
 import QtQuick
 
 GroupButton {
-    id: button
-    property string buttonText
+	id: button
+	property string buttonText
 
-    horizontalPadding: 8
-    verticalPadding: 6
+	horizontalPadding: 8
+	verticalPadding: 6
 
-    baseWidth: contentItem.implicitWidth + horizontalPadding * 2
-    clickedWidth: baseWidth + 20
-    baseHeight: contentItem.implicitHeight + verticalPadding * 2
-    buttonRadius: down ? Appearance.rounding.verysmall : Appearance.rounding.small
+	baseWidth: contentItem.implicitWidth + horizontalPadding * 2
+	clickedWidth: baseWidth + 20
+	baseHeight: contentItem.implicitHeight + verticalPadding * 2
+	buttonRadius: down ? Appearance.rounding.verysmall : Appearance.rounding.small
 
-    colBackground: Appearance.colors.colLayer2
-    colBackgroundHover: Appearance.colors.colLayer2Hover
-    colBackgroundActive: Appearance.colors.colLayer2Active
+	colBackground: Appearance.colors.colLayer2
+	colBackgroundHover: Appearance.colors.colLayer2Hover
+	colBackgroundActive: Appearance.colors.colLayer2Active
 
-    contentItem: StyledText {
-        horizontalAlignment: Text.AlignHCenter
-        text: buttonText
-        color: Appearance.m3colors.m3onSurface
-    }
+	contentItem: StyledText {
+		horizontalAlignment: Text.AlignHCenter
+		text: buttonText
+		color: Appearance.m3colors.m3onSurface
+	}
 }
