@@ -215,7 +215,7 @@
 	},
 
 	"time": {
-		"dateFormat": "ddd, dd MMM",
+		"dateFormat": "ddd, d MMM",
 		"format": "hh:mm",
 		"pomodoro": {
 			"alertSound": "",
