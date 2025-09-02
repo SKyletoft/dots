@@ -311,20 +311,20 @@ in {
 							cp -r * $out/share/emacs/site-lisp/
 						'';
 					};
-					typst-ts-mode = emacsPin.stdenv.mkDerivation {
-						pname = "typst-ts-mode";
-						version = "240317";
-						src = emacsPin.fetchFromGitHub {
-							owner = "kaction-emacs";
-							repo = "typst-ts-mode";
-							rev = "a5f094dd1d1ce992e9ad290e4838779b2dd5809a";
-							hash = "sha256-HUOsb5aUj2Kb5E0HaZENp9pqQIAOF4t2SEIKH7cFspo=";
-						};
-						installPhase = ''
-							mkdir -p $out/share/emacs/site-lisp
-							cp -r * $out/share/emacs/site-lisp/
-						'';
-					};
+					# typst-ts-mode = emacsPin.stdenv.mkDerivation {
+					#	pname = "typst-ts-mode";
+					#	version = "240317";
+					#	src = emacsPin.fetchFromGitHub {
+					#		owner = "kaction-emacs";
+					#		repo = "typst-ts-mode";
+					#		rev = "a5f094dd1d1ce992e9ad290e4838779b2dd5809a";
+					#		hash = "sha256-HUOsb5aUj2Kb5E0HaZENp9pqQIAOF4t2SEIKH7cFspo=";
+					#	};
+					#	installPhase = ''
+					#		mkdir -p $out/share/emacs/site-lisp
+					#		cp -r * $out/share/emacs/site-lisp/
+					#	'';
+					# };
 				in epkgs: (with emacsPin.emacsPackages; [
 					epkgs.treesit-grammars.with-all-grammars
 					evil-textobj-tree-sitter
