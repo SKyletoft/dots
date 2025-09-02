@@ -20,7 +20,6 @@ import "./modules/onScreenKeyboard/"
 import "./modules/overview/"
 import "./modules/screenCorners/"
 import "./modules/session/"
-import "./modules/sidebarLeft/"
 import "./modules/sidebarRight/"
 import "./modules/verticalBar/"
 
@@ -46,7 +45,6 @@ ShellRoot {
 	property bool enableReloadPopup: true
 	property bool enableScreenCorners: false
 	property bool enableSession: true
-	property bool enableSidebarLeft: false
 	property bool enableSidebarRight: true
 	property bool enableVerticalBar: false
 
@@ -73,7 +71,6 @@ ShellRoot {
 	LazyLoader { active: enableReloadPopup; component: ReloadPopup {} }
 	/* LazyLoader { active: enableScreenCorners; component: ScreenCorners {} } */
 	LazyLoader { active: enableSession; component: Session {} }
-	/* LazyLoader { active: enableSidebarLeft; component: SidebarLeft {} } */
 	LazyLoader { active: enableSidebarRight; component: SidebarRight {} }
 	/* LazyLoader { active: enableVerticalBar && Config.ready && Config.options.bar.vertical; component: VerticalBar {} } */
 }
