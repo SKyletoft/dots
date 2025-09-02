@@ -20,7 +20,6 @@ import "./modules/onScreenKeyboard/"
 import "./modules/overview/"
 import "./modules/session/"
 import "./modules/sidebarRight/"
-import "./modules/verticalBar/"
 
 import QtQuick
 import QtQuick.Window
@@ -45,7 +44,6 @@ ShellRoot {
 	property bool enableScreenCorners: false
 	property bool enableSession: true
 	property bool enableSidebarRight: true
-	property bool enableVerticalBar: false
 
 	// Force initialization of some singletons
 	Component.onCompleted: {
@@ -70,5 +68,4 @@ ShellRoot {
 	LazyLoader { active: enableReloadPopup; component: ReloadPopup {} }
 	LazyLoader { active: enableSession; component: Session {} }
 	LazyLoader { active: enableSidebarRight; component: SidebarRight {} }
-	/* LazyLoader { active: enableVerticalBar && Config.ready && Config.options.bar.vertical; component: VerticalBar {} } */
 }
