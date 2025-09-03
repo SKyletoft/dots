@@ -18,8 +18,6 @@
     (kbd "C-+") 'text-scale-increase
     (kbd "C--") 'text-scale-decrease
     (kbd "M-c") 'run-command)
-  (define-key company-active-map (kbd "<tab>") 'my/snippet-complete-or-indent)
-  (define-key company-active-map (kbd "<return>") 'newline)
   (evil-define-key 'normal 'global
     (kbd "SPC m") 'magit
     (kbd "SPC n") 'magit-blame
@@ -79,9 +77,6 @@
   (evil-define-key '(normal motion) 'global
     (kbd "<tab>")         'my/indent-line  ; For gui
     [?\t]                 'my/indent-line) ; For terminal use
-  (evil-define-key 'insert 'global
-    (kbd "<tab>")         'my/snippet-complete-or-indent  ; For gui
-    [?\t]                 'my/snippet-complete-or-indent) ; For terminal use
   (evil-define-key '(normal motion insert emacs) 'global
     (kbd "<backtab>")     'my/outdent-line
     (kbd "<iso-lefttab>") 'my/outdent-line)

@@ -11,14 +11,6 @@
       (eq c ?\e)
       (eq c ?\a)))
 
-(defun my/snippet-complete-or-indent ()
-  "Try to complete with Yasnippet, fallback to company, and indent if both fail."
-  (interactive)
-  (cond
-   ((yas-expand) t)
-   ((my/is-whitespace (char-before)) (my/indent-line))
-   ((call-interactively 'company-complete-selection) t)))
-
 (defun my/snippet-or-indent ()
   "Try to complete with Yasnippet and indent if it fails."
   (interactive)

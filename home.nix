@@ -317,8 +317,7 @@ in {
 					yasnippet
 					yasnippet-snippets
 					mixed-pitch
-					company
-					company-posframe
+					corfu
 					ivy
 					ivy-posframe
 

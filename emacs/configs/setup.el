@@ -78,7 +78,14 @@
      (right-fringe . 8))))
 (ivy-posframe-mode 1)
 
-(use-package company)
+(use-package corfu
+  :ensure t
+  :custom
+  (corfu-auto t)
+  (corfu-auto-prefix 1)
+  (corfu-cycle t)
+  :init
+  (global-corfu-mode))
 
 (use-package whitespace
   :hook (before-save . whitespace-cleanup))

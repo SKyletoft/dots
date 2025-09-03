@@ -11,8 +11,6 @@
   (define-key evil-emacs-state-map (kbd "C-M-i") 'evil-force-normal-state)
   (define-key evil-normal-state-map (kbd "C-M-i") 'evil-emacs-state)
   (global-set-key (kbd "C-M-p") 'treemacs)
-  (define-key company-active-map (kbd "<tab>") 'my/snippet-complete-or-indent)
-  (define-key company-active-map (kbd "<return>") 'newline)
   (evil-define-key '(normal visual motion) 'global
     (kbd "C-t") 'multi-vterm
     (kbd "C-+") 'text-scale-increase
@@ -70,9 +68,6 @@
   (evil-define-key '(normal motion) 'global
     (kbd "<tab>") 'my/indent-line
     [?\t]         'my/indent-line) ; For terminal use
-  (evil-define-key 'insert 'global
-    (kbd "<tab>") 'my/snippet-complete-or-indent
-    [?\t]         'my/snippet-complete-or-indent) ; For terminal use
   (evil-define-key '(normal motion insert emacs) 'global
     (kbd "<backtab>")     'my/outdent-line
     (kbd "<iso-lefttab>") 'my/outdent-line)
