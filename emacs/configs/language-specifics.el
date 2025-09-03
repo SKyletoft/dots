@@ -162,8 +162,8 @@
   :hook (idris-mode . (lambda ()
                         (set-indents 8 2 nil)
                         (setq-local topsy-mode 0)))
-  :config
-  (setq idris-interpreter-path "idris2"))
+  :custom
+  (idris-interpreter-path "idris2"))
 
 (defun unwarp ()
 "Fix rust's most common typo"
@@ -198,24 +198,23 @@
                     (lsp-inlay-hints-mode)
                     (hs-minor-mode)
                     (editorconfig-apply)))
-  :config
-  (setq lsp-rust-analyzer-server-display-inlay-hints t
-        lsp-rust-analyzer-cargo-watch-command "clippy"
-        lsp-rust-analyzer-server-display-inlay-hints t
-        lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial"
-        lsp-rust-analyzer-display-chaining-hints t
-        lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names t
-        lsp-rust-analyzer-display-closure-return-type-hints t
-        lsp-rust-analyzer-display-parameter-hints t
-        lsp-rust-analyzer-display-reborrow-hints nil
-        lsp-rust-analyzer-proc-macro-enable t
-        lsp-rust-analyzer-rustfmt-args "--edition=2021"
-        lsp-eldoc-hook nil
-        lsp-enable-symbol-highlighting nil
-        lsp-signature-auto-activate nil
-        lsp-inlay-hint-enable t
-        lsp-inlay-hints-enable t
-        ))
+  :custom
+  (lsp-rust-analyzer-server-display-inlay-hints t)
+  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  (lsp-rust-analyzer-server-display-inlay-hints t)
+  (lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
+  (lsp-rust-analyzer-display-chaining-hints t)
+  (lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names t)
+  (lsp-rust-analyzer-display-closure-return-type-hints t)
+  (lsp-rust-analyzer-display-parameter-hints t)
+  ;; (lsp-rust-analyzer-display-reborrow-hints nil)
+  (lsp-rust-analyzer-proc-macro-enable t)
+  (lsp-rust-analyzer-rustfmt-args "--edition=2021")
+  (lsp-eldoc-hook nil)
+  (lsp-enable-symbol-highlighting nil)
+  (lsp-signature-auto-activate nil)
+  (lsp-inlay-hint-enable t)
+  (lsp-inlay-hints-enable t))
 
 ;; For rustic mode only
 (defun rust-compile-and-dap ()
@@ -407,15 +406,15 @@
 
 (use-package jasmin
   :load-path "~/dots/emacs/third-party"
+  :custom
+  (jasmin-instruction-indent 8)
+  (jasmin-label-indent 0)
+  (jasmin-unknown-line-indent 32)
+  (jasmin-tableswitch-case-indent 16)
+  (jasmin-method-directive-indent 0)
+  (jasmin-global-directive-indent 0)
   :hook
-  (jasmin-mode . (lambda ()
-                   (set-indents 8 8 t)
-                   (setq jasmin-instruction-indent 8
-                         jasmin-label-indent 0
-                         jasmin-unknown-line-indent 32
-                         jasmin-tableswitch-case-indent 16
-                         jasmin-method-directive-indent 0
-                         jasmin-global-directive-indent 0))))
+  (jasmin-mode . (lambda () (set-indents 8 8 t))))
 
 (use-package futhark-mode
   :defer t
@@ -515,12 +514,12 @@
 
 (use-package typescript-ts-mode
   :defer t
-  :config
-  (setq lsp-javascript-display-parameter-name-hints 'all
-        lsp-javascript-display-parameter-name-hints-when-argument-matches-name nil
-        lsp-javascript-display-variable-type-hints t
-        lsp-javascript-display-return-type-hints t
-        lsp-javascript-display-property-declaration-type-hints t)
+  :custom
+  (lsp-javascript-display-parameter-name-hints 'all)
+  (lsp-javascript-display-parameter-name-hints-when-argument-matches-name nil)
+  (lsp-javascript-display-variable-type-hints t)
+  (lsp-javascript-display-return-type-hints t)
+  (lsp-javascript-display-property-declaration-type-hints t)
   :hook
   (typescript-ts-mode . (lambda ()
                           (direnv-update-directory-environment)
