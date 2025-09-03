@@ -95,7 +95,7 @@
             (set-indents 16 16 't)
             ;; (olivetti-mode)
             (editorconfig-apply)
-          (setq-local compile-command (concat "mdpdf "
+            (setq-local compile-command (concat "mdpdf "
                                                 (buffer-file-name)
                                                 " "
                                                 (file-name-sans-extension (buffer-file-name))
