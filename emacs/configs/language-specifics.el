@@ -242,7 +242,6 @@
             (flycheck-elsa-setup)
             (set-indents 8 2 nil)
             (flycheck-mode)
-            (company-mode)
             (add-hook 'before-save-hook 'lisp-kbd 90 't)
             (prettify-symbols-mode 1)
             (hs-minor-mode 1)
