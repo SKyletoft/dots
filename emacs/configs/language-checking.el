@@ -20,15 +20,26 @@
   (lsp-modeline-code-actions-enable nil)
   (lsp-modeline-workspace-status-enable nil)
 
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+  (lsp-completion-provider :none)
+  (lsp-idle-delay 0.01)
+  (lsp-enable-symbol-highlighting nil)
+  (lsp-enable-file-watchers nil))
 
 (use-package lsp-ui
+  :after lsp-mode
   :commands lsp-ui-mode
+  :hook
+  (lsp-mode . lsp-ui-mode)
   :custom
   (lsp-ui-doc-position 'at-point)
   (lsp-ui-peek-always-show t)
   (lsp-ui-sideline-show-hover t)
   (lsp-ui-doc-enable nil))
+
+ (use-package lsp-completion
+  :after lsp-mode
+  :custom
+  (lsp-completion-enable t))
 
 (use-package lsp-treemacs)
 
