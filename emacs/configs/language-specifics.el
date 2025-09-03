@@ -440,7 +440,6 @@
             (setq-local compile-command (concat "typst w "
                                                 (buffer-file-name)))
             (direnv-update-environment)
-            ;; (remove-hook before-save-hook 'whitespace-cleanup t)
             (editorconfig-apply)
             (lsp)))
 
@@ -556,10 +555,10 @@
                      (setq-local compile-command "swift run"))))
 ;; (use-package lsp-sourcekit)
 (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection "sourcekit-lsp")
-                    :activation-fn (lsp-activate-on "swift-ts")
-                    :major-modes '(swift-mode swift-ts-mode)
-                    :server-id 'sourcekit-ls))
+ (make-lsp-client :new-connection (lsp-stdio-connection "sourcekit-lsp")
+                  :activation-fn (lsp-activate-on "swift-ts")
+                  :major-modes '(swift-mode swift-ts-mode)
+                  :server-id 'sourcekit-ls))
 (add-to-list 'lsp-language-id-configuration '(swift-ts-mode . "swift-ts"))
 
 (use-package yaml-ts-mode
