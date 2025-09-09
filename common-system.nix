@@ -77,7 +77,7 @@ in {
 		networkmanager.enable = true;
 		firewall = {
 			allowedTCPPorts
-				= [ 80 443 6530 8000 8080 11434 12825 ] # Development
+				= [ 80 443 6530 8000 8080 12825 ] # Development
 				++ [ 53 1401 ] # Mullvad
 				++ [ 25565 ];
 			allowedUDPPorts
@@ -192,7 +192,13 @@ in {
 			];
 		};
 
-		ollama.enable = true;
+		ollama = {
+			enable = true;
+			openFirewall = true;
+			environmentVariables = {
+				OLLAMA_CONTEXT_WINDOW = "16384";
+			};
+		};
 	};
 
 	# Flatpak nonsense
