@@ -99,6 +99,7 @@
 (global-diff-hl-mode 1)
 
 (use-package vterm
+  :config (setenv "BAT_THEME" "ansi")
   :hook
   (vterm-mode . (lambda ()
                   (setq-local vterm-term-environment-variable 'eterm-color
