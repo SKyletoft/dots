@@ -84,6 +84,13 @@
   (corfu-auto t)
   (corfu-auto-prefix 1)
   (corfu-cycle t)
+  :bind (:map corfu-map
+              ("C-n" . corfu-next)
+              ("C-p" . corfu-previous)
+              ("<escape>" . corfu-quit)
+              ("<return>" . corfu-insert)
+              ("M-d" . corfu-show-documentation)
+              ("M-l" . corfu-show-location))
   :init
   (global-corfu-mode))
 
