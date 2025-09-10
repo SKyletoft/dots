@@ -1,4 +1,4 @@
-nix develop -L < /dev/null
+nix build .#devShells.x86_64-linux.default -L |& nom
 nix-shell < /dev/null
 lorri init
 direnv allow
