@@ -176,6 +176,8 @@ in {
 
 		fwupd.enable = true;
 
+		gpm.enable = true;
+
 		openssh = {
 			enable = true;
 			settings = {
