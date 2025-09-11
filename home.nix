@@ -321,6 +321,7 @@ in {
 					ivy
 					ivy-posframe
 
+					compile-angel
 					gptel
 
 					pdf-tools
