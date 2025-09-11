@@ -195,9 +195,6 @@ in {
 		ollama = {
 			enable = true;
 			openFirewall = true;
-			environmentVariables = {
-				OLLAMA_CONTEXT_WINDOW = "16384";
-			};
 		};
 	};
 
