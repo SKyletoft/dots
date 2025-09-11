@@ -4,19 +4,6 @@
 
 ;; Functions
 
-(defun nuke-all-buffers ()
-  "Kills all buffers."
-  (interactive)
-  (about-emacs)
-  (mapc (lambda (buf)
-            (if (not (string= (buffer-name buf) "*About GNU Emacs*"))
-                (kill-buffer buf)))
-          (buffer-list))
-  (delete-other-windows))
-
-;; Nuke all buffers after 8h of idle time
-(run-with-idle-timer (* 60 60 8) t 'nuke-all-buffers)
-
 (defun kill-buffers-on-all-frames-exited (_)
   "Kills all buffers if no frames exist."
   (let ((frames (length (x-frame-list-z-order))))
@@ -60,6 +47,15 @@
   (push "/init.el" compile-angel-excluded-files)
   (push "/early-init.el" compile-angel-excluded-files)
   (compile-angel-on-load-mode 1))
+
+(use-package buffer-terminator
+  :ensure t
+  :custom
+  (buffer-terminator-verbose nil)
+  (buffer-terminator-inactivity-timeout (* 30 60)) ; 30 minutes
+  (buffer-terminator-interval (* 10 60)) ; 10 minutes
+  :config
+  (buffer-terminator-mode 1))
 
 (use-package editorconfig)
 (editorconfig-mode 1)

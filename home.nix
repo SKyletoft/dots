@@ -322,6 +322,8 @@ in {
 					ivy-posframe
 
 					compile-angel
+					buffer-terminator
+
 					gptel
 
 					pdf-tools
