@@ -82,6 +82,7 @@
 			environmentVariables = {
 				OLLAMA_MAX_LOADED_MODELS = "2";
 				OLLAMA_MAX_VRAM="20480"; # 20 GiB
+				OLLAMA_CONTEXT_LENGTH="8192";
 			};
 		};
 	};
