@@ -321,7 +321,7 @@ in {
 					ivy
 					ivy-posframe
 
-					compile-angel
+					# compile-angel
 					buffer-terminator
 
 					gptel

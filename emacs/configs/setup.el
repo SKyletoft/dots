@@ -38,15 +38,15 @@
 ;; Load packages
 
 ; NOTE: THIS SHOULD BE THE FIRST PACKAGE LOADED
-(use-package compile-angel
-  :ensure t
-  :demand t
-  :config
-  (setq compile-angel-verbose t)
-  (add-hook 'emacs-lisp-mode-hook #'compile-angel-on-save-local-mode)
-  (push "/init.el" compile-angel-excluded-files)
-  (push "/early-init.el" compile-angel-excluded-files)
-  (compile-angel-on-load-mode 1))
+; (use-package compile-angel
+  ; :ensure t
+  ; :demand t
+  ; :config
+  ; (setq compile-angel-verbose t)
+  ; (add-hook 'emacs-lisp-mode-hook #'compile-angel-on-save-local-mode)
+  ; (push "/init.el" compile-angel-excluded-files)
+  ; (push "/early-init.el" compile-angel-excluded-files)
+  ; (compile-angel-on-load-mode 1))
 
 (use-package buffer-terminator
   :ensure t
