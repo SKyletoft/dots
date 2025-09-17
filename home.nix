@@ -2,7 +2,7 @@
 
 let
 	stablePkgs = import inputs.stablePkgs {};
-	citraPkgs  = import inputs.stablePkgs {};
+	citraPkgs  = import inputs.citraPkgs {};
 	vimPin     = import inputs.vimPin {};
 	emacsPin   = import inputs.emacsPkgs { overlays = [
 		inputs.emacsOverlay.overlays.default
@@ -132,7 +132,7 @@ in {
 			prismlauncher
 			dolphin-emu-primehack
 			# citraPkgs.citra
-			# citraPkgs.yuzu
+			citraPkgs.yuzu
 			cemu
 			fragments
 			heroic
