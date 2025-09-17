@@ -69,13 +69,13 @@ DockButton {
 		root.desktopEntry?.execute();
 	}
 
-	altAction: () => {
-		if (Config.options.dock.pinnedApps.indexOf(appToplevel.appId) !== -1) {
-			Config.options.dock.pinnedApps = Config.options.dock.pinnedApps.filter(id => id !== appToplevel.appId)
-		} else {
-			Config.options.dock.pinnedApps = Config.options.dock.pinnedApps.concat([appToplevel.appId])
-		}
-	}
+	/* altAction: () => { */
+		/* if (Config.options.dock.pinnedApps.indexOf(appToplevel.appId) !== -1) { */
+		/*	Config.options.dock.pinnedApps = Config.options.dock.pinnedApps.filter(id => id !== appToplevel.appId) */
+		/* } else { */
+		/*	Config.options.dock.pinnedApps = Config.options.dock.pinnedApps.concat([appToplevel.appId]) */
+		/* } */
+	/* } */
 
 	contentItem: Loader {
 		active: !isSeparator
@@ -127,7 +127,7 @@ DockButton {
 					delegate: Rectangle {
 						required property int index
 						radius: Appearance.rounding.full
-						implicitWidth: (appToplevel.toplevels.length <= 3) ? 
+						implicitWidth: (appToplevel.toplevels.length <= 3) ?
 							root.countDotWidth : root.countDotHeight // Circles when too many
 						implicitHeight: root.countDotHeight
 						color: appIsActive ? Appearance.colors.colPrimary : ColorUtils.transparentize(Appearance.colors.colOnLayer0, 0.4)
