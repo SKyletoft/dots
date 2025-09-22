@@ -60,7 +60,10 @@
 (use-package editorconfig)
 (editorconfig-mode 1)
 
-(use-package doom-modeline)
+(use-package doom-modeline
+  :custom
+  (doom-modeline-height 27)
+  (doom-modeline-position-line-format '("%l:%c")))
 
 (use-package direnv
   :config
