@@ -48,7 +48,9 @@
 
   (setq fill-column 80)
   (if (string-equal (system-name) "medea")
-      (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-25"))
+      (progn
+        (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-25"))
+        (setq doom-modeline-height 56))
     (add-to-list 'default-frame-alist '(font . "Cascadia Code NF-12")))
   (load-theme 'modus-operandi t)
   (doom-modeline-mode 1)
