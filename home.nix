@@ -11,12 +11,12 @@ let
 			emacs-igc = p.emacs-igc.overrideAttrs(old: {
 				LSP_USE_PLISTS = true;
 				preConfigure = ''
-					export CC=${pkgs.llvmPackages.clang}/bin/clang
-					export CXX=${pkgs.llvmPackages.clang}/bin/clang++
-					export AR=${pkgs.llvm}/bin/llvm-ar
-					export NM=${pkgs.llvm}/bin/llvm-nm
-					export LD=${pkgs.lld}/bin/ld.lld
-					export RANLIB=${pkgs.llvm}/bin/llvm-ranlib
+					export CC=${old.llvmPackages.clang}/bin/clang
+					export CXX=${old.llvmPackages.clang}/bin/clang++
+					export AR=${old.llvm}/bin/llvm-ar
+					export NM=${old.llvm}/bin/llvm-nm
+					export LD=${old.lld}/bin/ld.lld
+					export RANLIB=${old.llvm}/bin/llvm-ranlib
 				'';
 				NIX_CFLAGS_COMPILE = toString (
 					["-O2" "-flto=full"]
