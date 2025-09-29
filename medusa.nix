@@ -81,8 +81,10 @@
 			package = pkgs.ollama-rocm;
 			environmentVariables = {
 				OLLAMA_MAX_LOADED_MODELS = "1";
-				OLLAMA_MAX_VRAM="20480"; # 20 GiB
-				# OLLAMA_CONTEXT_LENGTH="8192";
+				OLLAMA_GPU_MEMORY_FRACTION = "0.85";
+				OLLAMA_KV_CACHE_TYPE = "q4_0";
+				OLLAMA_FLASH_ATTENTION = "1";
+				OLLAMA_NUM_PARALLEL = "1";
 			};
 		};
 	};
