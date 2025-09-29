@@ -425,6 +425,25 @@
                     (lsp)
                     (editorconfig-apply))))
 
+(use-package boogie-friends
+  :hook
+  (dafny-mode . (lambda ()
+                  (require 'dafny-mode)
+                  (require 'lsp-dafny)
+                  (hs-minor-mode 1)
+                  (set-indents 8 8 t)
+                  (setq-local prettify-symbols-alist '(("in"     . 8712)
+                                                       ("!in"    . 8713)
+                                                       ("&&"     . 8743)
+                                                       ("||"     . 8744)
+                                                       ("exists" . ?∃)
+                                                       ("::"     . 8729)
+                                                       ("forall" . ?∀)))
+                  (prettify-symbols-mode -1)
+                  (direnv-update-environment)
+                  (lsp)
+                  (lsp-ui-mode 1))))
+
 (require 'lsp)
 (add-to-list 'lsp-language-id-configuration '(typst-ts-mode . "Typst"))
 (lsp-register-client (make-lsp-client :new-connection (lsp-stdio-connection "tinymist")
