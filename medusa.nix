@@ -80,7 +80,7 @@
 		ollama = {
 			package = pkgs.ollama-rocm;
 			environmentVariables = {
-				OLLAMA_MAX_LOADED_MODELS = "2";
+				OLLAMA_MAX_LOADED_MODELS = "1";
 				OLLAMA_MAX_VRAM="20480"; # 20 GiB
 				OLLAMA_CONTEXT_LENGTH="8192";
 			};
