@@ -250,6 +250,7 @@ in {
 			nix-output-monitor
 
 			xorg.xkill
+			xwayland-satellite
 			logiops
 
 			steamcmd
@@ -332,7 +333,7 @@ in {
 		};
 		niri.enable = waylandSupport;
 		hyprland.enable = waylandSupport;
-		xwayland.enable = waylandSupport;
+		xwayland.enable = false;
 		gamemode.enable = true;
 		gamescope = {
 			enable = true;
