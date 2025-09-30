@@ -425,21 +425,10 @@
                     (lsp)
                     (editorconfig-apply))))
 
-(use-package boogie-friends
+(use-package dafny-2-mode
   :hook
-  (dafny-mode . (lambda ()
-                  (require 'dafny-mode)
-                  (require 'lsp-dafny)
-                  (hs-minor-mode 1)
+  (dafny-2-mode . (lambda ()
                   (set-indents 8 8 t)
-                  (setq-local prettify-symbols-alist '(("in"     . 8712)
-                                                       ("!in"    . 8713)
-                                                       ("&&"     . 8743)
-                                                       ("||"     . 8744)
-                                                       ("exists" . ?∃)
-                                                       ("::"     . 8729)
-                                                       ("forall" . ?∀)))
-                  (prettify-symbols-mode -1)
                   (direnv-update-environment)
                   (lsp)
                   (lsp-ui-mode 1))))
