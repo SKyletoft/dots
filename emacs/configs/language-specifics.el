@@ -36,6 +36,7 @@
 (defvaralias 'typescript-ts-mode-indent-offset            'evil-shift-width)
 (defvaralias 'json-ts-mode-indent-offset                  'evil-shift-width)
 (defvaralias 'go-ts-mode-indent-offset                    'evil-shift-width)
+(defvaralias 'typst-ts-indent-offset                      'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
   "Disables tab characters in alignment."
