@@ -93,8 +93,6 @@ in {
 
 			aider-chat-full
 
-			bazecor
-
 			monitor
 			iptsd
 

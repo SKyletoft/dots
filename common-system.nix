@@ -327,6 +327,7 @@ in {
 
 	programs = {
 		sway.enable = false;
+		bazecor.enable = true;
 		kdeconnect = {
 			enable = true;
 			package = pkgs.gnomeExtensions.gsconnect;
