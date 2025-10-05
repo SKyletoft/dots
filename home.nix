@@ -129,8 +129,9 @@ in {
 			sgt-puzzles
 			xournalpp
 			prismlauncher
-			dolphin-emu-primehack
 			# citraPkgs.citra
+			# dolphin-emu-primehack
+			dolphin-emu
 			citraPkgs.yuzu
 			cemu
 			fragments
