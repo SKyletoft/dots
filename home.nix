@@ -76,6 +76,7 @@ in {
 			# mdpdf
 			hstr
 			bluetui
+			glow
 
 			nil
 			inputs.lsp-booster.packages.${system}.default
