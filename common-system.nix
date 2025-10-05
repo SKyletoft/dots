@@ -249,7 +249,7 @@ in {
 
 			nix-output-monitor
 
-			nixGL.packages.${system}.nixGLDefault
+			nixGL.packages.${system}.nixGLIntel
 
 			xorg.xkill
 			xwayland-satellite
