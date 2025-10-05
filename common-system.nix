@@ -249,6 +249,8 @@ in {
 
 			nix-output-monitor
 
+			nixGL.packages.${system}.nixGLDefault
+
 			xorg.xkill
 			xwayland-satellite
 			logiops

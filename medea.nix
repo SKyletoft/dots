@@ -53,9 +53,6 @@
 		};
 	};
 
-	environment.systemPackages = with pkgs; [
-		nixGL.packages.${system}.nixGLIntel
-	];
 	environment.sessionVariables.XCURSOR_THEME = "severa_cursors_2x";
 
 	programs.gamescope.args = [
