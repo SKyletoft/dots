@@ -62,7 +62,7 @@
 
 (use-package doom-modeline
   :custom
-  (doom-modeline-height 27)
+  (doom-modeline-height (scale-for-medea 27))
   (doom-modeline-position-line-format '("%l:%c")))
 
 (use-package direnv

@@ -16,6 +16,10 @@
 ;; Set GC super high and then set it to something reasonable after configuration is done
 ;; (setq gc-cons-threshold (* 16 1024 1024 1024))
 
+(defun scale-for-medea (value)
+  "Scales VALUE by 2 if hostname equals medea."
+  (if (string-equal (system-name) "medusa") value (* 2 value)))
+
 (require 'packages-config)
 (require 'setup)
 (require 'evil-config)
