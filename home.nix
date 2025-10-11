@@ -133,7 +133,7 @@ in {
 			# dolphin-emu-primehack
 			dolphin-emu
 			citraPkgs.yuzu
-			cemu
+			# cemu
 			fragments
 			heroic
 			lutris
