@@ -490,19 +490,25 @@ in {
 		# iconTheme.name = "Yaru - Edit";
 	# };
 
-	xdg.configFile = {
-		"alacritty/alacritty.toml".source = ./alacritty.toml;
-		"rustfmt/rustfmt.toml".source     = ./rustfmt.toml;
-		"kitty/kitty.conf".source         = ./kitty.conf;
-		"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
-		"swaylock/config".source          = ./swaylock;
-		# "waybar/config".source            = ./waybar;
-		# "niri/config.kdl".source          = ./niri.kdl;
-		"fourmolu.yaml".source            = ./fourmolu.yaml;
-		# "mpv/mpv.conf".source             = ./mpv.conf; ; It seems like this is what's causing random stuttering on medusa?
-		# "emacs".source                    = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/emacs";
-		# "hypr/hyprland.conf".source       = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/hyprland.conf";
-		# "quickshell".source               = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/quickshell";
+	xdg = {
+		mimeApps.defaultApplications = {
+			"http" = [ "firefox.desktop" ];
+			"https" = [ "firefox.desktop" ];
+		};
+		configFile = {
+			"alacritty/alacritty.toml".source = ./alacritty.toml;
+			"rustfmt/rustfmt.toml".source     = ./rustfmt.toml;
+			"kitty/kitty.conf".source         = ./kitty.conf;
+			"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
+			"swaylock/config".source          = ./swaylock;
+			# "waybar/config".source          = ./waybar;
+			# "niri/config.kdl".source        = ./niri.kdl;
+			"fourmolu.yaml".source            = ./fourmolu.yaml;
+			# "mpv/mpv.conf".source           = ./mpv.conf; ; It seems like this is what's causing random stuttering on medusa?
+			# "emacs".source                  = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/emacs";
+			# "hypr/hyprland.conf".source     = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/hyprland.conf";
+			# "quickshell".source             = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/quickshell";
+		};
 	};
 
 	# home.pointerCursor = {
