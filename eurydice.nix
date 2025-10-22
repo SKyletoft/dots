@@ -87,6 +87,24 @@ let
 
 		rm -rf tmp*
 	'';
+	encora-jellyfin = pkgs.stdenv.mkDerivation {
+		name = "jellyfin-plugin-encora";
+		src = pkgs.fetchurl {
+			url = "https://github.com/pekempy/Jellyfin.Plugin.Encora/releases/download/1.0.0.1/Jellyfin.Plugin.Encora.zip";
+			sha256 = "092pm350qvl4xgmqw83pr0rxy78k750scbv22hsg5hanzp3j0yqf";
+		};
+		buildInputs = [ pkgs.unzip ];
+		phases = [ "unpackPhase" "installPhase" ];
+		unpackPhase = ''
+			mkdir source
+			cd source
+			unzip $src
+		'';
+		installPhase = ''
+			mkdir -p $out
+			cp -r ./* $out/
+		'';
+	};
 in {
 	boot = {
 		supportedFilesystems.sshfs = true;
@@ -151,6 +169,9 @@ in {
 			extraGroups = [ "jellyfin" "video" ];
 		};
 	};
+	systemd.tmpfiles.rules = [
+		"L+ /var/lib/jellyfin/plugins/Jellyfin.Plugin.Encora - - - - ${encora-jellyfin}"
+	];
 
 	hardware.graphics.enable = true;
 	services.pulseaudio.enable = true;
