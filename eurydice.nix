@@ -170,7 +170,7 @@ in {
 		};
 	};
 	systemd.tmpfiles.rules = [
-		"L+ /var/lib/jellyfin/plugins/Jellyfin.Plugin.Encora - - - - ${encora-jellyfin}"
+		"f /var/lib/jellyfin/plugins/Jellyfin.Plugin.Encora - - - - ${encora-jellyfin}"
 	];
 
 	hardware.graphics.enable = true;
