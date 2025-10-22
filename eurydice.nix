@@ -169,9 +169,6 @@ in {
 			extraGroups = [ "jellyfin" "video" ];
 		};
 	};
-	systemd.tmpfiles.rules = [
-		"f /var/lib/jellyfin/plugins/Jellyfin.Plugin.Encora - - - - ${encora-jellyfin}"
-	];
 
 	hardware.graphics.enable = true;
 	services.pulseaudio.enable = true;
