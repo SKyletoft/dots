@@ -91,7 +91,7 @@ let
 		name = "jellyfin-plugin-encora";
 		src = pkgs.fetchurl {
 			url = "https://github.com/pekempy/Jellyfin.Plugin.Encora/releases/download/1.0.0.1/Jellyfin.Plugin.Encora.zip";
-			sha256 = "092pm350qvl4xgmqw83pr0rxy78k750scbv22hsg5hanzp3j0yqf";
+			sha256 = "sha256-XjNfrdlck9dmcT0QJGKlraodmt2OMbCQaPf3DAhc7jc=";
 		};
 		buildInputs = [ pkgs.unzip ];
 		phases = [ "unpackPhase" "installPhase" ];
