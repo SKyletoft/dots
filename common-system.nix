@@ -296,7 +296,7 @@ in {
 			}];
 		};
 		pam = {
-		# Increase max open files limit
+			# Increase max open files limit
 			loginLimits = [{
 				domain = "*";
 				type = "soft";
