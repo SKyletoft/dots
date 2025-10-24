@@ -241,7 +241,6 @@ in {
 			man-pages
 			man-pages-posix
 			cachix
-			git
 			wally-cli
 			zsa-udev-rules
 			powertop
@@ -328,6 +327,10 @@ in {
 	] else []);
 
 	programs = {
+		git = {
+			enable = true;
+			lfs.enable = true;
+		};
 		sway.enable = false;
 		bazecor.enable = true;
 		kdeconnect = {
