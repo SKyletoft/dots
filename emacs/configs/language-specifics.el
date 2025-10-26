@@ -588,7 +588,7 @@
 
 (use-package ponylang-mode
   :hook (ponylang-mode . (lambda ()
-                           (set-indents 8 2 nil)
+                           (set-indents 2 2 nil)
                            (editorconfig-apply))))
 
 (defvar-keymap apl-keymap
