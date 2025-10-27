@@ -25,24 +25,23 @@
 		cpu.intel.updateMicrocode = true;
 	};
 
-	networking = {
-		hostName = "medea";
-		networkmanager = {
-			wifi.powersave = true;
-			/*
-			# And this imperative hack
-			$ cat /etc/modprobe.d/intel_wifi.conf
-			options iwlmvm power_scheme=1
-			options iwlwifi power_save=Y power_level=5
-			*/
-		};
-	};
+	networking.hostName = "medea";
 
 	powerManagement.powertop.enable = true;
 
 	services = {
 		power-profiles-daemon.enable = false;
-		tlp.enable = true;
+		tlp = {
+			enable = true;
+			settings = {
+				RUNTIME_PM_ON_AC="auto";
+				RUNTIME_PM_ON_BAT="auto";
+				CPU_ENGERY_PERF_POLICY_ON_AC="balance_power";
+				CPU_ENGERY_PERF_POLICY_ON_BAT="power";
+				WIFI_PWR_ON_AC="on";
+				WIFI_PWR_ON_BAT="on";
+			};
+		};
 		thermald.enable = true;
 		printing.enable = true;
 	};
