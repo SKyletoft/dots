@@ -41,6 +41,7 @@
 	powerManagement.powertop.enable = true;
 
 	services = {
+		power-profiles-daemon.enable = false;
 		tlp.enable = true;
 		thermald.enable = true;
 		printing.enable = true;
