@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixGL, waylandSupport, windowsFonts, nativeBuild, ... }:
+{ pkgs, ... }:
 
 {
 	nixpkgs.config.packageOverrides = pkgs: {
