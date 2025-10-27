@@ -41,16 +41,9 @@
 	powerManagement.powertop.enable = true;
 
 	services = {
+		tlp.enable = true;
 		thermald.enable = true;
-		thinkfan.enable = false;
 		printing.enable = true;
-
-		fprintd = {
-			enable = false;
-			tod = {
-				enable = false;
-			};
-		};
 	};
 
 	environment.sessionVariables.XCURSOR_THEME = "severa_cursors_2x";
