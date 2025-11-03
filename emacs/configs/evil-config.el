@@ -323,6 +323,12 @@ As opposed to `list-buffers` which will split the window."
                          (buffer-file-name)))
   (revert-buffer t t t))
 
+(defun save-and-cargo-fmt-project ()
+  (interactive)
+  (save-buffer)
+  (shell-command "cargo fmt")
+  (revert-buffer t t t))
+
 (defun save-and-swift-format-buffer ()
   (interactive)
   (save-buffer)

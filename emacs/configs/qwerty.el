@@ -283,6 +283,9 @@
     (kbd "SPC M-n") 'agda2-next-goal
     (kbd "SPC M-p") 'agda2-previous-goal)
 
+  (evil-define-key 'normal rust-ts-mode-map
+    (kbd "SPC I") 'save-and-cargo-fmt-project)
+
   (evil-define-key 'normal rustic-mode-map
     (kbd "SPC I") 'rustic-format-buffer)
   (evil-define-key 'visual rustic-mode-map
