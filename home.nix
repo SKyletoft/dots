@@ -405,7 +405,7 @@ in {
 		};
 
 		firefox = {
-			enable = true;
+			enable = gui;
 			languagePacks = [ "en-GB" "sv" ];
 			# package = pkgs.firefox-devedition-bin;
 			profiles.default = {
