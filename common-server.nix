@@ -79,7 +79,7 @@ in {
 	users.users = {
 		u3836 = {
 			isNormalUser = true;
-			extraGroups = [ "wheel" "jellyfin" "transmission" ];
+			extraGroups = [ "wheel" "jellyfin" "transmission" "docker" ];
 		};
 		root.openssh.authorizedKeys.keys = [
 			"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNXgCDGyWMeQBTCloSMMEASjOLjvIOcx+HazUOrS3OR"
