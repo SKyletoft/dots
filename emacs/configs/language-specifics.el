@@ -48,6 +48,11 @@
               evil-shift-width shift-width-p
               indent-tabs-mode tabs-p))
 
+(defun try-direnv-update-directory-environment ()
+  (interactive)
+  (if (not (file-remote-p default-directory))
+      (direnv-update-directory-environment)))
+
 ;; For filetypes without hooks
 (add-hook 'find-file-hook
           (lambda ()
@@ -64,7 +69,7 @@
               (setq-local artemis-mode 1))
             (when (and (stringp buffer-file-name)
                        (string-match "\\.agda\\'" buffer-file-name))
-              (direnv-update-directory-environment)
+              (try-direnv-update-directory-environment)
               (load-file (let ((coding-system-for-read 'utf-8))
                            (shell-command-to-string "agda-mode locate")))
               (agda2-mode)
@@ -103,7 +108,7 @@
                                                 ".pdf"))))
 
 (defun haskell-hook-fn ()
-  (direnv-update-environment)
+  (try-direnv-update-environment)
   (set-indents 8 2 nil)
   (setq-local lsp-idle-delay 0.6
               eldoc-mode 0
@@ -193,7 +198,7 @@
                                 lsp-ui-sideline-enable t
                                 fill-column 100
                                 compile-command "cargo --color always run ")
-                    (direnv-update-environment)
+                    (try-direnv-update-environment)
                     (lsp)
                     (lsp-lens-hide)
                     (lsp-inlay-hints-mode)
@@ -280,7 +285,7 @@
               gdb-many-windows-mode 1
               compile-command "make -ksj ")
   (hs-minor-mode 1)
-  (direnv-update-environment)
+  (try-direnv-update-environment)
   (lsp)
   (lsp-inlay-hints-mode)
   (editorconfig-apply))
@@ -298,7 +303,7 @@
             (hs-minor-mode 1)
             (set-indents 8 8 t)
             (editorconfig-apply)
-            (direnv-update-environment)
+            (try-direnv-update-environment)
             (setq-local lsp-java-progress-reports-enabled nil)
             (lsp-inlay-hints-mode)
             (lsp)))
@@ -311,7 +316,7 @@
             (lsp-inlay-hints-mode)
             (setq-local compile-command "time dotnet run"
                         lsp-ui-sideline-enable 't)
-            (direnv-update-environment)
+            (try-direnv-update-environment)
             (lsp)))
 
 (add-hook 'erlang-mode-hook
@@ -319,7 +324,7 @@
             (hs-minor-mode 1)
             (editorconfig-apply)
             (set-indents 8 2 nil)
-            (direnv-update-directory-environment)
+            (try-direnv-update-directory-environment)
             (lsp)))
 
 (add-hook 'mhtml-mode-hook
@@ -355,7 +360,7 @@
             (hs-minor-mode 1)
             (set-indents 8 2 nil)
             (setq-local eldoc-mode nil)
-            (direnv-update-environment)
+            (try-direnv-update-environment)
             (lsp)
             (editorconfig-apply)))
 
@@ -368,7 +373,7 @@
                    (set-indents 4 4 t)
                    (setq-local compile-command "nix run -L")
                    (editorconfig-apply)
-                   (direnv-update-environment)
+                   (try-direnv-update-environment)
                    (lsp))))
 
 (add-hook 'python-ts-mode-hook
@@ -378,7 +383,7 @@
             (setq-local compile-command (concat "python3 "
                                                 (buffer-file-name))
                         lsp-pyright-typechecking-mode "standard")
-            (direnv-update-directory-environment)
+            (try-direnv-update-directory-environment)
             (lsp)))
 
 (add-hook 'bash-ts-mode-hook
@@ -386,7 +391,7 @@
             (hs-minor-mode 1)
             (set-indents 8 8 t)
             (editorconfig-apply)
-            (direnv-update-environment)
+            (try-direnv-update-environment)
             (lsp)))
 
 (add-hook 'latex-mode-hook
@@ -422,7 +427,7 @@
   (futhark-mode . (lambda ()
                     (hs-minor-mode 1)
                     (set-indents 8 2 nil)
-                    (direnv-update-environment)
+                    (try-direnv-update-environment)
                     (lsp)
                     (editorconfig-apply))))
 
@@ -430,7 +435,7 @@
   :hook
   (dafny-2-mode . (lambda ()
                   (set-indents 8 8 t)
-                  (direnv-update-environment)
+                  (try-direnv-update-environment)
                   (lsp)
                   (lsp-ui-mode 1))))
 
@@ -447,7 +452,7 @@
             (set-indents 8 8 t)
             (setq-local compile-command (concat "typst w "
                                                 (buffer-file-name)))
-            (direnv-update-environment)
+            (try-direnv-update-environment)
             (editorconfig-apply)
             (lsp)))
 
@@ -457,7 +462,7 @@
   (wgsl-mode . (lambda ()
                  (hs-minor-mode 1)
                  (set-indents 8 8 t)
-                 (direnv-update-environment)
+                 (try-direnv-update-environment)
                  (lsp)))
   :config
   (setq-local compile-command "cargo run"
@@ -477,7 +482,7 @@
   (define-key glsl-mode-map (kbd "S-<iso-lefttab>") 'ff-find-other-file 'remove)
   (set-indents 8 8 t)
   (editorconfig-apply)
-  (direnv-update-environment)
+  (try-direnv-update-environment)
   (lsp))
 
 (use-package glsl-mode
@@ -502,7 +507,7 @@
                   (hs-minor-mode 1)
                   (set-indents 8 8 t)
                   (editorconfig-apply)
-                  (direnv-update-environment)
+                  (try-direnv-update-environment)
                   (setq-local compile-command "go run .")
                   (lsp))))
 
@@ -513,7 +518,7 @@
                    (hs-minor-mode 1)
                    (set-indents 8 8 t)
                    (editorconfig-apply)
-                   (direnv-update-environment)
+                   (try-direnv-update-environment)
                    (setq-local lsp-ui-sideline-show-hover nil
                                eldoc-mode nil
                                compile-command "make -skj -C ../../.. ")
@@ -529,7 +534,7 @@
   (lsp-javascript-display-property-declaration-type-hints t)
   :hook
   (typescript-ts-mode . (lambda ()
-                          (direnv-update-directory-environment)
+                          (try-direnv-update-directory-environment)
                           (hs-minor-mode 1)
                           (eldoc-mode -1)
                           (editorconfig-apply)
