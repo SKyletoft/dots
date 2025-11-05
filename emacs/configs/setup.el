@@ -129,6 +129,36 @@
   (setq tramp-remote-path (append tramp-remote-path
                                   '(tramp-own-remote-path))))
 
+; https://github.com/eush77/dotfiles/blob/ace2b1dc0f229b4897d60728a320a8f88722e0c4/emacs/.emacs.d/config/config-direnv.el#L28-L52
+; Copied from here to make direnv work over tramp
+(defcustom my-direnv-enabled-hosts nil
+  "List of remote hosts to use Direnv on.
+
+Each host must have `direnv' executable accessible in the default
+environment."
+  :type '(repeat string)
+  :group 'my)
+
+(setq my-direnv-enabled-hosts '("eurydice" "orpheus" "medusa" "medea"))
+
+(defun tramp-sh-handle-start-file-process@my-direnv (args)
+  "Enable Direnv for hosts in `my-direnv-enabled-hosts'."
+  (with-parsed-tramp-file-name (expand-file-name default-directory) nil
+    (if (member host my-direnv-enabled-hosts)
+        (pcase-let ((`(,name ,buffer ,program . ,args) args))
+          `(,name
+            ,buffer
+            "direnv"
+            "exec"
+            ,localname
+            ,program
+            ,@args))
+      args)))
+
+(with-eval-after-load "tramp-sh"
+  (advice-add 'tramp-sh-handle-start-file-process
+              :filter-args #'tramp-sh-handle-start-file-process@my-direnv))
+
 (use-package magit)
 (use-package forge
   :after magit evil
