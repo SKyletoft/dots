@@ -50,6 +50,8 @@ in {
 		};
 	};
 
+	virtualisation.docker.enable = true;
+
 	fileSystems = {
 		"/" = {
 			device = "/dev/disk/by-label/NIXOS_SD";
