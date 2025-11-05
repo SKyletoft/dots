@@ -71,6 +71,7 @@ in {
 		update-keys
 		update-system
 		setup-system
+		nix-output-monitor
 	];
 
 	users.users = {
