@@ -53,6 +53,11 @@
   (if (not (file-remote-p default-directory))
       (direnv-update-directory-environment)))
 
+(defun try-direnv-update-environment ()
+  (interactive)
+  (if (not (file-remote-p default-directory))
+      (direnv-update-environment)))
+
 ;; For filetypes without hooks
 (add-hook 'find-file-hook
           (lambda ()
