@@ -507,6 +507,8 @@
 
 (use-package go-ts-mode
   :defer t
+  :custom
+  (lsp-go-hover-kind "FullDocumentation")
   :hook
   (go-ts-mode . (lambda ()
                   (hs-minor-mode 1)
