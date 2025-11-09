@@ -148,6 +148,7 @@
   (require 'dictionary-path)
   (setq ispell-dictionary "en_GB"))
 
+(use-package dape)
 
 (provide 'setup)
 ;;; setup.el ends here.

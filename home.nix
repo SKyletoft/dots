@@ -333,6 +333,7 @@ in {
 					lsp-mode
 					lsp-ui
 					lsp-treemacs
+					dape
 
 					# lsp-java
 					nix-ts-mode
