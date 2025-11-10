@@ -103,7 +103,7 @@ in {
 
 			alacritty
 			kitty
-			# vscode
+			vscode
 			pinta
 			gimp
 
@@ -114,7 +114,7 @@ in {
 			# discord
 			# dissent
 			signal-desktop
-			# slack
+			slack
 			isync # Emacs email
 			mu
 
@@ -136,7 +136,7 @@ in {
 			citraPkgs.yuzu
 			# cemu
 			fragments
-			# heroic
+			heroic
 			lutris
 			mangohud
 			ruffle
