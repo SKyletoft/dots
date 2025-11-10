@@ -1,6 +1,7 @@
 { config, pkgs, inputs, homeConfig, ... }:
 
 let
+	system     = pkgs.stdenv.hostPlatform.system;
 	stablePkgs = import inputs.stablePkgs {};
 	citraPkgs  = import inputs.citraPkgs {};
 	vimPin     = import inputs.vimPin {};
@@ -24,7 +25,7 @@ let
 					++ old.NIX_CFLAGS_COMPILE or []
 				);
 			});
-			emacsPackages = p.emacsPackages.overrideScope'
+			emacsPackages = p.emacsPackages.overrideScope
 				(_: p': { lsp-mode = p'.lsp-mode.overrideAttrs(_: { LSP_USE_PLISTS = true; }); });
 		})
 	]; };
@@ -66,7 +67,7 @@ in {
 			fzf
 			bottom
 			htop
-			du-dust
+			dust
 			ranger
 			neofetch
 			trash-cli
@@ -191,12 +192,13 @@ in {
 	programs = {
 		git = {
 			enable    = true;
-			userName  = "Samuel Kyletoft";
-			userEmail = "samuel@kyletoft.se";
-
 			# Reenable whenever I return to vim
 			# difftastic.enable = true;
-			extraConfig = {
+			settings = {
+				user = {
+					name  = "Samuel Kyletoft";
+					email = "samuel@kyletoft.se";
+				};
 				core.editor    = "emacsclient -r";
 				pull.ff        = "only";
 				github.user    = "SKyletoft";
