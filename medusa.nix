@@ -59,6 +59,8 @@
 
 	systemd.tmpfiles.rules = [
 		"L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+		"L+    /opt/rocm/include/hipcub   -    -    -     -    ${pkgs.rocmPackages.hipcub}/include/hipcub"
+		"L+    /opt/rocm/include/hip   -    -    -     -    ${pkgs.rocmPackages.clr}/include/hip"
 	];
 
 	services = {
