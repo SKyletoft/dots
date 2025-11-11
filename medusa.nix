@@ -1,4 +1,4 @@
-{ config, pkgs, waylandSupport, windowsFonts, nativeBuild, flatpak, ... }:
+{ pkgs, rocm5Pkgs, ... }:
 
 {
 	nixpkgs.config.rocmSupport = true;
@@ -58,7 +58,7 @@
 	networking.hostName = "medusa";
 
 	systemd.tmpfiles.rules = [
-		"L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+		"L+    /opt/rocm/hip   -    -    -     -    ${rocm5Pkgs.rocmPackages.clr}"
 	];
 
 	services = {

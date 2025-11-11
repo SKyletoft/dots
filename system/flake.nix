@@ -1,14 +1,15 @@
 {
 	inputs = {
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+		rocm5nixpkgs.url = "github:NixOS/nixpkgs?rev=a3ed7406349a9335cb4c2a71369b697cecd9d351";
 		nixos-hardware.url = "github:NixOS/nixos-hardware";
 		nixGL.url = "github:nix-community/nixGL";
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, nixGL }@args: {
+	outputs = { self, nixpkgs, nixos-hardware, nixGL, rocm5nixpkgs }@args: {
 		nixosConfigurations = {
 
-			medusa = nixpkgs.lib.nixosSystem {
+			medusa = nixpkgs.lib.nixosSystem rec {
 				system = "x86_64-linux";
 				specialArgs = args // {
 					waylandSupport = true;
@@ -16,6 +17,7 @@
 					nativeBuild    = true;
 					nativeArch     = "znver4";
 					flatpak        = false;
+					rocm5Pkgs      = import rocm5nixpkgs { inherit system; };
 				};
 				modules = [
 					../medusa.nix
