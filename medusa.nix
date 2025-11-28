@@ -68,16 +68,16 @@
 		xserver = {
 			videoDrivers = [ "amdgpu" ];
 
-			deviceSection = ''
-				Option         "TearFree" "true"
-				Option         "VariableRefresh" "true"
-				Option         "AsyncFlipSecondaries" "true"
-			'';
+			# deviceSection = ''
+			#	Option         "TearFree" "true"
+			#	Option         "VariableRefresh" "true"
+			#	Option         "AsyncFlipSecondaries" "true"
+			# '';
 
-			screenSection = ''
-				Option         "AllowIndirectGLXProtocol" "off"
-				Option         "TripleBuffer" "on"
-			'';
+			# screenSection = ''
+			#	Option         "AllowIndirectGLXProtocol" "off"
+			#	Option         "TripleBuffer" "on"
+			# '';
 		};
 
 		ollama = {
