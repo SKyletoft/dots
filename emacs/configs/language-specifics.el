@@ -7,7 +7,8 @@
 (global-eldoc-mode -1)
 
 (setq-default indent-tabs-mode 't
-              evil-shift-width 8)
+              evil-shift-width 8
+              c-default-style '((awk-mode . "awk") (other . "java")))
 
 ;; Evil shift width is the only one I control in my bindings
 ;; (tab/S-tab) so just alias all the language specific ones to that
