@@ -1,14 +1,14 @@
 {
 	inputs = {
 		nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-		stablePkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+		stablePkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 		curaPkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
 		citraPkgs.url = "github:NixOS/nixpkgs?rev=1cba04796fe93e7f657c62f9d1fb9cae9d0dd86e"; # Last commit before it was removed
 		# citraPkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
 		vimPin.url = "github:NixOS/nixpkgs?rev=9813adc7f7c0edd738c6bdd8431439688bb0cb3d";
-		emacsPkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+		emacsPkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 		emacsOverlay = {
-			url = "github:nix-community/emacs-overlay?rev=4b4422da5a110dc28df5473c597ec8fbf6c6839e";
+			url = "github:nix-community/emacs-overlay?rev=13f3735013045537953ff45cf2432f42efe6079f";
 			inputs = {
 				nixpkgs.follows = "emacsPkgs";
 				nixpkgs-stable.follows = "emacsPkgs";
