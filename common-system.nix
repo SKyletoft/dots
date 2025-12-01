@@ -244,7 +244,7 @@ in {
 			wally-cli
 			zsa-udev-rules
 			powertop
-			pinentry
+			pinentry-gnome3
 
 			nix-output-monitor
 
@@ -370,7 +370,7 @@ in {
 		nix-ld.enable = true;
 		gnupg.agent = {
 			enable = true;
-			pinentryPackage = pkgs.pinentry-gtk2; # GTK2 by recommendation of nixos-discourse
+			pinentryPackage = pkgs.pinentry-gnome3;
 		};
 	};
 }
