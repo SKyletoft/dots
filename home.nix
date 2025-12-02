@@ -7,9 +7,9 @@ let
 	emacsPin   = import inputs.emacsPkgs { overlays = [
 		inputs.emacsOverlay.overlays.default
 		(_: p: {
-			emacs-git = p.emacs-git.overrideAttrs(_: { LSP_USE_PLISTS = true; });
+			# emacs-git = p.emacs-git.overrideAttrs(_: { LSP_USE_PLISTS = true; });
 			emacs-igc = p.emacs-igc.overrideAttrs(old: {
-				LSP_USE_PLISTS = true;
+				# LSP_USE_PLISTS = true;
 				preConfigure = ''
 					export CC=${p.llvmPackages.clang}/bin/clang
 					export CXX=${p.llvmPackages.clang}/bin/clang++
@@ -24,8 +24,8 @@ let
 					++ old.NIX_CFLAGS_COMPILE or []
 				);
 			});
-			emacsPackages = p.emacsPackages.overrideScope
-				(_: p': { lsp-mode = p'.lsp-mode.overrideAttrs(_: { LSP_USE_PLISTS = true; }); });
+			# emacsPackages = p.emacsPackages.overrideScope
+			#	(_: p': { lsp-mode = p'.lsp-mode.overrideAttrs(_: { LSP_USE_PLISTS = true; }); });
 		})
 	]; };
 
@@ -79,7 +79,7 @@ in {
 			glow
 
 			nil
-			inputs.lsp-booster.packages.${system}.default
+			# inputs.lsp-booster.packages.${system}.default
 			nodePackages.bash-language-server
 			shellcheck
 			shfmt
