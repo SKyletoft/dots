@@ -282,7 +282,6 @@
     (replace-regexp "\\b<-\\b" "←")))
 
 (defun c-cpp-mode-hook-impl ()
-  (set-indents 8 8 t)
   (setq-local xref-etags-mode 1
               lsp-ui-sideline-show-hover nil
               lsp-ui-sideline-enable 't
@@ -294,6 +293,7 @@
   (try-direnv-update-environment)
   (lsp)
   (lsp-inlay-hints-mode)
+  (set-indents 8 8 t)
   (editorconfig-apply))
 
 (add-hook 'c-mode-hook 'c-cpp-mode-hook-impl)
