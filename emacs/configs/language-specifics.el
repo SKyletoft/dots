@@ -129,7 +129,7 @@
               compile-command (concat "runhaskell " (buffer-file-name))
               lsp-haskell-formatting-provider "fourmolu"
               lsp-haskell-plugin-fourmolu-config-external t
-              lsp-haskell-plugin-fourmolu-config-path "fourmolu18")
+              lsp-haskell-plugin-fourmolu-config-path "fourmolu")
   (editorconfig-apply)
   (hs-minor-mode 1)
   (lsp)
