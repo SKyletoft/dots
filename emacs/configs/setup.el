@@ -32,6 +32,9 @@
       auth-sources '("~/.authinfo")
       xref-search-program 'ripgrep)
 (add-hook 'prog-mode-hook 'auto-revert-mode)
+(put 'downcase-region 'disabled nil)
+; (add-to-list 'warning-suppress-log-types '(defvaralias))
+; (add-to-list 'warning-suppress-types '(defvaralias))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 

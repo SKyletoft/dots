@@ -8,7 +8,12 @@
 
 (setq-default indent-tabs-mode 't
               evil-shift-width 8
-              c-default-style '((awk-mode . "awk") (other . "java")))
+              c-default-style '((awk-mode . "awk")
+                                (c-ts-mode . "java")
+                                (c++-ts-mode . "java")
+                                (c-mode . "java")
+                                (c++-mode . "java")
+                                (other . "java")))
 
 ;; Evil shift width is the only one I control in my bindings
 ;; (tab/S-tab) so just alias all the language specific ones to that
@@ -285,10 +290,11 @@
   (setq-local xref-etags-mode 1
               lsp-ui-sideline-show-hover nil
               lsp-ui-sideline-enable 't
-              electric-indent-mode -1
+              electric-indent-mode 1
               lsp-clients-clangd-arguments '("--header-insertion-decorators=0" "--clang-tidy")
               gdb-many-windows-mode 1
               compile-command "make -ksj ")
+  (c-ts-mode-set-style "java")
   (hs-minor-mode 1)
   (try-direnv-update-environment)
   (lsp)
