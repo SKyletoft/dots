@@ -320,6 +320,7 @@ in {
 					corfu
 					ivy
 					ivy-posframe
+					term-keys
 
 					# compile-angel
 					buffer-terminator
