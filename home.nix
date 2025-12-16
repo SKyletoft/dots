@@ -66,7 +66,7 @@ in {
 			fzf
 			bottom
 			htop
-			du-dust
+			dust
 			ranger
 			neofetch
 			trash-cli
@@ -190,13 +190,14 @@ in {
 
 	programs = {
 		git = {
-			enable    = true;
-			userName  = "Samuel Kyletoft";
-			userEmail = "samuel@kyletoft.se";
-
+			enable = true;
 			# Reenable whenever I return to vim
 			# difftastic.enable = true;
-			extraConfig = {
+			settings = {
+				user = {
+					name  = "Samuel Kyletoft";
+					email = "samuel@kyletoft.se";
+				};
 				core.editor    = "emacsclient -r";
 				pull.ff        = "only";
 				github.user    = "SKyletoft";
