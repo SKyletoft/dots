@@ -153,7 +153,6 @@
 
 (use-package dape)
 
-(use-package term-keys)
 (term-keys-mode t)
 
 (provide 'setup)
