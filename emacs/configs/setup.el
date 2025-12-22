@@ -153,7 +153,5 @@
 
 (use-package dape)
 
-(term-keys-mode t)
-
 (provide 'setup)
 ;;; setup.el ends here.
