@@ -28,6 +28,7 @@ let
 			#	(_: p': { lsp-mode = p'.lsp-mode.overrideAttrs(_: { LSP_USE_PLISTS = true; }); });
 		})
 	]; };
+	system = pkgs.stdenv.hostPlatform.system;
 
 	enableHyprland  = homeConfig.enableHyprland;
 	enableGnome     = homeConfig.enableGnome;
@@ -541,7 +542,7 @@ git-fetch-with-cli = true
 
 [target.x86_64-unknown-linux-gnu]
 linker = "${pkgs.clang}/bin/clang"
-rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold-wrapped}/bin/mold"]
+rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
 '';
 
 		# Treesitter grammars
