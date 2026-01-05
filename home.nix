@@ -110,7 +110,6 @@ in {
 			(import inputs.curaPkgs {}).cura
 			# stablePkgs.blender # Crashes on launch, try steam version?
 
-			beeper
 			vesktop
 			# discord
 			# dissent
