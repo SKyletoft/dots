@@ -73,6 +73,15 @@
 					nixos-hardware.nixosModules.raspberry-pi-4
 				];
 			};
+
+			medusa-vm = nixpkgs.lib.nixosSystem {
+				system = "x86_64-linux";
+				modules = [
+					../orpheus.nix
+					../common-server.nix
+					({}: { networking.hostName = "medusa-vm"; })
+				];
+			};
 		};
 	};
 }
