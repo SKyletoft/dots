@@ -79,7 +79,7 @@
 				modules = [
 					../orpheus.nix
 					../common-server.nix
-					({ lib }: { networking.hostName = "medusa-vm"; })
+					({ ... }: { networking.hostName = "medusa-vm"; })
 				];
 			};
 		};
