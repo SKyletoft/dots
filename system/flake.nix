@@ -78,6 +78,7 @@
 				system = "x86_64-linux";
 				modules = [
 					../medusa-vm.nix
+					./medusa-vm-hardware.nix
 					../common-server.nix
 				];
 			};
