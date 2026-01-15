@@ -114,6 +114,11 @@ in {
 	networking.hostName = "eurydice";
 
 	fileSystems = {
+		"/" = {
+			device = "/dev/disk/by-label/NIXOS_SD";
+			fsType = "ext4";
+			options = [ "noatime" ];
+		};
 		"/mnt/hekate" = {
 			device = "u3836@192.168.0.203:/";
 			fsType = "sshfs";
