@@ -77,9 +77,8 @@
 			medusa-vm = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				modules = [
-					../orpheus.nix
+					../medusa-vm.nix
 					../common-server.nix
-					({ ... }: { networking.hostName = "medusa-vm"; })
 				];
 			};
 		};
