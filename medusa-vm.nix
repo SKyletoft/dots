@@ -10,7 +10,11 @@
 		];
 	};
 
-	boot.loader.systemd-boot.enable = true;
+	boot.loader.grub = {
+		enable = true;
+		device = "/dev/vda";
+		useOSProber = true;
+	};
 
 	networking.hostName = "medusa-vm";
 
