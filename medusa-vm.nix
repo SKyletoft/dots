@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
+in {
 	nix.settings = {
 		substituters = [
 			"https://192.168.0.200"
@@ -34,11 +36,14 @@
 		cron = {
 			enable = true;
 			systemCronJobs =
-				[("* * * * * u3836 "
-					+ "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status; "
-					+ "SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status; "
-					+ "curl https://am.i.mullvad.net/connected >> /tmp/eurydice-status; "
-				)];
+				[
+					("* * * * * u3836 "
+						+ "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status; "
+						+ "SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status; "
+						+ "curl https://am.i.mullvad.net/connected >> /tmp/eurydice-status; "
+					)
+					("*/05 * * * * u3836 ${update-keys}/bin/update-keys SKyletoft")
+				];
 		};
 	};
 
