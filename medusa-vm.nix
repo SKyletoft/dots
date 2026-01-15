@@ -10,6 +10,8 @@
 		];
 	};
 
+	boot.loader.systemd-boot.enable = true;
+
 	networking.hostName = "medusa-vm";
 
 	hardware.graphics.enable = false;
