@@ -290,6 +290,7 @@
   (setq-local xref-etags-mode 1
               lsp-ui-sideline-show-hover nil
               lsp-ui-sideline-enable 't
+              lsp-enable-on-type-formatting nil
               electric-indent-mode 1
               lsp-clients-clangd-arguments '("--header-insertion-decorators=0" "--clang-tidy")
               gdb-many-windows-mode 1
