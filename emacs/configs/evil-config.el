@@ -326,7 +326,7 @@ As opposed to `list-buffers` which will split the window."
 (defun save-and-cargo-fmt-project ()
   (interactive)
   (save-buffer)
-  (shell-command "cargo fmt")
+  (shell-command "cargo fmt --all")
   (revert-buffer t t t))
 
 (defun save-and-swift-format-buffer ()
