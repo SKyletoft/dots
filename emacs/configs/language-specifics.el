@@ -227,6 +227,7 @@
   ;; (lsp-rust-analyzer-display-reborrow-hints nil)
   (lsp-rust-analyzer-proc-macro-enable t)
   (lsp-rust-analyzer-rustfmt-args "--edition=2021")
+  (lsp-rust-analyzer-cargo-target-dir t)
   (lsp-eldoc-hook nil)
   (lsp-enable-symbol-highlighting nil)
   (lsp-signature-auto-activate nil)
