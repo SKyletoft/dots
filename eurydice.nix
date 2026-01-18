@@ -198,6 +198,7 @@ in {
 
 					("*/05 * * * * root ${update-website}/bin/update-website")
 					("* * * * *    root ${update-status}/bin/update-status")
+					("5 4 * * *    root systemctl reload-or-restart jellyfin.service")
 				];
 		};
 		nix-serve = {
