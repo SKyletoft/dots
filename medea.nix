@@ -46,7 +46,10 @@
 		printing.enable = true;
 	};
 
-	environment.sessionVariables.XCURSOR_THEME = "severa_cursors_2x";
+	environment = {
+		sessionVariables.XCURSOR_THEME = "severa_cursors_2x";
+		systemPackages = with pkgs; [ brightnessctl ];
+	};
 
 	programs.gamescope.args = [
 		"--backend"

@@ -253,7 +253,6 @@ in {
 			xorg.xkill
 			xwayland-satellite
 			logiops
-			ddcutil
 
 			steamcmd
 
