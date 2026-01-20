@@ -322,6 +322,7 @@ in {
 					corfu
 					ivy
 					ivy-posframe
+					indent-bars
 
 					# compile-angel
 					buffer-terminator

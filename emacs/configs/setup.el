@@ -153,5 +153,10 @@
 
 (use-package dape)
 
+(use-package indent-bars
+  :config
+  (setq indent-bars-treesit-support t))
+(add-hook 'prog-mode-hook 'indent-bars-mode)
+
 (provide 'setup)
 ;;; setup.el ends here.
