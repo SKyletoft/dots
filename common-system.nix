@@ -245,6 +245,7 @@ in {
 			zsa-udev-rules
 			powertop
 			pinentry-gnome3
+			android-tools # adb
 
 			nix-output-monitor
 
@@ -366,7 +367,6 @@ in {
 		};
 		dconf.enable = true;
 		xonsh.enable = false;
-		adb.enable = true;
 		nix-ld.enable = true;
 		gnupg.agent = {
 			enable = true;
