@@ -226,6 +226,7 @@ in {
 					default = true;
 					root = "/var/www/samuel.kyletoft.se";
 				};
+				"www.samuel.kyletoft.se".globalRedirect = "samuel.kyletoft.se";
 				"u3836.se" = {
 					forceSSL = true;
 					enableACME = true;
@@ -236,16 +237,13 @@ in {
 					enableACME = true;
 					root = "/var/www/marie.kyletoft.se";
 				};
+				"www.marie.kyletoft.se".globalRedirect = "marie.kyletoft.se";
 				"www.liamjardine.se" = {
 					forceSSL = true;
 					enableACME = true;
 					root = "/var/www/liamjardine.se";
 				};
-				"liamjardine.se" = {
-					forceSSL = true;
-					enableACME = true;
-					root = "/var/www/liamjardine.se";
-				};
+				"liamjardine.se".globalRedirect = "www.liamjardine.se";
 				"dhack.u3836.se" = {
 					forceSSL = true;
 					enableACME = true;
