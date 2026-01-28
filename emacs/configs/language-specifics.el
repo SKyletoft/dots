@@ -214,6 +214,7 @@
                     (lsp-lens-hide)
                     (lsp-inlay-hints-mode)
                     (hs-minor-mode)
+                    (indent-bars-mode)
                     (editorconfig-apply)))
   :custom
   (lsp-rust-analyzer-server-display-inlay-hints t)
