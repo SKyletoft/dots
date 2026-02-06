@@ -214,8 +214,8 @@
                     (lsp-lens-hide)
                     (lsp-inlay-hints-mode)
                     (hs-minor-mode)
-                    (indent-bars-mode)
-                    (editorconfig-apply)))
+                    (editorconfig-apply)
+                    (indent-bars-mode)))
   :custom
   (lsp-rust-analyzer-server-display-inlay-hints t)
   (lsp-rust-analyzer-cargo-watch-command "clippy")
