@@ -94,6 +94,7 @@ in {
 			inputs.lem.packages.${system}.default
 
 			aider-chat-full
+			opencode
 
 			monitor
 			iptsd
