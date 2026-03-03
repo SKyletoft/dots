@@ -99,7 +99,6 @@ in {
 			monitor
 			iptsd
 
-			vdhcoapp
 			google-chrome
 
 			alacritty
