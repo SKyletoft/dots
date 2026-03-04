@@ -111,8 +111,6 @@ in {
 			# stablePkgs.blender # Crashes on launch, try steam version?
 
 			vesktop
-			# discord
-			# dissent
 			signal-desktop
 			isync # Emacs email
 			mu
@@ -129,9 +127,8 @@ in {
 			sgt-puzzles
 			xournalpp
 			prismlauncher
-			# citraPkgs.citra
-			# dolphin-emu-primehack
 			dolphin-emu
+			# citraPkgs.citra
 			citraPkgs.yuzu
 			# cemu
 			fragments
@@ -139,7 +136,6 @@ in {
 			lutris
 			mangohud
 			ruffle
-			# gamescope
 			mission-center
 			scanmem # gameconqueror (cheatengine alternative)
 
@@ -160,7 +156,6 @@ in {
 			gnome-calendar
 			gnome-weather
 			evince
-			# papers
 			gnome-disk-utility
 			eog
 			aisleriot
