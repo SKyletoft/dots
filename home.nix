@@ -114,7 +114,6 @@ in {
 			# discord
 			# dissent
 			signal-desktop
-			slack
 			isync # Emacs email
 			mu
 
