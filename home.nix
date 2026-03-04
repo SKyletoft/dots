@@ -416,6 +416,14 @@ in {
 						startup.homepage = "chrome://browser/content/blanktab.html";
 						toolbars.bookmarks.visibility = "always";
 						translations.neverTranslateLanguages = "sv";
+						ai.control = {
+							default = "blocked";
+							linkPreviewKeyPoints = "blocked";
+							pdfjsAltText = "blocked";
+							sidebarChatbot = "blocked";
+							smartTabGroups = "blocked";
+							translations = "blocked";
+						};
 						extensions = {
 							autoDisableScopes = 0;
 							enabledScopes = 15;
