@@ -227,6 +227,7 @@ in {
 					root = "/var/www/samuel.kyletoft.se";
 				};
 				"www.samuel.kyletoft.se" = {
+					forceSSL = true;
 					enableACME = true;
 					globalRedirect = "samuel.kyletoft.se";
 				};
