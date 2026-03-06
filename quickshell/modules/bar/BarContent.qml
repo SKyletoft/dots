@@ -78,9 +78,9 @@ Item { // Bar content region
 		WheelHandler {
 			onWheel: event => {
 				if (event.angleDelta.y < 0)
-					root.brightnessMonitor.setBrightness(root.brightnessMonitor.brightness - 0.05);
+					root.brightnessMonitor.setBrightness(root.brightnessMonitor.brightness - 0.01);
 				else if (event.angleDelta.y > 0)
-					root.brightnessMonitor.setBrightness(root.brightnessMonitor.brightness + 0.05);
+					root.brightnessMonitor.setBrightness(root.brightnessMonitor.brightness + 0.01);
 				// Store the mouse position and start tracking
 				barLeftSideMouseArea.lastScrollX = event.x;
 				barLeftSideMouseArea.lastScrollY = event.y;
