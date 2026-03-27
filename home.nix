@@ -332,7 +332,7 @@ in {
 					lsp-treemacs
 					dape
 
-					# lsp-java
+					lsp-java
 					nix-ts-mode
 					haskell-ts-mode
 					idris-mode

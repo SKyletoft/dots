@@ -314,6 +314,7 @@
 (add-hook 'xref-etags-mode-hook 'evil-emacs-state)
 (add-hook 'xref--xref-buffer-mode-hook 'evil-emacs-state)
 
+(use-package lsp-java)
 (add-hook 'java-ts-mode-hook
           (lambda ()
             (hs-minor-mode 1)
