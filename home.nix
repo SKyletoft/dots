@@ -69,7 +69,7 @@ in {
 			htop
 			dust
 			ranger
-			neofetch
+			stablePkgs.neofetch
 			trash-cli
 			rsync
 			xclip
@@ -81,7 +81,7 @@ in {
 
 			nil
 			# inputs.lsp-booster.packages.${system}.default
-			nodePackages.bash-language-server
+			bash-language-server
 			shellcheck
 			shfmt
 			inputs.upwards.packages.${system}.default
@@ -201,10 +201,12 @@ in {
 		};
 
 		neovim = {
-			enable     = true;
-			withNodeJs = true;
-			coc        = {
-				enable   = true;
+			enable      = true;
+			withNodeJs  = true;
+			withRuby    = false;
+			withPython3 = true;
+			coc = {
+				enable = true;
 				settings = {
 					languageserver =  {
 						haskell = {
