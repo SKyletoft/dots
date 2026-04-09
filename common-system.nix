@@ -23,7 +23,6 @@ in {
 				"big-parallel"
 				"gccarch-alderlake"
 				"kvm"
-				"nixos-test"
 			];
 			# post-build-hook = "/home/u3836/dots/upload-to-cache.sh";
 			substituters = [
@@ -231,7 +230,7 @@ in {
 		nixos.includeAllModules = true;
 		man = {
 			enable = true;
-			generateCaches = true;
+			cache.enable = true;
 		};
 	};
 
@@ -252,7 +251,7 @@ in {
 
 			nixGL.packages.${system}.nixGLIntel
 
-			xorg.xkill
+			xkill
 			xwayland-satellite
 			logiops
 
@@ -352,10 +351,10 @@ in {
 			remotePlay.openFirewall = true;
 			package = pkgs.steam.override {
 				extraPkgs = p: with p; [
-					xorg.libXcursor
-					xorg.libXi
-					xorg.libXinerama
-					xorg.libXScrnSaver
+					libxcursor
+					libxi
+					libxinerama
+					libxScrnSaver
 					libpng
 					libpulseaudio
 					libvorbis
