@@ -354,7 +354,7 @@ in {
 					libxcursor
 					libxi
 					libxinerama
-					libxScrnSaver
+					libxscrnsaver
 					libpng
 					libpulseaudio
 					libvorbis
