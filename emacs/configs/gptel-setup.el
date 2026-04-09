@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(use-package agent-shell)
+
 (use-package aider
   :config
   (setenv "OLLAMA_API_BASE" "http://localhost:11434")

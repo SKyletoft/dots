@@ -442,6 +442,14 @@
     (kbd "C-+") 'image-increase-size
     (kbd "C--") 'image-decrease-size)
 
+  (evil-define-key 'normal 'global
+    (kbd "SPC u") 'agent-shell
+    (kbd "SPC U") 'agent-shell-new-shell)
+  (evil-define-key 'normal agent-shell-mode-map
+    (kbd "<tab>") 'agent-shell-cycle-session-mode
+    (kbd "SPC a") 'agent-shell-set-session-model
+    (kbd "SPC c") 'agent-shell-viewport-compose-cancel)
+
   (evil-define-key 'normal forge-issue-mode-map
     (kbd "i")     'forge-create-post
     (kbd "F")     'forge-pull-this-topic
