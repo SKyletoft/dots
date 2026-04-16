@@ -484,6 +484,14 @@
     (kbd "s")     'pdf-view-next-page-command
     (kbd "t")     'pdf-view-next-page-command)
 
+  (evil-define-key 'normal 'global
+    (kbd "SPC j") 'agent-shell
+    (kbd "SPC J") 'agent-shell-new-shell)
+  (evil-define-key 'normal agent-shell-mode-map
+    (kbd "<tab>") 'agent-shell-cycle-session-mode
+    (kbd "SPC n") 'agent-shell-set-session-model
+    (kbd "SPC c") 'agent-shell-viewport-compose-cancel)
+
   (evil-define-key 'normal forge-issue-mode-map
     (kbd "n")     'forge-create-post
     (kbd "F")     'forge-pull-this-topic
