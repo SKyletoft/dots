@@ -363,6 +363,20 @@ As opposed to `list-buffers` which will split the window."
         (delete-char 9)
       (insert "]DISPLAY "))))
 
+(defun my/toggle-debug ()
+"Toggle whether or not line starts with #[cfg(debug_assertions)]."
+  (interactive)
+  (save-excursion
+    (back-to-indentation)
+    (cond
+     ((string= "#[cfg(debug_assertions)] "
+               (buffer-substring (point) (+ (point) 25)))
+      (delete-char 25))
+     ((string= "#[cfg(debug_assertions)]"
+               (buffer-substring (point) (+ (point) 24)))
+      (delete-char 24))
+     (t (insert "#[cfg(debug_assertions)] ")))))
+
 (setq my/last-command-buffer "")
 (defun run-command (command)
 "A second compilation buffer that remembers the COMMAND seperately from 'compile-command'."

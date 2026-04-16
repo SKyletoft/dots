@@ -271,6 +271,9 @@
     (kbd "SPC l") 'hs-slime-n
     (kbd "<f5>")  'ghci)
 
+  (evil-define-key 'normal rust-ts-mode-map
+    (kbd "SPC U") 'my/toggle-debug)
+
   (evil-define-key 'visual python-ts-mode-map
     (kbd "SPC l") 'slime-v)
   (evil-define-key 'normal python-ts-mode-map
