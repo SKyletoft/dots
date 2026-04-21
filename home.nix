@@ -188,6 +188,7 @@ in {
 			enable = true;
 			# Reenable whenever I return to vim
 			# difftastic.enable = true;
+			signing.format = "openpgp"; # Keep old default for now
 			settings = {
 				user = {
 					name  = "Samuel Kyletoft";
