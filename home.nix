@@ -91,9 +91,6 @@ in {
 		] ++
 
 		(if gui then [
-			inputs.lem.packages.${system}.default
-
-			aider-chat-full
 			opencode
 
 			monitor
@@ -108,7 +105,6 @@ in {
 			gimp
 
 			(import inputs.curaPkgs {}).cura
-			# stablePkgs.blender # Crashes on launch, try steam version?
 
 			vesktop
 			signal-desktop
@@ -321,7 +317,6 @@ in {
 					ivy-posframe
 					indent-bars
 
-					# compile-angel
 					buffer-terminator
 
 					gptel
@@ -382,7 +377,6 @@ in {
 				vi  = "emacsclient -nw";
 				restart-emacs = "pkill -9 emacs && emacs --daemon";
 				".." = "cd ..";
-				chat = "ollama run codellama:13b-instruct";
 			};
 
 			shellOptions = [
