@@ -1,4 +1,4 @@
-{ config, pkgs, waylandSupport, windowsFonts, nativeBuild, flatpak, ... }:
+{ pkgs, ... }:
 
 {
 	nixpkgs.config.rocmSupport = true;
@@ -65,29 +65,13 @@
 	];
 
 	services = {
-		xserver = {
-			videoDrivers = [ "amdgpu" ];
-
-			# deviceSection = ''
-			#	Option         "TearFree" "true"
-			#	Option         "VariableRefresh" "true"
-			#	Option         "AsyncFlipSecondaries" "true"
-			# '';
-
-			# screenSection = ''
-			#	Option         "AllowIndirectGLXProtocol" "off"
-			#	Option         "TripleBuffer" "on"
-			# '';
-		};
+		xserver.videoDrivers = [ "amdgpu" ];
 
 		ollama = {
 			package = pkgs.ollama-rocm;
 			environmentVariables = {
 				OLLAMA_MAX_LOADED_MODELS = "1";
 				OLLAMA_GPU_MEMORY_FRACTION = "0.85";
-				# OLLAMA_KV_CACHE_TYPE = "q4_0";
-				# OLLAMA_FLASH_ATTENTION = "1";
-				# OLLAMA_NUM_PARALLEL = "1";
 				OLLAMA_CONTEXT_LENGTH = "100000";
 			};
 		};

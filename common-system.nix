@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixGL, waylandSupport, windowsFonts, nativeBuild, nativeArch, flatpak, ... }:
+{ pkgs, nixGL, waylandSupport, windowsFonts, nativeBuild, nativeArch, flatpak, ... }:
 
 let
 	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
@@ -12,8 +12,6 @@ in {
 		};
 		overlays = (import ./overlays.nix) nativeBuild nativeArch;
 	};
-
-	hardware.keyboard.zsa.enable = true;
 
 	nix = {
 		settings = {
@@ -63,11 +61,6 @@ in {
 		};
 		binfmt.emulatedSystems = [ "aarch64-linux" ];
 		kernelModules = [ "xpad" "hid-nintendo" "xone" "xpadneo" ];
-		# extraModulePackages = with config.boot.kernelPackages; [
-		#	xone
-		#	xpadneo
-		#	(callPackage ./packages/xpad.nix {})
-		# ];
 	};
 
 	time.timeZone = "Europe/Stockholm";
@@ -94,15 +87,7 @@ in {
 
 	# VMM
 	virtualisation = {
-		libvirtd = {
-			enable = true;
-			# hooks.network = ''
-			#	virsh net-autostart default
-			# '';
-			# extraConfig = ''
-			#	firewall_backend = "iptables";
-			# '';
-		};
+		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
 		docker.enable = true;
 	};
