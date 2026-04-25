@@ -113,6 +113,7 @@ in {
 			stablePkgs.libreoffice
 			stablePkgs.hunspellDicts.sv_SE
 
+			megasync
 			kdePackages.ark
 			pcmanfm
 			nautilus
