@@ -75,7 +75,6 @@ in {
 			xclip
 			doasedit
 			# mdpdf
-			hstr
 			bluetui
 			glow
 
@@ -388,6 +387,10 @@ in {
 			initExtra = builtins.readFile ./bashrc;
 		};
 
+		hstr = {
+			enable = true;
+			enableBashIntegration = true;
+		};
 
 		direnv = {
 			enable = true;
