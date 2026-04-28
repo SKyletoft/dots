@@ -90,7 +90,6 @@ in {
 		] ++
 
 		(if gui then [
-			opencode
 
 			monitor
 			iptsd
@@ -100,6 +99,7 @@ in {
 			alacritty
 			kitty
 			vscode
+			opencode
 			pinta
 			gimp
 
