@@ -3,7 +3,7 @@
 {
 	nixpkgs.config.rocmSupport = true;
 
-	boot.kernelModules = [ "amdgpu" "kvm-amd" "i2c-dev" ];
+	boot.kernelModules = [ "amdgpu" "kvm-amd" "i2c-dev" "ntsync" ];
 
 	hardware = {
 		graphics.enable = true;
