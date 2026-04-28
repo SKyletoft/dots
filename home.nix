@@ -114,6 +114,7 @@ in {
 			stablePkgs.hunspellDicts.sv_SE
 
 			megasync
+			megacmd
 			kdePackages.ark
 			pcmanfm
 			nautilus
