@@ -90,6 +90,7 @@ in {
 		] ++
 
 		(if gui then [
+			libnotify
 
 			monitor
 			iptsd
