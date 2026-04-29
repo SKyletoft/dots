@@ -232,6 +232,8 @@ in {
 			pinentry-gnome3
 			android-tools # adb
 
+			pavucontrol # audio settings
+
 			nix-output-monitor
 
 			nixGL.packages.${system}.nixGLIntel
