@@ -131,7 +131,7 @@ in {
 			# cemu
 			fragments
 			heroic
-			lutris
+			# lutris
 			mangohud
 			ruffle
 			mission-center
@@ -410,6 +410,7 @@ in {
 			enable = gui;
 			languagePacks = [ "en-GB" "sv" ];
 			# package = pkgs.firefox-devedition-bin;
+			configPath = ".mozilla/firefox"; # Silence changed default
 			profiles.default = {
 				id = 0;
 				name = "default";
