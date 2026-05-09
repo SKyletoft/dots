@@ -19,11 +19,11 @@
 	},
 
 	"apps": {
-		"bluetooth": "alacritty -e bluetui",
-		"network": "alacritty -e nmtui",
-		"networkEthernet": "alacritty -e nmtui",
+		"bluetooth": "ghostty -e bluetui",
+		"network": "ghostty -e nmtui",
+		"networkEthernet": "ghostty -e nmtui",
 		"taskManager": "missioncenter",
-		"terminal": "alacritty"
+		"terminal": "ghostty"
 	},
 
 	"audio": {
@@ -116,7 +116,7 @@
 		],
 		"monochromeIcons": false,
 		"pinnedApps": [
-			"alacritty",
+			"ghostty",
 			"firefox",
 			"org.gnome.nautilus",
 			"emacs",
