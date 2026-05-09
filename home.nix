@@ -508,6 +508,7 @@ in {
 		};
 		configFile = {
 			"alacritty/alacritty.toml".source = ./alacritty.toml;
+			"ghostty/config".source           = ./ghostty;
 			"rustfmt/rustfmt.toml".source     = ./rustfmt.toml;
 			"kitty/kitty.conf".source         = ./kitty.conf;
 			"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
