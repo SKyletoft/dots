@@ -26,3 +26,5 @@ background-opacity = 0.9
 keybind = F11=toggle_fullscreen
 
 confirm-close-surface = false
+cursor-style = block
+scrollbar = never
