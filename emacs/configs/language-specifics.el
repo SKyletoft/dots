@@ -740,7 +740,7 @@
 (defcustom display-line-numbers-exempt-modes
   '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode
                treemacs-mode snake-mode tetris-mode solitaire-mode pong-mode
-               image-mode pdf-view-mode)
+               image-mode pdf-view-mode ghostel-mode)
   "Major modes on which to disable line numbers."
   :group 'display-line-numbers
   :type 'list

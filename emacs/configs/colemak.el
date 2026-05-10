@@ -14,7 +14,7 @@
   (define-key evil-normal-state-map (kbd "z x") 'execute-extended-command)
   (global-set-key (kbd "C-S-p") 'treemacs)
   (evil-define-key '(normal visual motion) 'global
-    (kbd "C-d") 'multi-vterm
+    (kbd "C-d") (lambda () (interactive) (ghostel '-))
     (kbd "C-+") 'text-scale-increase
     (kbd "C--") 'text-scale-decrease
     (kbd "M-c") 'run-command)
@@ -25,8 +25,8 @@
     (kbd "ö")     'evil-ex
     (kbd "Ö")     'eval-expression
     (kbd "C-n")   'scratch-buffer
-    (kbd "SPC l") 'recompile
-    (kbd "SPC L") 'compile
+    (kbd "SPC l") 'ghostel-recompile
+    (kbd "SPC L") 'ghostel-compile
     (kbd "<mouse-8>") 'evil-jump-backward
     (kbd "<mouse-9>") 'evil-jump-forward)
 
@@ -436,23 +436,25 @@
                     (gdb-many-windows -1)
                     (evil-quit)))
 
-  (evil-define-key 'insert vterm-mode-map
-    (kbd "C-V")      'vterm-yank
-    (kbd "<delete>") 'vterm-send-delete
-    (kbd "C-g")      'vterm--self-insert
-    (kbd "C-a")      'vterm--self-insert
-    (kbd "C-d")      'vterm--self-insert
-    [?\t]            'vterm--self-insert
-    (kbd "<tab>")    'vterm--self-insert)
-  (evil-define-key '(normal emacs) vterm-mode-map
+  ;;(evil-define-key 'insert ghostel-mode-map
+    ;; (kbd "C-V")      'vterm-yank
+    ;; (kbd "<delete>") 'vterm-send-delete
+    ;; (kbd "C-g")      'vterm--self-insert
+    ;; (kbd "C-a")      'vterm--self-insert
+    ;; (kbd "C-d")      'vterm--self-insert
+    ;; [?\t]            'vterm--self-insert
+    ;; (kbd "<tab>")    'vterm--self-insert
+    ;;)
+  (evil-define-key '(normal emacs) ghostel-mode-map
     (kbd "C-S-F") 'windmove-up
     (kbd "C-S-S") 'windmove-down
     (kbd "C-S-R") 'windmove-left
     (kbd "C-S-T") 'windmove-right
-    (kbd "C-S-V") 'vterm-yank
-    (kbd "C-v")   'vterm-yank)
-  (evil-define-key 'normal vterm-mode-map
-    (kbd "SPC l") 'vt-reload)
+    ;; (kbd "C-S-V") 'vterm-yank
+    ;; (kbd "C-v")   'vterm-yank
+    )
+  ;; (evil-define-key 'normal vterm-mode-map
+  ;;   (kbd "SPC l") 'vt-reload)
 
   (evil-define-key 'motion compilation-mode-map
     (kbd "SPC m") 'magit
