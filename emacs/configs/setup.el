@@ -119,14 +119,14 @@
 (global-diff-hl-mode 1)
 (diff-hl-flydiff-mode 1)
 
-(use-package vterm
-  :config (setenv "BAT_THEME" "ansi")
-  :hook
-  (vterm-mode . (lambda ()
-                  (setq-local vterm-term-environment-variable 'eterm-color
-                              vterm-kill-buffer-on-exit t
-                              vterm-timer-delay nil)
-                  (evil-emacs-state))))
+;; (use-package vterm
+;;   :config (setenv "BAT_THEME" "ansi")
+;;   :hook
+;;   (vterm-mode . (lambda ()
+;;                   (setq-local vterm-term-environment-variable 'eterm-color
+;;                               vterm-kill-buffer-on-exit t
+;;                               vterm-timer-delay nil)
+;;                   (evil-emacs-state))))
 (use-package ghostel)
 (use-package ghostel-compile)
 
