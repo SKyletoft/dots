@@ -127,6 +127,8 @@
                               vterm-kill-buffer-on-exit t
                               vterm-timer-delay nil)
                   (evil-emacs-state))))
+(use-package ghostel)
+(use-package ghostel-compile)
 
 (use-package tramp
   :config
