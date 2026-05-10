@@ -436,23 +436,21 @@
                     (gdb-many-windows -1)
                     (evil-quit)))
 
-  ;;(evil-define-key 'insert ghostel-mode-map
-    ;; (kbd "C-V")      'vterm-yank
-    ;; (kbd "<delete>") 'vterm-send-delete
-    ;; (kbd "C-g")      'vterm--self-insert
-    ;; (kbd "C-a")      'vterm--self-insert
-    ;; (kbd "C-d")      'vterm--self-insert
-    ;; [?\t]            'vterm--self-insert
-    ;; (kbd "<tab>")    'vterm--self-insert
-    ;;)
+  (evil-define-key 'insert ghostel-mode-map
+    (kbd "C-V")      'ghostel-yank
+    (kbd "<delete>") 'ghostel-send-delete
+    (kbd "C-g")      'ghostel--self-insert
+    (kbd "C-a")      'ghostel--self-insert
+    (kbd "C-d")      'ghostel--self-insert
+    [?\t]            'ghostel--self-insert
+    (kbd "<tab>")    'ghostel--self-insert)
   (evil-define-key '(normal emacs) ghostel-mode-map
     (kbd "C-S-F") 'windmove-up
     (kbd "C-S-S") 'windmove-down
     (kbd "C-S-R") 'windmove-left
     (kbd "C-S-T") 'windmove-right
-    ;; (kbd "C-S-V") 'vterm-yank
-    ;; (kbd "C-v")   'vterm-yank
-    )
+    (kbd "C-S-V") 'ghostel-yank
+    (kbd "C-v")   'ghostel-yank)
   ;; (evil-define-key 'normal vterm-mode-map
   ;;   (kbd "SPC l") 'vt-reload)
 
