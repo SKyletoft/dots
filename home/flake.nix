@@ -30,6 +30,9 @@
 			url = "github:SKyletoft/tree-sitter-swift-flake";
 			inputs.nixpkgs.follows = "emacsPkgs";
 		};
+		ghostel = {
+			url = "github:SKyletoft/ghostel";
+		};
 		nur = {
 			url = "github:nix-community/NUR";
 			inputs.nixpkgs.follows = "nixpkgs";

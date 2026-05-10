@@ -326,6 +326,7 @@ in {
 					pdf-tools
 					multi-vterm
 					vterm
+					inputs.ghostel.packages.${system}.default
 
 					lsp-mode
 					lsp-ui
