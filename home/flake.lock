@@ -240,11 +240,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1778441272,
-        "narHash": "sha256-fCNFYb+RXpWhVC8dwSmkb4Mj6XbRW1x4FHagintUKis=",
+        "lastModified": 1778451549,
+        "narHash": "sha256-YdUK7dsKcihOsJstz9OK6DQ3V/62Qz13+nhpQ8xQSuI=",
         "owner": "SKyletoft",
         "repo": "ghostel",
-        "rev": "ef3a2dd21b258a5ebba90ed00a4a7f6e4a5aa02e",
+        "rev": "decc6b2fd1209582cf8fbeb509cc69e20a1c77f1",
         "type": "github"
       },
       "original": {
