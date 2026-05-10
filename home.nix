@@ -24,8 +24,6 @@ let
 					++ old.NIX_CFLAGS_COMPILE or []
 				);
 			});
-			# emacsPackages = p.emacsPackages.overrideScope
-			#	(_: p': { lsp-mode = p'.lsp-mode.overrideAttrs(_: { LSP_USE_PLISTS = true; }); });
 		})
 	]; };
 	system = pkgs.stdenv.hostPlatform.system;
