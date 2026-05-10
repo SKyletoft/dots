@@ -28,3 +28,4 @@ keybind = F11=toggle_fullscreen
 confirm-close-surface = false
 cursor-style = block
 scrollbar = never
+window-inherit-working-directory = false
