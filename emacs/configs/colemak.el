@@ -442,8 +442,8 @@
     (kbd "C-g")      'ghostel--self-insert
     (kbd "C-a")      'ghostel--self-insert
     (kbd "C-d")      'ghostel--self-insert
-    [?\t]            'ghostel--self-insert
-    (kbd "<tab>")    'ghostel--self-insert)
+    [?\t]            'ghostel--send-event
+    (kbd "<tab>")    'ghostel--send-event)
   (evil-define-key '(normal emacs) ghostel-mode-map
     (kbd "C-S-F") 'windmove-up
     (kbd "C-S-S") 'windmove-down
