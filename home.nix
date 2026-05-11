@@ -286,8 +286,9 @@ in {
 		emacs = {
 			enable = true;
 			package = emacsPin.emacs-igc.override {
-				withGTK3 = false;
-				withX    = gui;
+				withPgtk = gui;
+				withGTK3 = gui;
+				withX    = false;
 				withWebP = gui;
 			};
 			extraPackages =
