@@ -97,7 +97,6 @@ in {
 
 			alacritty
 			kitty
-			ghostty
 			vscode
 			opencode
 			pinta
@@ -472,6 +471,11 @@ in {
 					swedish-dictionary
 				];
 			};
+		};
+
+		ghostty = {
+			enable = true;
+			enableBashIntegration = true;
 		};
 	};
 
