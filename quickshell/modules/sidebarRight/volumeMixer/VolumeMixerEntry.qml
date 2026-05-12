@@ -10,6 +10,19 @@ Item {
 	id: root
 	required property PwNode node
 	property real preMuteVolume: -1
+
+	function isOverSlider(x, y) {
+		var sliderPos = slider.mapFromItem(root, x, y)
+		return sliderPos.x >= 0 && sliderPos.x <= slider.width
+			&& sliderPos.y >= 0 && sliderPos.y <= slider.height
+	}
+
+	function handleVolumeWheel(delta) {
+		const step = 0.05
+		const volDelta = delta > 0 ? step : -step
+		slider.value = Math.max(0, Math.min(1, slider.value + volDelta))
+	}
+
 	PwObjectTracker {
 		objects: [node]
 	}

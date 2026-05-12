@@ -62,6 +62,21 @@ Item {
 					required property var modelData
 					node: modelData
 				}
+
+				MouseArea {
+					anchors.fill: parent
+					acceptedButtons: Qt.NoButton
+					onWheel: (event) => {
+						const contentPos = mapToItem(listView.contentItem, event.x, event.y)
+						const child = listView.contentItem.children.find(c => c.isOverSlider)
+						const localPos = child.mapFromItem(listView.contentItem, contentPos.x, contentPos.y)
+						if (child.isOverSlider(localPos.x, localPos.y)) {
+							child.handleVolumeWheel(event.angleDelta.y)
+							event.accepted = true
+							return
+						}
+					}
+				}
 			}
 
 			// Placeholder when list is empty
