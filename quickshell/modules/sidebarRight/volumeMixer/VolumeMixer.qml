@@ -127,7 +127,7 @@ Item {
 		visible: opacity > 0
 		opacity: root.showDeviceSelector ? 1 : 0
 		Behavior on opacity {
-			NumberAnimation { 
+			NumberAnimation {
 				duration: Appearance.animation.elementMoveFast.duration
 				easing.type: Appearance.animation.elementMoveFast.type
 				easing.bezierCurve: Appearance.animation.elementMoveFast.bezierCurve
@@ -156,7 +156,7 @@ Item {
 			anchors.verticalCenter: parent.verticalCenter
 			anchors.margins: 30
 			implicitHeight: dialogColumnLayout.implicitHeight
-			
+
 			ColumnLayout {
 				id: dialogColumnLayout
 				anchors.fill: parent
@@ -186,7 +186,7 @@ Item {
 					Layout.fillWidth: true
 					clip: true
 					implicitHeight: Math.min(scrimOverlay.height - dialogMargins * 8 - dialogTitle.height - dialogButtonsRowLayout.height, devicesColumnLayout.implicitHeight)
-					
+
 					contentHeight: devicesColumnLayout.implicitHeight
 
 					ColumnLayout {
