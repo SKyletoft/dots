@@ -8,14 +8,16 @@
   (interactive)
   (tool-bar-mode -1)
   (menu-bar-mode -1)
-  (when (string-match "X11" system-configuration-features)
+  (when (or (string-match "X11" system-configuration-features)
+            (string-match "PGTK" system-configuration-features))
     (scroll-bar-mode -1)))
 
 (defun show-menu ()
   (interactive)
   (tool-bar-mode nil)
   (menu-bar-mode nil)
-  (when (string-match "X11" system-configuration-features)
+  (when (or (string-match "X11" system-configuration-features)
+            (string-match "PGTK" system-configuration-features))
     (scroll-bar-mode nil)))
 
 (defun monokai-purple ()
