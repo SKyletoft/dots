@@ -528,18 +528,6 @@ in {
 		};
 	};
 
-	dconf.settings = {
-		"org/gnome/nautilus/preferences" = {
-			gtk-use-iec-units = true;
-			use-iec-units = true;
-		};
-		"org/gtk/settings/file-chooser" = {
-			gtk-use-iec-units = true;
-			use-iec-units = true;
-		};
-		"org/gnome/desktop/interface" = {};
-	};
-
 	home.file = {
 		# Files
 		".gdbinit".source              = ./gdbinit;
