@@ -30,7 +30,8 @@
       mouse-wheel-follow-mouse 't
       initial-scratch-message ""
       auth-sources '("~/.authinfo")
-      xref-search-program 'ripgrep)
+      xref-search-program 'ripgrep
+      safe-local-variable-values '((compile-command . t)))
 (add-hook 'prog-mode-hook 'auto-revert-mode)
 (put 'downcase-region 'disabled nil)
 ; (add-to-list 'warning-suppress-log-types '(defvaralias))
