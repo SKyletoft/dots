@@ -319,7 +319,6 @@ in {
 
 					buffer-terminator
 
-					gptel
 					agent-shell
 
 					pdf-tools
