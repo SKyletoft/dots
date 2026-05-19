@@ -76,6 +76,10 @@
 
 			medusa-vm = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
+				specialArgs = args // {
+					nativeBuild    = true;
+					nativeArch     = "znver4";
+				};
 				modules = [
 					../medusa-vm.nix
 					./medusa-vm-hardware.nix
