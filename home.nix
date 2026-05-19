@@ -322,8 +322,8 @@ in {
 					agent-shell
 
 					pdf-tools
-					multi-vterm
-					vterm
+					# multi-vterm
+					# vterm
 					inputs.ghostel.packages.${system}.default
 
 					lsp-mode
