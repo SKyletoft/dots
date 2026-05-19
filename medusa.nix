@@ -61,7 +61,6 @@
 		"d     /opt/rocm/include        -    -    -     -"
 		"L+    /opt/rocm/hip            -    -    -     -    ${pkgs.rocmPackages.clr}"
 		"L+    /opt/rocm/include/hip    -    -    -     -    ${pkgs.rocmPackages.clr}/include/hip"
-		"L+    /opt/rocm/include/hipcub -    -    -     -    ${pkgs.rocmPackages.hipcub}/include/hipcub"
 	];
 
 	services = {
