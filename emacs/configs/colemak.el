@@ -484,7 +484,7 @@
     (kbd "s")     'pdf-view-next-page-command
     (kbd "t")     'pdf-view-next-page-command)
 
-  (evil-define-key 'normal 'global
+  (evil-define-key '(normal visual motion) 'global
     (kbd "SPC j") 'agent-shell
     (kbd "SPC J") 'agent-shell-new-shell)
   (evil-define-key 'normal agent-shell-mode-map
