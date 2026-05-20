@@ -445,7 +445,7 @@
     (kbd "C-+") 'image-increase-size
     (kbd "C--") 'image-decrease-size)
 
-  (evil-define-key 'normal 'global
+  (evil-define-key '(normal visual) 'global
     (kbd "SPC u") 'agent-shell
     (kbd "SPC U") 'agent-shell-new-shell)
   (evil-define-key 'normal agent-shell-mode-map
