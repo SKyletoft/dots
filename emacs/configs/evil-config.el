@@ -382,7 +382,7 @@ As opposed to `list-buffers` which will split the window."
 "A second compilation buffer that remembers the COMMAND seperately from 'compile-command'."
   (interactive "MShell command: ")
   (let ((old-compile-command compile-command))
-    (compile command)
+    (ghostel-compile command)
     (setq-local compile-command old-compile-command
                 my/last-command-buffer command)))
 
