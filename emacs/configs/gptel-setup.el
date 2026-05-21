@@ -4,7 +4,9 @@
 
 (use-package agent-shell
   :config
-  (setq agent-shell-preferred-agent-config 'opencode))
+  (setq agent-shell-preferred-agent-config 'opencode)
+  :hook
+  (agent-shell-mode . (lambda () (setq-local buffer-undo-list t))))
 
 ;; (use-package aider
 ;;   :config
