@@ -610,8 +610,15 @@
 
 (use-package qml-mode)
 
+(require 'lsp)
+(add-to-list 'lsp-language-id-configuration '(ponylang-mode . "Pony"))
+(lsp-register-client (make-lsp-client :new-connection (lsp-stdio-connection "pony-lsp")
+                                      :activation-fn (lsp-activate-on "Pony")
+                                      :major-modes '(ponylang-mode)
+                                      :server-id 'pony-lsp))
 (use-package ponylang-mode
   :hook (ponylang-mode . (lambda ()
+                           (lsp)
                            (set-indents 2 2 nil)
                            (editorconfig-apply))))
 
