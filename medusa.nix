@@ -71,7 +71,7 @@
 			environmentVariables = {
 				OLLAMA_MAX_LOADED_MODELS = "1";
 				OLLAMA_GPU_MEMORY_FRACTION = "1.0";
-				OLLAMA_CONTEXT_LENGTH = "100000";
+				OLLAMA_CONTEXT_LENGTH = "30000";
 			};
 		};
 	};
