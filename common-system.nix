@@ -108,7 +108,6 @@ in {
 
 		displayManager.gdm = {
 			enable = true;
-			wayland = waylandSupport;
 			autoSuspend = false;
 		};
 		desktopManager.gnome.enable = true;
