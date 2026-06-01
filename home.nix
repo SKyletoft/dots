@@ -54,6 +54,7 @@ in {
 
 		in with pkgs; [
 			git
+			jj
 			wget
 			eza
 			fd
