@@ -68,7 +68,7 @@ in {
 			htop
 			dust
 			ranger
-			stablePkgs.neofetch
+			hyfetch
 			trash-cli
 			rsync
 			xclip
@@ -376,6 +376,7 @@ in {
 				rm  = "trash-put";
 				em  = "emacs -nw";
 				vi  = "emacsclient -nw";
+				neofetch = "neowofetch";
 				restart-emacs = "pkill -9 emacs && emacs --daemon";
 				".." = "cd ..";
 			};
