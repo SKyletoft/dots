@@ -4,6 +4,7 @@ let
 	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
 	update-system = pkgs.callPackage ./packages/update-system.nix {};
 	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
+	system = pkgs.stdenv.hostPlatform.system;
 in {
 	nixpkgs = {
 		config = {
