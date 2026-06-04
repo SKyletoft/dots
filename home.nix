@@ -96,8 +96,6 @@ in {
 
 			google-chrome
 
-			alacritty
-			kitty
 			vscode
 			opencode
 			pinta
