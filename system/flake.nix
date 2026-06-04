@@ -12,7 +12,7 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, nixGL, nsfg-vk-flake }@args: {
+	outputs = { self, nixpkgs, nixos-hardware, nixGL, lsfg-vk-flake }@args: {
 		nixosConfigurations = {
 
 			medusa = nixpkgs.lib.nixosSystem {
