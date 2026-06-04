@@ -183,6 +183,11 @@ in {
 			enable = true;
 			openFirewall = true;
 		};
+
+		lsfg-vk = {
+			enable = true;
+			ui.enable = true;
+		};
 	};
 
 	# Flatpak nonsense
