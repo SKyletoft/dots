@@ -124,6 +124,7 @@ in {
 			sgt-puzzles
 			xournalpp
 			prismlauncher
+			eden
 			dolphin-emu
 			# citraPkgs.citra
 			citraPkgs.yuzu
