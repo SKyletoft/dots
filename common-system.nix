@@ -341,22 +341,22 @@ in {
 		};
 		steam = {
 			enable = true;
-			remotePlay.openFirewall = true;
-			package = pkgs.steam.override {
-				extraPkgs = p: with p; [
-					libxcursor
-					libxi
-					libxinerama
-					libxscrnsaver
-					libpng
-					libpulseaudio
-					libvorbis
-					libkrb5
-					libdecor
-					stdenv.cc.cc.lib
-					keyutils
-				];
-			};
+			# remotePlay.openFirewall = true;
+			# package = pkgs.steam.override {
+			#	extraPkgs = p: with p; [
+			#		libxcursor
+			#		libxi
+			#		libxinerama
+			#		libxscrnsaver
+			#		libpng
+			#		libpulseaudio
+			#		libvorbis
+			#		libkrb5
+			#		libdecor
+			#		stdenv.cc.cc.lib
+			#		keyutils
+			#	];
+			# };
 		};
 		dconf.enable = true;
 		xonsh.enable = false;
