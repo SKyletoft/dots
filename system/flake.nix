@@ -6,13 +6,9 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		nixGL.url = "github:nix-community/nixGL";
-		lsfg-vk-flake = {
-			url = "github:pabloaul/lsfg-vk-flake";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, nixGL, lsfg-vk-flake }@args: {
+	outputs = { self, nixpkgs, nixos-hardware, nixGL }@args: {
 		nixosConfigurations = {
 
 			medusa = nixpkgs.lib.nixosSystem {
@@ -28,7 +24,6 @@
 					../medusa.nix
 					../common-system.nix
 					./medusa-hardware.nix
-					lsfg-vk-flake.nixosModules.default
 				];
 			};
 
@@ -46,7 +41,6 @@
 					../common-system.nix
 					./medea-hardware.nix
 					nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga-7th-gen
-					lsfg-vk-flake.nixosModules.default
 				];
 			};
 

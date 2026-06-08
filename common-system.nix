@@ -184,11 +184,6 @@ in {
 			enable = true;
 			openFirewall = true;
 		};
-
-		lsfg-vk = {
-			enable = true;
-			ui.enable = true;
-		};
 	};
 
 	# Flatpak nonsense
@@ -249,6 +244,9 @@ in {
 			logiops
 
 			steamcmd
+
+			lsfg-vk
+			lsfg-vk-ui
 
 			setup-system
 			update-keys
