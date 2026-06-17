@@ -22,7 +22,7 @@
 "Paste the clipboard into the repl session.
 If no repl exists it just runs recompile instead."
   (if (not (get-buffer "paste-vterm"))
-      (recompile)
+      (ghostel-recompile)
     (let ((b (current-buffer)))
       (switch-to-buffer "paste-vterm")
       (vterm-yank)
@@ -113,7 +113,7 @@ If no repl exists it just runs recompile instead."
 "Paste the clipboard into the ghci session wrapped in :{ :}.
 If the ghci buffer doesn't exist it runs recompile instead."
   (if (not (get-buffer "ghci"))
-      (recompile)
+      (ghostel-recompile)
     (let ((b (current-buffer)))
       (switch-to-buffer "ghci")
       (vterm-insert ":{\n")
