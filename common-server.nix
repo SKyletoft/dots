@@ -36,7 +36,10 @@ in {
 		'';
 	};
 
-	boot.supportedFilesystems.exfat = true;
+	boot = {
+		supportedFilesystems.exfat = true;
+		swraid.enable = true;
+	};
 
 	networking = {
 		firewall = {
