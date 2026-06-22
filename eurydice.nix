@@ -11,6 +11,8 @@ let
 		SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status
 		SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status
 		SYSTEMD_COLORS=true systemctl status github-runner-runner1 | head -n3 >> /tmp/eurydice-status
+		echo >> /tmp/eurydice-status
+		cat /proc/mdstat >> /tmp/eurydice-status
 	'';
 	update-status = pkgs.writeShellScriptBin "update-status" ''
 		${update-motd}/bin/update-motd
