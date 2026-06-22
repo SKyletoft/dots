@@ -10,7 +10,7 @@ let
 		SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status
 		SYSTEMD_COLORS=true systemctl status jellyfin | head -n3 >> /tmp/eurydice-status
 		SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status
-		SYSTEMD_COLORS=true systemctl status github-runner-runner1 | head -n3 >> /tmp/eurydice-status
+		# SYSTEMD_COLORS=true systemctl status github-runner-runner1 | head -n3 >> /tmp/eurydice-status
 		echo >> /tmp/eurydice-status
 		cat /proc/mdstat >> /tmp/eurydice-status
 	'';
@@ -330,7 +330,7 @@ in {
 		};
 		github-runners = {
 			runner1 = {
-				enable = true;
+				enable = false;
 				name = "runner1";
 				tokenFile = "/etc/nixos/secret/thesis-runner-token";
 				url = "https://github.com/SKyletoft/masters-thesis";
