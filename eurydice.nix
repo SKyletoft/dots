@@ -119,6 +119,11 @@ in {
 			fsType = "ext4";
 			options = [ "noatime" ];
 		};
+		"/mnt/boots" = {
+			device = "/dev/disk/by-uuid/eb633d00-a82d-42bd-a370-38d90a9475d1";
+			fsType = "ext4";
+			options = [ "defaults" ];
+		};
 		"/mnt/hekate" = {
 			device = "u3836@192.168.0.203:/";
 			fsType = "sshfs";
