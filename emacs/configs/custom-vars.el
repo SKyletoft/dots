@@ -17,7 +17,7 @@
      default))
  '(lsp-restart '(ignore))
  '(package-selected-packages nil)
- '(warning-suppress-log-types '((comp))))
+ '(warning-suppress-log-types '((comp) (defvaralias))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
