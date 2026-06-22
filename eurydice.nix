@@ -4,7 +4,7 @@ let
 	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
 	update-motd = pkgs.writeShellScriptBin "update-motd" ''
 		rm /tmp/eurydice-status || true
-		${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status
+		${pkgs.hyfetch}/bin/neowofetch > /tmp/eurydice-status
 		${pkgs.git}/bin/git -C /etc/nixos/dots log -1 >> /tmp/eurydice-status
 		echo >> /tmp/eurydice-status
 		SYSTEMD_COLORS=true systemctl status nginx | head -n3 >> /tmp/eurydice-status
