@@ -56,8 +56,14 @@ in {
 	virtualisation.docker.enable = true;
 
 	documentation = {
-		dev.enable = false;
-		man.generateCaches = false;
+		dev.enable = true;
+		doc.enable = true;
+		info.enable = true;
+		nixos.includeAllModules = true;
+		man = {
+			enable = true;
+			cache.enable = true;
+		};
 	};
 
 	environment.systemPackages = with pkgs; [
