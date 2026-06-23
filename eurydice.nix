@@ -152,31 +152,11 @@ in {
 	];
 
 	users.users = {
-		nyerik = {
-			isNormalUser = true;
-			extraGroups = [ "wheel" ];
-		};
 		pingu = {
 			isNormalUser = true;
 			extraGroups = [ "wheel" ];
 		};
-		kryddan = {
-			isNormalUser = true;
-			extraGroups = [ "wheel" ];
-		};
-		koko = {
-			isNormalUser = true;
-			extraGroups = [ "wheel" ];
-		};
-		rachel-spechtachel = {
-			isNormalUser = true;
-			extraGroups = [ "wheel" ];
-		};
 		maky.isNormalUser = true;
-		liam.isNormalUser = true;
-		enaya.isNormalUser = true;
-		ibra.isNormalUser = true;
-
 		jellyfin = {
 			extraGroups = [ "jellyfin" "video" ];
 		};
