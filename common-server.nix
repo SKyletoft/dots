@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
 	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
