@@ -139,11 +139,6 @@ in {
 		};
 	};
 
-	documentation = {
-		dev.enable = false;
-		man.generateCaches = false;
-	};
-
 	environment.systemPackages = with pkgs; [
 		hugo
 		update-motd
