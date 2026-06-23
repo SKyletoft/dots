@@ -56,13 +56,13 @@ in {
 	virtualisation.docker.enable = true;
 
 	documentation = {
-		dev.enable = true;
-		doc.enable = true;
-		info.enable = true;
-		nixos.includeAllModules = true;
+		dev.enable = false;
+		doc.enable = false;
+		info.enable = false;
+		nixos.includeAllModules = false;
 		man = {
 			enable = true;
-			cache.enable = true;
+			cache.enable = false;
 		};
 	};
 
