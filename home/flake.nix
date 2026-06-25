@@ -22,17 +22,9 @@
 		revpath.url = "github:SKyletoft/revpath";
 		lem.url = "github:dariof4/lem-flake";
 		lsp-booster.url = "github:SKyletoft/lsp-booster-flake";
-		roc-ts = {
-			url = "github:faldor20/tree-sitter-roc";
-			inputs.nixpkgs.follows = "emacsPkgs";
-		};
-		swift-ts = {
-			url = "github:SKyletoft/tree-sitter-swift-flake";
-			inputs.nixpkgs.follows = "emacsPkgs";
-		};
-		ghostel = {
-			url = "github:SKyletoft/ghostel";
-		};
+		roc-ts.url = "github:faldor20/tree-sitter-roc";
+		swift-ts.url = "github:SKyletoft/tree-sitter-swift-flake";
+		ghostel.url = "github:SKyletoft/ghostel";
 		nur = {
 			url = "github:nix-community/NUR";
 			inputs.nixpkgs.follows = "nixpkgs";
