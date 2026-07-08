@@ -287,6 +287,8 @@
     (goto-line 0)
     (replace-regexp "\\b->\\b" "→")
     (goto-line 0)
+    (replace-regexp "\\b|->\\b" "↦")
+    (goto-line 0)
     (replace-regexp "\\b<-\\b" "←")))
 
 (defun c-cpp-mode-hook-impl ()
