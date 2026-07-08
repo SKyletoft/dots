@@ -82,7 +82,7 @@
                        (string-match "\\.agda\\'" buffer-file-name))
               (try-direnv-update-directory-environment)
               (load-file (let ((coding-system-for-read 'utf-8))
-                           (shell-command-to-string "agda-mode locate")))
+                           (shell-command-to-string "agda --emacs-mode locate")))
               (agda2-mode)
               (add-hook 'before-save-hook 'agda-arrow-fix 90 't)
               (set-indents 8 2 nil))))
