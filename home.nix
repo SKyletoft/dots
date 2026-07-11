@@ -59,7 +59,6 @@ in {
 			eza
 			fd
 			tealdeer
-			zoxide
 			bat
 			viu
 			ripgrep

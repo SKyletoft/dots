@@ -1,6 +1,5 @@
 complete -cf doas
 bind "set completion-ignore-case on"
-eval "$(direnv hook bash)"
 export DIRENV_LOG_FORMAT=""
 
 if [[ $- =~ .*i.* ]]; then
