@@ -66,31 +66,31 @@
 	services = {
 		xserver.videoDrivers = [ "amdgpu" ];
 
-		# ollama = {
-		#	package = pkgs.ollama-rocm;
-		#	environmentVariables = {
-		#		OLLAMA_MAX_LOADED_MODELS = "1";
-		#		OLLAMA_GPU_MEMORY_FRACTION = "1.0";
-		#		OLLAMA_CONTEXT_LENGTH = "30000";
-		#	};
-		# };
-		llama-cpp = {
-			enable = true;
-			package = pkgs.llama-cpp-rocm;
-			settings = {
-				host = "127.0.0.1";
-				port = 8080;
-				hf-repo = "unsloth/Qwen3.5-35B-A3B-GGUF";
-				hf-file = "Qwen3.5-35B-A3B-Q6_K.gguf";
-				gpu-layers = -1;
-				flash-attn = "on";
-				ctx-size = 32768;
-				temp = 0.7;
-				top-p = 0.80;
-				top-k = 20;
-				min-p = 0.0;
+		ollama = {
+			package = pkgs.ollama-rocm;
+			environmentVariables = {
+				OLLAMA_MAX_LOADED_MODELS = "1";
+				OLLAMA_GPU_MEMORY_FRACTION = "1.0";
+				OLLAMA_CONTEXT_LENGTH = "30000";
 			};
 		};
+		# llama-cpp = {
+		#	enable = true;
+		#	package = pkgs.llama-cpp-rocm;
+		#	settings = {
+		#		host = "127.0.0.1";
+		#		port = 8080;
+		#		hf-repo = "unsloth/Qwen3.5-35B-A3B-GGUF";
+		#		hf-file = "Qwen3.5-35B-A3B-Q6_K.gguf";
+		#		gpu-layers = -1;
+		#		flash-attn = "on";
+		#		ctx-size = 32768;
+		#		temp = 0.7;
+		#		top-p = 0.80;
+		#		top-k = 20;
+		#		min-p = 0.0;
+		#	};
+		# };
 	};
 
 	environment = {
