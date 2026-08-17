@@ -125,12 +125,7 @@ in {
 		ananicy = {
 			enable = true;
 			package = pkgs.ananicy-cpp;
-			extraRules = [
-				{
-					"name" = "gamescope";
-					"nice" = -20;
-				}
-			];
+			rulesProvider = pkgs.ananicy-rules-cachyos;
 		};
 
 		earlyoom = {
