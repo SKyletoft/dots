@@ -103,7 +103,7 @@ in {
 		};
 		earlyoom.enable = true;
 		ananicy = {
-			enable = false;
+			enable = true;
 			package = pkgs.ananicy-cpp;
 		};
 		mullvad-vpn.enable = true;
