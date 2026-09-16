@@ -29,3 +29,5 @@ confirm-close-surface = false
 cursor-style = block
 scrollbar = never
 window-inherit-working-directory = false
+shell-integration = detect
+shell-integration-features = no-ssh-env
