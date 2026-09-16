@@ -299,7 +299,9 @@
               electric-indent-mode 1
               lsp-clients-clangd-arguments '("--header-insertion-decorators=0" "--clang-tidy")
               gdb-many-windows-mode 1
-              compile-command "make -j ")
+              compile-command "make -j "
+              comment-start "// "
+              comment-end "")
   (c-ts-mode-set-style "java")
   (hs-minor-mode 1)
   (try-direnv-update-environment)
