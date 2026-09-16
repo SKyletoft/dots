@@ -307,6 +307,7 @@ in {
 		fira-code
 		droid-sans-mono
 		roboto-mono
+		garamond-libre
 	] ++ (with pkgs; [
 		roboto
 		cascadia-code
