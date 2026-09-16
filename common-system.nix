@@ -307,12 +307,12 @@ in {
 		fira-code
 		droid-sans-mono
 		roboto-mono
-		garamond-libre
 	] ++ (with pkgs; [
 		roboto
 		cascadia-code
 		cantarell-fonts
 		material-symbols
+		garamond-libre
 	]) ++ (if windowsFonts then [
 		winePackages.fonts
 		vistafonts
