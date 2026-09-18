@@ -85,6 +85,7 @@ in {
 			inputs.revpath.packages.${system}.default
 			update-lorri
 			hms
+			mdpdf
 		] ++
 
 		(if gui then [
