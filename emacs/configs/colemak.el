@@ -445,6 +445,7 @@
     [?\t]            'ghostel--send-event
     (kbd "<tab>")    'ghostel--send-event)
   (evil-define-key '(normal emacs) ghostel-mode-map
+    (kbd "SPC r") (lambda () (interactive) (ghostel-send-string "direnv reload\n"))
     (kbd "C-S-F") 'windmove-up
     (kbd "C-S-S") 'windmove-down
     (kbd "C-S-R") 'windmove-left
