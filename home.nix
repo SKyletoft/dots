@@ -292,7 +292,7 @@ in {
 			};
 			extraPackages =
 				epkgs: (with emacsPin.emacsPackages; [
-					epkgs.treesit-grammars.with-all-grammars
+					(epkgs.treesit-grammars.with-grammars (p: builtins.attrValues (builtins.removeAttrs p [ "tree-sitter-cuda" ])))
 					evil-textobj-tree-sitter
 
 					emacsPin.python313Packages.python

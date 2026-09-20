@@ -6,9 +6,9 @@
 		citraPkgs.url = "github:NixOS/nixpkgs?rev=1cba04796fe93e7f657c62f9d1fb9cae9d0dd86e"; # Last commit before it was removed
 		# citraPkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
 		vimPin.url = "github:NixOS/nixpkgs?rev=9813adc7f7c0edd738c6bdd8431439688bb0cb3d";
-		emacsPkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+		emacsPkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 		emacsOverlay = {
-			url = "github:nix-community/emacs-overlay?rev=fc487ea169bb3e039f2ab379e0dd605a1c301204";
+			url = "github:nix-community/emacs-overlay?rev=7c58c679cf824636a2014fe90e0df743fe04ebc1";
 			inputs = {
 				nixpkgs.follows = "emacsPkgs";
 				nixpkgs-stable.follows = "emacsPkgs";
