@@ -122,9 +122,10 @@ in {
 			games.enable = false;
 		};
 
-		ananicy = {
+		ananicy = rec {
 			enable = true;
 			package = pkgs.ananicy-cpp;
+			rulesProvider = package;
 			extraRules = [
 				{
 					"name" = "gamescope";
@@ -157,7 +158,7 @@ in {
 
 		ddccontrol.enable = true;
 
-		journald.extraConfig = "SystemMaxUse=256M";
+		journald.settings.Journal.SystemMaxUse = "256M";
 
 		fwupd.enable = true;
 
