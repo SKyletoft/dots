@@ -495,6 +495,11 @@ in {
 			enable = false;
 			settings.icons = true;
 		};
+
+		tldr-update = {
+			enable = true;
+			package = pkgs.tealdeer;
+		};
 	};
 
 	# wayland.windowManager.hyprland.enable = hyprland;
