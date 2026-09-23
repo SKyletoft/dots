@@ -27,7 +27,7 @@ Singleton {
 
 	property real screenZoom: 1
 	onScreenZoomChanged: {
-		Quickshell.execDetached(["hyprctl", "keyword", "cursor:zoom_factor", root.screenZoom.toString()]);
+		Quickshell.execDetached(["hyprctl", "eval", `hl.config({cursor={zoom_factor=${root.screenZoom}}})`]);
 	}
 	Behavior on screenZoom {
 		animation: Appearance.animation.elementMoveFast.numberAnimation.createObject(this)
