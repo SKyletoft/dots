@@ -162,6 +162,7 @@ in {
 			hyprpaper
 			hyprsunset
 			hypridle
+			hyprpolkitagent
 			playerctl
 			quickshell
 			grim

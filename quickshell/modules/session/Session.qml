@@ -169,7 +169,7 @@ Scope {
 						id: sessionSleep
 						buttonIcon: "dark_mode"
 						buttonText: Translation.tr("Sleep")
-						onClicked:  { Quickshell.execDetached(["bash", "-c", "systemctl suspend || loginctl suspend"]); sessionRoot.hide() }
+						onClicked:  { Quickshell.execDetached(["systemctl", "suspend"]); sessionRoot.hide() }
 						onFocusChanged: { if (focus) sessionRoot.subtitle = buttonText }
 						KeyNavigation.left: sessionLock
 						KeyNavigation.right: sessionLogout
@@ -199,7 +199,7 @@ Scope {
 						id: sessionHibernate
 						buttonIcon: "downloading"
 						buttonText: Translation.tr("Hibernate")
-						onClicked:  { Quickshell.execDetached(["bash", "-c", `systemctl hibernate || loginctl hibernate`]); sessionRoot.hide() }
+						onClicked:  { Quickshell.execDetached(["systemctl", "hibernate"]); sessionRoot.hide() }
 						onFocusChanged: { if (focus) sessionRoot.subtitle = buttonText }
 						KeyNavigation.up: sessionLock
 						KeyNavigation.right: sessionShutdown
@@ -208,7 +208,7 @@ Scope {
 						id: sessionShutdown
 						buttonIcon: "power_settings_new"
 						buttonText: Translation.tr("Shutdown")
-						onClicked:  { root.closeAllWindows(); Quickshell.execDetached(["bash", "-c", `systemctl poweroff || loginctl poweroff`]); sessionRoot.hide() }
+						onClicked:  { root.closeAllWindows(); Quickshell.execDetached(["systemctl", "poweroff"]); sessionRoot.hide() }
 						onFocusChanged: { if (focus) sessionRoot.subtitle = buttonText }
 						KeyNavigation.left: sessionHibernate
 						KeyNavigation.right: sessionReboot
@@ -218,7 +218,7 @@ Scope {
 						id: sessionReboot
 						buttonIcon: "restart_alt"
 						buttonText: Translation.tr("Reboot")
-						onClicked:  { root.closeAllWindows(); Quickshell.execDetached(["bash", "-c", `reboot || loginctl reboot`]); sessionRoot.hide() }
+						onClicked:  { root.closeAllWindows(); Quickshell.execDetached(["systemctl", "reboot"]); sessionRoot.hide() }
 						onFocusChanged: { if (focus) sessionRoot.subtitle = buttonText }
 						KeyNavigation.left: sessionShutdown
 						KeyNavigation.right: sessionFirmwareReboot
@@ -228,7 +228,7 @@ Scope {
 						id: sessionFirmwareReboot
 						buttonIcon: "settings_applications"
 						buttonText: Translation.tr("Reboot to firmware settings")
-						onClicked:  { root.closeAllWindows(); Quickshell.execDetached(["bash", "-c", `systemctl reboot --firmware-setup || loginctl reboot --firmware-setup`]); sessionRoot.hide() }
+						onClicked:  { root.closeAllWindows(); Quickshell.execDetached(["systemctl", "reboot", "--firmware-setup"]); sessionRoot.hide() }
 						onFocusChanged: { if (focus) sessionRoot.subtitle = buttonText }
 						KeyNavigation.up: sessionTaskManager
 						KeyNavigation.left: sessionReboot

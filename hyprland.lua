@@ -92,6 +92,7 @@ hl.config({
 hl.on("hyprland.start", function()
 	hl.exec_cmd("quickshell")
 	hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("bash -c 'while true; do xwayland-satellite :10; notify-send \"Xwayland crashed, restarting\"; sleep 2; done'")
 	hl.exec_cmd("emacs --daemon")
 	hl.exec_cmd('signal-desktop --start-in-tray --password-store="gnome-libsecret"')

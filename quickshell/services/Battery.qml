@@ -50,7 +50,7 @@ Singleton {
 
 	onIsSuspendingAndNotChargingChanged: {
 		if (available && isSuspendingAndNotCharging) {
-			Quickshell.execDetached(["bash", "-c", `systemctl suspend || loginctl suspend`]);
+			Quickshell.execDetached(["systemctl", "suspend"]);
 		}
 	}
 }
