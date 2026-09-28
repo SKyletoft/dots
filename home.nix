@@ -361,6 +361,7 @@ in {
 					# lsp-sourcekit # Swift LSP support
 					qml-mode
 					ponylang-mode
+					ispc-mode
 				]);
 		};
 
