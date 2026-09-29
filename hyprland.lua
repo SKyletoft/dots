@@ -141,7 +141,7 @@ hl.bind("SUPER + R",         hl.dsp.exec_cmd('emacsclient -a nvim --create-frame
 hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("emacs --debug-init"))
 hl.bind("SUPER + F",         hl.dsp.exec_cmd("firefox"))
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("firefox --private-window"))
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("grimshot copy area"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("qs -p /home/u3836/git/dots/quickshell/screenshot.qml"))
 
 hl.bind("SUPER + F11", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind("SUPER + M",   hl.dsp.window.fullscreen_state({ internal = 2, client = 2, action = "toggle" }))
