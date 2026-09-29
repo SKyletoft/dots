@@ -127,7 +127,14 @@ hl.bind("SUPER + Q",         hl.dsp.window.close())
 hl.bind("SUPER + O",         hl.dsp.exit())
 hl.bind("SUPER + SHIFT + O", hl.dsp.exec_cmd("pkill -9 quickshell; quickshell"))
 hl.bind("SUPER + E",         hl.dsp.exec_cmd("nautilus"))
-hl.bind("SUPER + D",         hl.dsp.exec_cmd("hyprctl dispatch focuswindow class:vesktop ; vesktop"))
+hl.bind("SUPER + D", function()
+	local window = hl.get_window("class:vesktop")
+	if window then
+		hl.dispatch(hl.dsp.focus({ window = window }))
+	else
+		hl.dispatch(hl.dsp.exec_cmd("vesktop"))
+	end
+end)
 hl.bind("SUPER + SHIFT + D", hl.dsp.exec_cmd("pkill -9 vesktop; vesktop"))
 hl.bind("SUPER + G",         hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + R",         hl.dsp.exec_cmd('emacsclient -a nvim --create-frame -e "(about-emacs)"'))
