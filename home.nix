@@ -544,12 +544,9 @@ in {
 		".xonshrc".source              = ./xonshrc;
 		".vimrc".source                = ./vimrc;
 		".cargo/config.toml".text      =
-''[build]
-rustflags = "-Ctarget-cpu=native"
-
-[target.x86_64-unknown-linux-gnu]
+''[target.x86_64-unknown-linux-gnu]
 linker = "${pkgs.clang}/bin/clang"
-rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold"]
+rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold", "-C", "target-cpu=native"]
 '';
 
 		# Treesitter grammars
