@@ -405,7 +405,8 @@
                                                 (buffer-file-name))
                         lsp-pyright-typechecking-mode "standard")
             (try-direnv-update-directory-environment)
-            (lsp)))
+            (lsp)
+            (editorconfig-apply)))
 
 (add-hook 'bash-ts-mode-hook
           (lambda ()

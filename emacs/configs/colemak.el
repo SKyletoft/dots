@@ -278,7 +278,6 @@
     (kbd "SPC l") 'slime-v)
   (evil-define-key 'normal python-ts-mode-map
     (kbd "SPC l") 'slime-n
-    (kbd "SPC O") 'save-and-black-buffer
     (kbd "<f5>")  'python-repl)
 
   (evil-define-key 'normal idris-mode-map
