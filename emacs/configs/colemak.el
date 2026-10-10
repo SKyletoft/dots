@@ -19,6 +19,7 @@
     (kbd "C--") 'text-scale-decrease
     (kbd "M-c") 'run-command)
   (evil-define-key 'normal 'global
+    (kbd "M-q")   'revert-buffer-quick
     (kbd "SPC m") 'magit
     (kbd "SPC n") 'magit-blame
     (kbd "SPC v") 'hs-toggle-hiding

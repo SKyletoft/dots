@@ -16,6 +16,7 @@
     (kbd "C-+") 'text-scale-increase
     (kbd "C--") 'text-scale-decrease)
   (evil-define-key 'normal 'global
+    (kbd "M-q")   'revert-buffer-quick
     (kbd "§")     'evil-execute-in-emacs-state
     (kbd "SPC m") 'magit
     (kbd "SPC n") 'magit-blame
