@@ -43,6 +43,7 @@
 (defvaralias 'json-ts-mode-indent-offset                  'evil-shift-width)
 (defvaralias 'go-ts-mode-indent-offset                    'evil-shift-width)
 (defvaralias 'typst-ts-indent-offset                      'evil-shift-width)
+(defvaralias 'ispc-ts-mode-indent-offset                  'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
   "Disables tab characters in alignment."
@@ -103,7 +104,8 @@
         (sh-mode . bash-ts-mode)
         (haskell-mode . haskell-ts-mode)
         (csharp-mode . csharp-ts-mode)
-        (tex-mode . latex-mode)))
+        (tex-mode . latex-mode)
+        (ispc-mode . ispc-ts-mode)))
 
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 
@@ -317,6 +319,22 @@
 
 (add-hook 'xref-etags-mode-hook 'evil-emacs-state)
 (add-hook 'xref--xref-buffer-mode-hook 'evil-emacs-state)
+
+(use-package ispc-ts-mode
+  :load-path "~/dots/emacs/configs"
+  :mode ("\\.ispc\\'" "\\.isph\\'")
+  :hook
+  (ispc-ts-mode . (lambda ()
+                    ;; No LSP client is started: neither clangd nor any
+                    ;; other common server parses ISPC, so this only
+                    ;; sets up navigation, comments and indentation.
+                    (setq-local comment-start "// "
+                                comment-end ""
+                                compile-command "make -j ")
+                    (hs-minor-mode 1)
+                    (try-direnv-update-environment)
+                    (set-indents 8 8 t)
+                    (editorconfig-apply))))
 
 (use-package lsp-java)
 (add-hook 'java-ts-mode-hook

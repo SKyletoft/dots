@@ -28,6 +28,17 @@ let
 	]; };
 	system = pkgs.stdenv.hostPlatform.system;
 
+	ispcGrammar = pkgs.tree-sitter.buildGrammar {
+		language = "ispc";
+		version  = "0.0.0+rev=ba1bb38";
+		src = pkgs.fetchFromGitHub {
+			owner = "tree-sitter-grammars";
+			repo  = "tree-sitter-ispc";
+			rev   = "ba1bb38ac8ddfa6aa7571cbfe9b4d029f7f77447";
+			hash  = "sha256-biJ30aNRzfiuDdT0Xl4h8cQ7x84ck/no272+mjydne0=";
+		};
+	};
+
 	enableHyprland  = homeConfig.enableHyprland;
 	enableGnome     = homeConfig.enableGnome;
 	enableDebugging = homeConfig.enableDebugging;
@@ -554,6 +565,8 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold", "-C", "target-cpu=
 			"${inputs.roc-ts.packages.${system}.default}/parser";
 		".config/emacs/tree-sitter/libtree-sitter-swift.so".source =
 			"${inputs.swift-ts.defaultPackage.${system}}/parser";
+		".config/emacs/tree-sitter/libtree-sitter-ispc.so".source =
+			"${ispcGrammar}/parser";
 
 		# Extra desktop files
 		".local/share/applications/signal-background.desktop".source = ./signal-background.desktop;
