@@ -116,7 +116,7 @@
 Return nil if there is no name or if NODE is not a defun node."
   (pcase (treesit-node-type node)
     ("node"
-     (when-let ((identifier (treesit-filter-child
+     (when-let* ((identifier (treesit-filter-child
                              node
                              (lambda (child) (string= (treesit-node-type child) "identifier")))))
        (treesit-node-text (car identifier) t)))))
@@ -134,13 +134,13 @@ Return nil if there is no name or if NODE is not a defun node."
 (defun kdl-ts-mode--beginning-of-node ()
   "Move to the beginning of the current KDL node."
   (interactive)
-  (when-let ((node (kdl-ts-mode--node-at-point)))
+  (when-let* ((node (kdl-ts-mode--node-at-point)))
     (goto-char (treesit-node-start node))))
 
 (defun kdl-ts-mode--end-of-node ()
   "Move to the end of the current KDL node."
   (interactive)
-  (when-let ((node (kdl-ts-mode--node-at-point)))
+  (when-let* ((node (kdl-ts-mode--node-at-point)))
     (goto-char (treesit-node-end node))))
 
 ;; Add these to the keymap
