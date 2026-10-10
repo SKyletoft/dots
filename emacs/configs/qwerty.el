@@ -345,18 +345,32 @@
     (kbd "SPC r") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
+  (evil-define-key 'normal makefile-gmake-mode-map
+    (kbd "SPC i") 'indent-according-to-mode
+    (kbd "C-c")   'evil-yank
+    (kbd "c")     'evil-yank
+    (kbd "C-v")   'evil-paste-after
+    (kbd "C-x")   'evil-delete
+    (kbd "x")     'evil-delete
+    (kbd "M-V")   'evil-visual-block)
+  (evil-define-key 'visual makefile-gmake-mode-map
+    (kbd "SPC i") 'indent-region
+    (kbd "C-v")   'evil-visual-paste)
+
   (evil-define-key 'normal c-mode-map
-    (kbd "I")    'save-and-clang-format-buffer
-    (kbd "<f5>") 'gdb)
+    (kbd "SPC I") 'save-and-clang-format-buffer
+    (kbd "<f5>")  'gdb)
   (evil-define-key 'normal c++-mode-map
-    (kbd "I")    'save-and-clang-format-buffer
-    (kbd "<f5>") 'gdb)
+    (kbd "SPC I") 'save-and-clang-format-buffer
+    (kbd "<f5>")  'gdb)
   (evil-define-key 'normal c-ts-mode-map
-    (kbd "I")    'save-and-clang-format-buffer
-    (kbd "<f5>") 'gdb)
+    (kbd "SPC I") 'save-and-clang-format-buffer
+    (kbd "<f5>")  'gdb)
   (evil-define-key 'normal c++-ts-mode-map
-    (kbd "I")    'save-and-clang-format-buffer
-    (kbd "<f5>") 'gdb)
+    (kbd "SPC I") 'save-and-clang-format-buffer
+    (kbd "<f5>")  'gdb)
+  (evil-define-key 'normal ispc-ts-mode-map
+    (kbd "SPC I") 'save-and-clang-format-buffer)
 
   (evil-define-key 'visual cpp2-mode-map
     (kbd "SPC i") 'indent-region)
@@ -367,8 +381,8 @@
     (kbd "SPC v")  'gud-break)
 
   (evil-define-key 'normal java-ts-mode-map
-    (kbd "I") 'save-and-clang-format-buffer
-    (kbd "<f5>") 'jdb)
+    (kbd "SPC I") 'save-and-clang-format-buffer
+    (kbd "<f5>")  'jdb)
 
   (evil-define-key 'normal kotlin-mode-map
     (kbd "<f5>") 'jdb)

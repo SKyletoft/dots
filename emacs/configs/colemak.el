@@ -377,6 +377,11 @@
     (kbd "SPC l") (lambda () (interactive)
                     (shell-command (string-trim (buffer-substring (region-beginning) (region-end))))))
 
+  (evil-define-key 'normal makefile-gmake-mode-map
+    (kbd "SPC o") 'indent-according-to-mode)
+  (evil-define-key 'visual makefile-gmake-mode-map
+    (kbd "SPC o") 'indent-region)
+
   (evil-define-key 'normal c-mode-map
     (kbd "SPC O") 'save-and-clang-format-buffer
     (kbd "<f5>")  'gdb)
@@ -389,6 +394,8 @@
   (evil-define-key 'normal c++-ts-mode-map
     (kbd "SPC O") 'save-and-clang-format-buffer
     (kbd "<f5>")  'gdb)
+  (evil-define-key 'normal ispc-ts-mode-map
+    (kbd "SPC O") 'save-and-clang-format-buffer)
 
   (evil-define-key 'visual cpp2-mode-map
     (kbd "SPC o")  'indent-region)
