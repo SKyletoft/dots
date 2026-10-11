@@ -649,7 +649,13 @@
 (use-package ponylang-mode
   :hook (ponylang-mode . (lambda ()
                            (lsp)
-                           (set-indents 2 2 nil)
+                           (set-indents 8 2 nil)
+                           (editorconfig-apply))))
+
+(use-package elixir-ts-mode
+  :hook (elixir-ts-mode . (lambda ()
+                           (lsp)
+                           (set-indents 8 2 nil)
                            (editorconfig-apply))))
 
 (defvar-keymap apl-keymap

@@ -213,6 +213,7 @@
   (lang-with-lsp go-ts-mode-map)
   (lang-with-lsp ponylang-mode-map)
   (lang-with-lsp lua-ts-mode-map)
+  (lang-with-lsp elixir-ts-mode-map)
 
   (evil-define-key '(normal visual) markdown-mode-map
     (kbd "SPC a") 'ispell-word
