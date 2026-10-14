@@ -94,6 +94,8 @@ in {
 			shfmt
 			inputs.upwards.packages.${system}.default
 			inputs.revpath.packages.${system}.default
+			rtk
+			inputs.maki.packages.${system}.default
 			update-lorri
 			hms
 			mdpdf

@@ -25,6 +25,10 @@
 		roc-ts.url = "github:faldor20/tree-sitter-roc";
 		swift-ts.url = "github:SKyletoft/tree-sitter-swift-flake";
 		ghostel.url = "github:SKyletoft/ghostel";
+		maki = {
+			url = "github:tontinton/maki";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		nur = {
 			url = "github:nix-community/NUR";
 			inputs.nixpkgs.follows = "nixpkgs";
