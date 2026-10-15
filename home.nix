@@ -92,6 +92,7 @@ in {
 			bash-language-server
 			shellcheck
 			shfmt
+			lua-language-server
 			inputs.upwards.packages.${system}.default
 			inputs.revpath.packages.${system}.default
 			rtk

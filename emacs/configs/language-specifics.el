@@ -44,6 +44,7 @@
 (defvaralias 'go-ts-mode-indent-offset                    'evil-shift-width)
 (defvaralias 'typst-ts-indent-offset                      'evil-shift-width)
 (defvaralias 'ispc-ts-mode-indent-offset                  'evil-shift-width)
+(defvaralias 'lua-ts-mode-indent-offset                   'evil-shift-width)
 
 (defadvice align-regexp (around smart-tabs activate)
   "Disables tab characters in alignment."
@@ -105,7 +106,8 @@
         (haskell-mode . haskell-ts-mode)
         (csharp-mode . csharp-ts-mode)
         (tex-mode . latex-mode)
-        (ispc-mode . ispc-ts-mode)))
+        (ispc-mode . ispc-ts-mode)
+        (lua-mode . lua-ts-mode)))
 
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 
@@ -433,6 +435,17 @@
             (editorconfig-apply)
             (try-direnv-update-environment)
             (lsp)))
+
+(use-package lua-ts-mode
+  :defer t
+  :mode "\\.lua\\'"
+  :hook
+  (lua-ts-mode . (lambda ()
+                   (hs-minor-mode 1)
+                   (set-indents 8 8 t)
+                   (editorconfig-apply)
+                   (try-direnv-update-environment)
+                   (lsp))))
 
 (add-hook 'latex-mode-hook
           (lambda ()
