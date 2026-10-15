@@ -79,7 +79,7 @@
 			package = pkgs.llama-cpp-rocm;
 			settings = {
 				host = "127.0.0.1";
-				port = 11434;
+				port = 8080;
 				hf-repo = "unsloth/Qwen3.6-35B-A3B-GGUF";
 				hf-file = "Qwen3.6-35B-A3B-Q5_K.gguf";
 				gpu-layers = -1;
