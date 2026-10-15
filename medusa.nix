@@ -105,7 +105,7 @@ in
 
 				gpu-layers = "all";
 				cpu-moe = true;
-				moe-cache-mib = 2048;
+				moe-cache-mib = 8192;
 
 				# spec-type = "draft-mtp";
 				# spec-draft-n-max = 2;
