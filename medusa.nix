@@ -111,13 +111,7 @@ in
 				spec-draft-n-max = 1;
 
 				flash-attn = "on";
-				ctx-size = 75000;
-
-				# Sampling
-				# temp = 0.7;
-				# top-p = 0.95;
-				# top-k = 40;
-				# min-p = 0.05;
+				ctx-size = 128000;
 
 				sleep-idle-seconds = 120;
 			};
