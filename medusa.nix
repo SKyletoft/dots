@@ -106,13 +106,13 @@ in
 				fit = true;
 
 				gpu-layers = "all";
-				cpu-moe = true;
+				# cpu-moe = true;
 				moe-cache-mib = 8192;
 
-				spec-type = "draft-mtp";
-				spec-draft-n-max = 1;
+				# spec-type = "draft-mtp";
+				# spec-draft-n-max = 1;
 
-				flash-attn = "on";
+				# flash-attn = "on";
 				ctx-size = 128000;
 
 				# sleep-idle-seconds = 120;
