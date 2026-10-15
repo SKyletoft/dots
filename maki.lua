@@ -28,3 +28,11 @@ end, { desc = "Scroll half page up" })
 maki.keymap.set("n", "<M-n>", function()
 	half_scroll(1)
 end, { desc = "Scroll half page down" })
+
+maki.setup({
+    ui = {
+	clock_format = "24h",
+	scrollbar = false,
+	splash_animation = false
+    }
+})
