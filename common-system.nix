@@ -180,10 +180,10 @@ in {
 			];
 		};
 
-		ollama = {
-			enable = true;
-			openFirewall = true;
-		};
+		# ollama = {
+		#	enable = true;
+		#	openFirewall = true;
+		# };
 	};
 
 	# Flatpak nonsense
