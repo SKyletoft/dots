@@ -111,7 +111,7 @@ in
 				# spec-draft-n-max = 2;
 
 				flash-attn = "on";
-				ctx-size = 32768;
+				ctx-size = 75000;
 
 				# Sampling
 				# temp = 0.7;
