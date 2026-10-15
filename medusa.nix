@@ -95,28 +95,31 @@ in
 		llama-cpp = {
 			enable = true;
 			package = llama-cpp-rocm-0_7_0;
-			settings = {
-				host = "127.0.0.1";
-				port = 8080;
+			settings =
+				let use-mtp = true;
+				in {
+					host = "127.0.0.1";
+					port = 8080;
 
-				hf-repo = "unsloth/Qwen3.6-35B-A3B-MTP-GGUF";
-				# hf-repo = "unsloth/Qwen3.6-35B-A3B-GGUF";
-				hf-file = "Qwen3.6-35B-A3B-UD-Q5_K_M.gguf";
+					hf-file = "Qwen3.6-35B-A3B-UD-Q5_K_M.gguf";
 
-				fit = true;
+					fit = true;
 
-				gpu-layers = "all";
-				# cpu-moe = true;
-				moe-cache-mib = 8192;
+					gpu-layers = "all";
+					# cpu-moe = true;
+					moe-cache-mib = 8192;
 
-				# spec-type = "draft-mtp";
-				# spec-draft-n-max = 1;
+					# flash-attn = "on";
+					ctx-size = 128000;
 
-				# flash-attn = "on";
-				ctx-size = 128000;
-
-				# sleep-idle-seconds = 120;
-			};
+					# sleep-idle-seconds = 120;
+				} // (if use-mtp then {
+					hf-repo = "unsloth/Qwen3.6-35B-A3B-MTP-GGUF";
+					spec-type = "draft-mtp";
+					spec-draft-n-max = 1;
+				} else {
+					hf-repo = "unsloth/Qwen3.6-35B-A3B-GGUF";
+				});
 		};
 	};
 
