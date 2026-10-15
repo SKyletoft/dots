@@ -109,6 +109,9 @@ in
 				top-k = 20;
 				min-p = 0.0;
 				sleep-idle-seconds = 120;
+				ngl = 99;
+				cmoe = true;
+				moe-cache-mib = 8000;
 			};
 		};
 	};
