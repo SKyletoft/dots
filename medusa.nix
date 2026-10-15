@@ -115,7 +115,7 @@ in
 				flash-attn = "on";
 				ctx-size = 128000;
 
-				sleep-idle-seconds = 120;
+				# sleep-idle-seconds = 120;
 			};
 		};
 	};
