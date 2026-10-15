@@ -106,7 +106,7 @@ in
 					fit = true;
 
 					gpu-layers = "all";
-					# cpu-moe = true;
+					cpu-moe = true;
 					moe-cache-mib = 8192;
 
 					# flash-attn = "on";
