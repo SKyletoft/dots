@@ -81,7 +81,7 @@
 				host = "127.0.0.1";
 				port = 8080;
 				hf-repo = "unsloth/Qwen3.6-35B-A3B-GGUF";
-				hf-file = "Qwen3.6-35B-A3B-Q5_K.gguf";
+				hf-file = "Qwen3.6-35B-A3B-UD-Q5_K_M.gguf";
 				gpu-layers = -1;
 				flash-attn = "on";
 				ctx-size = 32768;
