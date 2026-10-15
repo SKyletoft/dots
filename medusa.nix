@@ -99,16 +99,16 @@ in
 				host = "127.0.0.1";
 				port = 8080;
 
-				# hf-repo = "unsloth/Qwen3.6-35B-A3B-MTP-GGUF";
-				hf-repo = "unsloth/Qwen3.6-35B-A3B-GGUF";
+				hf-repo = "unsloth/Qwen3.6-35B-A3B-MTP-GGUF";
+				# hf-repo = "unsloth/Qwen3.6-35B-A3B-GGUF";
 				hf-file = "Qwen3.6-35B-A3B-UD-Q5_K_M.gguf";
 
 				gpu-layers = "all";
 				cpu-moe = true;
 				moe-cache-mib = 8192;
 
-				# spec-type = "draft-mtp";
-				# spec-draft-n-max = 2;
+				spec-type = "draft-mtp";
+				spec-draft-n-max = 1;
 
 				flash-attn = "on";
 				ctx-size = 75000;
