@@ -1,5 +1,23 @@
 { pkgs, ... }:
 
+let
+	llama-cpp-rocm-0_7_0 = pkgs.llama-cpp-rocm.overrideAttrs (oldAttrs: {
+		version = "0.7.0";
+		src = pkgs.fetchFromGitHub {
+			owner = "ggml-org";
+			repo = "llama.cpp";
+			tag = "v0.7.0";
+			hash = "sha256-pEDYgI3AMTU+cekvRX7NNt5wddznydQSNuerswvEpsA=";
+		};
+		# 0.6.0 patch (07ccce2) is already merged upstream in 0.7.0.
+		patches = [ ];
+		npmDepsHash = "sha256-hqYzdp1FwPhYkBP278fQXgY9NCKB6Q3P6Gko7BfP0m0=";
+		# NOTE: LLAMA_BUILD_NUMBER (upstream 11669) / LLAMA_BUILD_COMMIT
+		# (upstream 620d222) are let-bound in nixpkgs, not overridable via
+		# overrideAttrs; the stale values are informational only
+		# (`llama-server --version`, /props, web UI).
+	});
+in
 {
 	nixpkgs.config.rocmSupport = true;
 
@@ -76,7 +94,7 @@
 		# };
 		llama-cpp = {
 			enable = true;
-			package = pkgs.llama-cpp-rocm;
+			package = llama-cpp-rocm-0_7_0;
 			settings = {
 				host = "127.0.0.1";
 				port = 8080;
