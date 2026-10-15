@@ -103,8 +103,6 @@ in
 
 					hf-file = "Qwen3.6-35B-A3B-UD-Q5_K_M.gguf";
 
-					fit = true;
-
 					gpu-layers = "all";
 					cpu-moe = true;
 					moe-cache-mib = 8192;
