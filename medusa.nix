@@ -104,10 +104,10 @@ in
 				cpu-moe = true;
 				flash-attn = "on";
 				ctx-size = 32768;
-				temp = 0.7;
-				top-p = 0.80;
-				top-k = 20;
-				min-p = 0.0;
+				# temp = 0.7;
+				# top-p = 0.80;
+				# top-k = 20;
+				# min-p = 0.0;
 				sleep-idle-seconds = 120;
 				ngl = 99;
 				cmoe = true;
