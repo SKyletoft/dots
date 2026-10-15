@@ -83,6 +83,7 @@
 				hf-repo = "unsloth/Qwen3.6-35B-A3B-GGUF";
 				hf-file = "Qwen3.6-35B-A3B-UD-Q5_K_M.gguf";
 				gpu-layers = -1;
+				cpu-moe = true;
 				flash-attn = "on";
 				ctx-size = 32768;
 				temp = 0.7;
