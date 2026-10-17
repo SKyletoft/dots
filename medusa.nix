@@ -105,8 +105,8 @@ in
 
 					gpu-layers = "all";
 
-					# cpu-moe = true;
-					# moe-cache-mib = 8192;
+					cpu-moe = true;
+					moe-cache-mib = 8192;
 
 					flash-attn = "on";
 					cache-type-k = "q8_0";
