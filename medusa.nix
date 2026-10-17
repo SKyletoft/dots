@@ -101,13 +101,16 @@ in
 					host = "127.0.0.1";
 					port = 8080;
 
-					hf-file = "Qwen3.6-35B-A3B-UD-Q5_K_M.gguf";
+					hf-file = "Qwen3.6-35B-A3B-UD-Q2_K_XL.gguf";
 
 					gpu-layers = "all";
-					cpu-moe = true;
-					moe-cache-mib = 8192;
+
+					# cpu-moe = true;
+					# moe-cache-mib = 8192;
 
 					flash-attn = "on";
+					cache-type-k = "q8_0";
+					cache-type-v = "q8_0";
 					ctx-size = 128000;
 
 					# sleep-idle-seconds = 120;
