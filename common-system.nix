@@ -179,11 +179,6 @@ in {
 				# "0 * * * * root nix-store --repair --verify --check-contents || su u3836 -c ${pkgs.libnotify}/bin/notify-send 'Nix store corruption!'"
 			];
 		};
-
-		# ollama = {
-		#	enable = true;
-		#	openFirewall = true;
-		# };
 	};
 
 	# Flatpak nonsense

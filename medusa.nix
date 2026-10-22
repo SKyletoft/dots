@@ -84,14 +84,6 @@ in
 	services = {
 		xserver.videoDrivers = [ "amdgpu" ];
 
-		# ollama = {
-		#	package = pkgs.ollama-rocm;
-		#	environmentVariables = {
-		#		OLLAMA_MAX_LOADED_MODELS = "1";
-		#		OLLAMA_GPU_MEMORY_FRACTION = "1.0";
-		#		OLLAMA_CONTEXT_LENGTH = "30000";
-		#	};
-		# };
 		llama-cpp = {
 			enable = true;
 			package = llama-cpp-rocm-0_7_0;
