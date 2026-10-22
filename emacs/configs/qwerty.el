@@ -269,6 +269,14 @@
     (kbd "SPC M-n") 'idris-next-error
     (kbd "SPC M-p") 'idris-previous-error)
 
+  (evil-define-key '(normal motion insert emacs) agda2-mode-map
+    (kbd "<backtab>")       'my/outdent-line
+    (kbd "<iso-lefttab>")   'my/outdent-line
+    (kbd "S-<iso-lefttab>") 'my/outdent-line)
+  (evil-define-key 'visual agda2-mode-map
+    (kbd "<backtab>")       'my/outdent-region
+    (kbd "<iso-lefttab>")   'my/outdent-region
+    (kbd "S-<iso-lefttab>") 'my/outdent-region)
   (evil-define-key 'normal agda2-mode-map
     (kbd "SPC i") 'indent-according-to-mode)
   (evil-define-key 'visual agda2-mode-map
