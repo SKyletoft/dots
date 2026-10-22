@@ -93,7 +93,7 @@ in
 					host = "127.0.0.1";
 					port = 8080;
 
-					hf-file = "Qwen3.6-35B-A3B-UD-Q5_K_S.gguf";
+					hf-file = "Qwen3.6-35B-A3B-UD-Q2_K_XL.gguf";
 
 					gpu-layers = "all";
 
