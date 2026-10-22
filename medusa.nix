@@ -113,7 +113,7 @@ in
 					cache-type-v = "q8_0";
 					ctx-size = 128000;
 
-					# sleep-idle-seconds = 120;
+					sleep-idle-seconds = 120;
 				} // (if use-mtp then {
 					hf-repo = "unsloth/Qwen3.6-35B-A3B-MTP-GGUF";
 					spec-type = "draft-mtp";
