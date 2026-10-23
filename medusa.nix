@@ -85,7 +85,7 @@ in
 		xserver.videoDrivers = [ "amdgpu" ];
 
 		llama-cpp = {
-			enable = true;
+			enable = false;
 			package = llama-cpp-rocm-0_7_0;
 			settings =
 				let use-mtp = true;
