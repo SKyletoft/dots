@@ -22,11 +22,11 @@
   (let ((orig-result (funcall old-fn cmd test?)))
     (if (and (not test?)                             ;; for check lsp-server-present?
              (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
-             lsp-use-plists
              (not (functionp 'json-rpc-connection))  ;; native json-rpc
              (executable-find "emacs-lsp-booster"))
-        (progn
-          (message "Using emacs-lsp-booster for %s!" orig-result)
-          (cons "emacs-lsp-booster" orig-result))
+        (let ((object-type (if lsp-use-plists "plist" "hashtable")))
+          (message "Using emacs-lsp-booster (%s) for %s!" object-type orig-result)
+          (cons "emacs-lsp-booster"
+                (append (list "--json-object-type" object-type "--") orig-result)))
       orig-result)))
 (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)

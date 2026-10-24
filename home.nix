@@ -88,7 +88,7 @@ in {
 			glow
 
 			nil
-			# inputs.lsp-booster.packages.${system}.default
+			inputs.lsp-booster.packages.${system}.default
 			bash-language-server
 			shellcheck
 			shfmt
