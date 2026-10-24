@@ -170,20 +170,6 @@ in {
 			eog
 			aisleriot
 			iagno
-		] else [])
-
-		++ (if enableHyprland then [
-			hyprpaper
-			hyprsunset
-			hypridle
-			hyprpolkitagent
-			playerctl
-			quickshell
-			grim
-			wl-clipboard
-			imagemagick
-			swappy
-			swaylock-effects
 		] else []);
 
 		sessionVariables = {

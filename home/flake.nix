@@ -25,6 +25,7 @@
 		roc-ts.url = "github:faldor20/tree-sitter-roc";
 		swift-ts.url = "github:SKyletoft/tree-sitter-swift-flake";
 		ghostel.url = "github:SKyletoft/ghostel";
+		wm-flake.url = "path:../packages/wm";
 		maki = {
 			url = "github:tontinton/maki";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -42,21 +43,15 @@
 				system = builtins.currentSystem;
 				overlays = with inputs; [
 					nur.overlays.default
-					(self: super: {
-						quickshell = super.quickshell.overrideAttrs (old: {
-							buildInputs = (old.buildInputs or []) ++ (with self.kdePackages; [
-								qt5compat
-								qtpositioning
-							]);
-						});
-					})
 				];
 			};
 			extraSpecialArgs = { inherit inputs homeConfig; };
 			modules = [
 				../home.nix
 				{ nixpkgs.config.allowUnfreePredicate = _: true; }
-			];
+			] ++ (if homeConfig.enableHyprland then [
+				{ home.packages = [ inputs.wm-flake.packages.${builtins.currentSystem}.everything ]; }
+			] else []);
 		};
 		graphicalHome = home {
 			enableHyprland  = true;
