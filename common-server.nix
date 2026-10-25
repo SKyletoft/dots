@@ -102,9 +102,10 @@ in {
 			};
 		};
 		earlyoom.enable = true;
-		ananicy = {
+		ananicy = rec {
 			enable = true;
 			package = pkgs.ananicy-cpp;
+			rulesProvider = package;
 		};
 		mullvad-vpn.enable = true;
 		cron = {
