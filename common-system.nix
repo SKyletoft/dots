@@ -251,16 +251,16 @@ in {
 
 			gnome-tweaks
 		] ++ (with pkgs.gnomeExtensions; [
-			add-username-to-top-panel
-			appindicator
-			blur-my-shell
-			brightness-control-using-ddcutil
-			caffeine
-			hibernate-status-button
-			hot-edge
-			just-perfection
-			pop-shell
-			unite
+			# add-username-to-top-panel
+			# appindicator
+			# blur-my-shell
+			# brightness-control-using-ddcutil
+			# caffeine
+			# hibernate-status-button
+			# hot-edge
+			# just-perfection
+			# pop-shell
+			# unite
 		]);
 
 		sessionVariables = {
