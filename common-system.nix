@@ -367,7 +367,7 @@ in {
 			package = pkgs.gnomeExtensions.gsconnect;
 		};
 		niri.enable = false;
-		# hyprland.enable = waylandSupport;
+		hyprland.enable = waylandSupport;
 		xwayland.enable = false;
 		gamemode.enable = true;
 		gamescope = {
