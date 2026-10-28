@@ -46,6 +46,10 @@
 		};
 		thermald.enable = true;
 		printing.enable = true;
+		logind.settings.Login = {
+			HandleLidSwitch = "suspend-then-hibernate";
+			HandleLidSwitchDocked = "ignore";
+		};
 	};
 
 	environment = {
