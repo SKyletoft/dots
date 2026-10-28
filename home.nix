@@ -504,7 +504,7 @@ in {
 		};
 	};
 
-	wayland.windowManager.hyprland.enable = enableHyprland;
+	# wayland.windowManager.hyprland.enable = enableHyprland;
 
 	# gtk = {
 		# enable         = true;
