@@ -30,3 +30,6 @@ emacs/mu4e
 emacs/network-security.data
 emacs/agent
 /.agent-shell/
+result
+system/result
+home/result
