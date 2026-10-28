@@ -112,7 +112,7 @@ in {
 			enable = true;
 			systemCronJobs = [
 				("*/05 * * * * u3836 ${update-keys}/bin/update-keys SKyletoft")
-				("*/05 * * * * root  ${update-system}/bin/update-system")
+				("*/05 * * * * root  timeout 3h ${update-system}/bin/update-system")
 			];
 		};
 		lorri = {
