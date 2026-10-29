@@ -11,6 +11,7 @@
 			pinned = import nixpkgs { inherit system; };
 			pinnedNames = [
 				"hyprland"
+				"hyprland-qtutils"
 				"hyprpaper"
 				"hyprsunset"
 				"hypridle"
@@ -21,7 +22,7 @@
 				"swappy"
 				"swaylock-effects"
 			];
-			pkgs = import unstable {
+			fixed-pkgs = import unstable {
 				inherit system;
 				overlays = [
 					(final: _prev: pinned.lib.genAttrs pinnedNames (name:
@@ -29,8 +30,22 @@
 							(pinned.lib.head (pinned.lib.splitString ":" pinned.${name}.meta.position))
 							{}))
 					(final: prev: {
-						qt6 = pinned.qt6;
-						quickshell = prev.quickshell.overrideAttrs (old: {
+						inherit (pinned)
+							hyprland
+							hyprland-qtutils
+							hyprpaper
+							hyprsunset
+							hypridle
+							hyprpolkitagent
+							playerctl
+							grim
+							wl-clipboard
+							swappy
+							swaylock-effects
+							qt6
+							qt6Packages
+							kdePackages;
+						quickshell = pinned.quickshell.overrideAttrs (old: {
 							buildInputs = (old.buildInputs or []) ++ (with pinned.kdePackages; [
 								qt5compat
 								qtpositioning
@@ -40,28 +55,9 @@
 				];
 			};
 		in {
-			packages = {
-				default = pkgs.symlinkJoin {
-					name = "hyprland-everything";
-					paths = with pkgs; [
-						hyprland
-						hyprpaper
-						hyprsunset
-						hypridle
-						hyprpolkitagent
-						playerctl
-						quickshell
-						grim
-						wl-clipboard
-						imagemagick
-						swappy
-						swaylock-effects
-					];
-								};
-			};
 			nixosModules.hyprland = { lib, pkgs, ... }: {
 				environment = {
-					systemPackages = with pkgs; [
+					systemPackages = with fixed-pkgs; [
 						hyprpaper
 						hyprsunset
 						hypridle
@@ -119,8 +115,10 @@ polkit.addRule(function(action, subject) {
 
 				programs.hyprland = {
 					enable = true;
-					package = pkgs.hyprland;
+					package = fixed-pkgs.hyprland;
 				};
+				security.wrappers.Hyprland.source =
+					lib.mkForce "${fixed-pkgs.hyprland}/bin/.Hyprland-wrapped";
 			};
 		});
 }
