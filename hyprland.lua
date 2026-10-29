@@ -90,14 +90,14 @@ hl.config({
 
 -- Autostart
 hl.on("hyprland.start", function()
+	hl.exec_cmd("eval `ssh-agent -s` && ssh-add ~/.ssh/*")
 	hl.exec_cmd("quickshell")
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("bash -c 'while true; do xwayland-satellite :10; notify-send \"Xwayland crashed, restarting\"; sleep 2; done'")
-	hl.exec_cmd("emacs --daemon")
 	hl.exec_cmd('sleep 1; signal-desktop --start-in-tray --password-store="gnome-libsecret"')
 	hl.exec_cmd("sleep 1; vesktop")
-	hl.exec_cmd("eval `ssh-agent -s` && ssh-add ~/.ssh/*")
+	hl.exec_cmd("sleepp 1; emacs --daemon")
 end)
 
 -- Environment
