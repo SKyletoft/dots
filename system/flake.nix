@@ -15,7 +15,7 @@
 	outputs = { self, nixpkgs, nixos-hardware, nixGL, wm }@args: {
 		nixosConfigurations = {
 
-			medusa = nixpkgs.lib.nixosSystem {
+			medusa = nixpkgs.lib.nixosSystem rec {
 				system = "x86_64-linux";
 				specialArgs = args // {
 					waylandSupport = true;
@@ -28,6 +28,7 @@
 					../medusa.nix
 					../common-system.nix
 					./medusa-hardware.nix
+					wm.outputs.nixosModules.${system}.hyprland
 				];
 			};
 
