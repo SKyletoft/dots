@@ -339,6 +339,7 @@ in {
 	] ++ (with pkgs; [
 		roboto
 		cascadia-code
+		julia-mono
 		cantarell-fonts
 		material-symbols
 		garamond-libre
