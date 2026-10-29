@@ -29,14 +29,17 @@
 						final.callPackage
 							(pinned.lib.head (pinned.lib.splitString ":" pinned.${name}.meta.position))
 							{}))
+					(final: prev: {
+						qt6 = pinned.qt6;
+						quickshell = prev.quickshell.overrideAttrs (old: {
+							buildInputs = (old.buildInputs or []) ++ (with pinned.kdePackages; [
+								qt5compat
+								qtpositioning
+							]);
+						});
+					})
 				];
 			};
-			quickshell = pkgs.quickshell.overrideAttrs (old: {
-				buildInputs = (old.buildInputs or []) ++ (with pinned.kdePackages; [
-					qt5compat
-					qtpositioning
-				]);
-			});
 		in {
 			packages = {
 				default = pkgs.symlinkJoin {
@@ -70,7 +73,8 @@
 						imagemagick
 						swappy
 						swaylock-effects
-					] ++ [ quickshell ];
+						quickshell
+					];
 				};
 
 				security = {
