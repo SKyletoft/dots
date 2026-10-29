@@ -23,12 +23,12 @@
 			];
 			pkgs = import unstable {
 				inherit system;
-				overlays = [
-					(final: _prev: pinned.lib.genAttrs pinnedNames (name:
-						final.callPackage
-							(pinned.lib.head (pinned.lib.splitString ":" pinned.${name}.meta.position))
-							{}))
-				];
+				# overlays = [
+				#	(final: _prev: pinned.lib.genAttrs pinnedNames (name:
+				#		final.callPackage
+				#			(pinned.lib.head (pinned.lib.splitString ":" pinned.${name}.meta.position))
+				#			{}))
+				# ];
 			};
 			hyprland = pkgs.hyprland;
 			quickshell = pinned.quickshell.overrideAttrs (old: {
