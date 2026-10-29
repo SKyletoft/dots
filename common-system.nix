@@ -251,7 +251,19 @@ in {
 			update-keys
 			update-system
 
-			wm.packages.${system}.everything
+			# wm.packages.${system}.everything
+			hyprland
+			hyprpaper
+			hyprsunset
+			hypridle
+			hyprpolkitagent
+			playerctl
+			quickshell
+			grim
+			wl-clipboard
+			imagemagick
+			swappy
+			swaylock-effects
 
 			gnome-tweaks
 		];
@@ -361,6 +373,7 @@ in {
 			package = pkgs.gnomeExtensions.gsconnect;
 		};
 		niri.enable = false;
+		hyprland.enable = true;
 		xwayland.enable = false;
 		gamemode.enable = true;
 		gamescope = {
