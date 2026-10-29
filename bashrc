@@ -19,10 +19,7 @@ if ! pidof emacs -q; then
 	echo "Started Emacs daemon"
 fi
 
-if ! pidof ssh-agent -q; then
-	eval "$(ssh-agent -s)" >/dev/null 2>/dev/null
-	echo "Started ssh agent"
-fi
+eval "$(ssh-agent -s)" >/dev/null 2>/dev/null
 ssh-add ~/.ssh/* >/dev/null 2>/dev/null
 
 if [ "$TERM" == linux ]; then
