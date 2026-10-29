@@ -48,9 +48,7 @@
 			modules = [
 				../home.nix
 				{ nixpkgs.config.allowUnfreePredicate = _: true; }
-			] ++ (if homeConfig.enableHyprland then [
-				{ home.packages = [ inputs.wm-flake.packages.${builtins.currentSystem}.everything ]; }
-			] else []);
+			];
 		};
 		graphicalHome = home {
 			enableHyprland  = true;
