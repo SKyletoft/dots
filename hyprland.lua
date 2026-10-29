@@ -97,6 +97,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("emacs --daemon")
 	hl.exec_cmd('sleep 1; signal-desktop --start-in-tray --password-store="gnome-libsecret"')
 	hl.exec_cmd("sleep 1; vesktop")
+	hl.exec_cmd("eval `ssh-agent -s` && ssh-add ~/.ssh/*")
 end)
 
 -- Environment
