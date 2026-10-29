@@ -20,7 +20,6 @@
 				"wl-clipboard"
 				"swappy"
 				"swaylock-effects"
-				"quickshell"
 			];
 			pkgs = import unstable {
 				inherit system;
