@@ -8,26 +8,31 @@
 
 	outputs = { self, nixpkgs, unstable, flake-utils }: flake-utils.lib.eachDefaultSystem (system:
 		let
-			graphics = import unstable { inherit system; };
-			pkgs = import nixpkgs {
+			pinned = import nixpkgs { inherit system; };
+			pinnedNames = [
+				"hyprland"
+				"hyprpaper"
+				"hyprsunset"
+				"hypridle"
+				"hyprpolkitagent"
+				"playerctl"
+				"grim"
+				"wl-clipboard"
+				"swappy"
+				"swaylock-effects"
+			];
+			pkgs = import unstable {
 				inherit system;
 				overlays = [
-					(_final: _prev: {
-						mesa        = graphics.mesa;
-						libgbm      = graphics.libgbm;
-						libglvnd    = graphics.libglvnd;
-						libGL       = graphics.libGL;
-						libdrm      = graphics.libdrm;
-						# qt6         = graphics.qt6;
-						# gtk4        = graphics.gtk4;
-						# libadwaita  = graphics.libadwaita;
-						# kdePackages = graphics.kdePackages;
-					})
+					(final: _prev: pinned.lib.genAttrs pinnedNames (name:
+						final.callPackage
+							(pinned.lib.head (pinned.lib.splitString ":" pinned.${name}.meta.position))
+							{}))
 				];
 			};
 			hyprland = pkgs.hyprland;
-			quickshell = pkgs.quickshell.overrideAttrs (old: {
-				buildInputs = (old.buildInputs or []) ++ (with pkgs.kdePackages; [
+			quickshell = pinned.quickshell.overrideAttrs (old: {
+				buildInputs = (old.buildInputs or []) ++ (with pinned.kdePackages; [
 					qt5compat
 					qtpositioning
 				]);
