@@ -1,31 +1,10 @@
-{ pkgs, config, nixGL, waylandSupport, windowsFonts, nativeBuild, nativeArch, flatpak, ... }:
+{ pkgs, config, nixGL, waylandSupport, windowsFonts, nativeBuild, nativeArch, flatpak, wm, ... }:
 
 let
 	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
 	update-system = pkgs.callPackage ./packages/update-system.nix {};
 	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
 	system = pkgs.stdenv.hostPlatform.system;
-
-	start-hyprland = pkgs.writeShellScript "start-hyprland" ''
-		export XDG_SESSION_TYPE=wayland
-		export XDG_CURRENT_DESKTOP=Hyprland
-		export XDG_SESSION_DESKTOP=Hyprland
-		exec ${pkgs.bash}/bin/bash -lc 'exec Hyprland'
-	'';
-
-	hyprland-session = pkgs.writeTextFile {
-		name = "hyprland-session";
-		destination = "/share/wayland-sessions/hyprland.desktop";
-		passthru.providedSessions = [ "hyprland" ];
-		text = ''
-[Desktop Entry]
-Type=Application
-Name=Hyprland
-Comment=Home Manager managed Hyprland
-Exec=${start-hyprland}
-DesktopNames=Hyprland
-'';
-	};
 in {
 	nixpkgs = {
 		config = {
@@ -134,11 +113,10 @@ in {
 			enable = true;
 			useTextGreeter = true;
 			settings.default_session = {
-				command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session --asterisks --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --xsessions ${config.services.displayManager.sessionData.desktops}/share/xsessions --cmd ${start-hyprland}";
+				command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session --asterisks --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
 				user = "greeter";
 			};
 		};
-		displayManager.sessionPackages = [ hyprland-session ];
 		desktopManager.gnome.enable = true;
 
 		gnome = {
@@ -154,12 +132,10 @@ in {
 			enable = true;
 			package = pkgs.ananicy-cpp;
 			rulesProvider = package;
-			extraRules = [
-				{
-					"name" = "gamescope";
-					"nice" = -20;
-				}
-			];
+			extraRules = [{
+				"name" = "gamescope";
+				"nice" = -20;
+			}];
 		};
 
 		earlyoom = {
@@ -275,19 +251,10 @@ in {
 			update-keys
 			update-system
 
+			wm.packages.${system}.everything
+
 			gnome-tweaks
-		] ++ (with pkgs.gnomeExtensions; [
-			# add-username-to-top-panel
-			# appindicator
-			# blur-my-shell
-			# brightness-control-using-ddcutil
-			# caffeine
-			# hibernate-status-button
-			# hot-edge
-			# just-perfection
-			# pop-shell
-			# unite
-		]);
+		];
 
 		sessionVariables = {
 			EDITOR = "nvim";
@@ -393,32 +360,13 @@ in {
 			package = pkgs.gnomeExtensions.gsconnect;
 		};
 		niri.enable = false;
-		hyprland.enable = waylandSupport;
 		xwayland.enable = false;
 		gamemode.enable = true;
 		gamescope = {
 			enable = true;
 			capSysNice = false;
 		};
-		steam = {
-			enable = true;
-			# remotePlay.openFirewall = true;
-			# package = pkgs.steam.override {
-			#	extraPkgs = p: with p; [
-			#		libxcursor
-			#		libxi
-			#		libxinerama
-			#		libxscrnsaver
-			#		libpng
-			#		libpulseaudio
-			#		libvorbis
-			#		libkrb5
-			#		libdecor
-			#		stdenv.cc.cc.lib
-			#		keyutils
-			#	];
-			# };
-		};
+		steam.enable = true;
 		dconf.enable = true;
 		xonsh.enable = false;
 		nix-ld.enable = true;

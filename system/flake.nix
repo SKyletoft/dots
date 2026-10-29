@@ -6,9 +6,13 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		nixGL.url = "github:nix-community/nixGL";
+		wm = {
+			url = "path:../packages/wm";
+			inputs.unstable.follows = "nixpkgs";
+		};
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, nixGL }@args: {
+	outputs = { self, nixpkgs, nixos-hardware, nixGL, wm }@args: {
 		nixosConfigurations = {
 
 			medusa = nixpkgs.lib.nixosSystem {
