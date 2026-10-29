@@ -30,42 +30,31 @@
 				#			{}))
 				# ];
 			};
-			hyprland = pkgs.hyprland;
 			quickshell = pinned.quickshell.overrideAttrs (old: {
 				buildInputs = (old.buildInputs or []) ++ (with pinned.kdePackages; [
 					qt5compat
 					qtpositioning
 				]);
 			});
-			utilities = pkgs.symlinkJoin {
-				name = "hyprland-utilities";
-				paths = with pkgs; [
-					hyprpaper
-					hyprsunset
-					hypridle
-					hyprpolkitagent
-					playerctl
-					quickshell
-					grim
-					wl-clipboard
-					imagemagick
-					swappy
-					swaylock-effects
-				];
-			};
-			everything = pkgs.symlinkJoin {
-				name = "hyprland-everything";
-				paths = [
-					hyprland
-					utilities
-				];
-			};
 		in {
 			packages = {
-				default    = everything;
-				everything = everything;
-				hyprland   = hyprland;
-				utilities  = utilities;
+				default = pkgs.symlinkJoin {
+					name = "hyprland-everything";
+					paths = with pkgs; [
+						hyprland
+						hyprpaper
+						hyprsunset
+						hypridle
+						hyprpolkitagent
+						playerctl
+						quickshell
+						grim
+						wl-clipboard
+						imagemagick
+						swappy
+						swaylock-effects
+					];
+				};
 			};
 		});
 }
