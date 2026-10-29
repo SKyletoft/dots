@@ -20,6 +20,7 @@
 				"wl-clipboard"
 				"swappy"
 				"swaylock-effects"
+				"quickshell"
 			];
 			pkgs = import unstable {
 				inherit system;
@@ -30,7 +31,7 @@
 							{}))
 				];
 			};
-			quickshell = pinned.quickshell.overrideAttrs (old: {
+			quickshell = pkgs.quickshell.overrideAttrs (old: {
 				buildInputs = (old.buildInputs or []) ++ (with pinned.kdePackages; [
 					qt5compat
 					qtpositioning
