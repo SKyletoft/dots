@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-	imports = [ ./system/audio/dolby-balanced.nix ];
-
 	nixpkgs.config.packageOverrides = pkgs: {
 		vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
 	};

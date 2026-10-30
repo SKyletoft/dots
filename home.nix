@@ -3,6 +3,7 @@
 let
 	stablePkgs = import inputs.stablePkgs {};
 	citraPkgs  = import inputs.citraPkgs {};
+	easyeffectsPresets = pkgs.callPackage ./packages/easyeffects-presets.nix {};
 	vimPin     = import inputs.vimPin {};
 	emacsPin   = import inputs.emacsPkgs { overlays = [
 		inputs.emacsOverlay.overlays.default
@@ -42,6 +43,7 @@ let
 	enableHyprland  = homeConfig.enableHyprland;
 	enableGnome     = homeConfig.enableGnome;
 	enableDebugging = homeConfig.enableDebugging;
+	dolbyTunedAudio = homeConfig.dolbyTunedAudio or false;
 
 	gui = enableGnome || wm;
 	wm  = enableHyprland;
@@ -502,6 +504,14 @@ in {
 			enable = true;
 			package = pkgs.tealdeer;
 		};
+
+		easyeffects = pkgs.lib.mkIf dolbyTunedAudio {
+			enable = true;
+			settings = {
+				Window.outputAutoloadingFallbackPreset = "Nothing";
+				Window.outputAutoloadingUsesFallback   = true;
+			};
+		};
 	};
 
 	# wayland.windowManager.hyprland.enable = enableHyprland;
@@ -531,6 +541,13 @@ in {
 			# "emacs".source                  = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/emacs";
 			# "hypr/hyprland.conf".source     = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/hyprland.conf";
 			# "quickshell".source             = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/quickshell";
+		};
+
+		dataFile = pkgs.lib.mkIf dolbyTunedAudio {
+			"easyeffects/irs/"    = { source = "${easyeffectsPresets.presets}/irs"; };
+			"easyeffects/output/" = { source = "${easyeffectsPresets.presets}/output"; };
+			"easyeffects/autoload/output/${easyeffectsPresets.sink}:${easyeffectsPresets.route}.json".source =
+				easyeffectsPresets.autoload;
 		};
 	};
 

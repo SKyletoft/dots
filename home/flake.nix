@@ -83,6 +83,7 @@
 			enableHyprland  = true;
 			enableGnome     = true;
 			enableDebugging = false;
+			dolbyTunedAudio = true;
 			nativeFlags     = [
 				"-march=alderlake"
 				"-mtune=alderlake"
