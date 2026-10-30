@@ -69,8 +69,6 @@ polkit.addRule(function(action, subject) {
 					enable = true;
 					package = pkgs.hyprland;
 				};
-				security.wrappers.Hyprland.source =
-					lib.mkForce "${pkgs.hyprland}/bin/.Hyprland-wrapped";
 			};
 		});
 }
