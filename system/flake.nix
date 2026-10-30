@@ -8,7 +8,7 @@
 		nixGL.url = "github:nix-community/nixGL";
 		wm = {
 			url = "path:../packages/wm";
-			inputs.unstable.follows = "nixpkgs";
+			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
 

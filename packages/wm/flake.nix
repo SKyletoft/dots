@@ -1,12 +1,12 @@
 {
 	description = "The pinned Hyprland and Quickshell stack";
 	inputs = {
-		# nixpkgs.url     = "github:NixOS/nixpkgs/8825bebf6324e0579d012936eff73379af284b6d";
-		unstable.url    = "github:NixOS/nixpkgs/nixos-unstable";
+		nixpkgs.url     = "github:NixOS/nixpkgs/8825bebf6324e0579d012936eff73379af284b6d";
+		# unstable.url    = "github:NixOS/nixpkgs/nixos-unstable";
 		flake-utils.url = "github:numtide/flake-utils";
 	};
 
-	outputs = { self, unstable, flake-utils }: flake-utils.lib.eachDefaultSystem (system:
+	outputs = { self, nixpkgs, flake-utils }: flake-utils.lib.eachDefaultSystem (system:
 		let
 			# pinned = import nixpkgs { inherit system; };
 			# pinnedNames = [
@@ -22,7 +22,7 @@
 			#	"swappy"
 			#	"swaylock-effects"
 			# ];
-			fixed-pkgs = import unstable {
+			fixed-pkgs = import nixpkgs {
 				inherit system;
 				overlays = [
 					# (final: _prev: pinned.lib.genAttrs pinnedNames (name:
