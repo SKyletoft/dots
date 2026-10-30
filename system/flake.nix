@@ -32,7 +32,7 @@
 				];
 			};
 
-			medea = nixpkgs.lib.nixosSystem {
+			medea = nixpkgs.lib.nixosSystem rec {
 				system = "x86_64-linux";
 				specialArgs = args // {
 					waylandSupport = true;
@@ -46,6 +46,7 @@
 					../common-system.nix
 					./medea-hardware.nix
 					nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga-7th-gen
+					wm.outputs.nixosModules.${system}.hyprland
 				];
 			};
 
