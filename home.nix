@@ -57,7 +57,8 @@ in {
 			cppfront     = pkgs.callPackage ./packages/cppfront.nix {};
 			hylo         = pkgs.callPackage ./packages/hylo.nix {};
 			update-lorri = pkgs.writeShellScriptBin "update-lorri" (builtins.readFile scripts/update-lorri);
-			hms          = pkgs.writeShellScriptBin "hms" (builtins.readFile scripts/hms);
+			hms          = pkgs.writeShellScriptBin "hms" "cd ~/dots/home ; home-manager switch --flake . --impure -L |& nom";
+			hmb          = pkgs.writeShellScriptBin "hms" "cd ~/dots/home ; home-manager build  --flake . --impure -L |& nom";
 			doasedit     = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
 			monitor      = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
 			mdpdf        = pkgs.writeShellScriptBin "mdpdf" ''
@@ -101,6 +102,7 @@ in {
 			inputs.maki.packages.${system}.default
 			update-lorri
 			hms
+			hmb
 			mdpdf
 		] ++
 
