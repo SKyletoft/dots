@@ -5,10 +5,7 @@
 		vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
 	};
 
-	boot = {
-		kernelParams = [ "i915.force_probe=46a6" ];
-		extraModprobeConfig = "options snd-sof-intel-hda-generic hda_model=alc287-yoga9-bass-spk-pin";
-	};
+	boot.kernelParams = [ "i915.force_probe=46a6" ];
 
 	hardware = {
 		graphics = {
@@ -55,7 +52,7 @@
 
 	environment = {
 		sessionVariables.XCURSOR_THEME = "severa_cursors_2x";
-		systemPackages = with pkgs; [ brightnessctl ];
+		systemPackages = with pkgs; [ brightnessctl alsa-utils ];
 	};
 
 	programs.gamescope.args = [
