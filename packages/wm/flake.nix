@@ -1,52 +1,52 @@
 {
 	description = "The pinned Hyprland and Quickshell stack";
 	inputs = {
-		nixpkgs.url     = "github:NixOS/nixpkgs/8825bebf6324e0579d012936eff73379af284b6d";
+		# nixpkgs.url     = "github:NixOS/nixpkgs/8825bebf6324e0579d012936eff73379af284b6d";
 		unstable.url    = "github:NixOS/nixpkgs/nixos-unstable";
 		flake-utils.url = "github:numtide/flake-utils";
 	};
 
-	outputs = { self, nixpkgs, unstable, flake-utils }: flake-utils.lib.eachDefaultSystem (system:
+	outputs = { self, unstable, flake-utils }: flake-utils.lib.eachDefaultSystem (system:
 		let
-			pinned = import nixpkgs { inherit system; };
-			pinnedNames = [
-				"hyprland"
-				"hyprland-qtutils"
-				"hyprpaper"
-				"hyprsunset"
-				"hypridle"
-				"hyprpolkitagent"
-				"playerctl"
-				"grim"
-				"wl-clipboard"
-				"swappy"
-				"swaylock-effects"
-			];
+			# pinned = import nixpkgs { inherit system; };
+			# pinnedNames = [
+			#	"hyprland"
+			#	"hyprland-qtutils"
+			#	"hyprpaper"
+			#	"hyprsunset"
+			#	"hypridle"
+			#	"hyprpolkitagent"
+			#	"playerctl"
+			#	"grim"
+			#	"wl-clipboard"
+			#	"swappy"
+			#	"swaylock-effects"
+			# ];
 			fixed-pkgs = import unstable {
 				inherit system;
 				overlays = [
-					(final: _prev: pinned.lib.genAttrs pinnedNames (name:
-						final.callPackage
-							(pinned.lib.head (pinned.lib.splitString ":" pinned.${name}.meta.position))
-							{}))
+					# (final: _prev: pinned.lib.genAttrs pinnedNames (name:
+					#	final.callPackage
+					#		(pinned.lib.head (pinned.lib.splitString ":" pinned.${name}.meta.position))
+					#		{}))
 					(final: prev: {
-						inherit (pinned)
-							hyprland
-							hyprland-qtutils
-							hyprpaper
-							hyprsunset
-							hypridle
-							hyprpolkitagent
-							playerctl
-							grim
-							wl-clipboard
-							swappy
-							swaylock-effects
-							qt6
-							qt6Packages
-							kdePackages;
-						quickshell = pinned.quickshell.overrideAttrs (old: {
-							buildInputs = (old.buildInputs or []) ++ (with pinned.kdePackages; [
+						# inherit (pinned)
+						#	hyprland
+						#	hyprland-qtutils
+						#	hyprpaper
+						#	hyprsunset
+						#	hypridle
+						#	hyprpolkitagent
+						#	playerctl
+						#	grim
+						#	wl-clipboard
+						#	swappy
+						#	swaylock-effects
+						#	qt6
+						#	qt6Packages
+						#	kdePackages;
+						quickshell = prev.quickshell.overrideAttrs (old: {
+							buildInputs = (old.buildInputs or []) ++ (with prev.kdePackages; [
 								qt5compat
 								qtpositioning
 							]);
