@@ -6,10 +6,7 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		nixGL.url = "github:nix-community/nixGL";
-		wm = {
-			url = "path:../packages/wm";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		wm.url = "path:../packages/wm";
 	};
 
 	outputs = { self, nixpkgs, nixos-hardware, nixGL, wm }@args: {
