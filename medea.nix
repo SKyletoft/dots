@@ -7,12 +7,7 @@
 
 	boot = {
 		kernelParams = [ "i915.force_probe=46a6" ];
-		extraModprobeConfig = ''
-options snd-sof-intel-hda-generic hda_model=alc287-yoga9-bass-spk-pin
-		'';
-		initrd.extraModprobeConfig = ''
-options snd-sof-intel-hda-generic hda_model=alc287-yoga9-bass-spk-pin
-		'';
+		extraModprobeConfig = "options snd-sof-intel-hda-generic hda_model=alc287-yoga9-bass-spk-pin";
 	};
 
 	hardware = {
