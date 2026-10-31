@@ -116,7 +116,6 @@
                   ((#x1F100 . #x1F1FF) . "Julia Mono")
                   ((#x0100 . #x024F) . "Julia Mono")
                   ((#x0250 . #x02FF) . "Julia Mono")
-                  ((#x0370 . #x03FF) . "Julia Mono")
                   ((#x1E00 . #x1EFF) . "Julia Mono")
                   ((#x2C60 . #x2C7F) . "Julia Mono")
                   ((#xA700 . #xA7FF) . "Julia Mono")
