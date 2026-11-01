@@ -66,7 +66,7 @@
 		xserver.videoDrivers = [ "amdgpu" ];
 
 		llama-cpp = {
-			enable = false;
+			enable = true;
 			package = avalon.packages.${pkgs.stdenv.hostPlatform.system}.rocm;
 			settings = {
 				host = "127.0.0.1";
