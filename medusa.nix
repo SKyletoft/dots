@@ -67,7 +67,9 @@
 
 		llama-cpp = {
 			enable = true;
-			package = avalon.packages.${pkgs.stdenv.hostPlatform.system}.rocm;
+			package = avalon.packages.${pkgs.stdenv.hostPlatform.system}.rocm.override {
+				rocmGpuTargets = "gfx1100";
+			};
 			settings = {
 				host = "127.0.0.1";
 				port = 8080;
