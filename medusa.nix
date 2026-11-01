@@ -66,7 +66,7 @@
 		xserver.videoDrivers = [ "amdgpu" ];
 
 		llama-cpp = {
-			enable = true;
+			enable = false;
 			package = avalon.packages.${pkgs.stdenv.hostPlatform.system}.rocm.override {
 				rocmGpuTargets = "gfx1100";
 			};
