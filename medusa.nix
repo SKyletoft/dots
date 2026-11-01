@@ -1,23 +1,4 @@
-{ pkgs, ... }:
-
-let
-	llama-cpp-rocm-0_7_0 = pkgs.llama-cpp-rocm.overrideAttrs (oldAttrs: {
-		version = "0.7.0";
-		src = pkgs.fetchFromGitHub {
-			owner = "ggml-org";
-			repo = "llama.cpp";
-			tag = "v0.7.0";
-			hash = "sha256-pEDYgI3AMTU+cekvRX7NNt5wddznydQSNuerswvEpsA=";
-		};
-		# 0.6.0 patch (07ccce2) is already merged upstream in 0.7.0.
-		patches = [ ];
-		npmDepsHash = "sha256-hqYzdp1FwPhYkBP278fQXgY9NCKB6Q3P6Gko7BfP0m0=";
-		# NOTE: LLAMA_BUILD_NUMBER (upstream 11669) / LLAMA_BUILD_COMMIT
-		# (upstream 620d222) are let-bound in nixpkgs, not overridable via
-		# overrideAttrs; the stale values are informational only
-		# (`llama-server --version`, /props, web UI).
-	});
-in
+{ pkgs, avalon, ... }:
 {
 	nixpkgs.config.rocmSupport = true;
 
@@ -86,33 +67,36 @@ in
 
 		llama-cpp = {
 			enable = false;
-			package = llama-cpp-rocm-0_7_0;
-			settings =
-				let use-mtp = true;
-				in {
-					host = "127.0.0.1";
-					port = 8080;
+			package = avalon.packages.${pkgs.stdenv.hostPlatform.system}.rocm;
+			settings = {
+				host = "127.0.0.1";
+				port = 8080;
 
-					hf-file = "Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf";
+				hf-repo = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
+				hf-file = "Qwen3.8-Flash-Next-Avalon-IQ3KS-00001-of-00033.gguf";
 
-					gpu-layers = "all";
+				ctx-size = 262144;
+				batch-size = 9536;
+				ubatch-size = 9536;
+				flash-attn = "on";
+				cache-type-k = "q8_0";
+				cache-type-v = "q4_0";
+				jinja = true;
+				parallel = 1;
 
-					cpu-moe = true;
-					moe-cache-mib = 8192;
+				spec-draft-hf = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
+				spec-draft-model = "MTP/mtp-Qwen3.8-Flash-Next-shared-IQ3K-IQ4NL-FR65k.gguf";
+				spec-type = "draft-mtp";
+				spec-draft-n-max = 2;
+				spec-draft-ubatch-size = 256;
+				spec-draft-type-k = "q8_0";
+				spec-draft-type-v = "q8_0";
 
-					flash-attn = "on";
-					cache-type-k = "q8_0";
-					cache-type-v = "q8_0";
-					ctx-size = 128000;
+				# Leave 4 GiB free on the 24 GiB XTX, capping the server at ~20 GiB.
+				fit-target = 4096;
 
-					sleep-idle-seconds = 120;
-				} // (if use-mtp then {
-					hf-repo = "unsloth/Qwen3.6-35B-A3B-MTP-GGUF";
-					spec-type = "draft-mtp";
-					spec-draft-n-max = 1;
-				} else {
-					hf-repo = "unsloth/Qwen3.6-35B-A3B-GGUF";
-				});
+				sleep-idle-seconds = 120;
+			};
 		};
 	};
 
