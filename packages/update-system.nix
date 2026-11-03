@@ -1,7 +1,7 @@
 { pkgs }:
 
 pkgs.writeShellScriptBin "update-system" ''
-	export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ git nixos-rebuild nix-output-monitor systemd nix-output-monitor coreutils bash ]) }
+	export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ nix git nixos-rebuild nix-output-monitor systemd nix-output-monitor coreutils bash ]) }
 	set -e
 	cd /etc/nixos/dots
 	git fetch origin
