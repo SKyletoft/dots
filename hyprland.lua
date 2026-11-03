@@ -97,7 +97,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("bash -c 'while true; do xwayland-satellite :10; notify-send \"Xwayland crashed, restarting\"; sleep 2; done'")
 	hl.exec_cmd('sleep 1; signal-desktop --start-in-tray --password-store="gnome-libsecret"')
 	hl.exec_cmd("sleep 1; vesktop")
-	hl.exec_cmd("sleepp 1; emacs --daemon")
+	hl.exec_cmd("sleep 1; emacs --daemon")
 end)
 
 -- Environment
