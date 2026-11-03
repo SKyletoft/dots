@@ -7,6 +7,7 @@ pkgs.writeShellScriptBin "update-system" ''
 	git fetch origin
 	if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
 		git reset --hard origin/master
-		nixos-rebuild boot -L |& nom && nixos-rebuild switch
+		nixos-rebuild boot -L |& nom
+		nixos-rebuild switch
 	fi
 ''
