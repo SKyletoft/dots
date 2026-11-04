@@ -85,13 +85,13 @@
 				jinja = true;
 				parallel = 1;
 
-				spec-draft-hf = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
-				spec-draft-model = "MTP/mtp-Qwen3.8-Flash-Next-shared-IQ3K-IQ4NL-FR65k.gguf";
-				spec-type = "draft-mtp";
-				spec-draft-n-max = 2;
-				spec-draft-ubatch-size = 256;
-				spec-draft-type-k = "q8_0";
-				spec-draft-type-v = "q8_0";
+				# spec-draft-hf = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
+				# spec-draft-model = "MTP/mtp-Qwen3.8-Flash-Next-shared-IQ3K-IQ4NL-FR65k.gguf";
+				# spec-type = "draft-mtp";
+				# spec-draft-n-max = 2;
+				# spec-draft-ubatch-size = 256;
+				# spec-draft-type-k = "q8_0";
+				# spec-draft-type-v = "q8_0";
 
 				# Leave 4 GiB free on the 24 GiB XTX, capping the server at ~20 GiB.
 				fit-target = 4096;
