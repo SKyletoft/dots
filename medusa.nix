@@ -94,8 +94,8 @@
 				spec-draft-type-k = "q8_0";
 				spec-draft-type-v = "q8_0";
 
-				# Leave 4 GiB free on the 24 GiB XTX, capping the server at ~20 GiB.
-				fit-target = 4096;
+				# # Leave 4 GiB free on the 24 GiB XTX, capping the server at ~20 GiB.
+				# fit-target = 4096;
 
 				sleep-idle-seconds = 120;
 			};
