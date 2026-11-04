@@ -77,6 +77,7 @@
 				hf-repo = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
 				hf-file = "Qwen3.8-Flash-Next-Avalon-IQ3KS-00001-of-00033.gguf";
 
+				ctx-size = 128000;
 				batch-size = 9536;
 				ubatch-size = 9536;
 				flash-attn = "on";
