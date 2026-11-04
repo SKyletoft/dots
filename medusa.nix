@@ -77,25 +77,24 @@
 				hf-repo = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
 				hf-file = "Qwen3.8-Flash-Next-Avalon-IQ3KS-00001-of-00033.gguf";
 
-				# ctx-size = 262144;
-				# batch-size = 9536;
-				# ubatch-size = 9536;
-				# flash-attn = "on";
-				# cache-type-k = "q8_0";
-				# cache-type-v = "q4_0";
-				# jinja = true;
-				# parallel = 4;
+				batch-size = 9536;
+				ubatch-size = 9536;
+				flash-attn = "on";
+				cache-type-k = "q8_0";
+				cache-type-v = "q4_0";
+				jinja = true;
+				parallel = 1;
 
 				spec-draft-hf = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
 				spec-draft-model = "MTP/mtp-Qwen3.8-Flash-Next-shared-IQ3K-IQ4NL-FR65k.gguf";
 				spec-type = "draft-mtp";
 				spec-draft-n-max = 2;
-				# spec-draft-ubatch-size = 256;
-				# spec-draft-type-k = "q8_0";
-				# spec-draft-type-v = "q8_0";
+				spec-draft-ubatch-size = 256;
+				spec-draft-type-k = "q8_0";
+				spec-draft-type-v = "q8_0";
 
-				# # Leave 4 GiB free on the 24 GiB XTX, capping the server at ~20 GiB.
-				# fit-target = 4096;
+				# Leave 4 GiB free on the 24 GiB XTX, capping the server at ~20 GiB.
+				fit-target = 4096;
 
 				sleep-idle-seconds = 120;
 			};
