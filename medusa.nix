@@ -66,7 +66,7 @@
 		xserver.videoDrivers = [ "amdgpu" ];
 
 		llama-cpp = {
-			enable = false;
+			enable = true;
 			package = avalon.packages.${pkgs.stdenv.hostPlatform.system}.rocm.override {
 				rocmGpuTargets = "gfx1100";
 			};
@@ -84,7 +84,7 @@
 				cache-type-k = "q8_0";
 				cache-type-v = "q4_0";
 				jinja = true;
-				parallel = 1;
+				parallel = 4;
 
 				spec-draft-hf = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
 				spec-draft-model = "MTP/mtp-Qwen3.8-Flash-Next-shared-IQ3K-IQ4NL-FR65k.gguf";
@@ -94,8 +94,8 @@
 				spec-draft-type-k = "q8_0";
 				spec-draft-type-v = "q8_0";
 
-				# # Leave 4 GiB free on the 24 GiB XTX, capping the server at ~20 GiB.
-				# fit-target = 4096;
+				# Leave 4 GiB free on the 24 GiB XTX, capping the server at ~20 GiB.
+				fit-target = 4096;
 
 				sleep-idle-seconds = 120;
 			};

@@ -7,7 +7,7 @@
 		};
 		nixGL.url = "github:nix-community/nixGL";
 		wm.url = "path:../packages/wm";
-		avalon.url = "github:freriadoc/Avalon?rev=c6d1a0d4dd3f7493f8301b06d45e41030b5444a7";
+		avalon.url = "github:freriadoc/Avalon?rev=16de68d283a366a03e359e66d37870980b3f7923";
 	};
 
 	outputs = { self, nixpkgs, nixos-hardware, nixGL, wm, avalon }@args: {
