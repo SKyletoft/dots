@@ -86,10 +86,10 @@
 				# jinja = true;
 				# parallel = 4;
 
-				# spec-draft-hf = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
-				# spec-draft-model = "MTP/mtp-Qwen3.8-Flash-Next-shared-IQ3K-IQ4NL-FR65k.gguf";
-				# spec-type = "draft-mtp";
-				# spec-draft-n-max = 2;
+				spec-draft-hf = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
+				spec-draft-model = "MTP/mtp-Qwen3.8-Flash-Next-shared-IQ3K-IQ4NL-FR65k.gguf";
+				spec-type = "draft-mtp";
+				spec-draft-n-max = 2;
 				# spec-draft-ubatch-size = 256;
 				# spec-draft-type-k = "q8_0";
 				# spec-draft-type-v = "q8_0";
