@@ -57,9 +57,7 @@
 	networking.hostName = "medusa";
 
 	systemd.tmpfiles.rules = [
-		"d     /opt/rocm/include        -    -    -     -"
-		"L+    /opt/rocm/hip            -    -    -     -    ${pkgs.rocmPackages.clr}"
-		"L+    /opt/rocm/include/hip    -    -    -     -    ${pkgs.rocmPackages.clr}/include/hip"
+		"L+    /opt/rocm                -    -    -     -    ${pkgs.rocmPackages.clr}"
 	];
 
 	services = {
