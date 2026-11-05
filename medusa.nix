@@ -69,7 +69,7 @@
 				rocmGpuTargets = "gfx1100";
 			};
 			settings = {
-				host = "127.0.0.1";
+				host = "0.0.0.0";
 				port = 8080;
 
 				hf-repo = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
