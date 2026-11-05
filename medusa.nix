@@ -103,7 +103,7 @@
 	};
 
 	environment = {
-		systemPackages = with pkgs; [ radeontop ];
+		systemPackages = with pkgs; [ nvtopPackages.amd ];
 		sessionVariables.XCURSOR_THEME = "severa_cursors_linux_expanded";
 	};
 
