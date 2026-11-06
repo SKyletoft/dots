@@ -75,9 +75,8 @@
 					--data-dir /var/cache/strata                          \
 					--family coder                                        \
 					--port 8080                                           \
-					--vram-reserve 4096                                   \
+					--vram-reserve-mib 4096                               \
 					--mtp on                                              \
-					--drafter dflash2                                     \
 					--yes                                                 \
 			'';
 			Restart = "on-failure";
