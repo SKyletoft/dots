@@ -64,26 +64,26 @@
 	services.xserver.videoDrivers = [ "amdgpu" ];
 
 	users.users.strata.isNormalUser = true;
-	# systemd.services.strata = {
-		# description = "Strata inference server (deepseek41 ISTA-DAS-2.00bpw, HIP/gfx1100)";
-		# wantedBy = [ "multi-user.target" ];
+	systemd.services.strata = {
+		description = "Strata inference server";
+		wantedBy = [ "multi-user.target" ];
 
-		# serviceConfig = {
-			# Type = "simple";
-			# Environment = [ "STRATA_EXECV=1" ];
-			# ExecStart = ''
-				# ${strata.packages.x86_64-linux.default}/bin/strata-server
-					# --data-dir /var/lib/strata
-					# --plan
-					# --family qwen --model iq3_s
-					# --port 8080
-					# --yes --no-tui
-			# '';
-			# Restart = "on-failure";
-			# RestartSec = "5s";
-			# User = "strata";
-		# };
-	# };
+		serviceConfig = {
+			Type = "simple";
+			Environment = [ "STRATA_EXECV=1" ];
+			ExecStart = ''
+				${strata.packages.x86_64-linux.default}/bin/strata-server
+					--data-dir /var/lib/strata
+					--plan
+					--family qwen --model iq3_s
+					--port 8080
+					--yes --no-tui
+			'';
+			Restart = "on-failure";
+			RestartSec = "5s";
+			User = "strata";
+		};
+	};
 
 	environment = {
 		systemPackages = with pkgs; [ nvtopPackages.amd ];
