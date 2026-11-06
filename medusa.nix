@@ -58,11 +58,12 @@
 
 	systemd.tmpfiles.rules = [
 		"L+    /opt/rocm                -    -    -     -    ${pkgs.rocmPackages.clr}"
-		"d     /var/lib/strata          0755 u3836  users -"
+		"d     /var/lib/strata          0755 strata users    -"
 	];
 
 	services.xserver.videoDrivers = [ "amdgpu" ];
 
+	users.users.strata = {};
 	systemd.services.strata = {
 		description = "Strata inference server (deepseek41 ISTA-DAS-2.00bpw, HIP/gfx1100)";
 		wantedBy = [ "multi-user.target" ];
@@ -73,13 +74,14 @@
 			ExecStart = ''
 				${strata.packages.x86_64-linux.default}/bin/strata-server
 					--data-dir /var/lib/strata
-					--family deepseek41 --model IST-DAS-2.00bpw
+					--plan
+					--family qwen --model iq3_s
 					--port 8080
-					--yes
+					--yes --no-tui
 			'';
 			Restart = "on-failure";
 			RestartSec = "5s";
-			User = "u3836";
+			User = "strata";
 		};
 	};
 
