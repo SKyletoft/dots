@@ -58,7 +58,6 @@
 
 	systemd.tmpfiles.rules = [
 		"L+    /opt/rocm                -    -    -     -    ${pkgs.rocmPackages.clr}"
-		"d     /var/lib/strata          0755 strata users    -"
 	];
 
 	services.xserver.videoDrivers = [ "amdgpu" ];
@@ -72,12 +71,15 @@
 			Type = "simple";
 			Environment = [ "STRATA_EXECV=1" ];
 			ExecStart = ''
+				mkdir -p /var/cache/strata
 				${strata.packages.x86_64-linux.default}/bin/strata-server
-					--data-dir /var/lib/strata
-					--plan
-					--family qwen --model iq3_s
+					--data-dir /var/cache/strata
+					--family coder
 					--port 8080
-					--yes --no-tui
+					--vram-reserve 4096
+					--mtp on
+					--drafter dflash2
+					--yes
 			'';
 			Restart = "on-failure";
 			RestartSec = "5s";
