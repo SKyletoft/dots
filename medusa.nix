@@ -61,12 +61,7 @@
 		"d     /var/lib/strata          0755 u3836  users -"
 	];
 
-	services = {
-		xserver.videoDrivers = [ "amdgpu" ];
-
-		# Disabled: inference now runs through the strata service below.
-		llama-cpp.enable = false;
-	};
+	services.xserver.videoDrivers = [ "amdgpu" ];
 
 	systemd.services.strata = {
 		description = "Strata inference server (deepseek41 ISTA-DAS-2.00bpw, HIP/gfx1100)";
@@ -75,13 +70,13 @@
 		serviceConfig = {
 			Type = "simple";
 			Environment = [ "STRATA_EXECV=1" ];
-			ExecStart = '''
+			ExecStart = ''
 				${strata.packages.x86_64-linux.default}/bin/strata-server
 					--data-dir /var/lib/strata
 					--family deepseek41 --model IST-DAS-2.00bpw
 					--port 8080
 					--yes
-			''';
+			'';
 			Restart = "on-failure";
 			RestartSec = "5s";
 			User = "u3836";
