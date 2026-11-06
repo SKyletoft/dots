@@ -71,14 +71,14 @@
 			Type = "simple";
 			Environment = [ "STRATA_EXECV=1" ];
 			ExecStart = ''
-				${strata.packages.x86_64-linux.default}/bin/strata-server
-					--data-dir /var/cache/strata
-					--family coder
-					--port 8080
-					--vram-reserve 4096
-					--mtp on
-					--drafter dflash2
-					--yes
+				${strata.packages.x86_64-linux.default}/bin/strata-server \
+					--data-dir /var/cache/strata                          \
+					--family coder                                        \
+					--port 8080                                           \
+					--vram-reserve 4096                                   \
+					--mtp on                                              \
+					--drafter dflash2                                     \
+					--yes                                                 \
 			'';
 			Restart = "on-failure";
 			RestartSec = "5s";
