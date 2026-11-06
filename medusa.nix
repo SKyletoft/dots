@@ -63,7 +63,7 @@
 
 	services.xserver.videoDrivers = [ "amdgpu" ];
 
-	users.users.strata = {};
+	users.users.strata.isNormalUser = true;
 	systemd.services.strata = {
 		description = "Strata inference server (deepseek41 ISTA-DAS-2.00bpw, HIP/gfx1100)";
 		wantedBy = [ "multi-user.target" ];
