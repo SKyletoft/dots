@@ -8,9 +8,13 @@
 		nixGL.url = "github:nix-community/nixGL";
 		wm.url = "path:../packages/wm";
 		avalon.url = "github:freriadoc/Avalon?rev=16de68d283a366a03e359e66d37870980b3f7923";
+		strata = {
+			url = "path:../packages/strata";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, nixGL, wm, avalon }@args: {
+	outputs = { self, nixpkgs, nixos-hardware, nixGL, wm, avalon, strata }@args: {
 		nixosConfigurations = {
 
 			medusa = nixpkgs.lib.nixosSystem rec {

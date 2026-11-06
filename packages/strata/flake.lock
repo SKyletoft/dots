@@ -1,0 +1,45 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1791179034,
+        "narHash": "sha256-Ni0LBydzaCi8oek12r4mVreuFHqYlM1eTD6SfiENKfw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "494ce7fd23ff6a5dff39e1fb11e9b6f2ac74bf25",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "strata-src": "strata-src"
+      }
+    },
+    "strata-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793879646,
+        "narHash": "sha256-YTKrlOqN97ISsaNZfpEqzLBAvglOI8Lq5G2KFTKQXWE=",
+        "owner": "Niko1221",
+        "repo": "Strata",
+        "rev": "c3b3f5035506f3e966f1b4b7b188aeaabae92f1d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Niko1221",
+        "ref": "v0.2.11",
+        "repo": "Strata",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

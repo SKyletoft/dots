@@ -1,4 +1,4 @@
-{ pkgs, avalon, ... }:
+{ pkgs, strata, ... }:
 {
 	nixpkgs.config.rocmSupport = true;
 
@@ -58,45 +58,33 @@
 
 	systemd.tmpfiles.rules = [
 		"L+    /opt/rocm                -    -    -     -    ${pkgs.rocmPackages.clr}"
+		"d     /var/lib/strata          0755 u3836  users -"
 	];
 
 	services = {
 		xserver.videoDrivers = [ "amdgpu" ];
 
-		llama-cpp = {
-			enable = true;
-			package = avalon.packages.${pkgs.stdenv.hostPlatform.system}.rocm.override {
-				rocmGpuTargets = "gfx1100";
-			};
-			settings = {
-				host = "0.0.0.0";
-				port = 8080;
+		# Disabled: inference now runs through the strata service below.
+		llama-cpp.enable = false;
+	};
 
-				hf-repo = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
-				hf-file = "Qwen3.8-Flash-Next-Avalon-IQ3KS-00001-of-00033.gguf";
+	systemd.services.strata = {
+		description = "Strata inference server (deepseek41 ISTA-DAS-2.00bpw, HIP/gfx1100)";
+		wantedBy = [ "multi-user.target" ];
 
-				ctx-size = 128 * 1024;
-				batch-size = 9536;
-				ubatch-size = 9536;
-				flash-attn = "on";
-				cache-type-k = "q8_0";
-				cache-type-v = "q4_0";
-				jinja = true;
-				parallel = 1;
-
-				# spec-draft-hf = "freriadoc/Qwen3.8-Flash-Next-Avalon-GGUF";
-				# spec-draft-model = "MTP/mtp-Qwen3.8-Flash-Next-shared-IQ3K-IQ4NL-FR65k.gguf";
-				# spec-type = "draft-mtp";
-				# spec-draft-n-max = 2;
-				# spec-draft-ubatch-size = 256;
-				# spec-draft-type-k = "q8_0";
-				# spec-draft-type-v = "q8_0";
-
-				# Leave 4 GiB free on the 24 GiB XTX, capping the server at ~20 GiB.
-				fit-target = 4096;
-
-				sleep-idle-seconds = 120;
-			};
+		serviceConfig = {
+			Type = "simple";
+			Environment = [ "STRATA_EXECV=1" ];
+			ExecStart = '''
+				${strata.packages.x86_64-linux.default}/bin/strata-server
+					--data-dir /var/lib/strata
+					--family deepseek41 --model IST-DAS-2.00bpw
+					--port 8080
+					--yes
+			''';
+			Restart = "on-failure";
+			RestartSec = "5s";
+			User = "u3836";
 		};
 	};
 

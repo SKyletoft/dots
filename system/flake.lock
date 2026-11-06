@@ -181,7 +181,42 @@
         "nixGL": "nixGL",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
+        "strata": "strata",
         "wm": "wm"
+      }
+    },
+    "strata": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "strata-src": "strata-src"
+      },
+      "locked": {
+        "path": "../packages/strata",
+        "type": "path"
+      },
+      "original": {
+        "path": "../packages/strata",
+        "type": "path"
+      },
+      "parent": []
+    },
+    "strata-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793879646,
+        "narHash": "sha256-YTKrlOqN97ISsaNZfpEqzLBAvglOI8Lq5G2KFTKQXWE=",
+        "owner": "Niko1221",
+        "repo": "Strata",
+        "rev": "c3b3f5035506f3e966f1b4b7b188aeaabae92f1d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Niko1221",
+        "ref": "v0.2.11",
+        "repo": "Strata",
+        "type": "github"
       }
     },
     "systems": {
