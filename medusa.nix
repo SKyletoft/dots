@@ -71,7 +71,6 @@
 			Type = "simple";
 			Environment = [ "STRATA_EXECV=1" ];
 			ExecStart = ''
-				mkdir -p /var/cache/strata
 				${strata.packages.x86_64-linux.default}/bin/strata-server
 					--data-dir /var/cache/strata
 					--family coder
