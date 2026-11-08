@@ -170,10 +170,6 @@ hl.bind("SUPER + SHIFT + down",  hl.dsp.window.move({ direction = "down" }))
 for i = 1, 10 do
 	local key = i % 10
 	hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
-end
-
-for i = 1, 10 do
-	local key = i % 10
 	hl.bind("ALT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
