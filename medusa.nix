@@ -78,7 +78,8 @@
 					--vram-reserve-mib 4096                               \
 					--mtp on                                              \
 					--yes                                                 \
-					--parallel 2
+					--parallel 2                                          \
+					--idle-unload 300
 			'';
 			Restart = "on-failure";
 			RestartSec = "5s";
