@@ -13,6 +13,7 @@ hl.config({
 		disable_hyprland_logo = true,
 		disable_splash_rendering = true,
 	},
+	render =  { cm_auto_hdr = 0 },
 	input = {
 		kb_layout = "se-good",
 		kb_variant = "",
