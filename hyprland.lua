@@ -144,7 +144,7 @@ hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("firefox --private-window"))
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("qs -p /home/u3836/git/dots/quickshell/screenshot.qml"))
 
 hl.bind("SUPER + F11", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
-hl.bind("SUPER + M",   hl.dsp.window.fullscreen_state({ internal = 2, client = 2, action = "toggle" }))
+hl.bind("SUPER + M",   hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"))
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1- -l 1.0"))
