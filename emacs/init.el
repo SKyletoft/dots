@@ -40,10 +40,12 @@
     (progn
       (require 'colemak)
       (colemak-keymap)
-      (setq my/left-margin-default 80))
+      (setq my/left-margin-default 80
+            agent-shell-preferred-agent-config 'maki))
   (require 'qwerty)
   (qwerty-keymap)
-  (setq my/left-margin-default 60))
+  (setq my/left-margin-default 60
+        agent-shell-preferred-agent-config 'opencode))
 
 ;; Disabled as I switched to the new GC branch
 ;; (use-package gcmh

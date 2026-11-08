@@ -16,12 +16,15 @@
                       :context-buffer buffer))
      :install-instructions "Install maki via home-manager (inputs.maki) or see https://maki.sh/docs/quick-start/."))
 
+(defun my/agent-shell-maki-start ()
+        (interactive)
+        (agent-shell--dwim :config (my/agent-shell-maki-make-agent-config)
+                :new-shell t))
+
 (use-package agent-shell
   :config
-  (add-to-list 'agent-shell-agent-configs #'my/agent-shell-maki-make-agent-config)
-  (setq agent-shell-preferred-agent-config 'opencode
-        ;; agent-shell-preferred-agent-config 'maki
-        agent-shell-inhibit-system-sleep nil)
+  (add-to-list 'agent-shell-agent-configs (my/agent-shell-maki-make-agent-config))
+  (setq agent-shell-inhibit-system-sleep nil)
   :hook
   (agent-shell-mode . (lambda () (setq-local buffer-undo-list t))))
 
