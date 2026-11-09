@@ -8,9 +8,7 @@ let
 	emacsPin   = import inputs.emacsPkgs { overlays = [
 		inputs.emacsOverlay.overlays.default
 		(_: p: {
-			# emacs-git = p.emacs-git.overrideAttrs(_: { LSP_USE_PLISTS = true; });
 			emacs-igc = p.emacs-igc.overrideAttrs(old: {
-				# LSP_USE_PLISTS = true;
 				preConfigure = ''
 					export CC=${p.llvmPackages.clang}/bin/clang
 					export CXX=${p.llvmPackages.clang}/bin/clang++
@@ -42,7 +40,6 @@ let
 
 	enableHyprland  = homeConfig.enableHyprland;
 	enableGnome     = homeConfig.enableGnome;
-	enableDebugging = homeConfig.enableDebugging;
 	dolbyTunedAudio = homeConfig.dolbyTunedAudio or false;
 
 	gui = enableGnome || wm;
@@ -54,8 +51,6 @@ in {
 		stateVersion  = "22.05";
 
 		packages = let
-			cppfront     = pkgs.callPackage ./packages/cppfront.nix {};
-			hylo         = pkgs.callPackage ./packages/hylo.nix {};
 			update-lorri = pkgs.writeShellScriptBin "update-lorri" (builtins.readFile scripts/update-lorri);
 			hms          = pkgs.writeShellScriptBin "hms" "cd ~/dots/home ; home-manager switch --flake . --impure -L |& nom";
 			hmb          = pkgs.writeShellScriptBin "hmb" "cd ~/dots/home ; home-manager build  --flake . --impure -L |& nom";
@@ -86,7 +81,6 @@ in {
 			rsync
 			xclip
 			doasedit
-			# mdpdf
 			bluetui
 			glow
 
@@ -142,12 +136,9 @@ in {
 			prismlauncher
 			eden
 			dolphin-emu
-			# citraPkgs.citra
 			citraPkgs.yuzu
-			# cemu
 			fragments
 			heroic
-			# lutris
 			mangohud
 			ruffle
 			mission-center
@@ -187,8 +178,6 @@ in {
 	programs = {
 		git = {
 			enable = true;
-			# Reenable whenever I return to vim
-			# difftastic.enable = true;
 			signing.format = "openpgp"; # Keep old default for now
 			settings = {
 				user = {
@@ -235,9 +224,7 @@ in {
 						};
 					};
 
-					# "rust-analyzer.checkOnSave.enable"  = true;
 					"rust-analyzer.checkOnSave.command" = "clippy";
-					# "rust-analyzer.checkOnSave.target" = "#rust-analyzer.cargo.target#";
 
 					"rust-analyzer.hover.documentation.enable" = false;
 					"rust-analyzer.hover.links.enable" = true;
@@ -266,12 +253,9 @@ in {
 						sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
 					};
 				};
-				vimspector = vimPin.callPackage ./packages/vimspector.nix {};
-				treesitter = (vimPin.vimPlugins.nvim-treesitter.withPlugins (_: vimPin.tree-sitter.allGrammars));
 			in
 			with vimPin.vimPlugins; [
 				custom_monokai
-				# treesitter
 				vim-table-mode
 				zen-mode-nvim
 				vim-slime
@@ -282,9 +266,7 @@ in {
 				nvim-dap-ui
 			];
 
-			# package = vimPin.neovim;
-			extraConfig = (builtins.readFile ./neovim_init.vim)
-						+ (if enableDebugging then builtins.readFile ./debug.vim else "");
+			extraConfig = builtins.readFile ./neovim_init.vim;
 			vimAlias = true;
 		};
 
@@ -327,8 +309,6 @@ in {
 					agent-shell
 
 					pdf-tools
-					# multi-vterm
-					# vterm
 					inputs.ghostel.packages.${system}.default
 
 					lsp-mode
@@ -362,7 +342,6 @@ in {
 					roc-ts-mode
 					typst-ts-mode
 					swift-ts-mode
-					# lsp-sourcekit # Swift LSP support
 					qml-mode
 					ponylang-mode
 					ispc-mode
@@ -414,7 +393,6 @@ in {
 		firefox = {
 			enable = gui;
 			languagePacks = [ "en-GB" "sv" ];
-			# package = pkgs.firefox-devedition-bin;
 			configPath = ".mozilla/firefox"; # Silence changed default
 			profiles.default = {
 				id = 0;
@@ -464,12 +442,8 @@ in {
 					privacy-badger
 					vimium
 					sponsorblock
-					# enhancer-for-youtube
 					consent-o-matic
 					enhanced-h264ify
-					# refined-hackernews
-					# user-agent-switcher-and-manager
-					# css-override
 					video-downloadhelper
 					old-reddit-redirect
 					reddit-enhancement-suite
@@ -486,20 +460,9 @@ in {
 	};
 
 	services = {
-		emacs = {
-			enable = false;
-			defaultEditor = true;
-			startWithUserSession = false;
-		};
-
 		lorri = {
 			enable = true;
 			enableNotifications = true;
-		};
-
-		mako = {
-			enable = false;
-			settings.icons = true;
 		};
 
 		tldr-update = {
@@ -516,14 +479,6 @@ in {
 		};
 	};
 
-	# wayland.windowManager.hyprland.enable = enableHyprland;
-
-	# gtk = {
-		# enable         = true;
-		# theme.name     = "Yaru";
-		# iconTheme.name = "Yaru - Edit";
-	# };
-
 	xdg = {
 		mimeApps.defaultApplications = {
 			"http" = [ "firefox.desktop" ];
@@ -536,13 +491,7 @@ in {
 			"kitty/kitty.conf".source         = ./kitty.conf;
 			"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
 			"swaylock/config".source          = ./swaylock;
-			# "waybar/config".source          = ./waybar;
-			# "niri/config.kdl".source        = ./niri.kdl;
 			"fourmolu.yaml".source            = ./fourmolu.yaml;
-			# "mpv/mpv.conf".source           = ./mpv.conf; ; It seems like this is what's causing random stuttering on medusa?
-			# "emacs".source                  = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/emacs";
-			# "hypr/hyprland.conf".source     = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/hyprland.conf";
-			# "quickshell".source             = mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/quickshell";
 		};
 
 		dataFile = pkgs.lib.mkIf dolbyTunedAudio {
@@ -583,13 +532,7 @@ rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/mold", "-C", "target-cpu=
 		".local/share/applications/discord.desktop".source           = ./discord.desktop;
 		".local/share/applications/dissent.desktop".source           = ./dissent.desktop;
 
-		# Folders
-		# ".themes/yaru".source                         = ./.themes/yaru;
-		# ".icons/yaru_edit".source                     = ./.icons/yaru_edit;
-		# ".icons/severa_cursors_linux_expanded".source = ./.icons/severa_cursors_linux_expanded;
-
 		# Emacs
-		# ".config/emacs".source                    = ./emacs;
 		".config/emacs/configs/node-path.el".text = ''
 ;; -*- lexical-binding: t -*-
 

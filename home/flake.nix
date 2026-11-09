@@ -4,7 +4,6 @@
 		stablePkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 		curaPkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
 		citraPkgs.url = "github:NixOS/nixpkgs?rev=1cba04796fe93e7f657c62f9d1fb9cae9d0dd86e"; # Last commit before it was removed
-		# citraPkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
 		vimPin.url = "github:NixOS/nixpkgs?rev=9813adc7f7c0edd738c6bdd8431439688bb0cb3d";
 		emacsPkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 		emacsOverlay = {
@@ -20,7 +19,6 @@
 		};
 		upwards.url = "github:SKyletoft/upwards";
 		revpath.url = "github:SKyletoft/revpath";
-		lem.url = "github:dariof4/lem-flake";
 		lsp-booster.url = "github:SKyletoft/lsp-booster-flake";
 		roc-ts.url = "github:faldor20/tree-sitter-roc";
 		swift-ts.url = "github:SKyletoft/tree-sitter-swift-flake";
@@ -53,13 +51,11 @@
 		graphicalHome = home {
 			enableHyprland  = true;
 			enableGnome     = true;
-			enableDebugging = false;
 			nativeFlags     = [];
 		};
 		serverHome = home {
 			enableHyprland  = false;
 			enableGnome     = false;
-			enableDebugging = false;
 			nativeFlags     = [];
 		};
 	in {
@@ -72,7 +68,6 @@
 		homeConfigurations."u3836@medusa"   = home {
 			enableHyprland  = true;
 			enableGnome     = true;
-			enableDebugging = false;
 			nativeFlags     = [
 				"-march=znver4"
 				"-mtune=znver4"
@@ -82,7 +77,6 @@
 		homeConfigurations."u3836@medea" = home {
 			enableHyprland  = true;
 			enableGnome     = true;
-			enableDebugging = false;
 			dolbyTunedAudio = true;
 			nativeFlags     = [
 				"-march=alderlake"

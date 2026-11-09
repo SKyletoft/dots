@@ -1,4 +1,4 @@
-{ pkgs, config, nixGL, waylandSupport, windowsFonts, nativeBuild, nativeArch, flatpak, wm, ... }:
+{ pkgs, config, nixGL, waylandSupport, windowsFonts, nativeBuild, nativeArch, flatpak, ... }:
 
 let
 	setup-system = pkgs.callPackage ./packages/setup-system.nix {};
@@ -23,16 +23,13 @@ in {
 				"gccarch-alderlake"
 				"kvm"
 			];
-			# post-build-hook = "/home/u3836/dots/upload-to-cache.sh";
 			substituters = [
 				"https://nix-community.cachix.org"
 				"https://cache.nixos.org/"
-				# "https://nix.u3836.se/"
 				"https://cache.iog.io"
 				"https://cache.lantian.pub/lantian"
 			];
 			trusted-public-keys = [
-				"nix.u3836.se:t7H/bFWi14aBFYPE5A00eEQawd7Ssl/fXbq/2C+Bsrs="
 				"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
 				"hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
 				"lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="
@@ -82,7 +79,6 @@ in {
 
 			# Virtualisation networking
 			trustedInterfaces = [ "virbr0" ];
-			# backend = "iptables";
 		};
 	};
 
@@ -138,16 +134,6 @@ in {
 			}];
 		};
 
-		earlyoom = {
-			enable = false;
-			extraArgs = [
-				"--prefer '(^|/)(gcc|g\+\+|cc1plus|ghc|rustc|a\.out)$'"
-				"--avoid  '(^|/)(firefox-develop|firefox-bin)$'"
-				"--ignore '(^|/)(init|mutter|gnome-shell|Xorg)$'"
-			];
-			enableNotifications = true;
-		};
-
 		udev.extraRules = ''
 			ACTION=="add", \
 				ATTRS{idVendor}=="2dc8", \
@@ -178,10 +164,6 @@ in {
 
 		cron = {
 			enable = true;
-			systemCronJobs = [
-				# Every hour, check for store corruption
-				# "0 * * * * root nix-store --repair --verify --check-contents || su u3836 -c ${pkgs.libnotify}/bin/notify-send 'Nix store corruption!'"
-			];
 		};
 	};
 
@@ -251,20 +233,6 @@ in {
 			update-keys
 			update-system
 
-			# # wm.packages.${system}.everything
-			# hyprland
-			# hyprpaper
-			# hyprsunset
-			# hypridle
-			# hyprpolkitagent
-			# playerctl
-			# quickshell
-			# grim
-			# wl-clipboard
-			# imagemagick
-			# swappy
-			# swaylock-effects
-
 			gnome-tweaks
 		];
 
@@ -299,45 +267,6 @@ in {
 			}];
 			services.greetd.enableGnomeKeyring = true;
 		};
-		# polkit = {
-		#	enable = true;
-		#	# Passwordless power management for local wheel users.
-		#	# Needed because Hyprland/quickshell currently escape the logind
-		#	# session cgroup (they sit in the root cgroup instead of
-		#	# session-*.scope), so polkit sees their PowerOff/Reboot/Suspend
-		#	# requests as coming from an inactive session
-		#	# (auth_admin_keep) and logind fails with "interactive
-		#	# authentication has not been enabled by the calling program".
-		#	# Keyed on user/group instead of subject.active/local until
-		#	# session tracking is fixed (e.g. via uwsm-managed Hyprland).
-		#	extraConfig = ''
-		#		polkit.addRule(function(action, subject) {
-		#			var powerActions = [
-		#				"org.freedesktop.login1.power-off",
-		#				"org.freedesktop.login1.power-off-multiple-sessions",
-		#				"org.freedesktop.login1.power-off-ignore-inhibit",
-		#				"org.freedesktop.login1.reboot",
-		#				"org.freedesktop.login1.reboot-multiple-sessions",
-		#				"org.freedesktop.login1.reboot-ignore-inhibit",
-		#				"org.freedesktop.login1.suspend",
-		#				"org.freedesktop.login1.suspend-multiple-sessions",
-		#				"org.freedesktop.login1.suspend-ignore-inhibit",
-		#				"org.freedesktop.login1.hibernate",
-		#				"org.freedesktop.login1.hibernate-multiple-sessions",
-		#				"org.freedesktop.login1.hibernate-ignore-inhibit",
-		#				"org.freedesktop.login1.halt",
-		#				"org.freedesktop.login1.halt-multiple-sessions",
-		#				"org.freedesktop.login1.halt-ignore-inhibit",
-		#				"org.freedesktop.login1.set-wall-message",
-		#				"org.freedesktop.login1.set-reboot-to-firmware-setup",
-		#				"org.freedesktop.login1.set-reboot-parameter"
-		#			];
-		#			if (powerActions.indexOf(action.id) >= 0 && subject.isInGroup("wheel")) {
-		#				return polkit.Result.YES;
-		#			}
-		#		});
-		#	'';
-		# };
 	};
 
 	fonts.packages = with pkgs.nerd-fonts; [
@@ -366,15 +295,11 @@ in {
 			enable = true;
 			lfs.enable = true;
 		};
-		sway.enable = false;
 		bazecor.enable = true;
 		kdeconnect = {
 			enable = true;
 			package = pkgs.gnomeExtensions.gsconnect;
 		};
-		niri.enable = false;
-		# hyprland.enable = true;
-		xwayland.enable = false;
 		gamemode.enable = true;
 		gamescope = {
 			enable = true;
@@ -382,7 +307,6 @@ in {
 		};
 		steam.enable = true;
 		dconf.enable = true;
-		xonsh.enable = false;
 		nix-ld.enable = true;
 		gnupg.agent = {
 			enable = true;
