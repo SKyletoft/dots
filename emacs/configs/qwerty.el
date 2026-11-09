@@ -477,6 +477,7 @@
   (evil-define-key 'normal agent-shell-mode-map
     (kbd "<tab>") 'agent-shell-cycle-session-mode
     (kbd "SPC a") 'agent-shell-set-session-model
+    (kbd "SPC A") 'agent-shell-set-session-thought-level
     (kbd "SPC c") 'agent-shell-viewport-compose-cancel)
 
   (evil-define-key 'normal forge-issue-mode-map
