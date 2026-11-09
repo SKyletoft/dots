@@ -192,11 +192,9 @@ in {
 		};
 
 		neovim = {
-			enable      = true;
-			withNodeJs  = true;
-			withRuby    = false;
-			withPython3 = true;
-
+			enable = true;
+			withRuby = false;
+			withPython3 = false;
 			plugins = [(vimPin.vimUtils.buildVimPlugin {
 				pname = "monokai_vim";
 				version = "0.0.1";
