@@ -89,10 +89,6 @@ in {
 			shellcheck
 			shfmt
 			lua-language-server
-			inputs.upwards.packages.${system}.default
-			inputs.revpath.packages.${system}.default
-			rtk
-			inputs.maki.packages.${system}.default
 			update-lorri
 			hms
 			hmb
@@ -109,6 +105,8 @@ in {
 
 			vscode
 			opencode
+			rtk
+			inputs.maki.packages.${system}.default
 			pinta
 			gimp
 
