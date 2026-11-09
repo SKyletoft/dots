@@ -77,8 +77,7 @@
 					--port 8080                                           \
 					--vram-reserve-mib 4096                               \
 					--mtp on                                              \
-					--yes                                                 \
-					--idle-unload 300
+					--yes
 			'';
 			Restart = "on-failure";
 			RestartSec = "5s";
