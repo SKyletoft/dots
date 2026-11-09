@@ -74,6 +74,7 @@
 				${strata.packages.x86_64-linux.default}/bin/strata-server \
 					--data-dir /var/cache/strata                          \
 					--family coder                                        \
+					--host 0.0.0.0                                        \
 					--port 8080                                           \
 					--vram-reserve-mib 4096                               \
 					--mtp on                                              \
