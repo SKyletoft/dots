@@ -38,11 +38,7 @@ let
 		};
 	};
 
-	enableHyprland  = homeConfig.enableHyprland;
-	enableGnome     = homeConfig.enableGnome;
-
-	gui = enableGnome || wm;
-	wm  = enableHyprland;
+	gui = homeConfig.enableHyprland;
 in {
 	home = {
 		username      = "u3836";
@@ -120,6 +116,8 @@ in {
 			stablePkgs.libreoffice
 			stablePkgs.hunspellDicts.sv_SE
 
+			evince
+			gnome-disk-utility
 			megasync
 			megacmd
 			kdePackages.ark
@@ -147,29 +145,13 @@ in {
 
 			virt-manager
 			docker-compose
-		] else [])
-
-		++ (if enableGnome then [
-			baobab
-			totem
-			gnome-system-monitor
-			gnome-logs
-			gnome-text-editor
-			gnome-calendar
-			gnome-weather
-			evince
-			gnome-disk-utility
-			eog
-			aisleriot
-			iagno
 		] else []);
 
 		sessionVariables = {
 			EDITOR = "emacsclient -nw";
 			XCURSOR_THEME = homeConfig.cursorTheme or "severa_cursors_linux_expanded";
-		} // (if enableHyprland then {
 			MOZ_ENABLE_WAYLAND = "1";
-		} else {});
+		};
 	};
 
 	programs = {
@@ -325,7 +307,6 @@ in {
 		zoxide = {
 			enable                = true;
 			enableBashIntegration = true;
-			enableFishIntegration = true;
 		};
 
 		firefox = {
