@@ -40,7 +40,6 @@ let
 
 	enableHyprland  = homeConfig.enableHyprland;
 	enableGnome     = homeConfig.enableGnome;
-	dolbyTunedAudio = homeConfig.dolbyTunedAudio or false;
 
 	gui = enableGnome || wm;
 	wm  = enableHyprland;
@@ -413,7 +412,7 @@ in {
 			package = pkgs.tealdeer;
 		};
 
-		easyeffects = pkgs.lib.mkIf dolbyTunedAudio {
+		easyeffects = pkgs.lib.mkIf homeConfig.dolbyTunedAudio {
 			enable = true;
 			settings = {
 				Window.outputAutoloadingFallbackPreset = "Nothing";
@@ -437,7 +436,7 @@ in {
 			"fourmolu.yaml".source            = ./fourmolu.yaml;
 		};
 
-		dataFile = pkgs.lib.mkIf dolbyTunedAudio {
+		dataFile = pkgs.lib.mkIf homeConfig.dolbyTunedAudio {
 			"easyeffects/irs/"    = { source = "${easyeffectsPresets.presets}/irs"; };
 			"easyeffects/output/" = { source = "${easyeffectsPresets.presets}/output"; };
 			"easyeffects/autoload/output/${easyeffectsPresets.sink}:${easyeffectsPresets.route}.json".source =
