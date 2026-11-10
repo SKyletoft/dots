@@ -21,11 +21,11 @@ maki.keymap.set("n", "<C-d>", function()
 	end
 end, { desc = "Exit if prompt empty" })
 
-maki.keymap.set("n", "<M-p>", function()
+maki.keymap.set({"n", "i"}, "<M-p>", function()
 	half_scroll(-1)
 end, { desc = "Scroll half page up" })
 
-maki.keymap.set("n", "<M-n>", function()
+maki.keymap.set({"n", "i"}, "<M-n>", function()
 	half_scroll(1)
 end, { desc = "Scroll half page down" })
 
