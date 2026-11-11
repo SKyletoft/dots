@@ -78,6 +78,7 @@
 					--port 8080                                           \
 					--vram-reserve-mib 4096                               \
 					--mtp on                                              \
+					--parallel 2                                          \
 					--yes
 			'';
 			Restart = "on-failure";
