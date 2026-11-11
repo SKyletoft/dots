@@ -6,7 +6,7 @@
 # Read-only static files (data/, serve/, tools/, CMakeLists.txt) remain in the
 # Nix store under _NIX_STORE_ROOT; setup.py is patched to use that variable for
 # those paths.
-{ stdenv
+{ lib, stdenv
 , strata-src
 , pythonEnv
 , strata-engine
@@ -16,7 +16,7 @@
 
 stdenv.mkDerivation {
   pname   = "strata-server";
-  version = "0.2.13";
+  version = "0.2.11";
 
   src = strata-src;
 
@@ -108,7 +108,7 @@ EOF
     runHook postInstall
   '';
 
-  meta = {
+  meta = with lib; {
     description = "Strata server: OpenAI-compatible LLM inference for Qwen3.8-Flash-Next (AMD HIP)";
     platforms   = [ "x86_64-linux" ];
   };

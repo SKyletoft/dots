@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     strata-src = {
-      url   = "github:Niko1221/Strata/v0.2.13";
+      url   = "github:Niko1221/Strata/v0.2.11";
       flake = false;
     };
   };
@@ -29,7 +29,7 @@
 
       # Python environment matching requirements.txt
       pythonEnv = pkgs.python3.withPackages (ps: with ps; [
-        numpy jinja2 regex pyyaml tqdm requests pillow psutil truststore
+        numpy jinja2 regex pyyaml tqdm requests pillow psutil truststore textual
       ]);
 
       # ROCm packages built for gfx1100 only (RX 7900 XT / XTX)
@@ -44,7 +44,7 @@
       ];
 
       engineBuildJson = builtins.toJSON {
-        version  = "0.2.13";
+        version  = "0.2.11";
         archs    = [ "gfx1100" ];
         backend  = "hip";
         source   = "nix";
@@ -61,6 +61,8 @@
       };
 
     in {
+      # nix run github:hinriksnaer/strata-nix -- \
+      #   --family qwen --model IQ2_XS --gpu 0 --port 8080 --data-dir /path
       packages.${system}.default = strata-server;
     };
 }

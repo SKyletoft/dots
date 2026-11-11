@@ -1,21 +1,16 @@
 # C++/HIP engine binary for Strata.
 # Fetches llama.cpp at the exact commit Strata pins and injects it into the
 # source tree so CMake's FetchContent is never invoked during the build.
-{ cmake, ninja, pkg-config
+{ lib, cmake, ninja, pkg-config
 , stdenv
 , rocmPackages
 , strata-src
 , llamaCppSrc
 }:
 
-let
-  # Host codegen target, pinned to medusa's Zen 4 CPU (Ryzen 9 7950X) so the
-  # build never depends on the compiling machine's ISA probe.
-  cpuFlags = "-w -march=znver4 -mtune=znver4";
-  hipIncludes = "-I${rocmPackages.hipblas}/include -I${rocmPackages.hipblas-common}/include";
-in stdenv.mkDerivation {
+stdenv.mkDerivation {
   pname   = "strata-engine";
-  version = "0.2.13";
+  version = "0.2.11";
 
   src = strata-src;
 
@@ -28,12 +23,8 @@ in stdenv.mkDerivation {
     hipblaslt
     rocm-runtime
     rocm-comgr
+    rocm-device-libs
   ];
-
-  NIX_CFLAGS_COMPILE   = "${cpuFlags} ${hipIncludes}";
-  NIX_CXXFLAGS_COMPILE = "${cpuFlags} ${hipIncludes}";
-  CFLAGS               = "${cpuFlags} ${hipIncludes}";
-  CXXFLAGS             = "${cpuFlags} ${hipIncludes}";
 
   # STRATA_GGML_DIR must be an absolute path -- CMake resolves relative paths
   # in add_subdirectory() against the build dir, not the source dir.
@@ -59,7 +50,7 @@ in stdenv.mkDerivation {
     runHook postInstall
   '';
 
-  meta = {
+  meta = with lib; {
     description = "Strata engine: MoE inference for Qwen3.8-Flash-Next (AMD HIP, gfx1100)";
     platforms   = [ "x86_64-linux" ];
   };
