@@ -13,7 +13,7 @@
 		};
 	};
 
-	outputs = { nixpkgs, nixos-hardware, nixGL, wm, strata }@args: {
+	outputs = { self, nixpkgs, nixos-hardware, nixGL, wm, strata }@args: {
 		nixosConfigurations = {
 
 			medusa = nixpkgs.lib.nixosSystem rec {
