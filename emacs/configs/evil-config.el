@@ -403,22 +403,24 @@ As opposed to `list-buffers` which will split the window."
                      ".pdf"))
   (evil-window-left 1))
 
-(use-package agda-input
-  :ensure nil
-  :demand t
-  :hook (minibuffer-setup . (lambda ()
-                              "Use the input method of the buffer that opened the minibuffer."
-                              (let ((window (minibuffer-selected-window)))
-                                (when window
-                                  (let* ((buffer (window-buffer window))
-                                         (input-method
-                                          (if (and (boundp 'evil-local-mode)
-                                                   (buffer-local-value 'evil-local-mode buffer)
-                                                   (boundp 'evil-input-method))
-                                              (buffer-local-value 'evil-input-method buffer)
-                                            (buffer-local-value 'current-input-method buffer))))
-                                    (if (and input-method (assoc input-method input-method-alist))
-                                        (activate-input-method input-method)
-                                      (deactivate-input-method))))))))
+;; (use-package agda-input
+;;   :ensure nil
+;;   :demand t
+;;   :hook (minibuffer-setup . (lambda ()
+;;                               "Use the input method of the buffer that opened the minibuffer,
+;; except when the minibuffer was opened from inside a posframe."
+;;                               (let ((window (minibuffer-selected-window)))
+;;                                 (when (and window (not (my/window-in-posframe-p window)))
+;;                                   (let* ((buffer (window-buffer window))
+;;                                          (input-method
+;;                                           (if (and (boundp 'evil-local-mode)
+;;                                                    (buffer-local-value 'evil-local-mode buffer)
+;;                                                    (boundp 'evil-input-method))
+;;                                               (buffer-local-value 'evil-input-method buffer)
+;;                                             (buffer-local-value 'current-input-method buffer))))
+;;                                     (if (and input-method (assoc input-method input-method-alist))
+;;                                         (activate-input-method input-method)
+;;                                       (deactivate-input-method)))))))
+;;   )
 
 (provide 'evil-config)
