@@ -319,6 +319,7 @@ in {
 					lsp-java
 					nix-ts-mode
 					haskell-ts-mode
+					agda2-mode
 					idris-mode
 					merlin
 					tuareg
