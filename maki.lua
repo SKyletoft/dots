@@ -40,5 +40,5 @@ maki.setup({
 maki.api.register_prompt_hint({
 	prompt = "system",
 	slot = "tool_usage",
-	content = "Only use bash as a last resort, use other tools first. Never call python through bash, use the dedicated code_execution tool instead\n",
+	content = "Only use bash as a last resort, use other tools first. Never call python through bash, use the dedicated code_execution tool instead\nDon't typecheck multiple files with a bash loop, just call the compiler for each file manually.",
 })
