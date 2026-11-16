@@ -150,6 +150,7 @@
     (kbd "C-<backtab>")     'previous-buffer
     (kbd "C-<iso-lefttab>") 'previous-buffer)
   (evil-define-key '(normal visual) 'global
+    (kbd "SPC TAB")   'get-buffer-list
     (kbd "SPC <tab>") 'get-buffer-list)
 
   (evil-define-key '(normal motion) 'global
