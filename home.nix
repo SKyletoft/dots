@@ -196,75 +196,17 @@ in {
 			withNodeJs  = true;
 			withRuby    = false;
 			withPython3 = true;
-			coc = {
-				enable = true;
-				settings = {
-					languageserver =  {
-						haskell = {
-							args         = [ "--lsp" ];
-							command      = "haskell-language-server";
-							filetypes    = [ "haskell" "lhaskell" ];
-							rootPatterns = [
-								"*.cabal"
-								"stack.yaml"
-								"cabal.project"
-								"package.yaml"
-								"hie.yaml"
-							];
-						};
-						clangd = {
-							command   = "clangd";
-							filetypes = [ "c" "cpp" "cc" "h" "hpp" ];
-							args      = [
-								"--background-index"
-								"--clang-tidy"
-								"--header-insertion=iwyu"
-								"--header-insertion-decorators"
-							];
-						};
-					};
 
-					"rust-analyzer.checkOnSave.command" = "clippy";
-
-					"rust-analyzer.hover.documentation.enable" = false;
-					"rust-analyzer.hover.links.enable" = true;
-
-					"rust-analyzer.inlayHints.closingBraceHints.enable" = false;
-					"rust-analyzer.inlayHints.renderColons" = false;
-					"rust-analyzer.inlayHints.reborrowHints.enable" = true;
-					"rust-analyzer.inlayHints.typeHints.hideNamedConstructor" = true;
-
-					"java.initializationOptions" = {
-						bundles = [
-							"${vimPin.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.40.0.jar"
-						];
-					};
+			plugins = [(vimPin.vimUtils.buildVimPlugin {
+				pname = "monokai_vim";
+				version = "0.0.1";
+				src  = vimPin.fetchFromGitHub {
+					owner  = "SKyletoft";
+					repo   = "monokai.nvim";
+					rev    = "604186067ab1782361d251945c524eb622beb499";
+					sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
 				};
-			};
-
-			plugins = let
-				custom_monokai = vimPin.vimUtils.buildVimPlugin {
-					pname = "monokai_vim";
-					version = "0.0.1";
-					src  = vimPin.fetchFromGitHub {
-						owner  = "SKyletoft";
-						repo   = "monokai.nvim";
-						rev    = "604186067ab1782361d251945c524eb622beb499";
-						sha256 = "048blqrnm7rr4a0p0ffahfjzqf62hrcvpza7gmkc5jx2p0ca1k9k";
-					};
-				};
-			in
-			with vimPin.vimPlugins; [
-				custom_monokai
-				vim-table-mode
-				zen-mode-nvim
-				vim-slime
-				firenvim
-				coc-rust-analyzer
-				coc-git
-				nvim-dap
-				nvim-dap-ui
-			];
+			})];
 
 			extraConfig = builtins.readFile ./neovim_init.vim;
 			vimAlias = true;
