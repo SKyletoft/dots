@@ -636,6 +636,7 @@
   :hook
   (kdl-ts-mode . (lambda ()
                    (hs-minor-mode 1)
+                   (set-indents 8 8 t)
                    (editorconfig-apply))))
 
 (use-package qml-mode)
