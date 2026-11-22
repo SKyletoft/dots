@@ -4,9 +4,7 @@ let
 	update-keys = pkgs.callPackage ./packages/update-keys.nix {};
 in {
 	nix.settings = {
-		substituters = [
-			"https://192.168.0.200"
-		];
+		substituters = [];
 		trusted-public-keys = [
 			"nix.u3836.se:t7H/bFWi14aBFYPE5A00eEQawd7Ssl/fXbq/2C+Bsrs="
 		];
@@ -38,7 +36,7 @@ in {
 			systemCronJobs =
 				[
 					("* * * * * u3836 "
-						+ "${pkgs.neofetch}/bin/neofetch > /tmp/eurydice-status; "
+						+ "${pkgs.hyfetch}/bin/neowofetch > /tmp/eurydice-status; "
 						+ "SYSTEMD_COLORS=true systemctl status mullvad-daemon | head -n3 >> /tmp/eurydice-status; "
 						+ "curl https://am.i.mullvad.net/connected >> /tmp/eurydice-status; "
 					)
