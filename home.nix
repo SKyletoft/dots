@@ -400,6 +400,11 @@ in {
 			enable = true;
 			enableBashIntegration = true;
 		};
+
+		zellij = {
+			enable = true;
+			enableBashIntegration = true;
+		};
 	};
 
 	services = {
