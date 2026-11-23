@@ -401,10 +401,7 @@ in {
 			enableBashIntegration = true;
 		};
 
-		zellij = {
-			enable = true;
-			enableBashIntegration = true;
-		};
+		zellij.enable = true;
 	};
 
 	services = {

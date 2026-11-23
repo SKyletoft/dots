@@ -37,3 +37,8 @@ run() {
 		nix-shell -p $1 --run $1
 	fi
 }
+
+if [[ "$TERM" != "dumb" && -z "$INSIDE_EMACS" && -z "$VSCODE_INJECTION" && -z "$ZELLIJ" ]]; then
+	zellij attach -c main
+	exit
+fi
