@@ -63,7 +63,7 @@
 	services.xserver.videoDrivers = [ "amdgpu" ];
 
 	systemd.services.strata =
-	let strataImage = "ghcr.io/niko1221/strata:0.2.16-rocm-gfx110x";
+	let strataImage = "ghcr.io/niko1221/strata:0.2.18-rocm-gfx110x";
 	in {
 		description = "Strata inference server";
 		wantedBy = [ "multi-user.target" ];
