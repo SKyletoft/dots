@@ -121,8 +121,9 @@ in {
 			image = "ghcr.io/niko1221/strata:0.2.21-rocm-gfx110x";
 			env = ''
 				--env=FAMILY=inkling-2-mini            \
-				--env=MODEL=SQ-10                      \
+				--env=MODEL=UD-Q4_K_M                  \
 				--env=DRAFTING=auto                    \
+				--env=CONTEXT=256k                     \
 			'';
 		};
 	};
