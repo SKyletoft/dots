@@ -124,7 +124,7 @@ in {
 			env = ''
 				--env=FAMILY=inkling-2-mini            \
 				--env=MODEL=SQ-20                      \
-				--env=DRAFTING=dflash2                 \
+				--env=DRAFTING=off                     \
 				--env=STRATA_SET=vram_reserve_mib=4096 \
 			'';
 		};
