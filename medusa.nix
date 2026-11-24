@@ -127,7 +127,6 @@ in {
 				--env=CONTEXT=256k                     \
 				--env=STRATA_SET=vram_reserve_mib=4096 \
 				--env=STRATA_SET=lazy_load=on          \
-				--env=STRATA_SET=kv-streaming=on       \
 			'';
 		};
 	};
