@@ -26,7 +26,6 @@ let strata-service = {name, image, env, port ? 8080}: {
 					--ulimit=memlock=-1:-1                                             \
 					--shm-size=2g                                                      \
 					--stop-timeout=120                                                 \
-					--volume=strata-data:/data                                         \
 					--volume=/var/cache/${name}-strata/models:/data/Strata-data/models \
 					--volume=/var/cache/${name}-strata/packs:/data/Strata-data/packs   \
 					--volume=/var/cache/${name}-strata/mtp:/data/Strata-data/mtp       \
