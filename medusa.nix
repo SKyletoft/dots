@@ -104,15 +104,28 @@ in {
 
 	services.xserver.videoDrivers = [ "amdgpu" ];
 
-	systemd.services.strata-qwen-coder = strata-service {
-		name = "qwen";
-		image = "ghcr.io/niko1221/strata:0.2.21-rocm-gfx110x";
-		env = ''
-			--env=FAMILY=coder                     \
-			--env=MODEL=IQ1_M                      \
-			--env=DRAFTING=mtp                     \
-			--env=STRATA_SET=vram_reserve_mib=4096 \
-		'';
+	systemd.services = {
+		qwen-coder-strata = strata-service {
+			name = "qwen-coder";
+			image = "ghcr.io/niko1221/strata:0.2.21-rocm-gfx110x";
+			env = ''
+				--env=FAMILY=coder                     \
+				--env=MODEL=IQ1_M                      \
+				--env=DRAFTING=mtp                     \
+				--env=STRATA_SET=vram_reserve_mib=4096 \
+			'';
+		};
+		inkling-2-mini-strata = strata-service {
+			name = "inkling-2-mini";
+			port = 8081;
+			image = "ghcr.io/niko1221/strata:0.2.21-rocm-gfx110x";
+			env = ''
+				--env=FAMILY=inkling-2-mini            \
+				--env=MODEL=SQ-20                      \
+				--env=DRAFTING=dspark                  \
+				--env=STRATA_SET=vram_reserve_mib=4096 \
+			'';
+		};
 	};
 
 	environment = {
