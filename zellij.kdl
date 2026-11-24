@@ -1,11 +1,15 @@
 keybinds clear-defaults=true {
 	normal {
-		bind "Alt Super left" { GoToPreviousTab; }
-		bind "Alt Super right" { GoToNextTab; }
+		bind "Ctrl Shift tab" { GoToPreviousTab; }
+		bind "Ctrl tab" { GoToNextTab; }
+		bind "Ctrl Super left" { GoToPreviousTab; }
+		bind "Ctrl Super right" { GoToNextTab; }
 		bind "Super c" { Copy; }
 		bind "Super n" { NewTab; }
 		bind "Super t" { NewTab; }
 		bind "Super w" { CloseTab; }
+		bind "Ctrl w" { CloseTab; }
+		bind "Ctrl t" { NewTab; }
 	}
 	locked {
 		bind "Ctrl g" { SwitchToMode "normal"; }
@@ -58,7 +62,7 @@ keybinds clear-defaults=true {
 		bind "n" { NewTab; SwitchToMode "normal"; }
 		bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
 		bind "s" { ToggleActiveSyncTab; SwitchToMode "normal"; }
-		bind "Ctrl t" { SwitchToMode "normal"; }
+		bind "Shift Ctrl t" { SwitchToMode "normal"; }
 		bind "x" { CloseTab; SwitchToMode "normal"; }
 		bind "tab" { ToggleTab; }
 	}
@@ -190,7 +194,7 @@ keybinds clear-defaults=true {
 		bind "Ctrl s" { SwitchToMode "scroll"; }
 	}
 	shared_except "locked" "tab" {
-		bind "Ctrl t" { SwitchToMode "tab"; }
+		bind "Shift Ctrl t" { SwitchToMode "tab"; }
 	}
 	shared_except "locked" "pane" {
 		bind "Ctrl p" { SwitchToMode "pane"; }
@@ -502,13 +506,13 @@ default_mode "normal"
 // (Requires restart)
 // Default: true (if the host terminal supports it)
 //
-// support_kitty_keyboard_protocol false
+support_kitty_keyboard_protocol true
 
 // Enable or disable support for the Kitty Graphics Protocol, used to display images (the host terminal must also support it)
 // (Requires restart)
 // Default: true (if the host terminal supports it)
 //
-// support_kitty_graphics_protocol false
+support_kitty_graphics_protocol true
 // Whether to make sure a local web server is running when a new Zellij session starts.
 // This web server will allow creating new sessions and attaching to existing ones that have
 // opted in to being shared in the browser.
@@ -569,7 +573,7 @@ default_mode "normal"
 // Whether to show tips on startup
 // Default: true
 //
-show_startup_tips true
+show_startup_tips false
 
 // Whether to show release notes on first version run
 // Default: true
