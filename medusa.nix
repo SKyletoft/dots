@@ -91,7 +91,11 @@
 					--shm-size=2g \
 					--stop-timeout=120 \
 					--volume=strata-data:/data \
+					--volume=/var/cache/strata/models:/data/Strata-data/models \
+					--volume=/var/cache/strata/packs:/data/Strata-data/packs \
+					--volume=/var/cache/strata/mtp:/data/Strata-data/mtp \
 					--env=FAMILY=coder \
+					--env=MODEL=IQ1_M \
 					--env=DRAFTING=mtp \
 					--env=STRATA_SET=vram_reserve_mib=4096 \
 					--env=API_KEY=none \
