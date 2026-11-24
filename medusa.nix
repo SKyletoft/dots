@@ -1,5 +1,46 @@
 { pkgs, config, ... }:
-{
+
+let strata-service = {name, image, env, port ? 8080}: {
+		description = "Strata inference server";
+		wantedBy = [ "multi-user.target" ];
+		after = [ "docker.service" "network-online.target" ];
+		requires = [ "docker.service" ];
+
+		serviceConfig = {
+			Type = "simple";
+
+			ExecStartPre = [
+				"-${pkgs.docker}/bin/docker rm -f ${name}-strata"
+				"${pkgs.docker}/bin/docker pull ${image}"
+			];
+
+			ExecStart = ''
+				${pkgs.docker}/bin/docker run                                  \
+					--rm                                                       \
+					--name ${name}-strata                                      \
+					--device=/dev/kfd                                          \
+					--device=/dev/dri                                          \
+					--group-add=${toString config.ids.gids.video}              \
+					--group-add=${toString config.ids.gids.render}             \
+					--publish=0.0.0.0:${port}:8080                                \
+					--ulimit=memlock=-1:-1                                     \
+					--shm-size=2g                                              \
+					--stop-timeout=120                                         \
+					--volume=strata-data:/data                                 \
+					--volume=/var/cache/strata/models:/data/Strata-data/models \
+					--volume=/var/cache/strata/packs:/data/Strata-data/packs   \
+					--volume=/var/cache/strata/mtp:/data/Strata-data/mtp       \
+					--env=API_KEY=none                                         \
+			'' ++ env ++ " " ++ image;
+
+			ExecStop = "-${pkgs.docker}/bin/docker stop --time 120 ${name}-strata";
+
+			Restart = "on-failure";
+			RestartSec = "5s";
+			TimeoutStopSec = "150s";
+		};
+	};
+in {
 	nixpkgs.config.rocmSupport = true;
 
 	boot.kernelModules = [ "amdgpu" "kvm-amd" "i2c-dev" "ntsync" ];
@@ -62,52 +103,15 @@
 
 	services.xserver.videoDrivers = [ "amdgpu" ];
 
-	systemd.services.strata =
-	let strataImage = "ghcr.io/niko1221/strata:0.2.18-rocm-gfx110x";
-	in {
-		description = "Strata inference server";
-		wantedBy = [ "multi-user.target" ];
-		after = [ "docker.service" "network-online.target" ];
-		requires = [ "docker.service" ];
-
-		serviceConfig = {
-			Type = "simple";
-
-			ExecStartPre = [
-				"-${pkgs.docker}/bin/docker rm -f strata"
-				"${pkgs.docker}/bin/docker pull ${strataImage}"
-			];
-
-			ExecStart = ''
-				${pkgs.docker}/bin/docker run \
-					--rm \
-					--name strata \
-					--device=/dev/kfd \
-					--device=/dev/dri \
-					--group-add=${toString config.ids.gids.video} \
-					--group-add=${toString config.ids.gids.render} \
-					--publish=0.0.0.0:8080:8080 \
-					--ulimit=memlock=-1:-1 \
-					--shm-size=2g \
-					--stop-timeout=120 \
-					--volume=strata-data:/data \
-					--volume=/var/cache/strata/models:/data/Strata-data/models \
-					--volume=/var/cache/strata/packs:/data/Strata-data/packs \
-					--volume=/var/cache/strata/mtp:/data/Strata-data/mtp \
-					--env=FAMILY=coder \
-					--env=MODEL=IQ1_M \
-					--env=DRAFTING=mtp \
-					--env=STRATA_SET=vram_reserve_mib=4096 \
-					--env=API_KEY=none \
-					${strataImage}
-			'';
-
-			ExecStop = "-${pkgs.docker}/bin/docker stop --time 120 strata";
-
-			Restart = "on-failure";
-			RestartSec = "5s";
-			TimeoutStopSec = "150s";
-		};
+	systemd.services.strata-qwen-coder = strata-service {
+		name = "qwen";
+		image = "ghcr.io/niko1221/strata:0.2.18-rocm-gfx110x";
+		env = ''
+			--env=FAMILY=coder                     \
+			--env=MODEL=IQ1_M                      \
+			--env=DRAFTING=mtp                     \
+			--env=STRATA_SET=vram_reserve_mib=4096 \
+		'';
 	};
 
 	environment = {
