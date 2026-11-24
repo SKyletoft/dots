@@ -113,7 +113,6 @@ in {
 				--env=MODEL=IQ1_M                      \
 				--env=DRAFTING=mtp                     \
 				--env=STRATA_SET=vram_reserve_mib=4096 \
-				--env=STRATA_SET=lazy_load=on          \
 			'';
 		};
 		inkling-2-mini-strata = strata-service {
@@ -126,7 +125,6 @@ in {
 				--env=DRAFTING=auto                    \
 				--env=CONTEXT=256k                     \
 				--env=STRATA_SET=vram_reserve_mib=4096 \
-				--env=STRATA_SET=lazy_load=on          \
 			'';
 		};
 	};
