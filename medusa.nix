@@ -73,8 +73,6 @@
 		serviceConfig = {
 			Type = "simple";
 
-			EnvironmentFile = "/etc/strata/strata.env";
-
 			ExecStartPre = [
 				"-${pkgs.docker}/bin/docker rm -f strata"
 				"${pkgs.docker}/bin/docker pull ${strataImage}"
@@ -96,7 +94,7 @@
 					--env=FAMILY=coder \
 					--env=DRAFTING=mtp \
 					--env=STRATA_SET=vram_reserve_mib=4096 \
-					--env=API_KEY \
+					--env=API_KEY=none \
 					${strataImage}
 			'';
 
