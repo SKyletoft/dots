@@ -111,7 +111,7 @@ in {
 			env = ''
 				--env=FAMILY=coder                     \
 				--env=MODEL=IQ1_M                      \
-				--env=DRAFTING=mtp                     \
+				--env=DRAFTING=auto                    \
 				--env=STRATA_SET=vram_reserve_mib=4096 \
 			'';
 		};
@@ -122,7 +122,7 @@ in {
 			env = ''
 				--env=FAMILY=inkling-2-mini            \
 				--env=MODEL=SQ-20                      \
-				--env=DRAFTING=dspark                  \
+				--env=DRAFTING=auto                    \
 				--env=STRATA_SET=vram_reserve_mib=4096 \
 			'';
 		};
