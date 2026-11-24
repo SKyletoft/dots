@@ -106,7 +106,7 @@ in {
 
 	systemd.services.strata-qwen-coder = strata-service {
 		name = "qwen";
-		image = "ghcr.io/niko1221/strata:0.2.18-rocm-gfx110x";
+		image = "ghcr.io/niko1221/strata:0.2.21-rocm-gfx110x";
 		env = ''
 			--env=FAMILY=coder                     \
 			--env=MODEL=IQ1_M                      \
