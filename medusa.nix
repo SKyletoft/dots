@@ -22,7 +22,7 @@ let strata-service = {name, image, env, port ? 8080}: {
 					--device=/dev/dri                                          \
 					--group-add=${toString config.ids.gids.video}              \
 					--group-add=${toString config.ids.gids.render}             \
-					--publish=0.0.0.0:${toString port}:8080                    \
+					--publish=0.0.0.0:${toString port}:${toString port}        \
 					--ulimit=memlock=-1:-1                                     \
 					--shm-size=2g                                              \
 					--stop-timeout=120                                         \
@@ -31,6 +31,7 @@ let strata-service = {name, image, env, port ? 8080}: {
 					--volume=/var/cache/strata/packs:/data/Strata-data/packs   \
 					--volume=/var/cache/strata/mtp:/data/Strata-data/mtp       \
 					--env=API_KEY=none                                         \
+					--env=PORT=${toString port}                                \
 					${env} ${image}                                            \
 			'';
 
