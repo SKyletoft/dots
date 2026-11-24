@@ -15,25 +15,25 @@ let strata-service = {name, image, env, port ? 8080}: {
 			];
 
 			ExecStart = ''
-				${pkgs.docker}/bin/docker run                                  \
-					--rm                                                       \
-					--name ${name}-strata                                      \
-					--device=/dev/kfd                                          \
-					--device=/dev/dri                                          \
-					--group-add=${toString config.ids.gids.video}              \
-					--group-add=${toString config.ids.gids.render}             \
-					--publish=0.0.0.0:${toString port}:${toString port}        \
-					--ulimit=memlock=-1:-1                                     \
-					--shm-size=2g                                              \
-					--stop-timeout=120                                         \
-					--volume=strata-data:/data                                 \
-					--volume=/var/cache/strata/models:/data/Strata-data/models \
-					--volume=/var/cache/strata/packs:/data/Strata-data/packs   \
-					--volume=/var/cache/strata/mtp:/data/Strata-data/mtp       \
-					--env=API_KEY=none                                         \
-					--env=PORT=${toString port}                                \
-					--env=STRATA_SET=port=${toString port}                     \
-					${env} ${image}                                            \
+				${pkgs.docker}/bin/docker run                                          \
+					--rm                                                               \
+					--name ${name}-strata                                              \
+					--device=/dev/kfd                                                  \
+					--device=/dev/dri                                                  \
+					--group-add=${toString config.ids.gids.video}                      \
+					--group-add=${toString config.ids.gids.render}                     \
+					--publish=0.0.0.0:${toString port}:${toString port}                \
+					--ulimit=memlock=-1:-1                                             \
+					--shm-size=2g                                                      \
+					--stop-timeout=120                                                 \
+					--volume=strata-data:/data                                         \
+					--volume=/var/cache/${name}-strata/models:/data/Strata-data/models \
+					--volume=/var/cache/${name}-strata/packs:/data/Strata-data/packs   \
+					--volume=/var/cache/${name}-strata/mtp:/data/Strata-data/mtp       \
+					--env=API_KEY=none                                                 \
+					--env=PORT=${toString port}                                        \
+					--env=STRATA_SET=port=${toString port}                             \
+					${env} ${image}                                                    \
 			'';
 
 			ExecStop = "-${pkgs.docker}/bin/docker stop --time 120 ${name}-strata";
