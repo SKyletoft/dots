@@ -3,7 +3,6 @@
 let
 	stablePkgs = import inputs.stablePkgs {};
 	citraPkgs  = import inputs.citraPkgs {};
-	easyeffectsPresets = pkgs.callPackage ./packages/easyeffects-presets.nix {};
 	vimPin     = import inputs.vimPin {};
 	emacsPin   = import inputs.emacsPkgs { overlays = [
 		inputs.emacsOverlay.overlays.default
@@ -390,14 +389,6 @@ in {
 			enable = true;
 			package = pkgs.tealdeer;
 		};
-
-		easyeffects = pkgs.lib.mkIf homeConfig.dolbyTunedAudio {
-			enable = true;
-			settings = {
-				Window.outputAutoloadingFallbackPreset = "Nothing";
-				Window.outputAutoloadingUsesFallback   = true;
-			};
-		};
 	};
 
 	xdg = {
@@ -413,13 +404,6 @@ in {
 			"hypr/hyprpaper.conf".source      = ./hyprpaper.conf;
 			"swaylock/config".source          = ./swaylock;
 			"fourmolu.yaml".source            = ./fourmolu.yaml;
-		};
-
-		dataFile = pkgs.lib.mkIf homeConfig.dolbyTunedAudio {
-			"easyeffects/irs/"    = { source = "${easyeffectsPresets.presets}/irs"; };
-			"easyeffects/output/" = { source = "${easyeffectsPresets.presets}/output"; };
-			"easyeffects/autoload/output/${easyeffectsPresets.sink}:${easyeffectsPresets.route}.json".source =
-				easyeffectsPresets.autoload;
 		};
 	};
 

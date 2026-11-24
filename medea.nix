@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+	imports = [ ./system/audio/dolby-balanced.nix ];
+
 	nixpkgs.config.packageOverrides = pkgs: {
 		vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
 	};
@@ -30,8 +32,8 @@
 	powerManagement.powertop.enable = true;
 
 	services = {
+		power-profiles-daemon.enable = false;
 		tlp = {
-			enable = true;
 			settings = {
 				RUNTIME_PM_ON_AC="auto";
 				RUNTIME_PM_ON_BAT="auto";

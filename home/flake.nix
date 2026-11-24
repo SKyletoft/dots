@@ -77,7 +77,6 @@
 		homeConfigurations."u3836@medea" = home {
 			enableHyprland  = true;
 			enableGnome     = true;
-			dolbyTunedAudio = true;
 			nativeFlags     = [
 				"-march=alderlake"
 				"-mtune=alderlake"
