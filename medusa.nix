@@ -31,7 +31,8 @@ let strata-service = {name, image, env, port ? 8080}: {
 					--volume=/var/cache/strata/packs:/data/Strata-data/packs   \
 					--volume=/var/cache/strata/mtp:/data/Strata-data/mtp       \
 					--env=API_KEY=none                                         \
-			'' ++ env ++ " " ++ image;
+					${env} ${image}                                            \
+			'';
 
 			ExecStop = "-${pkgs.docker}/bin/docker stop --time 120 ${name}-strata";
 
