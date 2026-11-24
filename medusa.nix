@@ -32,6 +32,7 @@ let strata-service = {name, image, env, port ? 8080}: {
 					--volume=/var/cache/strata/mtp:/data/Strata-data/mtp       \
 					--env=API_KEY=none                                         \
 					--env=PORT=${toString port}                                \
+					--env=STRATA_SET=port=${toString port}                     \
 					${env} ${image}                                            \
 			'';
 
@@ -106,16 +107,16 @@ in {
 	services.xserver.videoDrivers = [ "amdgpu" ];
 
 	systemd.services = {
-		qwen-coder-strata = strata-service {
-			name = "qwen-coder";
-			image = "ghcr.io/niko1221/strata:0.2.21-rocm-gfx110x";
-			env = ''
-				--env=FAMILY=coder                     \
-				--env=MODEL=IQ1_M                      \
-				--env=DRAFTING=mtp                     \
-				--env=STRATA_SET=vram_reserve_mib=4096 \
-			'';
-		};
+		# qwen-coder-strata = strata-service {
+		#	name = "qwen-coder";
+		#	image = "ghcr.io/niko1221/strata:0.2.21-rocm-gfx110x";
+		#	env = ''
+		#		--env=FAMILY=coder                     \
+		#		--env=MODEL=IQ1_M                      \
+		#		--env=DRAFTING=mtp                     \
+		#		--env=STRATA_SET=vram_reserve_mib=4096 \
+		#	'';
+		# };
 		inkling-2-mini-strata = strata-service {
 			name = "inkling-2-mini";
 			port = 8081;
