@@ -22,7 +22,7 @@ let strata-service = {name, image, env, port ? 8080}: {
 					--device=/dev/dri                                          \
 					--group-add=${toString config.ids.gids.video}              \
 					--group-add=${toString config.ids.gids.render}             \
-					--publish=0.0.0.0:${port}:8080                                \
+					--publish=0.0.0.0:${toString port}:8080                    \
 					--ulimit=memlock=-1:-1                                     \
 					--shm-size=2g                                              \
 					--stop-timeout=120                                         \
