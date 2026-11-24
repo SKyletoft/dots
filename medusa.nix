@@ -31,7 +31,6 @@ let strata-service = {name, image, env, port ? 8080}: {
 					--volume=/var/cache/${name}-strata/mtp:/data/Strata-data/mtp       \
 					--env=API_KEY=none                                                 \
 					--env=PORT=${toString port}                                        \
-					--env=STRATA_SET=port=${toString port}                             \
 					${env} ${image}                                                    \
 			'';
 
