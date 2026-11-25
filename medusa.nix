@@ -107,7 +107,7 @@ in {
 	systemd.services = {
 		qwen-coder-strata = strata-service {
 			name = "qwen-coder";
-			image = "ghcr.io/niko1221/strata:0.2.21-rocm-gfx110x";
+			image = "ghcr.io/niko1221/strata:0.2.22-rocm-gfx110x";
 			env = ''
 				--env=FAMILY=coder                     \
 				--env=MODEL=IQ1_M                      \
@@ -119,7 +119,7 @@ in {
 		inkling-2-mini-strata = strata-service {
 			name = "inkling-2-mini";
 			port = 8081;
-			image = "ghcr.io/niko1221/strata:0.2.21-rocm-gfx110x";
+			image = "ghcr.io/niko1221/strata:0.2.22-rocm-gfx110x";
 			env = ''
 				--env=FAMILY=inkling-2-mini            \
 				--env=MODEL=UD-IQ3_XXS                 \
