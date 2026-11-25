@@ -122,7 +122,7 @@ in {
 			env = ''
 				--env=FAMILY=inkling-2-mini            \
 				--env=MODEL=UD-IQ3_XXS                 \
-				--env=DRAFTING=auto                    \
+				--env=DRAFTING=dflash2                 \
 				--env=CONTEXT=256k                     \
 				--env=STRATA_SET=vram_reserve_mib=4096 \
 			'';
