@@ -1,3 +1,6 @@
+-- Formal-methods loop plugin (maki/fm, installed under ~/.config/maki/lua/fm).
+require("fm")
+
 local function half_scroll(dir)
 	local view, view_err = maki.fn.winsaveview()
 	if not view then
