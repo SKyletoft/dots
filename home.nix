@@ -405,10 +405,12 @@ in {
 			"swaylock/config".source          = ./swaylock;
 			"fourmolu.yaml".source            = ./fourmolu.yaml;
 
-			"maki/init.lua".source            =
+			"maki/init.lua".source =
 				config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dots/maki.lua";
-			"maki/lua/fm".source              = ./maki/fm;
-			"maki/plugin.toml".source         = ./maki/fm/plugin.toml;
+			"maki/lua/fm".source =
+				config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dots/maki/fm";
+			"maki/plugin.toml".source =
+				config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dots/maki/fm/plugin.toml";
 		};
 	};
 
