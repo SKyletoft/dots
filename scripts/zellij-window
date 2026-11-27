@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+# Attach this terminal window to the shared zellij session in a fresh tab and
+# close that tab again when the window goes away, provided it is only sitting
+# at a shell prompt.  Tabs with a running command are kept so the process
+# keeps living inside the session.
+
+set -u
+session=main
+
+new_tab() {
+	zellij --session "$session" action new-tab --cwd "$PWD" 2>/dev/null
+}
+
+first_tab_id() {
+	zellij --session "$session" action list-tabs --json 2>/dev/null |
+		perl -MJSON::PP -e '
+			local $/;
+			my $tabs = eval { decode_json(<STDIN>) };
+			print @$tabs ? $tabs->[0]{tab_id} : "";
+		'
+}
+
+# Succeeds when every terminal pane in the tab runs a plain shell.
+tab_is_idle() {
+	zellij --session "$session" action list-panes --command --json 2>/dev/null |
+		perl -MJSON::PP -e '
+			my $want = shift;
+			local $/;
+			my $panes = eval { decode_json(<STDIN>) } or exit 1;
+			my $found;
+			for my $p (@$panes) {
+				next if $p->{is_plugin} or $p->{tab_id} != $want;
+				$found = 1;
+				my $cmd = $p->{pane_command} // "";
+				$cmd =~ s{.*/}{};
+				$cmd =~ s{^-}{};
+				exit 1 unless $cmd =~ /^(?:bash|sh|zsh|fish|dash|ksh|mksh|ash)$/;
+			}
+			exit($found ? 0 : 1);
+		' "$1"
+}
+
+close_if_idle() {
+	[ -n "${tab_id:-}" ] || return
+	tab_is_idle "$tab_id" &&
+		zellij --session "$session" action close-tab-by-id "$tab_id" >/dev/null 2>&1
+}
+
+# Ignore SIGHUP while waiting so the cleanup still runs after the terminal
+# window (and possibly the shell that spawned us) is gone.
+attach() {
+	trap ':' HUP
+	if ! zellij attach "$session"; then
+		tab_id=""
+		zellij attach --create "$session"
+	fi
+	trap - HUP
+	close_if_idle
+}
+
+tab_id=""
+
+if tab_id=$(new_tab); then
+	attach
+	exit
+fi
+
+# No live session: rebuild it in the background, add our tab, and drop the
+# placeholder tab that creating the session leaves behind.
+zellij delete-session "$session" >/dev/null 2>&1
+if zellij attach --create-background "$session" >/dev/null 2>&1; then
+	initial=$(first_tab_id)
+	if tab_id=$(new_tab); then
+		if [ -n "$initial" ] && [ "$initial" != "$tab_id" ]; then
+			zellij --session "$session" action close-tab-by-id "$initial" >/dev/null 2>&1
+		fi
+	else
+		tab_id=""
+	fi
+fi
+
+attach

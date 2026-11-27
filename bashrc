@@ -39,6 +39,10 @@ run() {
 }
 
 if [[ "$TERM" != "dumb" && -z "$INSIDE_EMACS" && -z "$VSCODE_INJECTION" && -z "$ZELLIJ" ]]; then
-	zellij attach -c main
+	if command -v zellij-window >/dev/null 2>&1; then
+		zellij-window
+	else
+		zellij attach -c main
+	fi
 	exit
 fi

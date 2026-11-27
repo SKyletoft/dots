@@ -50,6 +50,7 @@ in {
 			hmb          = pkgs.writeShellScriptBin "hmb" "cd ~/dots/home ; home-manager build  --flake . --impure -L |& nom";
 			doasedit     = pkgs.writeShellScriptBin "doasedit" (builtins.readFile scripts/doasedit);
 			monitor      = pkgs.writeShellScriptBin "monitor" (builtins.readFile scripts/monitor);
+			zellij-window = pkgs.writeShellScriptBin "zellij-window" (builtins.readFile scripts/zellij-window);
 			mdpdf        = pkgs.writeShellScriptBin "mdpdf" ''
 				export PATH=${pkgs.lib.strings.makeBinPath (with pkgs; [ tectonic pandoc ])}
 				pandoc $1 -o $2 --pdf-engine=tectonic -s -V papersize:a4 --citeproc
@@ -88,6 +89,7 @@ in {
 			hms
 			hmb
 			mdpdf
+			zellij-window
 		] ++
 
 		(if gui then [

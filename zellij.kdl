@@ -1,15 +1,5 @@
 keybinds clear-defaults=true {
 	normal {
-		bind "Ctrl Shift tab" { GoToPreviousTab; }
-		bind "Ctrl tab" { GoToNextTab; }
-		bind "Ctrl Super left" { GoToPreviousTab; }
-		bind "Ctrl Super right" { GoToNextTab; }
-		bind "Super c" { Copy; }
-		bind "Super n" { NewTab; }
-		bind "Super t" { NewTab; }
-		bind "Super w" { CloseTab; }
-		bind "Ctrl w" { CloseTab; }
-		bind "Ctrl t" { NewTab; }
 	}
 	locked {
 		bind "Ctrl g" { SwitchToMode "normal"; }
@@ -158,49 +148,14 @@ keybinds clear-defaults=true {
 			SwitchToMode "normal"
 		}
 	}
-	shared_except "locked" {
-		bind "Alt left" { MoveFocusOrTab "left"; }
-		bind "Alt down" { MoveFocus "down"; }
-		bind "Alt up" { MoveFocus "up"; }
-		bind "Alt right" { MoveFocusOrTab "right"; }
-		bind "Alt +" { Resize "Increase"; }
-		bind "Alt -" { Resize "Decrease"; }
-		bind "Alt =" { Resize "Increase"; }
-		bind "Alt [" { PreviousSwapLayout; }
-		bind "Alt ]" { NextSwapLayout; }
-		bind "Alt f" { ToggleFloatingPanes; }
-		bind "Ctrl g" { SwitchToMode "locked"; }
-		bind "Alt h" { MoveFocusOrTab "left"; }
-		bind "Alt i" { MoveTab "left"; }
-		bind "Alt j" { MoveFocus "down"; }
-		bind "Alt k" { MoveFocus "up"; }
-		bind "Alt l" { MoveFocusOrTab "right"; }
-		bind "Alt n" { NewPane; }
-		bind "Alt o" { MoveTab "right"; }
-		bind "Alt p" { TogglePaneInGroup; }
-		bind "Alt Shift p" { ToggleGroupMarking; }
-		bind "Ctrl q" { Quit; }
-	}
-	shared_except "locked" "move" {
-		bind "Ctrl h" { SwitchToMode "move"; }
-	}
-	shared_except "locked" "session" {
-		bind "Ctrl o" { SwitchToMode "session"; }
+	shared_except "locked" "renametab" "renamepane" "entersearch" "search" {
+		bind "Ctrl t" { NewTab; }
+		bind "Ctrl w" { CloseTab; }
+		bind "Ctrl tab" { GoToNextTab; }
+		bind "Ctrl Shift tab" { GoToPreviousTab; }
 	}
 	shared_except "locked" "scroll" "search" "tmux" {
 		bind "Ctrl b" { SwitchToMode "tmux"; }
-	}
-	shared_except "locked" "scroll" "search" {
-		bind "Ctrl s" { SwitchToMode "scroll"; }
-	}
-	shared_except "locked" "tab" {
-		bind "Shift Ctrl t" { SwitchToMode "tab"; }
-	}
-	shared_except "locked" "pane" {
-		bind "Ctrl p" { SwitchToMode "pane"; }
-	}
-	shared_except "locked" "resize" {
-		bind "Ctrl n" { SwitchToMode "resize"; }
 	}
 	shared_except "normal" "locked" "entersearch" {
 		bind "enter" { SwitchToMode "normal"; }
@@ -255,12 +210,43 @@ keybinds clear-defaults=true {
 		bind "up" { MoveFocus "up"; SwitchToMode "normal"; }
 		bind "right" { MoveFocus "right"; SwitchToMode "normal"; }
 		bind "space" { NextSwapLayout; }
+		bind "Shift space" { PreviousSwapLayout; }
 		bind "\"" { NewPane "down"; SwitchToMode "normal"; }
 		bind "%" { NewPane "right"; SwitchToMode "normal"; }
-		bind "," { SwitchToMode "renametab"; }
+		bind "{" { PreviousSwapLayout; }
+		bind "}" { NextSwapLayout; }
+		bind "," { SwitchToMode "renametab"; TabNameInput 0; }
 		bind "[" { SwitchToMode "scroll"; }
 		bind "Ctrl b" { Write 2; SwitchToMode "normal"; }
+		bind "&" { CloseTab; SwitchToMode "normal"; }
+		bind "w" { CloseTab; SwitchToMode "normal"; }
 		bind "c" { NewTab; SwitchToMode "normal"; }
+		bind "t" { SwitchToMode "tab"; }
+		bind "P" { SwitchToMode "pane"; }
+		bind "r" { SwitchToMode "resize"; }
+		bind "m" { SwitchToMode "move"; }
+		bind "s" { SwitchToMode "session"; }
+		bind "g" { SwitchToMode "locked"; }
+		bind "q" { Quit; }
+		bind "f" { ToggleFloatingPanes; SwitchToMode "normal"; }
+		bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "normal"; }
+		bind ";" { FocusLastPane; SwitchToMode "normal"; }
+		bind "N" { NewPane; SwitchToMode "normal"; }
+		bind "S" { NewPane "stacked"; SwitchToMode "normal"; }
+		bind "+" { Resize "Increase"; }
+		bind "-" { Resize "Decrease"; }
+		bind "=" { Resize "Increase"; }
+		bind "I" { MoveTab "left"; SwitchToMode "normal"; }
+		bind "O" { MoveTab "right"; SwitchToMode "normal"; }
+		bind "G" { TogglePaneInGroup; SwitchToMode "normal"; }
+		bind "Ctrl Shift g" { ToggleGroupMarking; SwitchToMode "normal"; }
+		bind "y" { ToggleActiveSyncTab; SwitchToMode "normal"; }
+		bind "b" { BreakPane; SwitchToMode "normal"; }
+		bind "R" { SwitchToMode "renamepane"; PaneNameInput 0; }
+		bind "i" { TogglePanePinned; SwitchToMode "normal"; }
+		bind "Y" { TogglePaneFrames; SwitchToMode "normal"; }
+		bind "Z" { ToggleFocusNoUiFullscreen; SwitchToMode "normal"; }
+		bind "v" { Copy; }
 		bind "h" { MoveFocus "left"; SwitchToMode "normal"; }
 		bind "j" { MoveFocus "down"; SwitchToMode "normal"; }
 		bind "k" { MoveFocus "up"; SwitchToMode "normal"; }
@@ -300,6 +286,24 @@ load_plugins {
 web_client {
 	font "monospace"
 }
+
+themes {
+	terminal {
+		fg "#eaeaea"
+		bg "#300a24"
+		black "#1D1F21"
+		red "#CC6666"
+		green "#B5BD68"
+		yellow "#F0C674"
+		blue "#81A2BE"
+		magenta "#B294BB"
+		cyan "#8ABEB7"
+		white "#C5C8C6"
+		orange "#ff8700"
+	}
+}
+
+theme "terminal"
 
 // Use a simplified UI without special fonts (arrow glyphs)
 // Options:
@@ -341,6 +345,15 @@ web_client {
 //
 default_mode "normal"
 
+// Start with the key-hint status bar hidden so the tab bar is the only
+// permanent row. While it is hidden, entering a mode shows that mode's keys
+// in the bottom-right corner.
+// Requires zellij 0.46+.
+//
+bars_hidden_on_start "status-bar"
+mode_hints_when_bars_hidden true
+hidden_bars_notification false
+
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
@@ -353,12 +366,12 @@ default_mode "normal"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+default_layout "zellij-layout"
 
 // The folder in which Zellij will look for layouts
 // (Requires restart)
 //
-// layout_dir "/tmp"
+layout_dir "/home/u3836/dots/zellij-layouts"
 
 // The folder in which Zellij will look for themes
 // (Requires restart)
@@ -469,7 +482,7 @@ default_mode "normal"
 //   - true (default)
 //   - false
 //
-// session_serialization false
+session_serialization false
 
 // Whether pane viewports are serialized along with the session, default is false
 // Options:
