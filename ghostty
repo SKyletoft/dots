@@ -33,3 +33,4 @@ scrollbar = never
 window-inherit-working-directory = false
 shell-integration = detect
 shell-integration-features = no-ssh-env
+window-padding-color = extend-always
